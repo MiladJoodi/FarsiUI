@@ -29,12 +29,12 @@ export default function ButtonGroupDropdown() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="outline" size="icon" className="ps-2!" />
+            <Button variant="outline" size="icon" className="pl-2!" />
           }
         >
           <ChevronDownIcon />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-52" dir="rtl">
+        <DropdownMenuContent align="start" className="min-w-56" dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <VolumeOffIcon />

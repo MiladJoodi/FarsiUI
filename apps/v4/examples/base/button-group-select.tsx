@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeftIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
@@ -32,7 +32,11 @@ export default function ButtonGroupSelect() {
           onValueChange={(value) => setCurrency(value as string)}
         >
           <SelectTrigger className="font-mono">{currency}</SelectTrigger>
-          <SelectContent alignItemWithTrigger={false} align="start">
+          <SelectContent
+            alignItemWithTrigger={false}
+            align="start"
+            dir="rtl"
+          >
             <SelectGroup>
               {CURRENCIES.map((item) => (
                 <SelectItem key={item.value} value={item.value}>
@@ -47,7 +51,7 @@ export default function ButtonGroupSelect() {
       </ButtonGroup>
       <ButtonGroup>
         <Button aria-label="ارسال" size="icon" variant="outline">
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowRightIcon />
         </Button>
       </ButtonGroup>
     </ButtonGroup>

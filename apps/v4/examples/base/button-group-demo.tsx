@@ -36,7 +36,7 @@ export default function ButtonGroupDemo() {
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
         <Button variant="outline" size="icon" aria-label="بازگشت">
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
       <ButtonGroup>
@@ -53,7 +53,7 @@ export default function ButtonGroupDemo() {
           >
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-52" dir="rtl">
+          <DropdownMenuContent align="start" className="min-w-56" dir="rtl">
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <MailCheckIcon />

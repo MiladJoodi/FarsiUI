@@ -30,6 +30,7 @@ export default function ButtonGroupInputGroup() {
       <ButtonGroup>
         <InputGroup>
           <InputGroupInput
+            dir="rtl"
             placeholder={
               voiceEnabled ? "ضبط و ارسال صدا..." : "پیام بفرستید..."
             }

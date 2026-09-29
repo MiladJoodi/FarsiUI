@@ -45,10 +45,10 @@ export function ButtonGroupNested() {
       </ButtonGroup>
       <ButtonGroup>
         <Button variant="outline" size="icon-sm" aria-label={t.previous}>
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowLeftIcon />
         </Button>
         <Button variant="outline" size="icon-sm" aria-label={t.next}>
-          <ArrowRightIcon className="rtl:rotate-180" />
+          <ArrowRightIcon />
         </Button>
       </ButtonGroup>
     </ButtonGroup>

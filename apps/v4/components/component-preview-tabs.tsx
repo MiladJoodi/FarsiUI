@@ -68,7 +68,7 @@ export function ComponentPreviewTabs({
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    className="ml-auto size-7"
+                    className="ms-auto size-7"
                   >
                     <IconAlertCircle />
                     <span className="sr-only">Toggle</span>

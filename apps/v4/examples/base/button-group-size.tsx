@@ -5,7 +5,7 @@ import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 
 export default function ButtonGroupSize() {
   return (
-    <div className="flex flex-col items-start gap-8">
+    <div className="flex flex-col items-center gap-8">
       <ButtonGroup>
         <Button variant="outline" size="sm">
           کوچک

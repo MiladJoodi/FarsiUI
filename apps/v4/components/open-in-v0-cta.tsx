@@ -2,6 +2,10 @@ import { cn } from "cn"
 
 import packageJson from "../../../packages/shadcn/package.json"
 
+function toPersianDigits(value: string) {
+  return value.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
   return (
     <div
@@ -11,9 +15,9 @@ export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
       )}
     >
       <span className="font-medium tracking-wide text-surface-foreground">
-        FarsiUI{" "}
-        <span className="font-mono text-muted-foreground" dir="ltr">
-          v{packageJson.version}
+        فارسی‌یوآی{" "}
+        <span className="text-muted-foreground">
+          نسخه {toPersianDigits(packageJson.version)}
         </span>
       </span>
     </div>

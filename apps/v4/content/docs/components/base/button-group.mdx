@@ -10,24 +10,84 @@ component: true
   styleName="base-nova"
   layout="switcher"
   examples={[
-    { name: "button-group-demo", label: "پیش‌فرض", sizeable: false },
-    { name: "button-group-orientation", label: "جهت", sizeable: false },
-    { name: "button-group-size", label: "اندازه", sizeable: false },
-    { name: "button-group-nested", label: "تودرتو", sizeable: false },
-    { name: "button-group-separator", label: "جداکننده", sizeable: false },
-    { name: "button-group-split", label: "دوتکه", sizeable: false },
-    { name: "button-group-input", label: "ورودی", sizeable: false },
+    {
+      name: "button-group-demo",
+      label: "پیش‌فرض",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-orientation",
+      label: "جهت",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-size",
+      label: "اندازه",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-nested",
+      label: "تودرتو",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-separator",
+      label: "جداکننده",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-split",
+      label: "دوتکه",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-input",
+      label: "ورودی",
+      direction: "rtl",
+      sizeable: false,
+    },
     {
       name: "input-group-button-group",
       label: "پیشوند",
       direction: "ltr",
       sizeable: false,
     },
-    { name: "button-group-input-group", label: "گروه ورودی", sizeable: false },
-    { name: "button-group-dropdown", label: "منوی کشویی", sizeable: false },
-    { name: "button-group-select", label: "انتخاب", sizeable: false },
-    { name: "button-group-popover", label: "پاپ‌اور", sizeable: false },
-    { name: "toggle-group-demo", label: "ToggleGroup", sizeable: false },
+    {
+      name: "button-group-input-group",
+      label: "گروه ورودی",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-dropdown",
+      label: "منوی کشویی",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-select",
+      label: "انتخاب",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "button-group-popover",
+      label: "پاپ‌اور",
+      direction: "ltr",
+      sizeable: false,
+    },
+    {
+      name: "toggle-group-demo",
+      label: "ToggleGroup",
+      direction: "ltr",
+      sizeable: false,
+    },
   ]}
 />
 
@@ -138,8 +198,8 @@ ButtonGroup
 
 <DocsCollapsible title="تفاوت با ToggleGroup">
 
-- از `ButtonGroup` وقتی استفاده کنید که دکمه‌ها یک **عمل** انجام می‌دهند.
-- از `ToggleGroup` وقتی استفاده کنید که دکمه‌ها یک **وضعیت** را روشن/خاموش می‌کنند.
+- از `ButtonGroup` برای دکمه‌هایی استفاده کنید که یک **عمل** انجام می‌دهند.
+- از `ToggleGroup` برای دکمه‌هایی استفاده کنید که یک **وضعیت** را تغییر می‌دهند.
 
 **ButtonGroup** — عمل (مثل کپی / جای‌گذاری):
 
@@ -169,7 +229,7 @@ ButtonGroup
 
 <DocsCollapsible title="جهت">
 
-با prop به نام `orientation` می‌توانید چیدمان گروه را افقی یا عمودی کنید.
+با prop به نام `orientation` می‌توانید چیدمان گروه را به‌صورت افقی یا عمودی تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -187,7 +247,7 @@ ButtonGroup
 
 <DocsCollapsible title="اندازه">
 
-با استفاده از `size` روی خود دکمه می‌توانید اندازه دکمه‌های داخل گروه را تغییر دهید.
+با استفاده از `size` می‌توانید اندازه دکمه‌های داخل گروه را بین `sm`، `default` و `lg` تغییر دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -205,12 +265,12 @@ ButtonGroup
 
 <DocsCollapsible title="تودرتو">
 
-با قرار دادن چند `ButtonGroup` داخل هم، گروه‌هایی با فاصلهٔ مناسب بسازید.
+با قرار دادن چند `ButtonGroup` داخل یکدیگر، می‌توانید دو گروه جدا با فاصله بین آن‌ها ایجاد کنید؛ مثلاً برای شماره صفحات و دکمه‌های قبلی و بعدی.
 
 <ComponentPreview
   styleName="base-nova"
   name="button-group-nested"
-  direction="rtl"
+  direction="ltr"
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
@@ -224,9 +284,9 @@ ButtonGroup
 
 <DocsCollapsible title="جداکننده">
 
-کامپوننت `ButtonGroupSeparator` دکمه‌های داخل گروه را از نظر بصری جدا می‌کند.
+کامپوننت `ButtonGroupSeparator` دکمه‌های داخل گروه را از نظر بصری از هم جدا می‌کند.
 
-دکمه‌های `outline` معمولاً به جداکننده نیاز ندارند چون حاشیه دارند. برای سایر واریانت‌ها، جداکننده سلسله‌مراتب بصری را بهتر می‌کند.
+دکمه‌های `outline` معمولاً به جداکننده نیاز ندارند، چون خودشان حاشیه دارند. برای سایر واریانت‌ها، جداکننده به ایجاد تفکیک بصری بهتر کمک می‌کند.
 
 <ComponentPreview
   styleName="base-nova"
@@ -244,7 +304,7 @@ ButtonGroup
 
 <DocsCollapsible title="دوتکه">
 
-با دو دکمه و یک `ButtonGroupSeparator` بینشان، دکمهٔ دوتکه بسازید.
+با قرار دادن دو دکمه و یک `ButtonGroupSeparator` بین آن‌ها، یک دکمه دوتکه بسازید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -262,11 +322,12 @@ ButtonGroup
 
 <DocsCollapsible title="ورودی">
 
-می‌توانید یک `Input` را همراه با دکمه داخل گروه قرار دهید.
+می‌توانید یک `Input` را در کنار دکمه داخل گروه قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="button-group-input"
+  direction="rtl"
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
@@ -280,11 +341,12 @@ ButtonGroup
 
 <DocsCollapsible title="گروه ورودی">
 
-با قرار دادن `InputGroup` داخل `ButtonGroup`، چیدمان‌های پیچیده‌تر بسازید.
+می‌توانید `InputGroup` را داخل `ButtonGroup` قرار دهید تا چیدمان‌هایی مثل نوار پیام، شامل دکمه پیوست، ورودی و حالت صدا، بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="button-group-input-group"
+  direction="rtl"
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
@@ -298,7 +360,7 @@ ButtonGroup
 
 <DocsCollapsible title="منوی کشویی">
 
-گروه دوتکه را با `DropdownMenu` ترکیب کنید.
+می‌توانید گروه دوتکه را با `DropdownMenu` ترکیب کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -316,7 +378,7 @@ ButtonGroup
 
 <DocsCollapsible title="انتخاب">
 
-`ButtonGroup` را کنار کامپوننت `Select` استفاده کنید.
+می‌توانید `ButtonGroup` را در کنار کامپوننت `Select` استفاده کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -334,7 +396,7 @@ ButtonGroup
 
 <DocsCollapsible title="پاپ‌اور">
 
-گروه دکمه را با `Popover` ترکیب کنید.
+می‌توانید `ButtonGroup` را با `Popover` ترکیب کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -367,7 +429,7 @@ ButtonGroup
 
 <DocsApiProps
   title="ButtonGroupSeparator"
-  description="جداکنندهٔ بصری بین دکمه‌های داخل گروه."
+  description="جداکننده بصری بین دکمه‌های داخل گروه."
   props={[
     {
       name: "orientation",
@@ -380,7 +442,7 @@ ButtonGroup
 
 <DocsApiProps
   title="ButtonGroupText"
-  description="نمایش متن داخل گروه دکمه. با prop به نام render می‌توانید عنصر دلخواه (مثل Label) رندر کنید."
+  description="برای نمایش متن داخل گروه دکمه. با prop به نام `render` می‌توانید عنصر دلخواه، مثل `Label`، را رندر کنید."
   props={[
     {
       name: "render",

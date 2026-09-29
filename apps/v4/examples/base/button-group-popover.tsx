@@ -52,6 +52,7 @@ export default function ButtonGroupPopover() {
               id="task"
               placeholder="می‌خواهم..."
               className="resize-none"
+              dir="rtl"
             />
             <FieldDescription>
               دستیار یک درخواست بررسی (pull request) باز می‌کند.
