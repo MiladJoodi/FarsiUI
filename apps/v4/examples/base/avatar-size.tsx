@@ -4,20 +4,23 @@ import {
   AvatarImage,
 } from "@/styles/base-nova/ui/avatar"
 
-export function AvatarSizeExample() {
+export default function AvatarSizeExample() {
   return (
-    <div className="flex flex-wrap items-center gap-2 grayscale">
+    <div
+      dir="rtl"
+      className="flex flex-wrap items-center justify-center gap-2 grayscale"
+    >
       <Avatar size="sm">
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>ش‌ک</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>ش‌ک</AvatarFallback>
       </Avatar>
       <Avatar size="lg">
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>ش‌ک</AvatarFallback>
       </Avatar>
     </div>
   )

@@ -7,11 +7,11 @@ import {
   AvatarImage,
 } from "@/styles/base-nova/ui/avatar"
 
-export function AvatarBadgeIconExample() {
+export default function AvatarBadgeIconExample() {
   return (
     <Avatar className="grayscale">
       <AvatarImage src="https://github.com/pranathip.png" alt="@pranathip" />
-      <AvatarFallback>PP</AvatarFallback>
+      <AvatarFallback>پ‌پ</AvatarFallback>
       <AvatarBadge>
         <PlusIcon />
       </AvatarBadge>

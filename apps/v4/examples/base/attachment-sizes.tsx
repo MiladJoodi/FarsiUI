@@ -8,16 +8,16 @@ import {
   AttachmentTitle,
 } from "@/styles/base-rhea/ui/attachment"
 
-export function AttachmentSizes() {
+export default function AttachmentSizes() {
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
+    <div dir="rtl" className="mx-auto flex w-full max-w-sm flex-col gap-3">
       <Attachment size="default" className="w-full">
         <AttachmentMedia>
           <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>Default attachment</AttachmentTitle>
-          <AttachmentDescription>PDF · 2.4 MB</AttachmentDescription>
+          <AttachmentTitle>پیوست معمولی</AttachmentTitle>
+          <AttachmentDescription>PDF · ۲٫۴ مگابایت</AttachmentDescription>
         </AttachmentContent>
       </Attachment>
       <Attachment size="sm" className="w-full">
@@ -25,8 +25,8 @@ export function AttachmentSizes() {
           <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>Small attachment</AttachmentTitle>
-          <AttachmentDescription>PDF · 2.4 MB</AttachmentDescription>
+          <AttachmentTitle>پیوست کوچک</AttachmentTitle>
+          <AttachmentDescription>PDF · ۲٫۴ مگابایت</AttachmentDescription>
         </AttachmentContent>
       </Attachment>
       <Attachment size="xs" className="w-full">
@@ -34,7 +34,7 @@ export function AttachmentSizes() {
           <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>Extra small attachment</AttachmentTitle>
+          <AttachmentTitle>پیوست خیلی کوچک</AttachmentTitle>
         </AttachmentContent>
       </Attachment>
     </div>

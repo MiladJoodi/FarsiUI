@@ -18,19 +18,19 @@ import {
 } from "@/styles/base-rhea/ui/attachment"
 import { Spinner } from "@/styles/base-rhea/ui/spinner"
 
-export function AttachmentStates() {
+export default function AttachmentStates() {
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-col gap-2 py-12">
+    <div dir="rtl" className="mx-auto flex w-full max-w-sm flex-col gap-2">
       <Attachment state="idle" className="w-full">
         <AttachmentMedia>
           <ClockIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>selected-file.pdf</AttachmentTitle>
-          <AttachmentDescription>Ready to upload</AttachmentDescription>
+          <AttachmentTitle>فایل-انتخابی.pdf</AttachmentTitle>
+          <AttachmentDescription>آمادهٔ آپلود</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove selected-file.pdf">
+          <AttachmentAction aria-label="حذف فایل-انتخابی.pdf">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -40,11 +40,11 @@ export function AttachmentStates() {
           <Spinner />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>design-system.zip</AttachmentTitle>
-          <AttachmentDescription>Uploading · 64%</AttachmentDescription>
+          <AttachmentTitle>سیستم-طراحی.zip</AttachmentTitle>
+          <AttachmentDescription>در حال آپلود · ۶۴٪</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Cancel upload">
+          <AttachmentAction aria-label="لغو آپلود">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -54,11 +54,11 @@ export function AttachmentStates() {
           <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>market-research.pdf</AttachmentTitle>
-          <AttachmentDescription>Processing document</AttachmentDescription>
+          <AttachmentTitle>تحقیق-بازار.pdf</AttachmentTitle>
+          <AttachmentDescription>در حال پردازش سند</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove market-research.pdf">
+          <AttachmentAction aria-label="حذف تحقیق-بازار.pdf">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -68,16 +68,16 @@ export function AttachmentStates() {
           <FileWarningIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>financial-model.xlsx</AttachmentTitle>
+          <AttachmentTitle>مدل-مالی.xlsx</AttachmentTitle>
           <AttachmentDescription>
-            Upload failed. Try again.
+            آپلود ناموفق بود. دوباره تلاش کنید.
           </AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Retry upload">
+          <AttachmentAction aria-label="تلاش مجدد">
             <RefreshCwIcon />
           </AttachmentAction>
-          <AttachmentAction aria-label="Remove financial-model.xlsx">
+          <AttachmentAction aria-label="حذف مدل-مالی.xlsx">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -87,11 +87,11 @@ export function AttachmentStates() {
           <CheckIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>uploaded-report.pdf</AttachmentTitle>
-          <AttachmentDescription>Uploaded · 1.8 MB</AttachmentDescription>
+          <AttachmentTitle>گزارش-آپلودشده.pdf</AttachmentTitle>
+          <AttachmentDescription>آپلود شد · ۱٫۸ مگابایت</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove uploaded-report.pdf">
+          <AttachmentAction aria-label="حذف گزارش-آپلودشده.pdf">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>

@@ -5,23 +5,23 @@ import {
   AvatarImage,
 } from "@/styles/base-nova/ui/avatar"
 
-export function AvatarGroupExample() {
+export default function AvatarGroupExample() {
   return (
     <AvatarGroup className="grayscale">
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>ش‌ک</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
-        <AvatarFallback>LR</AvatarFallback>
+        <AvatarFallback>م‌ل</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarImage
           src="https://github.com/evilrabbit.png"
           alt="@evilrabbit"
         />
-        <AvatarFallback>ER</AvatarFallback>
+        <AvatarFallback>ش‌ب</AvatarFallback>
       </Avatar>
     </AvatarGroup>
   )

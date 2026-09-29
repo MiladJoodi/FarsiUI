@@ -25,19 +25,19 @@ type Item = {
 }
 
 const items: Item[] = [
-  { name: "briefing-notes.pdf", meta: "PDF · 1.4 MB", icon: FileTextIcon },
+  { name: "یادداشت.pdf", meta: "PDF · ۱٫۴ مگابایت", icon: FileTextIcon },
   {
-    name: "workspace.png",
-    meta: "PNG · 820 KB",
+    name: "فضای-کار.png",
+    meta: "PNG · ۸۲۰ کیلوبایت",
     src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
   },
-  { name: "customers.csv", meta: "CSV · 18 KB", icon: TableIcon },
-  { name: "renderer.tsx", meta: "TSX · 12 KB", icon: FileCodeIcon },
+  { name: "مشتریان.csv", meta: "CSV · ۱۸ کیلوبایت", icon: TableIcon },
+  { name: "renderer.tsx", meta: "TSX · ۱۲ کیلوبایت", icon: FileCodeIcon },
 ]
 
-export function AttachmentGroupDemo() {
+export default function AttachmentGroupDemo() {
   return (
-    <div className="mx-auto w-full max-w-sm py-12">
+    <div dir="rtl" className="mx-auto w-full max-w-sm">
       <AttachmentGroup className="w-full">
         {items.map((item) => {
           const Icon = item.icon
@@ -58,7 +58,7 @@ export function AttachmentGroupDemo() {
                 <AttachmentDescription>{item.meta}</AttachmentDescription>
               </AttachmentContent>
               <AttachmentActions>
-                <AttachmentAction aria-label={`Remove ${item.name}`}>
+                <AttachmentAction aria-label={`حذف ${item.name}`}>
                   <XIcon />
                 </AttachmentAction>
               </AttachmentActions>

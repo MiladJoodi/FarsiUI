@@ -19,38 +19,38 @@ import {
   DialogTrigger,
 } from "@/styles/base-rhea/ui/dialog"
 
-export function AttachmentTriggerDemo() {
+export default function AttachmentTriggerDemo() {
   return (
-    <div className="mx-auto w-full max-w-sm py-12">
+    <div dir="rtl" className="mx-auto w-full max-w-sm">
       <Dialog>
         <Attachment className="w-full">
           <AttachmentMedia>
             <FileSearchIcon />
           </AttachmentMedia>
           <AttachmentContent>
-            <AttachmentTitle>research-summary.pdf</AttachmentTitle>
-            <AttachmentDescription>Open preview dialog</AttachmentDescription>
+            <AttachmentTitle>خلاصه-تحقیق.pdf</AttachmentTitle>
+            <AttachmentDescription>باز کردن پیش‌نمایش</AttachmentDescription>
           </AttachmentContent>
           <AttachmentActions>
-            <AttachmentAction aria-label="Copy link">
+            <AttachmentAction aria-label="کپی لینک">
               <CopyIcon />
             </AttachmentAction>
-            <AttachmentAction aria-label="Remove research-summary.pdf">
+            <AttachmentAction aria-label="حذف خلاصه-تحقیق.pdf">
               <XIcon />
             </AttachmentAction>
           </AttachmentActions>
           <DialogTrigger
             render={
-              <AttachmentTrigger aria-label="Preview research-summary.pdf" />
+              <AttachmentTrigger aria-label="پیش‌نمایش خلاصه-تحقیق.pdf" />
             }
           />
         </Attachment>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent dir="rtl" className="sm:max-w-md" showCloseButton>
           <DialogHeader>
-            <DialogTitle>research-summary.pdf</DialogTitle>
+            <DialogTitle>خلاصه-تحقیق.pdf</DialogTitle>
             <DialogDescription>
-              The attachment trigger fills the card and opens the dialog, while
-              the actions stay independently clickable above it.
+              تریگر کل کارت را پر می‌کند و دیالوگ را باز می‌کند؛ دکمه‌های عملیات
+              جداگانه قابل کلیک می‌مانند.
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

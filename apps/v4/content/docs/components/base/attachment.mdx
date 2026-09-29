@@ -101,7 +101,9 @@ import {
 
 <DocsCollapsible title="ترکیب">
 
-برای ساخت پیوست از این ساختار استفاده کنید:
+برای ساخت یک پیوست، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
+
+<div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
 ```text
 Attachment
@@ -114,13 +116,15 @@ Attachment
 └── AttachmentTrigger
 ```
 
-چند پیوست را داخل `AttachmentGroup` بچینید:
+برای نمایش چند پیوست در کنار هم، آن‌ها را داخل `AttachmentGroup` قرار دهید:
 
 ```text
 AttachmentGroup
 ├── Attachment
 └── Attachment
 ```
+
+</div>
 
 </DocsCollapsible>
 
@@ -132,7 +136,7 @@ AttachmentGroup
 
 <DocsCollapsible title="تصویر">
 
-روی `AttachmentMedia` مقدار `variant="image"` بگذارید و داخل آن `<img>` رندر کنید. با `orientation="vertical"` رسانه بالای محتوا قرار می‌گیرد.
+برای نمایش تصویر، `variant="image"` را روی `AttachmentMedia` قرار دهید و تصویر را داخل آن نمایش دهید. با `orientation="vertical"` تصویر بالای محتوا قرار می‌گیرد.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -150,7 +154,7 @@ AttachmentGroup
 
 <DocsCollapsible title="وضعیت">
 
-با prop به نام `state` وضعیت آپلود را نشان دهید: `idle`، `uploading`، `processing`، `error` و `done`.
+با استفاده از `state` می‌توانید وضعیت آپلود را مشخص کنید؛ مثل `idle`، `uploading`، `processing`، `error` و `done`.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -168,7 +172,7 @@ AttachmentGroup
 
 <DocsCollapsible title="اندازه">
 
-با `size` بین `default`، `sm` و `xs` جابه‌جا شوید.
+با استفاده از `size` می‌توانید اندازه پیوست‌ها را بین `default`، `sm` و `xs` تغییر دهید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -186,7 +190,7 @@ AttachmentGroup
 
 <DocsCollapsible title="گروه">
 
-با `AttachmentGroup` پیوست‌ها در یک ردیف اسکرول‌شونده با اسنپ و محو شدن لبه چیده می‌شوند.
+با `AttachmentGroup` می‌توانید پیوست‌ها را کنار هم قرار دهید و در صورت زیاد بودن، آن‌ها را به‌صورت افقی اسکرول کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -204,7 +208,7 @@ AttachmentGroup
 
 <DocsCollapsible title="تریگر">
 
-با `AttachmentTrigger` کل کارت لینک یا دیالوگ باز می‌کند؛ دکمه‌های عملیات جداگانه قابل کلیک می‌مانند.
+با کلیک روی `AttachmentTrigger`، کل کارت می‌تواند یک لینک یا دیالوگ را باز کند. دکمه‌های مربوط به عملیات هم همچنان جداگانه قابل کلیک هستند.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -228,13 +232,13 @@ AttachmentGroup
 
 <div className="hidden">
 
-## دسترس‌پذیری
+## دسترسی‌پذیری
 
 </div>
 
-<DocsCollapsible title="دسترس‌پذیری">
+<DocsCollapsible title="دسترسی‌پذیری">
 
-روی دکمه‌های آیکونی `aria-label` بگذارید و برای `AttachmentTrigger` هم برچسب معنا‌دار تعریف کنید تا از رنگ به‌تنهایی برای وضعیت خطا استفاده نشود.
+برای دکمه‌ها و کنترل‌هایی که فقط آیکون دارند، یک توضیح کوتاه با `aria-label` اضافه کنید تا کاربردشان برای همه مشخص باشد. همچنین برای نمایش خطا، فقط از تغییر رنگ استفاده نکنید و یک نشانه یا متن واضح هم در نظر بگیرید.
 
 ```tsx showLineNumbers
 <AttachmentAction aria-label="حذف گزارش.pdf">

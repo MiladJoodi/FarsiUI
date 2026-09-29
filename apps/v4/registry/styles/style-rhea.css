@@ -721,7 +721,7 @@
   }
 
   .cn-dialog-close {
-    @apply absolute top-4 right-4 bg-secondary;
+    @apply absolute top-4 end-4 bg-secondary;
   }
 
   .cn-dialog-header {
@@ -1558,7 +1558,7 @@
   }
 
   .cn-attachment-actions {
-    @apply group-data-[orientation=vertical]/attachment:absolute group-data-[orientation=vertical]/attachment:top-3 group-data-[orientation=vertical]/attachment:right-3 relative z-20 group-data-[orientation=vertical]/attachment:gap-1;
+    @apply group-data-[orientation=vertical]/attachment:absolute group-data-[orientation=vertical]/attachment:top-3 group-data-[orientation=vertical]/attachment:end-3 relative z-20 group-data-[orientation=vertical]/attachment:gap-1;
   }
 
   .cn-attachment-group {

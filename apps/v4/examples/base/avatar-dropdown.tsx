@@ -15,26 +15,26 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function AvatarDropdown() {
+export default function AvatarDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         render={<Button variant="ghost" size="icon" className="rounded-full" />}
       >
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarImage src="https://github.com/shadcn.png" alt="کاربر" />
+          <AvatarFallback>ش‌ک</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-32">
+      <DropdownMenuContent dir="rtl" className="w-36" align="end">
         <DropdownMenuGroup>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <DropdownMenuItem>پروفایل</DropdownMenuItem>
+          <DropdownMenuItem>صورتحساب</DropdownMenuItem>
+          <DropdownMenuItem>تنظیمات</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem variant="destructive">Log out</DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">خروج</DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -4,7 +4,7 @@ import {
   AvatarImage,
 } from "@/styles/base-nova/ui/avatar"
 
-export default function AvatarDemo() {
+export default function AvatarBasic() {
   return (
     <Avatar>
       <AvatarImage
@@ -12,7 +12,7 @@ export default function AvatarDemo() {
         alt="@shadcn"
         className="grayscale"
       />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback>ش‌ک</AvatarFallback>
     </Avatar>
   )
 }

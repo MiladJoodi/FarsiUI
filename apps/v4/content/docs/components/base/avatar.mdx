@@ -1,6 +1,7 @@
 ---
-title: Avatar
-description: An image element with a fallback for representing the user.
+title: آواتار (Avatar)
+description: تصویر کاربر با متن جایگزین در صورت خطا
+featured: true
 base: base
 component: true
 links:
@@ -8,24 +9,34 @@ links:
   api: https://base-ui.com/react/components/avatar#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="avatar-demo"
-  previewClassName="h-72"
+  layout="switcher"
+  examples={[
+    { name: "avatar-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "avatar-badge", label: "نشان", sizeable: false },
+    { name: "avatar-badge-icon", label: "نشان آیکونی", sizeable: false },
+    { name: "avatar-group", label: "گروه", sizeable: false },
+    { name: "avatar-group-count", label: "تعداد", sizeable: false },
+    { name: "avatar-group-count-icon", label: "تعداد آیکونی", sizeable: false },
+    { name: "avatar-size", label: "اندازه", sizeable: false },
+    { name: "avatar-dropdown", label: "منو", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add avatar
+npx farsiui@latest add avatar
 ```
 
 </TabsContent>
@@ -34,13 +45,13 @@ npx shadcn@latest add avatar
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="avatar"
@@ -48,7 +59,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +67,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -65,13 +76,21 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 ```tsx showLineNumbers
 <Avatar>
   <AvatarImage src="https://github.com/shadcn.png" />
-  <AvatarFallback>CN</AvatarFallback>
+  <AvatarFallback>ش‌ک</AvatarFallback>
 </Avatar>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `Avatar`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Avatar`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
+
+<div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
 ```text
 Avatar
@@ -80,7 +99,7 @@ Avatar
 └── AvatarBadge
 ```
 
-Use the following composition to build an `AvatarGroup`:
+برای نمایش چند آواتار در کنار هم، آن‌ها را داخل `AvatarGroup` قرار دهید:
 
 ```text
 AvatarGroup
@@ -89,132 +108,170 @@ AvatarGroup
 │   ├── AvatarFallback
 │   └── AvatarBadge
 ├── Avatar
-│   ├── AvatarImage
-│   ├── AvatarFallback
-│   └── AvatarBadge
 └── AvatarGroupCount
 ```
 
-## Basic
+</div>
 
-A basic avatar component with an image and a fallback.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="avatar-basic" />
+<div className="hidden">
 
-## Badge
+## نشان
 
-Use the `AvatarBadge` component to add a badge to the avatar. The badge is positioned at the bottom right of the avatar.
+</div>
 
-<ComponentPreview styleName="base-nova" name="avatar-badge" />
+<DocsCollapsible title="نشان">
 
-Use the `className` prop to add custom styles to the badge such as custom colors, sizes, etc.
+با `AvatarBadge` یک نشان (مثلاً آنلاین بودن) روی آواتار بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-badge"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+با `className` رنگ یا اندازهٔ نشان را عوض کنید:
 
 ```tsx showLineNumbers
 <Avatar>
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-  <AvatarFallback>CN</AvatarFallback>
+  <AvatarFallback>ش‌ک</AvatarFallback>
   <AvatarBadge className="bg-green-600 dark:bg-green-800" />
 </Avatar>
 ```
 
-## Badge with Icon
+</DocsCollapsible>
 
-You can also use an icon inside `<AvatarBadge>`.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="avatar-badge-icon" />
+## نشان آیکونی
 
-## Avatar Group
+</div>
 
-Use the `AvatarGroup` component to add a group of avatars.
+<DocsCollapsible title="نشان آیکونی">
 
-<ComponentPreview styleName="base-nova" name="avatar-group" />
-
-## Avatar Group Count
-
-Use `<AvatarGroupCount>` to add a count to the group.
-
-<ComponentPreview styleName="base-nova" name="avatar-group-count" />
-
-## Avatar Group with Icon
-
-You can also use an icon inside `<AvatarGroupCount>`.
-
-<ComponentPreview styleName="base-nova" name="avatar-group-count-icon" />
-
-## Sizes
-
-Use the `size` prop to change the size of the avatar.
-
-<ComponentPreview styleName="base-nova" name="avatar-size" />
-
-## Dropdown
-
-You can use the `Avatar` component as a trigger for a dropdown menu.
-
-<ComponentPreview styleName="base-nova" name="avatar-dropdown" />
-
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+داخل `AvatarBadge` می‌توانید آیکون بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
-  name="avatar-rtl"
-  direction="rtl"
-  previewClassName="h-72"
+  name="avatar-badge-icon"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-### Avatar
+<div className="hidden">
 
-The `Avatar` component is the root component that wraps the avatar image and fallback.
+## گروه
 
-| Prop        | Type                        | Default     |
-| ----------- | --------------------------- | ----------- |
-| `size`      | `"default" \| "sm" \| "lg"` | `"default"` |
-| `className` | `string`                    | -           |
+</div>
 
-### AvatarImage
+<DocsCollapsible title="گروه">
 
-The `AvatarImage` component displays the avatar image. It accepts all Base UI Avatar Image props.
+چند آواتار را با `AvatarGroup` کنار هم بچینید.
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `src`       | `string` | -       |
-| `alt`       | `string` | -       |
-| `className` | `string` | -       |
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-group"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-### AvatarFallback
+</DocsCollapsible>
 
-The `AvatarFallback` component displays a fallback when the image fails to load. It accepts all Base UI Avatar Fallback props.
+<div className="hidden">
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+## تعداد
 
-### AvatarBadge
+</div>
 
-The `AvatarBadge` component displays a badge indicator on the avatar, typically positioned at the bottom right.
+<DocsCollapsible title="تعداد">
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+با `AvatarGroupCount` تعداد اعضای بیشتر را نشان دهید.
 
-### AvatarGroup
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-group-count"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-The `AvatarGroup` component displays a group of avatars with overlapping styling.
+</DocsCollapsible>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<div className="hidden">
 
-### AvatarGroupCount
+## تعداد آیکونی
 
-The `AvatarGroupCount` component displays a count indicator in an avatar group, typically showing the number of additional avatars.
+</div>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<DocsCollapsible title="تعداد آیکونی">
 
-For more information about Base UI Avatar props, see the [Base UI documentation](https://base-ui.com/react/components/avatar#api-reference).
+داخل `AvatarGroupCount` هم می‌توانید آیکون بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-group-count-icon"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با استفاده از `size` می‌توانید اندازه آواتار را بین `sm`، `default` و `lg` تغییر دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-size"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## منو
+
+</div>
+
+<DocsCollapsible title="منو">
+
+آواتار را به‌عنوان تریگر منوی کشویی استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="avatar-dropdown"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Avatar"
+  description="ظرف اصلی تصویر و جایگزین."
+  props={[
+    {
+      name: "size",
+      defaultValue: "default",
+      description: "اندازه آواتار",
+      values: ["default", "sm", "lg"],
+    },
+  ]}
+/>
+
+برای جزئیات بیشتر به مستندات [Base UI](https://base-ui.com/react/components/avatar#api-reference) مراجعه کنید.
+
+</DocsCollapsible>

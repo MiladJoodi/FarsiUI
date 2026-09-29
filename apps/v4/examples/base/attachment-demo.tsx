@@ -14,28 +14,28 @@ import { Spinner } from "@/styles/base-rhea/ui/spinner"
 
 const images = [
   {
-    name: "workspace.png",
-    meta: "PNG · 820 KB",
+    name: "فضای-کار.png",
+    meta: "PNG · ۸۲۰ کیلوبایت",
     src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
-    alt: "Workspace",
+    alt: "فضای کار",
   },
   {
-    name: "desk-reference.jpg",
-    meta: "JPG · 1.1 MB",
+    name: "میز-کار.jpg",
+    meta: "JPG · ۱٫۱ مگابایت",
     src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
-    alt: "Desk",
+    alt: "میز کار",
   },
   {
-    name: "office-reference.jpg",
-    meta: "JPG · 940 KB",
+    name: "دفتر.jpg",
+    meta: "JPG · ۹۴۰ کیلوبایت",
     src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
-    alt: "Office",
+    alt: "دفتر",
   },
 ]
 
-export function AttachmentDemo() {
+export default function AttachmentDemo() {
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
+    <div dir="rtl" className="mx-auto flex w-full max-w-sm flex-col gap-3">
       <AttachmentGroup>
         {images.map((image) => (
           <Attachment key={image.name} orientation="vertical">
@@ -54,11 +54,11 @@ export function AttachmentDemo() {
           <Spinner />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>sales-dashboard.pdf</AttachmentTitle>
-          <AttachmentDescription>Uploading · 64%</AttachmentDescription>
+          <AttachmentTitle>داشبورد-فروش.pdf</AttachmentTitle>
+          <AttachmentDescription>در حال آپلود · ۶۴٪</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Cancel upload">
+          <AttachmentAction aria-label="لغو آپلود">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -69,10 +69,10 @@ export function AttachmentDemo() {
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>message-renderer.tsx</AttachmentTitle>
-          <AttachmentDescription>TypeScript · 12 KB</AttachmentDescription>
+          <AttachmentDescription>TypeScript · ۱۲ کیلوبایت</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove message-renderer.tsx">
+          <AttachmentAction aria-label="حذف message-renderer.tsx">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>

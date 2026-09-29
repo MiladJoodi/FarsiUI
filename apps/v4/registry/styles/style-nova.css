@@ -469,7 +469,7 @@
   }
 
   .cn-dialog-close {
-    @apply absolute top-2 right-2;
+    @apply absolute top-2 end-2;
   }
 
   .cn-dialog-header {
