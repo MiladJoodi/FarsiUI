@@ -65,7 +65,7 @@ export function CommandMenu({
   const { search, setSearch, query } = useDocsSearch({
     type: "fetch",
   })
-  const packageManager = config.packageManager || "pnpm"
+  const packageManager = config.packageManager || "npm"
 
   // Track search queries with debouncing to avoid excessive tracking.
   const searchTimeoutRef = React.useRef<NodeJS.Timeout | undefined>(undefined)

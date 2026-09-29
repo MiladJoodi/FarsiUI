@@ -29,9 +29,9 @@ export function getPagesFromFolder(
     for (const child of folder.children) {
       if (child.type === "folder") {
         // Match by $id or by name.
-        const isRadix = child.$id === "radix" || child.name === "Radix UI"
-        const isBase = child.$id === "base" || child.name === "Base UI"
-        const isReactAria = child.$id === "aria" || child.name === "React Aria"
+        const isRadix = child.$id === "radix" || child.name === "سطح ۲"
+        const isBase = child.$id === "base" || child.name === "پیش‌فرض"
+        const isReactAria = child.$id === "aria" || child.name === "سطح ۱"
 
         if (
           (currentBase === "radix" && isRadix) ||

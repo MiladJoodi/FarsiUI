@@ -17,24 +17,27 @@ const translations: Translations = {
       submit: "Submit",
       delete: "Delete",
       loading: "Loading",
+      add: "Add",
     },
   },
   ar: {
     dir: "rtl",
     values: {
-      button: "زر",
-      submit: "إرسال",
+      button: "دکمه",
+      submit: "ارسال",
       delete: "حذف",
-      loading: "جاري التحميل",
+      loading: "در حال بارگذاری",
+      add: "افزودن",
     },
   },
   he: {
     dir: "rtl",
     values: {
-      button: "כפתור",
-      submit: "שלח",
-      delete: "מחק",
-      loading: "טוען",
+      button: "دکمه",
+      submit: "ارسال",
+      delete: "حذف",
+      loading: "در حال بارگذاری",
+      add: "افزودن",
     },
   },
 }
@@ -50,7 +53,7 @@ export function ButtonRtl() {
         {t.submit}{" "}
         <ArrowRightIcon className="rtl:rotate-180" data-icon="inline-end" />
       </Button>
-      <Button variant="outline" size="icon" aria-label="Add">
+      <Button variant="outline" size="icon" aria-label={t.add}>
         <PlusIcon />
       </Button>
       <Button variant="secondary" disabled>

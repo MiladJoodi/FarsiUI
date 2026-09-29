@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import {
+  IconEye,
   IconGitBranch,
   IconGitFork,
   IconMinus,
@@ -78,6 +79,14 @@ function PreviewDemo({
     )
   }
 
+  if (item.demo === "disabled") {
+    return (
+      <Button type="button" size={effectiveSize} disabled tabIndex={-1}>
+        {item.label}
+      </Button>
+    )
+  }
+
   if (item.demo === "icon") {
     return (
       <Button
@@ -133,28 +142,16 @@ function PreviewDemo({
 
   if (item.demo === "spinner") {
     return (
-      <div className="flex gap-2">
-        <Button
-          type="button"
-          variant="outline"
-          size={effectiveSize}
-          disabled
-          tabIndex={-1}
-        >
-          <Spinner data-icon="inline-start" />
-          در حال تولید
-        </Button>
-        <Button
-          type="button"
-          variant="secondary"
-          size={effectiveSize}
-          disabled
-          tabIndex={-1}
-        >
-          در حال دانلود
-          <Spinner data-icon="inline-start" />
-        </Button>
-      </div>
+      <Button
+        type="button"
+        variant="outline"
+        size={effectiveSize}
+        disabled
+        tabIndex={-1}
+      >
+        <Spinner data-icon="inline-start" />
+        در حال تولید
+      </Button>
     )
   }
 
@@ -240,7 +237,7 @@ function GroupPreviewDemo({
           aria-label="بازگشت"
           tabIndex={-1}
         >
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
       <ButtonGroup>
@@ -387,13 +384,11 @@ export function ComponentVariantPreviewClient({
                 dir={item.demo === "rtl" ? "rtl" : (item.direction ?? "ltr")}
                 onClick={() => {
                   setSelected(item.name)
-                  setCodeOpen(false)
                 }}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault()
                     setSelected(item.name)
-                    setCodeOpen(false)
                   }
                 }}
                 className={cn(
@@ -489,9 +484,10 @@ export function ComponentVariantPreviewClient({
                 type="button"
                 size="sm"
                 variant="outline"
-                className="relative z-10 rounded-lg bg-background text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
+                className="relative z-10 gap-1.5 rounded-lg bg-background text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
                 onClick={() => setCodeOpen(true)}
               >
+                <IconEye className="size-4" />
                 مشاهده کد
               </Button>
             </div>

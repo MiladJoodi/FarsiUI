@@ -15,6 +15,7 @@ export type VariantPreviewDemo =
   | "as-link"
   | "rtl"
   | "group"
+  | "disabled"
 
 export type VariantPreviewSizedCode = {
   code: string

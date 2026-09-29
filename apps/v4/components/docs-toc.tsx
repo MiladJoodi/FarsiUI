@@ -80,7 +80,7 @@ export function DocsTableOfContents({
             size="sm"
             className={cn("h-8 md:h-7", className)}
           >
-            <IconMenu3 /> On This Page
+            <IconMenu3 /> در این صفحه
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -108,7 +108,7 @@ export function DocsTableOfContents({
   return (
     <div className={cn("flex flex-col gap-2 p-4 pt-0 text-sm", className)}>
       <p className="h-6 bg-background text-xs font-medium text-muted-foreground">
-        On This Page
+        در این صفحه
       </p>
       {toc.map((item) => (
         <a

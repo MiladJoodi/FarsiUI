@@ -44,6 +44,15 @@ export function Example() {
 `
   }
 
+  if (example.demo === "disabled") {
+    return `import { Button } from "@/components/ui/button"
+
+export function Example() {
+  return <Button${sizeProp(size)} disabled>${example.label}</Button>
+}
+`
+  }
+
   if (example.demo === "icon") {
     return `import { CircleFadingArrowUpIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -103,16 +112,10 @@ import { Spinner } from "@/components/ui/spinner"
 
 export function Example() {
   return (
-    <div className="flex gap-2">
-      <Button variant="outline"${sizeProp(size)} disabled>
-        <Spinner data-icon="inline-start" />
-        در حال تولید
-      </Button>
-      <Button variant="secondary"${sizeProp(size)} disabled>
-        در حال دانلود
-        <Spinner data-icon="inline-start" />
-      </Button>
-    </div>
+    <Button variant="outline"${sizeProp(size)} disabled>
+      <Spinner data-icon="inline-start" />
+      در حال تولید
+    </Button>
   )
 }
 `
@@ -160,7 +163,7 @@ export function Example() {
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
         <Button variant="outline"${iconSizeProp(size)} aria-label="بازگشت">
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
       <ButtonGroup>

@@ -239,7 +239,15 @@ export const mdxComponents = {
   }) => {
     // Inline Code.
     if (typeof props.children === "string") {
-      return <code className={className} {...props} />
+      return (
+        <code
+          className={cn(
+            "relative rounded-md border border-border bg-muted px-[0.3rem] py-[0.15rem] font-mono text-[0.8em] font-medium break-words text-foreground",
+            className
+          )}
+          {...props}
+        />
+      )
     }
 
     // npm command.

@@ -6,7 +6,6 @@ import { findNeighbour } from "fumadocs-core/page-tree"
 
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
@@ -18,6 +17,23 @@ function splitDocTitle(title: string) {
     return { fa: title, en: null }
   }
   return { fa: match[1].trim(), en: match[2].trim() }
+}
+
+/** سطح ۱/۲ keep their URLs, but always show Base docs (install, copy, sections). */
+function getContentPage(slug: string[] | undefined) {
+  if (!slug?.length) return undefined
+  const page = source.getPage(slug)
+  if (!page) return undefined
+
+  if (
+    slug[0] === "components" &&
+    (slug[1] === "aria" || slug[1] === "radix") &&
+    slug[2]
+  ) {
+    return source.getPage(["components", "base", slug[2]]) ?? page
+  }
+
+  return page
 }
 
 export const revalidate = false
@@ -33,12 +49,13 @@ export async function generateMetadata(props: {
 }) {
   const params = await props.params
   const page = source.getPage(params.slug)
+  const contentPage = getContentPage(params.slug)
 
-  if (!page) {
+  if (!page || !contentPage) {
     notFound()
   }
 
-  const doc = page.data
+  const doc = contentPage.data
 
   if (!doc.title || !doc.description) {
     notFound()
@@ -84,11 +101,12 @@ export default async function Page(props: {
 }) {
   const params = await props.params
   const page = source.getPage(params.slug)
-  if (!page) {
+  const contentPage = getContentPage(params.slug)
+  if (!page || !contentPage) {
     notFound()
   }
 
-  const doc = page.data
+  const doc = contentPage.data
   const MDX = doc.body
   const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
   const isChangelog = params.slug?.[0] === "changelog"
@@ -161,16 +179,6 @@ export default async function Page(props: {
             </div>
           </div>
           <div className="typeset w-full flex-1 pb-16 *:data-[slot=alert]:first:mt-0 sm:pb-0">
-            {params.slug &&
-              params.slug[0] === "components" &&
-              params.slug[1] &&
-              params.slug[2] && (
-                <DocsBaseSwitcher
-                  base={params.slug[1]}
-                  component={params.slug[2]}
-                  className="mb-4"
-                />
-              )}
             <MDX components={mdxComponents} />
           </div>
           <div className="hidden h-16 w-full items-center gap-2 px-4 sm:flex sm:px-0">

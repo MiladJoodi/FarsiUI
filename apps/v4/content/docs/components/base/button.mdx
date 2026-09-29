@@ -15,12 +15,11 @@ component: true
     { name: "button-ghost", label: "شفاف", variant: "ghost" },
     { name: "button-destructive", label: "خطرناک", variant: "destructive" },
     { name: "button-link", label: "لینک", variant: "link" },
+    { name: "button-disabled", label: "غیرفعال", demo: "disabled" },
     { name: "button-icon", label: "آیکونی", demo: "icon" },
-    { name: "button-with-icon", label: "همراه با آیکون", demo: "with-icon" },
     { name: "button-rounded", label: "گرد", demo: "rounded" },
     { name: "button-spinner", label: "بارگذاری", demo: "spinner" },
     { name: "button-group-demo", label: "گروه دکمه‌ها", demo: "group" },
-    { name: "button-rtl", label: "راست‌به‌چپ", demo: "rtl", direction: "rtl" },
   ]}
 />
 
@@ -76,6 +75,66 @@ import { Button } from "@/components/ui/button"
 <Button variant="outline">دکمه</Button>
 ```
 
+<div className="hidden">
+
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با استفاده از prop به نام `size` می‌توانید اندازه دکمه را تغییر دهید. مقادیر رایج: `xs`، `sm`، `default` و `lg`. برای دکمه‌های آیکونی از `icon`، `icon-xs`، `icon-sm` و `icon-lg` استفاده کنید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه دکمه‌ها
+
+</div>
+
+<DocsCollapsible title="گروه دکمه‌ها">
+
+برای قرار دادن چند دکمه کنار هم، از کامپوننت `ButtonGroup` استفاده کنید.
+
+برای اطلاعات بیشتر، به مستندات [گروه دکمه‌ها](/docs/components/base/button-group) مراجعه کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-demo"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## به‌عنوان لینک
+
+</div>
+
+<DocsCollapsible title="به‌عنوان لینک">
+
+با استفاده از `buttonVariants` می‌توانید ظاهر یک لینک را شبیه دکمه کنید.
+
+**برای لینک‌ها از `<Button render={<a />} nativeButton={false} />` استفاده نکنید.** کامپوننت `Button` در Base UI همیشه `role="button"` را روی عنصر اعمال می‌کند و این موضوع باعث می‌شود نقش اصلی لینک روی `<a>` از بین برود.
+
+به‌جای آن، از `buttonVariants` همراه با یک تگ ساده `<a>` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-render"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نشانگر ماوس
+
+</div>
+
 <DocsCollapsible title="نشانگر ماوس">
 
 در Tailwind v4، مقدار پیش‌فرض `cursor` برای دکمه از `cursor: pointer` به `cursor: default` تغییر کرده است.
@@ -99,54 +158,15 @@ npx farsiui@latest init --pointer
 
 </DocsCollapsible>
 
-## اندازه
+<div className="hidden">
 
-با استفاده از prop به نام `size` می‌توانید اندازه دکمه را تغییر دهید.
+## مرجع API
 
-<DocsCollapsible title="گروه دکمه‌ها">
+</div>
 
-برای ساخت چند دکمه در کنار هم، از کامپوننت `ButtonGroup` استفاده کنید.
-
-برای اطلاعات بیشتر، مستندات [گروه دکمه‌ها](/docs/components/base/button-group) را ببینید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="button-group-demo"
-  previewClassName="h-auto! min-h-0 py-6 px-6"
-/>
-
-</DocsCollapsible>
-
-<DocsCollapsible title="به‌عنوان لینک">
-
-با استفاده از `buttonVariants` می‌توانید ظاهر یک لینک را شبیه دکمه کنید.
-
-**برای لینک‌ها از `<Button render={<a />} nativeButton={false} />` استفاده نکنید.** کامپوننت `Button` در Base UI همیشه `role="button"` را روی عنصر اعمال می‌کند و این موضوع باعث می‌شود نقش اصلی لینک روی `<a>` از بین برود.
-
-به‌جای آن، از `buttonVariants` همراه با یک تگ ساده `<a>` استفاده کنید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="button-render"
-  previewClassName="h-auto! min-h-0 py-6 px-6"
-/>
-
-</DocsCollapsible>
-
-<DocsCollapsible title="راست‌به‌چپ">
-
-FarsiUI به‌صورت کامل از رابط‌های راست‌به‌چپ (RTL) پشتیبانی می‌کند.
-
-برای اطلاعات بیشتر، راهنمای [پیکربندی RTL](/docs/rtl) را ببینید.
-
-<ComponentPreview styleName="base-nova" name="button-rtl" direction="rtl" />
-
-</DocsCollapsible>
-
-<DocsCollapsible title="مرجع API" defaultOpen>
+<DocsCollapsible title="مرجع API">
 
 <DocsApiProps
-  title="Button"
   description="کامپوننت Button برای ساخت دکمه‌هایی با ظاهر و قابلیت‌های مختلف استفاده می‌شود."
   props={[
     {

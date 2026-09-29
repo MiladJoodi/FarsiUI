@@ -28,9 +28,8 @@ export type Translations<
 >
 
 export const languageOptions = [
-  { value: "en", label: "English" },
-  { value: "ar", label: "Arabic (العربية)" },
-  { value: "he", label: "Hebrew (עברית)" },
+  { value: "fa", label: "فارسی", language: "ar" as Language },
+  { value: "en", label: "English", language: "en" as Language },
 ] as const
 
 type LanguageContextType = {
@@ -87,37 +86,44 @@ export function LanguageSelector({
   value,
   onValueChange,
   className,
-  languages = ["en", "ar", "he"],
 }: LanguageSelectorProps & {
   className?: string
-  languages?: Language[]
 }) {
+  const selectValue = value === "en" ? "en" : "fa"
+
   return (
     <Select
-      items={languageOptions}
-      value={value}
-      onValueChange={(value) => onValueChange(value as Language)}
+      items={languageOptions.map(({ value, label }) => ({ value, label }))}
+      value={selectValue}
+      onValueChange={(next) => {
+        onValueChange(next === "en" ? "en" : "ar")
+      }}
     >
       <SelectTrigger
         size="sm"
-        className={cn("w-36", className)}
+        className={cn(
+          "w-28 flex-row-reverse justify-between gap-2",
+          className
+        )}
         dir="ltr"
         data-name="language-selector"
       >
-        <SelectValue />
+        <SelectValue className="min-w-0 flex-1 justify-end text-right" />
       </SelectTrigger>
       <SelectContent
-        dir="ltr"
+        dir="rtl"
         className="data-open:animate-none data-closed:animate-none"
       >
         <SelectGroup>
-          {languageOptions
-            .filter((option) => languages.includes(option.value as Language))
-            .map((option) => (
-              <SelectItem key={option.value} value={option.value}>
-                {option.label}
-              </SelectItem>
-            ))}
+          {languageOptions.map((option) => (
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              className="justify-between pr-1.5 pl-8 [&_span.absolute]:right-auto [&_span.absolute]:left-2"
+            >
+              {option.label}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

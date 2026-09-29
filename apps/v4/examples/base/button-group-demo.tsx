@@ -36,7 +36,7 @@ export default function ButtonGroupDemo() {
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
         <Button variant="outline" size="icon" aria-label="بازگشت">
-          <ArrowLeftIcon className="rtl:rotate-180" />
+          <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
       <ButtonGroup>

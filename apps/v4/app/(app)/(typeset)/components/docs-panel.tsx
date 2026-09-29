@@ -302,7 +302,7 @@ function DocsFonts({
   )
 }
 
-const PACKAGE_MANAGERS = ["pnpm", "npm", "yarn", "bun"] as const
+const PACKAGE_MANAGERS = ["npm", "pnpm", "yarn", "bun"] as const
 
 // Same transforms the docs code pipeline uses (lib/highlight-code.ts).
 function getCommandForPackageManager(
@@ -325,7 +325,7 @@ function getCommandForPackageManager(
 
 function DocsCommand({ command }: { command: string }) {
   const [config, setConfig] = useConfig()
-  const packageManager = config.packageManager || "pnpm"
+  const packageManager = config.packageManager || "npm"
 
   return (
     <div className="rounded-lg bg-muted/60">

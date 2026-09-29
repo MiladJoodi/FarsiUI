@@ -67,7 +67,7 @@ const TURBOREPO_LOGO =
 const ORIGIN = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:4000"
 const IS_LOCAL_DEV = ORIGIN.includes("localhost")
 const SHADCN_VERSION = process.env.NEXT_PUBLIC_RC ? "@rc" : "@latest"
-const PACKAGE_MANAGERS = ["pnpm", "npm", "yarn", "bun"] as const
+const PACKAGE_MANAGERS = ["npm", "pnpm", "yarn", "bun"] as const
 type PackageManager = (typeof PACKAGE_MANAGERS)[number]
 
 const APPLY_MODES = [
@@ -132,7 +132,7 @@ export function ProjectForm({
   const [activeTab, setActiveTab] =
     React.useState<ProjectFormTab>("new-project")
 
-  const packageManager = (config.packageManager || "pnpm") as PackageManager
+  const packageManager = (config.packageManager || "npm") as PackageManager
   const framework = React.useMemo(
     () => getFramework(params.template ?? "next"),
     [params.template]

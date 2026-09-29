@@ -1,8 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
-import { IconAlertCircle } from "@tabler/icons-react"
+import { IconAlertCircle, IconEye } from "@tabler/icons-react"
 import { cn } from "cn"
 import { I18nProvider } from "react-aria-components"
 
@@ -16,7 +15,6 @@ import {
 import { DirectionProvider as BaseDirectionProvider } from "@/registry/bases/base/ui/direction"
 import { DirectionProvider as RadixDirectionProvider } from "@/registry/bases/radix/ui/direction"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   Popover,
   PopoverContent,
@@ -47,7 +45,7 @@ export function ComponentPreviewTabs({
   styleName?: string
 }) {
   const [isMobileCodeVisible, setIsMobileCodeVisible] = React.useState(false)
-  const base = styleName?.match(/^(base|radix|aria)-/)?.[1] || "radix"
+  const base = styleName?.match(/^(base|radix|aria)-/)?.[1] || "base"
 
   return (
     <div
@@ -83,18 +81,8 @@ export function ComponentPreviewTabs({
                 className="w-56 text-xs"
               >
                 <div>
-                  I used AI to translate the text for demonstration purposes.
-                  It&apos;s not perfect and may contain errors.
-                </div>
-                <Separator className="-mx-2.5 w-auto!" />
-                <div data-lang="ar">
-                  لقد استخدمت الذكاء الاصطناعي لترجمة النص للأغراض التجريبية
-                  فقط. قد لا تكون الترجمة دقيقة وقد تحتوي على أخطاء.
-                </div>
-                <Separator className="-mx-2.5 w-auto!" />
-                <div data-lang="he">
-                  השתמשתי בבינה מלאכותית כדי לתרגם את הטקסט למטרות הדגמה. זה לא
-                  מושלם ויכול להכיל שגיאות.
+                  متن‌های این نمونه برای نمایش RTL ترجمه‌شده‌اند و ممکن است
+                  کاملاً دقیق نباشند.
                 </div>
               </PopoverContent>
             </Popover>
@@ -129,23 +117,6 @@ export function ComponentPreviewTabs({
         >
           {isMobileCodeVisible ? (
             <>
-              {direction === "rtl" && (
-                <div className="relative z-10 no-scrollbar overflow-x-auto border-t bg-code p-6 font-mono text-sm text-muted-foreground">
-                  <pre>{`// You will notice this example uses dir and data-lang attributes.
-// This is because this site is not RTL by default.
-// In your application, you won't need these.`}</pre>
-                  <span>
-                    {"// See the "}
-                    <Link
-                      href="/docs/rtl"
-                      className="underline underline-offset-4"
-                    >
-                      RTL guide
-                    </Link>
-                    {" for more information."}
-                  </span>
-                </div>
-              )}
               {source}
             </>
           ) : (
@@ -163,11 +134,12 @@ export function ComponentPreviewTabs({
                   type="button"
                   size="sm"
                   variant="outline"
-                  className="relative z-10 rounded-lg bg-background text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
+                  className="relative z-10 gap-1.5 rounded-lg bg-background text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
                   onClick={() => {
                     setIsMobileCodeVisible(true)
                   }}
                 >
+                  <IconEye className="size-4" />
                   مشاهده کد
                 </Button>
               </div>

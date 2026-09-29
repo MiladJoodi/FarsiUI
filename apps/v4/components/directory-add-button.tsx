@@ -79,13 +79,13 @@ export function DirectoryAddProvider({
   } | null>(null)
   const isMobile = useIsMobile()
 
-  const packageManager = config.packageManager || "pnpm"
+  const packageManager = config.packageManager || "npm"
 
   const commands = React.useMemo(() => {
     if (!selectedRegistry) return null
     return {
-      pnpm: `pnpm dlx shadcn@latest registry add ${selectedRegistry.name}`,
       npm: `npx shadcn@latest registry add ${selectedRegistry.name}`,
+      pnpm: `pnpm dlx shadcn@latest registry add ${selectedRegistry.name}`,
       yarn: `yarn dlx shadcn@latest registry add ${selectedRegistry.name}`,
       bun: `bunx --bun shadcn@latest registry add ${selectedRegistry.name}`,
     }
@@ -134,8 +134,8 @@ export function DirectoryAddProvider({
     >
       <div className="flex items-center gap-2 border-b p-1.5">
         <TabsList className="h-auto *:data-[slot=tabs-trigger]:pt-0">
-          <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           <TabsTrigger value="npm">npm</TabsTrigger>
+          <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           <TabsTrigger value="yarn">yarn</TabsTrigger>
           <TabsTrigger value="bun">bun</TabsTrigger>
         </TabsList>
