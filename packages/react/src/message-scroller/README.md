@@ -10,7 +10,7 @@ import {
   MessageScroller,
   useMessageScroller,
   useMessageScrollerVisibility,
-} from "@shadcn/react/message-scroller"
+} from "@farsiui/react/message-scroller"
 
 ;<MessageScroller.Provider autoScroll>
   <MessageScroller.Root>
@@ -28,7 +28,7 @@ import {
 
 ## Exports
 
-All from `@shadcn/react/message-scroller`.
+All from `@farsiui/react/message-scroller`.
 
 ### Parts
 

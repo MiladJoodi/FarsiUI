@@ -1,5 +1,5 @@
 {
-  "name": "@shadcn/react",
+  "name": "@farsiui/react",
   "version": "0.3.1",
   "description": "Unstyled components for React.",
   "publishConfig": {
@@ -7,17 +7,17 @@
   },
   "license": "MIT",
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "Milad Joodi",
+    "url": "https://github.com/MiladJoodi"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadcn-ui/ui.git",
+    "url": "https://github.com/MiladJoodi/FarsiUI.git",
     "directory": "packages/react"
   },
-  "homepage": "https://ui.shadcn.com",
+  "homepage": "https://github.com/MiladJoodi/FarsiUI",
   "bugs": {
-    "url": "https://github.com/shadcn-ui/ui/issues"
+    "url": "https://github.com/MiladJoodi/FarsiUI/issues"
   },
   "files": [
     "dist"
@@ -29,7 +29,7 @@
     "primitives",
     "accessible",
     "ui",
-    "shadcn"
+    "farsiui"
   ],
   "type": "module",
   "sideEffects": false,

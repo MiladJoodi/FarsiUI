@@ -1,6 +1,6 @@
 import { after, NextResponse, type NextRequest } from "next/server"
 import { track } from "@vercel/analytics/server"
-import { isPresetCode } from "shadcn/preset"
+import { isPresetCode } from "farsiui/preset"
 
 import { parseDesignSystemConfig } from "@/app/(app)/(create)/lib/parse-config"
 import { getPresetCode } from "@/app/(app)/(create)/lib/preset-code"

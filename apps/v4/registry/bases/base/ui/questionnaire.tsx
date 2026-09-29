@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Questionnaire as QuestionnairePrimitive } from "@shadcn/react/questionnaire"
+import { Questionnaire as QuestionnairePrimitive } from "@farsiui/react/questionnaire"
 import { cn } from "cn"
 
 import { buttonVariants, type Button } from "@/registry/bases/base/ui/button"

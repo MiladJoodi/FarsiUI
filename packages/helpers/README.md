@@ -1,11 +1,11 @@
-# @shadcn/helpers
+# @farsiui/helpers
 
 A collection of helpers for building AI applications.
 
 ## createChat
 
 ```ts
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 
 const chat = createChat()
   .user("What's the weather in San Francisco?")
@@ -78,7 +78,7 @@ continuation has no message without a live transcript.
 ## Installation
 
 ```bash
-npm install @shadcn/helpers
+npm install @farsiui/helpers
 ```
 
 ## Documentation
@@ -87,8 +87,8 @@ Visit https://ui.shadcn.com/docs to view the documentation.
 
 ## Contributing
 
-Please read the [contributing guide](https://github.com/shadcn-ui/ui/blob/main/CONTRIBUTING.md).
+Please read the [contributing guide](https://github.com/MiladJoodi/FarsiUI/blob/main/CONTRIBUTING.md).
 
 ## License
 
-Licensed under the [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+Licensed under the [MIT license](https://github.com/MiladJoodi/FarsiUI/blob/main/LICENSE.md).

@@ -1,4 +1,4 @@
-import { type Registry } from "shadcn/schema"
+import { type Registry } from "farsiui/schema"
 
 export const ui: Registry["items"] = [
   {
@@ -1044,7 +1044,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   {
     name: "message-scroller",
     type: "registry:ui",
-    dependencies: ["@shadcn/react"],
+    dependencies: ["@farsiui/react"],
     registryDependencies: ["button"],
     files: [
       {
@@ -1056,7 +1056,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   {
     name: "questionnaire",
     type: "registry:ui",
-    dependencies: ["@shadcn/react"],
+    dependencies: ["@farsiui/react"],
     registryDependencies: ["button"],
     files: [
       {

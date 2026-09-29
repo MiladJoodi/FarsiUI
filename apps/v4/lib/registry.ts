@@ -3,7 +3,7 @@ import path from "path"
 import { getComponent as getExamplesComponent } from "@/examples/__components__"
 import { ExamplesIndex } from "@/examples/__index__"
 import { LRUCache } from "lru-cache"
-import { registryItemSchema, type registryItemFileSchema } from "shadcn/schema"
+import { registryItemSchema, type registryItemFileSchema } from "farsiui/schema"
 import { type z } from "zod"
 
 import { readFileFromRoot } from "@/lib/read-file"

@@ -153,6 +153,12 @@ importers:
       '@faker-js/faker':
         specifier: ^10.1.0
         version: 10.1.0
+      '@farsiui/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@farsiui/react':
+        specifier: workspace:*
+        version: link:../../packages/react
       '@formisch/react':
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.2)(valibot@1.4.0(typescript@5.9.2))
@@ -177,12 +183,6 @@ importers:
       '@remixicon/react':
         specifier: ^4.7.0
         version: 4.7.0(react@19.2.3)
-      '@shadcn/helpers':
-        specifier: workspace:*
-        version: link:../../packages/helpers
-      '@shadcn/react':
-        specifier: workspace:*
-        version: link:../../packages/react
       '@streamdown/code':
         specifier: ^1.1.1
         version: 1.1.1(react@19.2.3)
@@ -240,6 +240,9 @@ importers:
       embla-carousel-react:
         specifier: 8.5.2
         version: 8.5.2(react@19.2.3)
+      farsiui:
+        specifier: workspace:*
+        version: link:../../packages/shadcn
       front-matter:
         specifier: ^4.0.2
         version: 4.0.2
@@ -327,9 +330,6 @@ importers:
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
-      shadcn:
-        specifier: 4.21.0
-        version: link:../../packages/shadcn
       shiki:
         specifier: ^3.23.0
         version: 3.23.0
@@ -624,7 +624,7 @@ importers:
 
   packages/tests:
     dependencies:
-      shadcn:
+      farsiui:
         specifier: workspace:*
         version: link:../shadcn
     devDependencies:

@@ -3,7 +3,7 @@ title: AI SDK
 description: Create AI SDK messages and stream predefined conversations through useChat without a model, API route, network request, or API key.
 ---
 
-`@shadcn/helpers/ai-sdk` lets you write an AI conversation in code and stream it
+`@farsiui/helpers/ai-sdk` lets you write an AI conversation in code and stream it
 through `useChat`, with no model, API route, network request, or API key.
 
 Because the conversation streams through the real `useChat` lifecycle, your
@@ -14,7 +14,7 @@ sources, and custom parts. Tool calls can also pause for real user input,
 including approvals. See [Human in the Loop](#human-in-the-loop).
 
 ```ts showLineNumbers
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 
 const chat = createChat()
   .user("What changed in this release?")
@@ -77,11 +77,11 @@ work on the frontend on its own. It runs offline, instantly, and the same way ev
 ## Installation
 
 ```bash
-npm install @shadcn/helpers
+npm install @farsiui/helpers
 ```
 
 This helper works alongside your existing AI SDK setup (`ai` and
-`@ai-sdk/react`). Import the helpers from `@shadcn/helpers/ai-sdk`.
+`@ai-sdk/react`). Import the helpers from `@farsiui/helpers/ai-sdk`.
 
 ---
 
@@ -94,7 +94,7 @@ each predefined user message with `next()`.
 "use client"
 
 import { useChat } from "@ai-sdk/react"
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 
 const chat = createChat()
   .user("What changed in this release?")
@@ -663,7 +663,7 @@ user message or `null` when none remain.
 Pass `messages` to continue from a saved conversation or fixture.
 
 ```ts
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 import type { UIMessage } from "ai"
 
 declare const savedMessages: UIMessage[]

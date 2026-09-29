@@ -1,6 +1,6 @@
 "use client"
 
-import { type IconLibraryName } from "shadcn/icons"
+import { type IconLibraryName } from "farsiui/icons"
 
 import { Card, CardContent } from "@/registry/bases/radix/ui/card"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

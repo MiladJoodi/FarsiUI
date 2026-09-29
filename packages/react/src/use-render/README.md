@@ -1,7 +1,7 @@
 # use-render
 
 Internal polymorphic-render helper (`useRender`, `mergeProps`) that powers the
-`render` prop on `@shadcn/react` primitives. It lets a component render as a
+`render` prop on `@farsiui/react` primitives. It lets a component render as a
 custom element while merging the primitive's props, refs, and state attributes
 onto it.
 

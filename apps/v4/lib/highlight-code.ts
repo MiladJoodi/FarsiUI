@@ -59,8 +59,9 @@ export const transformers = [
 
 export async function highlightCode(code: string, language: string = "tsx") {
   // Create cache key from code content and language.
+  // Prefix bumps when Persian wrapping / highlighting output shape changes.
   const cacheKey = createHash("sha256")
-    .update(`${language}:${code}`)
+    .update(`fa-wrap-v1:${language}:${code}`)
     .digest("hex")
 
   // Check cache first.
@@ -91,8 +92,27 @@ export async function highlightCode(code: string, language: string = "tsx") {
     ],
   })
 
-  // Cache the result.
-  highlightCache.set(cacheKey, html)
+  const withPersian = wrapPersianTextInCodeHtml(html)
 
-  return html
+  // Cache the result.
+  highlightCache.set(cacheKey, withPersian)
+
+  return withPersian
+}
+
+/** Arabic / Persian script + ZWNJ/ZWJ — wrapped so code can keep mono for Latin. */
+const PERSIAN_RUN =
+  /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\u200C\u200D]+/g
+
+function wrapPersianTextInCodeHtml(html: string) {
+  return html.replace(/>([^<]+)</g, (match, text: string) => {
+    const wrapped = text.replace(
+      PERSIAN_RUN,
+      '<span class="code-fa">$&</span>'
+    )
+    if (wrapped === text) {
+      return match
+    }
+    return `>${wrapped}<`
+  })
 }

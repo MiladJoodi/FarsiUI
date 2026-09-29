@@ -2,7 +2,7 @@
   "name": "tests",
   "version": "0.0.1",
   "private": true,
-  "description": "Integration tests for shadcn CLI",
+  "description": "Integration tests for the FarsiUI CLI",
   "type": "module",
   "scripts": {
     "test": "vitest run",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "shadcn": "workspace:*"
+    "farsiui": "workspace:*"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",

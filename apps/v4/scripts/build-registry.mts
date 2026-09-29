@@ -8,13 +8,13 @@ import { fileURLToPath } from "url"
 import { parseArgs } from "util"
 import prettier from "prettier"
 import { rimraf } from "rimraf"
-import { registrySchema, type RegistryItem } from "shadcn/schema"
+import { registrySchema, type RegistryItem } from "farsiui/schema"
 import {
   createStyleMap,
   transformDirection,
   transformIcons,
   transformStyle,
-} from "shadcn/utils"
+} from "farsiui/utils"
 import { Project, ScriptKind } from "ts-morph"
 
 import { legacyStyles } from "@/registry/_legacy-styles"

@@ -21,7 +21,7 @@ import { type PanelImperativeHandle } from "react-resizable-panels"
 import {
   type registryItemFileSchema,
   type registryItemSchema,
-} from "shadcn/schema"
+} from "farsiui/schema"
 import { type z } from "zod"
 
 import { trackEvent } from "@/lib/events"

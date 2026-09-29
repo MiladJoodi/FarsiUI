@@ -1,23 +1,23 @@
 {
-  "name": "@shadcn/helpers",
+  "name": "@farsiui/helpers",
   "version": "0.2.0",
-  "description": "Small helpers for developing apps.",
+  "description": "Small helpers for developing FarsiUI apps.",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "Milad Joodi",
+    "url": "https://github.com/MiladJoodi"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadcn-ui/ui.git",
+    "url": "https://github.com/MiladJoodi/FarsiUI.git",
     "directory": "packages/helpers"
   },
-  "homepage": "https://ui.shadcn.com",
+  "homepage": "https://github.com/MiladJoodi/FarsiUI",
   "bugs": {
-    "url": "https://github.com/shadcn-ui/ui/issues"
+    "url": "https://github.com/MiladJoodi/FarsiUI/issues"
   },
   "files": [
     "dist"
@@ -29,7 +29,7 @@
     "development",
     "ai-sdk",
     "tanstack",
-    "shadcn"
+    "farsiui"
   ],
   "type": "module",
   "sideEffects": false,

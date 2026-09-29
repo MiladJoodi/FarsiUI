@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cn } from "cn"
-import { type registryItemSchema } from "shadcn/schema"
+import { type registryItemSchema } from "farsiui/schema"
 import { type z } from "zod"
 
 import { highlightCode } from "@/lib/highlight-code"

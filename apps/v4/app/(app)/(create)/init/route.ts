@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { track } from "@vercel/analytics/server"
-import { isPresetCode } from "shadcn/preset"
-import { registryItemSchema } from "shadcn/schema"
+import { isPresetCode } from "farsiui/preset"
+import { registryItemSchema } from "farsiui/schema"
 
 import {
   buildPartialRegistryBase,

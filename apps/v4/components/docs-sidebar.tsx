@@ -174,11 +174,11 @@ export function DocsSidebar({
       collapsible="none"
       {...props}
     >
-      <div className="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
+      <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
       <SidebarContent
         ref={contentRef}
         data-docs-sidebar-content=""
-        className="w-(--sidebar-menu-width) scroll-fade scrollbar-none overflow-x-hidden pl-2.5"
+        className="w-(--sidebar-menu-width) scroll-fade scrollbar-none overflow-x-hidden pe-2.5"
       >
         <SidebarGroup className="pt-12">
           <SidebarGroupLabel className="font-medium text-muted-foreground">

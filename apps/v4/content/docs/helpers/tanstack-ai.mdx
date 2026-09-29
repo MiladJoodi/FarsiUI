@@ -3,7 +3,7 @@ title: TanStack AI
 description: Create TanStack AI messages and stream predefined conversations through useChat without a model, API route, network request, or API key.
 ---
 
-`@shadcn/helpers/tanstack-ai` lets you write an AI conversation in code and
+`@farsiui/helpers/tanstack-ai` lets you write an AI conversation in code and
 stream it through TanStack AI's `useChat`, with no model, API route, network
 request, or API key.
 
@@ -13,7 +13,7 @@ components behave exactly as they would in production: text and reasoning
 stream word by word, and tool calls move from input to result.
 
 ```ts showLineNumbers
-import { createChat } from "@shadcn/helpers/tanstack-ai"
+import { createChat } from "@farsiui/helpers/tanstack-ai"
 
 const chat = createChat()
   .user("What changed in this release?")
@@ -76,7 +76,7 @@ work on the frontend on its own. It runs offline, instantly, and the same way ev
 ## Installation
 
 ```bash
-npm install @shadcn/helpers
+npm install @farsiui/helpers
 ```
 
 ---
@@ -89,7 +89,7 @@ send each predefined user message with `next()`.
 ```tsx showLineNumbers {3-4,6-10,12-13,16-21,28-34}
 "use client"
 
-import { createChat } from "@shadcn/helpers/tanstack-ai"
+import { createChat } from "@farsiui/helpers/tanstack-ai"
 import { useChat } from "@tanstack/ai-react"
 
 const chat = createChat()
@@ -419,7 +419,7 @@ user message or `null` when none remain.
 Pass `messages` to continue from a saved conversation or fixture.
 
 ```ts
-import { createChat } from "@shadcn/helpers/tanstack-ai"
+import { createChat } from "@farsiui/helpers/tanstack-ai"
 import type { UIMessage } from "@tanstack/ai-client"
 
 declare const savedMessages: UIMessage[]

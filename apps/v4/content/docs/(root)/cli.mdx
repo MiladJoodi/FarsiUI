@@ -657,13 +657,13 @@ Once complete, you can remove any unused `@radix-ui/react-*` packages from your 
 
 ## eject
 
-When you run `init`, shadcn adds `@import "shadcn/tailwind.css"` to your global CSS file. This import provides shared Tailwind v4 utilities such as custom variants (`data-open:`, `data-closed:`, etc.) and accordion animations.
+When you run `init`, shadcn adds `@import "farsiui/tailwind.css"` to your global CSS file. This import provides shared Tailwind v4 utilities such as custom variants (`data-open:`, `data-closed:`, etc.) and accordion animations.
 
-Use the `eject` command to inline `shadcn/tailwind.css` into your global CSS file and remove the `shadcn` dependency from your project.
+Use the `eject` command to inline `farsiui/tailwind.css` into your global CSS file and remove the `shadcn` dependency from your project.
 
 <Callout icon={<TriangleAlertIcon />}>
   **Note: This action is irreversible.** After ejecting, future shadcn CLI
-  updates to `shadcn/tailwind.css` will not apply automatically.
+  updates to `farsiui/tailwind.css` will not apply automatically.
 </Callout>
 
 ```bash
@@ -675,7 +675,7 @@ npx shadcn@latest eject
 ```css
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 ```
 
 **After**
@@ -728,7 +728,7 @@ npx shadcn@latest eject -c packages/ui
 ```bash
 Usage: shadcn eject [options]
 
-inline shadcn/tailwind.css and remove the shadcn dependency
+inline farsiui/tailwind.css and remove the shadcn dependency
 
 Options:
   -c, --cwd <cwd>  the working directory. defaults to the current directory.

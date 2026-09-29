@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 @import "@fontsource-variable/outfit";
 
 @custom-variant dark (&:is(.dark *));

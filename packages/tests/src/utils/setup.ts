@@ -22,10 +22,10 @@ async function waitForCondition(
 export default async function setup() {
   await fs.ensureDir(TEMP_DIR)
 
-  // The v4 dev script runs `pnpm --filter=shadcn build` in the background
+  // The v4 dev script builds the farsiui CLI package in the background
   // while `next dev` starts immediately. On fast CI runs the server can be
   // ready before the CLI binary is built, so we wait for it explicitly.
-  await waitForCondition("shadcn CLI binary", () =>
+  await waitForCondition("farsiui CLI binary", () =>
     fs.pathExists(SHADCN_CLI_PATH)
   )
 

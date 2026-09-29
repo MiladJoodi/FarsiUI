@@ -4,7 +4,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app"
 
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
-import { fontVariables } from "@/lib/fonts"
+import { activeUiFontStyle, fontVariables } from "@/lib/fonts"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
@@ -81,6 +81,7 @@ export default function RootLayout({
         fontVariables,
         "[--header-height:calc(var(--spacing)*14)] lg:[--header-height:calc(var(--spacing)*16)]"
       )}
+      style={activeUiFontStyle}
     >
       <head>
         <script

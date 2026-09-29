@@ -270,7 +270,7 @@ export function CodespacesCard() {
                       </InputGroupAddon>
                       <InputGroupInput
                         id="https-url"
-                        defaultValue="https://github.com/shadcn-ui/ui.git"
+                        defaultValue="https://github.com/MiladJoodi/FarsiUI.git"
                         readOnly
                       />
                     </InputGroup>
@@ -298,7 +298,7 @@ export function CodespacesCard() {
                       </InputGroupAddon>
                       <InputGroupInput
                         id="ssh-url"
-                        defaultValue="git@github.com:shadcn-ui/ui.git"
+                        defaultValue="git@github.com:MiladJoodi/FarsiUI.git"
                         readOnly
                       />
                     </InputGroup>
@@ -326,7 +326,7 @@ export function CodespacesCard() {
                       </InputGroupAddon>
                       <InputGroupInput
                         id="cli-command"
-                        defaultValue="gh repo clone shadcn-ui/ui"
+                        defaultValue="gh repo clone MiladJoodi/FarsiUI"
                         readOnly
                       />
                     </InputGroup>

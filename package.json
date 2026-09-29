@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "module",
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "Milad Joodi",
+    "url": "https://github.com/MiladJoodi"
   },
   "workspaces": [
     "apps/*",
@@ -23,11 +23,11 @@
     "registry:health:publish": "turbo run registry:health:publish --filter=v4",
     "explore:capture": "pnpm --filter=v4 explore:capture",
     "dev": "turbo run dev",
-    "shadcn:dev": "turbo run dev --filter=shadcn",
-    "shadcn": "pnpm --filter=shadcn start:dev",
-    "shadcn:prod": "pnpm --filter=shadcn start:prod",
-    "shadcn:build": "pnpm --filter=shadcn build",
-    "shadcn:test": "pnpm --filter=shadcn test",
+    "farsiui:dev": "turbo run dev --filter=farsiui",
+    "farsiui": "pnpm --filter=farsiui start:dev",
+    "farsiui:prod": "pnpm --filter=farsiui start:prod",
+    "farsiui:build": "pnpm --filter=farsiui build",
+    "farsiui:test": "pnpm --filter=farsiui test",
     "v4:dev": "pnpm --filter=v4 dev",
     "v4:build": "pnpm --filter=v4 build",
     "lint": "turbo run lint",
@@ -102,3 +102,4 @@
     }
   }
 }
+

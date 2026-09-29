@@ -858,7 +858,7 @@ describe("transformCss", () => {
     // This is the exact shape from the registry:style index item.
     const result = await transformCss(input, {
       '@import "tw-animate-css"': {},
-      '@import "shadcn/tailwind.css"': {},
+      '@import "farsiui/tailwind.css"': {},
       "@layer base": {
         "*": {
           "@apply border-border outline-ring/50": {},
@@ -872,7 +872,7 @@ describe("transformCss", () => {
     expect(result).toMatchInlineSnapshot(`
       "@import "tailwindcss";
       @import "tw-animate-css";
-      @import "shadcn/tailwind.css";
+      @import "farsiui/tailwind.css";
 
       @layer base {
         * {
@@ -888,7 +888,7 @@ describe("transformCss", () => {
   it("should not duplicate base layer styles if already present", async () => {
     const input = `@import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 
 @layer base {
   * {
@@ -901,7 +901,7 @@ describe("transformCss", () => {
 
     const result = await transformCss(input, {
       '@import "tw-animate-css"': {},
-      '@import "shadcn/tailwind.css"': {},
+      '@import "farsiui/tailwind.css"': {},
       "@layer base": {
         "*": {
           "@apply border-border outline-ring/50": {},
@@ -915,7 +915,7 @@ describe("transformCss", () => {
     expect(result).toMatchInlineSnapshot(`
       "@import "tailwindcss";
       @import "tw-animate-css";
-      @import "shadcn/tailwind.css";
+      @import "farsiui/tailwind.css";
 
       @layer base {
         * {

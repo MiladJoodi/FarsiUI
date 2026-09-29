@@ -7,7 +7,7 @@ import { cn } from "cn"
 import { useDocsSearch } from "fumadocs-core/search/client"
 import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react"
 import { Dialog as DialogPrimitive } from "radix-ui"
-import { encodePreset } from "shadcn/preset"
+import { encodePreset } from "farsiui/preset"
 
 import { type Color, type ColorPalette } from "@/lib/colors"
 import { trackEvent } from "@/lib/events"

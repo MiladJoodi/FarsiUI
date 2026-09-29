@@ -1,3 +1,3 @@
-import { type Registry } from "shadcn/schema"
+import { type Registry } from "farsiui/schema"
 
 export const internal: Registry["items"] = []

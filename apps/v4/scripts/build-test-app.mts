@@ -5,7 +5,7 @@
  * from the shadcn/ui registry for testing different style configurations.
  *
  * Prerequisites:
- *   1. Clone the test apps repo: git clone https://github.com/shadcn-ui/ui-test-apps
+ *   1. Clone the test apps repo: git clone https://github.com/MiladJoodi/FarsiUI-test-apps
  *   2. Place it at ../../../ui-test-apps (relative to apps/v4) or set TEST_APPS_PATH
  *
  * Usage:
@@ -40,12 +40,12 @@
 import { promises as fs } from "fs"
 import path from "path"
 import { rimraf } from "rimraf"
-import { registrySchema } from "shadcn/schema"
+import { registrySchema } from "farsiui/schema"
 import {
   createStyleMap,
   transformIcons,
   transformStyle,
-} from "shadcn/utils"
+} from "farsiui/utils"
 import { Project, ScriptKind } from "ts-morph"
 
 import { BASES, type Base } from "@/registry/bases"

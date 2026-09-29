@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { generateRandomPreset, isPresetCode } from "shadcn/preset"
+import { generateRandomPreset, isPresetCode } from "farsiui/preset"
 
 import { useDesignSystemSearchParams } from "@/app/(app)/(create)/lib/search-params"
 

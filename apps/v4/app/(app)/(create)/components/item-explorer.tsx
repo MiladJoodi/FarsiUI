@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { cn } from "cn"
 import { ChevronRightIcon } from "lucide-react"
-import { type RegistryItem } from "shadcn/schema"
+import { type RegistryItem } from "farsiui/schema"
 
 import { type Base } from "@/registry/bases"
 import {

@@ -1,30 +1,35 @@
+import type { CSSProperties } from "react"
 import {
+  Estedad,
   Geist_Mono as FontMono,
-  Noto_Sans_Arabic as FontNotoSansArabic,
   Noto_Sans_Hebrew as FontNotoSansHebrew,
-  Geist as FontSans,
+  Vazirmatn,
 } from "next/font/google"
 import { cn } from "cn"
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+/**
+ * Change this to set the UI font for the whole docs site.
+ * Options: "estedad" | "vazirmatn"
+ */
+export type UiFontName = "estedad" | "vazirmatn"
+export const ACTIVE_UI_FONT: UiFontName = "vazirmatn"
+
+const fontEstedad = Estedad({
+  subsets: ["arabic", "latin"],
+  variable: "--font-estedad",
 })
 
-const fontHeading = FontSans({
-  subsets: ["latin"],
-  variable: "--font-heading",
+const fontVazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
+  variable: "--font-vazirmatn",
 })
 
 const fontMono = FontMono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-geist-mono",
   weight: ["400"],
-})
-
-const fontNotoSansArabic = FontNotoSansArabic({
-  subsets: ["latin"],
-  variable: "--font-ar",
+  // Avoid Next's size-adjusted fallback claiming Arabic glyphs and blocking Persian fonts.
+  adjustFontFallback: false,
 })
 
 const fontNotoSansHebrew = FontNotoSansHebrew({
@@ -32,10 +37,25 @@ const fontNotoSansHebrew = FontNotoSansHebrew({
   variable: "--font-he",
 })
 
+const uiFontVariable: Record<UiFontName, string> = {
+  estedad: "--font-estedad",
+  vazirmatn: "--font-vazirmatn",
+}
+
+const activeFontVar = uiFontVariable[ACTIVE_UI_FONT]
+
+/** Applied on <html> so --font-sans / --font-heading / code follow ACTIVE_UI_FONT. */
+export const activeUiFontStyle = {
+  "--font-sans": `var(${activeFontVar})`,
+  "--font-heading": `var(${activeFontVar})`,
+  "--font-ar": `var(${activeFontVar})`,
+  // Latin/code → Geist Mono (Persian in code is wrapped with .code-fa → --font-sans).
+  "--font-mono": `var(--font-geist-mono)`,
+} as CSSProperties
+
 export const fontVariables = cn(
-  fontSans.variable,
-  fontHeading.variable,
+  fontEstedad.variable,
+  fontVazirmatn.variable,
   fontMono.variable,
-  fontNotoSansArabic.variable,
   fontNotoSansHebrew.variable
 )

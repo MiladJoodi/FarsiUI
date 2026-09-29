@@ -1,7 +1,7 @@
 "use client"
 
 import { useChat } from "@ai-sdk/react"
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 import {
   ArrowUpIcon,
   GlobeIcon,

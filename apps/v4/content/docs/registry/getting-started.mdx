@@ -305,7 +305,7 @@ npm install shadcn
 Use `loadRegistry` to serve the registry catalog.
 
 ```ts title="app/r/registry.json/route.ts" showLineNumbers
-import { loadRegistry } from "shadcn/registry"
+import { loadRegistry } from "farsiui/registry"
 
 export async function GET() {
   try {
@@ -323,7 +323,7 @@ export async function GET() {
 Use `loadRegistryItem` to serve individual registry items.
 
 ```ts title="app/r/[name].json/route.ts" showLineNumbers
-import { loadRegistryItem, RegistryItemNotFoundError } from "shadcn/registry"
+import { loadRegistryItem, RegistryItemNotFoundError } from "farsiui/registry"
 
 export async function GET(
   _request: Request,

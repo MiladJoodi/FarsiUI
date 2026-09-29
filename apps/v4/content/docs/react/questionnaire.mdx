@@ -16,13 +16,13 @@ styled version and themed examples, see
 ## Installation
 
 ```bash
-npm install @shadcn/react
+npm install @farsiui/react
 ```
 
 ## Import
 
 ```tsx
-import { Questionnaire } from "@shadcn/react/questionnaire"
+import { Questionnaire } from "@farsiui/react/questionnaire"
 ```
 
 `Questionnaire` exports its parts from one namespace. Each part accepts the
@@ -129,7 +129,7 @@ const items = [
 "use client"
 
 import * as React from "react"
-import { Questionnaire } from "@shadcn/react/questionnaire"
+import { Questionnaire } from "@farsiui/react/questionnaire"
 
 export function ProjectQuestionnaire() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -330,7 +330,7 @@ import * as React from "react"
 import {
   Questionnaire,
   type QuestionnaireItemStatus,
-} from "@shadcn/react/questionnaire"
+} from "@farsiui/react/questionnaire"
 
 export function PlanningQuestionnaire() {
   const [timingStatus, setTimingStatus] =
@@ -950,7 +950,7 @@ Root exposes `current`, `total`, `first`, `last`, and `shortcuts` through data
 attributes.
 
 The optional collection types are exported from
-`@shadcn/react/questionnaire`:
+`@farsiui/react/questionnaire`:
 
 ```ts
 type QuestionnaireChoiceDefinition = {

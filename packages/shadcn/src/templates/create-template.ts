@@ -9,7 +9,7 @@ import { execa } from "execa"
 import fs from "fs-extra"
 
 const GITHUB_REPO_URL =
-  process.env.SHADCN_GITHUB_URL ?? "https://github.com/shadcn-ui/ui.git"
+  process.env.SHADCN_GITHUB_URL ?? "https://github.com/MiladJoodi/FarsiUI.git"
 
 export interface TemplateOptions {
   projectPath: string

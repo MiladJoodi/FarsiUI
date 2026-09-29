@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 @import "./legacy-themes.css";
 
 @source "../node_modules/streamdown/dist/*.js";
@@ -315,6 +315,8 @@
     margin-top: calc(var(--spacing) * 6);
     overflow: hidden;
     font-size: var(--text-sm);
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    direction: ltr;
     outline: none;
     position: relative;
     @apply -mx-1 md:-mx-1;
@@ -322,6 +324,17 @@
     &:has([data-rehype-pretty-code-title]) [data-slot="copy-button"] {
       top: calc(var(--spacing) * 1.5) !important;
     }
+  }
+
+  [data-rehype-pretty-code-figure] pre,
+  [data-rehype-pretty-code-figure] code,
+  [data-rehype-pretty-code-figure] code span {
+    font-family: var(--font-geist-mono), ui-monospace, monospace !important;
+  }
+
+  /* Persian / Arabic runs inside highlighted code (see wrapPersianTextInCodeHtml). */
+  [data-rehype-pretty-code-figure] code span.code-fa {
+    font-family: var(--font-sans) !important;
   }
 
   [data-rehype-pretty-code-figure] code,
@@ -339,7 +352,7 @@
     padding-block: calc(var(--spacing) * 2.5);
     padding-inline: calc(var(--spacing) * 4);
     font-size: var(--text-sm);
-    font-family: var(--font-mono);
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
     color: var(--color-code-foreground);
   }
 

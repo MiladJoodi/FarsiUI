@@ -1,4 +1,4 @@
-import { type Registry } from "shadcn/schema"
+import { type Registry } from "farsiui/schema"
 
 export const blocks: Registry["items"] = [
   {

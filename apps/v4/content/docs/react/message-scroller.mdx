@@ -1,9 +1,9 @@
 ---
 title: Message Scroller
-description: Use the MessageScroller behavior directly from the @shadcn/react package with your own markup and styles.
+description: Use the MessageScroller behavior directly from the @farsiui/react package with your own markup and styles.
 ---
 
-`MessageScroller` ships as a headless primitive in the `@shadcn/react` package.
+`MessageScroller` ships as a headless primitive in the `@farsiui/react` package.
 The package owns all of the scroll behavior, anchoring turns, following streamed
 output, preserving the reader's place as history loads, and tracking visibility,
 and renders no styles of its own.
@@ -18,7 +18,7 @@ For the behavior guide and live examples, see the
 ## Installation
 
 ```bash
-npm install @shadcn/react
+npm install @farsiui/react
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ npm install @shadcn/react
 import {
   MessageScroller,
   useMessageScroller,
-} from "@shadcn/react/message-scroller"
+} from "@farsiui/react/message-scroller"
 ```
 
 The package exports a namespace object instead of flat components. The parts and
@@ -76,7 +76,7 @@ import {
   useMessageScroller,
   useMessageScrollerScrollable,
   useMessageScrollerVisibility,
-} from "@shadcn/react/message-scroller"
+} from "@farsiui/react/message-scroller"
 ```
 
 ## Example
@@ -88,7 +88,7 @@ the AI SDK.
 "use client"
 
 import { useChat } from "@ai-sdk/react"
-import { MessageScroller } from "@shadcn/react/message-scroller"
+import { MessageScroller } from "@farsiui/react/message-scroller"
 import { DefaultChatTransport } from "ai"
 
 import { ChatInput } from "@/components/chat-input"

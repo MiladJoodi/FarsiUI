@@ -2,8 +2,8 @@ import {
   iconLibraries,
   type IconLibrary,
   type IconLibraryName,
-} from "shadcn/icons"
-import { registryItemSchema, type RegistryItem } from "shadcn/schema"
+} from "farsiui/icons"
+import { registryItemSchema, type RegistryItem } from "farsiui/schema"
 import { z } from "zod"
 
 import { BASE_COLORS, type BaseColor } from "@/registry/base-colors"
@@ -798,7 +798,7 @@ export function buildRegistryBase(config: DesignSystemConfig) {
 
   // Build dependencies.
   const dependencies = [
-    `shadcn@${SHADCN_VERSION}`,
+    `farsiui@${SHADCN_VERSION}`,
     "class-variance-authority",
     "cn",
     "tw-animate-css",
@@ -844,7 +844,7 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     },
     css: {
       '@import "tw-animate-css"': {},
-      '@import "shadcn/tailwind.css"': {},
+      '@import "farsiui/tailwind.css"': {},
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
         body: { "@apply bg-background text-foreground": {} },

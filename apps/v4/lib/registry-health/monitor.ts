@@ -1,4 +1,4 @@
-import { registryItemSchema, registrySchema } from "shadcn/schema"
+import { registryItemSchema, registrySchema } from "farsiui/schema"
 
 import {
   normalizeRegistryName,

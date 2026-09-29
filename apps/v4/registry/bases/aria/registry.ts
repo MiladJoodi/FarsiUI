@@ -1,4 +1,4 @@
-import { registryItemSchema, type Registry } from "shadcn/schema"
+import { registryItemSchema, type Registry } from "farsiui/schema"
 import { z } from "zod"
 
 import { fonts } from "@/registry/fonts"
@@ -20,11 +20,11 @@ const ARIA_STYLE = {
     "lucide-react",
     "react-aria-components",
   ],
-  devDependencies: ["tw-animate-css", "shadcn"],
+  devDependencies: ["tw-animate-css", "farsiui"],
   registryDependencies: ["utils"],
   css: {
     '@import "tw-animate-css"': {},
-    '@import "shadcn/tailwind.css"': {},
+    '@import "farsiui/tailwind.css"': {},
     "@layer base": {
       "*": {
         "@apply border-border outline-ring/50": {},

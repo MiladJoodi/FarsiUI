@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { decodePreset } from "shadcn/preset"
+import { decodePreset } from "farsiui/preset"
 
 import {
   BASE_COLORS,

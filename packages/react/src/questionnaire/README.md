@@ -39,7 +39,7 @@ const items = [
 ```
 
 ```tsx
-import { Questionnaire } from "@shadcn/react/questionnaire"
+import { Questionnaire } from "@farsiui/react/questionnaire"
 
 export function ProjectQuestionnaire() {
   return (

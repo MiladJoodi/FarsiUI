@@ -37,7 +37,7 @@ tracking.
 `MessageScroller` owns that behavior without owning your messages, AI state,
 transport, persistence, or model state. You bring the content renderer.
 
-The `MessageScroller` is also available as an unstyled headless component in `@shadcn/react`.
+The `MessageScroller` is also available as an unstyled headless component in `@farsiui/react`.
 
 ## Message, Bubble, Attachment, and Marker
 
@@ -78,15 +78,15 @@ streaming markers.
 
 <ComponentPreview styleName="radix-rhea" name="shimmer-demo" />
 
-Both utilities ship with `shadcn/tailwind.css`, so projects initialized with
+Both utilities ship with `farsiui/tailwind.css`, so projects initialized with
 `npx shadcn@latest init` already have them.
 
-## @shadcn/react
+## @farsiui/react
 
-We also created `@shadcn/react`, a new package for unstyled, headless React
+We also created `@farsiui/react`, a new package for unstyled, headless React
 components.
 
-The first primitive is `@shadcn/react/message-scroller`. The registry component
+The first primitive is `@farsiui/react/message-scroller`. The registry component
 wraps it with shadcn/ui styles, but the scroll behavior lives in the package:
 anchoring, auto-follow, prepend preservation, scroll commands, and visibility.
 

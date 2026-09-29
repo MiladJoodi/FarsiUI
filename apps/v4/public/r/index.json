@@ -982,7 +982,7 @@
   {
     "name": "message-scroller",
     "type": "registry:ui",
-    "dependencies": ["@shadcn/react"],
+    "dependencies": ["@farsiui/react"],
     "registryDependencies": ["button"],
     "files": [
       {
@@ -1137,7 +1137,7 @@
   {
     "name": "questionnaire",
     "type": "registry:ui",
-    "dependencies": ["@shadcn/react"],
+    "dependencies": ["@farsiui/react"],
     "registryDependencies": ["button"],
     "files": [
       {

@@ -11,7 +11,7 @@ import {
   type inferParserType,
   type Options,
 } from "nuqs/server"
-import { decodePreset, isPresetCode } from "shadcn/preset"
+import { decodePreset, isPresetCode } from "farsiui/preset"
 
 import {
   BASE_COLORS,

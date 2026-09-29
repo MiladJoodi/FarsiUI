@@ -24,7 +24,7 @@ export default defineConfig((options) => ({
 
 // Prepends `"use client"` to listed dist entry files after the build. Bundlers
 // strip the directive from source, but RSC apps need it on the published module
-// so imports like `@shadcn/react/message-scroller` resolve as client boundaries.
+// so imports like `@farsiui/react/message-scroller` resolve as client boundaries.
 function useClientDirectivePlugin(entries: string[]) {
   return {
     name: "use-client-directive",

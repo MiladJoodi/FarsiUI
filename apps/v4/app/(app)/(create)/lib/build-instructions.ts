@@ -85,7 +85,7 @@ function buildCssSection(
     \`\`\`css
     @import "tailwindcss";
     @import "tw-animate-css";
-    @import "shadcn/tailwind.css";
+    @import "farsiui/tailwind.css";
 
     @theme inline {
       --font-sans: var(--font-sans);

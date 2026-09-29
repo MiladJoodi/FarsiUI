@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync } from "fs"
 import path from "path"
 import puppeteer from "puppeteer"
-import { decodePreset } from "shadcn/preset"
+import { decodePreset } from "farsiui/preset"
 
 import { EXPLORE_PRESETS } from "../lib/explore"
 

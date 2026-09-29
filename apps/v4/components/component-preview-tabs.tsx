@@ -53,6 +53,7 @@ export function ComponentPreviewTabs({
     <div
       data-slot="component-preview"
       data-not-typeset
+      dir={direction}
       className={cn(
         "group relative mt-4 mb-12 flex flex-col overflow-hidden rounded-2xl border",
         className

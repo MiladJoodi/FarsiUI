@@ -20,7 +20,7 @@ import prompts from "prompts"
 import { z } from "zod"
 
 export const SHADCN_TAILWIND_IMPORT =
-  /@import\s+["']shadcn\/tailwind\.css["'];?\s*\n?/
+  /@import\s+["']farsiui\/tailwind\.css["'];?\s*\n?/
 
 export const ejectOptionsSchema = z.object({
   cwd: z.string(),
@@ -30,7 +30,7 @@ export const ejectOptionsSchema = z.object({
 
 export const eject = new Command()
   .name("eject")
-  .description("inline shadcn/tailwind.css and remove the shadcn dependency")
+  .description("inline farsiui/tailwind.css and remove the farsiui dependency")
   .option(
     "-c, --cwd <cwd>",
     "the working directory. defaults to the current directory.",
@@ -90,7 +90,7 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
   if (!SHADCN_TAILWIND_IMPORT.test(cssContent)) {
     logger.break()
     logger.error(
-      `Could not find ${highlighter.info('@import "shadcn/tailwind.css"')} in ${highlighter.info(cssFilepathRelative)}.`
+      `Could not find ${highlighter.info('@import "farsiui/tailwind.css"')} in ${highlighter.info(cssFilepathRelative)}.`
     )
     logger.error("Nothing to eject.")
     logger.break()
@@ -113,9 +113,9 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
   if (!options.yes) {
     logger.log("This will:")
     logger.log(
-      `  - Inline ${highlighter.info("shadcn/tailwind.css")} into ${highlighter.info(cssFilepathRelative)}`
+      `  - Inline ${highlighter.info("farsiui/tailwind.css")} into ${highlighter.info(cssFilepathRelative)}`
     )
-    logger.log(`  - Remove the ${highlighter.info("shadcn")} dependency`)
+    logger.log(`  - Remove the ${highlighter.info("farsiui")} dependency`)
     logger.break()
 
     const { proceed } = await prompts({
@@ -131,7 +131,7 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
   }
 
   const ejectSpinner = spinner(
-    `Inlining ${highlighter.info("shadcn/tailwind.css")}.`,
+    `Inlining ${highlighter.info("farsiui/tailwind.css")}.`,
     {
       silent: options.silent,
     }
@@ -140,14 +140,14 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
   cssContent = cssContent.replace(
     SHADCN_TAILWIND_IMPORT,
     () =>
-      `/* ejected from shadcn@${shadcnVersion} */\n${shadcnCssContent.trim()}\n\n`
+      `/* ejected from farsiui@${shadcnVersion} */\n${shadcnCssContent.trim()}\n\n`
   )
 
   await fs.writeFile(cssFilepath, cssContent, "utf8")
   ejectSpinner?.succeed()
 
   if (hasShadcnDependency(packageInfo)) {
-    const removeSpinner = spinner(`Removing ${highlighter.info("shadcn")}.`, {
+    const removeSpinner = spinner(`Removing ${highlighter.info("farsiui")}.`, {
       silent: options.silent,
     })?.start()
 
@@ -155,13 +155,13 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
     removeSpinner?.succeed()
   } else if (!options.silent) {
     logger.warn(
-      `The ${highlighter.info("shadcn")} package was not found in package.json. Skipped removal.`
+      `The ${highlighter.info("farsiui")} package was not found in package.json. Skipped removal.`
     )
   }
 
   logger.break()
   logger.log(
-    `Ejected ${highlighter.info("shadcn/tailwind.css")} into ${highlighter.info(cssFilepathRelative)}.`
+    `Ejected ${highlighter.info("farsiui/tailwind.css")} into ${highlighter.info(cssFilepathRelative)}.`
   )
   logger.break()
 }
@@ -172,8 +172,8 @@ function getShadcnVersion(packageInfo: ReturnType<typeof getPackageInfo>) {
   }
 
   return (
-    packageInfo.dependencies?.shadcn ??
-    packageInfo.devDependencies?.shadcn ??
+    packageInfo.dependencies?.farsiui ??
+    packageInfo.devDependencies?.farsiui ??
     "unknown"
   )
     .replace(/^[\^~]/, "")
@@ -186,12 +186,12 @@ function hasShadcnDependency(packageInfo: ReturnType<typeof getPackageInfo>) {
   }
 
   return Boolean(
-    packageInfo.dependencies?.shadcn || packageInfo.devDependencies?.shadcn
+    packageInfo.dependencies?.farsiui || packageInfo.devDependencies?.farsiui
   )
 }
 
 function resolveShadcnTailwindCss(cwd: string) {
-  const projectCss = path.join(cwd, "node_modules/shadcn/dist/tailwind.css")
+  const projectCss = path.join(cwd, "node_modules/farsiui/dist/tailwind.css")
   if (fsExtra.existsSync(projectCss)) {
     return projectCss
   }
@@ -212,7 +212,7 @@ function resolveShadcnTailwindCss(cwd: string) {
     }
   }
 
-  throw new Error("Could not resolve shadcn/tailwind.css.")
+  throw new Error("Could not resolve farsiui/tailwind.css.")
 }
 
 async function removeShadcnDependency(cwd: string) {
@@ -220,24 +220,24 @@ async function removeShadcnDependency(cwd: string) {
 
   switch (packageManager) {
     case "npm":
-      await execa("npm", ["uninstall", "shadcn"], { cwd })
+      await execa("npm", ["uninstall", "farsiui"], { cwd })
       break
     case "pnpm":
-      await execa("pnpm", ["remove", "shadcn"], { cwd })
+      await execa("pnpm", ["remove", "farsiui"], { cwd })
       break
     case "yarn":
-      await execa("yarn", ["remove", "shadcn"], { cwd })
+      await execa("yarn", ["remove", "farsiui"], { cwd })
       break
     case "bun":
-      await execa("bun", ["remove", "shadcn"], { cwd })
+      await execa("bun", ["remove", "farsiui"], { cwd })
       break
     case "deno": {
       const packageJsonPath = path.join(cwd, "package.json")
       const packageJson = await fsExtra.readJson(packageJsonPath)
 
       for (const field of ["dependencies", "devDependencies"] as const) {
-        if (packageJson[field]?.shadcn) {
-          delete packageJson[field].shadcn
+        if (packageJson[field]?.farsiui) {
+          delete packageJson[field].farsiui
         }
       }
 

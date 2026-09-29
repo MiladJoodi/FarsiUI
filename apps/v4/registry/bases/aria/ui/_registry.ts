@@ -1,4 +1,4 @@
-import { type Registry } from "shadcn/schema"
+import { type Registry } from "farsiui/schema"
 
 export const ui: Registry["items"] = [
   {
@@ -1009,7 +1009,7 @@ export const ui: Registry["items"] = [
   {
     name: "message-scroller",
     type: "registry:ui",
-    dependencies: ["@shadcn/react"],
+    dependencies: ["@farsiui/react"],
     registryDependencies: ["button"],
     files: [
       {
@@ -1028,7 +1028,7 @@ export const ui: Registry["items"] = [
   {
     name: "questionnaire",
     type: "registry:ui",
-    dependencies: ["@shadcn/react"],
+    dependencies: ["@farsiui/react"],
     registryDependencies: ["button"],
     files: [
       {

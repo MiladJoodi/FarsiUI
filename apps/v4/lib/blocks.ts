@@ -1,6 +1,6 @@
 "use server"
 
-import { registryItemSchema, registrySchema } from "shadcn/schema"
+import { registryItemSchema, registrySchema } from "farsiui/schema"
 import { type z } from "zod"
 
 import { registry as baseRegistry } from "@/registry/bases/base/registry"

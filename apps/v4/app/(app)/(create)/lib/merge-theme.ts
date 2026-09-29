@@ -1,4 +1,4 @@
-import { registryItemSchema, type RegistryItem } from "shadcn/schema"
+import { registryItemSchema, type RegistryItem } from "farsiui/schema"
 
 import { BASE_COLORS, THEMES } from "@/registry/config"
 

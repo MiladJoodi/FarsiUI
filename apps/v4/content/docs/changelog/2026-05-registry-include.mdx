@@ -92,7 +92,7 @@ The `shadcn/registry` package also exports `loadRegistry` and
 `loadRegistryItem` for dynamic registry routes.
 
 ```ts title="app/r/registry.json/route.ts" showLineNumbers
-import { loadRegistry } from "shadcn/registry"
+import { loadRegistry } from "farsiui/registry"
 
 export async function GET() {
   const registry = await loadRegistry()
@@ -102,7 +102,7 @@ export async function GET() {
 ```
 
 ```ts title="app/r/[name].json/route.ts" showLineNumbers
-import { loadRegistryItem } from "shadcn/registry"
+import { loadRegistryItem } from "farsiui/registry"
 
 export async function GET(
   _: Request,

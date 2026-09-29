@@ -2,9 +2,9 @@
 
 This monorepo publishes three packages independently with [Changesets](https://github.com/changesets/changesets):
 
-- **`shadcn`** — the CLI and tooling.
-- **`@shadcn/react`** — headless React primitives.
-- **`@shadcn/helpers`** — small helpers for developing apps.
+* **`farsiui`** — the CLI and tooling.
+* **`@farsiui/react`** — headless React primitives.
+* **`@farsiui/helpers`** — small helpers for developing FarsiUI apps.
 
 They version on their own lines. A change to one never bumps the other unless a changeset says so.
 
@@ -41,7 +41,8 @@ The label selects the **dist-tag/channel**; the **changesets on the branch** sel
 
 ```sh
 # Install a snapshot from the PR comment, e.g.:
-pnpm dlx @shadcn/react@0.0.0-beta-20260624120000
+
+pnpm dlx @farsiui/react@0.0.0-beta-20260624120000
 ```
 
 ## 4. Prerelease trains (sustained `-beta.N` / `-rc.N`)
@@ -49,12 +50,14 @@ pnpm dlx @shadcn/react@0.0.0-beta-20260624120000
 For a baking release line (e.g. `1.0.0-rc.0`, `-rc.1`, …) rather than throwaway snapshots, use Changesets pre mode:
 
 ```sh
-pnpm changeset pre enter rc   # writes .changeset/pre.json
+pnpm changeset pre enter rc # writes .changeset/pre.json
+
 # ...normal changeset + Version PR cycle now produces -rc.N versions on the rc tag...
-pnpm changeset pre exit       # back to stable; next Version PR ships X.Y.Z on latest
+
+pnpm changeset pre exit # back to stable; next Version PR ships X.Y.Z on latest
 ```
 
 ## Notes
 
-- `pnpm-workspace.yaml` sets `minimumReleaseAge: 2880` (48h), so freshly published stable/beta versions take time to resolve in normal installs. Use `pnpm dlx <pkg>@<exact-snapshot-version>` to test immediately.
-- Publishing uses npm OIDC/provenance (`id-token: write` + `npm@latest`); no `NPM_TOKEN` secret is needed.
+* `pnpm-workspace.yaml` sets `minimumReleaseAge: 2880` (48h), so freshly published stable/beta versions take time to resolve in normal installs. Use `pnpm dlx <pkg>@<exact-snapshot-version>` to test immediately.
+* Publishing uses npm OIDC/provenance (`id-token: write` + `npm@latest`); no `NPM_TOKEN` secret is needed.

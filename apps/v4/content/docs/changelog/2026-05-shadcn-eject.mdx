@@ -1,6 +1,6 @@
 ---
 title: May 2026 - shadcn eject
-description: Inline shadcn/tailwind.css and remove the shadcn dependency.
+description: Inline farsiui/tailwind.css and remove the shadcn dependency.
 date: 2026-05-31
 ---
 
@@ -8,9 +8,9 @@ When we added support for both Radix and Base UI, we needed a place for shared T
 
 We also ran into a few bugs while working on RTL support that were easier to fix in one shared place rather than duplicating across every component.
 
-So we created `shadcn/tailwind.css`. When you run `init`, it adds `@import "shadcn/tailwind.css"` to your global CSS file. It works just like other CSS imports such as `tw-animate-css`: a small dependency that is tree-shaken in production and resolved at build time.
+So we created `farsiui/tailwind.css`. When you run `init`, it adds `@import "farsiui/tailwind.css"` to your global CSS file. It works just like other CSS imports such as `tw-animate-css`: a small dependency that is tree-shaken in production and resolved at build time.
 
-If you prefer not to depend on the `shadcn` package for that CSS, we've added the `shadcn eject` command. It inlines `shadcn/tailwind.css` into your global CSS file and removes the `shadcn` dependency from your project.
+If you prefer not to depend on the `shadcn` package for that CSS, we've added the `shadcn eject` command. It inlines `farsiui/tailwind.css` into your global CSS file and removes the `shadcn` dependency from your project.
 
 ```bash
 npx shadcn@latest eject
@@ -21,7 +21,7 @@ npx shadcn@latest eject
 ```css
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 ```
 
 **After**

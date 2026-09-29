@@ -92,6 +92,8 @@ export default async function Page(props: {
   return (
     <div
       data-slot="docs"
+      dir="rtl"
+      lang="fa"
       className="flex scroll-mt-24 items-stretch pb-8 text-[1.05rem] sm:text-[15px] xl:w-full"
     >
       <div className="flex min-w-0 flex-1 flex-col">
@@ -107,7 +109,7 @@ export default async function Page(props: {
                   <div className="hidden sm:block">
                     <DocsCopyPage page={raw} url={absoluteUrl(page.url)} />
                   </div>
-                  <div className="ml-auto flex gap-2">
+                  <div className="ms-auto flex gap-2">
                     {neighbours.previous && (
                       <Button
                         variant="secondary"
@@ -116,7 +118,7 @@ export default async function Page(props: {
                         asChild
                       >
                         <Link href={neighbours.previous.url}>
-                          <IconArrowLeft />
+                          <IconArrowLeft className="rtl:rotate-180" />
                           <span className="sr-only">Previous</span>
                         </Link>
                       </Button>
@@ -130,7 +132,7 @@ export default async function Page(props: {
                       >
                         <Link href={neighbours.next.url}>
                           <span className="sr-only">Next</span>
-                          <IconArrowRight />
+                          <IconArrowRight className="rtl:rotate-180" />
                         </Link>
                       </Button>
                     )}
@@ -166,7 +168,8 @@ export default async function Page(props: {
                 className="shadow-none"
               >
                 <Link href={neighbours.previous.url}>
-                  <IconArrowLeft /> {neighbours.previous.name}
+                  <IconArrowLeft className="rtl:rotate-180" />{" "}
+                  {neighbours.previous.name}
                 </Link>
               </Button>
             )}
@@ -174,18 +177,19 @@ export default async function Page(props: {
               <Button
                 variant="secondary"
                 size="sm"
-                className="ml-auto shadow-none"
+                className="ms-auto shadow-none"
                 asChild
               >
                 <Link href={neighbours.next.url}>
-                  {neighbours.next.name} <IconArrowRight />
+                  {neighbours.next.name}{" "}
+                  <IconArrowRight className="rtl:rotate-180" />
                 </Link>
               </Button>
             )}
           </div>
         </div>
       </div>
-      <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[90svh] w-(--sidebar-width) flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+      <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ms-auto hidden h-[90svh] w-(--sidebar-width) flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div className="h-(--top-spacing) shrink-0"></div>
         {doc.toc?.length ? (
           <div className="flex scroll-fade scrollbar-none flex-col gap-8 overflow-y-auto px-8">

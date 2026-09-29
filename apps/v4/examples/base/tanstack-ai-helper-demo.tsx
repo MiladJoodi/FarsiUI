@@ -1,6 +1,6 @@
 "use client"
 
-import { createChat } from "@shadcn/helpers/tanstack-ai"
+import { createChat } from "@farsiui/helpers/tanstack-ai"
 import type { UIMessage } from "@tanstack/ai-client"
 import { useChat } from "@tanstack/ai-react"
 import {

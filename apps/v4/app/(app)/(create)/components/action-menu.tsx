@@ -1,7 +1,7 @@
 "use client"
 
 import Script from "next/script"
-import { type RegistryItem } from "shadcn/schema"
+import { type RegistryItem } from "farsiui/schema"
 
 import {
   Command,

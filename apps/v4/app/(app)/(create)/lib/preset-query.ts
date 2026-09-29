@@ -1,4 +1,4 @@
-import { V1_CHART_COLOR_MAP, type PresetConfig } from "shadcn/preset"
+import { V1_CHART_COLOR_MAP, type PresetConfig } from "farsiui/preset"
 
 import { type ChartColorName, type FontHeadingValue } from "@/registry/config"
 

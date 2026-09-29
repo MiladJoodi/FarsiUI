@@ -1,10 +1,10 @@
 ---
-title: July 2026 - Introducing @shadcn/helpers
+title: July 2026 - Introducing @farsiui/helpers
 description: Small, focused helpers for developing apps, starting with AI SDK and TanStack AI.
 date: 2026-07-14
 ---
 
-We are open sourcing **@shadcn/helpers**, a new package for small, focused
+We are open sourcing **@farsiui/helpers**, a new package for small, focused
 helpers that make developing apps easier.
 
 Starting with a helper for AI SDK and TanStack AI. It lets you write a
@@ -18,7 +18,7 @@ states, and message components behave the same way they do in production.
 Here is a conversation written with the AI SDK helper:
 
 ```ts showLineNumbers
-import { createChat } from "@shadcn/helpers/ai-sdk"
+import { createChat } from "@farsiui/helpers/ai-sdk"
 
 const chat = createChat()
   .user("What changed in this release?")
@@ -71,9 +71,9 @@ export function Chat() {
 
 The package includes two adapters:
 
-- [`@shadcn/helpers/ai-sdk`](/docs/helpers/ai-sdk) plugs into AI SDK's `useChat`
+- [`@farsiui/helpers/ai-sdk`](/docs/helpers/ai-sdk) plugs into AI SDK's `useChat`
   as a transport.
-- [`@shadcn/helpers/tanstack-ai`](/docs/helpers/tanstack-ai) plugs into TanStack
+- [`@farsiui/helpers/tanstack-ai`](/docs/helpers/tanstack-ai) plugs into TanStack
   AI's `useChat` as a connection and streams real AG-UI events.
 
 Use it to build components, create previews and demos, write documentation, or

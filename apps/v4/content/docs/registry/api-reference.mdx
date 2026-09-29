@@ -10,8 +10,8 @@ registry JSON, and build custom tooling on top of the registry.
 Each API is available under a dedicated subpath import.
 
 ```ts
-import { getRegistryItems } from "shadcn/registry"
-import { registryItemSchema } from "shadcn/schema"
+import { getRegistryItems } from "farsiui/registry"
+import { registryItemSchema } from "farsiui/schema"
 ```
 
 <Callout className="mt-6">
@@ -38,7 +38,7 @@ variables required to reach it. Use
 [`getRegistriesConfig`](#getregistriesconfig) to load it from your project.
 
 ```ts showLineNumbers
-import { getRegistryItems } from "shadcn/registry"
+import { getRegistryItems } from "farsiui/registry"
 
 const items = await getRegistryItems(["@acme/login-form"], {
   config: {
@@ -73,7 +73,7 @@ Load registry configuration from a project directory. The function reads
 field from `package.json`.
 
 ```ts showLineNumbers
-import { getRegistriesConfig } from "shadcn/registry"
+import { getRegistriesConfig } from "farsiui/registry"
 
 const config = await getRegistriesConfig(process.cwd())
 ```
@@ -83,7 +83,7 @@ const config = await getRegistriesConfig(process.cwd())
 Fetch a single registry by name.
 
 ```ts showLineNumbers
-import { getRegistry } from "shadcn/registry"
+import { getRegistry } from "farsiui/registry"
 
 const registry = await getRegistry("@acme", {
   config, // optional Partial<Config>
@@ -96,7 +96,7 @@ const registry = await getRegistry("@acme", {
 Fetch one or more registry items by their qualified names.
 
 ```ts showLineNumbers
-import { getRegistryItems } from "shadcn/registry"
+import { getRegistryItems } from "farsiui/registry"
 
 const items = await getRegistryItems(["@acme/button", "@acme/card"], {
   config,
@@ -131,7 +131,7 @@ items as a list, this walks each item's `registryDependencies` and flattens
 everything — files, dependencies, CSS variables — into one installable object.
 
 ```ts showLineNumbers
-import { resolveRegistryItems } from "shadcn/registry"
+import { resolveRegistryItems } from "farsiui/registry"
 
 const tree = await resolveRegistryItems(
   ["@acme/button", "@acme/card", "@acme/dialog"],
@@ -171,7 +171,7 @@ programmatic equivalent of `shadcn add` and applies files, package dependencies,
 environment variables, CSS, and Tailwind configuration declared by the items.
 
 ```ts showLineNumbers
-import { addRegistryItems, getRegistriesConfig } from "shadcn/registry"
+import { addRegistryItems, getRegistriesConfig } from "farsiui/registry"
 
 const cwd = process.cwd()
 const config = await getRegistriesConfig(cwd)
@@ -201,7 +201,7 @@ Existing files are skipped unless `overwrite` is enabled, and npm uses
 Fetch the registry directory.
 
 ```ts showLineNumbers
-import { getRegistries } from "shadcn/registry"
+import { getRegistries } from "farsiui/registry"
 
 const registries = await getRegistries({ useCache: true })
 ```
@@ -223,7 +223,7 @@ Returns an array of registry entries:
 Search across one or more registries with fuzzy matching.
 
 ```ts showLineNumbers
-import { searchRegistries } from "shadcn/registry"
+import { searchRegistries } from "farsiui/registry"
 
 const results = await searchRegistries(["@shadcn"], {
   query: "button",
@@ -259,7 +259,7 @@ Read and resolve a local `registry.json` file from disk, following any
 `include` references, and return the registry catalog.
 
 ```ts showLineNumbers
-import { loadRegistry } from "shadcn/registry"
+import { loadRegistry } from "farsiui/registry"
 
 const catalog = await loadRegistry({
   cwd: process.cwd(), // defaults to process.cwd()
@@ -284,7 +284,7 @@ Read a single item from a local `registry.json` by name, with its file contents
 read from disk and inlined.
 
 ```ts showLineNumbers
-import { loadRegistryItem } from "shadcn/registry"
+import { loadRegistryItem } from "farsiui/registry"
 
 const item = await loadRegistryItem("login-form", { cwd: process.cwd() })
 ```
@@ -319,7 +319,7 @@ All registry functions throw typed errors that extend `RegistryError`. Use the
 `RegistryErrorCode` enum or `instanceof` checks to handle them.
 
 ```ts showLineNumbers
-import { RegistryError, RegistryNotFoundError } from "shadcn/registry"
+import { RegistryError, RegistryNotFoundError } from "farsiui/registry"
 
 try {
   await getRegistry("@unknown")
@@ -352,7 +352,7 @@ The Zod schemas used to validate `registry.json`, `registry-item.json` and
 `components.json`. Useful for validating registry data in your own tooling.
 
 ```ts
-import { registryItemSchema, registrySchema } from "shadcn/schema"
+import { registryItemSchema, registrySchema } from "farsiui/schema"
 
 const result = registryItemSchema.safeParse(json)
 if (!result.success) {
@@ -392,7 +392,7 @@ Encode a `Partial<PresetConfig>` into a short, URL-safe preset code. Any fields
 you omit fall back to `DEFAULT_PRESET_CONFIG`.
 
 ```ts showLineNumbers
-import { encodePreset } from "shadcn/preset"
+import { encodePreset } from "farsiui/preset"
 
 const code = encodePreset({
   style: "vega",
@@ -415,7 +415,7 @@ Decode a preset code back into a full `PresetConfig`. Returns `null` if the code
 is missing or invalid.
 
 ```ts showLineNumbers
-import { decodePreset } from "shadcn/preset"
+import { decodePreset } from "farsiui/preset"
 
 const config = decodePreset("bJ4FLU0")
 ```

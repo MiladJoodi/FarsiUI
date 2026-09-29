@@ -246,5 +246,5 @@ utility to text. Don't author a custom keyframe animation. See
 For behavior the parts don't expose, read state from the hooks rather than
 re-implementing the scroller: `useMessageScroller`,
 `useMessageScrollerVisibility`, and `useMessageScrollerScrollable`. They come
-from the auto-installed `@shadcn/react` dependency, so there's nothing extra to
+from the auto-installed `@farsiui/react` dependency, so there's nothing extra to
 install. Reach for them only when composition can't express what you need.

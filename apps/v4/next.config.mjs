@@ -209,7 +209,7 @@ const nextConfig = {
       {
         source: "/code/:path*",
         destination:
-          "https://raw.githubusercontent.com/shadcn-ui/ui/refs/heads/main/:path*",
+          "https://raw.githubusercontent.com/MiladJoodi/FarsiUI/refs/heads/main/:path*",
         permanent: false,
       },
     ]

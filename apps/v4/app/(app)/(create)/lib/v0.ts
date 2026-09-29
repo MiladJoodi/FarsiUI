@@ -4,13 +4,13 @@ import {
   registryItemSchema,
   type configSchema,
   type RegistryItem,
-} from "shadcn/schema"
+} from "farsiui/schema"
 import {
   transformFont,
   transformIcons,
   transformMenu,
   transformRender,
-} from "shadcn/utils"
+} from "farsiui/utils"
 import { Project, ScriptKind, type SourceFile } from "ts-morph"
 import { z } from "zod"
 
@@ -238,7 +238,7 @@ function buildGlobalsCss(
 
   const content = dedent`@import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 
   @custom-variant dark (&:is(.dark *));
 

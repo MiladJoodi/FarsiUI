@@ -78,7 +78,7 @@ const fixtureTsconfig = {
 
 const baseCss = `@import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "farsiui/tailwind.css";
 
 @layer base {
   body {
@@ -105,7 +105,7 @@ describe("runEject", () => {
     packageJson: Record<string, unknown> = {
       name: "test-app",
       dependencies: {
-        shadcn: "^4.8.3",
+        farsiui: "^4.8.3",
       },
     }
   ) {
@@ -125,7 +125,7 @@ describe("runEject", () => {
     )
   }
 
-  it("inlines shadcn/tailwind.css and removes the dependency", async () => {
+  it("inlines farsiui/tailwind.css and removes the dependency", async () => {
     await setupProject(baseCss)
 
     await runEject({
@@ -146,20 +146,20 @@ describe("runEject", () => {
     expect(output).not.toMatch(SHADCN_TAILWIND_IMPORT)
     expect(output).toContain('@import "tailwindcss";')
     expect(output).toContain('@import "tw-animate-css";')
-    expect(output).toContain("/* ejected from shadcn@4.8.3 */")
+    expect(output).toContain("/* ejected from farsiui@4.8.3 */")
     expect(output).toContain(shadcnCss.trim())
     expect(output).toContain("@layer base")
     expect(output).toContain("@apply bg-background text-foreground;")
-    expect(execa).toHaveBeenCalledWith("pnpm", ["remove", "shadcn"], {
+    expect(execa).toHaveBeenCalledWith("pnpm", ["remove", "farsiui"], {
       cwd: tempDir,
     })
   })
 
-  it("removes shadcn from devDependencies", async () => {
+  it("removes farsiui from devDependencies", async () => {
     await setupProject(baseCss, {
       name: "test-app",
       devDependencies: {
-        shadcn: "^4.8.3",
+        farsiui: "^4.8.3",
       },
     })
 
@@ -174,8 +174,8 @@ describe("runEject", () => {
       "utf8"
     )
 
-    expect(output).toContain("/* ejected from shadcn@4.8.3 */")
-    expect(execa).toHaveBeenCalledWith("pnpm", ["remove", "shadcn"], {
+    expect(output).toContain("/* ejected from farsiui@4.8.3 */")
+    expect(execa).toHaveBeenCalledWith("pnpm", ["remove", "farsiui"], {
       cwd: tempDir,
     })
   })
@@ -195,7 +195,7 @@ describe("runEject", () => {
     expect(execa).not.toHaveBeenCalled()
   })
 
-  it("removes shadcn from package.json for deno", async () => {
+  it("removes farsiui from package.json for deno", async () => {
     vi.mocked(getPackageManager).mockResolvedValue("deno")
     await setupProject(baseCss)
 
@@ -209,11 +209,11 @@ describe("runEject", () => {
       await readFile(path.join(tempDir, "package.json"), "utf8")
     )
 
-    expect(packageJson.dependencies?.shadcn).toBeUndefined()
+    expect(packageJson.dependencies?.farsiui).toBeUndefined()
     expect(execa).not.toHaveBeenCalled()
   })
 
-  it("exits when shadcn/tailwind.css is not imported", async () => {
+  it("exits when farsiui/tailwind.css is not imported", async () => {
     await setupProject(`@import "tailwindcss";
 @import "tw-animate-css";
 `)

@@ -1,20 +1,23 @@
 {
-  "name": "shadcn",
+  "name": "farsiui",
   "version": "4.21.0",
-  "description": "Add components to your apps.",
-  "homepage": "https://ui.shadcn.com",
+  "description": "Add FarsiUI components to your apps.",
+  "homepage": "https://github.com/MiladJoodi/FarsiUI",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "Milad Joodi",
+    "url": "https://github.com/MiladJoodi"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadcn-ui/ui.git",
+    "url": "https://github.com/MiladJoodi/FarsiUI.git",
     "directory": "packages/shadcn"
+  },
+  "bugs": {
+    "url": "https://github.com/MiladJoodi/FarsiUI/issues"
   },
   "files": [
     "dist"
@@ -25,7 +28,7 @@
     "tailwind",
     "radix-ui",
     "base-ui",
-    "shadcn"
+    "farsiui"
   ],
   "type": "module",
   "exports": {

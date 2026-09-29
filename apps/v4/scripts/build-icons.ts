@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 import * as fs from "fs"
 import * as path from "path"
-import { iconLibraries, type IconLibraryName } from "shadcn/icons"
+import { iconLibraries, type IconLibraryName } from "farsiui/icons"
 
 type IconUsage = Record<IconLibraryName, Set<string>>
 

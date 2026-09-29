@@ -1,4 +1,4 @@
-import { isPresetCode } from "shadcn/preset"
+import { isPresetCode } from "farsiui/preset"
 
 const PRESET_FLAG_PATTERN = /^--preset\b\s+(.+)$/i
 
