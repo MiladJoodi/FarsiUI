@@ -6,18 +6,11 @@ import { findNeighbour } from "fumadocs-core/page-tree"
 
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
+import { splitDocTitle } from "@/lib/docs"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 import { Button } from "@/registry/new-york-v4/ui/button"
-
-function splitDocTitle(title: string) {
-  const match = title.match(/^(.*?)\s*\(([^)]+)\)\s*$/)
-  if (!match) {
-    return { fa: title, en: null }
-  }
-  return { fa: match[1].trim(), en: match[2].trim() }
-}
 
 /** سطح ۱/۲ keep their URLs, but always show Base docs (install, copy, sections). */
 function getContentPage(slug: string[] | undefined) {

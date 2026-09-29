@@ -1,5 +1,11 @@
+"use client"
+
 import { BotIcon, ChevronDownIcon } from "lucide-react"
 
+import {
+  useVariantPreviewIconSize,
+  useVariantPreviewSize,
+} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -18,37 +24,44 @@ import {
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export default function ButtonGroupPopover() {
+  const size = useVariantPreviewSize()
+  const iconSize = useVariantPreviewIconSize()
+
   return (
     <ButtonGroup>
-      <Button variant="outline">
-        <BotIcon /> Copilot
+      <Button variant="outline" size={size}>
+        <BotIcon /> دستیار
       </Button>
       <Popover>
         <PopoverTrigger
           render={
-            <Button variant="outline" size="icon" aria-label="Open Popover" />
+            <Button
+              variant="outline"
+              size={iconSize}
+              aria-label="باز کردن پاپ‌اور"
+            />
           }
         >
           <ChevronDownIcon />
         </PopoverTrigger>
-        <PopoverContent align="end" className="rounded-xl text-sm">
+        <PopoverContent align="end" className="rounded-xl text-sm" dir="rtl">
           <PopoverHeader>
-            <PopoverTitle>Start a new task with Copilot</PopoverTitle>
+            <PopoverTitle>شروع کار جدید با دستیار</PopoverTitle>
             <PopoverDescription>
-              Describe your task in natural language.
+              کار خود را به زبان ساده توصیف کنید.
             </PopoverDescription>
           </PopoverHeader>
           <Field>
             <FieldLabel htmlFor="task" className="sr-only">
-              Task Description
+              شرح کار
             </FieldLabel>
             <Textarea
               id="task"
-              placeholder="I need to..."
+              placeholder="می‌خواهم..."
               className="resize-none"
             />
             <FieldDescription>
-              Copilot will open a pull request for review.
+              دستیار یک درخواست بررسی (pull request) باز می‌کند.
             </FieldDescription>
           </Field>
         </PopoverContent>

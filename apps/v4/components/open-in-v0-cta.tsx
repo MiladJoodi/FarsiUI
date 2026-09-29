@@ -1,34 +1,21 @@
 import { cn } from "cn"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import packageJson from "../../../packages/shadcn/package.json"
 
 export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
-        "group relative flex flex-col gap-2 rounded-2xl bg-surface p-6 text-sm text-surface-foreground",
+        "flex items-center justify-center rounded-2xl bg-surface px-4 py-3 text-sm text-muted-foreground",
         className
       )}
     >
-      <div className="text-base leading-tight font-semibold text-balance group-hover:underline">
-        Deploy your shadcn/ui app on Vercel
-      </div>
-      
-      <div className="text-muted-foreground">
-        Vercel provides tools and infrastructure to deploy apps and features at
-        scale.
-      </div>
-      <Button variant="outline" size="sm" className="mt-2 w-fit">
-        Deploy Now
-      </Button>
-      <a
-        href="https://vercel.com/new?utm_source=shadcn_site&utm_medium=web&utm_campaign=docs_cta_deploy_now_callout"
-        target="_blank"
-        rel="noreferrer"
-        className="absolute inset-0"
-      >
-        <span className="sr-only">Deploy to Vercel</span>
-      </a>
+      <span className="font-medium tracking-wide text-surface-foreground">
+        FarsiUI{" "}
+        <span className="font-mono text-muted-foreground" dir="ltr">
+          v{packageJson.version}
+        </span>
+      </span>
     </div>
   )
 }

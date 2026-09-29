@@ -11,6 +11,10 @@ import {
   VolumeOffIcon,
 } from "lucide-react"
 
+import {
+  useVariantPreviewIconSize,
+  useVariantPreviewSize,
+} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -23,47 +27,54 @@ import {
 } from "@/styles/base-nova/ui/dropdown-menu"
 
 export default function ButtonGroupDropdown() {
+  const size = useVariantPreviewSize()
+  const iconSize = useVariantPreviewIconSize()
+
   return (
     <ButtonGroup>
-      <Button variant="outline">Follow</Button>
+      <Button variant="outline" size={size}>
+        دنبال کردن
+      </Button>
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="pl-2!" />}
+          render={
+            <Button variant="outline" size={iconSize} className="pl-2!" />
+          }
         >
           <ChevronDownIcon />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-44">
+        <DropdownMenuContent align="end" className="w-44" dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <VolumeOffIcon />
-              Mute Conversation
+              بی‌صدا کردن گفتگو
             </DropdownMenuItem>
             <DropdownMenuItem>
               <CheckIcon />
-              Mark as Read
+              علامت به‌عنوان خوانده‌شده
             </DropdownMenuItem>
             <DropdownMenuItem>
               <AlertTriangleIcon />
-              Report Conversation
+              گزارش گفتگو
             </DropdownMenuItem>
             <DropdownMenuItem>
               <UserRoundXIcon />
-              Block User
+              مسدود کردن کاربر
             </DropdownMenuItem>
             <DropdownMenuItem>
               <ShareIcon />
-              Share Conversation
+              اشتراک‌گذاری گفتگو
             </DropdownMenuItem>
             <DropdownMenuItem>
               <CopyIcon />
-              Copy Conversation
+              کپی گفتگو
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem variant="destructive">
               <TrashIcon />
-              Delete Conversation
+              حذف گفتگو
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>

@@ -32,6 +32,9 @@ import {
   type ButtonSizeId,
   type VariantPreviewItem,
 } from "@/components/component-variant-preview-shared"
+import {
+  VariantPreviewSizeContext,
+} from "@/components/component-variant-preview-size"
 import { Button, buttonVariants } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -330,6 +333,7 @@ function GroupPreviewDemo({
 
 export function ComponentVariantPreviewClient({
   items,
+  children,
 }: {
   items: VariantPreviewItem[]
   children?: React.ReactNode
@@ -337,6 +341,7 @@ export function ComponentVariantPreviewClient({
   const [selected, setSelected] = React.useState(items[0]?.name ?? "")
   const [size, setSize] = React.useState<ButtonSizeId>("default")
   const [codeOpen, setCodeOpen] = React.useState(false)
+  const previews = React.Children.toArray(children)
   const selectedIndex = Math.max(
     0,
     items.findIndex((item) => item.name === selected)
@@ -370,38 +375,39 @@ export function ComponentVariantPreviewClient({
       data-not-typeset
       className="group relative mt-4 mb-12 flex flex-col overflow-hidden rounded-2xl border"
     >
-      <div data-slot="preview" className="relative p-6 pb-12 sm:p-10 sm:pb-12">
-        <div className="preview relative flex min-h-48 w-full flex-wrap items-center justify-center gap-2 sm:min-h-56 sm:gap-3">
-          {items.map((item) => {
-            const isActive = item.name === active.name
-            return (
-              <div
-                key={item.name}
-                role="button"
-                tabIndex={0}
-                aria-pressed={isActive}
-                aria-label={item.label}
-                dir={item.demo === "rtl" ? "rtl" : (item.direction ?? "ltr")}
-                onClick={() => {
-                  setSelected(item.name)
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault()
+      <div data-slot="preview" className="relative p-4 pb-11 sm:p-6 sm:pb-11">
+        <div className="preview relative flex w-full flex-wrap items-start justify-center gap-2 sm:gap-3">
+          <VariantPreviewSizeContext.Provider value={size}>
+            {items.map((item, index) => {
+              const isActive = item.name === active.name
+              const livePreview =
+                item.variant || item.demo ? (
+                  <PreviewDemo item={item} size={size} />
+                ) : (
+                  previews[index]
+                )
+
+              return (
+                <div
+                  key={item.name}
+                  data-active={isActive}
+                  aria-label={item.label}
+                  dir={item.demo === "rtl" ? "rtl" : (item.direction ?? "ltr")}
+                  onClick={() => {
                     setSelected(item.name)
-                  }
-                }}
-                className={cn(
-                  "cursor-pointer rounded-xl p-1 outline-none transition-shadow",
-                  "focus-visible:ring-2 focus-visible:ring-ring",
-                  isActive &&
-                    "ring-2 ring-ring ring-offset-2 ring-offset-background"
-                )}
-              >
-                <PreviewDemo item={item} size={size} />
-              </div>
-            )
-          })}
+                  }}
+                  className={cn(
+                    "rounded-xl p-1 outline-none transition-shadow",
+                    "focus-within:ring-2 focus-within:ring-ring",
+                    isActive &&
+                      "ring-2 ring-ring ring-offset-2 ring-offset-background"
+                  )}
+                >
+                  {livePreview}
+                </div>
+              )
+            })}
+          </VariantPreviewSizeContext.Provider>
         </div>
 
         <div

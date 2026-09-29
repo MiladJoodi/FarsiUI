@@ -3,6 +3,7 @@
 import * as React from "react"
 import { AudioLinesIcon, PlusIcon } from "lucide-react"
 
+import { useVariantPreviewIconSize } from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -19,11 +20,12 @@ import {
 
 export default function ButtonGroupInputGroup() {
   const [voiceEnabled, setVoiceEnabled] = React.useState(false)
+  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup className="[--radius:9999rem]">
       <ButtonGroup>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size={iconSize}>
           <PlusIcon />
         </Button>
       </ButtonGroup>
@@ -31,7 +33,7 @@ export default function ButtonGroupInputGroup() {
         <InputGroup>
           <InputGroupInput
             placeholder={
-              voiceEnabled ? "Record and send audio..." : "Send a message..."
+              voiceEnabled ? "ضبط و ارسال صدا..." : "پیام بفرستید..."
             }
             disabled={voiceEnabled}
           />
@@ -50,7 +52,7 @@ export default function ButtonGroupInputGroup() {
               >
                 <AudioLinesIcon />
               </TooltipTrigger>
-              <TooltipContent>Voice Mode</TooltipContent>
+              <TooltipContent>حالت صوتی</TooltipContent>
             </Tooltip>
           </InputGroupAddon>
         </InputGroup>

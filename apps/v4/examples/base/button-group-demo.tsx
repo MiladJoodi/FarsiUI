@@ -13,6 +13,10 @@ import {
   Trash2Icon,
 } from "lucide-react"
 
+import {
+  useVariantPreviewIconSize,
+  useVariantPreviewSize,
+} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -31,26 +35,34 @@ import {
 
 export default function ButtonGroupDemo() {
   const [label, setLabel] = React.useState("personal")
+  const size = useVariantPreviewSize()
+  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
-        <Button variant="outline" size="icon" aria-label="بازگشت">
+        <Button variant="outline" size={iconSize} aria-label="بازگشت">
           <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline">بایگانی</Button>
-        <Button variant="outline">گزارش</Button>
+        <Button variant="outline" size={size}>
+          بایگانی
+        </Button>
+        <Button variant="outline" size={size}>
+          گزارش
+        </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline">بعداً</Button>
+        <Button variant="outline" size={size}>
+          بعداً
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
               <Button
                 variant="outline"
-                size="icon"
+                size={iconSize}
                 aria-label="گزینه‌های بیشتر"
               />
             }

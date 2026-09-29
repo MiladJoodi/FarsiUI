@@ -1,3 +1,6 @@
+import type { ComponentType } from "react"
+import { Suspense } from "react"
+
 import { formatCode } from "@/lib/format-code"
 import { highlightCode } from "@/lib/highlight-code"
 import { getDemoItem, getRegistryComponent } from "@/lib/registry"
@@ -226,7 +229,11 @@ export async function ComponentVariantPreview({
           return null
         }
 
-        const sizeable = example.sizeable !== false && Boolean(example.variant || example.demo)
+        const sizeable =
+          example.sizeable === true ||
+          (example.sizeable !== false &&
+            Boolean(example.variant || example.demo))
+
 
         // Build sized source strings; only highlight the default size to keep SSR fast.
         const sizedEntries = await Promise.all(
@@ -288,13 +295,13 @@ export async function ComponentVariantPreview({
             sizeable,
             sized: Object.keys(sized).length > 0 ? sized : undefined,
           } satisfies VariantPreviewItem,
-          hasComponent: Boolean(Component),
+          Component,
         }
       })
     )
   ).filter(Boolean) as {
     meta: VariantPreviewItem
-    hasComponent: boolean
+    Component: ComponentType | null
   }[]
 
   if (prepared.length === 0) {
@@ -302,6 +309,26 @@ export async function ComponentVariantPreview({
   }
 
   return (
-    <ComponentVariantPreviewClient items={prepared.map((item) => item.meta)} />
+    <ComponentVariantPreviewClient items={prepared.map((item) => item.meta)}>
+      {prepared.map((item) => {
+        if (item.meta.variant || item.meta.demo) {
+          return <div key={item.meta.name} />
+        }
+        const Component = item.Component
+        if (!Component) {
+          return <div key={item.meta.name} />
+        }
+        return (
+          <Suspense
+            key={item.meta.name}
+            fallback={
+              <div className="size-10 animate-pulse rounded-lg bg-muted" />
+            }
+          >
+            <Component />
+          </Suspense>
+        )
+      })}
+    </ComponentVariantPreviewClient>
   )
 }

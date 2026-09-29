@@ -2,5 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm turbo run build --filter=v4"
+  "buildCommand": "pnpm turbo run build --filter=v4 --concurrency=1",
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=6144"
+  }
 }

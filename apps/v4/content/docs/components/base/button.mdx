@@ -77,6 +77,35 @@ import { Button } from "@/components/ui/button"
 
 <div className="hidden">
 
+## نشانگر ماوس
+
+</div>
+
+<DocsCollapsible title="نشانگر ماوس">
+
+در Tailwind v4، مقدار پیش‌فرض `cursor` برای دکمه از `cursor: pointer` به `cursor: default` تغییر کرده است.
+
+اگر می‌خواهید هنگام قرار گرفتن ماوس روی دکمه، نشانگر به شکل دست نمایش داده شود، کد زیر را به فایل CSS پروژه اضافه کنید:
+
+```css showLineNumbers title="globals.css"
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
+می‌توانید این قابلیت را هنگام راه‌اندازی پروژه نیز با گزینه `--pointer` فعال کنید:
+
+```bash
+npx farsiui@latest init --pointer
+```
+
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## اندازه
 
 </div>
@@ -126,35 +155,6 @@ import { Button } from "@/components/ui/button"
   name="button-render"
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
-
-</DocsCollapsible>
-
-<div className="hidden">
-
-## نشانگر ماوس
-
-</div>
-
-<DocsCollapsible title="نشانگر ماوس">
-
-در Tailwind v4، مقدار پیش‌فرض `cursor` برای دکمه از `cursor: pointer` به `cursor: default` تغییر کرده است.
-
-اگر می‌خواهید هنگام قرار گرفتن ماوس روی دکمه، نشانگر به شکل دست نمایش داده شود، کد زیر را به فایل CSS پروژه اضافه کنید:
-
-```css showLineNumbers title="globals.css"
-@layer base {
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-}
-```
-
-می‌توانید این قابلیت را هنگام راه‌اندازی پروژه نیز با گزینه `--pointer` فعال کنید:
-
-```bash
-npx farsiui@latest init --pointer
-```
 
 </DocsCollapsible>
 

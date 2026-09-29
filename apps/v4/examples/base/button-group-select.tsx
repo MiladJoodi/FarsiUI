@@ -1,8 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { ArrowRightIcon } from "lucide-react"
+import { ArrowLeftIcon } from "lucide-react"
 
+import { useVariantPreviewIconSize } from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import { Input } from "@/styles/base-nova/ui/input"
@@ -15,13 +16,14 @@ import {
 } from "@/styles/base-nova/ui/select"
 
 const CURRENCIES = [
-  { label: "US Dollar", value: "$" },
-  { label: "Euro", value: "€" },
-  { label: "British Pound", value: "£" },
+  { label: "دلار آمریکا", value: "$" },
+  { label: "یورو", value: "€" },
+  { label: "پوند انگلیس", value: "£" },
 ]
 
 export default function ButtonGroupSelect() {
   const [currency, setCurrency] = React.useState("$")
+  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup>
@@ -43,11 +45,11 @@ export default function ButtonGroupSelect() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Input placeholder="10.00" pattern="[0-9]*" />
+        <Input placeholder="۱۰٫۰۰" pattern="[0-9]*" />
       </ButtonGroup>
       <ButtonGroup>
-        <Button aria-label="Send" size="icon" variant="outline">
-          <ArrowRightIcon />
+        <Button aria-label="ارسال" size={iconSize} variant="outline">
+          <ArrowLeftIcon />
         </Button>
       </ButtonGroup>
     </ButtonGroup>

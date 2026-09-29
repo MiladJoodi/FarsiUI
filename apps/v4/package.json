@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm icons:dev & next dev --turbopack --port 4000",
-    "build": "pnpm registry:build && cross-env NODE_OPTIONS=--max-old-space-size=8192 next build --webpack",
+    "build": "pnpm registry:build && cross-env NODE_OPTIONS=--max-old-space-size=6144 next build --webpack",
     "start": "next start --port 4000",
-    "preview": "pnpm registry:build && cross-env NODE_OPTIONS=--max-old-space-size=8192 next build --webpack && next start --port 4000",
+    "preview": "pnpm registry:build && cross-env NODE_OPTIONS=--max-old-space-size=6144 next build --webpack && next start --port 4000",
     "lint": "eslint . --cache --cache-location .eslintcache",
     "lint:fix": "eslint --fix . --cache --cache-location .eslintcache",
     "typecheck": "tsc --noEmit",

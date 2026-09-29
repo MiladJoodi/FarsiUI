@@ -1,24 +1,42 @@
 ---
-title: Button Group
-description: A container that groups related buttons together with consistent styling.
+title: گروه دکمه‌ها (Button Group)
+description: گروهی از دکمه‌های مرتبط با ظاهر یکدست و هماهنگ
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="button-group-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  examples={[
+    { name: "button-group-demo", label: "پیش‌فرض", sizeable: true },
+    { name: "button-group-orientation", label: "جهت", sizeable: true },
+    { name: "button-group-size", label: "اندازه", sizeable: false },
+    { name: "button-group-nested", label: "تودرتو", sizeable: true },
+    { name: "button-group-separator", label: "جداکننده", sizeable: true },
+    { name: "button-group-split", label: "دوتکه", sizeable: true },
+    { name: "button-group-input", label: "ورودی", sizeable: true },
+    { name: "input-group-button-group", label: "متن", sizeable: false },
+    { name: "button-group-input-group", label: "گروه ورودی", sizeable: true },
+    { name: "button-group-dropdown", label: "منوی کشویی", sizeable: true },
+    { name: "button-group-select", label: "انتخاب", sizeable: true },
+    { name: "button-group-popover", label: "پاپ‌اور", sizeable: true },
+    { name: "toggle-group-demo", label: "ToggleGroup", sizeable: true },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add button-group
+npx farsiui@latest add button-group
 ```
 
 </TabsContent>
@@ -27,13 +45,13 @@ npx shadcn@latest add button-group
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="button-group"
@@ -41,7 +59,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -49,7 +67,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import {
@@ -61,181 +79,308 @@ import {
 
 ```tsx
 <ButtonGroup>
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
+  <Button>دکمه ۱</Button>
+  <Button>دکمه ۲</Button>
 </ButtonGroup>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `ButtonGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `ButtonGroup` از این ساختار استفاده کنید:
 
 ```text
 ButtonGroup
-├── Button or Input
+├── Button یا Input
 ├── ButtonGroupSeparator
 └── ButtonGroupText
 ```
 
-## Accessibility
+</DocsCollapsible>
 
-- The `ButtonGroup` component has the `role` attribute set to `group`.
-- Use <Kbd>Tab</Kbd> to navigate between the buttons in the group.
-- Use `aria-label` or `aria-labelledby` to label the button group.
+<div className="hidden">
+
+## دسترس‌پذیری
+
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+- روی `ButtonGroup` مقدار `role="group"` تنظیم شده است.
+- با <Kbd>Tab</Kbd> بین دکمه‌های گروه جابه‌جا شوید.
+- برای برچسب‌گذاری گروه از `aria-label` یا `aria-labelledby` استفاده کنید.
 
 ```tsx showLineNumbers
-<ButtonGroup aria-label="Button group">
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
+<ButtonGroup aria-label="گروه دکمه‌ها">
+  <Button>دکمه ۱</Button>
+  <Button>دکمه ۲</Button>
 </ButtonGroup>
 ```
 
-## ButtonGroup vs ToggleGroup
+</DocsCollapsible>
 
-- Use the `ButtonGroup` component when you want to group buttons that perform an action.
-- Use the `ToggleGroup` component when you want to group buttons that toggle a state.
+<div className="hidden">
 
-## Orientation
+## تفاوت با ToggleGroup
 
-Set the `orientation` prop to change the button group layout.
+</div>
 
-<ComponentPreview styleName="base-nova" name="button-group-orientation" />
+<DocsCollapsible title="تفاوت با ToggleGroup">
 
-## Size
+- از `ButtonGroup` وقتی استفاده کنید که دکمه‌ها یک **عمل** انجام می‌دهند.
+- از `ToggleGroup` وقتی استفاده کنید که دکمه‌ها یک **وضعیت** را روشن/خاموش می‌کنند.
 
-Control the size of buttons using the `size` prop on individual buttons.
-
-<ComponentPreview styleName="base-nova" name="button-group-size" />
-
-## Nested
-
-Nest `<ButtonGroup>` components to create button groups with spacing.
-
-<ComponentPreview styleName="base-nova" name="button-group-nested" />
-
-## Separator
-
-The `ButtonGroupSeparator` component visually divides buttons within a group.
-
-Buttons with variant `outline` do not need a separator since they have a border. For other variants, a separator is recommended to improve the visual hierarchy.
-
-<ComponentPreview styleName="base-nova" name="button-group-separator" />
-
-## Split
-
-Create a split button group by adding two buttons separated by a `ButtonGroupSeparator`.
-
-<ComponentPreview styleName="base-nova" name="button-group-split" />
-
-## Input
-
-Wrap an `Input` component with buttons.
-
-<ComponentPreview styleName="base-nova" name="button-group-input" />
-
-## Input Group
-
-Wrap an `InputGroup` component to create complex input layouts.
-
-<ComponentPreview styleName="base-nova" name="button-group-input-group" />
-
-## Dropdown Menu
-
-Create a split button group with a `DropdownMenu` component.
-
-<ComponentPreview styleName="base-nova" name="button-group-dropdown" />
-
-## Select
-
-Pair with a `Select` component.
-
-<ComponentPreview styleName="base-nova" name="button-group-select" />
-
-## Popover
-
-Use with a `Popover` component.
-
-<ComponentPreview styleName="base-nova" name="button-group-popover" />
-
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+**ButtonGroup** — عمل (مثل کپی / جای‌گذاری):
 
 <ComponentPreview
   styleName="base-nova"
-  name="button-group-rtl"
-  direction="rtl"
+  name="button-group-separator"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+**ToggleGroup** — وضعیت (مثل ضخیم / کج / زیرخط):
 
-### ButtonGroup
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-demo"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-The `ButtonGroup` component is a container that groups related buttons together with consistent styling.
+برای جزئیات بیشتر به مستندات [Toggle Group](/docs/components/base/toggle-group) مراجعه کنید.
 
-| Prop          | Type                         | Default        |
-| ------------- | ---------------------------- | -------------- |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+</DocsCollapsible>
 
-```tsx
-<ButtonGroup>
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
-</ButtonGroup>
-```
+<div className="hidden">
 
-Nest multiple button groups to create complex layouts with spacing. See the [nested](#nested) example for more details.
+## جهت
 
-```tsx
-<ButtonGroup>
-  <ButtonGroup />
-  <ButtonGroup />
-</ButtonGroup>
-```
+</div>
 
-### ButtonGroupSeparator
+<DocsCollapsible title="جهت">
 
-The `ButtonGroupSeparator` component visually divides buttons within a group.
+با prop به نام `orientation` می‌توانید چیدمان گروه را افقی یا عمودی کنید.
 
-| Prop          | Type                         | Default      |
-| ------------- | ---------------------------- | ------------ |
-| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` |
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-orientation"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-```tsx
-<ButtonGroup>
-  <Button>Button 1</Button>
-  <ButtonGroupSeparator />
-  <Button>Button 2</Button>
-</ButtonGroup>
-```
+</DocsCollapsible>
 
-### ButtonGroupText
+<div className="hidden">
 
-Use this component to display text within a button group.
+## اندازه
 
-| Prop     | Type                 | Default |
-| -------- | -------------------- | ------- |
-| `render` | `React.ReactElement` |         |
+</div>
 
-```tsx
-<ButtonGroup>
-  <ButtonGroupText>Text</ButtonGroupText>
-  <Button>Button</Button>
-</ButtonGroup>
-```
+<DocsCollapsible title="اندازه">
 
-Use the `render` prop to render a custom component as the text, for example a label.
+اندازه دکمه‌ها را با prop به نام `size` روی خود دکمه کنترل کنید.
 
-```tsx showLineNumbers
-import { ButtonGroupText } from "@/components/ui/button-group"
-import { Label } from "@/components/ui/label"
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-size"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-export function ButtonGroupTextDemo() {
-  return (
-    <ButtonGroup>
-      <ButtonGroupText render={<Label htmlFor="name" />}>Text</ButtonGroupText>
-      <Input placeholder="Type something here..." id="name" />
-    </ButtonGroup>
-  )
-}
-```
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تودرتو
+
+</div>
+
+<DocsCollapsible title="تودرتو">
+
+با قرار دادن چند `ButtonGroup` داخل هم، گروه‌هایی با فاصلهٔ مناسب بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-nested"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جداکننده
+
+</div>
+
+<DocsCollapsible title="جداکننده">
+
+کامپوننت `ButtonGroupSeparator` دکمه‌های داخل گروه را از نظر بصری جدا می‌کند.
+
+دکمه‌های `outline` معمولاً به جداکننده نیاز ندارند چون حاشیه دارند. برای سایر واریانت‌ها، جداکننده سلسله‌مراتب بصری را بهتر می‌کند.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-separator"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## دوتکه
+
+</div>
+
+<DocsCollapsible title="دوتکه">
+
+با دو دکمه و یک `ButtonGroupSeparator` بینشان، دکمهٔ دوتکه بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-split"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## ورودی
+
+</div>
+
+<DocsCollapsible title="ورودی">
+
+می‌توانید یک `Input` را همراه با دکمه داخل گروه قرار دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-input"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+با قرار دادن `InputGroup` داخل `ButtonGroup`، چیدمان‌های پیچیده‌تر بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-input-group"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## منوی کشویی
+
+</div>
+
+<DocsCollapsible title="منوی کشویی">
+
+گروه دوتکه را با `DropdownMenu` ترکیب کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-dropdown"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## انتخاب
+
+</div>
+
+<DocsCollapsible title="انتخاب">
+
+`ButtonGroup` را کنار کامپوننت `Select` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-select"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پاپ‌اور
+
+</div>
+
+<DocsCollapsible title="پاپ‌اور">
+
+گروه دکمه را با `Popover` ترکیب کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-popover"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="ButtonGroup"
+  description="ظرفی برای قرار دادن دکمه‌های مرتبط با ظاهر یکدست."
+  props={[
+    {
+      name: "orientation",
+      defaultValue: "horizontal",
+      description: "جهت چیدمان",
+      values: ["horizontal", "vertical"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ButtonGroupSeparator"
+  description="جداکنندهٔ بصری بین دکمه‌های داخل گروه."
+  props={[
+    {
+      name: "orientation",
+      defaultValue: "vertical",
+      description: "جهت جداکننده",
+      values: ["horizontal", "vertical"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ButtonGroupText"
+  description="نمایش متن داخل گروه دکمه. با prop به نام render می‌توانید عنصر دلخواه (مثل Label) رندر کنید."
+  props={[
+    {
+      name: "render",
+      description: "عنصر سفارشی به‌جای عنصر پیش‌فرض",
+      values: ["React.ReactElement"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

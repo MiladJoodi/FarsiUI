@@ -35,14 +35,17 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Keep prerender/build memory under Vercel limits (OOM was killing next build
-  // before routes-manifest.json was written).
+  // Keep prerender/build memory under Vercel’s ~8GB container limit.
   productionBrowserSourceMaps: false,
   enablePrerenderSourceMaps: false,
   experimental: {
-    cpus: 2,
+    cpus: 1,
+    webpackBuildWorker: true,
     webpackMemoryOptimizations: true,
     serverSourceMaps: false,
+    // Fewer parallel static workers → less peak RAM on Vercel.
+    staticGenerationMaxConcurrency: 2,
+    staticGenerationMinPagesPerWorker: 50,
     // Rewrite barrel imports to deep imports so a single icon doesn't pull the
     // whole package into the module graph. Next already optimizes lucide-react,
     // @tabler/icons-react, date-fns and lodash-es by default; these are the
@@ -54,8 +57,12 @@ const nextConfig = {
       "@remixicon/react",
     ],
   },
+  // Only trace heavy registry assets for routes that need them (not every page).
   outputFileTracingIncludes: {
-    "/*": ["./registry/**/*", "./styles/**/*"],
+    "/view/[style]/[name]": ["./registry/**/*", "./styles/**/*"],
+    "/preview/[base]/[name]": ["./registry/**/*", "./styles/**/*"],
+    "/preview/typeset/[name]": ["./registry/**/*", "./styles/**/*"],
+    "/examples/[base]/[name]": ["./registry/**/*", "./styles/**/*"],
   },
   images: {
     remotePatterns: [

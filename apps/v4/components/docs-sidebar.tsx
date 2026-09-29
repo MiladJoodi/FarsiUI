@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { PAGES_NEW } from "@/lib/docs"
+import { PAGES_NEW, splitDocTitle } from "@/lib/docs"
 import { DOCS_SIDEBAR_SCROLL_STORAGE_KEY } from "@/lib/docs-sidebar-scroll"
 import { showMcpDocs } from "@/lib/flags"
 import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
@@ -240,22 +240,38 @@ export function DocsSidebar({
                         return null
                       }
 
+                      const { fa, en } = splitDocTitle(String(page.name))
+                      const isNew = PAGES_NEW.includes(page.url)
+
                       return (
                         <SidebarMenuItem key={page.url}>
                           <SidebarMenuButton
                             asChild
                             isActive={page.url === pathname}
-                            className="relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+                            className="relative h-[30px] w-full max-w-(--sidebar-menu-width) overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                           >
-                            <Link href={page.url}>
-                              <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                              {page.name}
-                              {PAGES_NEW.includes(page.url) && (
+                            <Link
+                              href={page.url}
+                              className="flex w-full min-w-0 items-center justify-between gap-2"
+                            >
+                              <span className="flex min-w-0 items-center gap-1.5">
+                                <span className="truncate">{fa}</span>
+                                {isNew ? (
+                                  <span
+                                    className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                    title="New"
+                                  />
+                                ) : null}
+                              </span>
+                              {en ? (
                                 <span
-                                  className="flex size-2 rounded-full bg-blue-500"
-                                  title="New"
-                                />
-                              )}
+                                  dir="ltr"
+                                  lang="en"
+                                  className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                >
+                                  {en}
+                                </span>
+                              ) : null}
                             </Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
