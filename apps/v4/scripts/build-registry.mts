@@ -345,14 +345,17 @@ export function getComponent(styleName: string, name: string) {
     await formatGeneratedSource(dispatcher, indexPath)
   )
 
-  // Drop shards for styles that no longer exist.
+  // Drop shards / leftover dirs for styles that no longer exist.
   const expectedFiles = new Set([
     ...shards.map((shard) => `${shard.key}.tsx`),
     "index.tsx",
   ])
   for (const entry of await fs.readdir(outputDir)) {
     if (!expectedFiles.has(entry)) {
-      await fs.rm(path.join(outputDir, entry), { force: true })
+      await fs.rm(path.join(outputDir, entry), {
+        force: true,
+        recursive: true,
+      })
     }
   }
 }
@@ -418,7 +421,7 @@ async function getTransformCacheHash() {
 async function getTransformImplementationHash() {
   const dependencyFiles = [
     fileURLToPath(import.meta.url),
-    resolveFromScript("shadcn/utils"),
+    resolveFromScript("farsiui/utils"),
     path.resolve(process.cwd(), "../../pnpm-lock.yaml"),
   ]
   const dependencyContent = await Promise.all(
