@@ -7,28 +7,25 @@ import {
 
 export default function AccordionDisabled() {
   return (
-    <Accordion className="w-full">
+    <Accordion dir="rtl" className="w-full max-w-lg">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Can I access my account history?</AccordionTrigger>
+        <AccordionTrigger>آیا به تاریخچهٔ حساب دسترسی دارم؟</AccordionTrigger>
         <AccordionContent>
-          Yes, you can view your complete account history including all
-          transactions, plan changes, and support tickets in the Account History
-          section of your dashboard.
+          بله، تاریخچهٔ کامل تراکنش‌ها، تغییر پلن و تیکت‌های پشتیبانی در بخش
+          تاریخچهٔ حساب دیده می‌شود.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2" disabled>
-        <AccordionTrigger>Premium feature information</AccordionTrigger>
+        <AccordionTrigger>اطلاعات ویژگی‌های ویژه</AccordionTrigger>
         <AccordionContent>
-          This section contains information about premium features. Upgrade your
-          plan to access this content.
+          این بخش مربوط به ویژگی‌های ویژه است. برای دسترسی، پلن خود را ارتقا دهید.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger>How do I update my email address?</AccordionTrigger>
+        <AccordionTrigger>چطور ایمیل را عوض کنم؟</AccordionTrigger>
         <AccordionContent>
-          You can update your email address in your account settings.
-          You&apos;ll receive a verification email at your new address to
-          confirm the change.
+          از تنظیمات حساب می‌توانید ایمیل را تغییر دهید. برای تأیید، ایمیلی به
+          آدرس جدید ارسال می‌شود.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

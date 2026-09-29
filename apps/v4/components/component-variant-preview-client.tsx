@@ -27,10 +27,15 @@ import { cn } from "cn"
 
 import { CopyButton } from "@/components/copy-button"
 import {
+  DocsPreviewSwitcher,
+  DocsPreviewSwitcherStage,
+} from "@/components/docs-preview-switcher"
+import {
   BUTTON_SIZE_OPTIONS,
   ICON_SIZE_BY_BUTTON_SIZE,
   type ButtonSizeId,
   type VariantPreviewItem,
+  type VariantPreviewLayout,
 } from "@/components/component-variant-preview-shared"
 import {
   VariantPreviewSizeContext,
@@ -334,9 +339,11 @@ function GroupPreviewDemo({
 export function ComponentVariantPreviewClient({
   items,
   children,
+  layout = "gallery",
 }: {
   items: VariantPreviewItem[]
   children?: React.ReactNode
+  layout?: VariantPreviewLayout
 }) {
   const [selected, setSelected] = React.useState(items[0]?.name ?? "")
   const [size, setSize] = React.useState<ButtonSizeId>("default")
@@ -356,7 +363,7 @@ export function ComponentVariantPreviewClient({
     return null
   }
 
-  const sizeable = active.sizeable !== false
+  const sizeable = layout !== "switcher" && active.sizeable !== false
   const codeSize = sizeable ? size : "default"
   const sized = active.sized?.[codeSize]
   const activeCode = sized?.code ?? active.code
@@ -369,79 +376,120 @@ export function ComponentVariantPreviewClient({
     if (next) setSize(next.id)
   }
 
+  const activeLivePreview =
+    active.variant || active.demo ? (
+      <PreviewDemo item={active} size={size} />
+    ) : (
+      previews[selectedIndex]
+    )
+
   return (
     <div
-      data-slot="component-preview"
       data-not-typeset
-      className="group relative mt-4 mb-12 flex flex-col overflow-hidden rounded-2xl border"
+      className={cn(
+        "relative mt-4 mb-12 flex flex-col",
+        layout === "switcher" && "gap-2"
+      )}
     >
-      <div data-slot="preview" className="relative p-4 pb-11 sm:p-6 sm:pb-11">
-        <div className="preview relative flex w-full flex-wrap items-start justify-center gap-2 sm:gap-3">
-          <VariantPreviewSizeContext.Provider value={size}>
-            {items.map((item, index) => {
-              const isActive = item.name === active.name
-              const livePreview =
-                item.variant || item.demo ? (
-                  <PreviewDemo item={item} size={size} />
-                ) : (
-                  previews[index]
-                )
+      {layout === "switcher" ? (
+        <DocsPreviewSwitcher
+          className="justify-start"
+          options={items.map((item) => ({
+            id: item.name,
+            label: item.label,
+          }))}
+          value={active.name}
+          onValueChange={setSelected}
+        />
+      ) : null}
+      <div
+        data-slot="component-preview"
+        className="group relative flex flex-col overflow-hidden rounded-2xl border"
+      >
+        {layout === "switcher" ? (
+          <div data-slot="preview" className="relative p-4 sm:p-6">
+            <DocsPreviewSwitcherStage
+              role="tabpanel"
+              dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
+              className="text-start [&_[data-slot=accordion]]:w-full [&_[data-slot=accordion]]:max-w-lg"
+            >
+              <VariantPreviewSizeContext.Provider value={size}>
+                {activeLivePreview}
+              </VariantPreviewSizeContext.Provider>
+            </DocsPreviewSwitcherStage>
+          </div>
+        ) : (
+        <div
+          data-slot="preview"
+          className="relative p-6 pb-12 sm:px-8 sm:pt-8 sm:pb-12"
+        >
+          <div className="preview relative flex w-full flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <VariantPreviewSizeContext.Provider value={size}>
+              {items.map((item, index) => {
+                const isActive = item.name === active.name
+                const livePreview =
+                  item.variant || item.demo ? (
+                    <PreviewDemo item={item} size={size} />
+                  ) : (
+                    previews[index]
+                  )
 
-              return (
-                <div
-                  key={item.name}
-                  data-active={isActive}
-                  aria-label={item.label}
-                  dir={item.demo === "rtl" ? "rtl" : (item.direction ?? "ltr")}
-                  onClick={() => {
-                    setSelected(item.name)
-                  }}
-                  className={cn(
-                    "rounded-xl p-1 outline-none transition-shadow",
-                    "focus-within:ring-2 focus-within:ring-ring",
-                    isActive &&
-                      "ring-2 ring-ring ring-offset-2 ring-offset-background"
-                  )}
-                >
-                  {livePreview}
-                </div>
-              )
-            })}
-          </VariantPreviewSizeContext.Provider>
+                return (
+                  <div
+                    key={item.name}
+                    data-active={isActive}
+                    aria-label={item.label}
+                    dir={item.demo === "rtl" ? "rtl" : (item.direction ?? "ltr")}
+                    onClick={() => {
+                      setSelected(item.name)
+                    }}
+                    className={cn(
+                      "rounded-xl p-1 outline-none transition-shadow",
+                      "focus-within:ring-2 focus-within:ring-ring",
+                      isActive &&
+                        "ring-2 ring-ring ring-offset-2 ring-offset-background"
+                    )}
+                  >
+                    {livePreview}
+                  </div>
+                )
+              })}
+            </VariantPreviewSizeContext.Provider>
+          </div>
+
+          <div
+            className={cn(
+              "absolute end-3 bottom-3 z-10 flex items-center gap-1 rounded-full bg-background/90 p-0.5 backdrop-blur-sm",
+              !sizeable && "pointer-events-none opacity-40"
+            )}
+          >
+            <button
+              type="button"
+              aria-label="کوچک‌تر"
+              disabled={!sizeable || sizeIndex <= 0}
+              onClick={() => stepSize(-1)}
+              className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
+            >
+              <IconMinus className="size-3.5" />
+            </button>
+            <span className="min-w-16 px-1 text-center text-xs text-muted-foreground">
+              {BUTTON_SIZE_OPTIONS[sizeIndex]?.label}
+            </span>
+            <button
+              type="button"
+              aria-label="بزرگ‌تر"
+              disabled={!sizeable || sizeIndex >= BUTTON_SIZE_OPTIONS.length - 1}
+              onClick={() => stepSize(1)}
+              className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
+            >
+              <IconPlus className="size-3.5" />
+            </button>
+          </div>
         </div>
+        )}
 
         <div
-          className={cn(
-            "absolute end-3 bottom-3 z-10 flex items-center gap-1 rounded-full bg-background/90 p-0.5 backdrop-blur-sm",
-            !sizeable && "pointer-events-none opacity-40"
-          )}
-        >
-          <button
-            type="button"
-            aria-label="کوچک‌تر"
-            disabled={!sizeable || sizeIndex <= 0}
-            onClick={() => stepSize(-1)}
-            className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
-          >
-            <IconMinus className="size-3.5" />
-          </button>
-          <span className="min-w-16 px-1 text-center text-xs text-muted-foreground">
-            {BUTTON_SIZE_OPTIONS[sizeIndex]?.label}
-          </span>
-          <button
-            type="button"
-            aria-label="بزرگ‌تر"
-            disabled={!sizeable || sizeIndex >= BUTTON_SIZE_OPTIONS.length - 1}
-            onClick={() => stepSize(1)}
-            className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
-          >
-            <IconPlus className="size-3.5" />
-          </button>
-        </div>
-      </div>
-
-      <div
-        data-slot="code"
+          data-slot="code"
         data-mobile-code-visible={codeOpen}
         className="relative overflow-hidden border-t **:data-[slot=copy-button]:top-3 **:data-[slot=copy-button]:right-3 **:data-[slot=copy-button]:hidden data-[mobile-code-visible=true]:**:data-[slot=copy-button]:flex [&_[data-rehype-pretty-code-figure]]:m-0! [&_[data-rehype-pretty-code-figure]]:rounded-none"
       >
@@ -499,6 +547,7 @@ export function ComponentVariantPreviewClient({
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   )

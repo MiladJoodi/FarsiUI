@@ -35,6 +35,8 @@ export type VariantPreviewItem = {
   sized?: Partial<Record<ButtonSizeId, VariantPreviewSizedCode>>
 }
 
+export type VariantPreviewLayout = "gallery" | "switcher"
+
 export const ICON_SIZE_BY_BUTTON_SIZE: Record<
   ButtonSizeId,
   "icon-xs" | "icon-sm" | "icon" | "icon-lg"

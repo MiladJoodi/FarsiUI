@@ -215,9 +215,11 @@ export function Example() {
 export async function ComponentVariantPreview({
   styleName = "base-nova",
   examples,
+  layout = "gallery",
 }: {
   styleName?: string
   examples: ComponentVariantPreviewExample[]
+  layout?: "gallery" | "switcher"
 }) {
   const prepared = (
     await Promise.all(
@@ -309,7 +311,10 @@ export async function ComponentVariantPreview({
   }
 
   return (
-    <ComponentVariantPreviewClient items={prepared.map((item) => item.meta)}>
+    <ComponentVariantPreviewClient
+      items={prepared.map((item) => item.meta)}
+      layout={layout}
+    >
       {prepared.map((item) => {
         if (item.meta.variant || item.meta.demo) {
           return <div key={item.meta.name} />

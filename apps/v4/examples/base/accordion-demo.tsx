@@ -7,26 +7,26 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion defaultValue={["shipping"]} className="max-w-lg">
+    <Accordion dir="rtl" defaultValue={["shipping"]} className="w-full max-w-lg">
       <AccordionItem value="shipping">
-        <AccordionTrigger>What are your shipping options?</AccordionTrigger>
+        <AccordionTrigger>گزینه‌های ارسال چیست؟</AccordionTrigger>
         <AccordionContent>
-          We offer standard (5-7 days), express (2-3 days), and overnight
-          shipping. Free shipping on international orders.
+          ارسال عادی (۵ تا ۷ روز)، سریع (۲ تا ۳ روز) و overnight. برای سفارش‌های
+          بین‌المللی ارسال رایگان داریم.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="returns">
-        <AccordionTrigger>What is your return policy?</AccordionTrigger>
+        <AccordionTrigger>شرایط مرجوعی چگونه است؟</AccordionTrigger>
         <AccordionContent>
-          Returns accepted within 30 days. Items must be unused and in original
-          packaging. Refunds processed within 5-7 business days.
+          تا ۳۰ روز پس از خرید می‌توانید مرجوع کنید. کالا باید استفاده‌نشده و در
+          بسته‌بندی اصلی باشد. بازگشت وجه طی ۵ تا ۷ روز کاری انجام می‌شود.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="support">
-        <AccordionTrigger>How can I contact customer support?</AccordionTrigger>
+        <AccordionTrigger>چطور با پشتیبانی تماس بگیرم؟</AccordionTrigger>
         <AccordionContent>
-          Reach us via email, live chat, or phone. We respond within 24 hours
-          during business days.
+          از طریق ایمیل، گفتگوی آنلاین یا تلفن. در روزهای کاری معمولاً تا ۲۴
+          ساعت پاسخ می‌دهیم.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

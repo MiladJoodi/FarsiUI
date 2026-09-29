@@ -178,7 +178,7 @@ export function DocsSidebar({
       <SidebarContent
         ref={contentRef}
         data-docs-sidebar-content=""
-        className="w-(--sidebar-menu-width) scroll-fade scrollbar-none overflow-x-hidden pe-2.5"
+        className="w-full scroll-fade scrollbar-none overflow-x-hidden pe-2"
       >
         <SidebarGroup className="pt-12">
           <SidebarGroupLabel className="font-medium text-muted-foreground">
@@ -248,13 +248,13 @@ export function DocsSidebar({
                           <SidebarMenuButton
                             asChild
                             isActive={page.url === pathname}
-                            className="relative h-[30px] w-full max-w-(--sidebar-menu-width) overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                            className="relative h-[30px] w-full overflow-visible border border-transparent pe-0 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                           >
                             <Link
                               href={page.url}
-                              className="flex w-full min-w-0 items-center justify-between gap-2"
+                              className="flex w-full min-w-0 items-center gap-2"
                             >
-                              <span className="flex min-w-0 items-center gap-1.5">
+                              <span className="flex min-w-0 shrink items-center gap-1.5">
                                 <span className="truncate">{fa}</span>
                                 {isNew ? (
                                   <span
@@ -264,13 +264,19 @@ export function DocsSidebar({
                                 ) : null}
                               </span>
                               {en ? (
-                                <span
-                                  dir="ltr"
-                                  lang="en"
-                                  className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                                >
-                                  {en}
-                                </span>
+                                <>
+                                  <span
+                                    aria-hidden
+                                    className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                                  />
+                                  <span
+                                    dir="ltr"
+                                    lang="en"
+                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                  >
+                                    {en}
+                                  </span>
+                                </>
                               ) : null}
                             </Link>
                           </SidebarMenuButton>

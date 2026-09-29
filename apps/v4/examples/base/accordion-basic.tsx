@@ -8,27 +8,27 @@ import {
 const items = [
   {
     value: "item-1",
-    trigger: "How do I reset my password?",
+    trigger: "چطور رمز عبور را بازنشانی کنم؟",
     content:
-      "Click on 'Forgot Password' on the login page, enter your email address, and we'll send you a link to reset your password. The link will expire in 24 hours.",
+      "در صفحهٔ ورود روی «فراموشی رمز» بزنید، ایمیل خود را وارد کنید تا لینک بازنشانی برایتان ارسال شود. لینک تا ۲۴ ساعت معتبر است.",
   },
   {
     value: "item-2",
-    trigger: "Can I change my subscription plan?",
+    trigger: "می‌توانم پلن اشتراک را عوض کنم؟",
     content:
-      "Yes, you can upgrade or downgrade your plan at any time from your account settings. Changes will be reflected in your next billing cycle.",
+      "بله، هر زمان از تنظیمات حساب می‌توانید پلن را ارتقا یا کاهش دهید. تغییرات از دورهٔ صورتحساب بعدی اعمال می‌شود.",
   },
   {
     value: "item-3",
-    trigger: "What payment methods do you accept?",
+    trigger: "چه روش‌های پرداختی قبول می‌کنید؟",
     content:
-      "We accept all major credit cards, PayPal, and bank transfers. All payments are processed securely through our payment partners.",
+      "کارت‌های بانکی اصلی، PayPal و انتقال بانکی. همهٔ پرداخت‌ها از طریق شرکای امن پردازش می‌شوند.",
   },
 ]
 
-export function AccordionBasic() {
+export default function AccordionBasic() {
   return (
-    <Accordion defaultValue={["item-1"]} className="max-w-lg">
+    <Accordion dir="rtl" defaultValue={["item-1"]} className="w-full max-w-lg">
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{item.trigger}</AccordionTrigger>

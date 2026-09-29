@@ -83,6 +83,14 @@ const nextConfig = {
   turbopack: {
     root: path.resolve(import.meta.dirname, "../.."),
   },
+  webpack(config, { dev }) {
+    // Avoid PackFileCacheStrategy serializing multi‑100KiB registry strings on
+    // Vercel (warn-only locally, but can add memory pressure during CI build).
+    if (!dev && process.env.VERCEL) {
+      config.cache = { type: "memory" }
+    }
+    return config
+  },
   redirects() {
     return [
       // Form redirects to /docs/forms.

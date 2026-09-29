@@ -15,36 +15,35 @@ import {
 const items = [
   {
     value: "plans",
-    trigger: "What subscription plans do you offer?",
+    trigger: "چه پلن‌هایی دارید؟",
     content:
-      "We offer three subscription tiers: Starter ($9/month), Professional ($29/month), and Enterprise ($99/month). Each plan includes increasing storage limits, API access, priority support, and team collaboration features.",
+      "سه پلن: شروع ($۹ در ماه)، حرفه‌ای ($۲۹) و سازمانی ($۹۹). هر پلن محدودیت فضا، دسترسی API و پشتیبانی بیشتری دارد.",
   },
   {
     value: "billing",
-    trigger: "How does billing work?",
+    trigger: "صورتحساب چطور کار می‌کند؟",
     content:
-      "Billing occurs automatically at the start of each billing cycle. We accept all major credit cards, PayPal, and ACH transfers for enterprise customers. You'll receive an invoice via email after each payment.",
+      "در ابتدای هر دوره به‌صورت خودکار شارژ می‌شود. کارت بانکی، PayPal و برای سازمانی‌ها انتقال ACH پذیرفته می‌شود.",
   },
   {
     value: "cancel",
-    trigger: "How do I cancel my subscription?",
+    trigger: "چطور اشتراک را لغو کنم؟",
     content:
-      "You can cancel your subscription anytime from your account settings. There are no cancellation fees or penalties. Your access will continue until the end of your current billing period.",
+      "هر زمان از تنظیمات حساب می‌توانید لغو کنید. جریمه ندارد و دسترسی تا پایان دورهٔ فعلی ادامه دارد.",
   },
 ]
 
 export default function AccordionCard() {
   return (
-    <Card className="w-full max-w-sm">
+    <Card dir="rtl" className="w-full max-w-sm text-start">
       <CardHeader>
-        <CardTitle>Subscription & Billing</CardTitle>
+        <CardTitle>اشتراک و صورتحساب</CardTitle>
         <CardDescription>
-          Common questions about your account, plans, payments and
-          cancellations.
+          پرسش‌های رایج دربارهٔ حساب، پلن، پرداخت و لغو اشتراک.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Accordion defaultValue={["plans"]}>
+        <Accordion dir="rtl" defaultValue={["plans"]}>
           {items.map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger>{item.trigger}</AccordionTrigger>

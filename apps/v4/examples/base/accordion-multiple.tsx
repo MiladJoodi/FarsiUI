@@ -8,27 +8,27 @@ import {
 const items = [
   {
     value: "notifications",
-    trigger: "Notification Settings",
+    trigger: "تنظیمات اعلان",
     content:
-      "Manage how you receive notifications. You can enable email alerts for updates or push notifications for mobile devices.",
+      "نحوهٔ دریافت اعلان‌ها را مدیریت کنید. می‌توانید ایمیل یا اعلان موبایل را فعال کنید.",
   },
   {
     value: "privacy",
-    trigger: "Privacy & Security",
+    trigger: "حریم خصوصی و امنیت",
     content:
-      "Control your privacy settings and security preferences. Enable two-factor authentication, manage connected devices, review active sessions, and configure data sharing preferences. You can also download your data or delete your account.",
+      "تنظیمات حریم خصوصی و امنیت را کنترل کنید. احراز هویت دو مرحله‌ای، دستگاه‌های متصل و جلسات فعال را مدیریت کنید.",
   },
   {
     value: "billing",
-    trigger: "Billing & Subscription",
+    trigger: "صورتحساب و اشتراک",
     content:
-      "View your current plan, payment history, and upcoming invoices. Update your payment method, change your subscription tier, or cancel your subscription.",
+      "پلن فعلی، تاریخچهٔ پرداخت و فاکتورهای بعدی را ببینید. روش پرداخت را به‌روز کنید یا اشتراک را لغو کنید.",
   },
 ]
 
-export function AccordionMultiple() {
+export default function AccordionMultiple() {
   return (
-    <Accordion multiple className="max-w-lg" defaultValue={["notifications"]}>
+    <Accordion dir="rtl" multiple className="w-full max-w-lg" defaultValue={["notifications"]}>
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{item.trigger}</AccordionTrigger>

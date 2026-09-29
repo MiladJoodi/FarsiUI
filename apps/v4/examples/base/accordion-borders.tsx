@@ -8,28 +8,29 @@ import {
 const items = [
   {
     value: "billing",
-    trigger: "How does billing work?",
+    trigger: "صورتحساب چطور کار می‌کند؟",
     content:
-      "We offer monthly and annual subscription plans. Billing is charged at the beginning of each cycle, and you can cancel anytime. All plans include automatic backups, 24/7 support, and unlimited team members.",
+      "پلن‌های ماهانه و سالانه داریم. هزینه در ابتدای هر دوره گرفته می‌شود و هر زمان می‌توانید لغو کنید.",
   },
   {
     value: "security",
-    trigger: "Is my data secure?",
+    trigger: "اطلاعات من امن است؟",
     content:
-      "Yes. We use end-to-end encryption, SOC 2 Type II compliance, and regular third-party security audits. All data is encrypted at rest and in transit using industry-standard protocols.",
+      "بله. از رمزنگاری end-to-end، انطباق SOC 2 و ممیزی‌های امنیتی منظم استفاده می‌کنیم.",
   },
   {
     value: "integration",
-    trigger: "What integrations do you support?",
+    trigger: "چه یکپارچه‌سازی‌هایی دارید؟",
     content:
-      "We integrate with 500+ popular tools including Slack, Zapier, Salesforce, HubSpot, and more. You can also build custom integrations using our REST API and webhooks.",
+      "با بیش از ۵۰۰ ابزار محبوب مثل Slack و Zapier یکپارچه می‌شویم. با REST API و webhook هم می‌توانید اتصال سفارشی بسازید.",
   },
 ]
 
 export default function AccordionBorders() {
   return (
     <Accordion
-      className="max-w-lg rounded-lg border"
+      dir="rtl"
+      className="w-full max-w-lg rounded-lg border"
       defaultValue={["billing"]}
     >
       {items.map((item) => (
