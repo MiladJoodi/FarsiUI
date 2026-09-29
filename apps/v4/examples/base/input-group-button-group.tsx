@@ -13,7 +13,7 @@ import { Label } from "@/styles/base-nova/ui/label"
 
 export default function InputGroupButtonGroup() {
   return (
-    <ButtonGroup>
+    <ButtonGroup dir="ltr">
       <ButtonGroupText render={<Label htmlFor="url" />}>
         https://
       </ButtonGroupText>
