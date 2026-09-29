@@ -6,11 +6,11 @@ export default function ButtonWithIcon() {
   return (
     <div className="flex gap-2">
       <Button variant="outline">
-        <IconGitBranch data-icon="inline-start" /> شاخه جدید
-      </Button>
-      <Button variant="outline">
         فورک
         <IconGitFork data-icon="inline-end" />
+      </Button>
+      <Button variant="outline">
+        <IconGitBranch data-icon="inline-start" /> شاخه جدید
       </Button>
     </div>
   )

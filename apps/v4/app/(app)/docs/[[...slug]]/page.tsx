@@ -9,7 +9,16 @@ import { absoluteUrl } from "@/lib/utils"
 import { DocsBaseSwitcher } from "@/components/docs-base-switcher"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
+import { Badge } from "@/registry/new-york-v4/ui/badge"
 import { Button } from "@/registry/new-york-v4/ui/button"
+
+function splitDocTitle(title: string) {
+  const match = title.match(/^(.*?)\s*\(([^)]+)\)\s*$/)
+  if (!match) {
+    return { fa: title, en: null }
+  }
+  return { fa: match[1].trim(), en: match[2].trim() }
+}
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -81,6 +90,7 @@ export default async function Page(props: {
 
   const doc = page.data
   const MDX = doc.body
+  const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
   const isChangelog = params.slug?.[0] === "changelog"
   const neighbours = isChangelog
     ? { previous: null, next: null }
@@ -99,8 +109,18 @@ export default async function Page(props: {
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between md:items-start">
-                <h1 className="scroll-m-24 text-3xl font-semibold tracking-tight sm:text-3xl">
-                  {doc.title}
+                <h1 className="flex scroll-m-24 items-center gap-2.5 text-3xl font-semibold tracking-tight sm:text-3xl">
+                  <span>{titleFa}</span>
+                  {titleEn ? (
+                    <Badge
+                      variant="secondary"
+                      dir="ltr"
+                      lang="en"
+                      className="translate-y-px font-mono text-[0.7rem] font-medium tracking-wide text-muted-foreground"
+                    >
+                      {titleEn}
+                    </Badge>
+                  ) : null}
                 </h1>
                 <div className="docs-nav flex items-center gap-2">
                   <div className="ms-auto flex gap-2">

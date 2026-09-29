@@ -12,6 +12,7 @@ import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
 import { ComponentVariantPreview } from "@/components/component-variant-preview"
 import { DocsCollapsible } from "@/components/docs-collapsible"
+import { DocsApiProps } from "@/components/docs-api-props"
 import { ComponentsList } from "@/components/components-list"
 import { CopyButton } from "@/components/copy-button"
 import { DirectoryList } from "@/components/directory-list"
@@ -351,6 +352,7 @@ export const mdxComponents = {
   ComponentSource,
   ComponentVariantPreview,
   DocsCollapsible,
+  DocsApiProps,
   CodeCollapsibleWrapper,
   ComponentsList: ComponentsListWrapper,
   DirectoryList,

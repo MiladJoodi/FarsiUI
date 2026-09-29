@@ -1,5 +1,5 @@
 ---
-title: دکمه
+title: دکمه (Button)
 description: دکمه‌های تعاملی برای انجام عملیات مختلف
 featured: true
 base: base
@@ -9,16 +9,18 @@ component: true
 <ComponentVariantPreview
   styleName="base-nova"
   examples={[
-    { name: "button-default", label: "پیش‌فرض" },
-    { name: "button-outline", label: "حاشیه‌دار" },
-    { name: "button-secondary", label: "ثانویه" },
-    { name: "button-ghost", label: "شفاف" },
-    { name: "button-destructive", label: "خطرناک" },
-    { name: "button-link", label: "لینک" },
-    { name: "button-icon", label: "آیکونی" },
-    { name: "button-with-icon", label: "همراه با آیکون" },
-    { name: "button-rounded", label: "گرد" },
-    { name: "button-spinner", label: "بارگذاری" },
+    { name: "button-default", label: "پیش‌فرض", variant: "default" },
+    { name: "button-outline", label: "حاشیه‌دار", variant: "outline" },
+    { name: "button-secondary", label: "ثانویه", variant: "secondary" },
+    { name: "button-ghost", label: "شفاف", variant: "ghost" },
+    { name: "button-destructive", label: "خطرناک", variant: "destructive" },
+    { name: "button-link", label: "لینک", variant: "link" },
+    { name: "button-icon", label: "آیکونی", demo: "icon" },
+    { name: "button-with-icon", label: "همراه با آیکون", demo: "with-icon" },
+    { name: "button-rounded", label: "گرد", demo: "rounded" },
+    { name: "button-spinner", label: "بارگذاری", demo: "spinner" },
+    { name: "button-group-demo", label: "گروه دکمه‌ها", demo: "group" },
+    { name: "button-rtl", label: "راست‌به‌چپ", demo: "rtl", direction: "rtl" },
   ]}
 />
 
@@ -101,17 +103,21 @@ npx farsiui@latest init --pointer
 
 با استفاده از prop به نام `size` می‌توانید اندازه دکمه را تغییر دهید.
 
-<ComponentPreview styleName="base-nova" name="button-size" />
-
-## گروه دکمه‌ها
+<DocsCollapsible title="گروه دکمه‌ها">
 
 برای ساخت چند دکمه در کنار هم، از کامپوننت `ButtonGroup` استفاده کنید.
 
 برای اطلاعات بیشتر، مستندات [گروه دکمه‌ها](/docs/components/base/button-group) را ببینید.
 
-<ComponentPreview styleName="base-nova" name="button-group-demo" />
+<ComponentPreview
+  styleName="base-nova"
+  name="button-group-demo"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-## به‌عنوان لینک
+</DocsCollapsible>
+
+<DocsCollapsible title="به‌عنوان لینک">
 
 با استفاده از `buttonVariants` می‌توانید ظاهر یک لینک را شبیه دکمه کنید.
 
@@ -119,9 +125,15 @@ npx farsiui@latest init --pointer
 
 به‌جای آن، از `buttonVariants` همراه با یک تگ ساده `<a>` استفاده کنید.
 
-<ComponentPreview styleName="base-nova" name="button-render" />
+<ComponentPreview
+  styleName="base-nova"
+  name="button-render"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-## راست‌به‌چپ
+</DocsCollapsible>
+
+<DocsCollapsible title="راست‌به‌چپ">
 
 FarsiUI به‌صورت کامل از رابط‌های راست‌به‌چپ (RTL) پشتیبانی می‌کند.
 
@@ -129,13 +141,43 @@ FarsiUI به‌صورت کامل از رابط‌های راست‌به‌چپ (
 
 <ComponentPreview styleName="base-nova" name="button-rtl" direction="rtl" />
 
-## مرجع API
+</DocsCollapsible>
 
-### Button
+<DocsCollapsible title="مرجع API" defaultOpen>
 
-کامپوننت `Button` برای ساخت دکمه‌هایی با ظاهر و قابلیت‌های مختلف استفاده می‌شود.
+<DocsApiProps
+  title="Button"
+  description="کامپوننت Button برای ساخت دکمه‌هایی با ظاهر و قابلیت‌های مختلف استفاده می‌شود."
+  props={[
+    {
+      name: "variant",
+      defaultValue: "default",
+      description: "ظاهر دکمه",
+      values: [
+        "default",
+        "outline",
+        "ghost",
+        "destructive",
+        "secondary",
+        "link",
+      ],
+    },
+    {
+      name: "size",
+      defaultValue: "default",
+      description: "اندازه دکمه",
+      values: [
+        "default",
+        "xs",
+        "sm",
+        "lg",
+        "icon",
+        "icon-xs",
+        "icon-sm",
+        "icon-lg",
+      ],
+    },
+  ]}
+/>
 
-| Prop      | Type                                                                                 | Default     |
-| --------- | ------------------------------------------------------------------------------------ | ----------- |
-| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"`        | `"default"` |
-| `size`    | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | `"default"` |
+</DocsCollapsible>

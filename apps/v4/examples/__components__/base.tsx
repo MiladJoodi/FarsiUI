@@ -718,6 +718,38 @@ export const Components: Record<string, any> = {
       ) || "button-size"
     return { default: mod.default || mod[exportName] }
   }),
+  "button-size-default": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-size-default")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-size-default"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "button-size-lg": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-size-lg")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-size-lg"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "button-size-sm": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-size-sm")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-size-sm"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "button-size-xs": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-size-xs")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-size-xs"
+    return { default: mod.default || mod[exportName] }
+  }),
   "button-spinner": React.lazy(async () => {
     const mod = await import("@/examples/base/button-spinner")
     const exportName =

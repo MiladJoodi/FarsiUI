@@ -361,6 +361,22 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       name: "button-size",
       filePath: "examples/base/button-size.tsx",
     },
+    "button-size-default": {
+      name: "button-size-default",
+      filePath: "examples/base/button-size-default.tsx",
+    },
+    "button-size-lg": {
+      name: "button-size-lg",
+      filePath: "examples/base/button-size-lg.tsx",
+    },
+    "button-size-sm": {
+      name: "button-size-sm",
+      filePath: "examples/base/button-size-sm.tsx",
+    },
+    "button-size-xs": {
+      name: "button-size-xs",
+      filePath: "examples/base/button-size-xs.tsx",
+    },
     "button-spinner": {
       name: "button-spinner",
       filePath: "examples/base/button-spinner.tsx",

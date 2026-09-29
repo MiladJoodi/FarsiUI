@@ -35,53 +35,57 @@ export default function ButtonGroupDemo() {
   return (
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
-        <Button variant="outline" size="icon" aria-label="Go Back">
-          <ArrowLeftIcon />
+        <Button variant="outline" size="icon" aria-label="بازگشت">
+          <ArrowLeftIcon className="rtl:rotate-180" />
         </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline">Archive</Button>
-        <Button variant="outline">Report</Button>
+        <Button variant="outline">بایگانی</Button>
+        <Button variant="outline">گزارش</Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline">Snooze</Button>
+        <Button variant="outline">بعداً</Button>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="outline" size="icon" aria-label="More Options" />
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label="گزینه‌های بیشتر"
+              />
             }
           >
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-40">
+          <DropdownMenuContent align="end" className="w-44" dir="rtl">
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <MailCheckIcon />
-                Mark as Read
+                علامت به‌عنوان خوانده‌شده
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <ArchiveIcon />
-                Archive
+                بایگانی
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <ClockIcon />
-                Snooze
+                بعداً
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <CalendarPlusIcon />
-                Add to Calendar
+                افزودن به تقویم
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <ListFilterIcon />
-                Add to List
+                افزودن به فهرست
               </DropdownMenuItem>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>
                   <TagIcon />
-                  Label As...
+                  برچسب به‌عنوان...
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
                   <DropdownMenuRadioGroup
@@ -89,13 +93,13 @@ export default function ButtonGroupDemo() {
                     onValueChange={setLabel}
                   >
                     <DropdownMenuRadioItem value="personal">
-                      Personal
+                      شخصی
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="work">
-                      Work
+                      کاری
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="other">
-                      Other
+                      سایر
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuSubContent>
@@ -105,7 +109,7 @@ export default function ButtonGroupDemo() {
             <DropdownMenuGroup>
               <DropdownMenuItem variant="destructive">
                 <Trash2Icon />
-                Trash
+                حذف
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
