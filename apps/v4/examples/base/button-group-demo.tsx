@@ -13,10 +13,6 @@ import {
   Trash2Icon,
 } from "lucide-react"
 
-import {
-  useVariantPreviewIconSize,
-  useVariantPreviewSize,
-} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -35,45 +31,33 @@ import {
 
 export default function ButtonGroupDemo() {
   const [label, setLabel] = React.useState("personal")
-  const size = useVariantPreviewSize()
-  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup>
       <ButtonGroup className="hidden sm:flex">
-        <Button variant="outline" size={iconSize} aria-label="بازگشت">
-          <ArrowLeftIcon />
+        <Button variant="outline" size="icon" aria-label="بازگشت">
+          <ArrowLeftIcon className="rtl:rotate-180" />
         </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline" size={size}>
-          بایگانی
-        </Button>
-        <Button variant="outline" size={size}>
-          گزارش
-        </Button>
+        <Button variant="outline">بایگانی</Button>
+        <Button variant="outline">گزارش</Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline" size={size}>
-          بعداً
-        </Button>
+        <Button variant="outline">بعداً</Button>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button
-                variant="outline"
-                size={iconSize}
-                aria-label="گزینه‌های بیشتر"
-              />
+              <Button variant="outline" size="icon" aria-label="گزینه‌های بیشتر" />
             }
           >
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-44" dir="rtl">
+          <DropdownMenuContent align="start" className="w-52" dir="rtl">
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <MailCheckIcon />
-                علامت به‌عنوان خوانده‌شده
+                علامت خوانده‌شده
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <ArchiveIcon />
@@ -99,7 +83,7 @@ export default function ButtonGroupDemo() {
                   <TagIcon />
                   برچسب به‌عنوان...
                 </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuRadioGroup
                     value={label}
                     onValueChange={setLabel}

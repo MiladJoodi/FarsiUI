@@ -2,11 +2,11 @@ import { Badge } from "@/styles/base-nova/ui/badge"
 
 export default function BadgeDemo() {
   return (
-    <div className="flex w-full flex-wrap justify-center gap-2">
-      <Badge>Badge</Badge>
-      <Badge variant="secondary">Secondary</Badge>
-      <Badge variant="destructive">Destructive</Badge>
-      <Badge variant="outline">Outline</Badge>
+    <div dir="rtl" className="flex w-full flex-wrap justify-center gap-2">
+      <Badge>نشان</Badge>
+      <Badge variant="secondary">ثانویه</Badge>
+      <Badge variant="destructive">خطرناک</Badge>
+      <Badge variant="outline">حاشیه‌دار</Badge>
     </div>
   )
 }

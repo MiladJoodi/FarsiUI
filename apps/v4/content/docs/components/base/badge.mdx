@@ -1,24 +1,37 @@
 ---
-title: Badge
-description: Displays a badge or a component that looks like a badge.
+title: نشان (Badge)
+description: برچسب کوچک برای وضعیت و دسته‌بندی
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="badge-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "badge-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "badge-variants", label: "ظاهر", sizeable: false },
+    { name: "badge-icon", label: "آیکون", sizeable: false },
+    { name: "badge-spinner", label: "بارگذاری", sizeable: false },
+    { name: "badge-link", label: "لینک", sizeable: false },
+    { name: "badge-colors", label: "رنگ", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add badge
+npx farsiui@latest add badge
 ```
 
 </TabsContent>
@@ -27,7 +40,7 @@ npx shadcn@latest add badge
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="badge"
@@ -35,7 +48,7 @@ npx shadcn@latest add badge
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -43,59 +56,132 @@ npx shadcn@latest add badge
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
-```tsx
+```tsx showLineNumbers
 import { Badge } from "@/components/ui/badge"
 ```
 
-```tsx
-<Badge variant="default | outline | secondary | destructive">Badge</Badge>
+```tsx showLineNumbers
+<Badge variant="default">نشان</Badge>
 ```
 
-## Variants
+<div className="hidden">
 
-Use the `variant` prop to change the variant of the badge.
+## ظاهر
 
-<ComponentPreview styleName="base-nova" name="badge-variants" />
+</div>
 
-## With Icon
+<DocsCollapsible title="ظاهر">
 
-You can render an icon inside the badge. Use `data-icon="inline-start"` to render the icon on the left and `data-icon="inline-end"` to render the icon on the right.
+با استفاده از `variant` می‌توانید ظاهر نشان را بین `default`، `secondary`، `destructive`، `outline` و `ghost` تغییر دهید.
 
-<ComponentPreview styleName="base-nova" name="badge-icon" />
+<ComponentPreview
+  styleName="base-nova"
+  name="badge-variants"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-## With Spinner
+</DocsCollapsible>
 
-You can render a spinner inside the badge. Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` prop to the spinner.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="badge-spinner" />
+## آیکون
 
-## Link
+</div>
 
-Use the `render` prop to render a link as a badge.
+<DocsCollapsible title="آیکون">
 
-<ComponentPreview styleName="base-nova" name="badge-link" />
+می‌توانید داخل نشان آیکون بگذارید. با `data-icon="inline-start"` آیکون در ابتدا و با `data-icon="inline-end"` در انتها قرار می‌گیرد.
 
-## Custom Colors
+<ComponentPreview
+  styleName="base-nova"
+  name="badge-icon"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-You can customize the colors of a badge by adding custom classes such as `bg-green-50 dark:bg-green-800` to the `Badge` component.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="badge-colors" />
+<div className="hidden">
 
-## RTL
+## بارگذاری
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</div>
 
-<ComponentPreview styleName="base-nova" name="badge-rtl" direction="rtl" />
+<DocsCollapsible title="بارگذاری">
 
-## API Reference
+می‌توانید داخل نشان اسپینر بگذارید. حتماً `data-icon="inline-start"` یا `data-icon="inline-end"` را روی اسپینر تنظیم کنید.
 
-### Badge
+<ComponentPreview
+  styleName="base-nova"
+  name="badge-spinner"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-The `Badge` component displays a badge or a component that looks like a badge.
+</DocsCollapsible>
 
-| Prop        | Type                                                                          | Default     |
-| ----------- | ----------------------------------------------------------------------------- | ----------- |
-| `variant`   | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | `"default"` |
-| `className` | `string`                                                                      | -           |
+<div className="hidden">
+
+## لینک
+
+</div>
+
+<DocsCollapsible title="لینک">
+
+با prop به نام `render` می‌توانید نشان را به‌صورت لینک رندر کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="badge-link"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## رنگ
+
+</div>
+
+<DocsCollapsible title="رنگ">
+
+با کلاس‌های Tailwind روی `Badge` (مثل `bg-green-50 dark:bg-green-800`) رنگ سفارشی بدهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="badge-colors"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Badge"
+  description="برچسب کوچک برای وضعیت و دسته‌بندی."
+  props={[
+    {
+      name: "variant",
+      defaultValue: "default",
+      description: "ظاهر نشان",
+      values: [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link",
+      ],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

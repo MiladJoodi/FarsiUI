@@ -125,7 +125,7 @@ function DropdownMenuSubTrigger({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip ml-auto"
+        className="cn-rtl-flip ms-auto"
       />
     </MenuPrimitive.SubmenuTrigger>
   )
@@ -134,7 +134,7 @@ function DropdownMenuSubTrigger({
 function DropdownMenuSubContent({
   align = "start",
   alignOffset = -3,
-  side = "right",
+  side = "inline-end",
   sideOffset = 0,
   className,
   ...props

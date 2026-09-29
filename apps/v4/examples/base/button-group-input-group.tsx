@@ -3,7 +3,6 @@
 import * as React from "react"
 import { AudioLinesIcon, PlusIcon } from "lucide-react"
 
-import { useVariantPreviewIconSize } from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -20,12 +19,11 @@ import {
 
 export default function ButtonGroupInputGroup() {
   const [voiceEnabled, setVoiceEnabled] = React.useState(false)
-  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup className="[--radius:9999rem]">
       <ButtonGroup>
-        <Button variant="outline" size={iconSize}>
+        <Button variant="outline" size="icon" aria-label="پیوست">
           <PlusIcon />
         </Button>
       </ButtonGroup>
@@ -47,12 +45,13 @@ export default function ButtonGroupInputGroup() {
                     data-active={voiceEnabled}
                     className="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
                     aria-pressed={voiceEnabled}
+                    aria-label="حالت صدا"
                   />
                 }
               >
                 <AudioLinesIcon />
               </TooltipTrigger>
-              <TooltipContent>حالت صوتی</TooltipContent>
+              <TooltipContent>حالت صدا</TooltipContent>
             </Tooltip>
           </InputGroupAddon>
         </InputGroup>

@@ -1,15 +1,15 @@
 import { Badge } from "@/styles/base-nova/ui/badge"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function BadgeWithSpinner() {
+export default function BadgeWithSpinner() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div dir="rtl" className="flex flex-wrap items-center justify-center gap-2">
       <Badge variant="destructive">
         <Spinner data-icon="inline-start" />
-        Deleting
+        در حال حذف
       </Badge>
       <Badge variant="secondary">
-        Generating
+        در حال تولید
         <Spinner data-icon="inline-end" />
       </Badge>
     </div>

@@ -1,4 +1,5 @@
-import Link from "next/link"
+"use client"
+
 import { ChevronDownIcon, DotIcon } from "lucide-react"
 
 import {
@@ -17,40 +18,42 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function BreadcrumbDropdown() {
+export default function BreadcrumbDropdown() {
   return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <DotIcon />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<button className="flex items-center gap-1" />}
-            >
-              Components
-              <ChevronDownIcon data-icon="inline-end" className="size-3.5" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuGroup>
-                <DropdownMenuItem>Documentation</DropdownMenuItem>
-                <DropdownMenuItem>Themes</DropdownMenuItem>
-                <DropdownMenuItem>GitHub</DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <DotIcon />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+    <div dir="rtl" className="flex w-full justify-center">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <DotIcon />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={<button className="flex items-center gap-1" />}
+              >
+                کامپوننت‌ها
+                <ChevronDownIcon data-icon="inline-end" className="size-3.5" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent dir="rtl" align="start">
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>مستندات</DropdownMenuItem>
+                  <DropdownMenuItem>تم‌ها</DropdownMenuItem>
+                  <DropdownMenuItem>گیت‌هاب</DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <DotIcon />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbPage>مسیر</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
   )
 }

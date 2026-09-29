@@ -2,10 +2,6 @@
 
 import { BotIcon, ChevronDownIcon } from "lucide-react"
 
-import {
-  useVariantPreviewIconSize,
-  useVariantPreviewSize,
-} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -24,12 +20,9 @@ import {
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export default function ButtonGroupPopover() {
-  const size = useVariantPreviewSize()
-  const iconSize = useVariantPreviewIconSize()
-
   return (
     <ButtonGroup>
-      <Button variant="outline" size={size}>
+      <Button variant="outline">
         <BotIcon /> دستیار
       </Button>
       <Popover>
@@ -37,14 +30,14 @@ export default function ButtonGroupPopover() {
           render={
             <Button
               variant="outline"
-              size={iconSize}
+              size="icon"
               aria-label="باز کردن پاپ‌اور"
             />
           }
         >
           <ChevronDownIcon />
         </PopoverTrigger>
-        <PopoverContent align="end" className="rounded-xl text-sm" dir="rtl">
+        <PopoverContent align="start" className="rounded-xl text-sm" dir="rtl">
           <PopoverHeader>
             <PopoverTitle>شروع کار جدید با دستیار</PopoverTitle>
             <PopoverDescription>

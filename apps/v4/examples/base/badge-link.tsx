@@ -2,10 +2,10 @@ import { ArrowUpRightIcon } from "lucide-react"
 
 import { Badge } from "@/styles/base-nova/ui/badge"
 
-export function BadgeAsLink() {
+export default function BadgeAsLink() {
   return (
-    <Badge render={<a href="#link" />}>
-      Open Link <ArrowUpRightIcon data-icon="inline-end" />
+    <Badge dir="rtl" render={<a href="#link" />}>
+      باز کردن لینک <ArrowUpRightIcon data-icon="inline-end" />
     </Badge>
   )
 }

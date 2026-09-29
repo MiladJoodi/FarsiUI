@@ -3,7 +3,6 @@
 import * as React from "react"
 import { ArrowLeftIcon } from "lucide-react"
 
-import { useVariantPreviewIconSize } from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import { Input } from "@/styles/base-nova/ui/input"
@@ -23,7 +22,6 @@ const CURRENCIES = [
 
 export default function ButtonGroupSelect() {
   const [currency, setCurrency] = React.useState("$")
-  const iconSize = useVariantPreviewIconSize()
 
   return (
     <ButtonGroup>
@@ -48,8 +46,8 @@ export default function ButtonGroupSelect() {
         <Input placeholder="۱۰٫۰۰" pattern="[0-9]*" />
       </ButtonGroup>
       <ButtonGroup>
-        <Button aria-label="ارسال" size={iconSize} variant="outline">
-          <ArrowLeftIcon />
+        <Button aria-label="ارسال" size="icon" variant="outline">
+          <ArrowLeftIcon className="rtl:rotate-180" />
         </Button>
       </ButtonGroup>
     </ButtonGroup>

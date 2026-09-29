@@ -1,28 +1,36 @@
 ---
-title: Breadcrumb
-description: Displays the path to the current resource using a hierarchy of links.
+title: مسیر (Breadcrumb)
+description: نمایش مسیر صفحه جاری با سلسله‌مراتب لینک‌ها
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="breadcrumb-demo"
-  previewClassName="p-2"
+  layout="switcher"
+  examples={[
+    { name: "breadcrumb-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "breadcrumb-separator", label: "جداکننده", sizeable: false },
+    { name: "breadcrumb-dropdown", label: "منو", sizeable: false },
+    { name: "breadcrumb-ellipsis", label: "کوتاه‌شده", sizeable: false },
+    { name: "breadcrumb-link", label: "لینک", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add breadcrumb
+npx farsiui@latest add breadcrumb
 ```
 
 </TabsContent>
@@ -31,7 +39,7 @@ npx shadcn@latest add breadcrumb
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="breadcrumb"
@@ -39,7 +47,7 @@ npx shadcn@latest add breadcrumb
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +55,7 @@ npx shadcn@latest add breadcrumb
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -64,25 +72,33 @@ import {
 <Breadcrumb>
   <BreadcrumbList>
     <BreadcrumbItem>
-      <BreadcrumbLink render={<a href="/" />}>Home</BreadcrumbLink>
+      <BreadcrumbLink render={<a href="/" />}>خانه</BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
       <BreadcrumbLink render={<a href="/components" />}>
-        Components
+        کامپوننت‌ها
       </BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
-      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      <BreadcrumbPage>مسیر</BreadcrumbPage>
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Breadcrumb`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Breadcrumb`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
+
+<div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
 ```text
 Breadcrumb
@@ -97,106 +113,173 @@ Breadcrumb
         └── BreadcrumbPage
 ```
 
-## Basic
+</div>
 
-A basic breadcrumb with a home link and a components link.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="breadcrumb-basic" />
+<div className="hidden">
 
-## Custom separator
+## جداکننده
 
-Use a custom component as `children` for `<BreadcrumbSeparator />` to create a custom separator.
+</div>
 
-<ComponentPreview styleName="base-nova" name="breadcrumb-separator" />
+<DocsCollapsible title="جداکننده">
 
-## Dropdown
+با قرار دادن `children` داخل `<BreadcrumbSeparator />` می‌توانید جداکننده سفارشی بسازید.
 
-You can compose `<BreadcrumbItem />` with a `<DropdownMenu />` to create a dropdown in the breadcrumb.
+<ComponentPreview
+  styleName="base-nova"
+  name="breadcrumb-separator"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-<ComponentPreview styleName="base-nova" name="breadcrumb-dropdown" />
+</DocsCollapsible>
 
-## Collapsed
+<div className="hidden">
 
-We provide a `<BreadcrumbEllipsis />` component to show a collapsed state when the breadcrumb is too long.
+## منو
+
+</div>
+
+<DocsCollapsible title="منو">
+
+می‌توانید `<BreadcrumbItem />` را با `<DropdownMenu />` ترکیب کنید تا در مسیر یک منوی کشویی داشته باشید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="breadcrumb-dropdown"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کوتاه‌شده
+
+</div>
+
+<DocsCollapsible title="کوتاه‌شده">
+
+وقتی مسیر طولانی است، با `<BreadcrumbEllipsis />` می‌توانید بخش‌های میانی را کوتاه کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="breadcrumb-ellipsis"
-  previewClassName="p-2"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Link component
+</DocsCollapsible>
 
-To use a custom link component from your routing library, you can use the `render` prop on `<BreadcrumbLink />`.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="breadcrumb-link" />
+## لینک
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="لینک">
+
+برای استفاده از لینک اختصاصی روتر، prop به نام `render` را روی `<BreadcrumbLink />` تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
-  name="breadcrumb-rtl"
-  direction="rtl"
-  previewClassName="p-2"
+  name="breadcrumb-link"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-### Breadcrumb
+<div className="hidden">
 
-The `Breadcrumb` component is the root navigation element that wraps all breadcrumb components.
+## مرجع API
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+</div>
 
-### BreadcrumbList
+<DocsCollapsible title="مرجع API">
 
-The `BreadcrumbList` component displays the ordered list of breadcrumb items.
+<DocsApiProps
+  title="Breadcrumb"
+  description="عنصر ریشهٔ ناوبری که همهٔ بخش‌های مسیر را در بر می‌گیرد."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<DocsApiProps
+  title="BreadcrumbList"
+  description="لیست مرتب آیتم‌های مسیر."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-### BreadcrumbItem
+<DocsApiProps
+  title="BreadcrumbItem"
+  description="ظرف هر آیتم در مسیر."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-The `BreadcrumbItem` component wraps individual breadcrumb items.
+<DocsApiProps
+  title="BreadcrumbLink"
+  description="لینک قابل کلیک در مسیر."
+  props={[
+    {
+      name: "render",
+      description: "عنصر سفارشی برای رندر لینک (مثل Link روتر)",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<DocsApiProps
+  title="BreadcrumbPage"
+  description="صفحهٔ جاری در مسیر (غیرقابل کلیک)."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-### BreadcrumbLink
+<DocsApiProps
+  title="BreadcrumbSeparator"
+  description="جداکننده بین آیتم‌ها. با children می‌توانید آیکون پیش‌فرض را عوض کنید."
+  props={[
+    {
+      name: "children",
+      description: "جداکنندهٔ سفارشی",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-The `BreadcrumbLink` component displays a clickable link in the breadcrumb.
+<DocsApiProps
+  title="BreadcrumbEllipsis"
+  description="نشانگر کوتاه‌شدن مسیر برای آیتم‌های مخفی."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-### BreadcrumbPage
-
-The `BreadcrumbPage` component displays the current page in the breadcrumb (non-clickable).
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-### BreadcrumbSeparator
-
-The `BreadcrumbSeparator` component displays a separator between breadcrumb items. You can pass custom children to override the default separator icon.
-
-| Prop        | Type              | Default |
-| ----------- | ----------------- | ------- |
-| `children`  | `React.ReactNode` | -       |
-| `className` | `string`          | -       |
-
-### BreadcrumbEllipsis
-
-The `BreadcrumbEllipsis` component displays an ellipsis indicator for collapsed breadcrumb items.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+</DocsCollapsible>

@@ -11,10 +11,6 @@ import {
   VolumeOffIcon,
 } from "lucide-react"
 
-import {
-  useVariantPreviewIconSize,
-  useVariantPreviewSize,
-} from "@/components/component-variant-preview-size"
 import { Button } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import {
@@ -27,23 +23,18 @@ import {
 } from "@/styles/base-nova/ui/dropdown-menu"
 
 export default function ButtonGroupDropdown() {
-  const size = useVariantPreviewSize()
-  const iconSize = useVariantPreviewIconSize()
-
   return (
     <ButtonGroup>
-      <Button variant="outline" size={size}>
-        دنبال کردن
-      </Button>
+      <Button variant="outline">دنبال کردن</Button>
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="outline" size={iconSize} className="pl-2!" />
+            <Button variant="outline" size="icon" className="ps-2!" />
           }
         >
           <ChevronDownIcon />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-44" dir="rtl">
+        <DropdownMenuContent align="start" className="w-52" dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <VolumeOffIcon />
@@ -51,7 +42,7 @@ export default function ButtonGroupDropdown() {
             </DropdownMenuItem>
             <DropdownMenuItem>
               <CheckIcon />
-              علامت به‌عنوان خوانده‌شده
+              علامت خوانده‌شده
             </DropdownMenuItem>
             <DropdownMenuItem>
               <AlertTriangleIcon />

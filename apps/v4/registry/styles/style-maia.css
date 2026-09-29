@@ -208,11 +208,11 @@
 
   /* MARK: Button Group */
   .cn-button-group {
-    @apply has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-4xl;
+    @apply has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-e-4xl;
   }
 
   .cn-button-group-orientation-horizontal {
-    @apply [&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-4xl!;
+    @apply [&>[data-slot]:not(:has(~[data-slot]))]:rounded-e-4xl!;
   }
 
   .cn-button-group-orientation-vertical {
