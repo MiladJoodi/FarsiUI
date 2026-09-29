@@ -14,25 +14,25 @@ import {
 } from "@/styles/base-nova/ui/alert-dialog"
 import { Button } from "@/styles/base-nova/ui/button"
 
-export function AlertDialogWithMedia() {
+export default function AlertDialogWithMedia() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger
-        render={<Button variant="outline">Share Project</Button>}
-      />
-      <AlertDialogContent>
+      <AlertDialogTrigger render={<Button variant="outline" />}>
+        اشتراک پروژه
+      </AlertDialogTrigger>
+      <AlertDialogContent dir="rtl">
         <AlertDialogHeader>
           <AlertDialogMedia>
             <CircleFadingPlusIcon />
           </AlertDialogMedia>
-          <AlertDialogTitle>Share this project?</AlertDialogTitle>
+          <AlertDialogTitle>این پروژه را به اشتراک بگذارید؟</AlertDialogTitle>
           <AlertDialogDescription>
-            Anyone with the link will be able to view and edit this project.
+            هرکس لینک را داشته باشد می‌تواند پروژه را ببیند و ویرایش کند.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Share</AlertDialogAction>
+          <AlertDialogCancel>انصراف</AlertDialogCancel>
+          <AlertDialogAction>اشتراک‌گذاری</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

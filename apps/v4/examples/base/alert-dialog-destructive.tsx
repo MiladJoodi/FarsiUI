@@ -14,26 +14,26 @@ import {
 } from "@/styles/base-nova/ui/alert-dialog"
 import { Button } from "@/styles/base-nova/ui/button"
 
-export function AlertDialogDestructive() {
+export default function AlertDialogDestructive() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger
-        render={<Button variant="destructive">Delete Chat</Button>}
-      />
-      <AlertDialogContent size="sm">
+      <AlertDialogTrigger render={<Button variant="destructive" />}>
+        حذف گفتگو
+      </AlertDialogTrigger>
+      <AlertDialogContent size="sm" dir="rtl">
         <AlertDialogHeader>
           <AlertDialogMedia className="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
             <Trash2Icon />
           </AlertDialogMedia>
-          <AlertDialogTitle>Delete chat?</AlertDialogTitle>
+          <AlertDialogTitle>گفتگو حذف شود؟</AlertDialogTitle>
           <AlertDialogDescription>
-            This will permanently delete this chat conversation. View{" "}
-            <a href="#">Settings</a> delete any memories saved during this chat.
+            این گفتگو برای همیشه حذف می‌شود. برای مدیریت حافظه‌های ذخیره‌شده به{" "}
+            <a href="#">تنظیمات</a> بروید.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel variant="outline">Cancel</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
+          <AlertDialogCancel variant="outline">انصراف</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">حذف</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

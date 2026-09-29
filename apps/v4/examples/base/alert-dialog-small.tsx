@@ -11,22 +11,22 @@ import {
 } from "@/styles/base-nova/ui/alert-dialog"
 import { Button } from "@/styles/base-nova/ui/button"
 
-export function AlertDialogSmall() {
+export default function AlertDialogSmall() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger
-        render={<Button variant="outline">Show Dialog</Button>}
-      />
-      <AlertDialogContent size="sm">
+      <AlertDialogTrigger render={<Button variant="outline" />}>
+        نمایش دیالوگ
+      </AlertDialogTrigger>
+      <AlertDialogContent size="sm" dir="rtl">
         <AlertDialogHeader>
-          <AlertDialogTitle>Allow accessory to connect?</AlertDialogTitle>
+          <AlertDialogTitle>اجازهٔ اتصال لوازم جانبی؟</AlertDialogTitle>
           <AlertDialogDescription>
-            Do you want to allow the USB accessory to connect to this device?
+            آیا می‌خواهید این وسیلهٔ USB به دستگاه وصل شود؟
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Don&apos;t allow</AlertDialogCancel>
-          <AlertDialogAction>Allow</AlertDialogAction>
+          <AlertDialogCancel>اجازه نده</AlertDialogCancel>
+          <AlertDialogAction>اجازه بده</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

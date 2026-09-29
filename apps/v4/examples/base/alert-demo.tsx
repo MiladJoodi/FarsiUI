@@ -8,21 +8,19 @@ import {
 
 export default function AlertDemo() {
   return (
-    <div className="grid w-full max-w-md items-start gap-4">
+    <div dir="rtl" className="grid w-full max-w-md items-start gap-4">
       <Alert>
         <CheckCircle2Icon />
-        <AlertTitle>Payment successful</AlertTitle>
+        <AlertTitle>پرداخت موفق بود</AlertTitle>
         <AlertDescription>
-          Your payment of $29.99 has been processed. A receipt has been sent to
-          your email address.
+          مبلغ ۲۹٬۹۹۰ تومان پردازش شد. رسید به ایمیل شما ارسال شده است.
         </AlertDescription>
       </Alert>
       <Alert>
         <InfoIcon />
-        <AlertTitle>New feature available</AlertTitle>
+        <AlertTitle>قابلیت جدید</AlertTitle>
         <AlertDescription>
-          We&apos;ve added dark mode support. You can enable it in your account
-          settings.
+          حالت تاریک اضافه شد. از تنظیمات حساب می‌توانید آن را فعال کنید.
         </AlertDescription>
       </Alert>
     </div>

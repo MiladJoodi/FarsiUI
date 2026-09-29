@@ -8,12 +8,11 @@ import {
 
 export default function AlertDestructive() {
   return (
-    <Alert variant="destructive" className="max-w-md">
+    <Alert dir="rtl" variant="destructive" className="max-w-md">
       <AlertCircleIcon />
-      <AlertTitle>Payment failed</AlertTitle>
+      <AlertTitle>پرداخت انجام نشد</AlertTitle>
       <AlertDescription>
-        Your payment could not be processed. Please check your payment method
-        and try again.
+        تراکنش ناموفق بود. روش پرداخت را بررسی کنید و دوباره تلاش کنید.
       </AlertDescription>
     </Alert>
   )

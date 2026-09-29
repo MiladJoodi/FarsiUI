@@ -8,12 +8,11 @@ import {
 
 export default function AlertBasic() {
   return (
-    <Alert className="max-w-md">
+    <Alert dir="rtl" className="max-w-md">
       <CheckCircle2Icon />
-      <AlertTitle>Account updated successfully</AlertTitle>
+      <AlertTitle>حساب با موفقیت به‌روزرسانی شد</AlertTitle>
       <AlertDescription>
-        Your profile information has been saved. Changes will be reflected
-        immediately.
+        اطلاعات پروفایل ذخیره شد و بلافاصله در برنامه اعمال می‌شود.
       </AlertDescription>
     </Alert>
   )

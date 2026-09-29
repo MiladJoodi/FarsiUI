@@ -411,7 +411,7 @@ export function ComponentVariantPreviewClient({
             <DocsPreviewSwitcherStage
               role="tabpanel"
               dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
-              className="text-start [&_[data-slot=accordion]]:w-full [&_[data-slot=accordion]]:max-w-lg"
+              className="w-full text-start [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full"
             >
               <VariantPreviewSizeContext.Provider value={size}>
                 {activeLivePreview}

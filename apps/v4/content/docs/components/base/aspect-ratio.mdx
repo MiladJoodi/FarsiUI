@@ -1,24 +1,34 @@
 ---
-title: Aspect Ratio
-description: Displays content within a desired ratio.
+title: نسبت تصویر (Aspect Ratio)
+description: نمایش محتوا با نسبت عرض به ارتفاع مشخص
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview name="aspect-ratio-demo" styleName="base-nova" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "aspect-ratio-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "aspect-ratio-square", label: "مربع", sizeable: false },
+    { name: "aspect-ratio-portrait", label: "عمودی", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add aspect-ratio
+npx farsiui@latest add aspect-ratio
 ```
 
 </TabsContent>
@@ -27,13 +37,13 @@ npx shadcn@latest add aspect-ratio
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="aspect-ratio"
@@ -41,7 +51,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -49,7 +59,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { AspectRatio } from "@/components/ui/aspect-ratio"
@@ -57,46 +67,69 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 ```tsx showLineNumbers
 <AspectRatio ratio={16 / 9}>
-  <Image src="..." alt="Image" className="rounded-md object-cover" />
+  <Image src="..." alt="تصویر" className="rounded-md object-cover" />
 </AspectRatio>
 ```
 
-## Square
+<div className="hidden">
 
-A square aspect ratio component using the `ratio={1 / 1}` prop. This is useful for displaying images in a square format.
+## مربع
 
-<ComponentPreview name="aspect-ratio-square" styleName="base-nova" />
+</div>
 
-## Portrait
+<DocsCollapsible title="مربع">
 
-A portrait aspect ratio component using the `ratio={9 / 16}` prop. This is useful for displaying images in a portrait format.
+با `ratio={1 / 1}` نسبت مربعی می‌گیرید؛ مناسب تصاویر پروفایل و کارت‌های مربعی.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="aspect-ratio-square"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## عمودی
+
+</div>
+
+<DocsCollapsible title="عمودی">
+
+با `ratio={9 / 16}` نسبت عمودی (پرتره) می‌گیرید؛ مناسب Stories و تصاویر موبایل.
 
 <ComponentPreview
   styleName="base-nova"
   name="aspect-ratio-portrait"
-  previewClassName="h-96"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview
-  styleName="base-nova"
-  name="aspect-ratio-rtl"
-  direction="rtl"
-  previewClassName="h-96"
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="AspectRatio"
+  description="ظرفی که محتوا را در نسبت عرض به ارتفاع مشخص نگه می‌دارد."
+  props={[
+    {
+      name: "ratio",
+      description: "نسبت عرض به ارتفاع (مثلاً ۱۶ / ۹)",
+      values: ["number"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافه",
+      values: ["string"],
+    },
+  ]}
 />
 
-## API Reference
-
-### AspectRatio
-
-The `AspectRatio` component displays content within a desired ratio.
-
-| Prop        | Type     | Default | Required |
-| ----------- | -------- | ------- | -------- |
-| `ratio`     | `number` | -       | Yes      |
-| `className` | `string` | -       | No       |
-
-For more information, see the [Base UI documentation](https://base-ui.com/react/components/aspect-ratio#api-reference).
+</DocsCollapsible>

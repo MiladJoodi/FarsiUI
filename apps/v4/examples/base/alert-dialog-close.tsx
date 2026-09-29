@@ -11,22 +11,22 @@ import {
 } from "@/styles/base-nova/ui/alert-dialog"
 import { Button } from "@/styles/base-nova/ui/button"
 
-export default function AlertDialogDemo() {
+export default function AlertDialogCloseExample() {
   return (
     <AlertDialog>
       <AlertDialogTrigger render={<Button variant="outline" />}>
         نمایش دیالوگ
       </AlertDialogTrigger>
-      <AlertDialogContent dir="rtl">
+      <AlertDialogContent dir="rtl" showCloseButton>
         <AlertDialogHeader>
-          <AlertDialogTitle>مطمئن هستید؟</AlertDialogTitle>
+          <AlertDialogTitle>تغییرات ذخیره نشده</AlertDialogTitle>
           <AlertDialogDescription>
-            این عمل برگشت‌پذیر نیست و حساب شما برای همیشه از سرورها حذف می‌شود.
+            قبل از بستن صفحه، تغییرات را ذخیره کنید یا با ضربدر خارج شوید.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>انصراف</AlertDialogCancel>
-          <AlertDialogAction>ادامه</AlertDialogAction>
+          <AlertDialogAction>ذخیره</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

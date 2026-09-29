@@ -1,28 +1,35 @@
 ---
-title: Alert
-description: Displays a callout for user attention.
+title: هشدار (Alert)
+description: پیام برجسته برای جلب توجه کاربر
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="alert-demo"
-  previewClassName="h-auto sm:h-72 p-6"
+  layout="switcher"
+  examples={[
+    { name: "alert-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "alert-destructive", label: "خطرناک", sizeable: false },
+    { name: "alert-action", label: "عملیات", sizeable: false },
+    { name: "alert-colors", label: "رنگ", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add alert
+npx farsiui@latest add alert
 ```
 
 </TabsContent>
@@ -31,7 +38,7 @@ npx shadcn@latest add alert
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   styleName="base-nova"
@@ -39,7 +46,7 @@ npx shadcn@latest add alert
   title="components/ui/alert.tsx"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +54,7 @@ npx shadcn@latest add alert
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -61,19 +68,25 @@ import {
 ```tsx showLineNumbers
 <Alert>
   <InfoIcon />
-  <AlertTitle>Heads up!</AlertTitle>
+  <AlertTitle>توجه</AlertTitle>
   <AlertDescription>
-    You can add components and dependencies to your app using the cli.
+    می‌توانید با CLI کامپوننت و وابستگی به پروژه اضافه کنید.
   </AlertDescription>
   <AlertAction>
-    <Button variant="outline">Enable</Button>
+    <Button variant="outline">فعال‌سازی</Button>
   </AlertAction>
 </Alert>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `Alert`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Alert` از این ساختار استفاده کنید:
 
 ```text
 Alert
@@ -83,87 +96,117 @@ Alert
 └── AlertAction
 ```
 
-## Basic
+</DocsCollapsible>
 
-A basic alert with an icon, title and description.
+<div className="hidden">
 
-<ComponentPreview
-  styleName="base-nova"
-  name="alert-basic"
-  previewClassName="h-auto sm:h-72 p-6"
-/>
+## خطرناک
 
-## Destructive
+</div>
 
-Use `variant="destructive"` to create a destructive alert.
+<DocsCollapsible title="خطرناک">
+
+با prop به نام `variant` و مقدار `destructive` هشدار خطا یا هشدار مهم نمایش دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-destructive"
-  previewClassName="h-auto sm:h-72 p-6"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Action
+</DocsCollapsible>
 
-Use `AlertAction` to add a button or other action element to the alert.
+<div className="hidden">
+
+## عملیات
+
+</div>
+
+<DocsCollapsible title="عملیات">
+
+با `AlertAction` دکمه یا کنترل دیگری در گوشهٔ هشدار قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-action"
-  previewClassName="h-auto sm:h-72 p-6"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Custom Colors
+</DocsCollapsible>
 
-You can customize the alert colors by adding custom classes such as `bg-amber-50 dark:bg-amber-950` to the `Alert` component.
+<div className="hidden">
+
+## رنگ
+
+</div>
+
+<DocsCollapsible title="رنگ">
+
+با کلاس‌های Tailwind روی `Alert` (مثل `bg-amber-50 dark:bg-amber-950`) رنگ سفارشی بدهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-colors"
-  previewClassName="h-auto sm:h-72 p-6"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview
-  styleName="base-nova"
-  name="alert-rtl"
-  direction="rtl"
-  previewClassName="h-auto sm:h-72 p-6"
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Alert"
+  description="ظرف پیام برجسته برای توجه کاربر."
+  props={[
+    {
+      name: "variant",
+      defaultValue: "default",
+      description: "نوع ظاهر",
+      values: ["default", "destructive"],
+    },
+  ]}
 />
 
-## API Reference
+<DocsApiProps
+  title="AlertTitle"
+  description="عنوان هشدار."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافه",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### Alert
+<DocsApiProps
+  title="AlertDescription"
+  description="متن یا توضیح هشدار."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافه",
+      values: ["string"],
+    },
+  ]}
+/>
 
-The `Alert` component displays a callout for user attention.
+<DocsApiProps
+  title="AlertAction"
+  description="ناحیهٔ عمل (مثل دکمه) در گوشهٔ هشدار."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافه",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop      | Type                         | Default     |
-| --------- | ---------------------------- | ----------- |
-| `variant` | `"default" \| "destructive"` | `"default"` |
-
-### AlertTitle
-
-The `AlertTitle` component displays the title of the alert.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-### AlertDescription
-
-The `AlertDescription` component displays the description or content of the alert.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-### AlertAction
-
-The `AlertAction` component displays an action element (like a button) positioned absolutely in the top-right corner of the alert.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+</DocsCollapsible>

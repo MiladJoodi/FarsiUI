@@ -118,6 +118,14 @@ export const Components: Record<string, any> = {
       ) || "alert-dialog-basic"
     return { default: mod.default || mod[exportName] }
   }),
+  "alert-dialog-close": React.lazy(async () => {
+    const mod = await import("@/examples/base/alert-dialog-close")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "alert-dialog-close"
+    return { default: mod.default || mod[exportName] }
+  }),
   "alert-dialog-demo": React.lazy(async () => {
     const mod = await import("@/examples/base/alert-dialog-demo")
     const exportName =
@@ -548,6 +556,14 @@ export const Components: Record<string, any> = {
       Object.keys(mod).find(
         (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
       ) || "button-destructive"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "button-disabled": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-disabled")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-disabled"
     return { default: mod.default || mod[exportName] }
   }),
   "button-ghost": React.lazy(async () => {

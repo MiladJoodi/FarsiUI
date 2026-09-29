@@ -4,7 +4,7 @@ import { Button } from "@/styles/base-nova/ui/button"
 
 export default function ButtonRounded() {
   return (
-    <div className="flex gap-2">
+    <div dir="rtl" className="flex flex-wrap items-center justify-center gap-2">
       <Button variant="outline" size="icon" className="rounded-full">
         <ArrowUpIcon />
       </Button>

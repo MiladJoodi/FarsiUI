@@ -1,6 +1,6 @@
 ---
-title: Alert Dialog
-description: A modal dialog that interrupts the user with important content and expects a response.
+title: دیالوگ هشدار (Alert Dialog)
+description: دیالوگ مودال برای تأیید عملیات مهم
 featured: true
 base: base
 component: true
@@ -9,24 +9,32 @@ links:
   api: https://base-ui.com/react/components/alert-dialog#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="alert-dialog-demo"
-  previewClassName="h-56"
+  layout="switcher"
+  examples={[
+    { name: "alert-dialog-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "alert-dialog-close", label: "ضربدر", sizeable: false },
+    { name: "alert-dialog-small", label: "کوچک", sizeable: false },
+    { name: "alert-dialog-media", label: "رسانه", sizeable: false },
+    { name: "alert-dialog-small-media", label: "رسانه کوچک", sizeable: false },
+    { name: "alert-dialog-destructive", label: "خطرناک", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
+
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add alert-dialog
+npx farsiui@latest add alert-dialog
 ```
 
 </TabsContent>
@@ -35,13 +43,13 @@ npx shadcn@latest add alert-dialog
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="alert-dialog"
@@ -49,7 +57,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -57,7 +65,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -76,27 +84,32 @@ import {
 ```tsx showLineNumbers
 <AlertDialog>
   <AlertDialogTrigger render={<Button variant="outline" />}>
-    Show Dialog
+    نمایش دیالوگ
   </AlertDialogTrigger>
   <AlertDialogContent>
     <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogTitle>مطمئن هستید؟</AlertDialogTitle>
       <AlertDialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        from our servers.
+        این عمل برگشت‌پذیر نیست و حساب شما برای همیشه حذف می‌شود.
       </AlertDialogDescription>
     </AlertDialogHeader>
     <AlertDialogFooter>
-      <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction>Continue</AlertDialogAction>
+      <AlertDialogCancel>انصراف</AlertDialogCancel>
+      <AlertDialogAction>ادامه</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>
 </AlertDialog>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `AlertDialog`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `AlertDialog` از این ساختار استفاده کنید:
 
 ```text
 AlertDialog
@@ -111,75 +124,125 @@ AlertDialog
         └── AlertDialogAction
 ```
 
-## Basic
+</DocsCollapsible>
 
-A basic alert dialog with a title, description, and cancel and continue buttons.
+<div className="hidden">
+
+## ضربدر
+
+</div>
+
+<DocsCollapsible title="ضربدر">
+
+با `showCloseButton` روی `AlertDialogContent` دکمهٔ ضربدر در گوشهٔ دیالوگ نمایش داده می‌شود.
 
 <ComponentPreview
   styleName="base-nova"
-  name="alert-dialog-basic"
-  previewClassName="h-56"
+  name="alert-dialog-close"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Small
+</DocsCollapsible>
 
-Use the `size="sm"` prop to make the alert dialog smaller.
+<div className="hidden">
+
+## کوچک
+
+</div>
+
+<DocsCollapsible title="کوچک">
+
+با prop به نام `size` و مقدار `sm` روی `AlertDialogContent` دیالوگ کوچک‌تری بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-dialog-small"
-  previewClassName="h-56"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Media
+</DocsCollapsible>
 
-Use the `AlertDialogMedia` component to add a media element such as an icon or image to the alert dialog.
+<div className="hidden">
+
+## رسانه
+
+</div>
+
+<DocsCollapsible title="رسانه">
+
+با `AlertDialogMedia` می‌توانید آیکون یا تصویر به دیالوگ اضافه کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-dialog-media"
-  previewClassName="h-56"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Small with Media
+</DocsCollapsible>
 
-Use the `size="sm"` prop to make the alert dialog smaller and the `AlertDialogMedia` component to add a media element such as an icon or image to the alert dialog.
+<div className="hidden">
+
+## رسانه کوچک
+
+</div>
+
+<DocsCollapsible title="رسانه کوچک">
+
+`size="sm"` را با `AlertDialogMedia` ترکیب کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-dialog-small-media"
-  previewClassName="h-56"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Destructive
+</DocsCollapsible>
 
-Use the `AlertDialogAction` component to add a destructive action button to the alert dialog.
+<div className="hidden">
+
+## خطرناک
+
+</div>
+
+<DocsCollapsible title="خطرناک">
+
+برای عملیات مخرب، روی `AlertDialogAction` مقدار `variant="destructive"` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="alert-dialog-destructive"
-  previewClassName="h-56"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview
-  styleName="base-nova"
-  name="alert-dialog-rtl"
-  direction="rtl"
-  previewClassName="h-56"
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="AlertDialogContent"
+  description="محتوای دیالوگ هشدار."
+  props={[
+    {
+      name: "size",
+      defaultValue: "default",
+      description: "اندازه دیالوگ",
+      values: ["default", "sm"],
+    },
+    {
+      name: "showCloseButton",
+      defaultValue: "false",
+      description: "نمایش دکمهٔ ضربدر برای بستن",
+      values: ["true", "false"],
+    },
+  ]}
 />
 
-## API Reference
+برای جزئیات بیشتر به مستندات [Base UI](https://base-ui.com/react/components/alert-dialog#api-reference) مراجعه کنید.
 
-### size
-
-Use the `size` prop on the `AlertDialogContent` component to control the size of the alert dialog. It accepts the following values:
-
-| Prop   | Type                | Default     |
-| ------ | ------------------- | ----------- |
-| `size` | `"default" \| "sm"` | `"default"` |
-
-For more information about the other components and their props, see the [Base UI documentation](https://base-ui.com/react/components/alert-dialog#api-reference).
+</DocsCollapsible>

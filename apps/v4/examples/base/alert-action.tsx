@@ -8,14 +8,14 @@ import { Button } from "@/styles/base-nova/ui/button"
 
 export default function AlertActionExample() {
   return (
-    <Alert className="max-w-md">
-      <AlertTitle>Dark mode is now available</AlertTitle>
+    <Alert className="max-w-md" dir="rtl">
+      <AlertTitle>حالت تاریک اضافه شد</AlertTitle>
       <AlertDescription>
-        Enable it under your profile settings to get started.
+        از تنظیمات پروفایل می‌توانید آن را روشن کنید.
       </AlertDescription>
       <AlertAction>
         <Button size="xs" variant="default">
-          Enable
+          فعال‌سازی
         </Button>
       </AlertAction>
     </Alert>

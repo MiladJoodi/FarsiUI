@@ -5,6 +5,7 @@ import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog
 import { cn } from "cn"
 
 import { Button } from "@/registry/bases/base/ui/button"
+import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />
@@ -40,10 +41,13 @@ function AlertDialogOverlay({
 
 function AlertDialogContent({
   className,
+  children,
   size = "default",
+  showCloseButton = false,
   ...props
 }: AlertDialogPrimitive.Popup.Props & {
   size?: "default" | "sm"
+  showCloseButton?: boolean
 }) {
   return (
     <AlertDialogPortal>
@@ -56,7 +60,30 @@ function AlertDialogContent({
           className
         )}
         {...props}
-      />
+      >
+        {children}
+        {showCloseButton ? (
+          <AlertDialogPrimitive.Close
+            data-slot="alert-dialog-close"
+            render={
+              <Button
+                variant="ghost"
+                className="absolute top-2 end-2"
+                size="icon-sm"
+              />
+            }
+          >
+            <IconPlaceholder
+              lucide="XIcon"
+              tabler="IconX"
+              hugeicons="Cancel01Icon"
+              phosphor="XIcon"
+              remixicon="RiCloseLine"
+            />
+            <span className="sr-only">بستن</span>
+          </AlertDialogPrimitive.Close>
+        ) : null}
+      </AlertDialogPrimitive.Popup>
     </AlertDialogPortal>
   )
 }

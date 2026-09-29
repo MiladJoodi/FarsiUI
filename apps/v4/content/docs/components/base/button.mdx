@@ -8,18 +8,21 @@ component: true
 
 <ComponentVariantPreview
   styleName="base-nova"
+  layout="switcher"
   examples={[
-    { name: "button-default", label: "پیش‌فرض", variant: "default" },
-    { name: "button-outline", label: "حاشیه‌دار", variant: "outline" },
-    { name: "button-secondary", label: "ثانویه", variant: "secondary" },
-    { name: "button-ghost", label: "شفاف", variant: "ghost" },
-    { name: "button-destructive", label: "خطرناک", variant: "destructive" },
-    { name: "button-link", label: "لینک", variant: "link" },
-    { name: "button-disabled", label: "غیرفعال", demo: "disabled" },
-    { name: "button-icon", label: "آیکونی", demo: "icon" },
-    { name: "button-rounded", label: "گرد", demo: "rounded" },
-    { name: "button-spinner", label: "بارگذاری", demo: "spinner" },
-    { name: "button-group-demo", label: "گروه دکمه‌ها", demo: "group" },
+    { name: "button-default", label: "پیش‌فرض", sizeable: false },
+    { name: "button-outline", label: "حاشیه‌دار", sizeable: false },
+    { name: "button-secondary", label: "ثانویه", sizeable: false },
+    { name: "button-ghost", label: "شفاف", sizeable: false },
+    { name: "button-destructive", label: "خطرناک", sizeable: false },
+    { name: "button-link", label: "لینک", sizeable: false },
+    { name: "button-size", label: "اندازه", sizeable: false },
+    { name: "button-with-icon", label: "با آیکون", sizeable: false },
+    { name: "button-icon", label: "آیکونی", sizeable: false },
+    { name: "button-disabled", label: "غیرفعال", sizeable: false },
+    { name: "button-rounded", label: "گرد", sizeable: false },
+    { name: "button-spinner", label: "بارگذاری", sizeable: false },
+    { name: "button-render", label: "به‌عنوان لینک", sizeable: false },
   ]}
 />
 
@@ -77,6 +80,18 @@ import { Button } from "@/components/ui/button"
 
 <div className="hidden">
 
+## ظاهر
+
+</div>
+
+<DocsCollapsible title="ظاهر">
+
+با prop به نام `variant` ظاهر دکمه را عوض کنید: `default`، `outline`، `secondary`، `ghost`، `destructive` و `link`.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## نشانگر ماوس
 
 </div>
@@ -113,6 +128,30 @@ npx farsiui@latest init --pointer
 <DocsCollapsible title="اندازه">
 
 با استفاده از prop به نام `size` می‌توانید اندازه دکمه را تغییر دهید. مقادیر رایج: `xs`، `sm`، `default` و `lg`. برای دکمه‌های آیکونی از `icon`، `icon-xs`، `icon-sm` و `icon-lg` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-size"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آیکون و حالت
+
+</div>
+
+<DocsCollapsible title="آیکون و حالت">
+
+برای دکمه با متن و آیکون از `data-icon="inline-start"` یا `inline-end` استفاده کنید. دکمهٔ آیکونی، غیرفعال، گرد و حالت بارگذاری را در پلیر بالا ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="button-with-icon"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
 </DocsCollapsible>
 

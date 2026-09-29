@@ -61,6 +61,10 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       name: "alert-dialog-basic",
       filePath: "examples/base/alert-dialog-basic.tsx",
     },
+    "alert-dialog-close": {
+      name: "alert-dialog-close",
+      filePath: "examples/base/alert-dialog-close.tsx",
+    },
     "alert-dialog-demo": {
       name: "alert-dialog-demo",
       filePath: "examples/base/alert-dialog-demo.tsx",
@@ -276,6 +280,10 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
     "button-destructive": {
       name: "button-destructive",
       filePath: "examples/base/button-destructive.tsx",
+    },
+    "button-disabled": {
+      name: "button-disabled",
+      filePath: "examples/base/button-disabled.tsx",
     },
     "button-ghost": {
       name: "button-ghost",
