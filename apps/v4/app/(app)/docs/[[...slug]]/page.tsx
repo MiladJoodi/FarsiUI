@@ -4,11 +4,9 @@ import { mdxComponents } from "@/mdx-components"
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react"
 import { findNeighbour } from "fumadocs-core/page-tree"
 
-import { replaceComponentsList } from "@/lib/llm"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { DocsBaseSwitcher } from "@/components/docs-base-switcher"
-import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -87,7 +85,6 @@ export default async function Page(props: {
   const neighbours = isChangelog
     ? { previous: null, next: null }
     : findNeighbour(source.pageTree, page.url)
-  const raw = replaceComponentsList(await page.data.getText("raw"))
 
   return (
     <div
@@ -106,9 +103,6 @@ export default async function Page(props: {
                   {doc.title}
                 </h1>
                 <div className="docs-nav flex items-center gap-2">
-                  <div className="hidden sm:block">
-                    <DocsCopyPage page={raw} url={absoluteUrl(page.url)} />
-                  </div>
                   <div className="ms-auto flex gap-2">
                     {neighbours.previous && (
                       <Button

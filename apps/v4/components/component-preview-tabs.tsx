@@ -168,7 +168,7 @@ export function ComponentPreviewTabs({
                     setIsMobileCodeVisible(true)
                   }}
                 >
-                  View Code
+                  مشاهده کد
                 </Button>
               </div>
             </div>

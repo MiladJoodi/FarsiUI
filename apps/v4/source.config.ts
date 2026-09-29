@@ -2,6 +2,7 @@ import { defineConfig, defineDocs } from "fumadocs-mdx/config"
 import rehypePrettyCode from "rehype-pretty-code"
 
 import { transformers } from "@/lib/highlight-code"
+import { rehypeCodeFa } from "@/lib/rehype-code-fa"
 
 export default defineConfig({
   mdxOptions: {
@@ -17,6 +18,7 @@ export default defineConfig({
           transformers,
         },
       ])
+      plugins.push(rehypeCodeFa)
 
       return plugins
     },

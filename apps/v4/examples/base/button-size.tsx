@@ -7,31 +7,31 @@ export default function ButtonSize() {
     <div className="flex flex-col items-start gap-8 sm:flex-row">
       <div className="flex items-start gap-2">
         <Button size="xs" variant="outline">
-          Extra Small
+          خیلی کوچک
         </Button>
-        <Button size="icon-xs" aria-label="Submit" variant="outline">
+        <Button size="icon-xs" aria-label="ارسال" variant="outline">
           <ArrowUpRightIcon />
         </Button>
       </div>
       <div className="flex items-start gap-2">
         <Button size="sm" variant="outline">
-          Small
+          کوچک
         </Button>
-        <Button size="icon-sm" aria-label="Submit" variant="outline">
+        <Button size="icon-sm" aria-label="ارسال" variant="outline">
           <ArrowUpRightIcon />
         </Button>
       </div>
       <div className="flex items-start gap-2">
-        <Button variant="outline">Default</Button>
-        <Button size="icon" aria-label="Submit" variant="outline">
+        <Button variant="outline">معمولی</Button>
+        <Button size="icon" aria-label="ارسال" variant="outline">
           <ArrowUpRightIcon />
         </Button>
       </div>
       <div className="flex items-start gap-2">
         <Button variant="outline" size="lg">
-          Large
+          بزرگ
         </Button>
-        <Button size="icon-lg" aria-label="Submit" variant="outline">
+        <Button size="icon-lg" aria-label="ارسال" variant="outline">
           <ArrowUpRightIcon />
         </Button>
       </div>

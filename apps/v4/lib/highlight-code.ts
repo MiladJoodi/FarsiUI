@@ -100,12 +100,11 @@ export async function highlightCode(code: string, language: string = "tsx") {
   return withPersian
 }
 
-/** Arabic / Persian script + ZWNJ/ZWJ — wrapped so code can keep mono for Latin. */
-const PERSIAN_RUN =
-  /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\u200C\u200D]+/g
+import { PERSIAN_RUN } from "@/lib/rehype-code-fa"
 
 function wrapPersianTextInCodeHtml(html: string) {
   return html.replace(/>([^<]+)</g, (match, text: string) => {
+    PERSIAN_RUN.lastIndex = 0
     const wrapped = text.replace(
       PERSIAN_RUN,
       '<span class="code-fa">$&</span>'

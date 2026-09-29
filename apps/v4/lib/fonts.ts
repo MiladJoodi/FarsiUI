@@ -12,7 +12,7 @@ import { cn } from "cn"
  * Options: "estedad" | "vazirmatn"
  */
 export type UiFontName = "estedad" | "vazirmatn"
-export const ACTIVE_UI_FONT: UiFontName = "vazirmatn"
+export const ACTIVE_UI_FONT: UiFontName = "estedad"
 
 const fontEstedad = Estedad({
   subsets: ["arabic", "latin"],

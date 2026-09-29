@@ -10,6 +10,8 @@ import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { CodeTabs } from "@/components/code-tabs"
 import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
+import { ComponentVariantPreview } from "@/components/component-variant-preview"
+import { DocsCollapsible } from "@/components/docs-collapsible"
 import { ComponentsList } from "@/components/components-list"
 import { CopyButton } from "@/components/copy-button"
 import { DirectoryList } from "@/components/directory-list"
@@ -347,6 +349,8 @@ export const mdxComponents = {
   CodeTabs,
   ComponentPreview,
   ComponentSource,
+  ComponentVariantPreview,
+  DocsCollapsible,
   CodeCollapsibleWrapper,
   ComponentsList: ComponentsListWrapper,
   DirectoryList,

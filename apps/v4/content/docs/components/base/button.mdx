@@ -6,7 +6,21 @@ base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="button-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  examples={[
+    { name: "button-default", label: "پیش‌فرض" },
+    { name: "button-outline", label: "حاشیه‌دار" },
+    { name: "button-secondary", label: "ثانویه" },
+    { name: "button-ghost", label: "شفاف" },
+    { name: "button-destructive", label: "خطرناک" },
+    { name: "button-link", label: "لینک" },
+    { name: "button-icon", label: "آیکونی" },
+    { name: "button-with-icon", label: "همراه با آیکون" },
+    { name: "button-rounded", label: "گرد" },
+    { name: "button-spinner", label: "بارگذاری" },
+  ]}
+/>
 
 ## نصب
 
@@ -19,7 +33,7 @@ component: true
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add button
+npx farsiui@latest add button
 ```
 
 </TabsContent>
@@ -57,10 +71,10 @@ import { Button } from "@/components/ui/button"
 ```
 
 ```tsx
-<Button variant="outline">Button</Button>
+<Button variant="outline">دکمه</Button>
 ```
 
-## نشانگر ماوس
+<DocsCollapsible title="نشانگر ماوس">
 
 در Tailwind v4، مقدار پیش‌فرض `cursor` برای دکمه از `cursor: pointer` به `cursor: default` تغییر کرده است.
 
@@ -78,62 +92,16 @@ import { Button } from "@/components/ui/button"
 می‌توانید این قابلیت را هنگام راه‌اندازی پروژه نیز با گزینه `--pointer` فعال کنید:
 
 ```bash
-npx shadcn@latest init --pointer
+npx farsiui@latest init --pointer
 ```
+
+</DocsCollapsible>
 
 ## اندازه
 
 با استفاده از prop به نام `size` می‌توانید اندازه دکمه را تغییر دهید.
 
 <ComponentPreview styleName="base-nova" name="button-size" />
-
-## پیش‌فرض
-
-<ComponentPreview styleName="base-nova" name="button-default" />
-
-## Outline
-
-<ComponentPreview styleName="base-nova" name="button-outline" />
-
-## ثانویه
-
-<ComponentPreview styleName="base-nova" name="button-secondary" />
-
-## Ghost
-
-<ComponentPreview styleName="base-nova" name="button-ghost" />
-
-## مخرب
-
-<ComponentPreview styleName="base-nova" name="button-destructive" />
-
-## لینک
-
-<ComponentPreview styleName="base-nova" name="button-link" />
-
-## آیکون
-
-<ComponentPreview styleName="base-nova" name="button-icon" />
-
-## همراه با آیکون
-
-اگر دکمه شما آیکون دارد، برای تنظیم فاصله از `data-icon="inline-start"` یا `data-icon="inline-end"` استفاده کنید.
-
-<ComponentPreview styleName="base-nova" name="button-with-icon" />
-
-## گرد
-
-برای گرد کردن کامل دکمه، از کلاس `rounded-full` استفاده کنید.
-
-<ComponentPreview styleName="base-nova" name="button-rounded" />
-
-## حالت بارگذاری
-
-برای نمایش حالت بارگذاری، کامپوننت `<Spinner />` را داخل دکمه قرار دهید.
-
-برای تنظیم فاصله، روی spinner مقدار `data-icon="inline-start"` یا `data-icon="inline-end"` را تنظیم کنید.
-
-<ComponentPreview styleName="base-nova" name="button-spinner" />
 
 ## گروه دکمه‌ها
 
