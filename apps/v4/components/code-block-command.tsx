@@ -67,10 +67,11 @@ export function CodeBlockCommand({
   }, [packageManager, tabs])
 
   return (
-    <div className="overflow-x-auto">
+    <div dir="ltr" className="overflow-x-auto">
       <Tabs
         value={packageManager}
         className="gap-0"
+        dir="ltr"
         onValueChange={(value) => {
           setConfig({
             ...config,

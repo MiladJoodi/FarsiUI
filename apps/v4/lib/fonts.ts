@@ -17,11 +17,14 @@ export const ACTIVE_UI_FONT: UiFontName = "estedad"
 const fontEstedad = Estedad({
   subsets: ["arabic", "latin"],
   variable: "--font-estedad",
+  // Next has no size-adjust metrics for Estedad (Arabic); skip fallback generation.
+  adjustFontFallback: false,
 })
 
 const fontVazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
   variable: "--font-vazirmatn",
+  adjustFontFallback: false,
 })
 
 const fontMono = FontMono({

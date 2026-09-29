@@ -266,10 +266,22 @@
 
 @utility step {
   counter-increment: step;
+  position: relative;
 
-  &:before {
-    @apply mr-2 inline-flex size-6 items-center justify-center rounded-full border-background bg-muted text-center -indent-px font-mono text-sm font-medium md:absolute md:mt-[-4px] md:ml-[-50px] md:size-9 md:border-4;
+  &::before {
     content: counter(step);
+    @apply me-2 inline-flex size-6 items-center justify-center rounded-full border-background bg-muted text-center -indent-px font-mono text-sm font-medium;
+  }
+
+  @media (width >= 768px) {
+    &::before {
+      position: absolute;
+      inset-inline-start: -3.125rem; /* 50px — outside the step rail */
+      inset-inline-end: auto;
+      top: -0.25rem;
+      margin-inline-end: 0;
+      @apply size-9 border-4;
+    }
   }
 }
 

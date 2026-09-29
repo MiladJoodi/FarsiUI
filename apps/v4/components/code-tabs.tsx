@@ -19,7 +19,7 @@ export function CodeTabs({ children }: React.ComponentProps<typeof Tabs>) {
         setConfig({ ...config, installationType: value as "cli" | "manual" })
       }
       dir="rtl"
-      className="relative mt-6 w-full *:data-[slot=tabs-list]:ml-auto *:data-[slot=tabs-list]:gap-6"
+      className="relative mt-6 w-full *:data-[slot=tabs-list]:ml-auto *:data-[slot=tabs-list]:gap-6 [&_[data-rehype-pretty-code-figure]]:dir-ltr [&_pre]:dir-ltr"
     >
       {children}
     </Tabs>
