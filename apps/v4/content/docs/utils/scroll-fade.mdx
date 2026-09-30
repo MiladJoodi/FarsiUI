@@ -1,6 +1,6 @@
 ---
 title: محو اسکرول
-description: Utilities for adding a fade effect to the edges of a scroll container.
+description: Utility برای اضافه کردن افکت محو شدن به لبه‌های یک کانتینر اسکرول.
 ---
 
 <ComponentPreview
@@ -9,61 +9,63 @@ description: Utilities for adding a fade effect to the edges of a scroll contain
   previewClassName="h-auto"
 />
 
-## Installation
+## نصب
 
-If your project was set up with `npx shadcn@latest init`, you already have `scroll-fade`. It ships with the `shadcn` package, which the CLI imports in your global CSS file.
+اگر پروژه را با **`npx farsiui@latest init`** راه‌اندازی کرده باشید، `scroll-fade` از قبل در پروژه شما وجود دارد. این Utility همراه پکیج **`farsiui`** ارائه می‌شود و CLI آن را در فایل CSS سراسری پروژه وارد می‌کند.
 
-Otherwise, install the `shadcn` package:
+در غیر این صورت، پکیج **`farsiui`** را نصب کنید:
 
 ```bash
-npm install shadcn
+npm install farsiui
 ```
 
-Then import the shared utilities in your global CSS file:
+سپس Utilityهای مشترک را در فایل CSS سراسری پروژه وارد کنید:
 
 ```css
 @import "tailwindcss";
 @import "farsiui/tailwind.css";
 ```
 
-## Usage
+## استفاده
 
-| Class                             | Styles                                                                                                              |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `scroll-fade`                     | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));` <br /> `animation-timeline: scroll(self y);`       |
-| `scroll-fade-y`                   | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));` <br /> `animation-timeline: scroll(self y);`       |
-| `scroll-fade-x`                   | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-inline));` <br /> `animation-timeline: scroll(self inline);` |
-| `scroll-fade-t`                   | Fade mask on the top edge. <br /> `animation-timeline: scroll(self y);`                                             |
-| `scroll-fade-b`                   | Fade mask on the bottom edge. <br /> `animation-timeline: scroll(self y);`                                          |
-| `scroll-fade-l`                   | Fade mask on the left edge. <br /> `animation-timeline: scroll(self x);`                                            |
-| `scroll-fade-r`                   | Fade mask on the right edge. <br /> `animation-timeline: scroll(self x);`                                           |
-| `scroll-fade-s`                   | Fade mask on the start edge, mirrors in RTL. <br /> `animation-timeline: scroll(self inline);`                      |
-| `scroll-fade-e`                   | Fade mask on the end edge, mirrors in RTL. <br /> `animation-timeline: scroll(self inline);`                        |
-| `scroll-fade-<number>`            | `--scroll-fade-size: calc(var(--spacing) * <number>);`                                                              |
-| `scroll-fade-[<value>]`           | `--scroll-fade-size: <value>;`                                                                                      |
-| `scroll-fade-{t,b,s,e}-<number>`  | `--scroll-fade-{t,b,s,e}-size: calc(var(--spacing) * <number>);`                                                    |
-| `scroll-fade-{t,b,s,e}-[<value>]` | `--scroll-fade-{t,b,s,e}-size: <value>;`                                                                            |
-| `scroll-fade-none`                | `--scroll-fade-mask: none;`                                                                                         |
+| کلاس                                  | کاربرد                                           |
+| ------------------------------------- | ------------------------------------------------ |
+| **`scroll-fade`**                     | محو شدن لبه‌های عمودی و دنبال کردن موقعیت اسکرول |
+| **`scroll-fade-y`**                   | مشابه `scroll-fade` برای محور عمودی              |
+| **`scroll-fade-x`**                   | محو شدن لبه‌های افقی و دنبال کردن موقعیت اسکرول  |
+| **`scroll-fade-t`**                   | محو شدن لبهٔ بالایی                              |
+| **`scroll-fade-b`**                   | محو شدن لبهٔ پایینی                              |
+| **`scroll-fade-l`**                   | محو شدن لبهٔ چپ                                  |
+| **`scroll-fade-r`**                   | محو شدن لبهٔ راست                                |
+| **`scroll-fade-s`**                   | محو شدن لبهٔ شروع؛ در RTL معکوس می‌شود           |
+| **`scroll-fade-e`**                   | محو شدن لبهٔ پایان؛ در RTL معکوس می‌شود          |
+| **`scroll-fade-<number>`**            | تعیین اندازهٔ محو شدن بر اساس spacing            |
+| **`scroll-fade-[<value>]`**           | تعیین مقدار دلخواه برای اندازهٔ محو شدن          |
+| **`scroll-fade-{t,b,s,e}-<number>`**  | تعیین اندازهٔ جداگانه برای هر لبه                |
+| **`scroll-fade-{t,b,s,e}-[<value>]`** | تعیین مقدار دلخواه برای هر لبه                   |
+| **`scroll-fade-none`**                | غیرفعال کردن افکت محو شدن                        |
 
-Add `scroll-fade` or `scroll-fade-y` to the scroll container, i.e. the element that has `overflow-y-auto`.
+کلاس **`scroll-fade`** یا **`scroll-fade-y`** را روی همان عنصری قرار دهید که قابلیت اسکرول عمودی دارد:
 
 ```tsx
 <div className="scroll-fade overflow-y-auto">{/* ... */}</div>
 ```
 
-The fade is scroll-aware and tracks the scroll position:
+افکت محو شدن با موقعیت اسکرول هماهنگ است:
 
-- At rest, the top edge is crisp and the bottom edge fades to hint at more content.
-- As you scroll, a fade appears at the top and both edges stay faded mid-scroll.
-- At the end, the bottom edge sharpens to show you have reached the last item.
+- در حالت اولیه، لبهٔ بالا واضح و لبهٔ پایین محو است تا وجود محتوای بیشتر مشخص شود.
+- هنگام اسکرول، محو شدن در لبهٔ بالا ظاهر می‌شود و هر دو لبه در میانهٔ مسیر محو می‌مانند.
+- در انتهای محتوا، لبهٔ پایین دوباره واضح می‌شود.
 
-The fade is applied with `mask-image`, so it dissolves the content itself rather than overlaying a color. The mask uses a linear fade from transparent to black, so it adapts to any background without configuration. If your scroll area sits inside a card, put the background and border on a wrapper and `scroll-fade` on the inner scroller, so the fade dissolves the content and not the card.
+این افکت با **`mask-image`** اعمال می‌شود؛ بنابراین خود محتوا را محو می‌کند و روی آن یک رنگ قرار نمی‌دهد. ماسک از یک طیف شفاف تا مشکی استفاده می‌کند و با هر پس‌زمینه‌ای سازگار است.
 
-The [`ScrollArea`](/docs/components/scroll-area) and [`MessageScroller`](/docs/components/message-scroller) components can use `scroll-fade` on their scrollable viewport.
+اگر ناحیهٔ اسکرول داخل یک Card قرار دارد، پس‌زمینه و Border را روی Wrapper قرار دهید و **`scroll-fade`** را روی اسکرولر داخلی بگذارید تا افکت فقط محتوای داخلی را محو کند.
 
-## No Overflow, No Fade
+کامپوننت‌های [**`ScrollArea`**](/docs/components/scroll-area) و [**`MessageScroller`**](/docs/components/message-scroller) نیز می‌توانند از `scroll-fade` روی Viewport قابل اسکرول خود استفاده کنند.
 
-If the content does not overflow, no fade is shown. You can apply `scroll-fade` to any list without checking whether it scrolls.
+## بدون Overflow، بدون محو شدن
+
+اگر محتوا از اندازهٔ کانتینر بیشتر نباشد، هیچ افکت محوی نمایش داده نمی‌شود. بنابراین می‌توانید `scroll-fade` را روی هر لیستی قرار دهید و نیازی نیست ابتدا بررسی کنید که قابل اسکرول است یا نه.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -71,9 +73,9 @@ If the content does not overflow, no fade is shown. You can apply `scroll-fade` 
   previewClassName="h-auto"
 />
 
-## Horizontal Scrolling
+## اسکرول افقی
 
-Use `scroll-fade-x` on containers that scroll horizontally, i.e. the element that has `overflow-x-auto`.
+برای کانتینرهایی که به‌صورت افقی اسکرول می‌شوند، یعنی دارای **`overflow-x-auto`** هستند، از **`scroll-fade-x`** استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -85,11 +87,13 @@ Use `scroll-fade-x` on containers that scroll horizontally, i.e. the element tha
 <div className="flex scroll-fade-x overflow-x-auto">{/* ... */}</div>
 ```
 
-The horizontal fade is direction-aware. In RTL layouts, the crisp edge and the fade follow the reading direction with no extra classes needed. `scroll-fade-<number>` and `scroll-fade-none` work the same for both axes.
+محو شدن افقی با جهت متن هماهنگ است. در Layoutهای RTL، لبهٔ واضح و محو به‌صورت خودکار با جهت خواندن جابه‌جا می‌شوند و نیازی به کلاس اضافی نیست.
 
-## Edge Fades
+کلاس‌های **`scroll-fade-<number>`** و **`scroll-fade-none`** نیز برای هر دو محور به یک شکل کار می‌کنند.
 
-Use edge utilities when only one edge should track the scroll position.
+## محو شدن لبه‌ها
+
+وقتی فقط می‌خواهید یک لبه موقعیت اسکرول را دنبال کند، از Utilityهای مخصوص لبه استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -101,11 +105,17 @@ Use edge utilities when only one edge should track the scroll position.
 <div className="scroll-fade-b overflow-y-auto">{/* ... */}</div>
 ```
 
-The edge utilities are scroll-aware. Start edges fade in after you scroll away from the start, and end edges fade out when you reach the end. Use `scroll-fade-t`, `scroll-fade-b`, `scroll-fade-l`, and `scroll-fade-r` for physical edges. Use `scroll-fade-s` and `scroll-fade-e` for logical inline edges that mirror in RTL.
+Utilityهای لبه نیز با موقعیت اسکرول هماهنگ هستند. لبهٔ شروع پس از فاصله گرفتن از ابتدای محتوا محو می‌شود و لبهٔ پایان هنگام نزدیک شدن به انتهای محتوا از حالت محو خارج می‌شود.
 
-## Fade Size
+برای لبه‌های فیزیکی از **`scroll-fade-t`**، **`scroll-fade-b`**، **`scroll-fade-l`** و **`scroll-fade-r`** استفاده کنید.
 
-The fade depth defaults to `12%` of the container, capped at `40px` so tall scrollers stay subtle. Use `scroll-fade-<number>` to set a fixed size on the spacing scale instead, the same way `scroll-mt-<number>` works.
+برای لبه‌های منطقی در محور Inline که در RTL نیز به‌صورت خودکار معکوس می‌شوند، از **`scroll-fade-s`** و **`scroll-fade-e`** استفاده کنید.
+
+## اندازهٔ محو شدن
+
+عمق محو شدن به‌صورت پیش‌فرض **`12%`** از اندازهٔ کانتینر است و حداکثر تا **`40px`** محدود می‌شود تا در اسکرولرهای بلند نیز ظریف باقی بماند.
+
+با **`scroll-fade-<number>`** می‌توانید اندازهٔ ثابتی را بر اساس مقیاس Spacing تعیین کنید؛ مشابه نحوهٔ کار **`scroll-mt-<number>`**.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -117,13 +127,15 @@ The fade depth defaults to `12%` of the container, capped at `40px` so tall scro
 <div className="scroll-fade overflow-y-auto scroll-fade-24">{/* ... */}</div>
 ```
 
-For one-off values, use an arbitrary length or percentage:
+برای مقدارهای دلخواه می‌توانید از مقدار Arbitrary به‌صورت طول یا درصد استفاده کنید:
 
 ```tsx
 <div className="scroll-fade overflow-y-auto scroll-fade-[15%]">{/* ... */}</div>
 ```
 
-To fade opposite edges by different amounts, use the per-edge modifiers `scroll-fade-t-<number>`, `scroll-fade-b-<number>`, `scroll-fade-s-<number>`, and `scroll-fade-e-<number>`. They override `scroll-fade-<number>` on the edge they target and accept arbitrary values too.
+برای تعیین اندازهٔ متفاوت در لبه‌های مختلف، از Modifierهای **`scroll-fade-t-<number>`**، **`scroll-fade-b-<number>`**، **`scroll-fade-s-<number>`** و **`scroll-fade-e-<number>`** استفاده کنید.
+
+این Modifierها مقدار **`scroll-fade-<number>`** را برای لبهٔ موردنظر Override می‌کنند و مقدار Arbitrary نیز می‌پذیرند:
 
 ```tsx
 <div className="scroll-fade overflow-y-auto scroll-fade-b-8 scroll-fade-t-2">
@@ -131,9 +143,11 @@ To fade opposite edges by different amounts, use the per-edge modifiers `scroll-
 </div>
 ```
 
-Use the logical `s`/`e` modifiers for horizontal scrollers so the sizes mirror in RTL.
+برای اسکرولرهای افقی از Modifierهای منطقی **`s`** و **`e`** استفاده کنید تا اندازه‌ها در RTL نیز به‌درستی معکوس شوند.
 
-The fade eases in and out over a fixed scroll distance rather than appearing instantly. That distance is the `--scroll-fade-reveal` variable, `96px` by default and independent of the fade depth. Lower it for a snappier reveal or raise it for a more gradual one:
+افکت محو شدن به‌صورت تدریجی ظاهر و ناپدید می‌شود و ناگهان تغییر نمی‌کند. این فاصله توسط متغیر **`--scroll-fade-reveal`** کنترل می‌شود که مقدار پیش‌فرض آن **`96px`** است و مستقل از عمق محو شدن عمل می‌کند.
+
+برای نمایش سریع‌تر، مقدار آن را کاهش دهید و برای انتقال تدریجی‌تر، مقدار بیشتری قرار دهید:
 
 ```tsx
 <div className="scroll-fade overflow-y-auto [--scroll-fade-reveal:64px]">
@@ -141,9 +155,9 @@ The fade eases in and out over a fixed scroll distance rather than appearing ins
 </div>
 ```
 
-## Disabling the Fade
+## غیرفعال کردن محو شدن
 
-Use `scroll-fade-none` to remove the fade. It works in any class order, so the typical use is responsive or stateful:
+برای حذف افکت از **`scroll-fade-none`** استفاده کنید. این کلاس مستقل از ترتیب کلاس‌ها عمل می‌کند و برای حالت‌های Responsive یا Stateful مناسب است:
 
 ```tsx
 <div className="scroll-fade overflow-y-auto md:scroll-fade-none">
@@ -159,15 +173,15 @@ Use `scroll-fade-none` to remove the fade. It works in any class order, so the t
 
 ## Fallback
 
-The scroll-aware behavior is implemented with [CSS scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations), with no JavaScript and no scroll listeners. In browsers that do not support scroll-driven animations, `scroll-fade` falls back to a static fade on both edges, and edge utilities fall back to a static fade on the selected edge.
+رفتار هوشمند اسکرول با استفاده از [**CSS Scroll-Driven Animations**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations) پیاده‌سازی شده و به JavaScript یا Scroll Listener نیاز ندارد.
 
-Since the mask is applied to the scroll container itself, a visible scrollbar fades with the content at the edges. Pair `scroll-fade` with `no-scrollbar`, which ships in the same package, if you want to hide the scrollbar entirely.
+در مرورگرهایی که از Scroll-Driven Animations پشتیبانی نمی‌کنند، `scroll-fade` به یک محوشدن ثابت در هر دو لبه تبدیل می‌شود و Utilityهای لبه نیز به محوشدن ثابت در لبهٔ انتخاب‌شده برمی‌گردند.
+
+از آنجا که Mask مستقیماً روی کانتینر اسکرول اعمال می‌شود، Scrollbar قابل مشاهده نیز در لبه‌ها همراه محتوا محو می‌شود. اگر می‌خواهید Scrollbar را کاملاً مخفی کنید، **`scroll-fade`** را با **`no-scrollbar`** که در همین پکیج ارائه شده ترکیب کنید.
 
 ## RTL
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
-
-`scroll-fade-x` follows the reading direction. At rest, the start edge is crisp and the end edge fades. In RTL layouts that means a crisp right edge and a fade on the left, mirrored from LTR.
+**`scroll-fade-x`** جهت خواندن را دنبال می‌کند. در حالت اولیه، لبهٔ شروع واضح و لبهٔ پایان محو است. در Layoutهای RTL، این حالت به‌صورت خودکار معکوس می‌شود؛ یعنی لبهٔ راست واضح و لبهٔ چپ محو خواهد بود.
 
 <ComponentPreview
   styleName="base-nova"

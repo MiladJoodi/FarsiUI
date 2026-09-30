@@ -37,43 +37,43 @@ import { Switch } from "@/registry/new-york-v4/ui/switch"
 const addons = [
   {
     id: "analytics",
-    title: "Analytics",
-    description: "Advanced analytics and reporting",
+    title: "تحلیل",
+    description: "تحلیل و گزارش‌گیری پیشرفته",
   },
   {
     id: "backup",
-    title: "Backup",
-    description: "Automated daily backups",
+    title: "پشتیبان‌گیری",
+    description: "پشتیبان‌گیری خودکار روزانه",
   },
   {
     id: "support",
-    title: "Priority Support",
-    description: "24/7 premium customer support",
+    title: "پشتیبانی ویژه",
+    description: "پشتیبانی ویژه ۲۴ ساعته",
   },
 ] as const
 
 const formSchema = z.object({
   plan: z
     .string({
-      required_error: "Please select a subscription plan",
+      required_error: "لطفاً یک پلن اشتراک انتخاب کنید.",
     })
-    .min(1, "Please select a subscription plan")
+    .min(1, "لطفاً یک پلن اشتراک انتخاب کنید.")
     .refine((value) => value === "basic" || value === "pro", {
-      message: "Invalid plan selection. Please choose Basic or Pro",
+      message: "انتخاب پلن نامعتبر است. پایه یا حرفه‌ای را انتخاب کنید.",
     }),
   billingPeriod: z
     .string({
-      required_error: "Please select a billing period",
+      required_error: "لطفاً دوره پرداخت را انتخاب کنید.",
     })
-    .min(1, "Please select a billing period"),
+    .min(1, "لطفاً دوره پرداخت را انتخاب کنید."),
   addons: z
     .array(z.string())
-    .min(1, "Please select at least one add-on")
-    .max(3, "You can select up to 3 add-ons")
+    .min(1, "حداقل یک افزونه را انتخاب کنید.")
+    .max(3, "حداکثر ۳ افزونه می‌توانید انتخاب کنید.")
     .refine(
       (value) => value.every((addon) => addons.some((a) => a.id === addon)),
       {
-        message: "You selected an invalid add-on",
+        message: "یک افزونهٔ نامعتبر انتخاب شده است.",
       }
     ),
   emailNotifications: z.boolean(),
@@ -93,7 +93,10 @@ export default function FormTanstackComplex() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -109,8 +112,8 @@ export default function FormTanstackComplex() {
   })
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardContent>
+    <Card className="w-full max-w-sm gap-3 py-3" dir="rtl">
+      <CardContent className="px-4">
         <form
           id="subscription-form"
           onSubmit={(e) => {
@@ -118,7 +121,7 @@ export default function FormTanstackComplex() {
             form.handleSubmit()
           }}
         >
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <form.Field
               name="plan"
               children={(field) => {
@@ -126,14 +129,15 @@ export default function FormTanstackComplex() {
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
                   <FieldSet>
-                    <FieldLegend>Subscription Plan</FieldLegend>
+                    <FieldLegend>پلن اشتراک</FieldLegend>
                     <FieldDescription>
-                      Choose your subscription plan.
+                      پلن اشتراک خود را انتخاب کنید.
                     </FieldDescription>
                     <RadioGroup
                       name={field.name}
                       value={field.state.value}
                       onValueChange={field.handleChange}
+                      dir="rtl"
                     >
                       <FieldLabel htmlFor="basic">
                         <Field
@@ -141,9 +145,9 @@ export default function FormTanstackComplex() {
                           data-invalid={isInvalid}
                         >
                           <FieldContent>
-                            <FieldTitle>Basic</FieldTitle>
+                            <FieldTitle>پایه</FieldTitle>
                             <FieldDescription>
-                              For individuals and small teams
+                              برای افراد و تیم‌های کوچک
                             </FieldDescription>
                           </FieldContent>
                           <RadioGroupItem
@@ -159,9 +163,9 @@ export default function FormTanstackComplex() {
                           data-invalid={isInvalid}
                         >
                           <FieldContent>
-                            <FieldTitle>Pro</FieldTitle>
+                            <FieldTitle>حرفه‌ای</FieldTitle>
                             <FieldDescription>
-                              For businesses with higher demands
+                              برای کسب‌وکارهایی با نیاز بیشتر
                             </FieldDescription>
                           </FieldContent>
                           <RadioGroupItem
@@ -187,7 +191,7 @@ export default function FormTanstackComplex() {
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
                   <Field data-invalid={isInvalid}>
-                    <FieldLabel htmlFor={field.name}>Billing Period</FieldLabel>
+                    <FieldLabel htmlFor={field.name}>دوره پرداخت</FieldLabel>
                     <Select
                       name={field.name}
                       value={field.state.value}
@@ -198,12 +202,12 @@ export default function FormTanstackComplex() {
                         <SelectValue placeholder="انتخاب کنید" />
                       </SelectTrigger>
                       <SelectContent dir="rtl">
-                        <SelectItem value="monthly">Monthly</SelectItem>
-                        <SelectItem value="yearly">Yearly</SelectItem>
+                        <SelectItem value="monthly">ماهانه</SelectItem>
+                        <SelectItem value="yearly">سالانه</SelectItem>
                       </SelectContent>
                     </Select>
                     <FieldDescription>
-                      Choose how often you want to be billed.
+                      دوره پرداخت را انتخاب کنید.
                     </FieldDescription>
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -221,9 +225,10 @@ export default function FormTanstackComplex() {
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
                   <FieldSet>
-                    <FieldLegend>Add-ons</FieldLegend>
+                    <FieldLegend>افزونه‌ها</FieldLegend>
                     <FieldDescription>
-                      Select additional features you&apos;d like to include.
+                      قابلیت‌های بیشتری را که می‌خواهید استفاده کنید انتخاب
+                      کنید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       {addons.map((addon) => (
@@ -278,10 +283,10 @@ export default function FormTanstackComplex() {
                   <Field orientation="horizontal" data-invalid={isInvalid}>
                     <FieldContent>
                       <FieldLabel htmlFor={field.name}>
-                        Email Notifications
+                        اعلان ایمیل
                       </FieldLabel>
                       <FieldDescription>
-                        Receive email updates about your subscription
+                        دریافت ایمیل‌های مربوط به اشتراک
                       </FieldDescription>
                     </FieldContent>
                     <Switch
@@ -290,6 +295,7 @@ export default function FormTanstackComplex() {
                       checked={field.state.value}
                       onCheckedChange={field.handleChange}
                       aria-invalid={isInvalid}
+                      dir="ltr"
                     />
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -301,7 +307,7 @@ export default function FormTanstackComplex() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="px-4">
         <Field orientation="horizontal" className="justify-end">
           <Button type="submit" form="subscription-form">
             ذخیره تنظیمات

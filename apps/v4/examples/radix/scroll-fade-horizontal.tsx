@@ -1,21 +1,24 @@
 const tags = [
-  "Design",
-  "Engineering",
-  "Marketing",
-  "Product",
-  "Research",
-  "Sales",
-  "Support",
-  "Operations",
-  "Finance",
-  "Legal",
-  "People",
-  "Security",
+  "طراحی",
+  "مهندسی",
+  "بازاریابی",
+  "محصول",
+  "تحقیق",
+  "فروش",
+  "پشتیبانی",
+  "عملیات",
+  "مالی",
+  "حقوقی",
+  "منابع انسانی",
+  "امنیت",
 ]
 
 export function ScrollFadeHorizontal() {
   return (
-    <div className="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border">
+    <div
+      className="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border"
+      dir="rtl"
+    >
       <div className="scroll-fade-x scrollbar-none overflow-x-auto">
         <div className="flex w-max gap-1.5 p-1.5">
           {tags.map((tag) => (

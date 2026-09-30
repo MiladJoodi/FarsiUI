@@ -26,8 +26,8 @@ import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 const formSchema = z.object({
   about: z
     .string()
-    .min(10, "Please provide at least 10 characters.")
-    .max(200, "Please keep it under 200 characters."),
+    .min(10, "حداقل ۱۰ کاراکتر وارد کنید.")
+    .max(200, "حداکثر ۲۰۰ کاراکتر مجاز است."),
 })
 
 export default function FormTanstackTextarea() {
@@ -41,7 +41,10 @@ export default function FormTanstackTextarea() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -59,9 +62,10 @@ export default function FormTanstackTextarea() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Personalization</CardTitle>
+        <CardTitle>شخصی‌سازی</CardTitle>
         <CardDescription>
-          Customize your experience by telling us more about yourself.
+          با وارد کردن اطلاعات بیشتر دربارهٔ خودتان، تجربهٔ کاربری را شخصی‌سازی
+          کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -81,7 +85,7 @@ export default function FormTanstackTextarea() {
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor="form-tanstack-textarea-about">
-                      More about you
+                      بیشتر دربارهٔ شما
                     </FieldLabel>
                     <Textarea
                       id="form-tanstack-textarea-about"
@@ -94,8 +98,8 @@ export default function FormTanstackTextarea() {
                       className="min-h-16"
                     />
                     <FieldDescription>
-                      Tell us more about yourself. This will be used to help us
-                      personalize your experience.
+                      اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای
+                      شخصی‌سازی تجربهٔ شما استفاده خواهد شد.
                     </FieldDescription>
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -108,11 +112,13 @@ export default function FormTanstackTextarea() {
         </form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-textarea">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-textarea">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

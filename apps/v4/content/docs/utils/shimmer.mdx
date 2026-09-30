@@ -1,60 +1,62 @@
 ---
 title: شیمر
-description: Utilities for adding a shimmer effect to text elements.
+description: Utility برای اضافه کردن افکت شیمر به عناصر متنی.
 ---
 
 <ComponentPreview styleName="base-rhea" name="shimmer-demo" />
 
-## Installation
+## نصب
 
-If your project was set up with `npx shadcn@latest init`, you already have `shimmer`. It ships with the `shadcn` package, which the CLI imports in your global CSS file.
+اگر پروژه را با **`npx farsiui@latest init`** راه‌اندازی کرده باشید، `shimmer` از قبل در پروژه شما وجود دارد. این Utility همراه پکیج **`farsiui`** ارائه می‌شود و CLI آن را در فایل CSS سراسری پروژه وارد می‌کند.
 
-Otherwise, install the `shadcn` package:
+در غیر این صورت، پکیج **`farsiui`** را نصب کنید:
 
 ```bash
-npm install shadcn
+npm install farsiui
 ```
 
-Then import the shared utilities in your global CSS file:
+سپس Utilityهای مشترک را در فایل CSS سراسری پروژه وارد کنید:
 
 ```css
 @import "tailwindcss";
 @import "farsiui/tailwind.css";
 ```
 
-## Usage
+## استفاده
 
-| Class                         | Styles                                                                                               |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `shimmer`                     | `background-clip: text;` <br /> `animation: tw-shimmer var(--shimmer-duration, 2s) linear infinite;` |
-| `shimmer-once`                | `animation-iteration-count: 1;`                                                                      |
-| `shimmer-reverse`             | `animation-direction: reverse;`                                                                      |
-| `shimmer-none`                | `--shimmer-image: none;` <br /> `--shimmer-text-fill: currentColor;`                                 |
-| `shimmer-color-<color>`       | `--shimmer-color: <color>;`                                                                          |
-| `shimmer-color-[<value>]`     | `--shimmer-color: <value>;`                                                                          |
-| `shimmer-color-<color>/<pct>` | `--shimmer-color: color-mix(in oklch, <color> <pct>, transparent);`                                  |
-| `shimmer-duration-<number>`   | `--shimmer-duration: calc(<number> * 1ms);`                                                          |
-| `shimmer-spread-<number>`     | `--shimmer-spread: calc(var(--spacing) * <number>);`                                                 |
-| `shimmer-spread-[<value>]`    | `--shimmer-spread: <value>;`                                                                         |
-| `shimmer-angle-<number>`      | `--shimmer-angle: calc(<number> * 1deg);`                                                            |
+| کلاس                              | کاربرد                                   |
+| --------------------------------- | ---------------------------------------- |
+| **`shimmer`**                     | فعال کردن افکت شیمر                      |
+| **`shimmer-once`**                | اجرای انیمیشن فقط یک بار                 |
+| **`shimmer-reverse`**             | معکوس کردن جهت حرکت                      |
+| **`shimmer-none`**                | غیرفعال کردن افکت                        |
+| **`shimmer-color-<color>`**       | تعیین رنگ Highlight                      |
+| **`shimmer-color-[<value>]`**     | تعیین رنگ دلخواه                         |
+| **`shimmer-color-<color>/<pct>`** | تعیین رنگ همراه با Opacity               |
+| **`shimmer-duration-<number>`**   | تعیین مدت زمان هر حرکت بر حسب میلی‌ثانیه |
+| **`shimmer-spread-<number>`**     | تعیین عرض نوار Highlight بر اساس Spacing |
+| **`shimmer-spread-[<value>]`**    | تعیین عرض دلخواه Highlight               |
+| **`shimmer-angle-<number>`**      | تعیین زاویهٔ Highlight بر حسب درجه       |
 
-Add `shimmer` to a text element.
+کلاس **`shimmer`** را روی عنصر متنی قرار دهید:
 
 ```tsx
-<p className="shimmer text-muted-foreground">Generating response&hellip;</p>
+<p className="shimmer text-muted-foreground">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-The shimmer is built on `currentColor`, so it adapts to the element:
+شیمر بر پایهٔ **`currentColor`** ساخته شده و به‌صورت خودکار با رنگ عنصر هماهنگ می‌شود:
 
-- The highlight is derived from the text color, with no configuration needed.
-- It works on any color, from `text-muted-foreground` to brand colors.
-- In dark mode, the highlight automatically brightens to stay visible.
+- Highlight از رنگ متن گرفته می‌شود و به تنظیمات اضافی نیاز ندارد.
+- با هر رنگی، از `text-muted-foreground` گرفته تا رنگ‌های برند، کار می‌کند.
+- در Dark Mode، Highlight به‌صورت خودکار روشن‌تر می‌شود تا همچنان قابل مشاهده باشد.
 
-The effect is pure CSS. The text is painted with `background-clip: text`, and the highlight sweeps across it in a seamless loop.
+این افکت کاملاً با CSS پیاده‌سازی شده است. متن با **`background-clip: text`** نمایش داده می‌شود و Highlight به‌صورت پیوسته روی آن حرکت می‌کند.
 
-## With Marker
+## همراه با Marker
 
-The shimmer composes with any component that renders text. A common pattern is a [Marker](/docs/components/marker) showing a live status while the assistant is working:
+شیمر را می‌توان با هر کامپوننتی که متن نمایش می‌دهد ترکیب کرد. یک کاربرد رایج، استفاده از [**`Marker`**](/docs/components/marker) برای نمایش وضعیت زنده هنگام پردازش پاسخ توسط Assistant است:
 
 <ComponentPreview styleName="base-rhea" name="shimmer-marker" />
 
@@ -63,105 +65,135 @@ The shimmer composes with any component that renders text. A common pattern is a
   <MarkerIcon>
     <Spinner />
   </MarkerIcon>
-  <MarkerContent className="shimmer">Thinking&hellip;</MarkerContent>
+  <MarkerContent className="shimmer">
+    در حال فکر کردن&hellip;
+  </MarkerContent>
 </Marker>
 ```
 
-## Color
+## رنگ
 
-Use `shimmer-color-<color>` to set the highlight color explicitly. It accepts theme colors with an optional opacity modifier, or any arbitrary color value.
+برای تعیین رنگ Highlight به‌صورت صریح، از **`shimmer-color-<color>`** استفاده کنید. این کلاس رنگ‌های Theme را همراه با Modifier مربوط به Opacity و همچنین هر مقدار رنگ دلخواهی می‌پذیرد.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-color" />
 
 ```tsx
-<p className="shimmer shimmer-color-blue-500/60">Generating response&hellip;</p>
-<p className="shimmer shimmer-color-[#378ADD]">Generating response&hellip;</p>
+<p className="shimmer shimmer-color-blue-500/60">
+  در حال ایجاد پاسخ&hellip;
+</p>
+<p className="shimmer shimmer-color-[#378ADD]">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-## Duration
+## مدت زمان
 
-Use `shimmer-duration-<number>` to set the duration of one sweep in milliseconds. The default is `2000`, i.e. `2s`.
+با **`shimmer-duration-<number>`** مدت زمان یک حرکت کامل را بر حسب میلی‌ثانیه تعیین کنید. مقدار پیش‌فرض **`2000`** میلی‌ثانیه، یعنی **`2s`** است.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-duration" />
 
 ```tsx
-<p className="shimmer shimmer-duration-1000">Generating response&hellip;</p>
+<p className="shimmer shimmer-duration-1000">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-## Spread
+## عرض Highlight
 
-Use `shimmer-spread-<number>` to set the width of the highlight band using the spacing scale. The default is `calc(3ch + 40px)`: a fixed base plus a `3ch` term that scales with the font size.
+با **`shimmer-spread-<number>`** عرض نوار Highlight را بر اساس مقیاس Spacing تعیین کنید.
+
+مقدار پیش‌فرض **`calc(3ch + 40px)`** است؛ یعنی یک مقدار پایهٔ ثابت به‌علاوهٔ **`3ch`** که با اندازهٔ فونت تغییر می‌کند.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-spread" />
 
 ```tsx
-<p className="shimmer shimmer-spread-24">Generating response&hellip;</p>
+<p className="shimmer shimmer-spread-24">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-For one-off values, use an arbitrary length or percentage:
+برای مقدارهای دلخواه می‌توانید از طول یا درصد Arbitrary استفاده کنید:
 
 ```tsx
-<p className="shimmer shimmer-spread-[5rem]">Generating response&hellip;</p>
+<p className="shimmer shimmer-spread-[5rem]">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-## Angle
+## زاویه
 
-Use `shimmer-angle-<number>` to set the tilt of the highlight band in degrees. The default is `20`.
+با **`shimmer-angle-<number>`** زاویهٔ نوار Highlight را بر حسب درجه تعیین کنید. مقدار پیش‌فرض **`20`** درجه است.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-angle" />
 
 ```tsx
-<p className="shimmer shimmer-angle-45">Generating response&hellip;</p>
+<p className="shimmer shimmer-angle-45">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-## Reverse
+## معکوس کردن جهت
 
-Use `shimmer-reverse` to sweep the highlight in the opposite direction. In RTL layouts the sweep already follows the reading direction. See [RTL](#rtl).
+با **`shimmer-reverse`** حرکت Highlight را در جهت مخالف اجرا کنید.
+
+در Layoutهای RTL، حرکت شیمر به‌صورت خودکار با جهت خواندن هماهنگ می‌شود.
 
 ```tsx
-<p className="shimmer shimmer-reverse">Generating response&hellip;</p>
+<p className="shimmer shimmer-reverse">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
-## Play Once
+## اجرای یک‌باره
 
-Use `shimmer-once` to play a single sweep instead of looping, useful as a reveal when streaming completes. Pair it with `shimmer-duration-<number>` to control how long the sweep takes.
+با **`shimmer-once`** می‌توانید شیمر را فقط یک بار اجرا کنید و از Loop شدن آن جلوگیری کنید. این حالت برای نمایش یک افکت Reveal هنگام کامل شدن Stream مناسب است.
+
+برای کنترل مدت زمان اجرا، آن را با **`shimmer-duration-<number>`** ترکیب کنید.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-once" />
 
 ```tsx
 <p className="shimmer shimmer-duration-1100 shimmer-once">
-  Response generated.
+  پاسخ ایجاد شد.
 </p>
 ```
 
-## Disabling the Shimmer
+## غیرفعال کردن شیمر
 
-Use `shimmer-none` to turn the effect off and render the text normally. It works in any class order, so the typical use is responsive or stateful:
+برای غیرفعال کردن افکت و نمایش عادی متن، از **`shimmer-none`** استفاده کنید.
+
+این کلاس مستقل از ترتیب کلاس‌ها عمل می‌کند و برای حالت‌های Responsive یا Stateful مناسب است:
 
 <ComponentPreview styleName="base-rhea" name="shimmer-none" />
 
 ```tsx
-<p className="shimmer md:shimmer-none">Generating response&hellip;</p>
+<p className="shimmer md:shimmer-none">
+  در حال ایجاد پاسخ&hellip;
+</p>
 ```
 
 ## Fallback
 
-The shimmer is built on modern color features, [relative color syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors) and `color-mix()`, which are available in all current browsers. In older browsers without support, the highlight gradient is dropped and the text can render transparent. If you target older browsers, apply `shimmer` conditionally with a `supports-*` variant:
+شیمر بر پایهٔ قابلیت‌های مدرن رنگ در CSS، از جمله [**Relative Color Syntax**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors) و **`color-mix()`** ساخته شده است که در مرورگرهای امروزی پشتیبانی می‌شوند.
+
+در مرورگرهای قدیمی‌تر که از این قابلیت‌ها پشتیبانی نمی‌کنند، Gradient مربوط به Highlight حذف می‌شود و ممکن است متن شفاف نمایش داده شود.
+
+اگر از مرورگرهای قدیمی پشتیبانی می‌کنید، `shimmer` را با یک Variant از نوع **`supports-*`** به‌صورت شرطی فعال کنید:
 
 ```tsx
 <p className="supports-[color:oklch(from_white_l_c_h)]:shimmer">
-  Generating response&hellip;
+  در حال ایجاد پاسخ&hellip;
 </p>
 ```
 
-## Reduced Motion
+## کاهش حرکت
 
-When the user prefers reduced motion, the animation is disabled automatically and the text renders normally. There is nothing to configure.
+اگر کاربر گزینهٔ **Reduced Motion** را فعال کرده باشد، انیمیشن به‌صورت خودکار غیرفعال می‌شود و متن به حالت عادی نمایش داده خواهد شد. نیازی به تنظیمات اضافی نیست.
 
 ## RTL
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+حرکت شیمر به‌صورت خودکار از جهت خواندن پیروی می‌کند؛ در LTR از چپ به راست و در RTL از راست به چپ.
 
-The sweep follows the reading direction, left to right in LTR and right to left in RTL, with no extra classes. Use `shimmer-reverse` to flip the direction manually.
+برای معکوس کردن دستی جهت حرکت از **`shimmer-reverse`** استفاده کنید.
 
 <ComponentPreview styleName="base-rhea" name="shimmer-rtl" />

@@ -1,26 +1,26 @@
 const items = [
-  "Inbox triage",
-  "Design review",
-  "API contract",
-  "QA pass",
-  "Launch notes",
-  "Metrics follow-up",
+  "اولویت‌بندی صندوق ورودی",
+  "بازبینی طراحی",
+  "قرارداد API",
+  "بررسی کیفیت",
+  "یادداشت‌های انتشار",
+  "پیگیری معیارها",
 ]
 
 const tags = [
-  "Design",
-  "Engineering",
-  "Marketing",
-  "Product",
-  "Research",
-  "Sales",
-  "Support",
-  "Operations",
+  "طراحی",
+  "مهندسی",
+  "بازاریابی",
+  "محصول",
+  "تحقیق",
+  "فروش",
+  "پشتیبانی",
+  "عملیات",
 ]
 
 export function ScrollFadeEdge() {
   return (
-    <div className="mx-auto flex max-w-xs min-w-0 flex-col gap-6">
+    <div className="mx-auto flex max-w-xs min-w-0 flex-col gap-6" dir="rtl">
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-2xl border">
           <div className="h-36 scroll-fade-t scrollbar-none overflow-y-auto">

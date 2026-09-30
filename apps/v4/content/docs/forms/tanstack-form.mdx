@@ -1,23 +1,22 @@
 ---
 title: TanStack Form
-description: Build forms in React using TanStack Form and Zod.
+description: ساخت فرم در React با استفاده از TanStack Form و Zod.
 links:
   doc: https://tanstack.com/form
 ---
 
 import { InfoIcon } from "lucide-react"
 
-This guide explores how to build forms using TanStack Form. You'll learn to create forms with the `<Field />` component, implement schema validation with Zod, handle errors, and ensure accessibility.
+در این راهنما ساخت فرم با TanStack Form را بررسی می‌کنیم؛ از ساخت فرم با کامپوننت **`<Field />`** گرفته تا اعتبارسنجی Schema با Zod، مدیریت خطا و بهبود دسترس‌پذیری.
 
 ## Demo
 
-We'll start by building the following form. It has a simple text input and a textarea. On submit, we'll validate the form data and display any errors.
+ابتدا فرم زیر را می‌سازیم. این فرم شامل یک ورودی متنی و یک Textarea است. هنگام ارسال فرم، داده‌ها اعتبارسنجی می‌شوند و خطاهای احتمالی نمایش داده خواهند شد.
 
 <Callout icon={<InfoIcon />}>
-  **Note:** For the purpose of this demo, we have intentionally disabled browser
-  validation to show how schema validation and form errors work in TanStack
-  Form. It is recommended to add basic browser validation in your production
-  code.
+  **نکته:** برای این Demo، اعتبارسنجی پیش‌فرض مرورگر را عمداً غیرفعال کرده‌ایم تا
+  نحوهٔ کار Schema Validation و مدیریت خطاها در TanStack Form مشخص باشد. در
+  پروژهٔ واقعی بهتر است اعتبارسنجی پایهٔ مرورگر را نیز فعال نگه دارید.
 </Callout>
 
 <ComponentPreview
@@ -27,19 +26,19 @@ We'll start by building the following form. It has a simple text input and a tex
   chromeLessOnMobile
 />
 
-## Approach
+## رویکرد
 
-This form leverages TanStack Form for powerful, headless form handling. We'll build our form using the `<Field />` component, which gives you **complete flexibility over the markup and styling**.
+این فرم از TanStack Form برای مدیریت قدرتمند و Headless فرم استفاده می‌کند. فرم را با کامپوننت **`<Field />`** می‌سازیم تا کنترل کاملی روی Markup و Styling داشته باشیم.
 
-- Uses TanStack Form's `useForm` hook for form state management.
-- `form.Field` component with render prop pattern for controlled inputs.
-- `<Field />` components for building accessible forms.
-- Client-side validation using Zod.
-- Real-time validation feedback.
+- استفاده از Hook **`useForm`** در TanStack Form برای مدیریت وضعیت فرم.
+- استفاده از کامپوننت **`form.Field`** با الگوی Render Prop برای ورودی‌های Controlled.
+- استفاده از کامپوننت‌های **`<Field />`** برای ساخت فرم‌های دسترس‌پذیر.
+- اعتبارسنجی سمت Client با Zod.
+- نمایش لحظه‌ای وضعیت اعتبارسنجی.
 
-## Anatomy
+## ساختار
 
-Here's a basic example of a form using TanStack Form with the `<Field />` component.
+در مثال پایه، از TanStack Form و کامپوننت **`<Field />`** برای ساخت فرم استفاده می‌کنیم.
 
 ```tsx showLineNumbers {15-31}
 <form
@@ -56,7 +55,7 @@ Here's a basic example of a form using TanStack Form with the `<Field />` compon
           field.state.meta.isTouched && !field.state.meta.isValid
         return (
           <Field data-invalid={isInvalid}>
-            <FieldLabel htmlFor={field.name}>Bug Title</FieldLabel>
+            <FieldLabel htmlFor={field.name}>عنوان باگ</FieldLabel>
             <Input
               id={field.name}
               name={field.name}
@@ -68,7 +67,7 @@ Here's a basic example of a form using TanStack Form with the `<Field />` compon
               autoComplete="off"
             />
             <FieldDescription>
-              Provide a concise title for your bug report.
+              عنوانی کوتاه و واضح برای باگ وارد کنید.
             </FieldDescription>
             {isInvalid && <FieldError errors={field.state.meta.errors} />}
           </Field>
@@ -76,20 +75,20 @@ Here's a basic example of a form using TanStack Form with the `<Field />` compon
       }}
     />
   </FieldGroup>
-  <Button type="submit">Submit</Button>
+  <Button type="submit">ارسال</Button>
 </form>
 ```
 
-## Form
+## فرم
 
-### Create a schema
+### ساخت Schema
 
-We'll start by defining the shape of our form using a Zod schema.
+ابتدا ساختار فرم را با یک Schema از Zod تعریف می‌کنیم.
 
 <Callout icon={<InfoIcon />}>
-  **Note:** This example uses `zod v3` for schema validation. TanStack Form
-  integrates seamlessly with Zod and other Standard Schema validation libraries
-  through its validators API.
+  **نکته:** این مثال از **`zod v3`** برای اعتبارسنجی Schema استفاده می‌کند.
+  TanStack Form از Zod و سایر کتابخانه‌های اعتبارسنجی مبتنی بر Standard Schema از
+  طریق API مربوط به Validatorها پشتیبانی می‌کند.
 </Callout>
 
 ```tsx showLineNumbers title="form.tsx"
@@ -98,18 +97,18 @@ import * as z from "zod"
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
 ```
 
-### Set up the form
+### راه‌اندازی فرم
 
-Use the `useForm` hook from TanStack Form to create your form instance with Zod validation.
+برای ساخت نمونهٔ فرم همراه با اعتبارسنجی Zod از Hook **`useForm`** در TanStack Form استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx" {10-21}
 import { useForm } from "@tanstack/react-form"
@@ -130,7 +129,7 @@ export function BugReportForm() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast.success("Form submitted successfully")
+      toast.success("فرم با موفقیت ارسال شد")
     },
   })
 
@@ -147,28 +146,28 @@ export function BugReportForm() {
 }
 ```
 
-We are using `onSubmit` to validate the form data here. TanStack Form supports other validation modes, which you can read about in the [documentation](https://tanstack.com/form/latest/docs/framework/react/guides/dynamic-validation).
+در اینجا از **`onSubmit`** برای اعتبارسنجی داده‌های فرم استفاده می‌کنیم. TanStack Form از حالت‌های اعتبارسنجی دیگری نیز پشتیبانی می‌کند که می‌توانید آن‌ها را در [مستندات](https://tanstack.com/form/latest/docs/framework/react/guides/dynamic-validation) مطالعه کنید.
 
-### Build the form
+### ساخت فرم
 
-We can now build the form using the `form.Field` component from TanStack Form and the `<Field />` component.
+حالا می‌توانیم فرم را با استفاده از کامپوننت **`form.Field`** در TanStack Form و کامپوننت **`<Field />`** بسازیم.
 
 <ComponentSource
   src="/registry/new-york-v4/examples/form-tanstack-demo.tsx"
   title="form.tsx"
 />
 
-### Done
+### تمام شد
 
-That's it. You now have a fully accessible form with client-side validation.
+تمام شد. حالا یک فرم کاملاً دسترس‌پذیر با اعتبارسنجی سمت Client دارید.
 
-When you submit the form, the `onSubmit` function will be called with the validated form data. If the form data is invalid, TanStack Form will display the errors next to each field.
+هنگام ارسال فرم، تابع **`onSubmit`** با داده‌های اعتبارسنجی‌شدهٔ فرم اجرا می‌شود. اگر داده‌ها معتبر نباشند، TanStack Form خطاها را در کنار فیلد مربوطه نمایش می‌دهد.
 
-## Validation
+## اعتبارسنجی
 
-### Client-side Validation
+### اعتبارسنجی سمت Client
 
-TanStack Form validates your form data using the Zod schema. Validation happens in real-time as the user types.
+TanStack Form با استفاده از Schema تعریف‌شده در Zod، داده‌های فرم را اعتبارسنجی می‌کند. اعتبارسنجی می‌تواند هم‌زمان با وارد کردن اطلاعات توسط کاربر انجام شود.
 
 ```tsx showLineNumbers title="form.tsx" {13-15}
 import { useForm } from "@tanstack/react-form"
@@ -195,15 +194,15 @@ export function BugReportForm() {
 }
 ```
 
-### Validation Modes
+### حالت‌های اعتبارسنجی
 
-TanStack Form supports different validation strategies through the `validators` option:
+TanStack Form از طریق گزینهٔ **`validators`** از استراتژی‌های مختلف اعتبارسنجی پشتیبانی می‌کند:
 
-| Mode         | Description                          |
-| ------------ | ------------------------------------ |
-| `"onChange"` | Validation triggers on every change. |
-| `"onBlur"`   | Validation triggers on blur.         |
-| `"onSubmit"` | Validation triggers on submit.       |
+| **حالت**         | **توضیحات**                                           |
+| ---------------- | ----------------------------------------------------- |
+| **`"onChange"`** | اعتبارسنجی با هر تغییر مقدار انجام می‌شود.            |
+| **`"onBlur"`**   | اعتبارسنجی هنگام خارج شدن Focus از فیلد انجام می‌شود. |
+| **`"onSubmit"`** | اعتبارسنجی هنگام ارسال فرم انجام می‌شود.              |
 
 ```tsx showLineNumbers title="form.tsx" {6-9}
 const form = useForm({
@@ -219,12 +218,12 @@ const form = useForm({
 })
 ```
 
-## Displaying Errors
+## نمایش خطاها
 
-Display errors next to the field using `<FieldError />`. For styling and accessibility:
+برای نمایش خطا در کنار فیلد از **`<FieldError />`** استفاده کنید. برای Styling و دسترس‌پذیری:
 
-- Add the `data-invalid` prop to the `<Field />` component.
-- Add the `aria-invalid` prop to the form control such as `<Input />`, `<SelectTrigger />`, `<Checkbox />`, etc.
+- Prop **`data-invalid`** را به کامپوننت **`<Field />`** اضافه کنید.
+- Prop **`aria-invalid`** را به کنترل فرم، مانند **`<Input />`**، **`<SelectTrigger />`**، **`<Checkbox />`** و موارد مشابه اضافه کنید.
 
 ```tsx showLineNumbers title="form.tsx" {4,18}
 <form.Field
@@ -234,7 +233,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
     return (
       <Field data-invalid={isInvalid}>
-        <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+        <FieldLabel htmlFor={field.name}>ایمیل</FieldLabel>
         <Input
           id={field.name}
           name={field.name}
@@ -251,12 +250,12 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 />
 ```
 
-## Working with Different Field Types
+## کار با انواع مختلف فیلدها
 
 ### Input
 
-- For input fields, use `field.state.value` and `field.handleChange` on the `<Input />` component.
-- To show errors, add the `aria-invalid` prop to the `<Input />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای Input از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<Input />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Input />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -269,10 +268,14 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <form.Field
   name="username"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <Field data-invalid={isInvalid}>
-        <FieldLabel htmlFor="form-tanstack-input-username">Username</FieldLabel>
+        <FieldLabel htmlFor="form-tanstack-input-username">
+          نام‌کاربری
+        </FieldLabel>
         <Input
           id="form-tanstack-input-username"
           name={field.name}
@@ -284,8 +287,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
           autoComplete="username"
         />
         <FieldDescription>
-          This is your public display name. Must be between 3 and 10 characters.
-          Must only contain letters, numbers, and underscores.
+          این نام به‌صورت عمومی در پروفایل شما نمایش داده می‌شود و باید بین ۳ تا
+          ۱۰ کاراکتر باشد و فقط شامل حروف، اعداد و Underscore باشد.
         </FieldDescription>
         {isInvalid && <FieldError errors={field.state.meta.errors} />}
       </Field>
@@ -296,8 +299,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Textarea
 
-- For textarea fields, use `field.state.value` and `field.handleChange` on the `<Textarea />` component.
-- To show errors, add the `aria-invalid` prop to the `<Textarea />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای Textarea از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<Textarea />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Textarea />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -310,11 +313,13 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <form.Field
   name="about"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <Field data-invalid={isInvalid}>
         <FieldLabel htmlFor="form-tanstack-textarea-about">
-          More about you
+          بیشتر دربارهٔ شما
         </FieldLabel>
         <Textarea
           id="form-tanstack-textarea-about"
@@ -327,8 +332,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
           className="min-h-16"
         />
         <FieldDescription>
-          Tell us more about yourself. This will be used to help us personalize
-          your experience.
+          اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای شخصی‌سازی
+          تجربهٔ شما استفاده خواهد شد.
         </FieldDescription>
         {isInvalid && <FieldError errors={field.state.meta.errors} />}
       </Field>
@@ -339,8 +344,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Select
 
-- For select components, use `field.state.value` and `field.handleChange` on the `<Select />` component.
-- To show errors, add the `aria-invalid` prop to the `<SelectTrigger />` component and the `data-invalid` prop to the `<Field />` component.
+- برای کامپوننت‌های Select از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<Select />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<SelectTrigger />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -353,15 +358,17 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <form.Field
   name="language"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <Field orientation="responsive" data-invalid={isInvalid}>
         <FieldContent>
           <FieldLabel htmlFor="form-tanstack-select-language">
-            Spoken Language
+            زبان گفتاری
           </FieldLabel>
           <FieldDescription>
-            For best results, select the language you speak.
+            برای دریافت نتیجهٔ بهتر، زبانی را انتخاب کنید که به آن صحبت می‌کنید.
           </FieldDescription>
           {isInvalid && <FieldError errors={field.state.meta.errors} />}
         </FieldContent>
@@ -374,12 +381,13 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
             id="form-tanstack-select-language"
             aria-invalid={isInvalid}
             className="min-w-[120px]"
+            dir="rtl"
           >
             <SelectValue placeholder="انتخاب کنید" />
           </SelectTrigger>
-          <SelectContent position="item-aligned">
-            <SelectItem value="auto">Auto</SelectItem>
-            <SelectItem value="en">English</SelectItem>
+          <SelectContent position="item-aligned" dir="rtl">
+            <SelectItem value="auto">خودکار</SelectItem>
+            <SelectItem value="en">انگلیسی</SelectItem>
           </SelectContent>
         </Select>
       </Field>
@@ -390,10 +398,10 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Checkbox
 
-- For checkbox, use `field.state.value` and `field.handleChange` on the `<Checkbox />` component.
-- To show errors, add the `aria-invalid` prop to the `<Checkbox />` component and the `data-invalid` prop to the `<Field />` component.
-- For checkbox arrays, use `mode="array"` on the `<form.Field />` component and TanStack Form's array helpers.
-- Remember to add `data-slot="checkbox-group"` to the `<FieldGroup />` component for proper styling and spacing.
+- برای Checkbox از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<Checkbox />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Checkbox />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
+- برای آرایه‌ای از Checkboxها، از **`mode="array"`** در کامپوننت **`<form.Field />`** و Helperهای آرایه‌ای TanStack Form استفاده کنید.
+- برای اعمال صحیح Styling و فاصله‌گذاری، حتماً **`data-slot="checkbox-group"`** را به کامپوننت **`<FieldGroup />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -407,12 +415,14 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
   name="tasks"
   mode="array"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <FieldSet>
-        <FieldLegend variant="label">Tasks</FieldLegend>
+        <FieldLegend variant="label">وظایف</FieldLegend>
         <FieldDescription>
-          Get notified when tasks you&apos;ve created have updates.
+          برای به‌روزرسانی وظایفی که ایجاد کرده‌اید، اعلان دریافت کنید.
         </FieldDescription>
         <FieldGroup data-slot="checkbox-group">
           {tasks.map((task) => (
@@ -455,8 +465,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Radio Group
 
-- For radio groups, use `field.state.value` and `field.handleChange` on the `<RadioGroup />` component.
-- To show errors, add the `aria-invalid` prop to the `<RadioGroupItem />` component and the `data-invalid` prop to the `<Field />` component.
+- برای گروه‌های Radio از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<RadioGroup />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<RadioGroupItem />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -469,17 +479,20 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <form.Field
   name="plan"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <FieldSet>
-        <FieldLegend>Plan</FieldLegend>
+        <FieldLegend>پلن</FieldLegend>
         <FieldDescription>
-          You can upgrade or downgrade your plan at any time.
+          هر زمان بخواهید می‌توانید پلن خود را ارتقا یا کاهش دهید.
         </FieldDescription>
         <RadioGroup
           name={field.name}
           value={field.state.value}
           onValueChange={field.handleChange}
+          dir="rtl"
         >
           {plans.map((plan) => (
             <FieldLabel
@@ -509,8 +522,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Switch
 
-- For switches, use `field.state.value` and `field.handleChange` on the `<Switch />` component.
-- To show errors, add the `aria-invalid` prop to the `<Switch />` component and the `data-invalid` prop to the `<Field />` component.
+- برای Switch از **`field.state.value`** و **`field.handleChange`** در کامپوننت **`<Switch />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Switch />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -523,15 +536,17 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <form.Field
   name="twoFactor"
   children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+    const isInvalid =
+      field.state.meta.isTouched && !field.state.meta.isValid
+
     return (
       <Field orientation="horizontal" data-invalid={isInvalid}>
         <FieldContent>
           <FieldLabel htmlFor="form-tanstack-switch-twoFactor">
-            Multi-factor authentication
+            احراز هویت چندمرحله‌ای
           </FieldLabel>
           <FieldDescription>
-            Enable multi-factor authentication to secure your account.
+            احراز هویت چندمرحله‌ای را برای افزایش امنیت حساب فعال کنید.
           </FieldDescription>
           {isInvalid && <FieldError errors={field.state.meta.errors} />}
         </FieldContent>
@@ -548,9 +563,9 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 />
 ```
 
-### Complex Forms
+### فرم‌های پیچیده
 
-Here is an example of a more complex form with multiple fields and validation.
+در این مثال یک فرم پیچیده‌تر با چندین فیلد و اعتبارسنجی می‌سازیم.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -559,19 +574,19 @@ Here is an example of a more complex form with multiple fields and validation.
   chromeLessOnMobile
 />
 
-## Resetting the Form
+## بازنشانی فرم
 
-Use `form.reset()` to reset the form to its default values.
+برای بازنشانی فرم به مقادیر پیش‌فرض، از **`form.reset()`** استفاده کنید.
 
 ```tsx showLineNumbers
 <Button type="button" variant="outline" onClick={() => form.reset()}>
-  Reset
+  بازنشانی
 </Button>
 ```
 
-## Array Fields
+## فیلدهای آرایه‌ای
 
-TanStack Form provides powerful array field management with `mode="array"`. This allows you to dynamically add, remove, and update array items with full validation support.
+TanStack Form با استفاده از **`mode="array"`** مدیریت قدرتمندی برای فیلدهای آرایه‌ای ارائه می‌دهد. با این قابلیت می‌توانید آیتم‌های آرایه را به‌صورت پویا اضافه، حذف و ویرایش کنید و هم‌زمان از اعتبارسنجی کامل آن‌ها بهره ببرید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -580,11 +595,11 @@ TanStack Form provides powerful array field management with `mode="array"`. This
   chromeLessOnMobile
 />
 
-This example demonstrates managing multiple email addresses with array fields. Users can add up to 5 email addresses, remove individual addresses, and each address is validated independently.
+در این مثال نحوهٔ مدیریت چند آدرس ایمیل با استفاده از فیلدهای آرایه‌ای را می‌بینید. کاربر می‌تواند حداکثر ۵ آدرس ایمیل اضافه کند، هر آدرس را به‌صورت جداگانه حذف کند و هر آدرس نیز به‌صورت مستقل اعتبارسنجی می‌شود.
 
-### Array Field Structure
+### ساختار فیلدهای آرایه‌ای
 
-Use `mode="array"` on the parent field to enable array field management.
+برای فعال کردن مدیریت فیلدهای آرایه‌ای، از **`mode="array"`** در فیلد والد استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx" {3,12-14}
 <form.Field
@@ -593,13 +608,13 @@ Use `mode="array"` on the parent field to enable array field management.
   children={(field) => {
     return (
       <FieldSet>
-        <FieldLegend variant="label">Email Addresses</FieldLegend>
+        <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
         <FieldDescription>
-          Add up to 5 email addresses where we can contact you.
+          حداکثر ۵ آدرس ایمیل اضافه کنید تا بتوانیم با شما در تماس باشیم.
         </FieldDescription>
         <FieldGroup>
           {field.state.value.map((_, index) => (
-            // Nested field for each array item
+            // فیلد تو در تو برای هر آیتم آرایه
           ))}
         </FieldGroup>
       </FieldSet>
@@ -608,9 +623,11 @@ Use `mode="array"` on the parent field to enable array field management.
 />
 ```
 
-### Nested Fields
+### فیلدهای تو در تو
 
-Access individual array items using bracket notation: `fieldName[index].propertyName`. This example uses `InputGroup` to display the remove button inline with the input.
+برای دسترسی به آیتم‌های آرایه از Notation براکت استفاده کنید: **`fieldName[index].propertyName`**.
+
+در این مثال از **`InputGroup`** برای نمایش دکمهٔ حذف در کنار ورودی استفاده شده است.
 
 ```tsx showLineNumbers title="form.tsx"
 <form.Field
@@ -618,6 +635,7 @@ Access individual array items using bracket notation: `fieldName[index].property
   children={(subField) => {
     const isSubFieldInvalid =
       subField.state.meta.isTouched && !subField.state.meta.isValid
+
     return (
       <Field orientation="horizontal" data-invalid={isSubFieldInvalid}>
         <FieldContent>
@@ -639,7 +657,7 @@ Access individual array items using bracket notation: `fieldName[index].property
                   variant="ghost"
                   size="icon-xs"
                   onClick={() => field.removeValue(index)}
-                  aria-label={`Remove email ${index + 1}`}
+                  aria-label={`حذف ایمیل ${index + 1}`}
                 >
                   <XIcon />
                 </InputGroupButton>
@@ -656,9 +674,9 @@ Access individual array items using bracket notation: `fieldName[index].property
 />
 ```
 
-### Adding Items
+### افزودن آیتم
 
-Use `field.pushValue(item)` to add items to an array field. You can disable the button when the array reaches its maximum length.
+برای اضافه کردن آیتم به فیلد آرایه‌ای از **`field.pushValue(item)`** استفاده کنید. زمانی که تعداد آیتم‌ها به حداکثر مجاز برسد، می‌توانید دکمه را غیرفعال کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 <Button
@@ -668,20 +686,20 @@ Use `field.pushValue(item)` to add items to an array field. You can disable the 
   onClick={() => field.pushValue({ address: "" })}
   disabled={field.state.value.length >= 5}
 >
-  Add Email Address
+  افزودن آدرس ایمیل
 </Button>
 ```
 
-### Removing Items
+### حذف آیتم
 
-Use `field.removeValue(index)` to remove items from an array field. You can conditionally show the remove button only when there's more than one item.
+برای حذف یک آیتم از فیلد آرایه‌ای از **`field.removeValue(index)`** استفاده کنید. می‌توانید دکمهٔ حذف را فقط زمانی نمایش دهید که بیش از یک آیتم وجود داشته باشد.
 
 ```tsx showLineNumbers title="form.tsx"
 {
   field.state.value.length > 1 && (
     <InputGroupButton
       onClick={() => field.removeValue(index)}
-      aria-label={`Remove email ${index + 1}`}
+      aria-label={`حذف ایمیل ${index + 1}`}
     >
       <XIcon />
     </InputGroupButton>
@@ -689,19 +707,19 @@ Use `field.removeValue(index)` to remove items from an array field. You can cond
 }
 ```
 
-### Array Validation
+### اعتبارسنجی آرایه
 
-Validate array fields using Zod's array methods.
+برای اعتبارسنجی فیلدهای آرایه‌ای از متدهای آرایه در Zod استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 const formSchema = z.object({
   emails: z
     .array(
       z.object({
-        address: z.string().email("Enter a valid email address."),
+        address: z.string().email("یک آدرس ایمیل معتبر وارد کنید."),
       })
     )
-    .min(1, "Add at least one email address.")
-    .max(5, "You can add up to 5 email addresses."),
+    .min(1, "حداقل یک آدرس ایمیل اضافه کنید.")
+    .max(5, "حداکثر می‌توانید ۵ آدرس ایمیل اضافه کنید."),
 })
 ```

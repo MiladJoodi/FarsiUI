@@ -13,14 +13,14 @@ export function ShimmerOnce() {
         key={key}
         className="shimmer text-sm text-muted-foreground shimmer-duration-1100 shimmer-once"
       >
-        Generating response&hellip;
+        پاسخ ایجاد شد.
       </p>
       <Button
         variant="outline"
         size="sm"
         onClick={() => setKey((value) => value + 1)}
       >
-        Replay
+        پخش مجدد
       </Button>
     </div>
   )

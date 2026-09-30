@@ -33,13 +33,17 @@ import {
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
+
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
 
 export default function BugReportForm() {
   const form = useForm({
@@ -53,7 +57,10 @@ export default function BugReportForm() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -71,9 +78,9 @@ export default function BugReportForm() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Bug Report</CardTitle>
+        <CardTitle>گزارش باگ</CardTitle>
         <CardDescription>
-          Help us improve by reporting bugs you encounter.
+          با گزارش باگ‌هایی که با آن‌ها مواجه می‌شوید، به بهبود پروژه کمک کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -92,7 +99,7 @@ export default function BugReportForm() {
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
                   <Field data-invalid={isInvalid}>
-                    <FieldLabel htmlFor={field.name}>Bug Title</FieldLabel>
+                    <FieldLabel htmlFor={field.name}>عنوان باگ</FieldLabel>
                     <Input
                       id={field.name}
                       name={field.name}
@@ -117,7 +124,7 @@ export default function BugReportForm() {
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
                   <Field data-invalid={isInvalid}>
-                    <FieldLabel htmlFor={field.name}>Description</FieldLabel>
+                    <FieldLabel htmlFor={field.name}>توضیحات</FieldLabel>
                     <InputGroup>
                       <InputGroupTextarea
                         id={field.name}
@@ -131,14 +138,17 @@ export default function BugReportForm() {
                         aria-invalid={isInvalid}
                       />
                       <InputGroupAddon align="block-end">
-                        <InputGroupText className="tabular-nums">
-                          {field.state.value.length}/100 characters
+                        <InputGroupText className="gap-1">
+                          <span dir="ltr">
+                            {`${toPersianDigits(field.state.value.length)}/${toPersianDigits(100)}`}
+                          </span>
+                          <span>کاراکتر</span>
                         </InputGroupText>
                       </InputGroupAddon>
                     </InputGroup>
                     <FieldDescription>
-                      Include steps to reproduce, expected behavior, and what
-                      actually happened.
+                      مراحل بازتولید مشکل، رفتار مورد انتظار و اتفاقی که در عمل
+                      رخ داده است را بنویسید.
                     </FieldDescription>
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -151,11 +161,13 @@ export default function BugReportForm() {
         </form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="bug-report-form">ارسال</Button>
+          <Button type="submit" form="bug-report-form">
+            ارسال
+          </Button>
         </Field>
       </CardFooter>
     </Card>

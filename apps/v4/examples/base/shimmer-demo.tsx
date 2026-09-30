@@ -1,7 +1,7 @@
 export function ShimmerDemo() {
   return (
     <p className="shimmer text-sm text-muted-foreground">
-      Generating response&hellip;
+      در حال ایجاد پاسخ&hellip;
     </p>
   )
 }

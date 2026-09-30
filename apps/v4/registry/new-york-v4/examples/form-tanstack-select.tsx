@@ -44,10 +44,10 @@ const spokenLanguages = [
 const formSchema = z.object({
   language: z
     .string()
-    .min(1, "Please select your spoken language.")
+    .min(1, "لطفاً زبان گفتاری خود را انتخاب کنید.")
     .refine((val) => val !== "auto", {
       message:
-        "Auto-detection is not allowed. Please select a specific language.",
+        "تشخیص خودکار مجاز نیست. لطفاً یک زبان مشخص انتخاب کنید.",
     }),
 })
 
@@ -62,7 +62,10 @@ export default function FormTanstackSelect() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -78,14 +81,14 @@ export default function FormTanstackSelect() {
   })
 
   return (
-    <Card className="w-full sm:max-w-lg">
-      <CardHeader>
-        <CardTitle>Language Preferences</CardTitle>
+    <Card className="w-full sm:max-w-lg gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>تنظیمات زبان</CardTitle>
         <CardDescription>
-          Select your preferred spoken language.
+          زبان گفتاری موردنظر خود را انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form
           id="form-tanstack-select"
           onSubmit={(e) => {
@@ -93,7 +96,7 @@ export default function FormTanstackSelect() {
             form.handleSubmit()
           }}
         >
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <form.Field
               name="language"
               children={(field) => {
@@ -103,10 +106,11 @@ export default function FormTanstackSelect() {
                   <Field orientation="responsive" data-invalid={isInvalid}>
                     <FieldContent>
                       <FieldLabel htmlFor="form-tanstack-select-language">
-                        Spoken Language
+                        زبان گفتاری
                       </FieldLabel>
                       <FieldDescription>
-                        For best results, select the language you speak.
+                        برای دریافت نتیجهٔ بهتر، زبانی را انتخاب کنید که به آن
+                        صحبت می‌کنید.
                       </FieldDescription>
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -121,11 +125,12 @@ export default function FormTanstackSelect() {
                         id="form-tanstack-select-language"
                         aria-invalid={isInvalid}
                         className="min-w-[120px]"
-                       dir="rtl">
+                        dir="rtl"
+                      >
                         <SelectValue placeholder="انتخاب کنید" />
                       </SelectTrigger>
                       <SelectContent position="item-aligned" dir="rtl">
-                        <SelectItem value="auto">Auto</SelectItem>
+                        <SelectItem value="auto">خودکار</SelectItem>
                         <SelectSeparator />
                         {spokenLanguages.map((language) => (
                           <SelectItem
@@ -144,12 +149,14 @@ export default function FormTanstackSelect() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-select">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-select">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

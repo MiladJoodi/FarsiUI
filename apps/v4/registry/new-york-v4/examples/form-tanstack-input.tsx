@@ -26,11 +26,11 @@ import { Input } from "@/registry/new-york-v4/ui/input"
 const formSchema = z.object({
   username: z
     .string()
-    .min(3, "Username must be at least 3 characters.")
-    .max(10, "Username must be at most 10 characters.")
+    .min(3, "نام کاربری باید حداقل ۳ کاراکتر باشد.")
+    .max(10, "نام کاربری باید حداکثر ۱۰ کاراکتر باشد.")
     .regex(
       /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores."
+      "نام کاربری فقط می‌تواند شامل حروف، اعداد و Underscore باشد."
     ),
 })
 
@@ -45,7 +45,10 @@ export default function FormTanstackInput() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -63,9 +66,9 @@ export default function FormTanstackInput() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Profile Settings</CardTitle>
+        <CardTitle>تنظیمات پروفایل</CardTitle>
         <CardDescription>
-          Update your profile information below.
+          اطلاعات پروفایل خود را به‌روزرسانی کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -85,7 +88,7 @@ export default function FormTanstackInput() {
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor="form-tanstack-input-username">
-                      Username
+                      نام‌کاربری
                     </FieldLabel>
                     <Input
                       id="form-tanstack-input-username"
@@ -98,9 +101,9 @@ export default function FormTanstackInput() {
                       autoComplete="username"
                     />
                     <FieldDescription>
-                      This is your public display name. Must be between 3 and 10
-                      characters. Must only contain letters, numbers, and
-                      underscores.
+                      این نام به‌صورت عمومی در پروفایل شما نمایش داده می‌شود و باید
+                      بین ۳ تا ۱۰ کاراکتر باشد و فقط شامل حروف، اعداد و Underscore
+                      باشد.
                     </FieldDescription>
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -113,11 +116,13 @@ export default function FormTanstackInput() {
         </form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-input">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-input">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

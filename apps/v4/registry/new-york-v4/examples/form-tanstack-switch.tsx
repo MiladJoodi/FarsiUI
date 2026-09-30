@@ -26,7 +26,7 @@ import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const formSchema = z.object({
   twoFactor: z.boolean().refine((val) => val === true, {
-    message: "It is highly recommended to enable two-factor authentication.",
+    message: "فعال‌سازی احراز هویت چندمرحله‌ای قویاً توصیه می‌شود.",
   }),
 })
 
@@ -41,7 +41,10 @@ export default function FormTanstackSwitch() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -59,9 +62,9 @@ export default function FormTanstackSwitch() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Security Settings</CardTitle>
+        <CardTitle>تنظیمات امنیتی</CardTitle>
         <CardDescription>
-          Manage your account security preferences.
+          تنظیمات امنیتی حساب خود را مدیریت کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -82,11 +85,11 @@ export default function FormTanstackSwitch() {
                   <Field orientation="horizontal" data-invalid={isInvalid}>
                     <FieldContent>
                       <FieldLabel htmlFor="form-tanstack-switch-twoFactor">
-                        Multi-factor authentication
+                        احراز هویت چندمرحله‌ای
                       </FieldLabel>
                       <FieldDescription>
-                        Enable multi-factor authentication to secure your
-                        account.
+                        احراز هویت چندمرحله‌ای را برای افزایش امنیت حساب فعال
+                        کنید.
                       </FieldDescription>
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -98,6 +101,7 @@ export default function FormTanstackSwitch() {
                       checked={field.state.value}
                       onCheckedChange={field.handleChange}
                       aria-invalid={isInvalid}
+                      dir="ltr"
                     />
                   </Field>
                 )
@@ -107,11 +111,13 @@ export default function FormTanstackSwitch() {
         </form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-switch">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-switch">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

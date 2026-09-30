@@ -12,10 +12,10 @@ export function ShimmerMarker() {
         <MarkerIcon>
           <Spinner />
         </MarkerIcon>
-        <MarkerContent className="shimmer">Thinking...</MarkerContent>
+        <MarkerContent className="shimmer">در حال فکر کردن&hellip;</MarkerContent>
       </Marker>
       <Marker variant="separator" role="status">
-        <MarkerContent className="shimmer">Reading 4 files</MarkerContent>
+        <MarkerContent className="shimmer">در حال خواندن ۴ فایل</MarkerContent>
       </Marker>
     </div>
   )

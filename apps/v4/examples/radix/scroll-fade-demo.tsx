@@ -1,6 +1,13 @@
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export function ScrollFadeDemo() {
   return (
-    <div className="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border">
+    <div
+      className="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border"
+      dir="rtl"
+    >
       <div className="h-72 scroll-fade scrollbar-none overflow-y-auto">
         <div className="flex flex-col gap-1.5 p-1.5">
           {Array.from({ length: 12 }, (_, index) => (
@@ -8,7 +15,7 @@ export function ScrollFadeDemo() {
               key={index}
               className="rounded-lg bg-muted px-3 py-2.5 text-sm"
             >
-              Item {index + 1}
+              آیتم {toPersianDigits(index + 1)}
             </div>
           ))}
         </div>

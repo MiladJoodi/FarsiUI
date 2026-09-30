@@ -29,11 +29,11 @@ import {
 const tasks = [
   {
     id: "push",
-    label: "Push notifications",
+    label: "اعلان Push",
   },
   {
     id: "email",
-    label: "Email notifications",
+    label: "اعلان ایمیل",
   },
 ] as const
 
@@ -41,11 +41,11 @@ const formSchema = z.object({
   responses: z.boolean(),
   tasks: z
     .array(z.string())
-    .min(1, "Please select at least one notification type.")
+    .min(1, "حداقل یک نوع اعلان را انتخاب کنید.")
     .refine(
       (value) => value.every((task) => tasks.some((t) => t.id === task)),
       {
-        message: "Invalid notification type selected.",
+        message: "نوع اعلان نامعتبر انتخاب شده است.",
       }
     ),
 })
@@ -62,7 +62,10 @@ export default function FormTanstackCheckbox() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -80,8 +83,10 @@ export default function FormTanstackCheckbox() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>Manage your notification preferences.</CardDescription>
+        <CardTitle>اعلان‌ها</CardTitle>
+        <CardDescription>
+          تنظیمات اعلان‌های خود را مدیریت کنید.
+        </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
         <form
@@ -100,10 +105,10 @@ export default function FormTanstackCheckbox() {
                 return (
                   <div>
                     <FieldSet>
-                      <FieldLegend variant="label">Responses</FieldLegend>
+                      <FieldLegend variant="label">پاسخ‌ها</FieldLegend>
                       <FieldDescription>
-                        Get notified for requests that take time, like research
-                        or image generation.
+                        برای درخواست‌هایی که زمان بیشتری می‌برند، مثل تحقیق یا
+                        تولید تصویر، اعلان دریافت کنید.
                       </FieldDescription>
                       <FieldGroup data-slot="checkbox-group">
                         <Field
@@ -123,7 +128,7 @@ export default function FormTanstackCheckbox() {
                             htmlFor="form-tanstack-checkbox-responses"
                             className="font-normal"
                           >
-                            Push notifications
+                            اعلان Push
                           </FieldLabel>
                         </Field>
                       </FieldGroup>
@@ -145,10 +150,10 @@ export default function FormTanstackCheckbox() {
                 return (
                   <FieldGroup className="gap-3">
                     <FieldSet data-invalid={isInvalid}>
-                      <FieldLegend variant="label">Tasks</FieldLegend>
+                      <FieldLegend variant="label">وظایف</FieldLegend>
                       <FieldDescription>
-                        Get notified when tasks you&apos;ve created have
-                        updates.
+                        برای به‌روزرسانی وظایفی که ایجاد کرده‌اید، اعلان دریافت
+                        کنید.
                       </FieldDescription>
                       <FieldGroup data-slot="checkbox-group">
                         {tasks.map((task) => (
@@ -196,11 +201,13 @@ export default function FormTanstackCheckbox() {
         </form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-checkbox">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-checkbox">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

@@ -36,11 +36,11 @@ const formSchema = z.object({
   emails: z
     .array(
       z.object({
-        address: z.string().email("Enter a valid email address."),
+        address: z.string().email("یک آدرس ایمیل معتبر وارد کنید."),
       })
     )
-    .min(1, "Add at least one email address.")
-    .max(5, "You can add up to 5 email addresses."),
+    .min(1, "حداقل یک آدرس ایمیل اضافه کنید.")
+    .max(5, "حداکثر می‌توانید ۵ آدرس ایمیل اضافه کنید."),
 })
 
 export default function FormTanstackArray() {
@@ -54,7 +54,10 @@ export default function FormTanstackArray() {
     onSubmit: async ({ value }) => {
       toast("مقادیر زیر ارسال شد:", {
         description: (
-          <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+          <pre
+            className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+            dir="ltr"
+          >
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
@@ -72,8 +75,10 @@ export default function FormTanstackArray() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="border-b px-4 pb-3">
-        <CardTitle>Contact Emails</CardTitle>
-        <CardDescription>Manage your contact email addresses.</CardDescription>
+        <CardTitle>ایمیل‌های تماس</CardTitle>
+        <CardDescription>
+          آدرس‌های ایمیل تماس خود را مدیریت کنید.
+        </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
         <form
@@ -89,9 +94,10 @@ export default function FormTanstackArray() {
                 field.state.meta.isTouched && !field.state.meta.isValid
               return (
                 <FieldSet className="gap-4">
-                  <FieldLegend variant="label">Email Addresses</FieldLegend>
+                  <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
                   <FieldDescription>
-                    Add up to 5 email addresses where we can contact you.
+                    حداکثر ۵ آدرس ایمیل اضافه کنید تا بتوانیم با شما در تماس
+                    باشیم.
                   </FieldDescription>
                   <FieldGroup className="gap-4">
                     {field.state.value.map((_, index) => (
@@ -128,8 +134,10 @@ export default function FormTanstackArray() {
                                         type="button"
                                         variant="ghost"
                                         size="icon-xs"
-                                        onClick={() => field.removeValue(index)}
-                                        aria-label={`Remove email ${index + 1}`}
+                                        onClick={() =>
+                                          field.removeValue(index)
+                                        }
+                                        aria-label={`حذف ایمیل ${index + 1}`}
                                       >
                                         <XIcon />
                                       </InputGroupButton>
@@ -154,7 +162,7 @@ export default function FormTanstackArray() {
                       onClick={() => field.pushValue({ address: "" })}
                       disabled={field.state.value.length >= 5}
                     >
-                      Add Email Address
+                      افزودن آدرس ایمیل
                     </Button>
                   </FieldGroup>
                   {isInvalid && <FieldError errors={field.state.meta.errors} />}
@@ -165,11 +173,13 @@ export default function FormTanstackArray() {
         </form>
       </CardContent>
       <CardFooter className="border-t px-4 pt-3">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-array">ذخیره</Button>
+          <Button type="submit" form="form-tanstack-array">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

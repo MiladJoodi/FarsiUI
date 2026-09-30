@@ -9,7 +9,7 @@ export function ShimmerRtl() {
       </div>
       <div className="flex flex-col gap-3">
         <p dir="rtl" className="shimmer">
-          جارٍ إنشاء الرد&hellip;
+          در حال ایجاد پاسخ&hellip;
         </p>
         <p className="font-mono text-xs">dir=&quot;rtl&quot;</p>
       </div>
