@@ -15,8 +15,8 @@ import {
 export function ToggleGroupFontWeightSelector() {
   const [fontWeight, setFontWeight] = React.useState("normal")
   return (
-    <Field>
-      <FieldLabel>Font Weight</FieldLabel>
+    <Field dir="rtl">
+      <FieldLabel>وزن فونت</FieldLabel>
       <ToggleGroup
         value={[fontWeight]}
         onValueChange={(value) => setFontWeight(value[0])}
@@ -26,43 +26,43 @@ export function ToggleGroupFontWeightSelector() {
       >
         <ToggleGroupItem
           value="light"
-          aria-label="Light"
+          aria-label="نازک"
           className="flex size-16 flex-col items-center justify-center rounded-xl"
         >
-          <span className="text-2xl leading-none font-light">Aa</span>
-          <span className="text-xs text-muted-foreground">Light</span>
+          <span className="text-2xl leading-none font-light">آا</span>
+          <span className="text-xs text-muted-foreground">نازک</span>
         </ToggleGroupItem>
         <ToggleGroupItem
           value="normal"
-          aria-label="Normal"
+          aria-label="عادی"
           className="flex size-16 flex-col items-center justify-center rounded-xl"
         >
-          <span className="text-2xl leading-none font-normal">Aa</span>
-          <span className="text-xs text-muted-foreground">Normal</span>
+          <span className="text-2xl leading-none font-normal">آا</span>
+          <span className="text-xs text-muted-foreground">عادی</span>
         </ToggleGroupItem>
         <ToggleGroupItem
           value="medium"
-          aria-label="Medium"
+          aria-label="متوسط"
           className="flex size-16 flex-col items-center justify-center rounded-xl"
         >
-          <span className="text-2xl leading-none font-medium">Aa</span>
-          <span className="text-xs text-muted-foreground">Medium</span>
+          <span className="text-2xl leading-none font-medium">آا</span>
+          <span className="text-xs text-muted-foreground">متوسط</span>
         </ToggleGroupItem>
         <ToggleGroupItem
           value="bold"
-          aria-label="Bold"
+          aria-label="ضخیم"
           className="flex size-16 flex-col items-center justify-center rounded-xl"
         >
-          <span className="text-2xl leading-none font-bold">Aa</span>
-          <span className="text-xs text-muted-foreground">Bold</span>
+          <span className="text-2xl leading-none font-bold">آا</span>
+          <span className="text-xs text-muted-foreground">ضخیم</span>
         </ToggleGroupItem>
       </ToggleGroup>
       <FieldDescription>
-        Use{" "}
-        <code className="rounded-md bg-muted px-1 py-0.5 font-mono">
+        از{" "}
+        <code className="rounded-md bg-muted px-1 py-0.5 font-mono" dir="ltr">
           font-{fontWeight}
         </code>{" "}
-        to set the font weight.
+        برای تنظیم وزن فونت استفاده کنید.
       </FieldDescription>
     </Field>
   )

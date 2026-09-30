@@ -70,109 +70,109 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "علی رضایی",
+    email: "ali@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "شرکت نمونه",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "سازمانی",
     },
     {
-      name: "Acme Corp.",
+      name: "شرکت آلفا",
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: "استارتاپ",
     },
     {
-      name: "Evil Corp.",
+      name: "شرکت بتا",
       logo: Command,
-      plan: "Free",
+      plan: "رایگان",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "زمین بازی",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "تاریخچه",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "ستاره‌دار",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "تنظیمات",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "مدل‌ها",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "جنسیس",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "اکسپلورر",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "کوانتوم",
           url: "#",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "مستندات",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
+          title: "مقدمه",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "شروع",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "آموزش‌ها",
           url: "#",
         },
         {
-          title: "Changelog",
+          title: "تغییرات",
           url: "#",
         },
       ],
     },
     {
-      title: "Settings",
+      title: "تنظیمات",
       url: "#",
       icon: Settings2,
       items: [
         {
-          title: "General",
+          title: "عمومی",
           url: "#",
         },
         {
-          title: "Team",
+          title: "تیم",
           url: "#",
         },
         {
-          title: "Billing",
+          title: "صورتحساب",
           url: "#",
         },
         {
-          title: "Limits",
+          title: "محدودیت‌ها",
           url: "#",
         },
       ],
@@ -180,17 +180,17 @@ const data = {
   ],
   projects: [
     {
-      name: "Design Engineering",
+      name: "مهندسی طراحی",
       url: "#",
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
+      name: "فروش و بازاریابی",
       url: "#",
       icon: PieChart,
     },
     {
-      name: "Travel",
+      name: "سفر",
       url: "#",
       icon: Map,
     },
@@ -228,21 +228,21 @@ function TeamSwitcher({
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
               <activeTeam.logo className="size-4" />
             </div>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{activeTeam.name}</span>
               <span className="truncate text-xs">{activeTeam.plan}</span>
             </div>
-            <ChevronsUpDown className="ml-auto" />
+            <ChevronsUpDown className="ms-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
             align="start"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "left"}
             sideOffset={4}
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="text-xs text-muted-foreground">
-                Teams
+                تیم‌ها
               </DropdownMenuLabel>
               {teams.map((team, index) => (
                 <DropdownMenuItem
@@ -265,7 +265,7 @@ function TeamSwitcher({
                   <Plus className="size-4" />
                 </div>
                 <div className="font-medium text-muted-foreground">
-                  Add team
+                  افزودن تیم
                 </div>
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -292,7 +292,7 @@ function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>پلتفرم</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -306,7 +306,7 @@ function NavMain({
               >
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
-                <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                <ChevronRight className="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 rtl:rotate-180 rtl:group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>
@@ -340,7 +340,7 @@ function NavProjects({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -351,25 +351,25 @@ function NavProjects({
             <DropdownMenu>
               <DropdownMenuTrigger render={<SidebarMenuAction showOnHover />}>
                 <MoreHorizontal />
-                <span className="sr-only">More</span>
+                <span className="sr-only">بیشتر</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-48 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
+                side={isMobile ? "bottom" : "left"}
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
                   <Folder className="text-muted-foreground" />
-                  <span>View Project</span>
+                  <span>مشاهده پروژه</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Forward className="text-muted-foreground" />
-                  <span>Share Project</span>
+                  <span>اشتراک‌گذاری</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Trash2 className="text-muted-foreground" />
-                  <span>Delete Project</span>
+                  <span>حذف</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -378,7 +378,7 @@ function NavProjects({
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
             <MoreHorizontal className="text-sidebar-foreground/70" />
-            <span>More</span>
+            <span>بیشتر</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
@@ -411,28 +411,28 @@ function NavUser({
           >
             <Avatar className="h-8 w-8 rounded-lg">
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              <AvatarFallback className="rounded-lg">آر</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
               <span className="truncate text-xs">{user.email}</span>
             </div>
-            <ChevronsUpDown className="ml-auto size-4" />
+            <ChevronsUpDown className="ms-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "left"}
             align="end"
             sideOffset={4}
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
                   <Avatar className="h-8 w-8 rounded-lg">
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    <AvatarFallback className="rounded-lg">آر</AvatarFallback>
                   </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
+                  <div className="grid flex-1 text-start text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
                     <span className="truncate text-xs">{user.email}</span>
                   </div>
@@ -443,29 +443,29 @@ function NavUser({
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Sparkles />
-                Upgrade to Pro
+                ارتقاء به Pro
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <BadgeCheck />
-                Account
+                حساب
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <CreditCard />
-                Billing
+                صورتحساب
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />
-                Notifications
+                اعلان‌ها
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <LogOut />
-                Log out
+                خروج
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
@@ -479,27 +479,31 @@ export default function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <SidebarProvider>
-      <Sidebar collapsible="icon" {...props}>
-        <SidebarHeader>
-          <TeamSwitcher teams={data.teams} />
-        </SidebarHeader>
-        <SidebarContent>
-          <NavMain items={data.navMain} />
-          <NavProjects projects={data.projects} />
-        </SidebarContent>
-        <SidebarFooter>
-          <NavUser user={data.user} />
-        </SidebarFooter>
-        <SidebarRail />
-      </Sidebar>
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-          </div>
-        </header>
-      </SidebarInset>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar collapsible="icon" dir="rtl" side="right" {...props}>
+          <SidebarHeader>
+            <TeamSwitcher teams={data.teams} />
+          </SidebarHeader>
+          <SidebarContent>
+            <NavMain items={data.navMain} />
+            <NavProjects projects={data.projects} />
+          </SidebarContent>
+          <SidebarFooter>
+            <NavUser user={data.user} />
+          </SidebarFooter>
+          <SidebarRail />
+        </Sidebar>
+        <SidebarInset>
+          <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+            <div className="flex items-center gap-2 px-4">
+              <SidebarTrigger className="-ms-1" />
+            </div>
+          </header>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
   )
 }
+
+

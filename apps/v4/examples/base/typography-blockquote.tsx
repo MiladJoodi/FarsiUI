@@ -1,8 +1,8 @@
 export function TypographyBlockquote() {
   return (
-    <blockquote className="mt-6 border-l-2 pl-6 italic">
-      &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so
-      it&apos;s only fair that they should pay for the privilege.&quot;
+    <blockquote dir="rtl" className="mt-6 border-s-2 ps-6 italic">
+      «بالاخره،» گفت، «همه از یک جوک خوب لذت می‌برند؛ پس عادلانه است که برای این
+      امتیاز پول بدهند.»
     </blockquote>
   )
 }

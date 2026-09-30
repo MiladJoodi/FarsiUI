@@ -2,12 +2,12 @@ import { Toggle } from "@/styles/base-nova/ui/toggle"
 
 export function ToggleDisabled() {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Toggle aria-label="Toggle disabled" disabled>
-        Disabled
+    <div dir="rtl" className="flex flex-wrap items-center gap-2">
+      <Toggle aria-label="غیرفعال" disabled>
+        غیرفعال
       </Toggle>
-      <Toggle variant="outline" aria-label="Toggle disabled outline" disabled>
-        Disabled
+      <Toggle variant="outline" aria-label="غیرفعال با حاشیه" disabled>
+        غیرفعال
       </Toggle>
     </div>
   )

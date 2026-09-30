@@ -1,118 +1,112 @@
 export function TypographyDemo() {
   return (
-    <div>
+    <div dir="rtl">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
-        Taxing Laughter: The Joke Tax Chronicles
+        مالیات بر خنده: سرگذشت مالیات جوک
       </h1>
       <p className="text-xl leading-7 text-muted-foreground [&:not(:first-child)]:mt-6">
-        Once upon a time, in a far-off land, there was a very lazy king who
-        spent all day lounging on his throne. One day, his advisors came to him
-        with a problem: the kingdom was running out of money.
+        روزگاری در سرزمینی دور، پادشاهی بسیار تنبل بود که تمام روز را روی تختش
+        لم می‌داد. یک روز مشاورانش با مشکلی پیش او آمدند: خزانهٔ پادشاهی خالی
+        می‌شد.
       </p>
       <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-        The King&apos;s Plan
+        نقشهٔ پادشاه
       </h2>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        The king thought long and hard, and finally came up with{" "}
+        پادشاه سخت فکر کرد و سرانجام به{" "}
         <a
           href="#"
           className="font-medium text-primary underline underline-offset-4"
         >
-          a brilliant plan
-        </a>
-        : he would tax the jokes in the kingdom.
+          نقشه‌ای درخشان
+        </a>{" "}
+        رسید: می‌خواست روی جوک‌های پادشاهی مالیات ببندد.
       </p>
-      <blockquote className="mt-6 border-l-2 pl-6 italic">
-        &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so
-        it&apos;s only fair that they should pay for the privilege.&quot;
+      <blockquote className="mt-6 border-s-2 ps-6 italic">
+        «بالاخره،» گفت، «همه از یک جوک خوب لذت می‌برند؛ پس عادلانه است که برای
+        این امتیاز پول بدهند.»
       </blockquote>
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        The Joke Tax
+        مالیات جوک
       </h3>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        The king&apos;s subjects were not amused. They grumbled and complained,
-        but the king was firm:
+        رعایا خوشحال نبودند. غر زدند و اعتراض کردند، اما پادشاه مصمم بود:
       </p>
-      <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
-        <li>1st level of puns: 5 gold coins</li>
-        <li>2nd level of jokes: 10 gold coins</li>
-        <li>3rd level of one-liners : 20 gold coins</li>
+      <ul className="my-6 ms-6 list-disc [&>li]:mt-2">
+        <li>سطح اول بازی با کلمات: ۵ سکه طلا</li>
+        <li>سطح دوم جوک‌ها: ۱۰ سکه طلا</li>
+        <li>سطح سوم تک‌خطی‌ها: ۲۰ سکه طلا</li>
       </ul>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        As a result, people stopped telling jokes, and the kingdom fell into a
-        gloom. But there was one person who refused to let the king&apos;s
-        foolishness get him down: a court jester named Jokester.
+        در نتیجه مردم دیگر جوک تعریف نکردند و پادشاهی در غم فرو رفت. اما یک نفر
+        حاضر نشد حماقت پادشاه او را ناامید کند: دلقک دربار به نام جوکر.
       </p>
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        Jokester&apos;s Revolt
+        شورش جوکر
       </h3>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        Jokester began sneaking into the castle in the middle of the night and
-        leaving jokes all over the place: under the king&apos;s pillow, in his
-        soup, even in the royal toilet. The king was furious, but he
-        couldn&apos;t seem to stop Jokester.
+        جوکر نیمه‌شب‌ها پنهانی وارد قلعه می‌شد و همه جا جوک می‌گذاشت: زیر بالش
+        پادشاه، داخل سوپش، حتی در مستراح سلطنتی. پادشاه خشمگین بود، اما نمی‌توانست
+        جلوی جوکر را بگیرد.
       </p>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        And then, one day, the people of the kingdom discovered that the jokes
-        left by Jokester were so funny that they couldn&apos;t help but laugh.
-        And once they started laughing, they couldn&apos;t stop.
+        تا اینکه یک روز مردم فهمیدند جوک‌های جوکر آن‌قدر خنده‌دار است که نمی‌توانند
+        جلوی خنده‌شان را بگیرند. و وقتی شروع به خندیدن کردند، دیگر ایستادنی نبود.
       </p>
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        The People&apos;s Rebellion
+        قیام مردم
       </h3>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        The people of the kingdom, feeling uplifted by the laughter, started to
-        tell jokes and puns again, and soon the entire kingdom was in on the
-        joke.
+        مردم با انرژی خنده دوباره جوک و بازی با کلمات گفتند و به‌زودی کل پادشاهی
+        در جوک شریک شد.
       </p>
       <div className="my-6 w-full overflow-y-auto">
         <table className="w-full">
           <thead>
             <tr className="m-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                King&apos;s Treasury
+              <th className="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=end]]:text-end">
+                خزانهٔ پادشاه
               </th>
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                People&apos;s happiness
+              <th className="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=end]]:text-end">
+                شادی مردم
               </th>
             </tr>
           </thead>
           <tbody>
             <tr className="m-0 border-t p-0 even:bg-muted">
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Empty
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                خالی
               </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Overflowing
-              </td>
-            </tr>
-            <tr className="m-0 border-t p-0 even:bg-muted">
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Modest
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Satisfied
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                سرشار
               </td>
             </tr>
             <tr className="m-0 border-t p-0 even:bg-muted">
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Full
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                متوسط
               </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                Ecstatic
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                راضی
+              </td>
+            </tr>
+            <tr className="m-0 border-t p-0 even:bg-muted">
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                پر
+              </td>
+              <td className="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=end]]:text-end">
+                سرخوش
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        The king, seeing how much happier his subjects were, realized the error
-        of his ways and repealed the joke tax. Jokester was declared a hero, and
-        the kingdom lived happily ever after.
+        پادشاه که دید رعایایش چقدر شادتر شده‌اند، به اشتباه خود پی برد و مالیات
+        جوک را لغو کرد. جوکر قهرمان اعلام شد و پادشاهی تا ابد خوشبخت ماند.
       </p>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        The moral of the story is: never underestimate the power of a good laugh
-        and always be careful of bad ideas.
+        درس داستان: هرگز قدرت یک خندهٔ خوب را دست‌کم نگیرید و همیشه مراقب
+        ایده‌های بد باشید.
       </p>
     </div>
   )

@@ -2,11 +2,11 @@ import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
 export function TabsVertical() {
   return (
-    <Tabs defaultValue="account" orientation="vertical">
+    <Tabs defaultValue="account" orientation="vertical" dir="rtl">
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="notifications">Notifications</TabsTrigger>
+        <TabsTrigger value="account">حساب</TabsTrigger>
+        <TabsTrigger value="password">رمز عبور</TabsTrigger>
+        <TabsTrigger value="notifications">اعلان‌ها</TabsTrigger>
       </TabsList>
     </Tabs>
   )

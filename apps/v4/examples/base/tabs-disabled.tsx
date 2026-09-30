@@ -2,11 +2,11 @@ import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
 export function TabsDisabled() {
   return (
-    <Tabs defaultValue="home">
+    <Tabs defaultValue="home" dir="rtl">
       <TabsList>
-        <TabsTrigger value="home">Home</TabsTrigger>
+        <TabsTrigger value="home">خانه</TabsTrigger>
         <TabsTrigger value="settings" disabled>
-          Disabled
+          غیرفعال
         </TabsTrigger>
       </TabsList>
     </Tabs>

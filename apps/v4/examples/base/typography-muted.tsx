@@ -1,5 +1,7 @@
 export function TypographyMuted() {
   return (
-    <p className="text-sm text-muted-foreground">Enter your email address.</p>
+    <p dir="rtl" className="text-sm text-muted-foreground">
+      نشانی ایمیل خود را وارد کنید.
+    </p>
   )
 }

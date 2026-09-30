@@ -1,11 +1,3 @@
-"use client"
-
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
 import {
   Table,
   TableBody,
@@ -15,135 +7,79 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/styles/base-nova/ui-rtl/table"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      caption: "A list of your recent invoices.",
-      invoice: "Invoice",
-      status: "Status",
-      method: "Method",
-      amount: "Amount",
-      paid: "Paid",
-      pending: "Pending",
-      unpaid: "Unpaid",
-      creditCard: "Credit Card",
-      paypal: "PayPal",
-      bankTransfer: "Bank Transfer",
-      total: "Total",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      caption: "قائمة بفواتيرك الأخيرة.",
-      invoice: "الفاتورة",
-      status: "الحالة",
-      method: "الطريقة",
-      amount: "المبلغ",
-      paid: "مدفوع",
-      pending: "قيد الانتظار",
-      unpaid: "غير مدفوع",
-      creditCard: "بطاقة ائتمانية",
-      paypal: "PayPal",
-      bankTransfer: "تحويل بنكي",
-      total: "المجموع",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      caption: "רשימת החשבוניות האחרונות שלך.",
-      invoice: "חשבונית",
-      status: "סטטוס",
-      method: "שיטה",
-      amount: "סכום",
-      paid: "שולם",
-      pending: "ממתין",
-      unpaid: "לא שולם",
-      creditCard: "כרטיס אשראי",
-      paypal: "PayPal",
-      bankTransfer: "העברה בנקאית",
-      total: 'סה"כ',
-    },
-  },
-}
+} from "@/styles/base-nova/ui/table"
 
 const invoices = [
   {
     invoice: "INV001",
-    paymentStatus: "paid" as const,
-    totalAmount: "$250.00",
-    paymentMethod: "creditCard" as const,
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۲٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
   {
     invoice: "INV002",
-    paymentStatus: "pending" as const,
-    totalAmount: "$150.00",
-    paymentMethod: "paypal" as const,
+    paymentStatus: "در انتظار",
+    totalAmount: "۱٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "پی‌پال",
   },
   {
     invoice: "INV003",
-    paymentStatus: "unpaid" as const,
-    totalAmount: "$350.00",
-    paymentMethod: "bankTransfer" as const,
+    paymentStatus: "پرداخت‌نشده",
+    totalAmount: "۳٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "انتقال بانکی",
   },
   {
     invoice: "INV004",
-    paymentStatus: "paid" as const,
-    totalAmount: "$450.00",
-    paymentMethod: "creditCard" as const,
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۴٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
   {
     invoice: "INV005",
-    paymentStatus: "paid" as const,
-    totalAmount: "$550.00",
-    paymentMethod: "paypal" as const,
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۵٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "پی‌پال",
   },
   {
     invoice: "INV006",
-    paymentStatus: "pending" as const,
-    totalAmount: "$200.00",
-    paymentMethod: "bankTransfer" as const,
+    paymentStatus: "در انتظار",
+    totalAmount: "۲٬۰۰۰٬۰۰۰ تومان",
+    paymentMethod: "انتقال بانکی",
   },
   {
     invoice: "INV007",
-    paymentStatus: "unpaid" as const,
-    totalAmount: "$300.00",
-    paymentMethod: "creditCard" as const,
+    paymentStatus: "پرداخت‌نشده",
+    totalAmount: "۳٬۰۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
 ]
 
 export function TableRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <Table dir={dir}>
-      <TableCaption>{t.caption}</TableCaption>
+    <Table dir="rtl">
+      <TableCaption>فهرستی از فاکتورهای اخیر شما.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">{t.invoice}</TableHead>
-          <TableHead>{t.status}</TableHead>
-          <TableHead>{t.method}</TableHead>
-          <TableHead className="text-right">{t.amount}</TableHead>
+          <TableHead className="w-[100px]">فاکتور</TableHead>
+          <TableHead>وضعیت</TableHead>
+          <TableHead>روش</TableHead>
+          <TableHead className="text-end">مبلغ</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {invoices.map((invoice) => (
           <TableRow key={invoice.invoice}>
             <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{t[invoice.paymentStatus]}</TableCell>
-            <TableCell>{t[invoice.paymentMethod]}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-end">{invoice.totalAmount}</TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3}>{t.total}</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
+          <TableCell colSpan={3}>جمع</TableCell>
+          <TableCell className="text-end">۲۵٬۰۰۰٬۰۰۰ تومان</TableCell>
         </TableRow>
       </TableFooter>
     </Table>

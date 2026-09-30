@@ -1,6 +1,6 @@
 ---
-title: Toggle
-description: A two-state button that can be either on or off.
+title: تاگل (Toggle)
+description: دکمه‌ای دو حالته که می‌تواند روشن یا خاموش باشد.
 base: base
 component: true
 links:
@@ -8,20 +8,30 @@ links:
   api: https://base-ui.com/react/components/toggle#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="toggle-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "toggle-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "toggle-outline", label: "حاشیه", sizeable: false },
+    { name: "toggle-text", label: "با متن", sizeable: false },
+    { name: "toggle-sizes", label: "اندازه", sizeable: false },
+    { name: "toggle-disabled", label: "غیرفعال", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add toggle
+npx farsiui@latest add toggle
 ```
 
 </TabsContent>
@@ -30,13 +40,13 @@ npx shadcn@latest add toggle
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="toggle"
@@ -44,7 +54,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,42 +62,110 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Toggle } from "@/components/ui/toggle"
 ```
 
 ```tsx
-<Toggle>Toggle</Toggle>
+<Toggle>تاگل</Toggle>
 ```
 
-## Outline
+<div className="hidden">
 
-Use `variant="outline"` for an outline style.
+## حاشیه
 
-<ComponentPreview styleName="base-nova" name="toggle-outline" />
+</div>
 
-## With Text
+<DocsCollapsible title="حاشیه">
 
-<ComponentPreview styleName="base-nova" name="toggle-text" />
+با `variant="outline"` سبک حاشیه‌دار بسازید.
 
-## Size
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-outline"
+  direction="rtl"
+/>
 
-Use the `size` prop to change the size of the toggle.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="toggle-sizes" />
+<div className="hidden">
 
-## Disabled
+## با متن
 
-<ComponentPreview styleName="base-nova" name="toggle-disabled" />
+</div>
 
-## RTL
+<DocsCollapsible title="با متن">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-text"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="toggle-rtl" direction="rtl" />
+</DocsCollapsible>
 
-## API Reference
+<div className="hidden">
 
-See the [Base UI Toggle](https://base-ui.com/react/components/toggle#api-reference) documentation.
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با prop به نام `size` اندازهٔ تاگل را تغییر دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-sizes"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Toggle](https://base-ui.com/react/components/toggle#api-reference) را ببینید.
+
+</DocsCollapsible>

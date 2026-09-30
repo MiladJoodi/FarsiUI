@@ -1,6 +1,6 @@
 ---
-title: Sidebar
-description: A composable, themeable and customizable sidebar component.
+title: نوار کناری (Sidebar)
+description: کامپوننت نوار کناری قابل‌ترکیب، تم‌پذیر و سفارشی‌سازی.
 base: base
 component: true
 ---
@@ -15,30 +15,29 @@ import { ExternalLinkIcon } from "lucide-react"
     className="w-full"
   />
   <figcaption className="text-center text-sm text-gray-500">
-    A sidebar that collapses to icons.
+    نواری که به آیکون جمع می‌شود.
   </figcaption>
 </figure>
 
-Sidebars are one of the most complex components to build. They are central
-to any application and often contain a lot of moving parts.
+نوار کناری از پیچیده‌ترین کامپوننت‌ها برای ساخت است. معمولاً مرکز هر
+اپلیکیشن است و قطعات متحرک زیادی دارد.
 
-We now have a solid foundation to build on top of. Composable. Themeable.
-Customizable.
+حالا پایهٔ محکمی برای ساخت داریم: قابل‌ترکیب، تم‌پذیر و قابل‌سفارشی‌سازی.
 
-[Browse the Blocks Library](/blocks).
+[مرور کتابخانهٔ بلوک‌ها](/blocks).
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add sidebar
+npx farsiui@latest add sidebar
 ```
 
 </TabsContent>
@@ -55,7 +54,7 @@ npx shadcn@latest add sidebar
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers title="app/layout.tsx"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
@@ -97,9 +96,15 @@ export function AppSidebar() {
 }
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Sidebar` layout:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از ترکیب زیر برای ساخت چیدمان `Sidebar` استفاده کنید:
 
 ```text
 SidebarProvider
@@ -130,56 +135,72 @@ SidebarProvider
 └── SidebarTrigger
 ```
 
-## Structure
+</DocsCollapsible>
 
-- **SidebarProvider** — Handles collapsible state and provides sidebar context to child components.
-- **Sidebar** — The main collapsible sidebar panel.
-- **SidebarHeader** — Sticky at the top; use for branding, titles, or workspace switchers.
-- **SidebarFooter** — Sticky at the bottom; use for user menus, settings, or actions.
-- **SidebarContent** — Scrollable region between the header and footer.
-- **SidebarGroup** — Groups related navigation with optional label, action, and content areas.
-- **SidebarMenu** / **SidebarMenuItem** — Menu structure for links, badges, actions, and nested submenus.
-- **SidebarRail** — Resize handle for adjusting sidebar width when applicable.
-- **SidebarInset** — Wraps main content when using the `inset` variant.
-- **SidebarTrigger** — Control that toggles the sidebar open or collapsed.
+<div className="hidden">
+
+## ساختار
+
+</div>
+
+<DocsCollapsible title="ساختار">
+
+- **SidebarProvider** — حالت جمع‌شونده را مدیریت می‌کند و context نوار کناری را به فرزندان می‌دهد.
+- **Sidebar** — پنل اصلی نوار کناری جمع‌شونده.
+- **SidebarHeader** — چسبیده به بالا؛ برای برند، عنوان یا تعویض فضای کاری.
+- **SidebarFooter** — چسبیده به پایین؛ برای منوی کاربر، تنظیمات یا اقدام‌ها.
+- **SidebarContent** — ناحیهٔ قابل‌پیمایش بین هدر و فوتر.
+- **SidebarGroup** — گروه‌بندی ناوبری مرتبط با برچسب، اقدام و محتوای اختیاری.
+- **SidebarMenu** / **SidebarMenuItem** — ساختار منو برای لینک، نشان، اقدام و زیرمنو.
+- **SidebarRail** — دستگیرهٔ تغییر عرض نوار کناری در صورت نیاز.
+- **SidebarInset** — محتوا را هنگام استفاده از واریانت `inset` می‌پیچد.
+- **SidebarTrigger** — کنترل باز و بسته کردن نوار کناری.
 
 <Image
   src="/images/sidebar-structure.png"
   width="716"
   height="420"
-  alt="Sidebar Structure"
+  alt="ساختار نوار کناری"
   className="mt-6 w-full overflow-hidden rounded-2xl border dark:hidden"
 />
 <Image
   src="/images/sidebar-structure-dark.png"
   width="716"
   height="420"
-  alt="Sidebar Structure"
+  alt="ساختار نوار کناری"
   className="mt-6 hidden w-full overflow-hidden rounded-2xl border dark:block"
 />
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarProvider
 
-The `SidebarProvider` component is used to provide the sidebar context to the `Sidebar` component. You should always wrap your application in a `SidebarProvider` component.
+</div>
+
+<DocsCollapsible title="SidebarProvider">
+
+`SidebarProvider` context نوار کناری را به `Sidebar` می‌دهد. همیشه اپلیکیشن را داخل `SidebarProvider` بپیچید.
 
 ### Props
 
-| Name           | Type                      | Description                                  |
-| -------------- | ------------------------- | -------------------------------------------- |
-| `defaultOpen`  | `boolean`                 | Default open state of the sidebar.           |
-| `open`         | `boolean`                 | Open state of the sidebar (controlled).      |
-| `onOpenChange` | `(open: boolean) => void` | Sets open state of the sidebar (controlled). |
+| نام            | نوع                       | توضیح                             |
+| -------------- | ------------------------- | --------------------------------- |
+| `defaultOpen`  | `boolean`                 | حالت باز پیش‌فرض نوار کناری.      |
+| `open`         | `boolean`                 | حالت باز کنترل‌شده.               |
+| `onOpenChange` | `(open: boolean) => void` | تنظیم حالت باز (کنترل‌شده).       |
 
-### Width
+### عرض
 
-If you have a single sidebar in your application, you can use the `SIDEBAR_WIDTH` and `SIDEBAR_WIDTH_MOBILE` variables in `sidebar.tsx` to set the width of the sidebar.
+اگر یک نوار کناری دارید، از متغیرهای `SIDEBAR_WIDTH` و `SIDEBAR_WIDTH_MOBILE` در `sidebar.tsx` استفاده کنید.
 
 ```tsx showLineNumbers title="components/ui/sidebar.tsx"
 const SIDEBAR_WIDTH = "16rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
 ```
 
-For multiple sidebars in your application, you can use the `--sidebar-width` and `--sidebar-width-mobile` CSS variables in the `style` prop.
+برای چند نوار کناری، از متغیرهای CSS `--sidebar-width` و `--sidebar-width-mobile` در prop به نام `style` استفاده کنید.
 
 ```tsx showLineNumbers
 <SidebarProvider
@@ -194,35 +215,43 @@ For multiple sidebars in your application, you can use the `--sidebar-width` and
 </SidebarProvider>
 ```
 
-### Keyboard Shortcut
+### میانبر صفحه‌کلید
 
-To trigger the sidebar, you use the `cmd+b` keyboard shortcut on Mac and `ctrl+b` on Windows.
+برای باز و بسته کردن نوار کناری از `cmd+b` در مک و `ctrl+b` در ویندوز استفاده می‌شود.
 
 ```tsx showLineNumbers title="components/ui/sidebar.tsx"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## Sidebar
 
-The main `Sidebar` component used to render a collapsible sidebar.
+</div>
+
+<DocsCollapsible title="Sidebar">
+
+کامپوننت اصلی برای رندر نوار کناری جمع‌شونده.
 
 ### Props
 
-| Property      | Type                              | Description                       |
-| ------------- | --------------------------------- | --------------------------------- |
-| `side`        | `left` or `right`                 | The side of the sidebar.          |
-| `variant`     | `sidebar`, `floating`, or `inset` | The variant of the sidebar.       |
-| `collapsible` | `offcanvas`, `icon`, or `none`    | Collapsible state of the sidebar. |
+| ویژگی         | نوع                               | توضیح                    |
+| ------------- | --------------------------------- | ------------------------ |
+| `side`        | `left` یا `right`                 | سمت نوار کناری.          |
+| `variant`     | `sidebar`، `floating` یا `inset`  | واریانت نوار کناری.      |
+| `collapsible` | `offcanvas`، `icon` یا `none`     | حالت جمع‌شوندگی.         |
 
-| Prop        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| `offcanvas` | A collapsible sidebar that slides in from the left or right. |
-| `icon`      | A sidebar that collapses to icons.                           |
-| `none`      | A non-collapsible sidebar.                                   |
+| Prop        | توضیح                                                      |
+| ----------- | ---------------------------------------------------------- |
+| `offcanvas` | نوار کناری جمع‌شونده که از چپ یا راست می‌آید.              |
+| `icon`      | نواری که به آیکون جمع می‌شود.                              |
+| `none`      | نوار کناری غیرجمع‌شونده.                                   |
 
 <Callout>
-  **Note:** If you use the `inset` variant, remember to wrap your main content
-  in a `SidebarInset` component.
+  **توجه:** اگر از واریانت `inset` استفاده می‌کنید، محتوای اصلی را داخل
+  `SidebarInset` بپیچید.
 </Callout>
 
 ```tsx showLineNumbers
@@ -234,9 +263,17 @@ The main `Sidebar` component used to render a collapsible sidebar.
 </SidebarProvider>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## useSidebar
 
-The `useSidebar` hook is used to control the sidebar.
+</div>
+
+<DocsCollapsible title="useSidebar">
+
+هوک `useSidebar` برای کنترل نوار کناری است.
 
 ```tsx showLineNumbers
 import { useSidebar } from "@/components/ui/sidebar"
@@ -254,19 +291,27 @@ export function AppSidebar() {
 }
 ```
 
-| Property        | Type                      | Description                                   |
-| --------------- | ------------------------- | --------------------------------------------- |
-| `state`         | `expanded` or `collapsed` | The current state of the sidebar.             |
-| `open`          | `boolean`                 | Whether the sidebar is open.                  |
-| `setOpen`       | `(open: boolean) => void` | Sets the open state of the sidebar.           |
-| `openMobile`    | `boolean`                 | Whether the sidebar is open on mobile.        |
-| `setOpenMobile` | `(open: boolean) => void` | Sets the open state of the sidebar on mobile. |
-| `isMobile`      | `boolean`                 | Whether the sidebar is on mobile.             |
-| `toggleSidebar` | `() => void`              | Toggles the sidebar. Desktop and mobile.      |
+| ویژگی           | نوع                       | توضیح                                      |
+| --------------- | ------------------------- | ------------------------------------------ |
+| `state`         | `expanded` یا `collapsed` | حالت فعلی نوار کناری.                      |
+| `open`          | `boolean`                 | باز بودن نوار کناری.                       |
+| `setOpen`       | `(open: boolean) => void` | تنظیم حالت باز.                            |
+| `openMobile`    | `boolean`                 | باز بودن در موبایل.                        |
+| `setOpenMobile` | `(open: boolean) => void` | تنظیم حالت باز در موبایل.                  |
+| `isMobile`      | `boolean`                 | نمایش در موبایل.                           |
+| `toggleSidebar` | `() => void`              | باز و بسته کردن؛ دسکتاپ و موبایل.          |
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## SidebarHeader
 
-Use the `SidebarHeader` component to add a sticky header to the sidebar.
+</div>
+
+<DocsCollapsible title="SidebarHeader">
+
+با `SidebarHeader` هدر چسبان به نوار کناری اضافه کنید.
 
 ```tsx showLineNumbers title="components/app-sidebar.tsx"
 <Sidebar>
@@ -275,12 +320,12 @@ Use the `SidebarHeader` component to add a sticky header to the sidebar.
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger render={<SidebarMenuButton />}>
-            Select Workspace
-            <ChevronDown className="ml-auto" />
+            انتخاب فضای کاری
+            <ChevronDown className="ms-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem>
-              <span>Acme Inc</span>
+              <span>شرکت نمونه</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -290,9 +335,17 @@ Use the `SidebarHeader` component to add a sticky header to the sidebar.
 </Sidebar>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarFooter
 
-Use the `SidebarFooter` component to add a sticky footer to the sidebar.
+</div>
+
+<DocsCollapsible title="SidebarFooter">
+
+با `SidebarFooter` فوتر چسبان به نوار کناری اضافه کنید.
 
 ```tsx showLineNumbers
 <Sidebar>
@@ -300,7 +353,7 @@ Use the `SidebarFooter` component to add a sticky footer to the sidebar.
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton>
-          <User2 /> Username
+          <User2 /> نام کاربری
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
@@ -308,9 +361,17 @@ Use the `SidebarFooter` component to add a sticky footer to the sidebar.
 </Sidebar>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarContent
 
-The `SidebarContent` component is used to wrap the content of the sidebar. This is where you add your `SidebarGroup` components. It is scrollable.
+</div>
+
+<DocsCollapsible title="SidebarContent">
+
+`SidebarContent` محتوای نوار کناری را می‌پیچد. اینجا `SidebarGroup`ها را قرار دهید. قابل‌پیمایش است.
 
 ```tsx showLineNumbers
 <Sidebar>
@@ -321,30 +382,38 @@ The `SidebarContent` component is used to wrap the content of the sidebar. This 
 </Sidebar>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarGroup
 
-Use the `SidebarGroup` component to create a section within the sidebar.
+</div>
 
-A `SidebarGroup` has a `SidebarGroupLabel`, a `SidebarGroupContent` and an optional `SidebarGroupAction`.
+<DocsCollapsible title="SidebarGroup">
+
+با `SidebarGroup` یک بخش داخل نوار کناری بسازید.
+
+`SidebarGroup` شامل `SidebarGroupLabel`، `SidebarGroupContent` و در صورت نیاز `SidebarGroupAction` است.
 
 ```tsx showLineNumbers
 <SidebarGroup>
-  <SidebarGroupLabel>Application</SidebarGroupLabel>
+  <SidebarGroupLabel>برنامه</SidebarGroupLabel>
   <SidebarGroupAction>
-    <Plus /> <span className="sr-only">Add Project</span>
+    <Plus /> <span className="sr-only">افزودن پروژه</span>
   </SidebarGroupAction>
   <SidebarGroupContent></SidebarGroupContent>
 </SidebarGroup>
 ```
 
-To make a `SidebarGroup` collapsible, wrap it in a `Collapsible`.
+برای جمع‌شونده کردن `SidebarGroup`، آن را داخل `Collapsible` بپیچید.
 
 ```tsx showLineNumbers
 <Collapsible defaultOpen className="group/collapsible">
   <SidebarGroup>
     <SidebarGroupLabel render={<CollapsibleTrigger />}>
-      Help
-      <ChevronDown className="ml-auto transition-transform group-data-open/collapsible:rotate-180" />
+      راهنما
+      <ChevronDown className="ms-auto transition-transform group-data-open/collapsible:rotate-180" />
     </SidebarGroupLabel>
     <CollapsibleContent>
       <SidebarGroupContent />
@@ -353,22 +422,30 @@ To make a `SidebarGroup` collapsible, wrap it in a `Collapsible`.
 </Collapsible>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenu
 
-The `SidebarMenu` component is used for building a menu within a `SidebarGroup`.
+</div>
+
+<DocsCollapsible title="SidebarMenu">
+
+`SidebarMenu` برای ساخت منو داخل `SidebarGroup` است.
 
 <Image
   src="/images/sidebar-menu.png"
   width="716"
   height="420"
-  alt="Sidebar Menu"
+  alt="منوی نوار کناری"
   className="mt-6 w-full overflow-hidden rounded-2xl border dark:hidden"
 />
 <Image
   src="/images/sidebar-menu-dark.png"
   width="716"
   height="420"
-  alt="Sidebar Menu"
+  alt="منوی نوار کناری"
   className="mt-6 hidden w-full overflow-hidden rounded-2xl border dark:block"
 />
 
@@ -385,39 +462,63 @@ The `SidebarMenu` component is used for building a menu within a `SidebarGroup`.
 </SidebarMenu>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenuButton
 
-The `SidebarMenuButton` component is used to render a menu button within a `SidebarMenuItem`.
+</div>
 
-By default, the `SidebarMenuButton` renders a button but you can use the `render` prop to render a different component such as a `Link` or an `a` tag.
+<DocsCollapsible title="SidebarMenuButton">
 
-Use the `isActive` prop to mark a menu item as active.
+`SidebarMenuButton` دکمهٔ منو داخل `SidebarMenuItem` را رندر می‌کند.
+
+به‌صورت پیش‌فرض دکمه است؛ با prop به نام `render` می‌توانید `Link` یا تگ `a` بگذارید.
+
+با `isActive` آیتم فعال را مشخص کنید.
 
 ```tsx showLineNumbers
 <SidebarMenuButton render={<a href="#" />} isActive>
-  Home
+  خانه
 </SidebarMenuButton>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenuAction
 
-The `SidebarMenuAction` component is used to render a menu action within a `SidebarMenuItem`.
+</div>
+
+<DocsCollapsible title="SidebarMenuAction">
+
+`SidebarMenuAction` اقدام منو داخل `SidebarMenuItem` را رندر می‌کند.
 
 ```tsx showLineNumbers
 <SidebarMenuItem>
   <SidebarMenuButton render={<a href="#" />}>
     <Home />
-    <span>Home</span>
+    <span>خانه</span>
   </SidebarMenuButton>
   <SidebarMenuAction>
-    <Plus /> <span className="sr-only">Add Project</span>
+    <Plus /> <span className="sr-only">افزودن پروژه</span>
   </SidebarMenuAction>
 </SidebarMenuItem>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenuSub
 
-The `SidebarMenuSub` component is used to render a submenu within a `SidebarMenu`.
+</div>
+
+<DocsCollapsible title="SidebarMenuSub">
+
+`SidebarMenuSub` زیرمنو داخل `SidebarMenu` را رندر می‌کند.
 
 ```tsx showLineNumbers
 <SidebarMenuItem>
@@ -430,20 +531,36 @@ The `SidebarMenuSub` component is used to render a submenu within a `SidebarMenu
 </SidebarMenuItem>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenuBadge
 
-The `SidebarMenuBadge` component is used to render a badge within a `SidebarMenuItem`.
+</div>
+
+<DocsCollapsible title="SidebarMenuBadge">
+
+`SidebarMenuBadge` نشان داخل `SidebarMenuItem` را رندر می‌کند.
 
 ```tsx showLineNumbers
 <SidebarMenuItem>
   <SidebarMenuButton />
-  <SidebarMenuBadge>24</SidebarMenuBadge>
+  <SidebarMenuBadge>۲۴</SidebarMenuBadge>
 </SidebarMenuItem>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarMenuSkeleton
 
-The `SidebarMenuSkeleton` component is used to render a skeleton for a `SidebarMenu`.
+</div>
+
+<DocsCollapsible title="SidebarMenuSkeleton">
+
+`SidebarMenuSkeleton` اسکلتون برای `SidebarMenu` است.
 
 ```tsx showLineNumbers
 <SidebarMenu>
@@ -455,9 +572,17 @@ The `SidebarMenuSkeleton` component is used to render a skeleton for a `SidebarM
 </SidebarMenu>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarTrigger
 
-Use the `SidebarTrigger` component to render a button that toggles the sidebar.
+</div>
+
+<DocsCollapsible title="SidebarTrigger">
+
+با `SidebarTrigger` دکمه‌ای برای باز و بسته کردن نوار کناری بسازید.
 
 ```tsx showLineNumbers
 import { useSidebar } from "@/components/ui/sidebar"
@@ -465,13 +590,21 @@ import { useSidebar } from "@/components/ui/sidebar"
 export function CustomTrigger() {
   const { toggleSidebar } = useSidebar()
 
-  return <button onClick={toggleSidebar}>Toggle Sidebar</button>
+  return <button onClick={toggleSidebar}>باز و بسته کردن نوار کناری</button>
 }
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## SidebarRail
 
-The `SidebarRail` component is used to render a rail within a `Sidebar`. This rail can be used to toggle the sidebar.
+</div>
+
+<DocsCollapsible title="SidebarRail">
+
+`SidebarRail` ریل داخل `Sidebar` را رندر می‌کند؛ می‌تواند برای باز و بسته کردن استفاده شود.
 
 ```tsx showLineNumbers
 <Sidebar>
@@ -484,9 +617,17 @@ The `SidebarRail` component is used to render a rail within a `Sidebar`. This ra
 </Sidebar>
 ```
 
-## Controlled Sidebar
+</DocsCollapsible>
 
-Use the `open` and `onOpenChange` props to control the sidebar.
+<div className="hidden">
+
+## نوار کناری کنترل‌شده
+
+</div>
+
+<DocsCollapsible title="نوار کناری کنترل‌شده">
+
+با `open` و `onOpenChange` نوار کناری را کنترل کنید.
 
 ```tsx showLineNumbers
 export function AppSidebar() {
@@ -500,9 +641,17 @@ export function AppSidebar() {
 }
 ```
 
-## Theming
+</DocsCollapsible>
 
-We use the following CSS variables to theme the sidebar.
+<div className="hidden">
+
+## تم‌دهی
+
+</div>
+
+<DocsCollapsible title="تم‌دهی">
+
+از این متغیرهای CSS برای تم نوار کناری استفاده می‌کنیم.
 
 ```css
 @layer base {
@@ -530,9 +679,17 @@ We use the following CSS variables to theme the sidebar.
 }
 ```
 
-## Styling
+</DocsCollapsible>
 
-Here are some tips for styling the sidebar based on different states.
+<div className="hidden">
+
+## استایل‌دهی
+
+</div>
+
+<DocsCollapsible title="استایل‌دهی">
+
+چند نکته برای استایل بر اساس حالت‌های مختلف:
 
 ```tsx
 <Sidebar collapsible="icon">
@@ -549,26 +706,45 @@ Here are some tips for styling the sidebar based on different states.
 </SidebarMenuItem>
 ```
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-{/* prettier-ignore */}
-<Button asChild size="sm" className="mt-6">
-  <a href="/view/base-nova/sidebar-rtl" target="_blank">View RTL Sidebar <ExternalLinkIcon /></a>
-</Button>
+## پشتیبانی RTL
 
-## Changelog
+</div>
 
-### RTL Support
+<DocsCollapsible title="پشتیبانی RTL">
 
-If you're upgrading from a previous version of the `Sidebar` component, you'll need to apply the following updates to add RTL support:
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<a
+  href="/view/base-nova/sidebar-rtl"
+  target="_blank"
+  className="mt-6 inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-primary px-2.5 text-sm font-medium text-primary-foreground"
+>
+  مشاهده نوار کناری RTL <ExternalLinkIcon className="size-4" />
+</a>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تغییرات
+
+</div>
+
+<DocsCollapsible title="تغییرات">
+
+### پشتیبانی RTL
+
+اگر از نسخهٔ قبلی `Sidebar` ارتقا می‌دهید، برای پشتیبانی RTL این به‌روزرسانی‌ها را اعمال کنید:
 
 <Steps>
 
-<Step>Add `dir` prop to Sidebar component.</Step>
+<Step>prop به نام `dir` را به کامپوننت Sidebar اضافه کنید.</Step>
 
-Add `dir` to the destructured props and pass it to `SheetContent` for mobile:
+`dir` را در props تجزیه کنید و برای موبایل به `SheetContent` بدهید:
 
 ```diff
   function Sidebar({
@@ -586,7 +762,7 @@ Add `dir` to the destructured props and pass it to `SheetContent` for mobile:
   }) {
 ```
 
-Then pass it to `SheetContent` in the mobile view:
+سپس در نمای موبایل به `SheetContent` بدهید:
 
 ```diff
   <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
@@ -597,9 +773,9 @@ Then pass it to `SheetContent` in the mobile view:
       data-mobile="true"
 ```
 
-<Step>Add `data-side` attribute to sidebar container.</Step>
+<Step>صفت `data-side` را به ظرف نوار کناری اضافه کنید.</Step>
 
-Add `data-side={side}` to the sidebar container element:
+`data-side={side}` را روی عنصر ظرف بگذارید:
 
 ```diff
   <div
@@ -608,9 +784,9 @@ Add `data-side={side}` to the sidebar container element:
     className={cn(
 ```
 
-<Step>Update sidebar container positioning classes.</Step>
+<Step>کلاس‌های موقعیت ظرف نوار کناری را به‌روز کنید.</Step>
 
-Replace JavaScript ternary conditional classes with CSS data attribute selectors:
+شرط‌های سه‌تایی جاوااسکریپت را با سلکتورهای صفت دادهٔ CSS جایگزین کنید:
 
 ```diff
   className={cn(
@@ -621,9 +797,9 @@ Replace JavaScript ternary conditional classes with CSS data attribute selectors
 +   "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex data-[side=left]:left-0 data-[side=right]:right-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
 ```
 
-<Step>Update SidebarRail positioning classes.</Step>
+<Step>کلاس‌های موقعیت SidebarRail را به‌روز کنید.</Step>
 
-Update the `SidebarRail` component to use physical positioning for the rail:
+`SidebarRail` را با موقعیت فیزیکی برای ریل به‌روز کنید:
 
 ```diff
   className={cn(
@@ -631,21 +807,21 @@ Update the `SidebarRail` component to use physical positioning for the rail:
 +   "hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 ltr:-translate-x-1/2 rtl:-translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] sm:flex",
 ```
 
-<Step>Add RTL flip to SidebarTrigger icon.</Step>
+<Step>چرخش RTL را به آیکون SidebarTrigger اضافه کنید.</Step>
 
-Add `className="rtl:rotate-180"` to the icon in `SidebarTrigger` to flip it in RTL mode:
+`className="rtl:rotate-180"` را روی آیکون در `SidebarTrigger` بگذارید تا در RTL برعکس شود:
 
 ```diff
   <Button ...>
 -   <PanelLeftIcon />
 +   <PanelLeftIcon className="rtl:rotate-180" />
-    <span className="sr-only">Toggle Sidebar</span>
+    <span className="sr-only">باز و بسته کردن نوار کناری</span>
   </Button>
 ```
 
 </Steps>
 
-After applying these changes, you can use the `dir` prop to set the direction:
+پس از این تغییرات می‌توانید با `dir` جهت را تنظیم کنید:
 
 ```tsx
 <Sidebar dir="rtl" side="right">
@@ -653,4 +829,6 @@ After applying these changes, you can use the `dir` prop to set the direction:
 </Sidebar>
 ```
 
-The sidebar will correctly position itself and handle interactions in both LTR and RTL layouts.
+نوار کناری در هر دو چیدمان LTR و RTL درست موقعیت‌دهی و تعامل می‌کند.
+
+</DocsCollapsible>

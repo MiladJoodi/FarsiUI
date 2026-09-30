@@ -5,57 +5,57 @@ import { toast } from "@/styles/base-nova/ui/toast"
 
 export function ToastTypes() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div dir="rtl" className="flex flex-wrap gap-2">
       <Button
         variant="outline"
-        onClick={() => toast.add({ description: "Event has been created." })}
+        onClick={() => toast.add({ description: "رویداد ساخته شد." })}
       >
-        Default
+        پیش‌فرض
       </Button>
       <Button
         variant="outline"
         onClick={() =>
           toast.add({
             type: "success",
-            description: "Event has been created.",
+            description: "رویداد ساخته شد.",
           })
         }
       >
-        Success
+        موفقیت
       </Button>
       <Button
         variant="outline"
         onClick={() =>
           toast.add({
             type: "info",
-            description: "Arrive 10 minutes before the event.",
+            description: "۱۰ دقیقه قبل از رویداد برسید.",
           })
         }
       >
-        Info
+        اطلاعات
       </Button>
       <Button
         variant="outline"
         onClick={() =>
           toast.add({
             type: "warning",
-            description: "The event cannot start before 8:00 AM.",
+            description: "رویداد نمی‌تواند قبل از ساعت ۸:۰۰ شروع شود.",
           })
         }
       >
-        Warning
+        هشدار
       </Button>
       <Button
         variant="outline"
         onClick={() =>
           toast.add({
             type: "error",
-            description: "The event could not be created.",
+            description: "رویداد ساخته نشد.",
             priority: "high",
           })
         }
       >
-        Error
+        خطا
       </Button>
     </div>
   )

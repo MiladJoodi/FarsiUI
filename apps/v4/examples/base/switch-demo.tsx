@@ -3,9 +3,9 @@ import { Switch } from "@/styles/base-nova/ui/switch"
 
 export function SwitchDemo() {
   return (
-    <div className="flex items-center space-x-2">
+    <div dir="rtl" className="flex items-center gap-2">
       <Switch id="airplane-mode" />
-      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+      <Label htmlFor="airplane-mode">حالت هواپیما</Label>
     </div>
   )
 }

@@ -30,27 +30,27 @@ import {
 
 const projects = [
   {
-    name: "Design Engineering",
+    name: "مهندسی طراحی",
     url: "#",
     icon: FrameIcon,
   },
   {
-    name: "Sales & Marketing",
+    name: "فروش و بازاریابی",
     url: "#",
     icon: PieChartIcon,
   },
   {
-    name: "Travel",
+    name: "سفر",
     url: "#",
     icon: MapIcon,
   },
   {
-    name: "Support",
+    name: "پشتیبانی",
     url: "#",
     icon: LifeBuoyIcon,
   },
   {
-    name: "Feedback",
+    name: "بازخورد",
     url: "#",
     icon: SendIcon,
   },
@@ -58,43 +58,45 @@ const projects = [
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {projects.map((project) => (
-                  <SidebarMenuItem key={project.name}>
-                    <SidebarMenuButton
-                      render={<a href={project.url} />}
-                      className="group-has-[[data-state=open]]/menu-item:bg-sidebar-accent"
-                    >
-                      <project.icon />
-                      <span>{project.name}</span>
-                    </SidebarMenuButton>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger render={<SidebarMenuAction />}>
-                        <MoreHorizontalIcon />
-                        <span className="sr-only">More</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent side="right" align="start">
-                        <DropdownMenuItem>
-                          <span>Edit Project</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>Delete Project</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar side="right">
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {projects.map((project) => (
+                    <SidebarMenuItem key={project.name}>
+                      <SidebarMenuButton
+                        render={<a href={project.url} />}
+                        className="group-has-[[data-state=open]]/menu-item:bg-sidebar-accent"
+                      >
+                        <project.icon />
+                        <span>{project.name}</span>
+                      </SidebarMenuButton>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger render={<SidebarMenuAction />}>
+                          <MoreHorizontalIcon />
+                          <span className="sr-only">بیشتر</span>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent side="left" align="start">
+                          <DropdownMenuItem>
+                            <span>ویرایش پروژه</span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <span>حذف پروژه</span>
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   )
 }

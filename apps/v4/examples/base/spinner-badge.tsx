@@ -3,18 +3,18 @@ import { Spinner } from "@/styles/base-nova/ui/spinner"
 
 export function SpinnerBadge() {
   return (
-    <div className="flex items-center gap-4 [--radius:1.2rem]">
+    <div dir="rtl" className="flex items-center gap-4 [--radius:1.2rem]">
       <Badge>
         <Spinner data-icon="inline-start" />
-        Syncing
+        همگام‌سازی
       </Badge>
       <Badge variant="secondary">
         <Spinner data-icon="inline-start" />
-        Updating
+        به‌روزرسانی
       </Badge>
       <Badge variant="outline">
         <Spinner data-icon="inline-start" />
-        Processing
+        در حال پردازش
       </Badge>
     </div>
   )

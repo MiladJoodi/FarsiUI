@@ -14,66 +14,66 @@ import {
 
 export function TabsDemo() {
   return (
-    <Tabs defaultValue="overview" className="w-[400px]">
+    <Tabs defaultValue="overview" className="w-[400px]" dir="rtl">
       <TabsList>
-        <TabsTrigger value="overview">Overview</TabsTrigger>
-        <TabsTrigger value="analytics">Analytics</TabsTrigger>
-        <TabsTrigger value="reports">Reports</TabsTrigger>
-        <TabsTrigger value="settings">Settings</TabsTrigger>
+        <TabsTrigger value="overview">نمای کلی</TabsTrigger>
+        <TabsTrigger value="analytics">تحلیل‌ها</TabsTrigger>
+        <TabsTrigger value="reports">گزارش‌ها</TabsTrigger>
+        <TabsTrigger value="settings">تنظیمات</TabsTrigger>
       </TabsList>
       <TabsContent value="overview">
         <Card>
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
+            <CardTitle>نمای کلی</CardTitle>
             <CardDescription>
-              View your key metrics and recent project activity. Track progress
-              across all your active projects.
+              شاخص‌های کلیدی و فعالیت‌های اخیر پروژه‌ها را ببینید. پیشرفت همهٔ
+              پروژه‌های فعال را دنبال کنید.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground">
-            You have 12 active projects and 3 pending tasks.
+            ۱۲ پروژهٔ فعال و ۳ وظیفهٔ در انتظار دارید.
           </CardContent>
         </Card>
       </TabsContent>
       <TabsContent value="analytics">
         <Card>
           <CardHeader>
-            <CardTitle>Analytics</CardTitle>
+            <CardTitle>تحلیل‌ها</CardTitle>
             <CardDescription>
-              Track performance and user engagement metrics. Monitor trends and
-              identify growth opportunities.
+              عملکرد و تعامل کاربران را پیگیری کنید. روندها را ببینید و فرصت‌های
+              رشد را پیدا کنید.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground">
-            Page views are up 25% compared to last month.
+            بازدید صفحات نسبت به ماه قبل ۲۵٪ بیشتر شده است.
           </CardContent>
         </Card>
       </TabsContent>
       <TabsContent value="reports">
         <Card>
           <CardHeader>
-            <CardTitle>Reports</CardTitle>
+            <CardTitle>گزارش‌ها</CardTitle>
             <CardDescription>
-              Generate and download your detailed reports. Export data in
-              multiple formats for analysis.
+              گزارش‌های تفصیلی بسازید و دانلود کنید. داده را در چند قالب برای
+              تحلیل خروجی بگیرید.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground">
-            You have 5 reports ready and available to export.
+            ۵ گزارش آماده و قابل خروجی دارید.
           </CardContent>
         </Card>
       </TabsContent>
       <TabsContent value="settings">
         <Card>
           <CardHeader>
-            <CardTitle>Settings</CardTitle>
+            <CardTitle>تنظیمات</CardTitle>
             <CardDescription>
-              Manage your account preferences and options. Customize your
-              experience to fit your needs.
+              ترجیحات و گزینه‌های حساب را مدیریت کنید. تجربه را مطابق نیازتان
+              تنظیم کنید.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground">
-            Configure notifications, security, and themes.
+            اعلان‌ها، امنیت و تم را پیکربندی کنید.
           </CardContent>
         </Card>
       </TabsContent>

@@ -11,21 +11,23 @@ import { Spinner } from "@/styles/base-nova/ui/spinner"
 
 export function SpinnerEmpty() {
   return (
-    <Empty className="w-full">
-      <EmptyHeader>
-        <EmptyMedia variant="icon">
-          <Spinner />
-        </EmptyMedia>
-        <EmptyTitle>Processing your request</EmptyTitle>
-        <EmptyDescription>
-          Please wait while we process your request. Do not refresh the page.
-        </EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent>
-        <Button variant="outline" size="sm">
-          Cancel
-        </Button>
-      </EmptyContent>
-    </Empty>
+    <div dir="rtl">
+      <Empty className="w-full">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <Spinner />
+          </EmptyMedia>
+          <EmptyTitle>در حال پردازش درخواست شما</EmptyTitle>
+          <EmptyDescription>
+            لطفاً صبر کنید تا درخواستتان پردازش شود. صفحه را تازه‌سازی نکنید.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <Button variant="outline" size="sm">
+            لغو
+          </Button>
+        </EmptyContent>
+      </Empty>
+    </div>
   )
 }

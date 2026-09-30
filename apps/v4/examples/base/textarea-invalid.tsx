@@ -7,14 +7,14 @@ import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export function TextareaInvalid() {
   return (
-    <Field data-invalid>
-      <FieldLabel htmlFor="textarea-invalid">Message</FieldLabel>
+    <Field data-invalid dir="rtl">
+      <FieldLabel htmlFor="textarea-invalid">پیام</FieldLabel>
       <Textarea
         id="textarea-invalid"
-        placeholder="Type your message here."
+        placeholder="پیام خود را بنویسید..."
         aria-invalid
       />
-      <FieldDescription>Please enter a valid message.</FieldDescription>
+      <FieldDescription>لطفاً یک پیام معتبر وارد کنید.</FieldDescription>
     </Field>
   )
 }

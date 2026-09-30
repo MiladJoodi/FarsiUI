@@ -8,13 +8,12 @@ import { Switch } from "@/styles/base-nova/ui/switch"
 
 export function SwitchDescription() {
   return (
-    <Field orientation="horizontal" className="max-w-sm">
+    <Field orientation="horizontal" className="max-w-sm" dir="rtl">
       <FieldContent>
-        <FieldLabel htmlFor="switch-focus-mode">
-          Share across devices
-        </FieldLabel>
+        <FieldLabel htmlFor="switch-focus-mode">اشتراک بین دستگاه‌ها</FieldLabel>
         <FieldDescription>
-          Focus is shared across devices, and turns off when you leave the app.
+          تمرکز بین دستگاه‌ها به اشتراک گذاشته می‌شود و هنگام خروج از برنامه
+          خاموش می‌شود.
         </FieldDescription>
       </FieldContent>
       <Switch id="switch-focus-mode" />

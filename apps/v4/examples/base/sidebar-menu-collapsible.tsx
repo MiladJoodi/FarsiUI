@@ -23,92 +23,92 @@ import {
 
 const items = [
   {
-    title: "Getting Started",
+    title: "شروع کار",
     url: "#",
     items: [
       {
-        title: "Installation",
+        title: "نصب",
         url: "#",
       },
       {
-        title: "Project Structure",
+        title: "ساختار پروژه",
         url: "#",
       },
     ],
   },
   {
-    title: "Build Your Application",
+    title: "ساخت اپلیکیشن",
     url: "#",
     items: [
       {
-        title: "Routing",
+        title: "مسیریابی",
         url: "#",
       },
       {
-        title: "Data Fetching",
+        title: "واکشی داده",
         url: "#",
         isActive: true,
       },
       {
-        title: "Rendering",
+        title: "رندر",
         url: "#",
       },
       {
-        title: "Caching",
+        title: "کش",
         url: "#",
       },
       {
-        title: "Styling",
+        title: "استایل‌دهی",
         url: "#",
       },
       {
-        title: "Optimizing",
+        title: "بهینه‌سازی",
         url: "#",
       },
       {
-        title: "Configuring",
+        title: "پیکربندی",
         url: "#",
       },
       {
-        title: "Testing",
+        title: "تست",
         url: "#",
       },
       {
-        title: "Authentication",
+        title: "احراز هویت",
         url: "#",
       },
       {
-        title: "Deploying",
+        title: "استقرار",
         url: "#",
       },
       {
-        title: "Upgrading",
+        title: "ارتقاء",
         url: "#",
       },
       {
-        title: "Examples",
+        title: "مثال‌ها",
         url: "#",
       },
     ],
   },
   {
-    title: "API Reference",
+    title: "مرجع API",
     url: "#",
     items: [
       {
-        title: "Components",
+        title: "کامپوننت‌ها",
         url: "#",
       },
       {
-        title: "File Conventions",
+        title: "قراردادهای فایل",
         url: "#",
       },
       {
-        title: "Functions",
+        title: "توابع",
         url: "#",
       },
       {
-        title: "next.config.js Options",
+        title: "گزینه‌های next.config.js",
         url: "#",
       },
       {
@@ -122,11 +122,11 @@ const items = [
     ],
   },
   {
-    title: "Architecture",
+    title: "معماری",
     url: "#",
     items: [
       {
-        title: "Accessibility",
+        title: "دسترسی‌پذیری",
         url: "#",
       },
       {
@@ -134,11 +134,11 @@ const items = [
         url: "#",
       },
       {
-        title: "Next.js Compiler",
+        title: "کامپایلر Next.js",
         url: "#",
       },
       {
-        title: "Supported Browsers",
+        title: "مرورگرهای پشتیبانی‌شده",
         url: "#",
       },
       {
@@ -151,44 +151,46 @@ const items = [
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {items.map((item, index) => (
-                  <Collapsible
-                    key={index}
-                    className="group/collapsible"
-                    defaultOpen={index === 0}
-                  >
-                    <SidebarMenuItem>
-                      <CollapsibleTrigger render={<SidebarMenuButton />}>
-                        <span>{item.title}</span>
-                        <ChevronRightIcon className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                      </CollapsibleTrigger>
-                      <CollapsibleContent>
-                        <SidebarMenuSub>
-                          {item.items.map((subItem, subIndex) => (
-                            <SidebarMenuSubItem key={subIndex}>
-                              <SidebarMenuSubButton
-                                render={<a href={subItem.url} />}
-                              >
-                                <span>{subItem.title}</span>
-                              </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                          ))}
-                        </SidebarMenuSub>
-                      </CollapsibleContent>
-                    </SidebarMenuItem>
-                  </Collapsible>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar side="right">
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {items.map((item, index) => (
+                    <Collapsible
+                      key={index}
+                      className="group/collapsible"
+                      defaultOpen={index === 0}
+                    >
+                      <SidebarMenuItem>
+                        <CollapsibleTrigger render={<SidebarMenuButton />}>
+                          <span>{item.title}</span>
+                          <ChevronRightIcon className="ms-auto transition-transform group-data-[state=open]/collapsible:rotate-90 rtl:rotate-180 rtl:group-data-[state=open]/collapsible:-rotate-90" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <SidebarMenuSub>
+                            {item.items.map((subItem, subIndex) => (
+                              <SidebarMenuSubItem key={subIndex}>
+                                <SidebarMenuSubButton
+                                  render={<a href={subItem.url} />}
+                                >
+                                  <span>{subItem.title}</span>
+                                </SidebarMenuSubButton>
+                              </SidebarMenuSubItem>
+                            ))}
+                          </SidebarMenuSub>
+                        </CollapsibleContent>
+                      </SidebarMenuItem>
+                    </Collapsible>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   )
 }

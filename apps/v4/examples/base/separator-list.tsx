@@ -2,20 +2,20 @@ import { Separator } from "@/styles/base-nova/ui/separator"
 
 export function SeparatorList() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-2 text-sm">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-2 text-sm">
       <dl className="flex items-center justify-between">
-        <dt>Item 1</dt>
-        <dd className="text-muted-foreground">Value 1</dd>
+        <dt>آیتم ۱</dt>
+        <dd className="text-muted-foreground">مقدار ۱</dd>
       </dl>
       <Separator />
       <dl className="flex items-center justify-between">
-        <dt>Item 2</dt>
-        <dd className="text-muted-foreground">Value 2</dd>
+        <dt>آیتم ۲</dt>
+        <dd className="text-muted-foreground">مقدار ۲</dd>
       </dl>
       <Separator />
       <dl className="flex items-center justify-between">
-        <dt>Item 3</dt>
-        <dd className="text-muted-foreground">Value 3</dd>
+        <dt>آیتم ۳</dt>
+        <dd className="text-muted-foreground">مقدار ۳</dd>
       </dl>
     </div>
   )

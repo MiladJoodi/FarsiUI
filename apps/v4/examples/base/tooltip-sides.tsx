@@ -5,18 +5,25 @@ import {
   TooltipTrigger,
 } from "@/styles/base-nova/ui/tooltip"
 
+const TOOLTIP_SIDES = [
+  { side: "left", label: "چپ" },
+  { side: "top", label: "بالا" },
+  { side: "bottom", label: "پایین" },
+  { side: "right", label: "راست" },
+] as const
+
 export function TooltipSides() {
   return (
-    <div className="flex flex-wrap gap-2">
-      {(["left", "top", "bottom", "right"] as const).map((side) => (
+    <div dir="rtl" className="flex flex-wrap gap-2">
+      {TOOLTIP_SIDES.map(({ side, label }) => (
         <Tooltip key={side}>
           <TooltipTrigger
-            render={<Button variant="outline" className="w-fit capitalize" />}
+            render={<Button variant="outline" className="w-fit" />}
           >
-            {side}
+            {label}
           </TooltipTrigger>
           <TooltipContent side={side}>
-            <p>Add to library</p>
+            <p>افزودن به کتابخانه</p>
           </TooltipContent>
         </Tooltip>
       ))}

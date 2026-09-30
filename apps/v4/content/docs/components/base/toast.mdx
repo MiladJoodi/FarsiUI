@@ -1,6 +1,6 @@
 ---
-title: Toast
-description: A succinct message that is displayed temporarily.
+title: توست (Toast)
+description: پیامی کوتاه که موقتاً نمایش داده می‌شود.
 base: base
 component: true
 links:
@@ -8,34 +8,42 @@ links:
   api: https://base-ui.com/react/components/toast#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="toast-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "toast-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "toast-types", label: "انواع", sizeable: false },
+    { name: "toast-promise", label: "Promise", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 <Steps className="mb-0 pt-2">
 
-<Step>Run the following command:</Step>
+<Step>دستور زیر را اجرا کنید:</Step>
 
 ```bash
-npx shadcn@latest add toast
+npx farsiui@latest add toast
 ```
 
-<Step>Add the Toaster component.</Step>
+<Step>کامپوننت Toaster را اضافه کنید.</Step>
 
 ```tsx title="app/layout.tsx" {1,9} showLineNumbers
 import { Toaster } from "@/components/ui/toast"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
         <main>{children}</main>
         <Toaster />
@@ -53,13 +61,13 @@ export default function RootLayout({ children }) {
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependency:</Step>
+<Step>وابستگی زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="toast"
@@ -67,16 +75,16 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
-<Step>Add the Toaster component.</Step>
+<Step>کامپوننت Toaster را اضافه کنید.</Step>
 
 ```tsx title="app/layout.tsx" {1,8} showLineNumbers
 import { Toaster } from "@/components/ui/toast"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
         {children}
         <Toaster />
@@ -92,7 +100,7 @@ export default function RootLayout({ children }) {
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { toast } from "@/components/ui/toast"
@@ -100,27 +108,45 @@ import { toast } from "@/components/ui/toast"
 
 ```tsx
 toast.add({
-  title: "Event created",
-  description: "Sunday, December 3 at 9:00 AM",
+  title: "رویداد ساخته شد",
+  description: "یکشنبه، ۳ آذر، ساعت ۹:۰۰",
 })
 ```
 
-## Types
+<div className="hidden">
 
-Set the `type` option to render a status icon. The built-in renderer recognizes
-`success`, `info`, `warning`, `error`, and `loading`.
+## انواع
 
-<ComponentPreview styleName="base-nova" name="toast-types" />
+</div>
 
-## Action
+<DocsCollapsible title="انواع">
 
-Pass button props with `actionProps` to render an action.
+با گزینهٔ `type` آیکون وضعیت نشان دهید. رندر داخلی این مقادیر را می‌شناسد:
+`success`، `info`، `warning`، `error` و `loading`.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toast-types"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اکشن
+
+</div>
+
+<DocsCollapsible title="اکشن">
+
+با `actionProps` پراپ‌های دکمه را بدهید تا اکشن رندر شود.
 
 ```tsx
 const id = toast.add({
-  title: "Event created",
+  title: "رویداد ساخته شد",
   actionProps: {
-    children: "Undo",
+    children: "بازگردانی",
     onClick() {
       toast.close(id)
     },
@@ -128,15 +154,34 @@ const id = toast.add({
 })
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## Promise
 
-Use `toast.promise` to update one toast as an asynchronous task moves through
-loading, success, and error states.
+</div>
 
-<ComponentPreview styleName="base-nova" name="toast-promise" />
+<DocsCollapsible title="Promise">
 
-## API Reference
+با `toast.promise` یک توست را در مسیر loading، success و error یک کار ناهمگام به‌روز کنید.
 
-See the [Base UI Toast documentation](https://base-ui.com/react/components/toast)
-for details about manager options, stacking, swipe dismissal, and the primitive
-API.
+<ComponentPreview
+  styleName="base-nova"
+  name="toast-promise"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Toast](https://base-ui.com/react/components/toast) را برای گزینه‌های مدیر، پشته‌سازی، بستن با سوایپ و API پایه ببینید.
+
+</DocsCollapsible>

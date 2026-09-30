@@ -1,8 +1,8 @@
 export function TypographyP() {
   return (
-    <p className="leading-7 [&:not(:first-child)]:mt-6">
-      The king, seeing how much happier his subjects were, realized the error of
-      his ways and repealed the joke tax.
+    <p dir="rtl" className="leading-7 [&:not(:first-child)]:mt-6">
+      پادشاه که دید رعایایش چقدر شادتر شده‌اند، به اشتباه خود پی برد و مالیات جوک
+      را لغو کرد.
     </p>
   )
 }

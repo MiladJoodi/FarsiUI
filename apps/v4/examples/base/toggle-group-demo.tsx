@@ -14,16 +14,18 @@ export default function ToggleGroupDemo() {
     size === "xs" || size === "sm" ? "sm" : size === "lg" ? "lg" : "default"
 
   return (
-    <ToggleGroup variant="outline" multiple size={toggleSize}>
-      <ToggleGroupItem value="bold" aria-label="ضخیم">
-        <Bold />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="کج">
-        <Italic />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="underline" aria-label="زیرخط">
-        <Underline />
-      </ToggleGroupItem>
-    </ToggleGroup>
+    <div dir="rtl">
+      <ToggleGroup variant="outline" multiple size={toggleSize}>
+        <ToggleGroupItem value="bold" aria-label="ضخیم">
+          <Bold />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="italic" aria-label="کج">
+          <Italic />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="underline" aria-label="زیرخط">
+          <Underline />
+        </ToggleGroupItem>
+      </ToggleGroup>
+    </div>
   )
 }

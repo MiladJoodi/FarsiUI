@@ -16,30 +16,32 @@ import {
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Help</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <LifeBuoyIcon />
-                    Support
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <SendIcon />
-                    Feedback
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar side="right">
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupLabel>راهنما</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>
+                      <LifeBuoyIcon />
+                      پشتیبانی
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>
+                      <SendIcon />
+                      بازخورد
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   )
 }

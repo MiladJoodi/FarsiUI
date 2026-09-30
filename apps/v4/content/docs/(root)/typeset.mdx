@@ -1,15 +1,15 @@
 ---
-title: Typeset
-description: A styling system for HTML and rendered markdown, from blog posts to streaming chat. One CSS file you own.
+title: تایپ‌ست (Typeset)
+description: یک سیستم استایل برای HTML و مارک‌داون رندر‌شده؛ از پست وبلاگ تا چت استریم‌شده. یک فایل CSS که مال شماست.
 ---
 
-You render markdown and get back plain unstyled HTML: headings, paragraphs, lists, and tables. So you style the elements one by one: font sizes, line heights, spacing.
+مارک‌داون را رندر می‌کنید و HTML ساده و بدون استایل برمی‌گردد: عنوان‌ها، پاراگراف‌ها، فهرست‌ها و جدول‌ها. پس عناصر را یکی‌یکی استایل می‌دهید: اندازهٔ فونت، ارتفاع خط، فاصله‌ها.
 
-You do it for your blog. Then you do it again for the docs. Then again for the chat app. Every time you're fighting the same thing: sizing and spacing.
+این کار را برای وبلاگ می‌کنید. بعد دوباره برای مستندات. بعد دوباره برای اپ چت. هر بار با همان مشکل می‌جنگید: اندازه و فاصله.
 
-To fix this, we created **shadcn/typeset**. It's one CSS file that styles everything inside a `typeset` container. The file lives in your project, so you can change it directly when you need to.
+برای حل این موضوع، **FarsiUI Typeset** را ساختیم. یک فایل CSS است که همه‌چیز داخل ظرف `typeset` را استایل می‌دهد. فایل داخل پروژه شماست، پس هر وقت لازم بود مستقیم تغییرش می‌دهید.
 
-A typeset is just a small preset class. You can have multiple typesets in your app, for different contexts.
+تایپ‌ست فقط یک کلاس preset کوچک است. می‌توانید در اپ چند تایپ‌ست برای زمینه‌های مختلف داشته باشید.
 
 ```css
 .typeset-docs {
@@ -23,42 +23,42 @@ A typeset is just a small preset class. You can have multiple typesets in your a
 ```
 
 <Button asChild className="mt-6" size="sm">
-  <Link href="/typeset">Build your typeset</Link>
+  <Link href="/typeset">ساخت تایپ‌ست</Link>
 </Button>
 
 ---
 
-## Principles
+## اصول
 
-We read a lot about type: scale ratios, tracking, kerning, optical sizing, measure, leading, the space above and below every element. We tried exposing all of it, and it was too much. Nobody wants to set a dozen variables to make markdown look right.
+دربارهٔ تایپ زیاد خواندیم: نسبت مقیاس، tracking، kerning، optical sizing، measure، leading، و فضای بالا و پایین هر عنصر. سعی کردیم همه‌شان را در اختیار بگذاریم؛ زیاد بود. کسی نمی‌خواهد برای درست شدن ظاهر مارک‌داون ده‌ها متغیر تنظیم کند.
 
-So we sat down and condensed everything into three controls: size, leading, and flow. Everything else, heading sizes, list indents, the gap under a heading, the space around a rule, derives from them. Three controls. We called it rhythm.
-
----
-
-## Features
-
-- **It fits its container.** Put it in a chat bubble and it follows the smaller type around it. Put it in an article and it scales up with the page. On smaller screens, it gets a small bump for readability.
-- **It uses your theme.** Colors, fonts, and radius come from your app. Dark mode follows the same tokens.
-- **It's easy to tune.** Three values control the base size, line height, and space between blocks. Change them in a preset and the whole document follows.
-- **It works well with streaming.** When a new block arrives, Typeset doesn't make earlier blocks switch margins, borders, or styles.
+پس همه‌چیز را در سه کنترل خلاصه کردیم: اندازه، leading و flow. بقیه — اندازهٔ عنوان‌ها، تورفتگی فهرست، فاصلهٔ زیر عنوان، فضای اطراف خط افقی — از همین‌ها مشتق می‌شوند. سه کنترل. اسمش را ریتم گذاشتیم.
 
 ---
 
-## Building Your Typeset
+## ویژگی‌ها
 
-Create your typeset in the [typeset builder](/typeset). Pick your fonts and rhythm, then preview them on docs, chat, articles, and other real content.
+- **با ظرفش هم‌خوان است.** داخل حباب چت بگذارید و از تایپ کوچک اطرافش پیروی می‌کند. داخل مقاله بگذارید و با صفحه بزرگ‌تر می‌شود. در صفحه‌های کوچک‌تر کمی بزرگ‌تر می‌شود تا خوانایی حفظ شود.
+- **از تم شما استفاده می‌کند.** رنگ‌ها، فونت‌ها و radius از اپ می‌آیند. حالت تاریک همان توکن‌ها را دنبال می‌کند.
+- **تنظیمش ساده است.** سه مقدار، اندازهٔ پایه، ارتفاع خط و فاصلهٔ بین بلوک‌ها را کنترل می‌کنند. در preset عوضشان کنید؛ کل سند دنبال می‌کند.
+- **با استریم خوب کار می‌کند.** وقتی بلوک جدید می‌رسد، Typeset حاشیه، border یا استایل بلوک‌های قبلی را عوض نمی‌کند.
 
-The panel gives you the `typeset.css` file, the font setup for your framework, a preset class with your choices, and the wrapper to add around your content.
+---
 
-Copy `typeset.css` next to your main CSS file and import it after Tailwind:
+## ساخت تایپ‌ست
+
+تایپ‌ست خود را در [سازندهٔ تایپ‌ست](/typeset) بسازید. فونت و ریتم را انتخاب کنید، بعد روی مستندات، چت، مقاله و محتوای واقعی دیگر پیش‌نمایش بگیرید.
+
+پنل فایل `typeset.css`، راه‌اندازی فونت برای فریم‌ورک، کلاس preset با انتخاب‌های شما، و wrapper دور محتوا را می‌دهد.
+
+`typeset.css` را کنار فایل CSS اصلی کپی کنید و بعد از Tailwind ایمپورت کنید:
 
 ```css
 @import "tailwindcss";
 @import "./typeset.css";
 ```
 
-Then wrap your rendered markdown with `typeset` and your preset class:
+سپس مارک‌داون رندر‌شده را با `typeset` و کلاس preset بپیچید:
 
 ```tsx
 <div className="typeset typeset-docs">
@@ -66,13 +66,13 @@ Then wrap your rendered markdown with `typeset` and your preset class:
 </div>
 ```
 
-`typeset` turns the styles on. `typeset-docs` is the preset you created in the builder.
+`typeset` استایل‌ها را روشن می‌کند. `typeset-docs` همان presetی است که در سازنده ساختید.
 
 ---
 
-## Custom Typesets
+## تایپ‌ست‌های سفارشی
 
-The file includes defaults, so you can use `typeset` by itself. Most of the reading rhythm comes from three values:
+فایل شامل مقادیر پیش‌فرض است، پس می‌توانید فقط از `typeset` استفاده کنید. بخش زیادی از ریتم خواندن از سه مقدار می‌آید:
 
 ```css
 .typeset {
@@ -80,21 +80,21 @@ The file includes defaults, so you can use `typeset` by itself. Most of the read
   --typeset-font-heading: var(--font-heading);
   --typeset-font-mono: var(--font-mono);
 
-  --typeset-size: 1em; /* body font-size */
-  --typeset-leading: 1.75; /* line-height */
-  --typeset-flow: 1.25em; /* space between blocks */
+  --typeset-size: 1em; /* اندازهٔ فونت بدنه */
+  --typeset-leading: 1.75; /* ارتفاع خط */
+  --typeset-flow: 1.25em; /* فاصلهٔ بین بلوک‌ها */
 }
 ```
 
-- **`--typeset-size`** sets the base text size. `1em` follows the surrounding layout. On smaller screens, Typeset bumps it up a little.
-- **`--typeset-leading`** sets the space between lines.
-- **`--typeset-flow`** sets the space between blocks. Headings and other elements derive their spacing from it.
+- **`--typeset-size`** اندازهٔ پایهٔ متن را تنظیم می‌کند. `1em` از لایهٔ اطراف پیروی می‌کند. در صفحه‌های کوچک‌تر Typeset کمی بزرگ‌ترش می‌کند.
+- **`--typeset-leading`** فاصلهٔ بین خطوط را تنظیم می‌کند.
+- **`--typeset-flow`** فاصلهٔ بین بلوک‌ها را تنظیم می‌کند. عنوان‌ها و عناصر دیگر فاصله‌شان را از آن می‌گیرند.
 
-The font variables tell Typeset which families to use. Leave them alone and it follows your app. Colors and radius come from your theme too.
+متغیرهای فونت می‌گویند Typeset از کدام خانواده استفاده کند. دست‌نخورده بگذارید تا از اپ پیروی کند. رنگ و radius هم از تم می‌آیند.
 
-Typeset doesn't set a maximum width. Your layout owns that. The Measure control in the builder adds a `max-width` to the wrapper instead of hiding it in the stylesheet.
+Typeset حداکثر عرض تعیین نمی‌کند؛ لایهٔ شما مالک آن است. کنترل Measure در سازنده به‌جای مخفی کردن در stylesheet، `max-width` را روی wrapper می‌گذارد.
 
-You can keep more than one preset in the same app. Here is a tighter one for chat and a roomier one for docs:
+می‌توانید چند preset در یک اپ نگه دارید. نمونهٔ فشرده‌تر برای چت و جادارتر برای مستندات:
 
 ```css
 .typeset-chat {
@@ -113,7 +113,7 @@ You can keep more than one preset in the same app. Here is a tighter one for cha
 <article className="typeset typeset-docs">{page}</article>
 ```
 
-For a one-off change, skip the preset and set a value on the container:
+برای تغییر یک‌باره، preset را رد کنید و مقدار را روی ظرف بگذارید:
 
 ```tsx
 <article className="typeset [--typeset-flow:1.75em]">...</article>
@@ -121,12 +121,12 @@ For a one-off change, skip the preset and set a value on the container:
 
 ---
 
-## Custom Themes
+## تم‌های سفارشی
 
-A preset can change the whole feel of the content, not just the spacing. You can give readers a serif reading mode, a compact UI mode, or any other style that fits your product.
+یک preset می‌تواند حس کلی محتوا را عوض کند، نه فقط فاصله‌ها. می‌توانید حالت خواندن سریف، حالت UI فشرده، یا هر سبک دیگری که به محصول می‌خورد بدهید.
 
 ```css
-/* Reading: serif, larger type, roomy rhythm. */
+/* خواندن: سریف، تایپ بزرگ‌تر، ریتم جادار. */
 .typeset-reading {
   --typeset-font-body: var(--font-lora);
   --typeset-font-heading: var(--font-lora);
@@ -135,7 +135,7 @@ A preset can change the whole feel of the content, not just the spacing. You can
   --typeset-flow: 2em;
 }
 
-/* Compact: sans, smaller type, tighter rhythm. */
+/* فشرده: سنس، تایپ کوچک‌تر، ریتم تنگ‌تر. */
 .typeset-compact {
   --typeset-font-body: var(--font-geist);
   --typeset-font-heading: var(--font-geist);
@@ -147,9 +147,9 @@ A preset can change the whole feel of the content, not just the spacing. You can
 
 ---
 
-## Accessibility and Dark Mode
+## دسترسی‌پذیری و حالت تاریک
 
-For readers who prefer larger type and more space, create a roomier typeset and expose it as a setting:
+برای خوانندگانی که تایپ بزرگ‌تر و فضای بیشتر می‌خواهند، یک تایپ‌ست جادار بسازید و به‌عنوان تنظیم در اختیار بگذارید:
 
 ```css
 .typeset-large {
@@ -159,7 +159,7 @@ For readers who prefer larger type and more space, create a roomier typeset and 
 }
 ```
 
-Dark mode already follows your theme colors. If the text feels a little tight on a dark surface, you can loosen the leading there:
+حالت تاریک از رنگ‌های تم شما پیروی می‌کند. اگر متن روی سطح تاریک کمی تنگ به نظر می‌رسد، می‌توانید leading را آنجا بازتر کنید:
 
 ```css
 .dark .typeset {
@@ -169,9 +169,9 @@ Dark mode already follows your theme colors. If the text feels a little tight on
 
 ---
 
-## Responsive Table
+## جدول واکنش‌گرا
 
-Tables stay real tables and wrap to fit. To scroll a wide one horizontally instead, wrap it in `typeset-scroll`:
+جدول‌ها جدول واقعی می‌مانند و برای جا شدن می‌پیچند. برای اسکرول افقی جدول عریض، آن را در `typeset-scroll` بپیچید:
 
 ```tsx
 <div className="typeset-scroll">
@@ -179,13 +179,13 @@ Tables stay real tables and wrap to fit. To scroll a wide one horizontally inste
 </div>
 ```
 
-Do this in your renderer's table component or a small rehype plugin. It works for any wide block, not just tables.
+این کار را در کامپوننت جدول رندرر یا یک پلاگین کوچک rehype انجام دهید. برای هر بلوک عریض کار می‌کند، نه فقط جدول.
 
 ---
 
-## Overrides
+## بازنویسی (Overrides)
 
-Typeset lives in the `components` layer and uses `:where()` for its element selectors. Tailwind utilities on an element win without `!important`:
+Typeset در لایهٔ `components` زندگی می‌کند و برای انتخابگر عناصر از `:where()` استفاده می‌کند. utilityهای Tailwind روی عنصر بدون `!important` برنده می‌شوند:
 
 ```tsx
 <div className="typeset typeset-docs">
@@ -193,50 +193,50 @@ Typeset lives in the `components` layer and uses `:where()` for its element sele
 </div>
 ```
 
-Plain CSS can override Typeset with a normal selector too.
+CSS ساده هم با یک انتخابگر معمولی Typeset را بازنویسی می‌کند.
 
 ---
 
-## Opting Out
+## خارج شدن (Opting Out)
 
-To keep a component out of Typeset, add `not-typeset` or `data-not-typeset`:
+برای خارج کردن یک کامپوننت از Typeset، `not-typeset` یا `data-not-typeset` اضافه کنید:
 
 ```tsx
 <div className="typeset">
-  <p>Styled prose.</p>
-  <Card className="not-typeset">Untouched component.</Card>
+  <p>متن استایل‌شده.</p>
+  <Card className="not-typeset">کامپوننت دست‌نخورده.</Card>
 </div>
 ```
 
-Both options cover the component and everything inside it. Another `typeset` container inside that subtree stays opted out too.
+هر دو گزینه خود کامپوننت و همه‌چیز داخلش را پوشش می‌دهند. ظرف `typeset` دیگری داخل آن زیردرخت هم خارج‌مانده می‌ماند.
 
 ---
 
-## Streaming
+## استریم
 
-Typeset is written so that adding a new block does not change the styles of the blocks already on screen.
+Typeset طوری نوشته شده که افزودن بلوک جدید استایل بلوک‌های روی صفحه را عوض نکند.
 
-- No forward-looking selectors. `:last-child`, `:has()`, and `:empty` are left out of layout rules because their matches can change as content is added.
-- Spacing flows in one direction, using `margin-block-start` only. A new block adds its own space.
-- Table separators live on the cells being added, so a new row does not restyle the row above it.
+- بدون انتخابگر رو به جلو. `:last-child`، `:has()` و `:empty` از قوانین لایه کنار گذاشته شده‌اند چون با اضافه شدن محتوا ممکن است تطبیقشان عوض شود.
+- فاصله فقط در یک جهت جریان دارد و از `margin-block-start` استفاده می‌کند. بلوک جدید فضای خودش را اضافه می‌کند.
+- جداکننده‌های جدول روی سلول‌هایی که اضافه می‌شوند هستند، پس ردیف جدید ردیف بالایی را دوباره استایل نمی‌کند.
 
-Text that is still streaming can grow and wrap normally. Typeset just avoids restyling the blocks that came before it.
+متنی که هنوز استریم می‌شود می‌تواند عادی رشد کند و بپیچد. Typeset فقط از استایل‌دهی دوبارهٔ بلوک‌های قبلی پرهیز می‌کند.
 
 ---
 
-## Prior Art
+## پیشینه
 
-The `prose` class from `@tailwindcss/typography` is excellent at what it was built for: adding beautiful typographic defaults to plain HTML, including content rendered from Markdown or a CMS.
+کلاس `prose` از `@tailwindcss/typography` در کاری که برایش ساخته شده عالی است: افزودن پیش‌فرض‌های تایپوگرافی زیبا به HTML ساده، از جمله محتوای مارک‌داون یا CMS.
 
-Typeset takes a different approach with container-aware sizing, app theme tokens, presets for different contexts, and streaming stability. Here's where they differ:
+Typeset رویکرد دیگری دارد: اندازهٔ آگاه از ظرف، توکن‌های تم اپ، preset برای زمینه‌های مختلف، و پایداری استریم. تفاوت‌ها:
 
 |              | @tailwindcss/typography                      | Typeset                                          |
 | ------------ | -------------------------------------------- | ------------------------------------------------ |
-| Sizing       | Fixed `rem` scale, `prose-sm` to `prose-2xl` | Relative to the container, any size              |
-| Dark mode    | `prose-invert`, a second palette             | Your tokens flip, nothing to add                 |
-| Theming      | Prose color variables; scale baked in        | Your theme tokens, plus font and rhythm controls |
-| Overrides    | `prose-a:`, `prose-headings:` modifier API   | Plain utilities and CSS win                      |
-| Streaming    | No append-stability contract                 | Designed for stable appends                      |
-| Distribution | npm plugin, generated CSS                    | One CSS file you own                             |
+| اندازه       | مقیاس ثابت `rem`، از `prose-sm` تا `prose-2xl` | نسبت به ظرف، هر اندازه‌ای                        |
+| حالت تاریک   | `prose-invert`، پالت دوم                     | توکن‌های شما عوض می‌شوند؛ چیزی اضافه نیست        |
+| تم‌دهی       | متغیرهای رنگ prose؛ مقیاس پخته‌شده           | توکن‌های تم شما، به‌همراه کنترل فونت و ریتم      |
+| بازنویسی     | API مادیفایر `prose-a:` و `prose-headings:`  | utility و CSS ساده برنده می‌شوند                 |
+| استریم       | بدون قرارداد پایداری append                  | برای append پایدار طراحی شده                     |
+| توزیع        | پلاگین npm، CSS تولیدشده                     | یک فایل CSS که مال شماست                         |
 
-Typeset borrows the two best ideas from the plugin: the zero-specificity `:where()` guard pattern, and the escape-hatch class (`not-typeset`, in the spirit of `not-prose`).
+Typeset دو ایدهٔ خوب پلاگین را وام گرفته: الگوی محافظ `:where()` با specificity صفر، و کلاس فرار (`not-typeset`، در روح `not-prose`).

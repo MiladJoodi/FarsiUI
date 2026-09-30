@@ -1,6 +1,6 @@
 ---
-title: Separator
-description: Visually or semantically separates content.
+title: جداکننده (Separator)
+description: محتوا را به‌صورت بصری یا معنایی از هم جدا می‌کند.
 base: base
 component: true
 links:
@@ -8,20 +8,29 @@ links:
   api: https://base-ui.com/react/components/separator#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="separator-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "separator-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "separator-vertical", label: "عمودی", sizeable: false },
+    { name: "separator-menu", label: "منو", sizeable: false },
+    { name: "separator-list", label: "فهرست", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add separator
+npx farsiui@latest add separator
 ```
 
 </TabsContent>
@@ -30,13 +39,13 @@ npx shadcn@latest add separator
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="separator"
@@ -44,7 +53,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +61,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Separator } from "@/components/ui/separator"
@@ -62,30 +71,86 @@ import { Separator } from "@/components/ui/separator"
 <Separator />
 ```
 
-## Vertical
+<div className="hidden">
 
-Use `orientation="vertical"` for a vertical separator.
+## عمودی
 
-<ComponentPreview styleName="base-nova" name="separator-vertical" />
+</div>
 
-## Menu
+<DocsCollapsible title="عمودی">
 
-Vertical separators between menu items with descriptions.
+برای جداکنندهٔ عمودی از `orientation="vertical"` استفاده کنید.
 
-<ComponentPreview styleName="base-nova" name="separator-menu" />
+<ComponentPreview
+  styleName="base-nova"
+  name="separator-vertical"
+  direction="rtl"
+/>
 
-## List
+</DocsCollapsible>
 
-Horizontal separators between list items.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="separator-list" />
+## منو
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="منو">
 
-<ComponentPreview styleName="base-nova" name="separator-rtl" direction="rtl" />
+جداکننده‌های عمودی بین آیتم‌های منو همراه با توضیحات.
 
-## API Reference
+<ComponentPreview
+  styleName="base-nova"
+  name="separator-menu"
+  direction="rtl"
+/>
 
-See the [Base UI Separator](https://base-ui.com/react/components/separator#api-reference) documentation.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## فهرست
+
+</div>
+
+<DocsCollapsible title="فهرست">
+
+جداکننده‌های افقی بین آیتم‌های فهرست.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="separator-list"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="separator-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Separator](https://base-ui.com/react/components/separator#api-reference) را ببینید.
+
+</DocsCollapsible>

@@ -4,9 +4,11 @@ import { Toggle } from "@/styles/base-nova/ui/toggle"
 
 export function ToggleDemo() {
   return (
-    <Toggle aria-label="Toggle bookmark" size="sm" variant="outline">
-      <BookmarkIcon className="group-aria-pressed/toggle:fill-foreground" />
-      Bookmark
-    </Toggle>
+    <div dir="rtl">
+      <Toggle aria-label="نشانه‌گذاری" size="sm" variant="outline">
+        <BookmarkIcon className="group-aria-pressed/toggle:fill-foreground" />
+        نشانه‌گذاری
+      </Toggle>
+    </div>
   )
 }

@@ -12,58 +12,58 @@ import {
 const invoices = [
   {
     invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۲٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
   {
     invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
+    paymentStatus: "در انتظار",
+    totalAmount: "۱٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "پی‌پال",
   },
   {
     invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
+    paymentStatus: "پرداخت‌نشده",
+    totalAmount: "۳٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "انتقال بانکی",
   },
   {
     invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۴٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
   {
     invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
+    paymentStatus: "پرداخت‌شده",
+    totalAmount: "۵٬۵۰۰٬۰۰۰ تومان",
+    paymentMethod: "پی‌پال",
   },
   {
     invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
+    paymentStatus: "در انتظار",
+    totalAmount: "۲٬۰۰۰٬۰۰۰ تومان",
+    paymentMethod: "انتقال بانکی",
   },
   {
     invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
+    paymentStatus: "پرداخت‌نشده",
+    totalAmount: "۳٬۰۰۰٬۰۰۰ تومان",
+    paymentMethod: "کارت اعتباری",
   },
 ]
 
 export function TableDemo() {
   return (
-    <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+    <Table dir="rtl">
+      <TableCaption>فهرستی از فاکتورهای اخیر شما.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead className="w-[100px]">فاکتور</TableHead>
+          <TableHead>وضعیت</TableHead>
+          <TableHead>روش</TableHead>
+          <TableHead className="text-end">مبلغ</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -72,14 +72,14 @@ export function TableDemo() {
             <TableCell className="font-medium">{invoice.invoice}</TableCell>
             <TableCell>{invoice.paymentStatus}</TableCell>
             <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+            <TableCell className="text-end">{invoice.totalAmount}</TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
+          <TableCell colSpan={3}>جمع</TableCell>
+          <TableCell className="text-end">۲۵٬۰۰۰٬۰۰۰ تومان</TableCell>
         </TableRow>
       </TableFooter>
     </Table>

@@ -1,6 +1,6 @@
 ---
-title: Switch
-description: A control that allows the user to toggle between checked and not checked.
+title: سوئیچ (Switch)
+description: کنترلی برای روشن و خاموش کردن یک گزینه.
 base: base
 component: true
 links:
@@ -8,20 +8,31 @@ links:
   api: https://base-ui.com/react/components/switch#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="switch-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "switch-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "switch-description", label: "توضیح", sizeable: false },
+    { name: "switch-choice-card", label: "کارت انتخاب", sizeable: false },
+    { name: "switch-disabled", label: "غیرفعال", sizeable: false },
+    { name: "switch-invalid", label: "نامعتبر", sizeable: false },
+    { name: "switch-sizes", label: "اندازه", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add switch
+npx farsiui@latest add switch
 ```
 
 </TabsContent>
@@ -30,13 +41,13 @@ npx shadcn@latest add switch
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="switch"
@@ -44,7 +55,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +63,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Switch } from "@/components/ui/switch"
@@ -62,40 +73,116 @@ import { Switch } from "@/components/ui/switch"
 <Switch />
 ```
 
-## Description
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="switch-description" />
+## توضیح
 
-## Choice Card
+</div>
 
-Card-style selection where `FieldLabel` wraps the entire `Field` for a clickable card pattern.
+<DocsCollapsible title="توضیح">
 
-<ComponentPreview styleName="base-nova" name="switch-choice-card" />
+<ComponentPreview
+  styleName="base-nova"
+  name="switch-description"
+  direction="rtl"
+/>
 
-## Disabled
+</DocsCollapsible>
 
-Add the `disabled` prop to the `Switch` component to disable the switch. Add the `data-disabled` prop to the `Field` component for styling.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="switch-disabled" />
+## کارت انتخاب
 
-## Invalid
+</div>
 
-Add the `aria-invalid` prop to the `Switch` component to indicate an invalid state. Add the `data-invalid` prop to the `Field` component for styling.
+<DocsCollapsible title="کارت انتخاب">
 
-<ComponentPreview styleName="base-nova" name="switch-invalid" />
+انتخاب به‌سبک کارت که در آن `FieldLabel` کل `Field` را می‌پوشاند تا کل کارت قابل کلیک باشد.
 
-## Size
+<ComponentPreview
+  styleName="base-nova"
+  name="switch-choice-card"
+  direction="rtl"
+/>
 
-Use the `size` prop to change the size of the switch.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="switch-sizes" />
+<div className="hidden">
 
-## RTL
+## غیرفعال
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` روی `Switch` سوئیچ را غیرفعال کنید. برای استایل، `data-disabled` را روی `Field` بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="switch-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با `aria-invalid` روی `Switch` وضعیت نامعتبر را نشان دهید. برای استایل، `data-invalid` را روی `Field` بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="switch-invalid"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با prop به نام `size` اندازهٔ سوئیچ را تغییر دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="switch-sizes"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview styleName="base-nova" name="switch-rtl" direction="rtl" />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Switch](https://base-ui.com/react/components/switch#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Switch](https://base-ui.com/react/components/switch#api-reference) را ببینید.
+
+</DocsCollapsible>

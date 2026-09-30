@@ -7,19 +7,21 @@ export function ToastPromise() {
   function showToast() {
     toast.promise(
       new Promise<{ name: string }>((resolve) => {
-        window.setTimeout(() => resolve({ name: "Event" }), 2000)
+        window.setTimeout(() => resolve({ name: "رویداد" }), 2000)
       }),
       {
-        loading: "Creating event…",
-        success: (data) => `${data.name} created.`,
-        error: "Could not create event.",
+        loading: "در حال ساخت رویداد…",
+        success: (data) => `${data.name} ساخته شد.`,
+        error: "ساخت رویداد ممکن نشد.",
       }
     )
   }
 
   return (
-    <Button variant="outline" onClick={showToast}>
-      Create Event
-    </Button>
+    <div dir="rtl">
+      <Button variant="outline" onClick={showToast}>
+        ساخت رویداد
+      </Button>
+    </div>
   )
 }

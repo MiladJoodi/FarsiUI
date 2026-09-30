@@ -1,6 +1,6 @@
 ---
-title: Slider
-description: An input where the user selects a value from within a given range.
+title: لغزنده (Slider)
+description: ورودی‌ای که کاربر مقداری را از یک بازه انتخاب می‌کند.
 base: base
 component: true
 links:
@@ -8,20 +8,31 @@ links:
   api: https://base-ui.com/react/components/slider#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="slider-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "slider-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "slider-range", label: "بازه", sizeable: false },
+    { name: "slider-multiple", label: "چند شستی", sizeable: false },
+    { name: "slider-vertical", label: "عمودی", sizeable: false },
+    { name: "slider-controlled", label: "کنترل‌شده", sizeable: false },
+    { name: "slider-disabled", label: "غیرفعال", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add slider
+npx farsiui@latest add slider
 ```
 
 </TabsContent>
@@ -30,13 +41,13 @@ npx shadcn@latest add slider
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="slider"
@@ -44,7 +55,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +63,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Slider } from "@/components/ui/slider"
@@ -62,40 +73,116 @@ import { Slider } from "@/components/ui/slider"
 <Slider defaultValue={[33]} max={100} step={1} />
 ```
 
-## Range
+<div className="hidden">
 
-Use an array with two values for a range slider.
+## بازه
 
-<ComponentPreview styleName="base-nova" name="slider-range" />
+</div>
 
-## Multiple Thumbs
+<DocsCollapsible title="بازه">
 
-Use an array with multiple values for multiple thumbs.
+برای لغزندهٔ بازه‌ای، آرایه‌ای با دو مقدار بگذارید.
 
-<ComponentPreview styleName="base-nova" name="slider-multiple" />
+<ComponentPreview
+  styleName="base-nova"
+  name="slider-range"
+  direction="rtl"
+/>
 
-## Vertical
+</DocsCollapsible>
 
-Use `orientation="vertical"` for a vertical slider.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="slider-vertical" />
+## چند شستی
 
-## Controlled
+</div>
 
-<ComponentPreview styleName="base-nova" name="slider-controlled" />
+<DocsCollapsible title="چند شستی">
 
-## Disabled
+برای چند شستی، آرایه‌ای با چند مقدار بگذارید.
 
-Use the `disabled` prop to disable the slider.
+<ComponentPreview
+  styleName="base-nova"
+  name="slider-multiple"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="slider-disabled" />
+</DocsCollapsible>
 
-## RTL
+<div className="hidden">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+## عمودی
+
+</div>
+
+<DocsCollapsible title="عمودی">
+
+با `orientation="vertical"` لغزندهٔ عمودی بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="slider-vertical"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کنترل‌شده
+
+</div>
+
+<DocsCollapsible title="کنترل‌شده">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="slider-controlled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` لغزنده را غیرفعال کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="slider-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview styleName="base-nova" name="slider-rtl" direction="rtl" />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Slider](https://base-ui.com/react/components/slider#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Slider](https://base-ui.com/react/components/slider#api-reference) را ببینید.
+
+</DocsCollapsible>

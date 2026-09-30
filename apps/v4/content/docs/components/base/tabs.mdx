@@ -1,6 +1,6 @@
 ---
-title: Tabs
-description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
+title: تب‌ها (Tabs)
+description: مجموعه‌ای از بخش‌های لایه‌ای محتوا که هر بار فقط یکی نمایش داده می‌شود.
 base: base
 component: true
 links:
@@ -8,24 +8,30 @@ links:
   api: https://base-ui.com/react/components/tabs#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="tabs-demo"
-  previewClassName="h-96"
+  layout="switcher"
+  examples={[
+    { name: "tabs-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "tabs-line", label: "خطی", sizeable: false },
+    { name: "tabs-vertical", label: "عمودی", sizeable: false },
+    { name: "tabs-disabled", label: "غیرفعال", sizeable: false },
+    { name: "tabs-icons", label: "آیکون", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add tabs
+npx farsiui@latest add tabs
 ```
 
 </TabsContent>
@@ -34,13 +40,13 @@ npx shadcn@latest add tabs
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="tabs"
@@ -48,7 +54,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +62,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -65,17 +71,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 ```tsx showLineNumbers
 <Tabs defaultValue="account" className="w-[400px]">
   <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
+    <TabsTrigger value="account">حساب</TabsTrigger>
+    <TabsTrigger value="password">رمز عبور</TabsTrigger>
   </TabsList>
-  <TabsContent value="account">Make changes to your account here.</TabsContent>
-  <TabsContent value="password">Change your password here.</TabsContent>
+  <TabsContent value="account">تغییرات حساب را اینجا اعمال کنید.</TabsContent>
+  <TabsContent value="password">رمز عبور را اینجا تغییر دهید.</TabsContent>
 </Tabs>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build `Tabs`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از این ترکیب برای ساخت `Tabs` استفاده کنید:
 
 ```text
 Tabs
@@ -86,32 +98,102 @@ Tabs
 └── TabsContent
 ```
 
-## Line
+</DocsCollapsible>
 
-Use the `variant="line"` prop on `TabsList` for a line style.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="tabs-line" />
+## خطی
 
-## Vertical
+</div>
 
-Use `orientation="vertical"` for vertical tabs.
+<DocsCollapsible title="خطی">
 
-<ComponentPreview styleName="base-nova" name="tabs-vertical" />
+با `variant="line"` روی `TabsList` سبک خطی بسازید.
 
-## Disabled
+<ComponentPreview
+  styleName="base-nova"
+  name="tabs-line"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="tabs-disabled" />
+</DocsCollapsible>
 
-## Icons
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="tabs-icons" />
+## عمودی
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="عمودی">
 
-<ComponentPreview styleName="base-nova" name="tabs-rtl" direction="rtl" />
+با `orientation="vertical"` تب‌های عمودی بسازید.
 
-## API Reference
+<ComponentPreview
+  styleName="base-nova"
+  name="tabs-vertical"
+  direction="rtl"
+/>
 
-See the [Base UI Tabs](https://base-ui.com/react/components/tabs#api-reference) documentation.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="tabs-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آیکون
+
+</div>
+
+<DocsCollapsible title="آیکون">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="tabs-icons"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="tabs-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Tabs](https://base-ui.com/react/components/tabs#api-reference) را ببینید.
+
+</DocsCollapsible>

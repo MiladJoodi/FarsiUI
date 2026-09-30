@@ -2,12 +2,12 @@ import { Separator } from "@/styles/base-nova/ui/separator"
 
 export function SeparatorVertical() {
   return (
-    <div className="flex h-5 items-center gap-4 text-sm">
-      <div>Blog</div>
+    <div dir="rtl" className="flex h-5 items-center gap-4 text-sm">
+      <div>بلاگ</div>
       <Separator orientation="vertical" />
-      <div>Docs</div>
+      <div>مستندات</div>
       <Separator orientation="vertical" />
-      <div>Source</div>
+      <div>سورس</div>
     </div>
   )
 }

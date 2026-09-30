@@ -6,10 +6,10 @@ import { toast } from "@/styles/base-nova/ui/toast"
 export function ToastDemo() {
   function showToast() {
     const id = toast.add({
-      title: "Event created",
-      description: "Sunday, December 3 at 9:00 AM",
+      title: "رویداد ساخته شد",
+      description: "یکشنبه، ۳ آذر، ساعت ۹:۰۰",
       actionProps: {
-        children: "Undo",
+        children: "بازگردانی",
         onClick() {
           toast.close(id)
         },
@@ -18,8 +18,10 @@ export function ToastDemo() {
   }
 
   return (
-    <Button variant="outline" onClick={showToast}>
-      Show Toast
-    </Button>
+    <div dir="rtl">
+      <Button variant="outline" onClick={showToast}>
+        نمایش توست
+      </Button>
+    </div>
   )
 }

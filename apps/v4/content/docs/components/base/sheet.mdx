@@ -1,6 +1,6 @@
 ---
-title: Sheet
-description: Extends the Dialog component to display content that complements the main content of the screen.
+title: شیت (Sheet)
+description: گسترش Dialog برای نمایش محتوایی که مکمل صفحهٔ اصلی است.
 base: base
 component: true
 links:
@@ -8,20 +8,28 @@ links:
   api: https://base-ui.com/react/components/dialog#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="sheet-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "sheet-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "sheet-side", label: "موقعیت", sizeable: false },
+    { name: "sheet-no-close-button", label: "بدون بستن", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add sheet
+npx farsiui@latest add sheet
 ```
 
 </TabsContent>
@@ -30,13 +38,13 @@ npx shadcn@latest add sheet
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="sheet"
@@ -44,7 +52,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +60,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -69,19 +77,25 @@ import {
 
 ```tsx showLineNumbers
 <Sheet>
-  <SheetTrigger>Open</SheetTrigger>
+  <SheetTrigger>باز کردن</SheetTrigger>
   <SheetContent>
     <SheetHeader>
-      <SheetTitle>Are you absolutely sure?</SheetTitle>
-      <SheetDescription>This action cannot be undone.</SheetDescription>
+      <SheetTitle>آیا مطمئن هستید؟</SheetTitle>
+      <SheetDescription>این عمل قابل بازگشت نیست.</SheetDescription>
     </SheetHeader>
   </SheetContent>
 </Sheet>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Sheet`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از ترکیب زیر برای ساخت `Sheet` استفاده کنید:
 
 ```text
 Sheet
@@ -93,24 +107,66 @@ Sheet
     └── SheetFooter
 ```
 
-## Side
+</DocsCollapsible>
 
-Use the `side` prop on `SheetContent` to set the edge of the screen where the sheet appears. Values are `top`, `right`, `bottom`, or `left`.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="sheet-side" />
+## موقعیت
 
-## No Close Button
+</div>
 
-Use `showCloseButton={false}` on `SheetContent` to hide the close button.
+<DocsCollapsible title="موقعیت">
 
-<ComponentPreview styleName="base-nova" name="sheet-no-close-button" />
+با prop به نام `side` روی `SheetContent` لبهٔ صفحه را که شیت از آن باز می‌شود مشخص کنید. مقادیر: `top`، `right`، `bottom` یا `left`.
 
-## RTL
+<ComponentPreview
+  styleName="base-nova"
+  name="sheet-side"
+  direction="rtl"
+/>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</DocsCollapsible>
+
+<div className="hidden">
+
+## بدون دکمهٔ بستن
+
+</div>
+
+<DocsCollapsible title="بدون دکمهٔ بستن">
+
+با `showCloseButton={false}` روی `SheetContent` دکمهٔ بستن را پنهان کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="sheet-no-close-button"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview styleName="base-nova" name="sheet-rtl" direction="rtl" />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Dialog](https://base-ui.com/react/components/dialog#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Dialog](https://base-ui.com/react/components/dialog#api-reference) را ببینید.
+
+</DocsCollapsible>

@@ -7,13 +7,15 @@ import {
 
 export function TooltipDemo() {
   return (
-    <Tooltip>
-      <TooltipTrigger render={<Button variant="outline" />}>
-        Hover
-      </TooltipTrigger>
-      <TooltipContent>
-        <p>Add to library</p>
-      </TooltipContent>
-    </Tooltip>
+    <div dir="rtl">
+      <Tooltip>
+        <TooltipTrigger render={<Button variant="outline" />}>
+          نگه دارید
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>افزودن به کتابخانه</p>
+        </TooltipContent>
+      </Tooltip>
+    </div>
   )
 }

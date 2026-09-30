@@ -1,6 +1,6 @@
 ---
-title: Toggle Group
-description: A set of two-state buttons that can be toggled on or off.
+title: گروه تاگل (Toggle Group)
+description: مجموعه‌ای از دکمه‌های دو حالته که می‌توانند روشن یا خاموش شوند.
 base: base
 component: true
 links:
@@ -8,20 +8,36 @@ links:
   api: https://base-ui.com/react/components/toggle-group#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="toggle-group-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "toggle-group-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "toggle-group-outline", label: "حاشیه", sizeable: false },
+    { name: "toggle-group-sizes", label: "اندازه", sizeable: false },
+    { name: "toggle-group-spacing", label: "فاصله", sizeable: false },
+    { name: "toggle-group-vertical", label: "عمودی", sizeable: false },
+    { name: "toggle-group-disabled", label: "غیرفعال", sizeable: false },
+    {
+      name: "toggle-group-font-weight-selector",
+      label: "سفارشی",
+      sizeable: false,
+    },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add toggle-group
+npx farsiui@latest add toggle-group
 ```
 
 </TabsContent>
@@ -30,13 +46,13 @@ npx shadcn@latest add toggle-group
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="toggle-group"
@@ -44,7 +60,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,23 +68,29 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 ```
 
 ```tsx
-<ToggleGroup type="single">
-  <ToggleGroupItem value="a">A</ToggleGroupItem>
-  <ToggleGroupItem value="b">B</ToggleGroupItem>
-  <ToggleGroupItem value="c">C</ToggleGroupItem>
+<ToggleGroup>
+  <ToggleGroupItem value="a">الف</ToggleGroupItem>
+  <ToggleGroupItem value="b">ب</ToggleGroupItem>
+  <ToggleGroupItem value="c">پ</ToggleGroupItem>
 </ToggleGroup>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `ToggleGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از این ترکیب برای ساخت `ToggleGroup` استفاده کنید:
 
 ```text
 ToggleGroup
@@ -76,47 +98,124 @@ ToggleGroup
 └── ToggleGroupItem
 ```
 
-## Outline
+</DocsCollapsible>
 
-Use `variant="outline"` for an outline style.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="toggle-group-outline" />
+## حاشیه
 
-## Size
+</div>
 
-Use the `size` prop to change the size of the toggle group.
+<DocsCollapsible title="حاشیه">
 
-<ComponentPreview styleName="base-nova" name="toggle-group-sizes" />
+با `variant="outline"` سبک حاشیه‌دار بسازید.
 
-## Spacing
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-outline"
+  direction="rtl"
+/>
 
-Use `spacing` to add spacing between toggle group items.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="toggle-group-spacing" />
+<div className="hidden">
 
-## Vertical
+## اندازه
 
-Use `orientation="vertical"` for vertical toggle groups.
+</div>
 
-<ComponentPreview styleName="base-nova" name="toggle-group-vertical" />
+<DocsCollapsible title="اندازه">
 
-## Disabled
+با prop به نام `size` اندازهٔ گروه تاگل را تغییر دهید.
 
-<ComponentPreview styleName="base-nova" name="toggle-group-disabled" />
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-sizes"
+  direction="rtl"
+/>
 
-## Custom
+</DocsCollapsible>
 
-A custom toggle group example.
+<div className="hidden">
+
+## فاصله
+
+</div>
+
+<DocsCollapsible title="فاصله">
+
+با `spacing` بین آیتم‌های گروه تاگل فاصله بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-spacing"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## عمودی
+
+</div>
+
+<DocsCollapsible title="عمودی">
+
+با `orientation="vertical"` گروه تاگل عمودی بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-vertical"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="toggle-group-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## سفارشی
+
+</div>
+
+<DocsCollapsible title="سفارشی">
+
+نمونه‌ای سفارشی از گروه تاگل.
 
 <ComponentPreview
   styleName="base-nova"
   name="toggle-group-font-weight-selector"
+  direction="rtl"
   previewClassName="*:data-[slot=field]:max-w-xs"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -124,12 +223,30 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Toggle Group](https://base-ui.com/react/components/toggle-group#api-reference) documentation.
+<div className="hidden">
 
-## Changelog
+## مرجع API
 
-### 2026-05-17 Default Spacing
+</div>
 
-Changed the default `spacing` from `0` to `2` so toggle groups render with space between items by default. Use `spacing={0}` for connected items.
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Toggle Group](https://base-ui.com/react/components/toggle-group#api-reference) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تغییرات
+
+</div>
+
+<DocsCollapsible title="تغییرات">
+
+### ۱۴۰۵-۰۲-۲۷ فاصلهٔ پیش‌فرض
+
+مقدار پیش‌فرض `spacing` از `0` به `2` تغییر کرد تا بین آیتم‌ها فاصله باشد. برای آیتم‌های به‌هم‌چسبیده از `spacing={0}` استفاده کنید.
+
+</DocsCollapsible>

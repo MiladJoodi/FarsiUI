@@ -7,10 +7,10 @@ import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export function TextareaField() {
   return (
-    <Field>
-      <FieldLabel htmlFor="textarea-message">Message</FieldLabel>
-      <FieldDescription>Enter your message below.</FieldDescription>
-      <Textarea id="textarea-message" placeholder="Type your message here." />
+    <Field dir="rtl">
+      <FieldLabel htmlFor="textarea-message">پیام</FieldLabel>
+      <FieldDescription>پیام خود را در کادر زیر بنویسید.</FieldDescription>
+      <Textarea id="textarea-message" placeholder="پیام خود را بنویسید..." />
     </Field>
   )
 }

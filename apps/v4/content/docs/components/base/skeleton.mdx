@@ -1,24 +1,35 @@
 ---
-title: Skeleton
-description: Use to show a placeholder while content is loading.
+title: اسکلتون (Skeleton)
+description: جای‌نگهدار هنگام بارگذاری محتوا.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="skeleton-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "skeleton-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "skeleton-avatar", label: "آواتار", sizeable: false },
+    { name: "skeleton-card", label: "کارت", sizeable: false },
+    { name: "skeleton-text", label: "متن", sizeable: false },
+    { name: "skeleton-form", label: "فرم", sizeable: false },
+    { name: "skeleton-table", label: "جدول", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add skeleton
+npx farsiui@latest add skeleton
 ```
 
 </TabsContent>
@@ -27,7 +38,7 @@ npx shadcn@latest add skeleton
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="skeleton"
@@ -35,7 +46,7 @@ npx shadcn@latest add skeleton
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -43,7 +54,7 @@ npx shadcn@latest add skeleton
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Skeleton } from "@/components/ui/skeleton"
@@ -53,32 +64,111 @@ import { Skeleton } from "@/components/ui/skeleton"
 <Skeleton className="h-[20px] w-[100px] rounded-full" />
 ```
 
-## Avatar
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="skeleton-avatar" />
+## آواتار
 
-## Card
+</div>
+
+<DocsCollapsible title="آواتار">
+
+جای‌نگهدار برای آواتار و خطوط متن کنار آن.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="skeleton-avatar"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کارت
+
+</div>
+
+<DocsCollapsible title="کارت">
+
+جای‌نگهدار داخل کارت برای عنوان و تصویر.
 
 <ComponentPreview
   styleName="base-nova"
   name="skeleton-card"
   previewClassName="h-80"
+  direction="rtl"
 />
 
-## Text
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="skeleton-text" />
+<div className="hidden">
 
-## Form
+## متن
 
-<ComponentPreview styleName="base-nova" name="skeleton-form" />
+</div>
 
-## Table
+<DocsCollapsible title="متن">
 
-<ComponentPreview styleName="base-nova" name="skeleton-table" />
+چند خط جای‌نگهدار برای بلوک متنی.
 
-## RTL
+<ComponentPreview
+  styleName="base-nova"
+  name="skeleton-text"
+  direction="rtl"
+/>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="skeleton-rtl" direction="rtl" />
+<div className="hidden">
+
+## فرم
+
+</div>
+
+<DocsCollapsible title="فرم">
+
+جای‌نگهدار برای برچسب، ورودی و دکمهٔ فرم.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="skeleton-form"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جدول
+
+</div>
+
+<DocsCollapsible title="جدول">
+
+ردیف‌های جای‌نگهدار برای جدول در حال بارگذاری.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="skeleton-table"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="skeleton-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>

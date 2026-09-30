@@ -1,33 +1,8 @@
-"use client"
-
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Skeleton } from "@/styles/base-nova/ui-rtl/skeleton"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {},
-  },
-  ar: {
-    dir: "rtl",
-    values: {},
-  },
-  he: {
-    dir: "rtl",
-    values: {},
-  },
-}
+import { Skeleton } from "@/styles/base-nova/ui/skeleton"
 
 export function SkeletonRtl() {
-  const { dir } = useTranslation(translations, "ar")
-
   return (
-    <div className="flex items-center gap-4" dir={dir}>
+    <div dir="rtl" className="flex items-center gap-4">
       <Skeleton className="h-12 w-12 rounded-full" />
       <div className="space-y-2">
         <Skeleton className="h-4 w-[250px]" />

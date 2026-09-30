@@ -7,21 +7,23 @@ import {
 
 export function ToggleGroupVertical() {
   return (
-    <ToggleGroup
-      multiple
-      orientation="vertical"
-      spacing={1}
-      defaultValue={["bold", "italic"]}
-    >
-      <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        <BoldIcon />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        <ItalicIcon />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="underline" aria-label="Toggle underline">
-        <UnderlineIcon />
-      </ToggleGroupItem>
-    </ToggleGroup>
+    <div dir="rtl">
+      <ToggleGroup
+        multiple
+        orientation="vertical"
+        spacing={1}
+        defaultValue={["bold", "italic"]}
+      >
+        <ToggleGroupItem value="bold" aria-label="ضخیم">
+          <BoldIcon />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="italic" aria-label="کج">
+          <ItalicIcon />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="underline" aria-label="زیرخط">
+          <UnderlineIcon />
+        </ToggleGroupItem>
+      </ToggleGroup>
+    </div>
   )
 }

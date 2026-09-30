@@ -1,3 +1,5 @@
+"use client"
+
 import { MoreHorizontalIcon } from "lucide-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
@@ -19,19 +21,19 @@ import {
 
 export function TableActions() {
   return (
-    <Table>
+    <Table dir="rtl">
       <TableHeader>
         <TableRow>
-          <TableHead>Product</TableHead>
-          <TableHead>Price</TableHead>
-          <TableHead className="text-right">Actions</TableHead>
+          <TableHead>محصول</TableHead>
+          <TableHead>قیمت</TableHead>
+          <TableHead className="text-end">عملیات</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         <TableRow>
-          <TableCell className="font-medium">Wireless Mouse</TableCell>
-          <TableCell>$29.99</TableCell>
-          <TableCell className="text-right">
+          <TableCell className="font-medium">ماوس بی‌سیم</TableCell>
+          <TableCell>۲۹۹٬۰۰۰ تومان</TableCell>
+          <TableCell className="text-end">
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
@@ -39,23 +41,21 @@ export function TableActions() {
                 }
               >
                 <MoreHorizontalIcon />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">باز کردن منو</span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-                <DropdownMenuItem>Duplicate</DropdownMenuItem>
+              <DropdownMenuContent align="end" dir="rtl">
+                <DropdownMenuItem>ویرایش</DropdownMenuItem>
+                <DropdownMenuItem>تکثیر</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
-                  Delete
-                </DropdownMenuItem>
+                <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">Mechanical Keyboard</TableCell>
-          <TableCell>$129.99</TableCell>
-          <TableCell className="text-right">
+          <TableCell className="font-medium">کیبورد مکانیکی</TableCell>
+          <TableCell>۱٬۲۹۹٬۰۰۰ تومان</TableCell>
+          <TableCell className="text-end">
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
@@ -63,23 +63,21 @@ export function TableActions() {
                 }
               >
                 <MoreHorizontalIcon />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">باز کردن منو</span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-                <DropdownMenuItem>Duplicate</DropdownMenuItem>
+              <DropdownMenuContent align="end" dir="rtl">
+                <DropdownMenuItem>ویرایش</DropdownMenuItem>
+                <DropdownMenuItem>تکثیر</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
-                  Delete
-                </DropdownMenuItem>
+                <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">USB-C Hub</TableCell>
-          <TableCell>$49.99</TableCell>
-          <TableCell className="text-right">
+          <TableCell className="font-medium">هاب USB-C</TableCell>
+          <TableCell>۴۹۹٬۰۰۰ تومان</TableCell>
+          <TableCell className="text-end">
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
@@ -87,15 +85,13 @@ export function TableActions() {
                 }
               >
                 <MoreHorizontalIcon />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">باز کردن منو</span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-                <DropdownMenuItem>Duplicate</DropdownMenuItem>
+              <DropdownMenuContent align="end" dir="rtl">
+                <DropdownMenuItem>ویرایش</DropdownMenuItem>
+                <DropdownMenuItem>تکثیر</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
-                  Delete
-                </DropdownMenuItem>
+                <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </TableCell>

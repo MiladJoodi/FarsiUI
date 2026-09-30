@@ -1,6 +1,6 @@
 ---
-title: Tooltip
-description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+title: تولتیپ (Tooltip)
+description: پنجره‌ای کوچک که با فوکوس کیبورد یا هاور ماوس، اطلاعات مرتبط با یک عنصر را نشان می‌دهد.
 base: base
 component: true
 links:
@@ -8,34 +8,43 @@ links:
   api: https://base-ui.com/react/components/tooltip#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="tooltip-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "tooltip-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "tooltip-sides", label: "جهت", sizeable: false },
+    { name: "tooltip-keyboard", label: "میانبر کیبورد", sizeable: false },
+    { name: "tooltip-disabled", label: "دکمهٔ غیرفعال", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 <Steps className="mb-0 pt-2">
 
-<Step>Run the following command:</Step>
+<Step>دستور زیر را اجرا کنید:</Step>
 
 ```bash
-npx shadcn@latest add tooltip
+npx farsiui@latest add tooltip
 ```
 
-<Step>Add the `TooltipProvider` to the root of your app.</Step>
+<Step>`TooltipProvider` را به ریشهٔ اپ اضافه کنید.</Step>
 
 ```tsx title="app/layout.tsx" showLineNumbers {1,7}
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
@@ -52,13 +61,13 @@ export default function RootLayout({ children }) {
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="tooltip"
@@ -66,16 +75,16 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
-<Step>Add the `TooltipProvider` to the root of your app.</Step>
+<Step>`TooltipProvider` را به ریشهٔ اپ اضافه کنید.</Step>
 
 ```tsx title="app/layout.tsx" showLineNumbers {1,7}
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
@@ -90,7 +99,7 @@ export default function RootLayout({ children }) {
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -102,16 +111,22 @@ import {
 
 ```tsx showLineNumbers
 <Tooltip>
-  <TooltipTrigger>Hover</TooltipTrigger>
+  <TooltipTrigger>نگه دارید</TooltipTrigger>
   <TooltipContent>
-    <p>Add to library</p>
+    <p>افزودن به کتابخانه</p>
   </TooltipContent>
 </Tooltip>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Tooltip`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Tooltip` از این ترکیب استفاده کنید:
 
 ```text
 Tooltip
@@ -119,28 +134,86 @@ Tooltip
 └── TooltipContent
 ```
 
-## Side
+</DocsCollapsible>
 
-Use the `side` prop to change the position of the tooltip.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="tooltip-sides" />
+## جهت
 
-## With Keyboard Shortcut
+</div>
 
-<ComponentPreview styleName="base-nova" name="tooltip-keyboard" />
+<DocsCollapsible title="جهت">
 
-## Disabled Button
+با prop به نام `side` موقعیت تولتیپ را تغییر دهید.
 
-Show a tooltip on a disabled button by wrapping it with a span.
+<ComponentPreview
+  styleName="base-nova"
+  name="tooltip-sides"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="tooltip-disabled" />
+</DocsCollapsible>
 
-## RTL
+<div className="hidden">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+## میانبر کیبورد
 
-<ComponentPreview styleName="base-nova" name="tooltip-rtl" direction="rtl" />
+</div>
 
-## API Reference
+<DocsCollapsible title="میانبر کیبورد">
 
-See the [Base UI Tooltip](https://base-ui.com/react/components/tooltip#api-reference) documentation.
+<ComponentPreview
+  styleName="base-nova"
+  name="tooltip-keyboard"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## دکمهٔ غیرفعال
+
+</div>
+
+<DocsCollapsible title="دکمهٔ غیرفعال">
+
+برای نمایش تولتیپ روی دکمهٔ غیرفعال، آن را داخل یک `span` بپیچید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="tooltip-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="tooltip-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Tooltip](https://base-ui.com/react/components/tooltip#api-reference) را ببینید.
+
+</DocsCollapsible>

@@ -1,28 +1,34 @@
 ---
-title: Textarea
-description: Displays a form textarea or a component that looks like a textarea.
+title: ناحیهٔ متن (Textarea)
+description: فیلد متن چندخطی برای فرم‌ها.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="textarea-demo"
-  previewClassName="*:max-w-xs"
+  layout="switcher"
+  examples={[
+    { name: "textarea-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "textarea-field", label: "فیلد", sizeable: false },
+    { name: "textarea-disabled", label: "غیرفعال", sizeable: false },
+    { name: "textarea-invalid", label: "نامعتبر", sizeable: false },
+    { name: "textarea-button", label: "دکمه", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add textarea
+npx farsiui@latest add textarea
 ```
 
 </TabsContent>
@@ -31,7 +37,7 @@ npx shadcn@latest add textarea
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="textarea"
@@ -39,7 +45,7 @@ npx shadcn@latest add textarea
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +53,7 @@ npx shadcn@latest add textarea
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Textarea } from "@/components/ui/textarea"
@@ -57,48 +63,96 @@ import { Textarea } from "@/components/ui/textarea"
 <Textarea />
 ```
 
-## Field
+<div className="hidden">
 
-Use `Field`, `FieldLabel`, and `FieldDescription` to create a textarea with a label and description.
+## فیلد
+
+</div>
+
+<DocsCollapsible title="فیلد">
+
+با `Field`، `FieldLabel` و `FieldDescription` ناحیهٔ متن با برچسب و توضیح بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="textarea-field"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Disabled
+</DocsCollapsible>
 
-Use the `disabled` prop to disable the textarea. To style the disabled state, add the `data-disabled` attribute to the `Field` component.
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` ناحیهٔ متن را غیرفعال کنید. برای استایل حالت غیرفعال، `data-disabled` را روی `Field` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="textarea-disabled"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Invalid
+</DocsCollapsible>
 
-Use the `aria-invalid` prop to mark the textarea as invalid. To style the invalid state, add the `data-invalid` attribute to the `Field` component.
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با `aria-invalid` ناحیهٔ متن را نامعتبر علامت بزنید. برای استایل حالت نامعتبر، `data-invalid` را روی `Field` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="textarea-invalid"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Button
+</DocsCollapsible>
 
-Pair with `Button` to create a textarea with a submit button.
+<div className="hidden">
+
+## دکمه
+
+</div>
+
+<DocsCollapsible title="دکمه">
+
+ناحیهٔ متن را با `Button` جفت کنید تا دکمهٔ ارسال داشته باشید.
 
 <ComponentPreview
   styleName="base-nova"
   name="textarea-button"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="textarea-rtl" direction="rtl" />
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="textarea-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>

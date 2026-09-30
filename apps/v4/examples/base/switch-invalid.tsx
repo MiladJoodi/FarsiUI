@@ -8,13 +8,18 @@ import { Switch } from "@/styles/base-nova/ui/switch"
 
 export function SwitchInvalid() {
   return (
-    <Field orientation="horizontal" className="max-w-sm" data-invalid>
+    <Field
+      orientation="horizontal"
+      className="max-w-sm"
+      data-invalid
+      dir="rtl"
+    >
       <FieldContent>
         <FieldLabel htmlFor="switch-terms">
-          Accept terms and conditions
+          پذیرش شرایط و قوانین
         </FieldLabel>
         <FieldDescription>
-          You must accept the terms and conditions to continue.
+          برای ادامه باید شرایط و قوانین را بپذیرید.
         </FieldDescription>
       </FieldContent>
       <Switch id="switch-terms" aria-invalid />

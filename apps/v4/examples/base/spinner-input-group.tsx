@@ -11,20 +11,20 @@ import { Spinner } from "@/styles/base-nova/ui/spinner"
 
 export function SpinnerInputGroup() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-4">
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-4">
       <InputGroup>
-        <InputGroupInput placeholder="Send a message..." disabled />
+        <InputGroupInput placeholder="پیام خود را بنویسید..." disabled />
         <InputGroupAddon align="inline-end">
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupTextarea placeholder="Send a message..." disabled />
+        <InputGroupTextarea placeholder="پیام خود را بنویسید..." disabled />
         <InputGroupAddon align="block-end">
-          <Spinner /> Validating...
-          <InputGroupButton className="ml-auto" variant="default">
+          <Spinner /> در حال اعتبارسنجی...
+          <InputGroupButton className="ms-auto" variant="default">
             <ArrowUpIcon />
-            <span className="sr-only">Send</span>
+            <span className="sr-only">ارسال</span>
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>

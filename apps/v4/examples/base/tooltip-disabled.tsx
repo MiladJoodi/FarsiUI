@@ -7,17 +7,17 @@ import {
 
 export function TooltipDisabled() {
   return (
-    <>
+    <div dir="rtl">
       <Tooltip>
         <TooltipTrigger render={<span className="inline-block w-fit" />}>
           <Button variant="outline" disabled>
-            Disabled
+            غیرفعال
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <p>This feature is currently unavailable</p>
+          <p>این قابلیت فعلاً در دسترس نیست</p>
         </TooltipContent>
       </Tooltip>
-    </>
+    </div>
   )
 }

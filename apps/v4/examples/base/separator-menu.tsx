@@ -2,24 +2,24 @@ import { Separator } from "@/styles/base-nova/ui/separator"
 
 export function SeparatorMenu() {
   return (
-    <div className="flex items-center gap-2 text-sm md:gap-4">
+    <div dir="rtl" className="flex items-center gap-2 text-sm md:gap-4">
       <div className="flex flex-col gap-1">
-        <span className="font-medium">Settings</span>
+        <span className="font-medium">تنظیمات</span>
         <span className="text-xs text-muted-foreground">
-          Manage preferences
+          مدیریت ترجیحات
         </span>
       </div>
       <Separator orientation="vertical" />
       <div className="flex flex-col gap-1">
-        <span className="font-medium">Account</span>
+        <span className="font-medium">حساب</span>
         <span className="text-xs text-muted-foreground">
-          Profile & security
+          پروفایل و امنیت
         </span>
       </div>
       <Separator orientation="vertical" className="hidden md:block" />
       <div className="hidden flex-col gap-1 md:flex">
-        <span className="font-medium">Help</span>
-        <span className="text-xs text-muted-foreground">Support & docs</span>
+        <span className="font-medium">راهنما</span>
+        <span className="text-xs text-muted-foreground">پشتیبانی و مستندات</span>
       </div>
     </div>
   )

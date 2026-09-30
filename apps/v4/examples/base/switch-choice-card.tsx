@@ -10,14 +10,14 @@ import { Switch } from "@/styles/base-nova/ui/switch"
 
 export function SwitchChoiceCard() {
   return (
-    <FieldGroup className="w-full max-w-sm">
+    <FieldGroup dir="rtl" className="w-full max-w-sm">
       <FieldLabel htmlFor="switch-share">
         <Field orientation="horizontal">
           <FieldContent>
-            <FieldTitle>Share across devices</FieldTitle>
+            <FieldTitle>اشتراک بین دستگاه‌ها</FieldTitle>
             <FieldDescription>
-              Focus is shared across devices, and turns off when you leave the
-              app.
+              تمرکز بین دستگاه‌ها به اشتراک گذاشته می‌شود و هنگام خروج از برنامه
+              خاموش می‌شود.
             </FieldDescription>
           </FieldContent>
           <Switch id="switch-share" />
@@ -26,9 +26,9 @@ export function SwitchChoiceCard() {
       <FieldLabel htmlFor="switch-notifications">
         <Field orientation="horizontal">
           <FieldContent>
-            <FieldTitle>Enable notifications</FieldTitle>
+            <FieldTitle>فعال‌سازی اعلان‌ها</FieldTitle>
             <FieldDescription>
-              Receive notifications when focus mode is enabled or disabled.
+              هنگام روشن یا خاموش شدن حالت تمرکز، اعلان دریافت کنید.
             </FieldDescription>
           </FieldContent>
           <Switch id="switch-notifications" defaultChecked />

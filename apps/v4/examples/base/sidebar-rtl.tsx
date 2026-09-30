@@ -24,22 +24,16 @@ import {
 } from "lucide-react"
 
 import {
-  LanguageProvider,
-  LanguageSelector,
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/base-nova/ui-rtl/avatar"
+} from "@/styles/base-nova/ui/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/base-nova/ui-rtl/collapsible"
-import { DirectionProvider } from "@/styles/base-nova/ui-rtl/direction"
+} from "@/styles/base-nova/ui/collapsible"
+import { DirectionProvider } from "@/styles/base-nova/ui/direction"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,7 +42,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui-rtl/dropdown-menu"
+} from "@/styles/base-nova/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -68,258 +62,84 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/styles/base-nova/ui-rtl/sidebar"
+} from "@/styles/base-nova/ui/sidebar"
 
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      teamName: "Acme Inc",
-      teamPlan: "Enterprise",
-      platform: "Platform",
-      projects: "Projects",
-      viewProject: "View Project",
-      shareProject: "Share Project",
-      deleteProject: "Delete Project",
-      more: "More",
-      upgradeToPro: "Upgrade to Pro",
-      account: "Account",
-      billing: "Billing",
-      notifications: "Notifications",
-      logOut: "Log out",
-      playground: "Playground",
-      history: "History",
-      starred: "Starred",
-      settings: "Settings",
-      models: "Models",
-      genesis: "Genesis",
-      explorer: "Explorer",
-      quantum: "Quantum",
-      documentation: "Documentation",
-      introduction: "Introduction",
-      getStarted: "Get Started",
-      tutorials: "Tutorials",
-      changelog: "Changelog",
-      general: "General",
-      team: "Team",
-      limits: "Limits",
-      designEngineering: "Design Engineering",
-      salesMarketing: "Sales & Marketing",
-      travel: "Travel",
-    },
+const navMain = [
+  {
+    title: "زمین بازی",
+    url: "#",
+    icon: SquareTerminal,
+    isActive: true,
+    items: [
+      { title: "تاریخچه", url: "#" },
+      { title: "ستاره‌دار", url: "#" },
+      { title: "تنظیمات", url: "#" },
+    ],
   },
-  ar: {
-    dir: "rtl",
-    values: {
-      teamName: "شركة أكمي",
-      teamPlan: "المؤسسة",
-      platform: "المنصة",
-      projects: "المشاريع",
-      viewProject: "عرض المشروع",
-      shareProject: "مشاركة المشروع",
-      deleteProject: "حذف المشروع",
-      more: "المزيد",
-      upgradeToPro: "ترقية إلى Pro",
-      account: "الحساب",
-      billing: "الفوترة",
-      notifications: "الإشعارات",
-      logOut: "تسجيل الخروج",
-      playground: "ملعب",
-      history: "السجل",
-      starred: "المميز",
-      settings: "الإعدادات",
-      models: "النماذج",
-      genesis: "جينيسيس",
-      explorer: "إكسبلورر",
-      quantum: "كوانتوم",
-      documentation: "التوثيق",
-      introduction: "مقدمة",
-      getStarted: "ابدأ",
-      tutorials: "الدروس",
-      changelog: "سجل التغييرات",
-      general: "عام",
-      team: "الفريق",
-      limits: "الحدود",
-      designEngineering: "هندسة التصميم",
-      salesMarketing: "المبيعات والتسويق",
-      travel: "السفر",
-    },
+  {
+    title: "مدل‌ها",
+    url: "#",
+    icon: Bot,
+    items: [
+      { title: "جنسیس", url: "#" },
+      { title: "اکسپلورر", url: "#" },
+      { title: "کوانتوم", url: "#" },
+    ],
   },
-  he: {
-    dir: "rtl",
-    values: {
-      teamName: "אקמי בע״מ",
-      teamPlan: "ארגוני",
-      platform: "פלטפורמה",
-      projects: "פרויקטים",
-      viewProject: "הצג פרויקט",
-      shareProject: "שתף פרויקט",
-      deleteProject: "מחק פרויקט",
-      more: "עוד",
-      upgradeToPro: "שדרג ל-Pro",
-      account: "חשבון",
-      billing: "חיוב",
-      notifications: "התראות",
-      logOut: "התנתק",
-      playground: "מגרש משחקים",
-      history: "היסטוריה",
-      starred: "מועדפים",
-      settings: "הגדרות",
-      models: "מודלים",
-      genesis: "ג'נסיס",
-      explorer: "אקספלורר",
-      quantum: "קוונטום",
-      documentation: "תיעוד",
-      introduction: "מבוא",
-      getStarted: "התחל",
-      tutorials: "מדריכים",
-      changelog: "יומן שינויים",
-      general: "כללי",
-      team: "צוות",
-      limits: "מגבלות",
-      designEngineering: "הנדסת עיצוב",
-      salesMarketing: "מכירות ושיווק",
-      travel: "נסיעות",
-    },
+  {
+    title: "مستندات",
+    url: "#",
+    icon: BookOpen,
+    items: [
+      { title: "مقدمه", url: "#" },
+      { title: "شروع", url: "#" },
+      { title: "آموزش‌ها", url: "#" },
+      { title: "تغییرات", url: "#" },
+    ],
   },
+  {
+    title: "تنظیمات",
+    url: "#",
+    icon: Settings2,
+    items: [
+      { title: "عمومی", url: "#" },
+      { title: "تیم", url: "#" },
+      { title: "صورتحساب", url: "#" },
+      { title: "محدودیت‌ها", url: "#" },
+    ],
+  },
+]
+
+const projects = [
+  { name: "مهندسی طراحی", url: "#", icon: Frame },
+  { name: "فروش و بازاریابی", url: "#", icon: PieChart },
+  { name: "سفر", url: "#", icon: Map },
+]
+
+const user = {
+  name: "علی رضایی",
+  email: "ali@example.com",
+  avatar: "/avatars/shadcn.jpg",
 }
 
 export function SidebarRtl() {
   return (
-    <LanguageProvider defaultLanguage="ar">
-      <AppSidebarWithProvider />
-    </LanguageProvider>
-  )
-}
-
-function AppSidebarWithProvider() {
-  const { language, setLanguage, dir } = useTranslation(translations, "ar")
-
-  return (
-    <DirectionProvider direction={dir}>
-      <div className="relative" dir={dir}>
-        <LanguageSelector
-          value={language}
-          onValueChange={setLanguage}
-          className="absolute top-4 right-4 z-10 rtl:right-auto rtl:left-4"
-        />
-        <AppSidebar />
+    <DirectionProvider direction="rtl">
+      <div dir="rtl">
+        <SidebarProvider>
+          <AppSidebar />
+        </SidebarProvider>
       </div>
     </DirectionProvider>
   )
 }
 
 function AppSidebar() {
-  const { dir, t } = useTranslation(translations, "ar")
-
-  const navMain = [
-    {
-      title: t.playground,
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        { title: t.history, url: "#" },
-        { title: t.starred, url: "#" },
-        { title: t.settings, url: "#" },
-      ],
-    },
-    {
-      title: t.models,
-      url: "#",
-      icon: Bot,
-      items: [
-        { title: t.genesis, url: "#" },
-        { title: t.explorer, url: "#" },
-        { title: t.quantum, url: "#" },
-      ],
-    },
-    {
-      title: t.documentation,
-      url: "#",
-      icon: BookOpen,
-      items: [
-        { title: t.introduction, url: "#" },
-        { title: t.getStarted, url: "#" },
-        { title: t.tutorials, url: "#" },
-        { title: t.changelog, url: "#" },
-      ],
-    },
-    {
-      title: t.settings,
-      url: "#",
-      icon: Settings2,
-      items: [
-        { title: t.general, url: "#" },
-        { title: t.team, url: "#" },
-        { title: t.billing, url: "#" },
-        { title: t.limits, url: "#" },
-      ],
-    },
-  ]
-
-  const projects = [
-    { name: t.designEngineering, url: "#", icon: Frame },
-    { name: t.salesMarketing, url: "#", icon: PieChart },
-    { name: t.travel, url: "#", icon: Map },
-  ]
-
-  const user = {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  }
-
-  return (
-    <SidebarProvider>
-      <SidebarContentInner
-        dir={dir}
-        t={t}
-        navMain={navMain}
-        projects={projects}
-        user={user}
-      />
-    </SidebarProvider>
-  )
-}
-
-function SidebarContentInner({
-  dir,
-  t,
-  navMain,
-  projects,
-  user,
-}: {
-  dir: "ltr" | "rtl"
-  t: typeof translations.ar.values
-  navMain: Array<{
-    title: string
-    url: string
-    icon?: React.ElementType
-    isActive?: boolean
-    items?: Array<{ title: string; url: string }>
-  }>
-  projects: Array<{
-    name: string
-    url: string
-    icon: React.ElementType
-  }>
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}) {
   const { isMobile } = useSidebar()
 
   return (
     <>
-      <Sidebar
-        collapsible="icon"
-        dir={dir}
-        side={dir === "ltr" ? "left" : "right"}
-        variant="floating"
-      >
+      <Sidebar collapsible="icon" dir="rtl" side="right" variant="floating">
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -328,8 +148,8 @@ function SidebarContentInner({
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">{t.teamName}</span>
-                  <span className="">{t.teamPlan}</span>
+                  <span className="font-medium">شرکت نمونه</span>
+                  <span>سازمانی</span>
                 </div>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -337,7 +157,7 @@ function SidebarContentInner({
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>{t.platform}</SidebarGroupLabel>
+            <SidebarGroupLabel>پلتفرم</SidebarGroupLabel>
             <SidebarMenu>
               {navMain.map((item) => (
                 <Collapsible
@@ -351,7 +171,7 @@ function SidebarContentInner({
                     >
                       {item.icon && <item.icon />}
                       <span>{item.title}</span>
-                      <ChevronRight className="ms-auto transition-transform duration-200 group-data-open/collapsible:rotate-90 rtl:rotate-180 rtl:group-data-open/collapsible:rotate-90" />
+                      <ChevronRight className="ms-auto transition-transform duration-200 group-data-open/collapsible:rotate-90 rtl:rotate-180 rtl:group-data-open/collapsible:-rotate-90" />
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <SidebarMenuSub>
@@ -372,7 +192,7 @@ function SidebarContentInner({
             </SidebarMenu>
           </SidebarGroup>
           <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-            <SidebarGroupLabel>{t.projects}</SidebarGroupLabel>
+            <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
             <SidebarMenu>
               {projects.map((item) => (
                 <SidebarMenuItem key={item.name}>
@@ -385,29 +205,28 @@ function SidebarContentInner({
                       render={<SidebarMenuAction showOnHover />}
                     >
                       <MoreHorizontal />
-                      <span className="sr-only">{t.more}</span>
+                      <span className="sr-only">بیشتر</span>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
                       className="w-48 rounded-lg"
-                      side={isMobile ? "bottom" : "inline-end"}
+                      side={isMobile ? "bottom" : "left"}
                       align={isMobile ? "end" : "start"}
-                      dir={dir}
                     >
                       <DropdownMenuGroup>
                         <DropdownMenuItem>
                           <Folder className="text-muted-foreground" />
-                          <span>{t.viewProject}</span>
+                          <span>مشاهده پروژه</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                           <Forward className="text-muted-foreground" />
-                          <span>{t.shareProject}</span>
+                          <span>اشتراک‌گذاری پروژه</span>
                         </DropdownMenuItem>
                       </DropdownMenuGroup>
                       <DropdownMenuSeparator />
                       <DropdownMenuGroup>
                         <DropdownMenuItem>
                           <Trash2 className="text-muted-foreground" />
-                          <span>{t.deleteProject}</span>
+                          <span>حذف پروژه</span>
                         </DropdownMenuItem>
                       </DropdownMenuGroup>
                     </DropdownMenuContent>
@@ -417,7 +236,7 @@ function SidebarContentInner({
               <SidebarMenuItem>
                 <SidebarMenuButton className="text-sidebar-foreground/70">
                   <MoreHorizontal className="text-sidebar-foreground/70" />
-                  <span>{t.more}</span>
+                  <span>بیشتر</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -437,7 +256,7 @@ function SidebarContentInner({
                 >
                   <Avatar className="rounded-lg">
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    <AvatarFallback className="rounded-lg">عر</AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-start text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
@@ -447,18 +266,17 @@ function SidebarContentInner({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-                  side={isMobile ? "bottom" : "inline-end"}
+                  side={isMobile ? "bottom" : "left"}
                   align="end"
                   sideOffset={4}
-                  dir={dir}
                 >
                   <DropdownMenuGroup>
                     <DropdownMenuLabel className="p-0 font-normal">
-                      <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                      <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
                         <Avatar>
                           <AvatarImage src={user.avatar} alt={user.name} />
                           <AvatarFallback className="rounded-lg">
-                            CN
+                            عر
                           </AvatarFallback>
                         </Avatar>
                         <div className="grid flex-1 text-start text-sm leading-tight">
@@ -474,29 +292,29 @@ function SidebarContentInner({
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <Sparkles />
-                      {t.upgradeToPro}
+                      ارتقاء به Pro
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <BadgeCheck />
-                      {t.account}
+                      حساب
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <CreditCard />
-                      {t.billing}
+                      صورتحساب
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <Bell />
-                      {t.notifications}
+                      اعلان‌ها
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <LogOut />
-                      {t.logOut}
+                      خروج
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
@@ -507,12 +325,9 @@ function SidebarContentInner({
         <SidebarRail />
       </Sidebar>
       <SidebarInset>
-        <header
-          className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12"
-          dir={dir}
-        >
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
+            <SidebarTrigger className="-ms-1" />
           </div>
         </header>
       </SidebarInset>

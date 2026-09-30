@@ -22,27 +22,27 @@ import {
 
 const projects = [
   {
-    name: "Design Engineering",
+    name: "مهندسی طراحی",
     url: "#",
     icon: FrameIcon,
   },
   {
-    name: "Sales & Marketing",
+    name: "فروش و بازاریابی",
     url: "#",
     icon: PieChartIcon,
   },
   {
-    name: "Travel",
+    name: "سفر",
     url: "#",
     icon: MapIcon,
   },
   {
-    name: "Support",
+    name: "پشتیبانی",
     url: "#",
     icon: LifeBuoyIcon,
   },
   {
-    name: "Feedback",
+    name: "بازخورد",
     url: "#",
     icon: SendIcon,
   },
@@ -50,26 +50,28 @@ const projects = [
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {projects.map((project) => (
-                  <SidebarMenuItem key={project.name}>
-                    <SidebarMenuButton render={<a href={project.url} />}>
-                      <project.icon />
-                      <span>{project.name}</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar side="right">
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {projects.map((project) => (
+                    <SidebarMenuItem key={project.name}>
+                      <SidebarMenuButton render={<a href={project.url} />}>
+                        <project.icon />
+                        <span>{project.name}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   )
 }

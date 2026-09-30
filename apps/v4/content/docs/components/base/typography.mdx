@@ -1,74 +1,246 @@
 ---
-title: Typography
-description: Styles for headings, paragraphs, lists, etc.
+title: تایپوگرافی (Typography)
+description: استایل‌های عنوان، پاراگراف، فهرست و موارد مشابه.
 base: base
 component: true
 ---
 
-We do not ship any typography styles by default. This page is an example of how you can use utility classes to style your text.
+به‌صورت پیش‌فرض هیچ استایل تایپوگرافی ارسال نمی‌کنیم. این صفحه نمونه‌ای است از اینکه چطور با کلاس‌های utility متن را استایل دهید.
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="typography-demo"
-  className="[&_.preview]:h-auto!"
-  hideCode
+  layout="switcher"
+  examples={[
+    { name: "typography-demo", label: "نمونه", sizeable: false },
+    { name: "typography-h1", label: "h1", sizeable: false },
+    { name: "typography-h2", label: "h2", sizeable: false },
+    { name: "typography-h3", label: "h3", sizeable: false },
+    { name: "typography-h4", label: "h4", sizeable: false },
+    { name: "typography-p", label: "پاراگراف", sizeable: false },
+    { name: "typography-blockquote", label: "نقل‌قول", sizeable: false },
+    { name: "typography-list", label: "فهرست", sizeable: false },
+    { name: "typography-lead", label: "لید", sizeable: false },
+    { name: "typography-muted", label: "کم‌رنگ", sizeable: false },
+  ]}
 />
+
+<div className="hidden">
 
 ## h1
 
-<ComponentPreview styleName="base-nova" name="typography-h1" />
+</div>
+
+<DocsCollapsible title="h1">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-h1"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## h2
 
-<ComponentPreview styleName="base-nova" name="typography-h2" />
+</div>
+
+<DocsCollapsible title="h2">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-h2"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## h3
 
-<ComponentPreview styleName="base-nova" name="typography-h3" />
+</div>
+
+<DocsCollapsible title="h3">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-h3"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## h4
 
-<ComponentPreview styleName="base-nova" name="typography-h4" />
+</div>
 
-## p
+<DocsCollapsible title="h4">
 
-<ComponentPreview styleName="base-nova" name="typography-p" />
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-h4"
+  direction="rtl"
+/>
 
-## blockquote
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="typography-blockquote" />
+<div className="hidden">
 
-## table
+## پاراگراف
 
-<ComponentPreview styleName="base-nova" name="typography-table" />
+</div>
 
-## list
+<DocsCollapsible title="پاراگراف">
 
-<ComponentPreview styleName="base-nova" name="typography-list" />
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-p"
+  direction="rtl"
+/>
 
-## Inline code
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="typography-inline-code" />
+<div className="hidden">
 
-## Lead
+## نقل‌قول
 
-<ComponentPreview styleName="base-nova" name="typography-lead" />
+</div>
 
-## Large
+<DocsCollapsible title="نقل‌قول">
 
-<ComponentPreview styleName="base-nova" name="typography-large" />
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-blockquote"
+  direction="rtl"
+/>
 
-## Small
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="typography-small" />
+<div className="hidden">
 
-## Muted
+## جدول
 
-<ComponentPreview styleName="base-nova" name="typography-muted" />
+</div>
 
-## RTL
+<DocsCollapsible title="جدول">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-table"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## فهرست
+
+</div>
+
+<DocsCollapsible title="فهرست">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-list"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کد درون‌خطی
+
+</div>
+
+<DocsCollapsible title="کد درون‌خطی">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-inline-code"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## لید
+
+</div>
+
+<DocsCollapsible title="لید">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-lead"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## بزرگ
+
+</div>
+
+<DocsCollapsible title="بزرگ">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-large"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کوچک
+
+</div>
+
+<DocsCollapsible title="کوچک">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-small"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کم‌رنگ
+
+</div>
+
+<DocsCollapsible title="کم‌رنگ">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="typography-muted"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -76,3 +248,5 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
   className="[&_.preview]:h-auto!"
 />
+
+</DocsCollapsible>

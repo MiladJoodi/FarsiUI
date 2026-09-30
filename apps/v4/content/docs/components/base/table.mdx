@@ -1,28 +1,32 @@
 ---
-title: Table
-description: A responsive table component.
+title: جدول (Table)
+description: کامپوننت جدول واکنش‌گرا.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="table-demo"
-  previewClassName="h-[30rem]"
+  layout="switcher"
+  examples={[
+    { name: "table-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "table-footer", label: "پاورقی", sizeable: false },
+    { name: "table-actions", label: "عملیات", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add table
+npx farsiui@latest add table
 ```
 
 </TabsContent>
@@ -31,7 +35,7 @@ npx shadcn@latest add table
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="table"
@@ -39,7 +43,7 @@ npx shadcn@latest add table
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +51,7 @@ npx shadcn@latest add table
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -63,29 +67,35 @@ import {
 
 ```tsx showLineNumbers
 <Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableCaption>فهرستی از فاکتورهای اخیر شما.</TableCaption>
   <TableHeader>
     <TableRow>
-      <TableHead className="w-[100px]">Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
-      <TableHead className="text-right">Amount</TableHead>
+      <TableHead className="w-[100px]">فاکتور</TableHead>
+      <TableHead>وضعیت</TableHead>
+      <TableHead>روش</TableHead>
+      <TableHead className="text-end">مبلغ</TableHead>
     </TableRow>
   </TableHeader>
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
+      <TableCell>پرداخت‌شده</TableCell>
+      <TableCell>کارت اعتباری</TableCell>
+      <TableCell className="text-end">۲٬۵۰۰٬۰۰۰ تومان</TableCell>
     </TableRow>
   </TableBody>
 </Table>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Table`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از این ترکیب برای ساخت `Table` استفاده کنید:
 
 ```text
 Table
@@ -110,29 +120,69 @@ Table
 └── TableFooter
 ```
 
-## Footer
+</DocsCollapsible>
 
-Use the `<TableFooter />` component to add a footer to the table.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="table-footer" />
+## پاورقی
 
-## Actions
+</div>
 
-A table showing actions for each row using a `<DropdownMenu />` component.
+<DocsCollapsible title="پاورقی">
 
-<ComponentPreview styleName="base-nova" name="table-actions" />
+با `<TableFooter />` پاورقی به جدول اضافه کنید.
 
-## Data Table
+<ComponentPreview
+  styleName="base-nova"
+  name="table-footer"
+  direction="rtl"
+/>
 
-You can use the `<Table />` component to build more complex data tables. Combine it with [@tanstack/react-table](https://tanstack.com/table/latest) to create tables with sorting, filtering and pagination.
+</DocsCollapsible>
 
-See the [Data Table](/docs/components/data-table) documentation for more information.
+<div className="hidden">
 
-You can also see an example of a data table in the [Tasks](/examples/tasks) demo.
+## عملیات
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="عملیات">
+
+جدولی با عملیات برای هر ردیف با استفاده از `<DropdownMenu />`.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="table-actions"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جدول داده
+
+</div>
+
+<DocsCollapsible title="جدول داده">
+
+با `<Table />` می‌توانید جداول دادهٔ پیچیده‌تری بسازید. آن را با [@tanstack/react-table](https://tanstack.com/table/latest) ترکیب کنید تا مرتب‌سازی، فیلتر و صفحه‌بندی داشته باشید.
+
+مستندات [جدول داده](/docs/components/data-table) را ببینید.
+
+نمونه‌ای از جدول داده را هم در دموی [وظایف](/examples/tasks) می‌توانید ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -140,3 +190,5 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
   previewClassName="h-auto"
 />
+
+</DocsCollapsible>

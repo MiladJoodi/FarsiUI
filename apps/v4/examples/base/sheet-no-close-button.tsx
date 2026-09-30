@@ -10,19 +10,20 @@ import {
 
 export default function SheetNoCloseButton() {
   return (
-    <Sheet>
-      <SheetTrigger render={<Button variant="outline" />}>
-        Open Sheet
-      </SheetTrigger>
-      <SheetContent showCloseButton={false}>
-        <SheetHeader>
-          <SheetTitle>No Close Button</SheetTitle>
-          <SheetDescription>
-            This sheet doesn&apos;t have a close button in the top-right corner.
-            Click outside to close.
-          </SheetDescription>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
+    <div dir="rtl">
+      <Sheet>
+        <SheetTrigger render={<Button variant="outline" />}>
+          باز کردن شیت
+        </SheetTrigger>
+        <SheetContent showCloseButton={false}>
+          <SheetHeader>
+            <SheetTitle>بدون دکمهٔ بستن</SheetTitle>
+            <SheetDescription>
+              این شیت دکمهٔ بستن در گوشه ندارد. برای بستن بیرون از آن کلیک کنید.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </div>
   )
 }

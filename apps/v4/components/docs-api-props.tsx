@@ -2,7 +2,7 @@ import { cn } from "cn"
 
 export type DocsApiProp = {
   name: string
-  values: string[]
+  values?: string[]
   defaultValue?: string
   description?: string
 }
@@ -51,24 +51,26 @@ export function DocsApiProps({
                 </span>
               ) : null}
             </div>
-            <div dir="ltr" className="mt-2 flex flex-wrap gap-1.5">
-              {prop.values.map((value) => {
-                const isDefault = value === prop.defaultValue
-                return (
-                  <code
-                    key={value}
-                    className={cn(
-                      "rounded-md px-1.5 py-0.5 font-mono text-[0.7rem]",
-                      isDefault
-                        ? "bg-primary/15 text-foreground"
-                        : "bg-muted text-muted-foreground"
-                    )}
-                  >
-                    {value}
-                  </code>
-                )
-              })}
-            </div>
+            {prop.values?.length ? (
+              <div dir="ltr" className="mt-2 flex flex-wrap gap-1.5">
+                {prop.values.map((value) => {
+                  const isDefault = value === prop.defaultValue
+                  return (
+                    <code
+                      key={value}
+                      className={cn(
+                        "rounded-md px-1.5 py-0.5 font-mono text-[0.7rem]",
+                        isDefault
+                          ? "bg-primary/15 text-foreground"
+                          : "bg-muted text-muted-foreground"
+                      )}
+                    >
+                      {value}
+                    </code>
+                  )
+                })}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>

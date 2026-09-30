@@ -4,15 +4,15 @@ import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
 export function TabsIcons() {
   return (
-    <Tabs defaultValue="preview">
+    <Tabs defaultValue="preview" dir="rtl">
       <TabsList>
         <TabsTrigger value="preview">
           <AppWindowIcon />
-          Preview
+          پیش‌نمایش
         </TabsTrigger>
         <TabsTrigger value="code">
           <CodeIcon />
-          Code
+          کد
         </TabsTrigger>
       </TabsList>
     </Tabs>

@@ -10,13 +10,15 @@ import {
 
 export function TooltipKeyboard() {
   return (
-    <Tooltip>
-      <TooltipTrigger render={<Button variant="outline" size="icon-sm" />}>
-        <SaveIcon />
-      </TooltipTrigger>
-      <TooltipContent>
-        Save Changes <Kbd>S</Kbd>
-      </TooltipContent>
-    </Tooltip>
+    <div dir="rtl">
+      <Tooltip>
+        <TooltipTrigger render={<Button variant="outline" size="icon-sm" />}>
+          <SaveIcon />
+        </TooltipTrigger>
+        <TooltipContent>
+          ذخیره تغییرات <Kbd>S</Kbd>
+        </TooltipContent>
+      </Tooltip>
+    </div>
   )
 }

@@ -62,7 +62,7 @@ export function DocsTableOfContents({
 }) {
   const [open, setOpen] = React.useState(false)
   const itemIds = React.useMemo(
-    () => toc.map((item) => item.url.replace("#", "")),
+    () => (toc ?? []).map((item) => item.url.replace("#", "")),
     [toc]
   )
   const activeHeading = useActiveItem(itemIds)

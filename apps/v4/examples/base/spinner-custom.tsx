@@ -5,7 +5,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <LoaderIcon
       role="status"
-      aria-label="Loading"
+      aria-label="در حال بارگذاری"
       className={cn("size-4 animate-spin", className)}
       {...props}
     />
@@ -14,7 +14,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
 
 export function SpinnerCustom() {
   return (
-    <div className="flex items-center gap-4">
+    <div dir="rtl" className="flex items-center gap-4">
       <Spinner />
     </div>
   )

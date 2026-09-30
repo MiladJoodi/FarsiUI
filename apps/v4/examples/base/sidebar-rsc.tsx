@@ -22,34 +22,34 @@ import {
 
 const projects = [
   {
-    name: "Design Engineering",
+    name: "مهندسی طراحی",
     url: "#",
     icon: FrameIcon,
-    badge: "24",
+    badge: "۲۴",
   },
   {
-    name: "Sales & Marketing",
+    name: "فروش و بازاریابی",
     url: "#",
     icon: PieChartIcon,
-    badge: "12",
+    badge: "۱۲",
   },
   {
-    name: "Travel",
+    name: "سفر",
     url: "#",
     icon: MapIcon,
-    badge: "3",
+    badge: "۳",
   },
   {
-    name: "Support",
+    name: "پشتیبانی",
     url: "#",
     icon: LifeBuoyIcon,
-    badge: "21",
+    badge: "۲۱",
   },
   {
-    name: "Feedback",
+    name: "بازخورد",
     url: "#",
     icon: SendIcon,
-    badge: "8",
+    badge: "۸",
   },
 ]
 
@@ -61,20 +61,22 @@ async function fetchProjects() {
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <React.Suspense fallback={<NavProjectsSkeleton />}>
-                <NavProjects />
-              </React.Suspense>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-    </SidebarProvider>
+    <div dir="rtl">
+      <SidebarProvider>
+        <Sidebar side="right">
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <React.Suspense fallback={<NavProjectsSkeleton />}>
+                  <NavProjects />
+                </React.Suspense>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   )
 }
 

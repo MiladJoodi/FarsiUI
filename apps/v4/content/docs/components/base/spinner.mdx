@@ -1,24 +1,36 @@
 ---
-title: Spinner
-description: An indicator that can be used to show a loading state.
+title: اسپینر (Spinner)
+description: نشانگری برای نمایش وضعیت بارگذاری.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="spinner-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "spinner-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "spinner-custom", label: "سفارشی", sizeable: false },
+    { name: "spinner-size", label: "اندازه", sizeable: false },
+    { name: "spinner-button", label: "دکمه", sizeable: false },
+    { name: "spinner-badge", label: "نشان", sizeable: false },
+    { name: "spinner-input-group", label: "گروه ورودی", sizeable: false },
+    { name: "spinner-empty", label: "خالی", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add spinner
+npx farsiui@latest add spinner
 ```
 
 </TabsContent>
@@ -27,7 +39,7 @@ npx shadcn@latest add spinner
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="spinner"
@@ -35,7 +47,7 @@ npx shadcn@latest add spinner
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -43,7 +55,7 @@ npx shadcn@latest add spinner
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Spinner } from "@/components/ui/spinner"
@@ -53,11 +65,21 @@ import { Spinner } from "@/components/ui/spinner"
 <Spinner />
 ```
 
-## Customization
+<div className="hidden">
 
-You can replace the default spinner icon with any other icon by editing the `Spinner` component.
+## سفارشی‌سازی
 
-<ComponentPreview styleName="base-nova" name="spinner-custom" />
+</div>
+
+<DocsCollapsible title="سفارشی‌سازی">
+
+با ویرایش کامپوننت `Spinner` می‌توانید آیکون پیش‌فرض را با آیکون دیگری جایگزین کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-custom"
+  direction="rtl"
+/>
 
 ```tsx showLineNumbers title="components/ui/spinner.tsx"
 import { cn } from "cn"
@@ -67,7 +89,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <LoaderIcon
       role="status"
-      aria-label="Loading"
+      aria-label="در حال بارگذاری"
       className={cn("size-4 animate-spin", className)}
       {...props}
     />
@@ -77,34 +99,108 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
 export { Spinner }
 ```
 
-## Size
+</DocsCollapsible>
 
-Use the `size-*` utility class to change the size of the spinner.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="spinner-size" />
+## اندازه
 
-## Button
+</div>
 
-Add a spinner to a button to indicate a loading state. Place the `<Spinner />` before the label with `data-icon="inline-start"` for a start position, or after the label with `data-icon="inline-end"` for an end position.
+<DocsCollapsible title="اندازه">
 
-<ComponentPreview styleName="base-nova" name="spinner-button" />
+با کلاس‌های `size-*` اندازهٔ اسپینر را تغییر دهید.
 
-## Badge
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-size"
+  direction="rtl"
+/>
 
-Add a spinner to a badge to indicate a loading state. Place the `<Spinner />` before the label with `data-icon="inline-start"` for a start position, or after the label with `data-icon="inline-end"` for an end position.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="spinner-badge" />
+<div className="hidden">
 
-## Input Group
+## دکمه
 
-<ComponentPreview styleName="base-nova" name="spinner-input-group" />
+</div>
 
-## Empty
+<DocsCollapsible title="دکمه">
 
-<ComponentPreview styleName="base-nova" name="spinner-empty" />
+برای نشان دادن وضعیت بارگذاری، اسپینر را داخل دکمه بگذارید. با `data-icon="inline-start"` قبل از برچسب و با `data-icon="inline-end"` بعد از برچسب قرار می‌گیرد.
 
-## RTL
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-button"
+  direction="rtl"
+/>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="spinner-rtl" direction="rtl" />
+<div className="hidden">
+
+## نشان
+
+</div>
+
+<DocsCollapsible title="نشان">
+
+برای نشان دادن وضعیت بارگذاری، اسپینر را داخل نشان بگذارید. با `data-icon="inline-start"` قبل از برچسب و با `data-icon="inline-end"` بعد از برچسب قرار می‌گیرد.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-badge"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-input-group"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## خالی
+
+</div>
+
+<DocsCollapsible title="خالی">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-empty"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## راست‌چین (RTL)
+
+</div>
+
+<DocsCollapsible title="راست‌چین (RTL)">
+
+برای فعال‌سازی پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="spinner-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>

@@ -3,11 +3,11 @@ import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export function TextareaDisabled() {
   return (
-    <Field data-disabled>
-      <FieldLabel htmlFor="textarea-disabled">Message</FieldLabel>
+    <Field data-disabled dir="rtl">
+      <FieldLabel htmlFor="textarea-disabled">پیام</FieldLabel>
       <Textarea
         id="textarea-disabled"
-        placeholder="Type your message here."
+        placeholder="پیام خود را بنویسید..."
         disabled
       />
     </Field>
