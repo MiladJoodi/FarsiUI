@@ -174,7 +174,7 @@ export function DocsSidebar({
       >
         <SidebarGroup className="pt-12">
           <SidebarGroupLabel className="font-medium text-muted-foreground">
-            Sections
+            بخش‌ها
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

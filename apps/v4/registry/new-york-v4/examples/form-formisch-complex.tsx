@@ -44,41 +44,41 @@ import { Switch } from "@/registry/new-york-v4/ui/switch"
 const addons = [
   {
     id: "analytics",
-    title: "Analytics",
-    description: "Advanced analytics and reporting",
+    title: "تحلیل",
+    description: "تحلیل و گزارش‌گیری پیشرفته",
   },
   {
     id: "backup",
-    title: "Backup",
-    description: "Automated daily backups",
+    title: "پشتیبان‌گیری",
+    description: "پشتیبان‌گیری خودکار روزانه",
   },
   {
     id: "support",
-    title: "Priority Support",
-    description: "24/7 premium customer support",
+    title: "پشتیبانی ویژه",
+    description: "پشتیبانی ویژه ۲۴ ساعته",
   },
 ] as const
 
 const FormSchema = v.object({
   plan: v.pipe(
     v.string(),
-    v.minLength(1, "Please select a subscription plan"),
+    v.minLength(1, "لطفاً یک پلن اشتراک انتخاب کنید."),
     v.check(
       (value) => value === "basic" || value === "pro",
-      "Invalid plan selection. Please choose Basic or Pro"
+      "انتخاب پلن نامعتبر است. پایه یا حرفه‌ای را انتخاب کنید."
     )
   ),
   billingPeriod: v.pipe(
     v.string(),
-    v.minLength(1, "Please select a billing period")
+    v.minLength(1, "لطفاً دوره پرداخت را انتخاب کنید.")
   ),
   addons: v.pipe(
     v.array(v.string()),
-    v.minLength(1, "Please select at least one add-on"),
-    v.maxLength(3, "You can select up to 3 add-ons"),
+    v.minLength(1, "حداقل یک افزونه را انتخاب کنید."),
+    v.maxLength(3, "حداکثر ۳ افزونه می‌توانید انتخاب کنید."),
     v.check(
       (value) => value.every((addon) => addons.some((a) => a.id === addon)),
-      "You selected an invalid add-on"
+      "یک افزونهٔ نامعتبر انتخاب شده است."
     )
   ),
   emailNotifications: v.boolean(),
@@ -96,9 +96,12 @@ export default function FormFormischComplex() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -113,34 +116,35 @@ export default function FormFormischComplex() {
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader className="border-b">
-        <CardTitle>You&apos;re almost there!</CardTitle>
+    <Card className="w-full max-w-sm gap-3 py-3" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
+        <CardTitle>تقریباً تمام شد!</CardTitle>
         <CardDescription>
-          Choose your subscription plan and billing period.
+          پلن اشتراک و دوره پرداخت خود را انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <Form of={form} id="form-formisch-complex" onSubmit={handleSubmit}>
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <FormischField of={form} path={["plan"]}>
               {(field) => (
                 <FieldSet data-invalid={field.errors !== null}>
-                  <FieldLegend variant="label">Subscription Plan</FieldLegend>
+                  <FieldLegend variant="label">پلن اشتراک</FieldLegend>
                   <FieldDescription>
-                    Choose your subscription plan.
+                    پلن اشتراک خود را انتخاب کنید.
                   </FieldDescription>
                   <RadioGroup
                     value={field.input ?? ""}
                     onValueChange={(value) => field.onChange(value)}
                     aria-invalid={field.errors !== null}
+                    dir="rtl"
                   >
                     <FieldLabel htmlFor="form-formisch-complex-basic">
                       <Field orientation="horizontal">
                         <FieldContent>
-                          <FieldTitle>Basic</FieldTitle>
+                          <FieldTitle>پایه</FieldTitle>
                           <FieldDescription>
-                            For individuals and small teams
+                            برای افراد و تیم‌های کوچک
                           </FieldDescription>
                         </FieldContent>
                         <RadioGroupItem
@@ -152,9 +156,9 @@ export default function FormFormischComplex() {
                     <FieldLabel htmlFor="form-formisch-complex-pro">
                       <Field orientation="horizontal">
                         <FieldContent>
-                          <FieldTitle>Pro</FieldTitle>
+                          <FieldTitle>حرفه‌ای</FieldTitle>
                           <FieldDescription>
-                            For businesses with higher demands
+                            برای کسب‌وکارهایی با نیاز بیشتر
                           </FieldDescription>
                         </FieldContent>
                         <RadioGroupItem
@@ -177,7 +181,7 @@ export default function FormFormischComplex() {
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
                   <FieldLabel htmlFor="form-formisch-complex-billingPeriod">
-                    Billing Period
+                    دوره پرداخت
                   </FieldLabel>
                   <Select
                     value={field.input ?? ""}
@@ -186,16 +190,17 @@ export default function FormFormischComplex() {
                     <SelectTrigger
                       id="form-formisch-complex-billingPeriod"
                       aria-invalid={field.errors !== null}
-                     dir="rtl">
+                      dir="rtl"
+                    >
                       <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent dir="rtl">
-                      <SelectItem value="monthly">Monthly</SelectItem>
-                      <SelectItem value="yearly">Yearly</SelectItem>
+                      <SelectItem value="monthly">ماهانه</SelectItem>
+                      <SelectItem value="yearly">سالانه</SelectItem>
                     </SelectContent>
                   </Select>
                   <FieldDescription>
-                    Choose how often you want to be billed.
+                    دوره پرداخت را انتخاب کنید.
                   </FieldDescription>
                   {field.errors && (
                     <FieldError
@@ -211,9 +216,10 @@ export default function FormFormischComplex() {
                 const current = field.input ?? []
                 return (
                   <FieldSet>
-                    <FieldLegend>Add-ons</FieldLegend>
+                    <FieldLegend>افزونه‌ها</FieldLegend>
                     <FieldDescription>
-                      Select additional features you&apos;d like to include.
+                      قابلیت‌های بیشتری را که می‌خواهید استفاده کنید انتخاب
+                      کنید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       {addons.map((addon) => (
@@ -267,10 +273,10 @@ export default function FormFormischComplex() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-formisch-complex-emailNotifications">
-                      Email Notifications
+                      اعلان ایمیل
                     </FieldLabel>
                     <FieldDescription>
-                      Receive email updates about your subscription
+                      دریافت ایمیل‌های مربوط به اشتراک
                     </FieldDescription>
                   </FieldContent>
                   <Switch
@@ -278,6 +284,7 @@ export default function FormFormischComplex() {
                     checked={field.input ?? false}
                     onCheckedChange={(checked) => field.onChange(checked)}
                     aria-invalid={field.errors !== null}
+                    dir="ltr"
                   />
                   {field.errors && (
                     <FieldError
@@ -290,8 +297,8 @@ export default function FormFormischComplex() {
           </FieldGroup>
         </Form>
       </CardContent>
-      <CardFooter className="border-t">
-        <Field>
+      <CardFooter className="border-t px-4 pt-3">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="submit" form="form-formisch-complex">
             ذخیره تنظیمات
           </Button>

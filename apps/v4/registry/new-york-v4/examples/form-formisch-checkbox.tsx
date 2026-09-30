@@ -30,11 +30,11 @@ import {
 const tasks = [
   {
     id: "push",
-    label: "Push notifications",
+    label: "اعلان Push",
   },
   {
     id: "email",
-    label: "Email notifications",
+    label: "اعلان ایمیل",
   },
 ] as const
 
@@ -42,10 +42,10 @@ const FormSchema = v.object({
   responses: v.boolean(),
   tasks: v.pipe(
     v.array(v.string()),
-    v.minLength(1, "Please select at least one notification type."),
+    v.minLength(1, "حداقل یک نوع اعلان را انتخاب کنید."),
     v.check(
       (value) => value.every((task) => tasks.some((t) => t.id === task)),
-      "Invalid notification type selected."
+      "نوع اعلان نامعتبر انتخاب شده است."
     )
   ),
 })
@@ -60,9 +60,12 @@ export default function FormFormischCheckbox() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -79,8 +82,10 @@ export default function FormFormischCheckbox() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>Manage your notification preferences.</CardDescription>
+        <CardTitle>اعلان‌ها</CardTitle>
+        <CardDescription>
+          تنظیمات اعلان‌های خود را مدیریت کنید.
+        </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
         <Form of={form} id="form-formisch-checkbox" onSubmit={handleSubmit}>
@@ -89,10 +94,10 @@ export default function FormFormischCheckbox() {
               {(field) => (
                 <div>
                   <FieldSet data-invalid={field.errors !== null}>
-                    <FieldLegend variant="label">Responses</FieldLegend>
+                    <FieldLegend variant="label">پاسخ‌ها</FieldLegend>
                     <FieldDescription>
-                      Get notified for requests that take time, like research or
-                      image generation.
+                      برای درخواست‌هایی که زمان بیشتری می‌برند، مثل تحقیق یا
+                      تولید تصویر، اعلان دریافت کنید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       <Field orientation="horizontal">
@@ -108,7 +113,7 @@ export default function FormFormischCheckbox() {
                           htmlFor="form-formisch-checkbox-responses"
                           className="font-normal"
                         >
-                          Push notifications
+                          اعلان Push
                         </FieldLabel>
                       </Field>
                     </FieldGroup>
@@ -126,9 +131,10 @@ export default function FormFormischCheckbox() {
               {(field) => (
                 <FieldGroup className="gap-3">
                   <FieldSet data-invalid={field.errors !== null}>
-                    <FieldLegend variant="label">Tasks</FieldLegend>
+                    <FieldLegend variant="label">وظایف</FieldLegend>
                     <FieldDescription>
-                      Get notified when tasks you&apos;ve created have updates.
+                      برای به‌روزرسانی وظایفی که ایجاد کرده‌اید، اعلان دریافت
+                      کنید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       {tasks.map((task) => {
@@ -176,11 +182,13 @@ export default function FormFormischCheckbox() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-checkbox">ذخیره</Button>
+          <Button type="submit" form="form-formisch-checkbox">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

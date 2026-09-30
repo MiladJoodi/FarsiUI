@@ -27,8 +27,8 @@ import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 const FormSchema = v.object({
   about: v.pipe(
     v.string(),
-    v.minLength(10, "Please provide at least 10 characters."),
-    v.maxLength(200, "Please keep it under 200 characters.")
+    v.minLength(10, "حداقل ۱۰ کاراکتر وارد کنید."),
+    v.maxLength(200, "حداکثر ۲۰۰ کاراکتر مجاز است.")
   ),
 })
 
@@ -41,9 +41,12 @@ export default function FormFormischTextarea() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -60,9 +63,10 @@ export default function FormFormischTextarea() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Personalization</CardTitle>
+        <CardTitle>شخصی‌سازی</CardTitle>
         <CardDescription>
-          Customize your experience by telling us more about yourself.
+          با وارد کردن اطلاعات بیشتر دربارهٔ خودتان، تجربهٔ کاربری را شخصی‌سازی
+          کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -72,7 +76,7 @@ export default function FormFormischTextarea() {
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
                   <FieldLabel htmlFor="form-formisch-textarea-about">
-                    More about you
+                    دربارهٔ شما
                   </FieldLabel>
                   <Textarea
                     {...field.props}
@@ -83,8 +87,8 @@ export default function FormFormischTextarea() {
                     className="min-h-16"
                   />
                   <FieldDescription>
-                    Tell us more about yourself. This will be used to help us
-                    personalize your experience.
+                    اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای
+                    شخصی‌سازی تجربهٔ شما استفاده خواهد شد.
                   </FieldDescription>
                   {field.errors && (
                     <FieldError
@@ -98,11 +102,13 @@ export default function FormFormischTextarea() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-textarea">ذخیره</Button>
+          <Button type="submit" form="form-formisch-textarea">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

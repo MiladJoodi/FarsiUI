@@ -30,7 +30,7 @@ const FormSchema = v.object({
     v.boolean(),
     v.check(
       (value) => value === true,
-      "It is highly recommended to enable two-factor authentication."
+      "فعال‌سازی احراز هویت چندمرحله‌ای قویاً توصیه می‌شود."
     )
   ),
 })
@@ -44,9 +44,12 @@ export default function FormFormischSwitch() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -63,9 +66,9 @@ export default function FormFormischSwitch() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Security Settings</CardTitle>
+        <CardTitle>تنظیمات امنیتی</CardTitle>
         <CardDescription>
-          Manage your account security preferences.
+          تنظیمات امنیتی حساب خود را مدیریت کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -79,10 +82,11 @@ export default function FormFormischSwitch() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-formisch-switch-twoFactor">
-                      Multi-factor authentication
+                      احراز هویت چندمرحله‌ای
                     </FieldLabel>
                     <FieldDescription>
-                      Enable multi-factor authentication to secure your account.
+                      احراز هویت چندمرحله‌ای را برای افزایش امنیت حساب فعال
+                      کنید.
                     </FieldDescription>
                     {field.errors && (
                       <FieldError
@@ -95,6 +99,7 @@ export default function FormFormischSwitch() {
                     checked={field.input ?? false}
                     onCheckedChange={(checked) => field.onChange(checked)}
                     aria-invalid={field.errors !== null}
+                    dir="ltr"
                   />
                 </Field>
               )}
@@ -103,11 +108,13 @@ export default function FormFormischSwitch() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-switch">ذخیره</Button>
+          <Button type="submit" form="form-formisch-switch">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

@@ -46,13 +46,13 @@ const FormSchema = v.object({
       v.object({
         address: v.pipe(
           v.string(),
-          v.nonEmpty("Enter an email address."),
-          v.email("Enter a valid email address.")
+          v.nonEmpty("یک آدرس ایمیل وارد کنید."),
+          v.email("یک آدرس ایمیل معتبر وارد کنید.")
         ),
       })
     ),
-    v.minLength(1, "Add at least one email address."),
-    v.maxLength(5, "You can add up to 5 email addresses.")
+    v.minLength(1, "حداقل یک آدرس ایمیل اضافه کنید."),
+    v.maxLength(5, "حداکثر ۵ آدرس ایمیل می‌توانید اضافه کنید.")
   ),
 })
 
@@ -65,9 +65,12 @@ export default function FormFormischArray() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -84,17 +87,20 @@ export default function FormFormischArray() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="border-b px-4 pb-3">
-        <CardTitle>Contact Emails</CardTitle>
-        <CardDescription>Manage your contact email addresses.</CardDescription>
+        <CardTitle>ایمیل‌های تماس</CardTitle>
+        <CardDescription>
+          آدرس‌های ایمیل تماس خود را مدیریت کنید.
+        </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
         <Form of={form} id="form-formisch-array" onSubmit={handleSubmit}>
           <FieldArray of={form} path={["emails"]}>
             {(fieldArray) => (
               <FieldSet className="gap-4">
-                <FieldLegend variant="label">Email Addresses</FieldLegend>
+                <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
                 <FieldDescription>
-                  Add up to 5 email addresses where we can contact you.
+                  حداکثر ۵ آدرس ایمیل اضافه کنید تا بتوانیم با شما در تماس
+                  باشیم.
                 </FieldDescription>
                 <FieldGroup className="gap-4">
                   {fieldArray.items.map((item, index) => (
@@ -131,7 +137,7 @@ export default function FormFormischArray() {
                                         at: index,
                                       })
                                     }
-                                    aria-label={`Remove email ${index + 1}`}
+                                    aria-label={`حذف ایمیل ${index + 1}`}
                                   >
                                     <XIcon />
                                   </InputGroupButton>
@@ -162,7 +168,7 @@ export default function FormFormischArray() {
                     }
                     disabled={fieldArray.items.length >= 5}
                   >
-                    Add Email Address
+                    افزودن آدرس ایمیل
                   </Button>
                 </FieldGroup>
                 {fieldArray.errors && (
@@ -176,11 +182,13 @@ export default function FormFormischArray() {
         </Form>
       </CardContent>
       <CardFooter className="border-t px-4 pt-3">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-array">ذخیره</Button>
+          <Button type="submit" form="form-formisch-array">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

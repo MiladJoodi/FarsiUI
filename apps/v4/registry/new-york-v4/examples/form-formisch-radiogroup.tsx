@@ -34,25 +34,25 @@ import {
 const plans = [
   {
     id: "starter",
-    title: "Starter (100K tokens/month)",
-    description: "For everyday use with basic features.",
+    title: "استارتر (۱۰۰ هزار توکن در ماه)",
+    description: "برای استفادهٔ روزمره با امکانات پایه.",
   },
   {
     id: "pro",
-    title: "Pro (1M tokens/month)",
-    description: "For advanced AI usage with more features.",
+    title: "حرفه‌ای (۱ میلیون توکن در ماه)",
+    description: "برای استفادهٔ پیشرفته از هوش مصنوعی با امکانات بیشتر.",
   },
   {
     id: "enterprise",
-    title: "Enterprise (Unlimited tokens)",
-    description: "For large teams and heavy usage.",
+    title: "سازمانی (توکن نامحدود)",
+    description: "برای تیم‌های بزرگ و استفادهٔ سنگین.",
   },
 ] as const
 
 const FormSchema = v.object({
   plan: v.pipe(
     v.string(),
-    v.minLength(1, "You must select a subscription plan to continue.")
+    v.minLength(1, "برای ادامه باید یک پلن اشتراک انتخاب کنید.")
   ),
 })
 
@@ -65,9 +65,12 @@ export default function FormFormischRadioGroup() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -84,9 +87,9 @@ export default function FormFormischRadioGroup() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Subscription Plan</CardTitle>
+        <CardTitle>پلن اشتراک</CardTitle>
         <CardDescription>
-          See pricing and features for each plan.
+          قیمت و امکانات هر پلن را ببینید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -95,14 +98,15 @@ export default function FormFormischRadioGroup() {
             <FormischField of={form} path={["plan"]}>
               {(field) => (
                 <FieldSet data-invalid={field.errors !== null}>
-                  <FieldLegend>Plan</FieldLegend>
+                  <FieldLegend>پلن</FieldLegend>
                   <FieldDescription>
-                    You can upgrade or downgrade your plan at any time.
+                    هر زمان بخواهید می‌توانید پلن خود را ارتقا یا کاهش دهید.
                   </FieldDescription>
                   <RadioGroup
                     value={field.input ?? ""}
                     onValueChange={(value) => field.onChange(value)}
                     aria-invalid={field.errors !== null}
+                    dir="rtl"
                   >
                     {plans.map((plan) => (
                       <FieldLabel
@@ -140,11 +144,13 @@ export default function FormFormischRadioGroup() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-radiogroup">ذخیره</Button>
+          <Button type="submit" form="form-formisch-radiogroup">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

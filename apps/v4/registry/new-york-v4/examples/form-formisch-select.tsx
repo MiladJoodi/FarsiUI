@@ -45,10 +45,10 @@ const spokenLanguages = [
 const FormSchema = v.object({
   language: v.pipe(
     v.string(),
-    v.minLength(1, "Please select your spoken language."),
+    v.minLength(1, "لطفاً زبان گفتاری خود را انتخاب کنید."),
     v.check(
       (value) => value !== "auto",
-      "Auto-detection is not allowed. Please select a specific language."
+      "تشخیص خودکار مجاز نیست. لطفاً یک زبان مشخص انتخاب کنید."
     )
   ),
 })
@@ -62,9 +62,12 @@ export default function FormFormischSelect() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -79,16 +82,16 @@ export default function FormFormischSelect() {
   }
 
   return (
-    <Card className="w-full sm:max-w-lg">
-      <CardHeader>
-        <CardTitle>Language Preferences</CardTitle>
+    <Card className="w-full sm:max-w-lg gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>تنظیمات زبان</CardTitle>
         <CardDescription>
-          Select your preferred spoken language.
+          زبان گفتاری موردنظر خود را انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <Form of={form} id="form-formisch-select" onSubmit={handleSubmit}>
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <FormischField of={form} path={["language"]}>
               {(field) => (
                 <Field
@@ -97,10 +100,11 @@ export default function FormFormischSelect() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-formisch-select-language">
-                      Spoken Language
+                      زبان گفتاری
                     </FieldLabel>
                     <FieldDescription>
-                      For best results, select the language you speak.
+                      برای دریافت نتیجهٔ بهتر، زبانی را انتخاب کنید که به آن
+                      صحبت می‌کنید.
                     </FieldDescription>
                     {field.errors && (
                       <FieldError
@@ -116,11 +120,12 @@ export default function FormFormischSelect() {
                       id="form-formisch-select-language"
                       aria-invalid={field.errors !== null}
                       className="min-w-[120px]"
-                     dir="rtl">
+                      dir="rtl"
+                    >
                       <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent position="item-aligned" dir="rtl">
-                      <SelectItem value="auto">Auto</SelectItem>
+                      <SelectItem value="auto">خودکار</SelectItem>
                       <SelectSeparator />
                       {spokenLanguages.map((language) => (
                         <SelectItem key={language.value} value={language.value}>
@@ -135,12 +140,14 @@ export default function FormFormischSelect() {
           </FieldGroup>
         </Form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-select">ذخیره</Button>
+          <Button type="submit" form="form-formisch-select">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

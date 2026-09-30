@@ -27,11 +27,11 @@ import { Input } from "@/registry/new-york-v4/ui/input"
 const FormSchema = v.object({
   username: v.pipe(
     v.string(),
-    v.minLength(3, "Username must be at least 3 characters."),
-    v.maxLength(10, "Username must be at most 10 characters."),
+    v.minLength(3, "نام کاربری باید حداقل ۳ کاراکتر باشد."),
+    v.maxLength(10, "نام کاربری باید حداکثر ۱۰ کاراکتر باشد."),
     v.regex(
       /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores."
+      "نام کاربری فقط می‌تواند شامل حروف، اعداد و Underscore باشد."
     )
   ),
 })
@@ -45,9 +45,12 @@ export default function FormFormischInput() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -64,9 +67,9 @@ export default function FormFormischInput() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Profile Settings</CardTitle>
+        <CardTitle>تنظیمات پروفایل</CardTitle>
         <CardDescription>
-          Update your profile information below.
+          اطلاعات پروفایل خود را به‌روزرسانی کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -76,7 +79,7 @@ export default function FormFormischInput() {
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
                   <FieldLabel htmlFor="form-formisch-input-username">
-                    Username
+                    نام کاربری
                   </FieldLabel>
                   <Input
                     {...field.props}
@@ -87,9 +90,9 @@ export default function FormFormischInput() {
                     autoComplete="username"
                   />
                   <FieldDescription>
-                    This is your public display name. Must be between 3 and 10
-                    characters. Must only contain letters, numbers, and
-                    underscores.
+                    این نام به‌صورت عمومی در پروفایل شما نمایش داده می‌شود و باید
+                    بین ۳ تا ۱۰ کاراکتر باشد و فقط شامل حروف، اعداد و Underscore
+                    باشد.
                   </FieldDescription>
                   {field.errors && (
                     <FieldError
@@ -103,11 +106,13 @@ export default function FormFormischInput() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-input">ذخیره</Button>
+          <Button type="submit" form="form-formisch-input">
+            ذخیره
+          </Button>
         </Field>
       </CardFooter>
     </Card>

@@ -33,15 +33,19 @@ import {
 const FormSchema = v.object({
   title: v.pipe(
     v.string(),
-    v.minLength(5, "Bug title must be at least 5 characters."),
-    v.maxLength(32, "Bug title must be at most 32 characters.")
+    v.minLength(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد."),
+    v.maxLength(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد.")
   ),
   description: v.pipe(
     v.string(),
-    v.minLength(20, "Description must be at least 20 characters."),
-    v.maxLength(100, "Description must be at most 100 characters.")
+    v.minLength(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد."),
+    v.maxLength(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد.")
   ),
 })
+
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
 
 export default function BugReportForm() {
   const form = useForm({
@@ -53,9 +57,12 @@ export default function BugReportForm() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("مقادیر زیر ارسال شد:", {
+    toast("مقادیر فرم ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre
+          className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground"
+          dir="ltr"
+        >
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
@@ -72,9 +79,9 @@ export default function BugReportForm() {
   return (
     <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
-        <CardTitle>Bug Report</CardTitle>
+        <CardTitle>گزارش باگ</CardTitle>
         <CardDescription>
-          Help us improve by reporting bugs you encounter.
+          با گزارش باگ‌هایی که با آن‌ها مواجه می‌شوید، به بهبود پروژه کمک کنید.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4">
@@ -84,7 +91,7 @@ export default function BugReportForm() {
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
                   <FieldLabel htmlFor="form-formisch-demo-title">
-                    Bug Title
+                    عنوان باگ
                   </FieldLabel>
                   <Input
                     {...field.props}
@@ -106,7 +113,7 @@ export default function BugReportForm() {
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
                   <FieldLabel htmlFor="form-formisch-demo-description">
-                    Description
+                    توضیحات
                   </FieldLabel>
                   <InputGroup>
                     <InputGroupTextarea
@@ -119,14 +126,17 @@ export default function BugReportForm() {
                       aria-invalid={field.errors !== null}
                     />
                     <InputGroupAddon align="block-end">
-                      <InputGroupText className="tabular-nums">
-                        {(field.input ?? "").length}/100 characters
+                      <InputGroupText className="gap-1">
+                        <span dir="ltr">
+                          {`${toPersianDigits((field.input ?? "").length)}/${toPersianDigits(100)}`}
+                        </span>
+                        <span>کاراکتر</span>
                       </InputGroupText>
                     </InputGroupAddon>
                   </InputGroup>
                   <FieldDescription>
-                    Include steps to reproduce, expected behavior, and what
-                    actually happened.
+                    مراحل بازتولید مشکل، رفتار مورد انتظار و اتفاقی که در عمل رخ
+                    داده است را بنویسید.
                   </FieldDescription>
                   {field.errors && (
                     <FieldError
@@ -140,11 +150,13 @@ export default function BugReportForm() {
         </Form>
       </CardContent>
       <CardFooter className="px-4">
-        <Field orientation="horizontal">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
             بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-demo">ارسال</Button>
+          <Button type="submit" form="form-formisch-demo">
+            ارسال
+          </Button>
         </Field>
       </CardFooter>
     </Card>

@@ -1,22 +1,22 @@
 ---
 title: Formisch
-description: Build forms in React using Formisch and Valibot.
+description: ساخت فرم در React با استفاده از Formisch و Valibot.
 links:
   doc: https://formisch.dev
 ---
 
 import { InfoIcon } from "lucide-react"
 
-This guide covers building forms with [Formisch](https://formisch.dev), the lightweight, schema-first, and fully type-safe form library for React. We'll create forms with the `<Field />` component, validate them with Valibot schemas, handle errors, and ensure accessibility.
+در این راهنما ساخت فرم با [**Formisch**](https://formisch.dev/) را بررسی می‌کنیم؛ یک کتابخانهٔ سبک، Schema-first و کاملاً Type-safe برای ساخت فرم در React. فرم‌ها را با کامپوننت **`<Field />`** می‌سازیم، با Schemaهای Valibot اعتبارسنجی می‌کنیم، خطاها را مدیریت می‌کنیم و دسترس‌پذیری فرم را بهبود می‌دهیم.
 
 ## Demo
 
-We'll build the following form. It has a simple text input and a textarea. On submit, we'll validate the form data and display any errors.
+در این Demo یک فرم ساده با یک ورودی متنی و یک Textarea می‌سازیم. هنگام ارسال فرم، داده‌های فرم اعتبارسنجی می‌شوند و خطاهای احتمالی نمایش داده خواهند شد.
 
 <Callout icon={<InfoIcon />}>
-  **Note:** For the purpose of this demo, we have intentionally disabled browser
-  validation to show how schema validation and form errors work in Formisch. It
-  is recommended to add basic browser validation in your production code.
+  **نکته:** برای این Demo، اعتبارسنجی پیش‌فرض مرورگر را عمداً غیرفعال کرده‌ایم تا
+  نحوهٔ کار Schema Validation و مدیریت خطاها در Formisch مشخص باشد. در پروژهٔ
+  واقعی بهتر است اعتبارسنجی پایهٔ مرورگر را فعال نگه دارید.
 </Callout>
 
 <ComponentPreview
@@ -26,42 +26,44 @@ We'll build the following form. It has a simple text input and a textarea. On su
   chromeLessOnMobile
 />
 
-## Approach
+## رویکرد
 
-This form leverages Formisch for headless, schema-first form handling. We'll build our form using the `<Field />` component, which gives you **complete flexibility over the markup and styling**.
+این فرم از Formisch برای مدیریت فرم به‌صورت Headless و Schema-first استفاده می‌کند. فرم را با کامپوننت **`<Field />`** می‌سازیم که آزادی کاملی برای کنترل Markup و Styling در اختیار شما قرار می‌دهد.
 
-- Uses Formisch's `useForm` hook for form state management.
-- `<Form />` component to wrap the native `<form>` element with submit handling.
-- `<Field />` render-prop component for controlled inputs.
-- Schema validation using [Valibot](https://valibot.dev).
-- Type-safe field paths inferred from the schema.
+- استفاده از Hook **`useForm`** در Formisch برای مدیریت وضعیت فرم.
+- استفاده از کامپوننت **`<Form />`** برای قرار دادن منطق ارسال روی عنصر native **`<form>`**.
+- استفاده از کامپوننت **`<Field />`** مبتنی بر Render Prop برای ورودی‌های Controlled.
+- اعتبارسنجی Schema با استفاده از [**Valibot**](https://valibot.dev/).
+- استنتاج Type-safe مسیر فیلدها مستقیماً از Schema.
 
-## Form Methods
+## متدهای فرم
 
-Formisch exposes form operations as **top-level functions** rather than methods on a form object. Import only what you need:
+Formisch عملیات فرم را به‌صورت **توابع سطح بالا** ارائه می‌کند، نه متدهای یک Object مربوط به فرم. فقط توابع موردنیاز خود را Import کنید:
 
 ```ts
 import { getInput, insert, reset, submit } from "@formisch/react"
 ```
 
-Every method follows the same signature: the **first parameter is always the form store**, and the **second parameter (if necessary) is always a config object**.
+همهٔ این توابع Signature یکسانی دارند: **پارامتر اول همیشه Store فرم** و **پارامتر دوم، در صورت نیاز، یک Object تنظیمات** است.
 
 ```ts
-// Read a field value
+// خواندن مقدار یک فیلد
 const email = getInput(form, { path: ["email"] })
 
-// Reset the form with new initial values
+// بازنشانی فرم با مقادیر اولیهٔ جدید
 reset(form, { initialInput: { email: "", password: "" } })
 
-// Move an item in a field array
+// جابه‌جایی یک آیتم در آرایهٔ فیلد
 move(form, { path: ["items"], from: 0, to: 3 })
 ```
 
-This design keeps the API flexible and consistent across all methods. You'll see the same `(form, config)` shape used throughout this guide for reading state (`getInput`, `getErrors`), writing state (`setInput`, `setErrors`), form control (`submit`, `validate`, `focus`), and array operations (`insert`, `remove`, `move`, `swap`, `replace`). See the [full methods reference](https://formisch.dev/react/guides/form-methods) for details.
+این ساختار باعث می‌شود API در تمام توابع انعطاف‌پذیر و یکدست باقی بماند. در ادامه همین الگوی **`(form, config)`** را در بخش‌های مختلف می‌بینید؛ از خواندن وضعیت فرم (**`getInput`**، **`getErrors`**) و تغییر وضعیت (**`setInput`**، **`setErrors`**) گرفته تا کنترل فرم (**`submit`**، **`validate`**، **`focus`**) و عملیات آرایه (**`insert`**، **`remove`**، **`move`**، **`swap`**، **`replace`**).
 
-## Anatomy
+برای جزئیات بیشتر، [**مرجع کامل متدها**](https://formisch.dev/react/guides/form-methods) را ببینید.
 
-Here's a basic example of a form using the `<Field />` component from Formisch and the shadcn `<Field />` component.
+## ساختار
+
+در اینجا یک نمونهٔ ساده از فرمی را می‌بینید که از **`<Field />`** در Formisch و **`<Field />`** در FarsiUI استفاده می‌کند.
 
 ```tsx showLineNumbers {3-21}
 <Form of={form} onSubmit={handleSubmit}>
@@ -69,7 +71,7 @@ Here's a basic example of a form using the `<Field />` component from Formisch a
     <FormischField of={form} path={["title"]}>
       {(field) => (
         <Field data-invalid={field.errors !== null}>
-          <FieldLabel htmlFor="form-title">Bug Title</FieldLabel>
+          <FieldLabel htmlFor="form-title">عنوان باگ</FieldLabel>
           <Input
             {...field.props}
             id="form-title"
@@ -79,7 +81,7 @@ Here's a basic example of a form using the `<Field />` component from Formisch a
             autoComplete="off"
           />
           <FieldDescription>
-            Provide a concise title for your bug report.
+            یک عنوان کوتاه برای گزارش باگ بنویسید.
           </FieldDescription>
           {field.errors && (
             <FieldError errors={field.errors.map((message) => ({ message }))} />
@@ -92,17 +94,18 @@ Here's a basic example of a form using the `<Field />` component from Formisch a
 ```
 
 <Callout icon={<InfoIcon />}>
-  **Note:** Formisch ships its own `Field` component. To avoid a name clash with
-  the shadcn `Field`, the examples below import the Formisch one as
-  `FormischField` and keep the shadcn `Field` under its original name. In your
-  own code you can alias either side — just be consistent.
+  **نکته:** Formisch کامپوننت **`Field`** مخصوص خودش را دارد. برای جلوگیری از
+  تداخل نام با **`Field`** در FarsiUI، در مثال‌های این راهنما آن را با نام
+  **`FormischField`** Import می‌کنیم و **`Field`** مربوط به FarsiUI را با نام
+  اصلی نگه می‌داریم. در پروژهٔ خودتان می‌توانید هرکدام را Alias کنید؛ فقط در تمام
+  کد یکدست عمل کنید.
 </Callout>
 
-## Form
+## فرم
 
-### Create a form schema
+### ساخت Schema فرم
 
-We'll start by defining the shape of our form using a Valibot schema. Formisch infers all input and output types directly from this schema.
+ابتدا ساختار فرم را با یک Schema از Valibot تعریف می‌کنیم. Formisch تمام Typeهای ورودی و خروجی را مستقیماً از همین Schema استنتاج می‌کند.
 
 ```tsx showLineNumbers title="form.tsx"
 import * as v from "valibot"
@@ -110,20 +113,20 @@ import * as v from "valibot"
 const FormSchema = v.object({
   title: v.pipe(
     v.string(),
-    v.minLength(5, "Bug title must be at least 5 characters."),
-    v.maxLength(32, "Bug title must be at most 32 characters.")
+    v.minLength(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد."),
+    v.maxLength(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد.")
   ),
   description: v.pipe(
     v.string(),
-    v.minLength(20, "Description must be at least 20 characters."),
-    v.maxLength(100, "Description must be at most 100 characters.")
+    v.minLength(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد."),
+    v.maxLength(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد.")
   ),
 })
 ```
 
-### Set up the form
+### راه‌اندازی فرم
 
-Next, we'll use the `useForm` hook from Formisch to create our form instance. The schema is passed directly to `useForm` — there is no resolver step.
+در مرحلهٔ بعد از Hook **`useForm`** در Formisch برای ساخت Instance فرم استفاده می‌کنیم. Schema مستقیماً به **`useForm`** داده می‌شود و نیازی به Resolver جداگانه نیست.
 
 ```tsx showLineNumbers title="form.tsx" {1-2,21-25}
 import { Form, Field as FormischField, useForm } from "@formisch/react"
@@ -133,13 +136,13 @@ import * as v from "valibot"
 const FormSchema = v.object({
   title: v.pipe(
     v.string(),
-    v.minLength(5, "Bug title must be at least 5 characters."),
-    v.maxLength(32, "Bug title must be at most 32 characters.")
+    v.minLength(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد."),
+    v.maxLength(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد.")
   ),
   description: v.pipe(
     v.string(),
-    v.minLength(20, "Description must be at least 20 characters."),
-    v.maxLength(100, "Description must be at most 100 characters.")
+    v.minLength(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد."),
+    v.maxLength(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد.")
   ),
 })
 
@@ -153,42 +156,42 @@ export function BugReportForm() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    // Do something with the validated form values.
+    // با مقادیر اعتبارسنجی‌شدهٔ فرم کاری انجام دهید.
     console.log(output)
   }
 
   return (
     <Form of={form} onSubmit={handleSubmit}>
       {/* ... */}
-      {/* Build the form here */}
+      {/* فرم را اینجا بسازید */}
       {/* ... */}
     </Form>
   )
 }
 ```
 
-The `<Form />` component wraps a native `<form>` element. It calls `event.preventDefault()`, runs validation, and only invokes `onSubmit` when the data is valid. The `output` you receive is fully typed from the schema.
+کامپوننت **`<Form />`** یک عنصر native **`<form>`** را Wrap می‌کند، **`event.preventDefault()`** را اجرا می‌کند، اعتبارسنجی را انجام می‌دهد و فقط در صورت معتبر بودن داده‌ها، **`onSubmit`** را فراخوانی می‌کند. مقدار **`output`** نیز Type خود را مستقیماً از Schema دریافت می‌کند.
 
-### Build the form
+### ساخت فرم
 
-We can now build the form using the `<Field />` component from Formisch and the shadcn `<Field />` component.
+حالا می‌توانیم فرم را با استفاده از **`<Field />`** در Formisch و **`<Field />`** در FarsiUI بسازیم.
 
 <ComponentSource
   src="/registry/new-york-v4/examples/form-formisch-demo.tsx"
   title="form.tsx"
 />
 
-### Done
+### تمام شد
 
-That's it. You now have a fully accessible form with client-side validation.
+همین! حالا یک فرم کاملاً دسترس‌پذیر با اعتبارسنجی سمت Client دارید.
 
-When you submit the form, the `handleSubmit` function will be called with the validated form data. If the form data is invalid, Formisch will populate `field.errors` for each invalid field and the UI will display them.
+هنگام ارسال فرم، تابع **`handleSubmit`** با داده‌های اعتبارسنجی‌شدهٔ فرم اجرا می‌شود. اگر داده‌های فرم معتبر نباشند، Formisch مقدار **`field.errors`** را برای هر فیلد نامعتبر پر می‌کند و خطاها در رابط کاربری نمایش داده می‌شوند.
 
-## Validation
+## اعتبارسنجی
 
-### Client-side Validation
+### اعتبارسنجی سمت Client
 
-Formisch validates your form data using the Valibot schema you pass to `useForm`. There is no resolver — the schema is the single source of truth for both runtime validation and static types.
+Formisch داده‌های فرم را با استفاده از Schema مربوط به Valibot که به **`useForm`** داده‌اید اعتبارسنجی می‌کند. در اینجا Resolver وجود ندارد؛ Schema تنها منبع حقیقت برای اعتبارسنجی در زمان اجرا و Typeهای استاتیک است.
 
 ```tsx showLineNumbers title="form.tsx" {1,3-6,11}
 import { useForm } from "@formisch/react"
@@ -209,9 +212,9 @@ export function ExampleForm() {
 }
 ```
 
-### Validation Modes
+### حالت‌های اعتبارسنجی
 
-Formisch separates the **first** validation from **subsequent** validations. You configure them with the `validate` and `revalidate` options on `useForm`.
+Formisch اعتبارسنجی **اولیه** را از اعتبارسنجی‌های **بعدی** جدا می‌کند. این رفتار با Options **`validate`** و **`revalidate`** در **`useForm`** تنظیم می‌شود.
 
 ```tsx showLineNumbers title="form.tsx" {3-4}
 const form = useForm({
@@ -221,28 +224,30 @@ const form = useForm({
 })
 ```
 
-| Option       | Value       | Description                                                     |
-| ------------ | ----------- | --------------------------------------------------------------- |
-| `validate`   | `"submit"`  | Validate on form submission (default).                          |
-| `validate`   | `"blur"`    | Validate when a field loses focus.                              |
-| `validate`   | `"input"`   | Validate on every input change.                                 |
-| `validate`   | `"initial"` | Validate immediately on form creation.                          |
-| `revalidate` | `"input"`   | Revalidate on every input change after the first run (default). |
-| `revalidate` | `"blur"`    | Revalidate on blur after the first run.                         |
-| `revalidate` | `"submit"`  | Revalidate only on form submission.                             |
+| Option           | مقدار           | توضیحات                                                                           |
+| ---------------- | --------------- | --------------------------------------------------------------------------------- |
+| **`validate`**   | **`"submit"`**  | اعتبارسنجی هنگام ارسال فرم. حالت پیش‌فرض.                                         |
+| **`validate`**   | **`"blur"`**    | اعتبارسنجی هنگام خارج شدن Focus از فیلد.                                          |
+| **`validate`**   | **`"input"`**   | اعتبارسنجی با هر تغییر ورودی.                                                     |
+| **`validate`**   | **`"initial"`** | اعتبارسنجی بلافاصله هنگام ایجاد فرم.                                              |
+| **`revalidate`** | **`"input"`**   | پس از اولین اعتبارسنجی، با هر تغییر ورودی دوباره اعتبارسنجی می‌شود. حالت پیش‌فرض. |
+| **`revalidate`** | **`"blur"`**    | پس از اولین اعتبارسنجی، هنگام Blur دوباره اعتبارسنجی می‌شود.                      |
+| **`revalidate`** | **`"submit"`**  | فقط هنگام ارسال فرم دوباره اعتبارسنجی می‌شود.                                     |
 
-## Displaying Errors
+## نمایش خطاها
 
-Display errors next to the field using `<FieldError />`. Formisch returns errors as an array of strings, so map them to the shape `<FieldError />` expects. For styling and accessibility:
+برای نمایش خطا در کنار فیلد از **`<FieldError />`** استفاده کنید. Formisch خطاها را به‌صورت آرایه‌ای از Stringها برمی‌گرداند؛ بنابراین باید آن‌ها را به ساختاری که **`<FieldError />`** انتظار دارد تبدیل کنید.
 
-- Add the `data-invalid` prop to the `<Field />` component.
-- Add the `aria-invalid` prop to the form control such as `<Input />`, `<SelectTrigger />`, `<Checkbox />`, etc.
+برای Styling و دسترس‌پذیری:
+
+- Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
+- Prop **`aria-invalid`** را به کنترل فرم، مانند **`<Input />`**، **`<SelectTrigger />`**، **`<Checkbox />`** و موارد مشابه اضافه کنید.
 
 ```tsx showLineNumbers title="form.tsx" {3,10,12-14}
 <FormischField of={form} path={["email"]}>
   {(field) => (
     <Field data-invalid={field.errors !== null}>
-      <FieldLabel htmlFor="form-email">Email</FieldLabel>
+      <FieldLabel htmlFor="form-email">ایمیل</FieldLabel>
       <Input
         {...field.props}
         id="form-email"
@@ -258,17 +263,17 @@ Display errors next to the field using `<FieldError />`. Formisch returns errors
 </FormischField>
 ```
 
-## Working with Different Field Types
+## کار با انواع مختلف فیلدها
 
-Formisch exposes two ways to bind a field to an element:
+Formisch دو روش برای اتصال یک فیلد به یک عنصر ارائه می‌دهد:
 
-- **Native HTML elements** (like `<Input />` and `<Textarea />`) — spread `field.props` and provide `value={field.input}`. Formisch wires up `name`, `ref`, `onChange`, `onBlur`, and `onFocus` for you.
-- **Component-library inputs** (like Radix-based `<Select />`, `<Checkbox />`, `<RadioGroup />`, `<Switch />`) — read the value from `field.input` and call `field.onChange(value)` to update it.
+- **عناصر Native HTML** مانند **`<Input />`** و **`<Textarea />`**: مقدار **`field.props`** را Spread کنید و **`value={field.input}`** را قرار دهید. Formisch مواردی مانند **`name`**، **`ref`**، **`onChange`**، **`onBlur`** و **`onFocus`** را به‌صورت خودکار مدیریت می‌کند.
+- **ورودی‌های کتابخانه‌های کامپوننتی** مانند **`<Select />`**، **`<Checkbox />`**، **`<RadioGroup />`** و **`<Switch />`** مبتنی بر Radix: مقدار را از **`field.input`** بخوانید و برای به‌روزرسانی آن، **`field.onChange(value)`** را فراخوانی کنید.
 
 ### Input
 
-- For input fields, spread `field.props` and provide `value={field.input}`.
-- To show errors, add the `aria-invalid` prop to the `<Input />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای Input، مقدار **`field.props`** را Spread کنید و **`value={field.input}`** را قرار دهید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Input />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -281,7 +286,7 @@ Formisch exposes two ways to bind a field to an element:
 <FormischField of={form} path={["username"]}>
   {(field) => (
     <Field data-invalid={field.errors !== null}>
-      <FieldLabel htmlFor="form-username">Username</FieldLabel>
+      <FieldLabel htmlFor="form-username">نام کاربری</FieldLabel>
       <Input
         {...field.props}
         id="form-username"
@@ -298,8 +303,8 @@ Formisch exposes two ways to bind a field to an element:
 
 ### Textarea
 
-- For textarea fields, spread `field.props` and provide `value={field.input}`.
-- To show errors, add the `aria-invalid` prop to the `<Textarea />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای Textarea، مقدار **`field.props`** را Spread کنید و **`value={field.input}`** را قرار دهید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Textarea />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -312,7 +317,7 @@ Formisch exposes two ways to bind a field to an element:
 <FormischField of={form} path={["about"]}>
   {(field) => (
     <Field data-invalid={field.errors !== null}>
-      <FieldLabel htmlFor="form-about">More about you</FieldLabel>
+      <FieldLabel htmlFor="form-about">دربارهٔ شما</FieldLabel>
       <Textarea
         {...field.props}
         id="form-about"
@@ -322,8 +327,8 @@ Formisch exposes two ways to bind a field to an element:
         className="min-h-16"
       />
       <FieldDescription>
-        Tell us more about yourself. This will be used to help us personalize
-        your experience.
+        اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای شخصی‌سازی
+        تجربهٔ شما استفاده خواهد شد.
       </FieldDescription>
       {field.errors && (
         <FieldError errors={field.errors.map((message) => ({ message }))} />
@@ -335,8 +340,8 @@ Formisch exposes two ways to bind a field to an element:
 
 ### Select
 
-- For select components, read `field.input` and call `field.onChange` from `<Select />`'s `onValueChange`.
-- To show errors, add the `aria-invalid` prop to the `<SelectTrigger />` component and the `data-invalid` prop to the `<Field />` component.
+- برای کامپوننت‌های Select، مقدار **`field.input`** را بخوانید و در **`onValueChange`** مربوط به **`<Select />`**، **`field.onChange`** را فراخوانی کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<SelectTrigger />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -350,9 +355,9 @@ Formisch exposes two ways to bind a field to an element:
   {(field) => (
     <Field orientation="responsive" data-invalid={field.errors !== null}>
       <FieldContent>
-        <FieldLabel htmlFor="form-language">Spoken Language</FieldLabel>
+        <FieldLabel htmlFor="form-language">زبان گفتاری</FieldLabel>
         <FieldDescription>
-          For best results, select the language you speak.
+          برای دریافت نتیجهٔ بهتر، زبانی را انتخاب کنید که به آن صحبت می‌کنید.
         </FieldDescription>
         {field.errors && (
           <FieldError errors={field.errors.map((message) => ({ message }))} />
@@ -363,11 +368,12 @@ Formisch exposes two ways to bind a field to an element:
           id="form-language"
           aria-invalid={field.errors !== null}
           className="min-w-[120px]"
+          dir="rtl"
         >
           <SelectValue placeholder="انتخاب کنید" />
         </SelectTrigger>
-        <SelectContent position="item-aligned">
-          <SelectItem value="auto">Auto</SelectItem>
+        <SelectContent position="item-aligned" dir="rtl">
+          <SelectItem value="auto">خودکار</SelectItem>
           <SelectItem value="en">English</SelectItem>
         </SelectContent>
       </Select>
@@ -378,9 +384,9 @@ Formisch exposes two ways to bind a field to an element:
 
 ### Checkbox
 
-- For checkbox arrays, read `field.input` and update it from `onCheckedChange` using `field.onChange`.
-- To show errors, add the `aria-invalid` prop to the `<Checkbox />` component and the `data-invalid` prop to the `<Field />` component.
-- Remember to add `data-slot="checkbox-group"` to the `<FieldGroup />` component for proper styling and spacing.
+- برای آرایه‌ای از Checkboxها، مقدار **`field.input`** را بخوانید و از طریق **`onCheckedChange`** و **`field.onChange`** آن را به‌روزرسانی کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Checkbox />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
+- برای اعمال صحیح Styling و فاصله‌گذاری، حتماً **`data-slot="checkbox-group"`** را به **`<FieldGroup />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -393,9 +399,9 @@ Formisch exposes two ways to bind a field to an element:
 <FormischField of={form} path={["tasks"]}>
   {(field) => (
     <FieldSet>
-      <FieldLegend variant="label">Tasks</FieldLegend>
+      <FieldLegend variant="label">وظایف</FieldLegend>
       <FieldDescription>
-        Get notified when tasks you&apos;ve created have updates.
+        برای به‌روزرسانی وظایفی که ایجاد کرده‌اید، اعلان دریافت کنید.
       </FieldDescription>
       <FieldGroup data-slot="checkbox-group">
         {tasks.map((task) => (
@@ -434,10 +440,10 @@ Formisch exposes two ways to bind a field to an element:
 </FormischField>
 ```
 
-### Radio Group
+### گروه Radio
 
-- For radio groups, read `field.input` and call `field.onChange` from `onValueChange`.
-- To show errors, add the `aria-invalid` prop to the `<RadioGroupItem />` component and the `data-invalid` prop to the `<Field />` component.
+- برای گروه‌های Radio، مقدار **`field.input`** را بخوانید و در **`onValueChange`**، متد **`field.onChange`** را فراخوانی کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به کامپوننت **`<RadioGroupItem />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -450,9 +456,9 @@ Formisch exposes two ways to bind a field to an element:
 <FormischField of={form} path={["plan"]}>
   {(field) => (
     <FieldSet>
-      <FieldLegend>Plan</FieldLegend>
+      <FieldLegend>پلن</FieldLegend>
       <FieldDescription>
-        You can upgrade or downgrade your plan at any time.
+        هر زمان بخواهید می‌توانید پلن خود را ارتقا یا کاهش دهید.
       </FieldDescription>
       <RadioGroup value={field.input} onValueChange={field.onChange}>
         {plans.map((plan) => (
@@ -484,8 +490,8 @@ Formisch exposes two ways to bind a field to an element:
 
 ### Switch
 
-- For switches, read `field.input` and call `field.onChange` from `onCheckedChange`.
-- To show errors, add the `aria-invalid` prop to the `<Switch />` component and the `data-invalid` prop to the `<Field />` component.
+- برای Switch، مقدار **`field.input`** را بخوانید و در **`onCheckedChange`**، متد **`field.onChange`** را فراخوانی کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به کامپوننت **`<Switch />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -500,10 +506,10 @@ Formisch exposes two ways to bind a field to an element:
     <Field orientation="horizontal" data-invalid={field.errors !== null}>
       <FieldContent>
         <FieldLabel htmlFor="form-twoFactor">
-          Multi-factor authentication
+          احراز هویت چندمرحله‌ای
         </FieldLabel>
         <FieldDescription>
-          Enable multi-factor authentication to secure your account.
+          احراز هویت چندمرحله‌ای را برای افزایش امنیت حساب فعال کنید.
         </FieldDescription>
         {field.errors && (
           <FieldError errors={field.errors.map((message) => ({ message }))} />
@@ -514,15 +520,16 @@ Formisch exposes two ways to bind a field to an element:
         checked={field.input ?? false}
         onCheckedChange={field.onChange}
         aria-invalid={field.errors !== null}
+        dir="ltr"
       />
     </Field>
   )}
 </FormischField>
 ```
 
-### Complex Forms
+### فرم‌های پیچیده
 
-Here is an example of a more complex form with multiple fields and validation.
+در این مثال یک فرم پیچیده‌تر با چندین فیلد و اعتبارسنجی می‌سازیم.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -531,29 +538,34 @@ Here is an example of a more complex form with multiple fields and validation.
   chromeLessOnMobile
 />
 
-## Resetting the Form
+## بازنشانی فرم
 
-Formisch exposes a top-level `reset` function. Pass the form store to reset it to its initial input.
+Formisch یک تابع سطح‌بالای **`reset`** در اختیار شما قرار می‌دهد. با ارسال Store فرم به این تابع، فرم به مقادیر اولیه بازنشانی می‌شود.
 
 ```tsx showLineNumbers
 <Button type="button" variant="outline" onClick={() => reset(form)}>
-  Reset
+  بازنشانی
 </Button>
 ```
 
-You can also reset to new initial values, or reset while keeping the user's current input:
+همچنین می‌توانید مقادیر اولیهٔ جدیدی تعیین کنید یا فرم را طوری بازنشانی کنید که ورودی فعلی کاربر حفظ شود:
 
 ```tsx showLineNumbers
-// Reset to a fresh set of initial values
-reset(form, { initialInput: { title: "", description: "" } })
+// بازنشانی با مجموعه‌ای جدید از مقادیر اولیه
+reset(form, {
+  initialInput: { title: "", description: "" },
+})
 
-// Sync the baseline to new server data, but keep the user's edits
-reset(form, { initialInput: serverData, keepInput: true })
+// همگام‌سازی مقدار پایه با داده‌های جدید سرور و حفظ تغییرات کاربر
+reset(form, {
+  initialInput: serverData,
+  keepInput: true,
+})
 ```
 
-## Array Fields
+## فیلدهای آرایه‌ای
 
-Formisch provides a `<FieldArray />` component and a set of helper functions for managing dynamic array fields. Use it whenever you need to add, remove, or reorder items.
+Formisch یک کامپوننت **`<FieldArray />`** و مجموعه‌ای از توابع کمکی برای مدیریت فیلدهای آرایه‌ای پویا ارائه می‌دهد. هر زمان نیاز دارید آیتم‌هایی را اضافه، حذف یا جابه‌جا کنید، از آن استفاده کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
@@ -562,9 +574,9 @@ Formisch provides a `<FieldArray />` component and a set of helper functions for
   chromeLessOnMobile
 />
 
-### Using FieldArray
+### استفاده از FieldArray
 
-`<FieldArray />` follows the same render-prop pattern as `<Field />`. Its `items` array contains a stable key per item that you should use as the React `key`.
+**`<FieldArray />`** مانند **`<Field />`** از الگوی Render Prop استفاده می‌کند. آرایهٔ **`items`** برای هر آیتم یک Key پایدار دارد که باید از آن به‌عنوان **`key`** در React استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx" {1,7-22}
 import {
@@ -575,7 +587,7 @@ import {
 } from "@formisch/react"
 
 export function ExampleForm() {
-  // ... form config
+  // ... تنظیمات فرم
 
   return (
     <FieldArray of={form} path={["emails"]}>
@@ -597,23 +609,23 @@ export function ExampleForm() {
 }
 ```
 
-### Array Field Structure
+### ساختار فیلدهای آرایه‌ای
 
-Wrap your array fields in a `<FieldSet />` with a `<FieldLegend />` and `<FieldDescription />`.
+فیلدهای آرایه‌ای را داخل یک **`<FieldSet />`** همراه با **`<FieldLegend />`** و **`<FieldDescription />`** قرار دهید.
 
 ```tsx showLineNumbers title="form.tsx"
 <FieldSet className="gap-4">
-  <FieldLegend variant="label">Email Addresses</FieldLegend>
+  <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
   <FieldDescription>
-    Add up to 5 email addresses where we can contact you.
+    حداکثر ۵ آدرس ایمیل اضافه کنید تا بتوانیم با شما در تماس باشیم.
   </FieldDescription>
-  <FieldGroup className="gap-4">{/* Array items go here */}</FieldGroup>
+  <FieldGroup className="gap-4">{/* آیتم‌های آرایه اینجا قرار می‌گیرند */}</FieldGroup>
 </FieldSet>
 ```
 
-### Adding Items
+### افزودن آیتم
 
-Use the `insert` function to add new items to the array. By default new items are appended to the end. You can also pass an `at` index to insert at a specific position.
+برای اضافه کردن آیتم جدید به آرایه از تابع **`insert`** استفاده کنید. به‌صورت پیش‌فرض آیتم جدید به انتهای آرایه اضافه می‌شود. همچنین می‌توانید با تعیین **`at`**، محل قرارگیری آیتم را مشخص کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 <Button
@@ -625,13 +637,13 @@ Use the `insert` function to add new items to the array. By default new items ar
   }
   disabled={fieldArray.items.length >= 5}
 >
-  Add Email Address
+  افزودن آدرس ایمیل
 </Button>
 ```
 
-### Removing Items
+### حذف آیتم
 
-Use the `remove` function with an `at` index to remove items from the array.
+برای حذف یک آیتم از تابع **`remove`** همراه با **`at`** استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 import { remove } from "@formisch/react"
@@ -644,7 +656,7 @@ import { remove } from "@formisch/react"
         variant="ghost"
         size="icon-xs"
         onClick={() => remove(form, { path: ["emails"], at: index })}
-        aria-label={`Remove email ${index + 1}`}
+        aria-label={`حذف ایمیل ${index + 1}`}
       >
         <XIcon />
       </InputGroupButton>
@@ -653,11 +665,11 @@ import { remove } from "@formisch/react"
 }
 ```
 
-Formisch also exposes `move`, `swap`, and `replace` for reordering and replacing items. They follow the same `(form, config)` signature.
+Formisch همچنین توابع **`move`**، **`swap`** و **`replace`** را برای جابه‌جایی و جایگزینی آیتم‌ها ارائه می‌دهد. این توابع نیز از همان الگوی **`(form, config)`** استفاده می‌کنند.
 
-### Array Validation
+### اعتبارسنجی آرایه
 
-Use Valibot's `array` and pipeline validators to constrain array fields.
+برای محدود کردن فیلدهای آرایه‌ای، از Validatorهای **`array`** و Pipelineهای اعتبارسنجی Valibot استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 const FormSchema = v.object({
@@ -666,13 +678,13 @@ const FormSchema = v.object({
       v.object({
         address: v.pipe(
           v.string(),
-          v.nonEmpty("Enter an email address."),
-          v.email("Enter a valid email address.")
+          v.nonEmpty("یک آدرس ایمیل وارد کنید."),
+          v.email("یک آدرس ایمیل معتبر وارد کنید.")
         ),
       })
     ),
-    v.minLength(1, "Add at least one email address."),
-    v.maxLength(5, "You can add up to 5 email addresses.")
+    v.minLength(1, "حداقل یک آدرس ایمیل اضافه کنید."),
+    v.maxLength(5, "حداکثر ۵ آدرس ایمیل می‌توانید اضافه کنید.")
   ),
 })
 ```
