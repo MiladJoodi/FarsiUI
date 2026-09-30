@@ -39,16 +39,12 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/cli",
   },
   {
-    name: "تایپ‌ست",
-    href: "/docs/typeset",
-  },
-  {
-    name: "تغییرات",
-    href: "/docs/changelog",
+    name: "سرور MCP",
+    href: "/docs/registry/mcp",
   },
 ]
 const EXCLUDED_SECTIONS = ["installation", "dark-mode", "changelog", "rtl"]
-const EXCLUDED_PAGES = ["/docs", "/docs/changelog", "/docs/rtl", "/docs/new"]
+const EXCLUDED_PAGES = ["/docs", "/docs/rtl", "/docs/new"]
 
 function readScrollState() {
   try {
