@@ -214,11 +214,6 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: "/skills",
-        destination: "/docs/skills",
-        permanent: true,
-      },
-      {
         source: "/cli",
         destination: "/docs/cli",
         permanent: true,

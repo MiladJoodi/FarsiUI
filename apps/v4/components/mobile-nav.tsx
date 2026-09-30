@@ -39,10 +39,6 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/rtl",
   },
   {
-    name: "مهارت‌ها",
-    href: "/docs/skills",
-  },
-  {
     name: "سرور MCP",
     href: "/docs/mcp",
   },

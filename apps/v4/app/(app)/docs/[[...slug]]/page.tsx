@@ -14,12 +14,11 @@ import { Button } from "@/registry/new-york-v4/ui/button"
 
 /** سطح ۱/۲ keep their URLs, but always show Base docs (install, copy, sections). */
 function getContentPage(slug: string[] | undefined) {
-  if (!slug?.length) return undefined
   const page = source.getPage(slug)
   if (!page) return undefined
 
   if (
-    slug[0] === "components" &&
+    slug?.[0] === "components" &&
     (slug[1] === "aria" || slug[1] === "radix") &&
     slug[2]
   ) {
@@ -38,11 +37,12 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ slug: string[] }>
+  params: Promise<{ slug?: string[] }>
 }) {
   const params = await props.params
-  const page = source.getPage(params.slug)
-  const contentPage = getContentPage(params.slug)
+  const slug = params.slug ?? []
+  const page = source.getPage(slug)
+  const contentPage = getContentPage(slug)
 
   if (!page || !contentPage) {
     notFound()
@@ -90,11 +90,12 @@ export async function generateMetadata(props: {
 }
 
 export default async function Page(props: {
-  params: Promise<{ slug: string[] }>
+  params: Promise<{ slug?: string[] }>
 }) {
   const params = await props.params
-  const page = source.getPage(params.slug)
-  const contentPage = getContentPage(params.slug)
+  const slug = params.slug ?? []
+  const page = source.getPage(slug)
+  const contentPage = getContentPage(slug)
   if (!page || !contentPage) {
     notFound()
   }
@@ -102,7 +103,7 @@ export default async function Page(props: {
   const doc = contentPage.data
   const MDX = doc.body
   const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
-  const isChangelog = params.slug?.[0] === "changelog"
+  const isChangelog = slug[0] === "changelog"
   const neighbours = isChangelog
     ? { previous: null, next: null }
     : findNeighbour(source.pageTree, page.url)

@@ -43,10 +43,6 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/typeset",
   },
   {
-    name: "مهارت‌ها",
-    href: "/docs/skills",
-  },
-  {
     name: "رجیستری",
     href: "/docs/registry",
   },
