@@ -104,6 +104,7 @@ export default async function Page(props: {
   const MDX = doc.body
   const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
   const isChangelog = slug[0] === "changelog"
+  const isComponentsIndex = slug.length === 1 && slug[0] === "components"
   const neighbours = isChangelog
     ? { previous: null, next: null }
     : findNeighbour(source.pageTree, page.url)
@@ -117,7 +118,13 @@ export default async function Page(props: {
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="h-(--top-spacing) shrink-0" />
-        <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
+        <div
+          className={
+            isComponentsIndex
+              ? "mx-auto flex w-full max-w-6xl min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-6 lg:py-8 dark:text-foreground"
+              : "mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground"
+          }
+        >
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between md:items-start">
@@ -205,17 +212,19 @@ export default async function Page(props: {
           </div>
         </div>
       </div>
-      <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ms-auto hidden h-[90svh] w-(--sidebar-width) flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
-        <div className="h-(--top-spacing) shrink-0"></div>
-        {doc.toc?.length ? (
-          <div className="flex scroll-fade scrollbar-none flex-col gap-8 overflow-y-auto px-8">
-            <DocsTableOfContents toc={doc.toc} />
+      {!isComponentsIndex ? (
+        <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ms-auto hidden h-[90svh] w-(--sidebar-width) flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+          <div className="h-(--top-spacing) shrink-0"></div>
+          {doc.toc?.length ? (
+            <div className="flex scroll-fade scrollbar-none flex-col gap-8 overflow-y-auto px-8">
+              <DocsTableOfContents toc={doc.toc} />
+            </div>
+          ) : null}
+          <div className="hidden flex-1 flex-col gap-6 px-6 xl:flex">
+            <OpenInV0Cta />
           </div>
-        ) : null}
-        <div className="hidden flex-1 flex-col gap-6 px-6 xl:flex">
-          <OpenInV0Cta />
         </div>
-      </div>
+      ) : null}
     </div>
   )
 }
