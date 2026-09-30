@@ -7,7 +7,6 @@
     "react",
     "helpers",
     "forms",
-    "registry",
     "installation",
     "dark-mode",
     "rtl",

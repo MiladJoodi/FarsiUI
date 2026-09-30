@@ -40,7 +40,7 @@ const TOP_LEVEL_SECTIONS = [
   },
   {
     name: "سرور MCP",
-    href: "/docs/registry/mcp",
+    href: "/docs/mcp",
   },
   {
     name: "فرم‌ها",

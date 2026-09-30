@@ -30,14 +30,6 @@ export const siteConfig = {
       label: "نمودارها",
     },
     {
-      href: "/docs/directory",
-      label: "فهرست",
-    },
-    {
-      href: "/typeset",
-      label: "تایپ‌ست",
-    },
-    {
       href: "/create",
       label: "ساخت",
     },

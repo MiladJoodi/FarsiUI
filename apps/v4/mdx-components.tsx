@@ -16,7 +16,6 @@ import { DocsCollapsible } from "@/components/docs-collapsible"
 import { DocsApiProps } from "@/components/docs-api-props"
 import { ComponentsList } from "@/components/components-list"
 import { CopyButton } from "@/components/copy-button"
-import { DirectoryList } from "@/components/directory-list"
 import { getIconForLanguageExtension } from "@/components/icons"
 import {
   Accordion,
@@ -394,7 +393,6 @@ export const mdxComponents = {
   DocsApiProps,
   CodeCollapsibleWrapper,
   ComponentsList: ComponentsListWrapper,
-  DirectoryList,
   Link,
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
