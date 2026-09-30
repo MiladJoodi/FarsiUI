@@ -3,11 +3,11 @@
 import * as React from "react"
 import { cn } from "cn"
 import {
-  DayPicker,
   getDefaultClassNames,
   type DayButton,
   type Locale,
 } from "react-day-picker"
+import { DayPicker } from "react-day-picker/persian"
 
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
@@ -19,6 +19,7 @@ function Calendar({
   captionLayout = "label",
   buttonVariant = "ghost",
   locale,
+  dir = "rtl",
   formatters,
   components,
   ...props
@@ -38,9 +39,18 @@ function Calendar({
       )}
       captionLayout={captionLayout}
       locale={locale}
+      dir={dir}
       formatters={{
         formatMonthDropdown: (date) =>
-          date.toLocaleString(locale?.code, { month: "short" }),
+          date.toLocaleString(locale?.code ?? "fa-IR", {
+            month: "short",
+            calendar: "persian",
+          }),
+        formatWeekdayName: (date) => {
+          // ش ی د س چ پ ج
+          const labels = ["ی", "د", "س", "چ", "پ", "ج", "ش"]
+          return labels[date.getDay()] ?? ""
+        },
         ...formatters,
       }}
       classNames={{

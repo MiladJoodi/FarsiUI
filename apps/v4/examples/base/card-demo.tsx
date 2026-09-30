@@ -13,21 +13,21 @@ import { Label } from "@/styles/base-nova/ui/label"
 
 export default function CardDemo() {
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm" dir="rtl">
       <CardHeader>
-        <CardTitle>Login to your account</CardTitle>
+        <CardTitle>ورود به حساب کاربری</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          برای ورود، ایمیل خود را وارد کنید
         </CardDescription>
         <CardAction>
-          <Button variant="link">Sign Up</Button>
+          <Button variant="link">ثبت‌نام</Button>
         </CardAction>
       </CardHeader>
       <CardContent>
         <form>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">ایمیل</Label>
               <Input
                 id="email"
                 type="email"
@@ -37,12 +37,12 @@ export default function CardDemo() {
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">رمز عبور</Label>
                 <a
                   href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                  className="ms-auto inline-block text-sm underline-offset-4 hover:underline"
                 >
-                  Forgot your password?
+                  رمز عبور را فراموش کرده‌اید؟
                 </a>
               </div>
               <Input id="password" type="password" required />
@@ -52,10 +52,10 @@ export default function CardDemo() {
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
-          Login
+          ورود
         </Button>
         <Button variant="outline" className="w-full">
-          Login with Google
+          ورود با گوگل
         </Button>
       </CardFooter>
     </Card>

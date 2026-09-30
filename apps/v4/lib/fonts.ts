@@ -8,7 +8,7 @@ import {
 import { cn } from "cn"
 
 /**
- * Default UI font for the whole docs site and component previews.
+ * Change this to set the UI font for the whole docs site.
  * Options: "estedad" | "vazirmatn"
  */
 export type UiFontName = "estedad" | "vazirmatn"

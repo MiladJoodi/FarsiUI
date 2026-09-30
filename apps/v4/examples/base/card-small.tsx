@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "lucide-react"
+import { ChevronLeftIcon } from "lucide-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import {
@@ -11,38 +11,38 @@ import {
 } from "@/styles/base-nova/ui/card"
 
 export function CardSmall() {
-  const featureName = "Scheduled reports"
+  const featureName = "گزارش‌های زمان‌بندی‌شده"
 
   return (
-    <Card size="sm" className="mx-auto w-full max-w-xs">
+    <Card size="sm" className="mx-auto w-full max-w-xs" dir="rtl">
       <CardHeader>
         <CardTitle>{featureName}</CardTitle>
         <CardDescription>
-          Weekly snapshots. No more manual exports.
+          خلاصهٔ هفتگی. دیگر نیازی به خروجی دستی نیست.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="grid gap-2 py-2 text-sm">
           <li className="flex gap-2">
-            <ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>Choose a schedule (daily, or weekly).</span>
+            <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+            <span>زمان‌بندی را انتخاب کنید (روزانه یا هفتگی).</span>
           </li>
           <li className="flex gap-2">
-            <ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>Send to channels or specific teammates.</span>
+            <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+            <span>به کانال‌ها یا اعضای مشخص ارسال کنید.</span>
           </li>
           <li className="flex gap-2">
-            <ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>Include charts, tables, and key metrics.</span>
+            <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+            <span>نمودار، جدول و شاخص‌های کلیدی را بگنجانید.</span>
           </li>
         </ul>
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button size="sm" className="w-full">
-          Set up scheduled reports
+          راه‌اندازی گزارش زمان‌بندی‌شده
         </Button>
         <Button variant="outline" size="sm" className="w-full">
-          See what&apos;s new
+          تازه‌ها را ببینید
         </Button>
       </CardFooter>
     </Card>

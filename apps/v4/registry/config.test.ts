@@ -20,8 +20,8 @@ describe("buildRegistryBase", () => {
   it("seeds a font-heading fallback when heading inherits the body font", () => {
     const result = buildRegistryBase(DEFAULT_CONFIG)
 
-    expect(result.registryDependencies).toContain("font-estedad")
-    expect(result.registryDependencies).not.toContain("font-heading-estedad")
+    expect(result.registryDependencies).toContain("font-inter")
+    expect(result.registryDependencies).not.toContain("font-heading-inter")
     expect(result.cssVars?.theme?.["--font-heading"]).toBe("var(--font-sans)")
   })
 
@@ -31,7 +31,7 @@ describe("buildRegistryBase", () => {
       fontHeading: "playfair-display",
     })
 
-    expect(result.registryDependencies).toContain("font-estedad")
+    expect(result.registryDependencies).toContain("font-inter")
     expect(result.registryDependencies).toContain(
       "font-heading-playfair-display"
     )
@@ -41,10 +41,10 @@ describe("buildRegistryBase", () => {
   it("normalizes a matching heading font back to inherit", () => {
     const result = buildRegistryBase({
       ...DEFAULT_CONFIG,
-      fontHeading: "estedad",
+      fontHeading: "inter",
     })
 
-    expect(result.registryDependencies).not.toContain("font-heading-estedad")
+    expect(result.registryDependencies).not.toContain("font-heading-inter")
     expect(result.cssVars?.theme?.["--font-heading"]).toBe("var(--font-sans)")
   })
 

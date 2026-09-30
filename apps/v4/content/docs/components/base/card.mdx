@@ -1,28 +1,34 @@
 ---
-title: Card
-description: Displays a card with header, content, and footer.
+title: کارت (Card)
+description: نمایش محتوا در یک کارت با سرایند، بدنه و پاورقی.
 base: base
 component: true
 ---
 
-<ComponentPreview
-  name="card-demo"
+<ComponentVariantPreview
   styleName="base-nova"
-  previewClassName="h-[30rem]"
+  layout="switcher"
+  examples={[
+    { name: "card-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "card-small", label: "کوچک", sizeable: false },
+    { name: "card-spacing", label: "فاصله", sizeable: false },
+    { name: "card-edge-to-edge", label: "لبه‌به‌لبه", sizeable: false },
+    { name: "card-image", label: "تصویر", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add card
+npx farsiui@latest add card
 ```
 
 </TabsContent>
@@ -31,7 +37,7 @@ npx shadcn@latest add card
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="card"
@@ -39,7 +45,7 @@ npx shadcn@latest add card
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +53,7 @@ npx shadcn@latest add card
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -64,22 +70,28 @@ import {
 ```tsx showLineNumbers
 <Card>
   <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-    <CardAction>Card Action</CardAction>
+    <CardTitle>عنوان کارت</CardTitle>
+    <CardDescription>توضیح کارت</CardDescription>
+    <CardAction>اقدام</CardAction>
   </CardHeader>
   <CardContent>
-    <p>Card Content</p>
+    <p>محتوای کارت</p>
   </CardContent>
   <CardFooter>
-    <p>Card Footer</p>
+    <p>پاورقی کارت</p>
   </CardFooter>
 </Card>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Card`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Card`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
 
 ```text
 Card
@@ -91,125 +103,191 @@ Card
 └── CardFooter
 ```
 
-## Size
+</DocsCollapsible>
 
-Use the `size="sm"` prop to set the size of the card to small. The small size variant uses smaller spacing.
+<div className="hidden">
+
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با prop به نام `size="sm"` اندازهٔ کارت را کوچک کنید. نسخهٔ کوچک فاصله‌گذاری فشرده‌تری دارد.
 
 <ComponentPreview
   styleName="base-nova"
   name="card-small"
-  previewClassName="h-96"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Spacing
+</DocsCollapsible>
 
-In addition to the `size` prop, you can use the `--card-spacing` CSS variable to control the spacing between sections and the inset of card parts.
+<div className="hidden">
+
+## فاصله‌گذاری
+
+</div>
+
+<DocsCollapsible title="فاصله‌گذاری">
+
+علاوه بر `size`، با متغیر CSS به نام `--card-spacing` می‌توانید فاصلهٔ بین بخش‌ها و حاشیهٔ داخلی کارت را کنترل کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="card-spacing"
-  previewClassName="h-[34rem]"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-Use negative margins with `-mx-(--card-spacing)` to make content go edge to edge while keeping it aligned with the card inset. When the edge-to-edge content sits above a footer, use `-mb-(--card-spacing)` on `CardContent` to remove the section gap.
+با حاشیهٔ منفی `-mx-(--card-spacing)` محتوا را لبه‌به‌لبه کنید و هم‌تراز با فاصلهٔ داخلی کارت نگه دارید. اگر محتوای لبه‌به‌لبه بالای پاورقی است، روی `CardContent` از `-mb-(--card-spacing)` استفاده کنید تا فاصلهٔ بین بخش‌ها حذف شود.
 
 <ComponentPreview
   styleName="base-nova"
   name="card-edge-to-edge"
-  previewClassName="h-[24rem]"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Image
+</DocsCollapsible>
 
-Add an image before the card header to create a card with an image.
+<div className="hidden">
+
+## تصویر
+
+</div>
+
+<DocsCollapsible title="تصویر">
+
+برای کارت با تصویر، تصویر را قبل از سرایند قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="card-image"
-  previewClassName="h-[32rem]"
-/>
-
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
-
-<ComponentPreview
-  styleName="base-nova"
-  name="card-rtl"
   direction="rtl"
-  previewClassName="h-[30rem]"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-### Card
+<div className="hidden">
 
-The `Card` component is the root container for card content.
+## مرجع API
 
-| Prop        | Type                | Default     |
-| ----------- | ------------------- | ----------- |
-| `size`      | `"default" \| "sm"` | `"default"` |
-| `className` | `string`            | -           |
+</div>
 
-### CardHeader
+<DocsCollapsible title="مرجع API">
 
-The `CardHeader` component is used for a title, description, and optional action.
+<DocsApiProps
+  title="Card"
+  description="ظرف ریشهٔ کارت."
+  props={[
+    {
+      name: "size",
+      defaultValue: "default",
+      description: "اندازهٔ کارت و فاصله‌گذاری داخلی",
+      values: ["default", "sm"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<DocsApiProps
+  title="CardHeader"
+  description="سرایند کارت برای عنوان، توضیح و اقدام اختیاری."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### CardTitle
+<DocsApiProps
+  title="CardTitle"
+  description="عنوان کارت."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-The `CardTitle` component is used for the card title.
+<DocsApiProps
+  title="CardDescription"
+  description="متن کمکی زیر عنوان."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+<DocsApiProps
+  title="CardAction"
+  description="محتوا در گوشهٔ سرایند (مثل دکمه یا نشان)."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### CardDescription
+<DocsApiProps
+  title="CardContent"
+  description="بدنهٔ اصلی کارت."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-The `CardDescription` component is used for helper text under the title.
+<DocsApiProps
+  title="CardFooter"
+  description="پاورقی برای اقدام‌ها و محتوای ثانویه."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+</DocsCollapsible>
 
-### CardAction
+<div className="hidden">
 
-The `CardAction` component places content in the top-right of the header (for example, a button or a badge).
+## تغییرات
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
+</div>
 
-### CardContent
+<DocsCollapsible title="تغییرات">
 
-The `CardContent` component is used for the main card body.
+### متغیر فاصله‌گذاری
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-### CardFooter
-
-The `CardFooter` component is used for actions and secondary content at the bottom of the card.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | -       |
-
-## Changelog
-
-### Spacing Variable
-
-If you're upgrading from a previous version of the `Card` component, you'll need to apply the following updates to use the `--card-spacing` variable:
+اگر از نسخهٔ قبلی `Card` ارتقا می‌دهید، برای استفاده از `--card-spacing` این تغییرات را اعمال کنید:
 
 <Steps>
 
-<Step>Update the Card root spacing classes.</Step>
+<Step>کلاس‌های فاصلهٔ ریشهٔ Card را به‌روز کنید.</Step>
 
-Replace the hard-coded gap and vertical padding with `--card-spacing`, and set the default and small size values on the root:
+به‌جای `gap` و `padding` ثابت از `--card-spacing` استفاده کنید و مقادیر پیش‌فرض و کوچک را روی ریشه تنظیم کنید:
 
 ```diff
   className={cn(
@@ -219,9 +297,9 @@ Replace the hard-coded gap and vertical padding with `--card-spacing`, and set t
   )}
 ```
 
-<Step>Update CardHeader spacing classes.</Step>
+<Step>کلاس‌های فاصلهٔ CardHeader را به‌روز کنید.</Step>
 
-Replace the horizontal padding and border spacing with the shared variable:
+padding افقی و فاصلهٔ حاشیه را با همان متغیر مشترک عوض کنید:
 
 ```diff
   className={cn(
@@ -231,9 +309,9 @@ Replace the horizontal padding and border spacing with the shared variable:
   )}
 ```
 
-<Step>Update CardContent and CardFooter spacing classes.</Step>
+<Step>کلاس‌های فاصلهٔ CardContent و CardFooter را به‌روز کنید.</Step>
 
-Use `--card-spacing` for the content inset and footer padding:
+برای inset محتوا و padding پاورقی از `--card-spacing` استفاده کنید:
 
 ```diff
   function CardContent({ className, ...props }: React.ComponentProps<"div">) {
@@ -258,10 +336,12 @@ Use `--card-spacing` for the content inset and footer padding:
 
 </Steps>
 
-After applying these changes, you can customize card spacing by setting `--card-spacing` on the `Card` with an arbitrary property class:
+بعد از این تغییرات، فاصلهٔ کارت را با کلاس دلخواه روی `Card` تنظیم کنید:
 
 ```tsx
 function Example() {
   return <Card className="[--card-spacing:--spacing(6)]">...</Card>
 }
 ```
+
+</DocsCollapsible>

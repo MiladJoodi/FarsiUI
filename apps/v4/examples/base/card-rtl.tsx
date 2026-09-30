@@ -1,12 +1,4 @@
-"use client"
-
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Button } from "@/styles/base-nova/ui-rtl/button"
+import { Button } from "@/styles/base-nova/ui/button"
 import {
   Card,
   CardAction,
@@ -15,87 +7,42 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-nova/ui-rtl/card"
-import { Input } from "@/styles/base-nova/ui-rtl/input"
-import { Label } from "@/styles/base-nova/ui-rtl/label"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      title: "Login to your account",
-      description: "Enter your email below to login to your account",
-      signUp: "Sign Up",
-      email: "Email",
-      emailPlaceholder: "m@example.com",
-      password: "Password",
-      forgotPassword: "Forgot your password?",
-      login: "Login",
-      loginWithGoogle: "Login with Google",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      title: "تسجيل الدخول إلى حسابك",
-      description: "أدخل بريدك الإلكتروني أدناه لتسجيل الدخول إلى حسابك",
-      signUp: "إنشاء حساب",
-      email: "البريد الإلكتروني",
-      emailPlaceholder: "m@example.com",
-      password: "كلمة المرور",
-      forgotPassword: "نسيت كلمة المرور؟",
-      login: "تسجيل الدخول",
-      loginWithGoogle: "تسجيل الدخول باستخدام Google",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      title: "התחבר לחשבון שלך",
-      description: "הזן את האימייל שלך למטה כדי להתחבר לחשבון שלך",
-      signUp: "הירשם",
-      email: "אימייל",
-      emailPlaceholder: "m@example.com",
-      password: "סיסמה",
-      forgotPassword: "שכחת את הסיסמה?",
-      login: "התחבר",
-      loginWithGoogle: "התחבר עם Google",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/card"
+import { Input } from "@/styles/base-nova/ui/input"
+import { Label } from "@/styles/base-nova/ui/label"
 
 export function CardRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <Card className="w-full max-w-sm" dir={dir}>
+    <Card className="w-full max-w-sm" dir="rtl">
       <CardHeader>
-        <CardTitle>{t.title}</CardTitle>
-        <CardDescription>{t.description}</CardDescription>
+        <CardTitle>ورود به حساب کاربری</CardTitle>
+        <CardDescription>
+          برای ورود، ایمیل خود را وارد کنید
+        </CardDescription>
         <CardAction>
-          <Button variant="link">{t.signUp}</Button>
+          <Button variant="link">ثبت‌نام</Button>
         </CardAction>
       </CardHeader>
       <CardContent>
         <form>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email-rtl">{t.email}</Label>
+              <Label htmlFor="email-rtl">ایمیل</Label>
               <Input
                 id="email-rtl"
                 type="email"
-                placeholder={t.emailPlaceholder}
+                placeholder="m@example.com"
                 required
               />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password-rtl">{t.password}</Label>
+                <Label htmlFor="password-rtl">رمز عبور</Label>
                 <a
                   href="#"
                   className="ms-auto inline-block text-sm underline-offset-4 hover:underline"
                 >
-                  {t.forgotPassword}
+                  رمز عبور را فراموش کرده‌اید؟
                 </a>
               </div>
               <Input id="password-rtl" type="password" required />
@@ -105,10 +52,10 @@ export function CardRtl() {
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
-          {t.login}
+          ورود
         </Button>
         <Button variant="outline" className="w-full">
-          {t.loginWithGoogle}
+          ورود با گوگل
         </Button>
       </CardFooter>
     </Card>

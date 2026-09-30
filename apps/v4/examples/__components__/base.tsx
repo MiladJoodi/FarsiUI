@@ -726,14 +726,6 @@ export const Components: Record<string, any> = {
       ) || "button-secondary"
     return { default: mod.default || mod[exportName] }
   }),
-  "button-size": React.lazy(async () => {
-    const mod = await import("@/examples/base/button-size")
-    const exportName =
-      Object.keys(mod).find(
-        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
-      ) || "button-size"
-    return { default: mod.default || mod[exportName] }
-  }),
   "button-size-default": React.lazy(async () => {
     const mod = await import("@/examples/base/button-size-default")
     const exportName =
@@ -764,6 +756,14 @@ export const Components: Record<string, any> = {
       Object.keys(mod).find(
         (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
       ) || "button-size-xs"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "button-size": React.lazy(async () => {
+    const mod = await import("@/examples/base/button-size")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "button-size"
     return { default: mod.default || mod[exportName] }
   }),
   "button-spinner": React.lazy(async () => {

@@ -1,7 +1,6 @@
 import {
   DM_Sans,
   EB_Garamond,
-  Estedad,
   Figtree,
   Geist,
   Geist_Mono,
@@ -26,21 +25,8 @@ import {
   Roboto_Slab,
   Source_Sans_3,
   Space_Grotesk,
-  Vazirmatn,
 } from "next/font/google"
 import { cn } from "cn"
-
-const estedad = Estedad({
-  subsets: ["arabic", "latin"],
-  variable: "--font-estedad",
-  adjustFontFallback: false,
-})
-
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  variable: "--font-vazirmatn",
-  adjustFontFallback: false,
-})
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -174,8 +160,6 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const previewFontVariables = cn(
-  estedad.variable,
-  vazirmatn.variable,
   geistSans.variable,
   inter.variable,
   notoSans.variable,

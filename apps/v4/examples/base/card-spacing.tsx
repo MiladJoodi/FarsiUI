@@ -22,22 +22,22 @@ import {
 const spacingOptions = [
   {
     className: "[--card-spacing:--spacing(4)]",
-    label: "16px",
+    label: "۱۶px",
     value: "4",
   },
   {
     className: "[--card-spacing:--spacing(5)]",
-    label: "20px",
+    label: "۲۰px",
     value: "5",
   },
   {
     className: "[--card-spacing:--spacing(6)]",
-    label: "24px",
+    label: "۲۴px",
     value: "6",
   },
   {
     className: "[--card-spacing:--spacing(8)]",
-    label: "32px",
+    label: "۳۲px",
     value: "8",
   },
 ]
@@ -49,7 +49,7 @@ export function CardSpacing() {
   )
 
   return (
-    <div className="mx-auto grid w-full max-w-sm gap-4">
+    <div className="mx-auto grid w-full max-w-sm gap-4" dir="rtl">
       <ToggleGroup
         value={[spacing]}
         onValueChange={(value) => {
@@ -69,19 +69,19 @@ export function CardSpacing() {
       </ToggleGroup>
       <Card className={selectedSpacing?.className}>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>ورود به حساب کاربری</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            برای ورود، ایمیل خود را وارد کنید
           </CardDescription>
           <CardAction>
-            <Button variant="link">Sign Up</Button>
+            <Button variant="link">ثبت‌نام</Button>
           </CardAction>
         </CardHeader>
         <CardContent>
           <form>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email-spacing">Email</Label>
+                <Label htmlFor="email-spacing">ایمیل</Label>
                 <Input
                   id="email-spacing"
                   type="email"
@@ -91,12 +91,12 @@ export function CardSpacing() {
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password-spacing">Password</Label>
+                  <Label htmlFor="password-spacing">رمز عبور</Label>
                   <a
                     href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    className="ms-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                    رمز عبور را فراموش کرده‌اید؟
                   </a>
                 </div>
                 <Input id="password-spacing" type="password" required />
@@ -106,10 +106,10 @@ export function CardSpacing() {
         </CardContent>
         <CardFooter className="flex-col gap-2">
           <Button type="submit" className="w-full">
-            Login
+            ورود
           </Button>
           <Button variant="outline" className="w-full">
-            Login with Google
+            ورود با گوگل
           </Button>
         </CardFooter>
       </Card>
