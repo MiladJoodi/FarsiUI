@@ -1,16 +1,19 @@
+"use client"
+
 import { Bubble, BubbleContent } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleAlignmentDemo() {
+export default function BubbleAlignmentDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble variant="muted">
         <BubbleContent>
-          This bubble is aligned to the start. This is the default alignment.
+          این حباب به ابتدا تراز شده است. این تراز پیش‌فرض است.
         </BubbleContent>
       </Bubble>
       <Bubble align="end">
         <BubbleContent>
-          This bubble is aligned to the end. Use this for user messages.
+          این حباب به انتها تراز شده است. برای پیام‌های کاربر از این حالت
+          استفاده کنید.
         </BubbleContent>
       </Bubble>
     </div>

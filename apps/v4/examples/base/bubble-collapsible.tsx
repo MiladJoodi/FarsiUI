@@ -10,25 +10,25 @@ import {
   CollapsibleTrigger,
 } from "@/styles/base-rhea/ui/collapsible"
 
-const text = `The accessibility review found two focus states that were visually too subtle in dark mode.
+const text = `بررسی دسترس‌پذیری دو حالت فوکوس را پیدا کرد که در حالت تاریک خیلی کم‌رنگ بودند.
 
-I checked the dialog, menu, and drawer paths because each one renders focusable controls inside a layered surface.
+مسیر دیالوگ، منو و دراور را بررسی کردم، چون هرکدام کنترل‌های فوکوس‌پذیر را داخل یک سطح لایه‌ای رندر می‌کنند.
 
-The dialog and drawer are fine. The menu needs the hover and focus tokens split so keyboard focus stays visible when the pointer is not involved.
+دیالوگ و دراور مشکلی ندارند. منو باید توکن‌های هاور و فوکوس را از هم جدا کند تا فوکوس صفحه‌کلید وقتی اشاره‌گر درگیر نیست، همچنان دیده شود.
 
-I also recommend keeping the change in the style file instead of the primitive so the other themes can choose their own focus treatment later.`
+پیشنهاد می‌کنم این تغییر در فایل استایل انجام شود، نه در پریمیتیو، تا تم‌های دیگر بتوانند فوکوس موردنظر خودشان را انتخاب کنند.`
 
 const previewLength = 180
 
-export function BubbleCollapsible() {
+export default function BubbleCollapsible() {
   const [open, setOpen] = React.useState(false)
   const isLong = text.length > previewLength
   const preview = `${text.slice(0, previewLength)}...`
 
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble variant="muted">
-        <BubbleContent>How can I help you today?</BubbleContent>
+        <BubbleContent>امروز چطور می‌تونم کمکت کنم؟</BubbleContent>
       </Bubble>
 
       <Bubble variant="muted" align="end">
@@ -44,7 +44,7 @@ export function BubbleCollapsible() {
                   />
                 }
               >
-                {open ? "Show less" : "Show more"}
+                {open ? "نمایش کمتر" : "نمایش بیشتر"}
                 <ChevronDownIcon
                   data-icon="inline-end"
                   className="group-data-panel-open/button:rotate-180"

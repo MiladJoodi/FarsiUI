@@ -3,7 +3,7 @@ import { Bubble, BubbleContent } from "@/styles/base-rhea/ui/bubble"
 
 export function BubbleMarkdownDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble align="end" variant="muted">
         <BubbleContent>
           <Markdown>{`Hello! Are you actually **thinking**?`}</Markdown>

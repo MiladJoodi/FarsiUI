@@ -8,44 +8,44 @@ import {
   BubbleGroup,
 } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleLinkButtonDemo() {
+export default function BubbleLinkButtonDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble variant="muted">
-        <BubbleContent>How can I help you today?</BubbleContent>
+        <BubbleContent>امروز چطور می‌تونم کمکت کنم؟</BubbleContent>
       </Bubble>
       <BubbleGroup>
         <Bubble variant="tinted" align="end">
           <BubbleContent
             render={
-              <button onClick={() => toast("You clicked forgot password")} />
+              <button
+                onClick={() => toast("روی «فراموشی رمز» کلیک کردید")}
+              />
             }
           >
-            I forgot my password
+            رمز عبورم را فراموش کرده‌ام
           </BubbleContent>
         </Bubble>
         <Bubble variant="tinted" align="end">
           <BubbleContent
             render={
               <button
-                onClick={() => toast("You clicked help with subscription")}
+                onClick={() => toast("روی «کمک برای اشتراک» کلیک کردید")}
               />
             }
           >
-            I need help with my subscription
+            برای اشتراکم کمک می‌خواهم
           </BubbleContent>
         </Bubble>
         <Bubble variant="tinted" align="end">
           <BubbleContent
             render={
               <button
-                onClick={() =>
-                  toast("You clicked something else. Talk to a human.")
-                }
+                onClick={() => toast("روی «صحبت با انسان» کلیک کردید")}
               />
             }
           >
-            Something else. Talk to a human.
+            چیز دیگری. با یک نفر صحبت کنم.
           </BubbleContent>
         </Bubble>
       </BubbleGroup>

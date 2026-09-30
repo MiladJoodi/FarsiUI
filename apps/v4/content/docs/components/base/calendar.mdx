@@ -1,30 +1,41 @@
 ---
-title: Calendar
-description: A calendar component that allows users to select a date or a range of dates.
+title: تقویم (Calendar)
+description: انتخاب یک تاریخ یا بازه‌ای از تاریخ‌ها با رابط تقویم.
+featured: true
 base: base
 component: true
 links:
   doc: https://react-day-picker.js.org
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="calendar-demo"
-  previewClassName="h-96"
+  layout="switcher"
+  examples={[
+    { name: "calendar-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "calendar-basic", label: "ساده", sizeable: false },
+    { name: "calendar-range", label: "بازه", sizeable: false },
+    { name: "calendar-caption", label: "ماه و سال", sizeable: false },
+    { name: "calendar-presets", label: "پیش‌فرض‌ها", sizeable: false },
+    { name: "calendar-time", label: "تاریخ و زمان", sizeable: false },
+    { name: "calendar-booked-dates", label: "رزروشده", sizeable: false },
+    { name: "calendar-custom-days", label: "اندازه سلول", sizeable: false },
+    { name: "calendar-week-numbers", label: "شماره هفته", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add calendar
+npx farsiui@latest add calendar
 ```
 
 </TabsContent>
@@ -33,17 +44,17 @@ npx shadcn@latest add calendar
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install react-day-picker date-fns
 ```
 
-<Step>Add the `Button` component to your project.</Step>
+<Step>کامپوننت `Button` را به پروژه اضافه کنید.</Step>
 
-The `Calendar` component uses the `Button` component. Make sure you have it installed in your project.
+`Calendar` به `Button` وابسته است؛ مطمئن شوید در پروژه نصب شده باشد.
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="calendar"
@@ -51,7 +62,7 @@ The `Calendar` component uses the `Button` component. Make sure you have it inst
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -59,7 +70,7 @@ The `Calendar` component uses the `Button` component. Make sure you have it inst
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Calendar } from "@/components/ui/calendar"
@@ -78,36 +89,60 @@ return (
 )
 ```
 
-See the [React DayPicker](https://react-day-picker.js.org) documentation for more information.
+برای جزئیات بیشتر، مستندات [React DayPicker](https://react-day-picker.js.org) را ببینید.
 
-## About
+<div className="hidden">
 
-The `Calendar` component is built on top of [React DayPicker](https://react-day-picker.js.org).
+## درباره
 
-## Date Picker
+</div>
 
-You can use the `<Calendar>` component to build a date picker. See the [Date Picker](/docs/components/base/date-picker) page for more information.
+<DocsCollapsible title="درباره">
 
-## Persian / Hijri / Jalali Calendar
+کامپوننت `Calendar` بر پایه [React DayPicker](https://react-day-picker.js.org) ساخته شده است.
 
-To use the Persian calendar, edit `components/ui/calendar.tsx` and replace `react-day-picker` with `react-day-picker/persian`.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## انتخابگر تاریخ
+
+</div>
+
+<DocsCollapsible title="انتخابگر تاریخ">
+
+با `<Calendar>` می‌توانید یک انتخابگر تاریخ بسازید. برای اطلاعات بیشتر، صفحهٔ [انتخابگر تاریخ](/docs/components/base/date-picker) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تقویم شمسی
+
+</div>
+
+<DocsCollapsible title="تقویم شمسی">
+
+در FarsiUI، `Calendar` به‌صورت پیش‌فرض با `react-day-picker/persian` کار می‌کند؛ ماه‌ها، روزها و اعداد به‌صورت شمسی نمایش داده می‌شوند.
+
+اگر به تقویم میلادی نیاز دارید، در `components/ui/calendar.tsx` ایمپورت را به حالت معمول برگردانید:
 
 ```diff
-- import { DayPicker } from "react-day-picker"
-+ import { DayPicker } from "react-day-picker/persian"
+- import { DayPicker } from "react-day-picker/persian"
++ import { DayPicker } from "react-day-picker"
 ```
 
-<ComponentPreview
-  styleName="base-nova"
-  name="calendar-hijri"
-  title="Persian / Hijri / Jalali Calendar"
-  description="A Persian calendar."
-  previewClassName="h-[400px]"
-/>
+</DocsCollapsible>
 
-## Selected Date (With TimeZone)
+<div className="hidden">
 
-The Calendar component accepts a `timeZone` prop to ensure dates are displayed and selected in the user's local timezone.
+## منطقه زمانی
+
+</div>
+
+<DocsCollapsible title="منطقه زمانی">
+
+کامپوننت `Calendar` از prop به نام `timeZone` پشتیبانی می‌کند تا تاریخ‌ها بر اساس منطقهٔ زمانی محلی کاربر نمایش داده و انتخاب شوند.
 
 ```tsx showLineNumbers
 export function CalendarWithTimezone() {
@@ -129,75 +164,135 @@ export function CalendarWithTimezone() {
 }
 ```
 
-**Note:** If you notice a selected date offset (for example, selecting the 20th highlights the 19th), make sure the `timeZone` prop is set to the user's local timezone.
+**نکته:** اگر تاریخ انتخاب‌شده یک روز جابه‌جا نمایش داده می‌شود (مثلاً با انتخاب ۲۰ام، ۱۹ام هایلایت می‌شود)، `timeZone` را روی منطقهٔ زمانی محلی کاربر تنظیم کنید.
 
-**Why client-side?** The timezone is detected using `Intl.DateTimeFormat().resolvedOptions().timeZone` inside a `useEffect` to ensure compatibility with server-side rendering. Detecting the timezone during render would cause hydration mismatches, as the server and client may be in different timezones.
+**چرا سمت کلاینت؟** منطقهٔ زمانی با `Intl.DateTimeFormat().resolvedOptions().timeZone` داخل `useEffect` خوانده می‌شود تا با SSR سازگار باشد. تشخیص منطقهٔ زمانی هنگام رندر می‌تواند باعث ناسازگاری هیدراته شود، چون منطقهٔ زمانی سرور و کلاینت ممکن است متفاوت باشد.
 
-## Basic
+</DocsCollapsible>
 
-A basic calendar component. We used `className="rounded-lg border"` to style the calendar.
+<div className="hidden">
+
+## ساده
+
+</div>
+
+<DocsCollapsible title="ساده">
+
+یک تقویم ساده با استایل `className="rounded-lg border"`.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-basic"
-  previewClassName="h-96"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Range Calendar
+</DocsCollapsible>
 
-Use the `mode="range"` prop to enable range selection.
+<div className="hidden">
+
+## بازه
+
+</div>
+
+<DocsCollapsible title="بازه">
+
+با `mode="range"` می‌توانید انتخاب یک بازهٔ تاریخی را فعال کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-range"
-  previewClassName="h-[36rem] md:h-96"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Month and Year Selector
+</DocsCollapsible>
 
-Use `captionLayout="dropdown"` to show month and year dropdowns.
+<div className="hidden">
+
+## ماه و سال
+
+</div>
+
+<DocsCollapsible title="ماه و سال">
+
+با `captionLayout="dropdown"` منوی کشویی ماه و سال را نشان دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-caption"
-  previewClassName="h-96"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Presets
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پیش‌فرض‌ها
+
+</div>
+
+<DocsCollapsible title="پیش‌فرض‌ها">
+
+با دکمه‌های ازپیش‌تعریف‌شده می‌توانید سریع به امروز، فردا یا چند روز بعد بروید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-presets"
-  previewClassName="h-[650px]"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Date and Time Picker
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تاریخ و زمان
+
+</div>
+
+<DocsCollapsible title="تاریخ و زمان">
+
+تقویم را با ورودی زمان ترکیب کنید تا انتخاب تاریخ و ساعت داشته باشید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-time"
-  previewClassName="h-[600px]"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Booked dates
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تاریخ‌های رزروشده
+
+</div>
+
+<DocsCollapsible title="تاریخ‌های رزروشده">
+
+با `disabled` و `modifiers` می‌توانید تاریخ‌های رزروشده را غیرفعال و متمایز کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-booked-dates"
-  previewClassName="h-96"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
 />
 
-## Custom Cell Size
+</DocsCollapsible>
 
-<ComponentPreview
-  styleName="base-nova"
-  name="calendar-custom-days"
-  title="Custom Cell Size"
-  description="A calendar with custom cell size that's responsive."
-  className="**:[.preview]:h-[560px]"
-/>
+<div className="hidden">
 
-You can customize the size of calendar cells using the `--cell-size` CSS variable. You can also make it responsive by using breakpoint-specific values:
+## اندازه سلول
+
+</div>
+
+<DocsCollapsible title="اندازه سلول">
+
+اندازهٔ سلول‌ها را با متغیر CSS به نام `--cell-size` تنظیم کنید. می‌توانید برای breakpointها مقدار جداگانه بگذارید:
 
 ```tsx showLineNumbers
 <Calendar
@@ -208,7 +303,7 @@ You can customize the size of calendar cells using the `--cell-size` CSS variabl
 />
 ```
 
-Or use fixed values:
+یا از مقادیر ثابت استفاده کنید:
 
 ```tsx showLineNumbers
 <Calendar
@@ -219,58 +314,63 @@ Or use fixed values:
 />
 ```
 
-## Week Numbers
+<ComponentPreview
+  styleName="base-nova"
+  name="calendar-custom-days"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+  direction="rtl"
+/>
 
-Use `showWeekNumber` to show week numbers.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## شماره هفته
+
+</div>
+
+<DocsCollapsible title="شماره هفته">
+
+با `showWeekNumber` شمارهٔ هفته‌ها را نشان دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="calendar-week-numbers"
-  previewClassName="h-96"
-/>
-
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
-
-See also the [Hijri Guide](#persian--hijri--jalali-calendar) for enabling the Persian / Hijri / Jalali calendar.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="calendar-rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
   direction="rtl"
-  previewClassName="h-96"
 />
 
-When using RTL, import the locale from `react-day-picker/locale` and pass both the `locale` and `dir` props to the Calendar component:
+</DocsCollapsible>
 
-```tsx showLineNumbers
-import { arSA } from "react-day-picker/locale"
+<div className="hidden">
 
-;<Calendar
-  mode="single"
-  selected={date}
-  onSelect={setDate}
-  locale={arSA}
-  dir="rtl"
-/>
-```
+## مرجع API
 
-## API Reference
+</div>
 
-See the [React DayPicker](https://react-day-picker.js.org) documentation for more information on the `Calendar` component.
+<DocsCollapsible title="مرجع API">
 
-## Changelog
+برای جزئیات API کامپوننت `Calendar`، مستندات [React DayPicker](https://react-day-picker.js.org) را ببینید.
 
-### RTL Support
+</DocsCollapsible>
 
-If you're upgrading from a previous version of the `Calendar` component, you'll need to apply the following updates to add locale support:
+<div className="hidden">
+
+## تغییرات
+
+</div>
+
+<DocsCollapsible title="تغییرات">
+
+### پشتیبانی RTL
+
+اگر از نسخهٔ قبلی `Calendar` ارتقا می‌دهید، برای پشتیبانی از locale این به‌روزرسانی‌ها را اعمال کنید:
 
 <Steps>
 
-<Step>Import the `Locale` type.</Step>
+<Step>نوع `Locale` را import کنید.</Step>
 
-Add `Locale` to your imports from `react-day-picker`:
+`Locale` را به importهای `react-day-picker` اضافه کنید:
 
 ```diff
   import {
@@ -281,9 +381,7 @@ Add `Locale` to your imports from `react-day-picker`:
   } from "react-day-picker"
 ```
 
-<Step>Add `locale` prop to the Calendar component.</Step>
-
-Add the `locale` prop to the component's props:
+<Step>prop به نام `locale` را به `Calendar` اضافه کنید.</Step>
 
 ```diff
   function Calendar({
@@ -301,9 +399,7 @@ Add the `locale` prop to the component's props:
   }) {
 ```
 
-<Step>Pass `locale` to DayPicker.</Step>
-
-Pass the `locale` prop to the `DayPicker` component:
+<Step>`locale` را به `DayPicker` بدهید.</Step>
 
 ```diff
     <DayPicker
@@ -319,9 +415,7 @@ Pass the `locale` prop to the `DayPicker` component:
       }}
 ```
 
-<Step>Update CalendarDayButton to accept locale.</Step>
-
-Update the `CalendarDayButton` component signature and pass `locale`:
+<Step>در `CalendarDayButton` مقدار `locale` را بپذیرید.</Step>
 
 ```diff
   function CalendarDayButton({
@@ -334,9 +428,7 @@ Update the `CalendarDayButton` component signature and pass `locale`:
 + }: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
 ```
 
-<Step>Update date formatting in CalendarDayButton.</Step>
-
-Use `locale?.code` in the date formatting:
+<Step>فرمت تاریخ را در `CalendarDayButton` به‌روز کنید.</Step>
 
 ```diff
     <Button
@@ -348,9 +440,7 @@ Use `locale?.code` in the date formatting:
     />
 ```
 
-<Step>Pass locale to DayButton component.</Step>
-
-Update the `DayButton` component usage to pass the `locale` prop:
+<Step>`locale` را به `DayButton` پاس دهید.</Step>
 
 ```diff
       components={{
@@ -363,9 +453,7 @@ Update the `DayButton` component usage to pass the `locale` prop:
       }}
 ```
 
-<Step>Update RTL-aware CSS classes.</Step>
-
-Replace directional classes with logical properties for better RTL support:
+<Step>کلاس‌های CSS را برای RTL با خاصیت‌های منطقی به‌روز کنید.</Step>
 
 ```diff
   // In the day classNames:
@@ -393,10 +481,10 @@ Replace directional classes with logical properties for better RTL support:
 
 </Steps>
 
-After applying these changes, you can use the `locale` prop to provide locale-specific formatting:
+بعد از این تغییرات، تقویم شمسی FarsiUI از `react-day-picker/persian` استفاده می‌کند و به‌صورت پیش‌فرض راست‌به‌چپ است.
 
 ```tsx
-import { enUS } from "react-day-picker/locale"
-
-;<Calendar mode="single" selected={date} onSelect={setDate} locale={enUS} />
+<Calendar mode="single" selected={date} onSelect={setDate} />
 ```
+
+</DocsCollapsible>

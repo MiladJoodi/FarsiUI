@@ -4,6 +4,7 @@ import Link from "next/link"
 import { cn } from "cn"
 
 import { source } from "@/lib/source"
+import { PERSIAN_RUN } from "@/lib/rehype-code-fa"
 import { Callout } from "@/components/callout"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
@@ -228,6 +229,7 @@ export const mdxComponents = {
     __yarn__,
     __pnpm__,
     __bun__,
+    children,
     ...props
   }: React.ComponentProps<"code"> & {
     __raw__?: string
@@ -238,7 +240,34 @@ export const mdxComponents = {
     __bun__?: string
   }) => {
     // Inline Code.
-    if (typeof props.children === "string") {
+    if (typeof children === "string") {
+      const text = children
+      PERSIAN_RUN.lastIndex = 0
+      const hasPersian = PERSIAN_RUN.test(text)
+      PERSIAN_RUN.lastIndex = 0
+
+      let content: React.ReactNode = text
+      if (hasPersian) {
+        const parts: React.ReactNode[] = []
+        let lastIndex = 0
+        for (const match of text.matchAll(PERSIAN_RUN)) {
+          const start = match.index ?? 0
+          if (start > lastIndex) {
+            parts.push(text.slice(lastIndex, start))
+          }
+          parts.push(
+            <span key={`${start}-${match[0]}`} className="code-fa">
+              {match[0]}
+            </span>
+          )
+          lastIndex = start + match[0].length
+        }
+        if (lastIndex < text.length) {
+          parts.push(text.slice(lastIndex))
+        }
+        content = parts
+      }
+
       return (
         <code
           className={cn(
@@ -246,7 +275,9 @@ export const mdxComponents = {
             className
           )}
           {...props}
-        />
+        >
+          {content}
+        </code>
       )
     }
 
@@ -267,7 +298,7 @@ export const mdxComponents = {
     return (
       <>
         {__raw__ && <CopyButton value={__raw__} src={__src__} />}
-        <code {...props} />
+        <code {...props}>{children}</code>
       </>
     )
   },

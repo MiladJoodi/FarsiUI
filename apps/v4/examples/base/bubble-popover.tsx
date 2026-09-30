@@ -1,3 +1,5 @@
+"use client"
+
 import { InfoIcon } from "lucide-react"
 
 import {
@@ -15,14 +17,14 @@ import {
   PopoverTrigger,
 } from "@/styles/base-rhea/ui/popover"
 
-export function BubblePopoverDemo() {
+export default function BubblePopoverDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-4 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-4 py-4">
       <Bubble align="end">
-        <BubbleContent>Run the build script.</BubbleContent>
+        <BubbleContent>اسکریپت بیلد رو اجرا کن.</BubbleContent>
       </Bubble>
       <Bubble variant="destructive">
-        <BubbleContent>Failed to run the command.</BubbleContent>
+        <BubbleContent>اجرای دستور ناموفق بود.</BubbleContent>
         <BubbleReactions>
           <Popover>
             <PopoverTrigger
@@ -30,7 +32,7 @@ export function BubblePopoverDemo() {
                 <Button
                   variant="ghost"
                   size="icon-xs"
-                  aria-label="Show error details"
+                  aria-label="نمایش جزئیات خطا"
                   className="aria-expanded:text-destructive"
                 />
               }
@@ -40,10 +42,10 @@ export function BubblePopoverDemo() {
             <PopoverContent>
               <PopoverHeader>
                 <PopoverTitle className="text-sm">
-                  Command failed with exit code 1
+                  دستور با کد خروجی ۱ شکست خورد
                 </PopoverTitle>
                 <PopoverDescription className="text-sm">
-                  ENOENT: no such file or directory, open pnpm-lock.yaml
+                  ENOENT: چنین فایل یا پوشه‌ای وجود ندارد، open pnpm-lock.yaml
                 </PopoverDescription>
               </PopoverHeader>
             </PopoverContent>

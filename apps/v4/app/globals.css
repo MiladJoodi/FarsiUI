@@ -345,7 +345,8 @@
   }
 
   /* Persian / Arabic runs inside highlighted code (see wrapPersianTextInCodeHtml). */
-  [data-rehype-pretty-code-figure] code span.code-fa {
+  [data-rehype-pretty-code-figure] code span.code-fa,
+  :not(pre) > code span.code-fa {
     font-family: var(--font-sans) !important;
   }
 

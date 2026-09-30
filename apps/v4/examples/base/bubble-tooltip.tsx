@@ -1,3 +1,5 @@
+"use client"
+
 import { CheckIcon } from "lucide-react"
 
 import {
@@ -12,20 +14,22 @@ import {
   TooltipTrigger,
 } from "@/styles/base-rhea/ui/tooltip"
 
-export function BubbleTooltipDemo() {
+export default function BubbleTooltipDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-4 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-4 py-4">
       <Bubble variant="secondary">
-        <BubbleContent>Did you remove the stale route?</BubbleContent>
+        <BubbleContent>مسیر قدیمی رو حذف کردی؟</BubbleContent>
       </Bubble>
       <Bubble align="end">
-        <BubbleContent>Yes, removed it from the registry.</BubbleContent>
+        <BubbleContent>آره، از رجیستری حذفش کردم.</BubbleContent>
         <BubbleReactions>
           <Tooltip>
             <TooltipTrigger render={<Button variant="ghost" size="icon-xs" />}>
               <CheckIcon />
             </TooltipTrigger>
-            <TooltipContent>Read on Jan 5, 2026 at 4:32 PM</TooltipContent>
+            <TooltipContent>
+              خوانده‌شده در ۱۵ دی ۱۴۰۴، ساعت ۱۶:۳۲
+            </TooltipContent>
           </Tooltip>
         </BubbleReactions>
       </Bubble>

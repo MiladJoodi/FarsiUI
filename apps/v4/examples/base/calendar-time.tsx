@@ -12,7 +12,66 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function CalendarWithTime() {
+function toPersianDigits(value: string) {
+  return value.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
+function toLatinDigits(value: string) {
+  return value.replace(/[۰-۹]/g, (digit) =>
+    String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit))
+  )
+}
+
+function TimeField({
+  id,
+  label,
+  defaultValue,
+}: {
+  id: string
+  label: string
+  defaultValue: string
+}) {
+  const reactId = React.useId()
+  const inputId = `${id}-${reactId}`
+  const [value, setValue] = React.useState(() => toPersianDigits(defaultValue))
+
+  return (
+    <Field>
+      <FieldLabel htmlFor={inputId}>{label}</FieldLabel>
+      <InputGroup>
+        <InputGroupInput
+          id={inputId}
+          type="text"
+          inputMode="numeric"
+          dir="ltr"
+          lang="fa"
+          autoComplete="off"
+          placeholder="۰۰:۰۰:۰۰"
+          value={value}
+          onChange={(event) => {
+            const next = toLatinDigits(event.target.value)
+              .replace(/[^\d:]/g, "")
+              .slice(0, 8)
+            setValue(toPersianDigits(next))
+          }}
+          onBlur={() => {
+            const [h = "00", m = "00", s = "00"] = toLatinDigits(value).split(":")
+            setValue(
+              toPersianDigits(
+                `${h.padStart(2, "0").slice(0, 2)}:${m.padStart(2, "0").slice(0, 2)}:${s.padStart(2, "0").slice(0, 2)}`
+              )
+            )
+          }}
+        />
+        <InputGroupAddon>
+          <Clock2Icon className="text-muted-foreground" />
+        </InputGroupAddon>
+      </InputGroup>
+    </Field>
+  )
+}
+
+export default function CalendarWithTime() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), new Date().getMonth(), 12)
   )
@@ -29,36 +88,8 @@ export function CalendarWithTime() {
       </CardContent>
       <CardFooter className="border-t bg-card">
         <FieldGroup>
-          <Field>
-            <FieldLabel htmlFor="time-from">Start Time</FieldLabel>
-            <InputGroup>
-              <InputGroupInput
-                id="time-from"
-                type="time"
-                step="1"
-                defaultValue="10:30:00"
-                className="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
-              />
-              <InputGroupAddon>
-                <Clock2Icon className="text-muted-foreground" />
-              </InputGroupAddon>
-            </InputGroup>
-          </Field>
-          <Field>
-            <FieldLabel htmlFor="time-to">End Time</FieldLabel>
-            <InputGroup>
-              <InputGroupInput
-                id="time-to"
-                type="time"
-                step="1"
-                defaultValue="12:30:00"
-                className="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
-              />
-              <InputGroupAddon>
-                <Clock2Icon className="text-muted-foreground" />
-              </InputGroupAddon>
-            </InputGroup>
-          </Field>
+          <TimeField id="time-from" label="ساعت شروع" defaultValue="10:30:00" />
+          <TimeField id="time-to" label="ساعت پایان" defaultValue="12:30:00" />
         </FieldGroup>
       </CardFooter>
     </Card>

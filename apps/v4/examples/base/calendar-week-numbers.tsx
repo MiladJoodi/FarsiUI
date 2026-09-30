@@ -5,7 +5,7 @@ import * as React from "react"
 import { Calendar } from "@/styles/base-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/base-nova/ui/card"
 
-export function CalendarWeekNumbers() {
+export default function CalendarWeekNumbers() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), 0, 12)
   )

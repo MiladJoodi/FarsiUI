@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Bubble,
   BubbleContent,
@@ -5,42 +7,41 @@ import {
   BubbleReactions,
 } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleDemo() {
+export default function BubbleDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble align="end">
-        <BubbleContent>Hey there! what&apos;s up?</BubbleContent>
+        <BubbleContent>سلام! چه خبر؟</BubbleContent>
       </Bubble>
       <BubbleGroup>
         <Bubble variant="muted">
-          <BubbleContent>Hey! Want to see chat bubbles?</BubbleContent>
+          <BubbleContent>سلام! می‌خوای حباب‌های چت رو ببینی؟</BubbleContent>
         </Bubble>
         <Bubble variant="muted">
           <BubbleContent>
-            I can group messages, switch sides, and keep the whole thread easy
-            to scan.
+            می‌تونم پیام‌ها رو گروه‌بندی کنم، جای فرستنده رو تغییر بدم و گفتگو رو
+            مرتب و خوانا نگه دارم.
           </BubbleContent>
-          <BubbleReactions role="img" aria-label="Reaction: thumbs up">
+          <BubbleReactions role="img" aria-label="واکنش: پسند">
             <span>👍</span>
           </BubbleReactions>
         </Bubble>
       </BubbleGroup>
       <Bubble align="end">
-        <BubbleContent>Sure. Hit me with your best demo.</BubbleContent>
+        <BubbleContent>باشه، بهترین دمو رو نشون بده.</BubbleContent>
       </Bubble>
       <Bubble variant="muted">
         <BubbleContent>
-          Yes. You are reading a demo that is demoing itself. Very meta. Very
-          on-brand.
+          آره، داری دمویی رو می‌بینی که خودش رو نمایش می‌ده!
         </BubbleContent>
         <BubbleReactions
           role="img"
-          aria-label="Reactions: thumbs up, fire, eyes, and 2 more"
+          aria-label="واکنش‌ها: پسند، آتش، چشم و ۲ مورد دیگر"
         >
           <span>👍</span>
           <span>🔥</span>
           <span>👀</span>
-          <span>+2</span>
+          <span>+۲</span>
         </BubbleReactions>
       </Bubble>
     </div>

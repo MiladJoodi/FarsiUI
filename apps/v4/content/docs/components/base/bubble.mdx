@@ -1,32 +1,39 @@
 ---
-title: Bubble
-description: Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content.
+title: حباب (Bubble)
+description: نمایش محتوای گفتگو در قالب حباب پیام. از واریانت، تراز، گروه‌بندی، واکنش‌ها و محتوای جمع‌شونده پشتیبانی می‌کند.
+featured: true
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-rhea"
-  name="bubble-demo"
-  previewClassName="h-auto theme-blue"
+  layout="switcher"
+  examples={[
+    { name: "bubble-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "bubble-variants", label: "ظاهر", sizeable: false },
+    { name: "bubble-alignment", label: "تراز", sizeable: false },
+    { name: "bubble-group-demo", label: "گروه", sizeable: false },
+    { name: "bubble-link-button", label: "لینک و دکمه", sizeable: false },
+    { name: "bubble-reactions", label: "واکنش‌ها", sizeable: false },
+    { name: "bubble-collapsible", label: "جمع‌شونده", sizeable: false },
+    { name: "bubble-tooltip", label: "راهنما", sizeable: false },
+    { name: "bubble-popover", label: "پاپ‌اور", sizeable: false },
+  ]}
 />
 
-The `Bubble` component displays framed conversational content. Use it for chat text, short structured output, quoted replies, suggestions, and reactions.
-
-For full-featured chat interfaces, use the [`Message`](/docs/components/message) component. `Bubble` is intentionally scoped to the bubble surface. Place avatars, names, timestamps, metadata, and message-level actions in [`Message`](/docs/components/message).
-
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add bubble
+npx farsiui@latest add bubble
 ```
 
 </TabsContent>
@@ -35,7 +42,7 @@ npx shadcn@latest add bubble
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="bubble"
@@ -43,7 +50,7 @@ npx shadcn@latest add bubble
   styleName="base-rhea"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -51,7 +58,7 @@ npx shadcn@latest add bubble
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Bubble, BubbleContent, BubbleReactions } from "@/components/ui/bubble"
@@ -60,7 +67,7 @@ import { Bubble, BubbleContent, BubbleReactions } from "@/components/ui/bubble"
 ```tsx showLineNumbers
 <Bubble>
   <BubbleContent>
-    I checked the registry output and removed the stale route.
+    خروجی رجیستری را بررسی کردم و مسیر قدیمی را حذف کردم.
   </BubbleContent>
   <BubbleReactions>
     <span>👍</span>
@@ -68,9 +75,21 @@ import { Bubble, BubbleContent, BubbleReactions } from "@/components/ui/bubble"
 </Bubble>
 ```
 
-## Composition
+کامپوننت `Bubble` محتوای گفتگو را داخل یک قاب نمایش می‌دهد و برای متن چت، خروجی‌های کوتاه و ساختاریافته، نقل‌قول، پیشنهاد و واکنش مناسب است.
 
-Use the following composition to build a bubble:
+برای رابط‌های کامل چت، از کامپوننت [`پیام`](/docs/components/message) استفاده کنید. `Bubble` فقط خود حباب پیام را نمایش می‌دهد؛ آواتار، نام، زمان، متادیتا و اکشن‌های پیام را داخل [`پیام`](/docs/components/message) قرار دهید.
+
+<div className="hidden">
+
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Bubble`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
+
+<div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
 ```text
 Bubble
@@ -78,7 +97,7 @@ Bubble
 └── BubbleReactions
 ```
 
-Use `BubbleGroup` to group consecutive bubbles from the same sender:
+با `BubbleGroup` می‌توانید حباب‌های پشت‌سرهم یک فرستنده را گروه‌بندی کنید:
 
 ```text
 BubbleGroup
@@ -88,80 +107,162 @@ BubbleGroup
     └── BubbleContent
 ```
 
-## Features
+</div>
 
-- Seven visual variants, from a strong primary bubble to unframed ghost content
-- Start and end alignment for sender and receiver bubbles
-- Reactions that anchor to the bubble edge with configurable side and alignment
-- Bubbles size to their content, up to 80% of the container width
-- Polymorphic content via `render` for link and button bubbles
-- Customizable styling through the `className` prop on every part
+</DocsCollapsible>
 
-## Variants
+<div className="hidden">
 
-Use `variant` to change the visual treatment of the bubble.
+## ظاهر
+
+</div>
+
+<DocsCollapsible title="ظاهر">
+
+با prop به نام `variant` می‌توانید ظاهر حباب را تغییر دهید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-variants"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-| Variant       | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| `default`     | A strong primary bubble, usually for the current user. |
-| `secondary`   | The standard neutral bubble for conversation content.  |
-| `muted`       | A lower-emphasis bubble for quiet supporting content.  |
-| `tinted`      | A subtle primary-tinted bubble.                        |
-| `outline`     | A bordered bubble for secondary or rich content.       |
-| `ghost`       | Unframed content for assistant text or rich content.   |
-| `destructive` | A destructive bubble for error or failed actions.      |
+<div
+  data-not-typeset
+  className="my-4 divide-y overflow-hidden rounded-xl border text-sm"
+>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      default
+    </code>
+    <span className="text-muted-foreground">
+      حباب اصلی و پررنگ؛ معمولاً برای کاربر جاری.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      secondary
+    </code>
+    <span className="text-muted-foreground">
+      حباب خنثی برای محتوای گفتگو.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      muted
+    </code>
+    <span className="text-muted-foreground">
+      حباب کم‌رنگ‌تر برای محتوای پشتیبان.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      tinted
+    </code>
+    <span className="text-muted-foreground">
+      حباب با ته‌رنگ ملایم از رنگ اصلی.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      outline
+    </code>
+    <span className="text-muted-foreground">
+      حباب حاشیه‌دار برای محتوای ثانویه یا غنی.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      ghost
+    </code>
+    <span className="text-muted-foreground">
+      بدون قاب؛ مناسب متن دستیار یا محتوای غنی.
+    </span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      destructive
+    </code>
+    <span className="text-muted-foreground">
+      حباب خطرناک برای خطا یا عملیات ناموفق.
+    </span>
+  </div>
+</div>
 
-A bubble sizes to its content, up to 80% of the container width. The `ghost` variant removes the max-width so assistant text and rich content can span the full row.
+حباب حداکثر تا ۸۰٪ عرض ظرف را می‌گیرد و به اندازه محتوا کش می‌آید. واریانت `ghost` این محدودیت را ندارد و می‌تواند تمام عرض ردیف را بگیرد.
 
-## Alignment
+</DocsCollapsible>
 
-Use `align` on `Bubble` to align the bubble to the start or end of the conversation.
+<div className="hidden">
+
+## تراز
+
+</div>
+
+<DocsCollapsible title="تراز">
+
+با prop به نام `align` روی `Bubble` می‌توانید حباب را به ابتدا یا انتهای گفتگو تراز کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-alignment"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-| align   | Description                                        |
-| ------- | -------------------------------------------------- |
-| `start` | Align the bubble to the start of the conversation. |
-| `end`   | Align the bubble to the end of the conversation.   |
+<div
+  data-not-typeset
+  className="my-4 divide-y overflow-hidden rounded-xl border text-sm"
+>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      start
+    </code>
+    <span className="text-muted-foreground">تراز به ابتدای گفتگو.</span>
+  </div>
+  <div className="flex gap-4 px-4 py-3">
+    <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
+      end
+    </code>
+    <span className="text-muted-foreground">تراز به انتهای گفتگو.</span>
+  </div>
+</div>
 
-**Note:** When building chat interfaces, you probably want to use alignment on the `Message` component itself, not the `Bubble` component. You can use the `role` prop on the `Message` component to automatically align the bubble to the start or end of the conversation.
+**نکته:** در رابط چت معمولاً تراز را روی خود `Message` تنظیم کنید، نه روی `Bubble`. با prop به نام `role` روی `Message` می‌توانید تراز را خودکار کنید.
 
-## Bubble Group
+</DocsCollapsible>
 
-Use `BubbleGroup` to group consecutive bubbles from the same sender. Note the `align` prop should be set on the `Bubble` component itself, not the `BubbleGroup` component.
+<div className="hidden">
 
-```text
-BubbleGroup
-├── Bubble
-│   └── BubbleContent
-└── Bubble
-    └── BubbleContent
-```
+## گروه
+
+</div>
+
+<DocsCollapsible title="گروه">
+
+با `BubbleGroup` حباب‌های پشت‌سرهم یک فرستنده را گروه‌بندی کنید. prop به نام `align` را روی خود `Bubble` بگذارید، نه روی `BubbleGroup`.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-group-demo"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Links and Buttons
+</DocsCollapsible>
 
-You can turn a bubble into a link or button by using the `render` prop on `BubbleContent`.
+<div className="hidden">
+
+## لینک و دکمه
+
+</div>
+
+<DocsCollapsible title="لینک و دکمه">
+
+با prop به نام `render` روی `BubbleContent` می‌توانید حباب را به لینک یا دکمه تبدیل کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-link-button"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
 ```tsx showLineNumbers
@@ -170,129 +271,215 @@ import { Bubble, BubbleContent } from "@/components/ui/bubble"
 export function BubbleLinkDemo() {
   return (
     <Bubble variant="muted">
-      <BubbleContent render={<button />}>Click here</BubbleContent>
+      <BubbleContent render={<button />}>اینجا کلیک کنید</BubbleContent>
     </Bubble>
   )
 }
 ```
 
-## Reactions
+</DocsCollapsible>
 
-Use `BubbleReactions` for bubble reactions. You can use it to display reactions or quick action buttons. Use `side` and `align` to position the row — `side="top"` anchors it to the upper edge. Reactions overlap the bubble edge, so leave vertical space between rows — the examples below use a larger `gap` for this reason.
+<div className="hidden">
+
+## واکنش‌ها
+
+</div>
+
+<DocsCollapsible title="واکنش‌ها">
+
+برای نمایش واکنش یا دکمه‌های سریع از `BubbleReactions` استفاده کنید. با `side` و `align` می‌توانید موقعیت ردیف را تنظیم کنید؛ `side="top"` آن را به لبه بالایی می‌چسباند. واکنش‌ها روی لبه حباب قرار می‌گیرند، بنابراین بین ردیف‌ها فاصلهٔ عمودی ایجاد کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-reactions"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Show More / Collapsible
+</DocsCollapsible>
 
-Long bubble content can be composed with [`Collapsible`](/docs/components/collapsible) to allow for a show more or show less interaction. Use the `CollapsibleTrigger` component to trigger the collapsible content.
+<div className="hidden">
+
+## جمع‌شونده
+
+</div>
+
+<DocsCollapsible title="جمع‌شونده">
+
+برای محتوای طولانی می‌توانید آن را با [`Collapsible`](/docs/components/collapsible) ترکیب کنید تا امکان «نمایش بیشتر / کمتر» را فراهم کنید. برای باز و بسته کردن محتوا از `CollapsibleTrigger` استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-collapsible"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Tooltip
+</DocsCollapsible>
 
-Wrap a bubble in a [`Tooltip`](/docs/components/tooltip) to reveal metadata on hover, such as when a message was read.
+<div className="hidden">
+
+## راهنما
+
+</div>
+
+<DocsCollapsible title="راهنما">
+
+حباب را داخل [`Tooltip`](/docs/components/tooltip) بگذارید تا با هاور متادیتا نشان داده شود؛ مثلاً زمان خوانده‌شدن پیام.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-tooltip"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Popover
+</DocsCollapsible>
 
-Pair a bubble with a [`Popover`](/docs/components/popover) to surface more information on demand, such as the full error message for a failed action.
+<div className="hidden">
+
+## پاپ‌اور
+
+</div>
+
+<DocsCollapsible title="پاپ‌اور">
+
+حباب را با [`Popover`](/docs/components/popover) ترکیب کنید تا جزئیات بیشتر، مثل متن کامل خطا، در دسترس باشد.
 
 <ComponentPreview
   styleName="base-rhea"
   name="bubble-popover"
-  previewClassName="h-auto theme-blue"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Accessibility
+</DocsCollapsible>
 
-`Bubble` renders the presentational message surface. Keep conversation-level semantics on the surrounding container and follow the guidelines below.
+<div className="hidden">
 
-### Labeling Reactions
+## دسترس‌پذیری
 
-Reactions render as a row of emoji. A screen reader reads each glyph with no context, and counters like `+8` are announced as "plus eight". Group the row as a single image with a descriptive `aria-label` so it announces once. `role="img"` also hides the individual emoji from assistive tech, so no `aria-hidden` is needed.
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+`Bubble` سطح بصری پیام را رندر می‌کند. معناشناسی سطح گفتگو را روی ظرف اطراف نگه دارید و راهنمای زیر را رعایت کنید.
+
+### برچسب‌گذاری واکنش‌ها
+
+واکنش‌ها به‌صورت ردیفی از ایموجی نمایش داده می‌شوند. صفحه‌خوان هر نماد را بدون زمینه می‌خواند و شمارنده‌هایی مثل `+۸` را «به‌علاوه هشت» اعلام می‌کند. ردیف را با `role="img"` و یک `aria-label` توصیفی گروه‌بندی کنید تا یک‌بار اعلام شود.
+
+<div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
 ```tsx showLineNumbers
-<BubbleReactions role="img" aria-label="Reactions: thumbs up, fire, and 8 more">
+<BubbleReactions role="img" aria-label="واکنش‌ها: پسند، آتش و ۸ مورد دیگر">
   <span>👍</span>
   <span>🔥</span>
-  <span>+8</span>
+  <span>+۸</span>
 </BubbleReactions>
 ```
 
-When reactions are interactive, render buttons instead and give icon-only buttons an `aria-label`.
+اگر واکنش‌ها تعاملی‌اند، به‌جای آن دکمه بگذارید و برای دکمه‌های فقط‌آیکون `aria-label` تنظیم کنید.
 
 ```tsx showLineNumbers
 <BubbleReactions>
-  <Button aria-label="Thumbs up" variant="secondary" size="icon-xs">
+  <Button aria-label="پسندیدن" variant="secondary" size="icon-xs">
     <ThumbsUpIcon />
   </Button>
 </BubbleReactions>
 ```
 
-### Interactive Bubbles
+</div>
+### حباب‌های تعاملی
 
-When a bubble is clickable, render it as a real `<button>` or `<a>` with the `render` prop so it is focusable and exposes the correct role. `BubbleContent` ships a visible focus ring for interactive elements, and the accessible name comes from the bubble text. No extra label is needed.
+وقتی حباب قابل کلیک است، با prop به نام `render` آن را به‌صورت `<button>` یا `<a>` واقعی رندر کنید تا فوکوس‌پذیر باشد و نقش درست داشته باشد. نام دسترس‌پذیر از متن حباب گرفته می‌شود.
 
 ```tsx showLineNumbers
 <Bubble variant="muted" align="end">
   <BubbleContent render={<button type="button" onClick={onReply} />}>
-    I forgot my password
+    رمز عبورم را فراموش کرده‌ام
   </BubbleContent>
 </Bubble>
 ```
 
-### Meaning Beyond Color
+### معنا فراتر از رنگ
 
-Bubble variants signal role and tone with color. Pair them with text, alignment, or icons so meaning is not conveyed by color alone. For a `destructive` bubble, keep the error context in the message text rather than relying on the color treatment.
+واریانت‌ها نقش و لحن را با رنگ نشان می‌دهند. آن‌ها را با متن، تراز یا آیکون همراه کنید تا معنا فقط با رنگ منتقل نشود. برای حباب `destructive`، زمینه خطا را در متن پیام نگه دارید.
 
-## API Reference
+</DocsCollapsible>
 
-### Bubble
+<div className="hidden">
 
-The root bubble wrapper.
+## مرجع API
 
-| Prop        | Type                                                                                       | Default     | Description                                      |
-| ----------- | ------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------ |
-| `variant`   | `"default" \| "secondary" \| "muted" \| "tinted" \| "outline" \| "ghost" \| "destructive"` | `"default"` | The bubble visual treatment.                     |
-| `align`     | `"start" \| "end"`                                                                         | `"start"`   | The inline alignment of the bubble.              |
-| `className` | `string`                                                                                   | -           | Additional classes to apply to the root element. |
+</div>
 
-### BubbleContent
+<DocsCollapsible title="مرجع API">
 
-The bubble content wrapper.
+<DocsApiProps
+  title="Bubble"
+  description="ظرف اصلی حباب."
+  props={[
+    {
+      name: "variant",
+      defaultValue: "default",
+      description: "ظاهر حباب",
+      values: [
+        "default",
+        "secondary",
+        "muted",
+        "tinted",
+        "outline",
+        "ghost",
+        "destructive",
+      ],
+    },
+    {
+      name: "align",
+      defaultValue: "start",
+      description: "تراز افقی حباب",
+      values: ["start", "end"],
+    },
+  ]}
+/>
 
-| Prop        | Type                       | Default | Description                                               |
-| ----------- | -------------------------- | ------- | --------------------------------------------------------- |
-| `render`    | `ReactElement \| function` | -       | Render the content as a different element such as a link. |
-| `className` | `string`                   | -       | Additional classes to apply to the content element.       |
+<DocsApiProps
+  title="BubbleContent"
+  description="ظرف محتوای داخل حباب."
+  props={[
+    {
+      name: "render",
+      description: "عنصر سفارشی به‌جای عنصر پیش‌فرض، مثل لینک یا دکمه",
+      values: ["React.ReactElement"],
+    },
+  ]}
+/>
 
-### BubbleReactions
+<DocsApiProps
+  title="BubbleReactions"
+  description="نمایش واکنش‌های هم‌پوشان روی لبه حباب."
+  props={[
+    {
+      name: "side",
+      defaultValue: "bottom",
+      description: "لبه حباب برای قرارگیری واکنش‌ها",
+      values: ["top", "bottom"],
+    },
+    {
+      name: "align",
+      defaultValue: "end",
+      description: "تراز افقی ردیف واکنش‌ها",
+      values: ["start", "end"],
+    },
+  ]}
+/>
 
-Displays overlapped reactions for a bubble.
+<DocsApiProps
+  title="BubbleGroup"
+  description="گروه‌بندی حباب‌های پشت‌سرهم یک فرستنده."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type                | Default    | Description                                      |
-| ----------- | ------------------- | ---------- | ------------------------------------------------ |
-| `side`      | `"top" \| "bottom"` | `"bottom"` | The side of the bubble to anchor the reactions.  |
-| `align`     | `"start" \| "end"`  | `"end"`    | The inline alignment of the reactions.           |
-| `className` | `string`            | -          | Additional classes to apply to the reaction row. |
-
-### BubbleGroup
-
-Groups consecutive bubbles from the same sender.
-
-| Prop        | Type     | Default | Description                                    |
-| ----------- | -------- | ------- | ---------------------------------------------- |
-| `className` | `string` | -       | Additional classes to apply to the group root. |
+</DocsCollapsible>

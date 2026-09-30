@@ -7,7 +7,7 @@ import { type DateRange } from "react-day-picker"
 import { Calendar, CalendarDayButton } from "@/styles/base-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/base-nova/ui/card"
 
-export function CalendarCustomDays() {
+export default function CalendarCustomDays() {
   const [range, setRange] = React.useState<DateRange | undefined>({
     from: new Date(new Date().getFullYear(), 11, 8),
     to: addDays(new Date(new Date().getFullYear(), 11, 8), 10),
@@ -26,19 +26,19 @@ export function CalendarCustomDays() {
           className="[--cell-size:--spacing(10)] md:[--cell-size:--spacing(12)]"
           formatters={{
             formatMonthDropdown: (date) => {
-              return date.toLocaleString("default", { month: "long" })
+              return date.toLocaleString("fa-IR-u-ca-persian", { month: "long" })
             },
           }}
           components={{
             DayButton: ({ children, modifiers, day, ...props }) => {
               const isWeekend =
-                day.date.getDay() === 0 || day.date.getDay() === 6
+                day.date.getDay() === 5 || day.date.getDay() === 6
 
               return (
                 <CalendarDayButton day={day} modifiers={modifiers} {...props}>
                   {children}
                   {!modifiers.outside && (
-                    <span>{isWeekend ? "$120" : "$100"}</span>
+                    <span>{isWeekend ? "۱۲۰ ت" : "۱۰۰ ت"}</span>
                   )}
                 </CalendarDayButton>
               )

@@ -7,7 +7,7 @@ import { Button } from "@/styles/base-nova/ui/button"
 import { Calendar } from "@/styles/base-nova/ui/calendar"
 import { Card, CardContent, CardFooter } from "@/styles/base-nova/ui/card"
 
-export function CalendarWithPresets() {
+export default function CalendarWithPresets() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), 1, 12)
   )
@@ -30,11 +30,11 @@ export function CalendarWithPresets() {
       </CardContent>
       <CardFooter className="flex flex-wrap gap-2 border-t">
         {[
-          { label: "Today", value: 0 },
-          { label: "Tomorrow", value: 1 },
-          { label: "In 3 days", value: 3 },
-          { label: "In a week", value: 7 },
-          { label: "In 2 weeks", value: 14 },
+          { label: "امروز", value: 0 },
+          { label: "فردا", value: 1 },
+          { label: "۳ روز دیگر", value: 3 },
+          { label: "یک هفته دیگر", value: 7 },
+          { label: "دو هفته دیگر", value: 14 },
         ].map((preset) => (
           <Button
             key={preset.value}

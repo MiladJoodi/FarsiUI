@@ -1,3 +1,5 @@
+"use client"
+
 import { Markdown } from "@/components/markdown"
 import {
   Bubble,
@@ -5,45 +7,44 @@ import {
   BubbleReactions,
 } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleVariantsDemo() {
+export default function BubbleVariantsDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-12 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-12 py-4">
       <Bubble>
-        <BubbleContent>This is the default primary bubble.</BubbleContent>
+        <BubbleContent>این حباب، حالت پیش‌فرض است.</BubbleContent>
       </Bubble>
       <Bubble variant="secondary" align="end">
-        <BubbleContent>This is the secondary variant.</BubbleContent>
+        <BubbleContent>این واریانت، حالت ثانویه است.</BubbleContent>
       </Bubble>
       <Bubble variant="muted">
         <BubbleContent>
-          This one is muted. It uses a lower emphasis color for the chat bubble.
+          این حالت muted است و برای تأکید کمتر روی حباب گفتگو استفاده می‌شود.
         </BubbleContent>
-        <BubbleReactions role="img" aria-label="Reaction: thumbs up">
+        <BubbleReactions role="img" aria-label="واکنش: پسند">
           <span>👍</span>
         </BubbleReactions>
       </Bubble>
       <Bubble variant="tinted" align="end">
         <BubbleContent>
-          This one is tinted. The tint is a softer color derived from the
-          primary color.
+          این حالت tinted است و ته‌رنگ ملایمی از رنگ اصلی دارد.
         </BubbleContent>
       </Bubble>
       <Bubble variant="outline">
-        <BubbleContent>We can also use an outlined variant.</BubbleContent>
+        <BubbleContent>می‌توانید از واریانت حاشیه‌دار هم استفاده کنید.</BubbleContent>
       </Bubble>
       <Bubble variant="destructive" align="end">
-        <BubbleContent>Or a destructive variant with a reaction.</BubbleContent>
-        <BubbleReactions role="img" aria-label="Reaction: fire">
+        <BubbleContent>یا واریانت خطرناک، همراه با واکنش.</BubbleContent>
+        <BubbleReactions role="img" aria-label="واکنش: آتش">
           <span>🔥</span>
         </BubbleReactions>
       </Bubble>
       <Bubble variant="ghost">
         <BubbleContent>
-          <Markdown>{`Ghost bubbles work for assistant text, **markdown**, and other content that should not be framed.
+          <Markdown>{`حباب‌های ghost برای متن دستیار، **مارک‌داون** و محتوایی مناسب‌اند که نباید قاب داشته باشند.
 
-This is perfect for assistant messages that should not have a frame and can take the full width of the container. You can also render \`code\` in it.
+برای پیام‌های دستیار که باید تمام عرض ظرف را بگیرند، گزینه مناسبی هستند. می‌توانید \`کد\` را هم داخل آن‌ها نمایش دهید.
 
-Ghost bubbles are full width and can take the full width of the container.
+حباب‌های ghost تمام‌عرض هستند و می‌توانند کل ردیف ظرف را دربر بگیرند.
 `}</Markdown>
         </BubbleContent>
       </Bubble>

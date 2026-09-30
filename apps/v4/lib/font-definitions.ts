@@ -14,6 +14,30 @@ export type FontDefinition = {
 
 export const FONT_DEFINITIONS = [
   {
+    name: "estedad",
+    title: "Estedad",
+    type: "sans",
+    family: "'Estedad Variable', sans-serif",
+    registryVariable: "--font-sans",
+    previewVariable: "--font-estedad",
+    provider: "google",
+    import: "Estedad",
+    dependency: "@fontsource-variable/estedad",
+    subsets: ["arabic", "latin"],
+  },
+  {
+    name: "vazirmatn",
+    title: "Vazirmatn",
+    type: "sans",
+    family: "'Vazirmatn', sans-serif",
+    registryVariable: "--font-sans",
+    previewVariable: "--font-vazirmatn",
+    provider: "google",
+    import: "Vazirmatn",
+    dependency: "@fontsource-variable/vazirmatn",
+    subsets: ["arabic", "latin"],
+  },
+  {
     name: "geist",
     title: "Geist",
     type: "sans",

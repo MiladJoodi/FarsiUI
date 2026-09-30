@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Bubble,
   BubbleContent,
@@ -5,30 +7,29 @@ import {
   BubbleReactions,
 } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleGroupDemo() {
+export default function BubbleGroupDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble variant="muted">
-        <BubbleContent>Can you tell me what&apos;s the issue?</BubbleContent>
+        <BubbleContent>می‌تونی بگی مشکل چیه؟</BubbleContent>
       </Bubble>
       <BubbleGroup>
         <Bubble align="end">
-          <BubbleContent>You tell me!</BubbleContent>
+          <BubbleContent>تو بگو!</BubbleContent>
         </Bubble>
         <Bubble align="end">
-          <BubbleContent>It worked yesterday. You broke it!</BubbleContent>
+          <BubbleContent>دیروز کار می‌کرد. تو خرابش کردی!</BubbleContent>
         </Bubble>
         <Bubble align="end">
-          <BubbleContent>Find the bug and fix it.</BubbleContent>
-          <BubbleReactions aria-label="Reactions: eyes" align="start">
+          <BubbleContent>باگ رو پیدا کن و درستش کن.</BubbleContent>
+          <BubbleReactions role="img" aria-label="واکنش: چشم" align="start">
             <span>👀</span>
           </BubbleReactions>
         </Bubble>
       </BubbleGroup>
       <Bubble variant="muted">
         <BubbleContent>
-          Want me to diff yesterday&apos;s you against today&apos;s you?
-          It&apos;s a bit embarrassing.
+          می‌خوای نسخه دیروزت رو با امروزت مقایسه کنم؟ کمی شرمنده‌کننده‌ست.
         </BubbleContent>
       </Bubble>
     </div>
