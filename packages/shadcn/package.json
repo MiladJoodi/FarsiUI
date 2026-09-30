@@ -1,6 +1,6 @@
 {
   "name": "farsiui",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Add FarsiUI components to your apps.",
   "homepage": "https://github.com/MiladJoodi/FarsiUI",
   "publishConfig": {

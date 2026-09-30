@@ -269,8 +269,8 @@
   position: relative;
 
   &::before {
-    content: counter(step);
-    @apply me-2 inline-flex size-6 items-center justify-center rounded-full border-background bg-muted text-center -indent-px font-mono text-sm font-medium;
+    content: counter(step, persian);
+    @apply me-2 inline-flex size-6 items-center justify-center rounded-full border-background bg-muted text-center -indent-px text-sm font-medium;
   }
 
   @media (width >= 768px) {

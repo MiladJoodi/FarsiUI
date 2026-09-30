@@ -364,13 +364,13 @@ export function CalendarWithTimezone() {
 
 ### پشتیبانی RTL
 
-اگر از نسخهٔ قبلی `Calendar` ارتقا می‌دهید، برای پشتیبانی از locale این به‌روزرسانی‌ها را اعمال کنید:
+اگر از نسخهٔ قبلی `Calendar` استفاده می‌کنید، برای پشتیبانی از locale تغییرات زیر را اعمال کنید:
 
 <Steps>
 
-<Step>نوع `Locale` را import کنید.</Step>
+<Step>نوع `Locale` را import کنید</Step>
 
-`Locale` را به importهای `react-day-picker` اضافه کنید:
+نوع `Locale` را به importهای `react-day-picker` اضافه کنید:
 
 ```diff
   import {
@@ -381,7 +381,7 @@ export function CalendarWithTimezone() {
   } from "react-day-picker"
 ```
 
-<Step>prop به نام `locale` را به `Calendar` اضافه کنید.</Step>
+<Step>prop `locale` را به `Calendar` اضافه کنید</Step>
 
 ```diff
   function Calendar({
@@ -399,7 +399,7 @@ export function CalendarWithTimezone() {
   }) {
 ```
 
-<Step>`locale` را به `DayPicker` بدهید.</Step>
+<Step>`locale` را به `DayPicker` بدهید</Step>
 
 ```diff
     <DayPicker
@@ -415,7 +415,7 @@ export function CalendarWithTimezone() {
       }}
 ```
 
-<Step>در `CalendarDayButton` مقدار `locale` را بپذیرید.</Step>
+<Step>`locale` را در `CalendarDayButton` دریافت کنید</Step>
 
 ```diff
   function CalendarDayButton({
@@ -428,7 +428,7 @@ export function CalendarWithTimezone() {
 + }: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
 ```
 
-<Step>فرمت تاریخ را در `CalendarDayButton` به‌روز کنید.</Step>
+<Step>فرمت تاریخ را در `CalendarDayButton` به‌روز کنید</Step>
 
 ```diff
     <Button
@@ -440,7 +440,7 @@ export function CalendarWithTimezone() {
     />
 ```
 
-<Step>`locale` را به `DayButton` پاس دهید.</Step>
+<Step>`locale` را به `DayButton` منتقل کنید</Step>
 
 ```diff
       components={{
@@ -453,37 +453,50 @@ export function CalendarWithTimezone() {
       }}
 ```
 
-<Step>کلاس‌های CSS را برای RTL با خاصیت‌های منطقی به‌روز کنید.</Step>
+<Step>کلاس‌های CSS را برای RTL به‌روز کنید</Step>
+
+در کلاس‌های `day`:
 
 ```diff
-  // In the day classNames:
 - [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)
 + [&:last-child[data-selected=true]_button]:rounded-e-(--cell-radius)
+
 - [&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)
 + [&:nth-child(2)[data-selected=true]_button]:rounded-s-(--cell-radius)
+
 - [&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)
 + [&:first-child[data-selected=true]_button]:rounded-s-(--cell-radius)
+```
 
-  // In range_start classNames:
+در کلاس‌های `range_start`:
+
+```diff
 - rounded-l-(--cell-radius) ... after:right-0
 + rounded-s-(--cell-radius) ... after:end-0
+```
 
-  // In range_end classNames:
+در کلاس‌های `range_end`:
+
+```diff
 - rounded-r-(--cell-radius) ... after:left-0
 + rounded-e-(--cell-radius) ... after:start-0
+```
 
-  // In CalendarDayButton className:
+در کلاس `CalendarDayButton`:
+
+```diff
 - data-[range-end=true]:rounded-r-(--cell-radius)
 + data-[range-end=true]:rounded-e-(--cell-radius)
+
 - data-[range-start=true]:rounded-l-(--cell-radius)
 + data-[range-start=true]:rounded-s-(--cell-radius)
 ```
 
 </Steps>
 
-بعد از این تغییرات، تقویم شمسی FarsiUI از `react-day-picker/persian` استفاده می‌کند و به‌صورت پیش‌فرض راست‌به‌چپ است.
+بعد از این تغییرات، `Calendar` در FarsiUI از `react-day-picker/persian` استفاده می‌کند و به‌صورت پیش‌فرض از تقویم شمسی و چیدمان راست‌به‌چپ پشتیبانی می‌کند.
 
-```tsx
+```tsx showLineNumbers
 <Calendar mode="single" selected={date} onSelect={setDate} />
 ```
 
