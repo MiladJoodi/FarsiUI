@@ -7,15 +7,15 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputDisabled() {
   return (
-    <Field data-disabled>
-      <FieldLabel htmlFor="input-demo-disabled">Email</FieldLabel>
+    <Field data-disabled dir="rtl">
+      <FieldLabel htmlFor="input-demo-disabled">ایمیل</FieldLabel>
       <Input
         id="input-demo-disabled"
         type="email"
-        placeholder="Email"
+        placeholder="ایمیل"
         disabled
       />
-      <FieldDescription>This field is currently disabled.</FieldDescription>
+      <FieldDescription>این فیلد فعلاً غیرفعال است.</FieldDescription>
     </Field>
   )
 }

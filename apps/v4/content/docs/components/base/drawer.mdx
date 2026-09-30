@@ -1,6 +1,6 @@
 ---
-title: Drawer
-description: A drawer component for React.
+title: کشو (Drawer)
+description: کامپوننت کشو برای React.
 base: base
 component: true
 links:
@@ -8,27 +8,38 @@ links:
   api: https://base-ui.com/react/components/drawer#api-reference
 ---
 
-<ComponentPreview styleName="base-rhea" name="drawer-demo" />
+<ComponentVariantPreview
+  styleName="base-rhea"
+  layout="switcher"
+  examples={[
+    { name: "drawer-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "drawer-sides", label: "موقعیت", sizeable: false },
+    { name: "drawer-swipe-handle", label: "دستگیره", sizeable: false },
+    { name: "drawer-nested", label: "تو در تو", sizeable: false },
+    { name: "drawer-non-modal", label: "غیرمودال", sizeable: false },
+    { name: "drawer-snap-points", label: "اسنپ", sizeable: false },
+    { name: "drawer-dialog", label: "ریسپانسیو", sizeable: false },
+  ]}
+/>
 
 <Callout>
-  The drawer component now uses [Base
-  UI](https://base-ui.com/react/components/drawer) instead of Vaul. If you
-  installed the previous version, see the [migration
-  guide](#migrating-from-vaul).
+  کامپوننت کشو الان از [Base
+  UI](https://base-ui.com/react/components/drawer) به‌جای Vaul استفاده می‌کند. اگر
+  نسخهٔ قبلی را نصب کرده‌اید، بخش «مهاجرت از Vaul» را پایین صفحه ببینید.
 </Callout>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add drawer
+npx farsiui@latest add drawer
 ```
 
 </TabsContent>
@@ -37,13 +48,13 @@ npx shadcn@latest add drawer
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="drawer"
@@ -51,7 +62,7 @@ npm install @base-ui/react
   styleName="base-rhea"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -59,7 +70,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-Add the following to your global styles. On iOS Safari, the drawer overlay is absolutely positioned and requires a positioned `body` to cover the viewport after the page is scrolled. See the [Base UI docs](https://base-ui.com/react/overview/quick-start#ios-26-safari) for details.
+این استایل سراسری را اضافه کنید. در iOS Safari پوشش کشو به‌صورت absolute است و برای پوشاندن ویوپورت بعد از اسکرول به `body` موقعیت‌دار نیاز دارد. جزئیات در [مستندات Base UI](https://base-ui.com/react/overview/quick-start#ios-26-safari).
 
 ```css
 body {
@@ -67,7 +78,7 @@ body {
 }
 ```
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -84,24 +95,30 @@ import {
 
 ```tsx showLineNumbers
 <Drawer>
-  <DrawerTrigger render={<Button variant="outline" />}>Open</DrawerTrigger>
+  <DrawerTrigger render={<Button variant="outline" />}>باز کردن</DrawerTrigger>
   <DrawerContent>
     <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+      <DrawerTitle>آیا مطمئن هستید؟</DrawerTitle>
+      <DrawerDescription>این عمل قابل بازگشت نیست.</DrawerDescription>
     </DrawerHeader>
-    <div className="p-4">{/* Content here */}</div>
+    <div className="p-4">{/* محتوا */}</div>
     <DrawerFooter>
-      <Button>Submit</Button>
-      <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
+      <Button>ارسال</Button>
+      <DrawerClose render={<Button variant="outline" />}>انصراف</DrawerClose>
     </DrawerFooter>
   </DrawerContent>
 </Drawer>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Drawer`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Drawer` از این ترکیب استفاده کنید:
 
 ```text
 Drawer
@@ -113,154 +130,238 @@ Drawer
     └── DrawerFooter
 ```
 
-`DrawerContent` composes the portal, overlay, viewport, and popup from Base UI. For lower-level control, `DrawerPortal`, `DrawerOverlay`, and `DrawerSwipeHandle` are also exported.
+`DrawerContent` پورتال، پوشش، ویوپورت و پاپ‌آپ Base UI را ترکیب می‌کند. برای کنترل سطح پایین‌تر، `DrawerPortal`، `DrawerOverlay` و `DrawerSwipeHandle` هم export شده‌اند.
 
-## Custom Sizes
+</DocsCollapsible>
 
-A vertical drawer sizes itself to its content and is capped at `calc(100dvh - 6rem)` by default. A side drawer spans `75%` of the viewport width, or `24rem` on larger screens.
+<div className="hidden">
 
-To customize the height of a vertical drawer, use the `h-*` and `max-h-*` utilities on `DrawerContent`.
+## اندازه‌های سفارشی
+
+</div>
+
+<DocsCollapsible title="اندازه‌های سفارشی">
+
+کشوی عمودی اندازهٔ محتوا را می‌گیرد و سقف پیش‌فرضش `calc(100dvh - 6rem)` است. کشوی کناری ۷۵٪ عرض ویوپورت، یا در صفحهٔ بزرگ‌تر `24rem` است.
+
+ارتفاع کشوی عمودی را با `h-*` و `max-h-*` روی `DrawerContent` تنظیم کنید:
 
 ```tsx
 <DrawerContent className="h-[50vh]">
 ```
 
-To customize the width of a side drawer, use the `w-*` and `max-w-*` utilities on `DrawerContent`.
+عرض کشوی کناری را با `w-*` و `max-w-*` تنظیم کنید:
 
 ```tsx
 <DrawerContent className="w-96">
 ```
 
-When the same component renders in multiple directions, scope an override to one axis using the `data-[swipe-axis=*]` variants.
+اگر همان کامپوننت در چند جهت رندر می‌شود، با واریانت‌های `data-[swipe-axis=*]` فقط یک محور را override کنید:
 
 ```tsx
 <DrawerContent className="data-[swipe-axis=y]:max-h-[50vh] data-[swipe-axis=x]:w-96">
 ```
 
-To make a region of the drawer scrollable, make the scroll container a flex item. Avoid `h-full`, which does not resolve inside a content-sized drawer.
+برای اسکرول، ظرف اسکرول را flex item کنید. از `h-full` پرهیز کنید؛ داخل کشوی content-sized جواب نمی‌دهد.
 
 ```tsx
 <DrawerContent>
   <DrawerHeader>...</DrawerHeader>
-  <div className="flex-1 overflow-y-auto p-4">{/* Scrollable content */}</div>
+  <div className="flex-1 overflow-y-auto p-4">{/* محتوای اسکرول‌شونده */}</div>
   <DrawerFooter>...</DrawerFooter>
 </DrawerContent>
 ```
 
-## Styling
+</DocsCollapsible>
 
-The drawer exposes CSS variables for style-level customization. Set the sizing variables on `DrawerContent`. Set the overlay variable on `[data-slot=drawer-overlay]` in your CSS.
+<div className="hidden">
 
-| Variable                       | Default                | Description                                                             |
-| ------------------------------ | ---------------------- | ----------------------------------------------------------------------- |
-| `--drawer-inset`               | `0px`                  | Floats the drawer from the viewport edges.                              |
-| `--drawer-bleed-background`    | `var(--color-popover)` | Fills the gap behind the drawer on swipe overshoot.                     |
-| `--drawer-overlay-min-opacity` | `0`                    | Minimum overlay opacity. Defaults to `0.5` when snap points are active. |
+## استایل‌دهی
 
-The drawer also sets data attributes you can target with variants such as `data-[swipe-direction=down]:` on `DrawerContent`, or `group-data-[swipe-axis=y]/drawer-popup:` on its descendants.
+</div>
 
-| Attribute                 | Values                        | Set when                              |
-| ------------------------- | ----------------------------- | ------------------------------------- |
-| `data-swipe-direction`    | `up`, `right`, `down`, `left` | Always.                               |
-| `data-swipe-axis`         | `x`, `y`                      | Always.                               |
-| `data-snap-points`        | Present                       | The drawer has snap points.           |
-| `data-expanded`           | Present                       | The drawer is at the full snap point. |
-| `data-swiping`            | Present                       | A swipe is in progress.               |
-| `data-nested-drawer-open` | Present                       | A nested drawer is open on top.       |
+<DocsCollapsible title="استایل‌دهی">
 
-## Position
+کشو متغیرهای CSS برای سفارشی‌سازی دارد. متغیرهای اندازه را روی `DrawerContent` بگذارید. متغیر پوشش را روی `[data-slot=drawer-overlay]` در CSS تنظیم کنید.
 
-Use the `swipeDirection` prop to set the side of the drawer.
+| متغیر | پیش‌فرض | توضیح |
+| --- | --- | --- |
+| `--drawer-inset` | `0px` | فاصلهٔ کشو از لبه‌های ویوپورت |
+| `--drawer-bleed-background` | `var(--color-popover)` | پر کردن شکاف پشت کشو در overshoot |
+| `--drawer-overlay-min-opacity` | `0` | حداقل شفافیت پوشش؛ با اسنپ معمولاً `0.5` |
 
-Available options are `up`, `right`, `down`, and `left`.
+همچنین data attributeهایی دارید که با واریانت‌هایی مثل `data-[swipe-direction=down]:` روی `DrawerContent` یا `group-data-[swipe-axis=y]/drawer-popup:` روی فرزندان هدف می‌گیرید.
 
-<ComponentPreview styleName="base-rhea" name="drawer-sides" />
+| ویژگی | مقادیر | زمان تنظیم |
+| --- | --- | --- |
+| `data-swipe-direction` | `up`, `right`, `down`, `left` | همیشه |
+| `data-swipe-axis` | `x`, `y` | همیشه |
+| `data-snap-points` | حاضر | وقتی اسنپ فعال است |
+| `data-expanded` | حاضر | در نقطهٔ اسنپ کامل |
+| `data-swiping` | حاضر | هنگام کشیدن |
+| `data-nested-drawer-open` | حاضر | وقتی کشوی تو در تو باز است |
 
-## Swipe Handle
+</DocsCollapsible>
 
-Use `showSwipeHandle` on `Drawer` to render a swipe handle.
+<div className="hidden">
 
-<ComponentPreview styleName="base-rhea" name="drawer-swipe-handle" />
+## موقعیت
 
-## Nested
+</div>
 
-Open drawers from inside another drawer. Parent drawers stay mounted and stack behind the frontmost drawer.
+<DocsCollapsible title="موقعیت">
 
-<ComponentPreview styleName="base-rhea" name="drawer-nested" />
+با `swipeDirection` سمت کشو را تنظیم کنید: `up`، `right`، `down`، `left`.
 
-## Non Modal
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-sides"
+  direction="rtl"
+/>
 
-Set `modal={false}` to allow interaction with the rest of the page while the drawer is open. Combine with `disablePointerDismissal` to prevent the drawer from closing on outside presses. Use `modal="trap-focus"` to keep focus inside the drawer while leaving scroll and pointer interaction unrestricted.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-rhea" name="drawer-non-modal" />
+<div className="hidden">
 
-## Snap Points
+## دستگیرهٔ کشیدن
 
-Use `snapPoints` to snap a drawer to preset heights. Numbers between `0` and `1` represent fractions of the viewport. Numbers greater than `1` are treated as pixel values. String values support `px` and `rem` units. Snap points apply to vertical drawers.
+</div>
 
-Track the active snap point with the controlled `snapPoint` and `onSnapPointChange` props. At the full snap point, the drawer gets a `data-expanded` attribute you can style with the `data-expanded:` variant.
+<DocsCollapsible title="دستگیرهٔ کشیدن">
 
-<ComponentPreview styleName="base-rhea" name="drawer-snap-points" />
+با `showSwipeHandle` روی `Drawer` دستگیرهٔ کشیدن نشان داده می‌شود.
 
-## Responsive
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-swipe-handle"
+  direction="rtl"
+/>
 
-You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-rhea" name="drawer-dialog" />
+<div className="hidden">
 
-## Migrating from Vaul
+## تو در تو
 
-The base drawer now uses [Base UI](https://base-ui.com/react/components/drawer)
-instead of Vaul. If you installed the previous base drawer, update your usage
-to the Base UI API.
+</div>
+
+<DocsCollapsible title="تو در تو">
+
+از داخل یک کشو، کشوی دیگری باز کنید. والدها سوار می‌مانند و پشت جلوترین کشو چیده می‌شوند.
+
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-nested"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرمودال
+
+</div>
+
+<DocsCollapsible title="غیرمودال">
+
+با `modal={false}` تعامل با بقیهٔ صفحه هنگام باز بودن کشو ممکن است. با `disablePointerDismissal` از بسته شدن با کلیک بیرون جلوگیری کنید. با `modal="trap-focus"` فوکوس داخل کشو می‌ماند ولی اسکرول و اشاره‌گر آزاد است.
+
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-non-modal"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نقاط اسنپ
+
+</div>
+
+<DocsCollapsible title="نقاط اسنپ">
+
+با `snapPoints` کشو به ارتفاع‌های ازپیش‌تعیین‌شده می‌چسبد. اعداد بین `0` و `1` کسر ویوپورت‌اند؛ بزرگ‌تر از `۱` پیکسل. رشته‌ها `px` و `rem` را می‌پذیرند. اسنپ برای کشوهای عمودی است.
+
+نقطهٔ فعال را با `snapPoint` و `onSnapPointChange` کنترل کنید. در اسنپ کامل، `data-expanded` اضافه می‌شود.
+
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-snap-points"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## ریسپانسیو
+
+</div>
+
+<DocsCollapsible title="ریسپانسیو">
+
+با ترکیب `Dialog` و `Drawer` می‌توانید روی دسکتاپ دیالوگ و روی موبایل کشو نشان دهید.
+
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-dialog"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مهاجرت از Vaul
+
+</div>
+
+<DocsCollapsible title="مهاجرت از Vaul">
+
+کشوی base الان از [Base UI](https://base-ui.com/react/components/drawer) به‌جای Vaul استفاده می‌کند. اگر نسخهٔ قبلی را داشتید، API را به‌روز کنید.
 
 <Steps>
 
-<Step>Update the dependency.</Step>
+<Step>وابستگی را به‌روز کنید.</Step>
 
 ```diff
 - npm install vaul
 + npm install @base-ui/react
 ```
 
-<Step>Replace `direction` with `swipeDirection`.</Step>
+<Step>`direction` را با `swipeDirection` عوض کنید.</Step>
 
-Use `down` instead of `bottom`, and `up` instead of `top`. `left` and `right`
-stay the same.
+به‌جای `bottom` از `down` و به‌جای `top` از `up` استفاده کنید. `left` و `right` همان می‌مانند.
 
 ```diff
 - <Drawer direction="bottom">
 + <Drawer swipeDirection="down">
 ```
 
-<Step>Replace `asChild` with `render`.</Step>
-
-For `DrawerTrigger`, pass the trigger element to the `render` prop.
+<Step>`asChild` را با `render` عوض کنید.</Step>
 
 ```diff
 - <DrawerTrigger asChild>
 -   <Button variant="outline">Open</Button>
 - </DrawerTrigger>
 + <DrawerTrigger render={<Button variant="outline" />}>
-+   Open
++   باز کردن
 + </DrawerTrigger>
 ```
-
-For `DrawerClose`, pass the close element to the `render` prop.
 
 ```diff
 - <DrawerClose asChild>
 -   <Button variant="outline">Cancel</Button>
 - </DrawerClose>
 + <DrawerClose render={<Button variant="outline" />}>
-+   Cancel
++   انصراف
 + </DrawerClose>
 ```
 
-<Step>Update snap point props.</Step>
-
-If you use snap points, rename the controlled snap point props and the sequential
-snap point prop.
+<Step>پراپ‌های اسنپ را به‌روز کنید.</Step>
 
 ```diff
   <Drawer
@@ -274,7 +375,7 @@ snap point prop.
   >
 ```
 
-<Step>Update animation and focus props.</Step>
+<Step>پراپ‌های انیمیشن و فوکوس را به‌روز کنید.</Step>
 
 ```diff
 - <Drawer onAnimationEnd={(open) => setDone(open)}>
@@ -286,12 +387,9 @@ snap point prop.
 + <DrawerContent initialFocus={false}>
 ```
 
-<Step>Review Vaul-only props.</Step>
+<Step>پراپ‌های فقط‌Vaul را مرور کنید.</Step>
 
-Vaul props like `handleOnly`, `repositionInputs`, and
-`shouldScaleBackground` do not have one-to-one replacements in the base drawer
-API. Use Base UI props such as `disablePointerDismissal`, `modal`, `snapPoints`,
-or controlled `open` state for the behavior you need.
+پراپ‌هایی مثل `handleOnly`، `repositionInputs` و `shouldScaleBackground` جایگزین یک‌به‌یک ندارند. از `disablePointerDismissal`، `modal`، `snapPoints` یا `open` کنترل‌شده استفاده کنید.
 
 ```diff
 - <Drawer handleOnly repositionInputs={false} shouldScaleBackground>
@@ -303,23 +401,85 @@ or controlled `open` state for the behavior you need.
 + <Drawer disablePointerDismissal>
 ```
 
-<Step>Update custom data attribute selectors.</Step>
-
-Replace Vaul's `data-vaul-drawer-direction` selectors with Base UI's
-`data-swipe-direction` selectors.
+<Step>سلکتورهای data attribute را به‌روز کنید.</Step>
 
 ```diff
 - <DrawerContent className="data-[vaul-drawer-direction=bottom]:max-h-[50vh]">
 + <DrawerContent className="data-[swipe-direction=down]:max-h-[50vh]">
 ```
 
-Base UI also exposes attributes like `data-swiping`, `data-starting-style`, and
-`data-ending-style` for swipe and transition states. Descendants inside
-`DrawerContent` can use `group-data-[swipe-axis=x]/drawer-popup` and
-`group-data-[swipe-axis=y]/drawer-popup` for axis-specific styling.
+Base UI ویژگی‌هایی مثل `data-swiping`، `data-starting-style` و `data-ending-style` هم دارد. فرزندان داخل `DrawerContent` می‌توانند از `group-data-[swipe-axis=x]/drawer-popup` و `group-data-[swipe-axis=y]/drawer-popup` استفاده کنند.
 
 </Steps>
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI documentation](https://base-ui.com/react/components/drawer) for the full API reference.
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی ظرف کشو `dir="rtl"` بگذارید. برای تنظیم سراسری، [راهنمای RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-rhea"
+  name="drawer-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات کامل، [مستندات Base UI](https://base-ui.com/react/components/drawer) را ببینید.
+
+<DocsApiProps
+  title="Drawer"
+  description="ظرف ریشهٔ کشو."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+    {
+      name: "swipeDirection",
+      description: "سمت باز شدن کشو",
+      values: ['"up"', '"right"', '"down"', '"left"'],
+      defaultValue: '"down"',
+    },
+    {
+      name: "showSwipeHandle",
+      description: "نمایش دستگیرهٔ کشیدن",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "modal",
+      description: "رفتار مودال، غیرمودال یا trap-focus",
+      values: ["boolean", '"trap-focus"'],
+      defaultValue: "true",
+    },
+    {
+      name: "snapPoints",
+      description: "نقاط اسنپ ارتفاع",
+      values: ["array"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

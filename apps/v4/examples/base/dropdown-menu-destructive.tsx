@@ -14,29 +14,31 @@ import {
 
 export function DropdownMenuDestructive() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Actions
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <PencilIcon />
-            Edit
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <ShareIcon />
-            Share
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem variant="destructive">
-            <TrashIcon />
-            Delete
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          اقدام‌ها
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <PencilIcon />
+              ویرایش
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <ShareIcon />
+              اشتراک‌گذاری
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem variant="destructive">
+              <TrashIcon />
+              حذف
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

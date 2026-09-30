@@ -1,4 +1,4 @@
-import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
+import { ChevronLeftIcon, ExternalLinkIcon } from "lucide-react"
 
 import {
   Item,
@@ -10,16 +10,16 @@ import {
 
 export function ItemLink() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-4">
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-4">
       <Item render={<a href="#" />}>
         <ItemContent>
-          <ItemTitle>Visit our documentation</ItemTitle>
+          <ItemTitle>مشاهدهٔ مستندات</ItemTitle>
           <ItemDescription>
-            Learn how to get started with our components.
+            نحوهٔ شروع کار با کامپوننت‌ها را یاد بگیرید.
           </ItemDescription>
         </ItemContent>
         <ItemActions>
-          <ChevronRightIcon className="size-4" />
+          <ChevronLeftIcon className="size-4" />
         </ItemActions>
       </Item>
       <Item
@@ -27,9 +27,9 @@ export function ItemLink() {
         render={<a href="#" target="_blank" rel="noopener noreferrer" />}
       >
         <ItemContent>
-          <ItemTitle>External resource</ItemTitle>
+          <ItemTitle>منبع خارجی</ItemTitle>
           <ItemDescription>
-            Opens in a new tab with security attributes.
+            در زبانهٔ جدید با ویژگی‌های امنیتی باز می‌شود.
           </ItemDescription>
         </ItemContent>
         <ItemActions>

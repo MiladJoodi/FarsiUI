@@ -3,11 +3,11 @@ import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 
 export function CheckboxBasic() {
   return (
-    <FieldGroup className="mx-auto w-56">
+    <FieldGroup className="mx-auto w-56" dir="rtl">
       <Field orientation="horizontal">
         <Checkbox id="terms-checkbox-basic" name="terms-checkbox-basic" />
         <FieldLabel htmlFor="terms-checkbox-basic">
-          Accept terms and conditions
+          پذیرش شرایط و قوانین
         </FieldLabel>
       </Field>
     </FieldGroup>

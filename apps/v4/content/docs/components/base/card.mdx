@@ -1,6 +1,6 @@
 ---
 title: کارت (Card)
-description: نمایش محتوا در یک کارت با سرایند، بدنه و پاورقی.
+description: نمایش محتوا در یک کارت با عنوان، محتوا و بخش پایینی.
 base: base
 component: true
 ---
@@ -10,7 +10,7 @@ component: true
   layout="switcher"
   examples={[
     { name: "card-demo", label: "پیش‌فرض", sizeable: false },
-    { name: "card-small", label: "کوچک", sizeable: false },
+    { name: "card-small", label: "اندازه", sizeable: false },
     { name: "card-spacing", label: "فاصله", sizeable: false },
     { name: "card-edge-to-edge", label: "لبه‌به‌لبه", sizeable: false },
     { name: "card-image", label: "تصویر", sizeable: false },
@@ -113,7 +113,7 @@ Card
 
 <DocsCollapsible title="اندازه">
 
-با prop به نام `size="sm"` اندازهٔ کارت را کوچک کنید. نسخهٔ کوچک فاصله‌گذاری فشرده‌تری دارد.
+با استفاده از `size` می‌توانید اندازه کارت را بین `default` و `sm` تغییر دهید. نسخهٔ کوچک فاصله‌گذاری فشرده‌تری دارد.
 
 <ComponentPreview
   styleName="base-nova"
@@ -132,7 +132,7 @@ Card
 
 <DocsCollapsible title="فاصله‌گذاری">
 
-علاوه بر `size`، با متغیر CSS به نام `--card-spacing` می‌توانید فاصلهٔ بین بخش‌ها و حاشیهٔ داخلی کارت را کنترل کنید.
+علاوه بر `size`، می‌توانید با متغیر CSS `--card-spacing` فاصله بین بخش‌ها و حاشیه داخلی کارت را تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -141,7 +141,7 @@ Card
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-با حاشیهٔ منفی `-mx-(--card-spacing)` محتوا را لبه‌به‌لبه کنید و هم‌تراز با فاصلهٔ داخلی کارت نگه دارید. اگر محتوای لبه‌به‌لبه بالای پاورقی است، روی `CardContent` از `-mb-(--card-spacing)` استفاده کنید تا فاصلهٔ بین بخش‌ها حذف شود.
+با استفاده از حاشیه منفی `-mx-(--card-spacing)` می‌توانید محتوا را لبه‌به‌لبه کنید و با حاشیه داخلی کارت هم‌تراز نگه دارید. برای محتوای لبه‌به‌لبه در پایین کارت، از `-mb-(--card-spacing)` روی `CardContent` استفاده کنید تا فاصله بین بخش‌ها حذف شود.
 
 <ComponentPreview
   styleName="base-nova"
@@ -160,7 +160,7 @@ Card
 
 <DocsCollapsible title="تصویر">
 
-برای کارت با تصویر، تصویر را قبل از سرایند قرار دهید.
+برای کارت‌های تصویری، تصویر را بالای عنوان کارت قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -281,13 +281,13 @@ Card
 
 ### متغیر فاصله‌گذاری
 
-اگر از نسخهٔ قبلی `Card` ارتقا می‌دهید، برای استفاده از `--card-spacing` این تغییرات را اعمال کنید:
+اگر از نسخه قبلی **`Card`** استفاده می‌کنید، برای پشتیبانی از **`--card-spacing`** این تغییرات را اعمال کنید.
 
 <Steps>
 
-<Step>کلاس‌های فاصلهٔ ریشهٔ Card را به‌روز کنید.</Step>
+<Step>به‌روزرسانی فاصله‌گذاری Card</Step>
 
-به‌جای `gap` و `padding` ثابت از `--card-spacing` استفاده کنید و مقادیر پیش‌فرض و کوچک را روی ریشه تنظیم کنید:
+در کلاس‌های **`Card`**، به‌جای `gap` و `padding` ثابت از **`--card-spacing`** استفاده کنید و مقدار پیش‌فرض و کوچک را روی ریشه کارت قرار دهید.
 
 ```diff
   className={cn(
@@ -297,9 +297,9 @@ Card
   )}
 ```
 
-<Step>کلاس‌های فاصلهٔ CardHeader را به‌روز کنید.</Step>
+<Step>به‌روزرسانی CardHeader</Step>
 
-padding افقی و فاصلهٔ حاشیه را با همان متغیر مشترک عوض کنید:
+فاصله افقی و فاصله داخلی را با **`--card-spacing`** تنظیم کنید.
 
 ```diff
   className={cn(
@@ -309,9 +309,9 @@ padding افقی و فاصلهٔ حاشیه را با همان متغیر مشت
   )}
 ```
 
-<Step>کلاس‌های فاصلهٔ CardContent و CardFooter را به‌روز کنید.</Step>
+<Step>به‌روزرسانی CardContent و CardFooter</Step>
 
-برای inset محتوا و padding پاورقی از `--card-spacing` استفاده کنید:
+برای فاصله داخلی محتوا و پاورقی نیز از **`--card-spacing`** استفاده کنید.
 
 ```diff
   function CardContent({ className, ...props }: React.ComponentProps<"div">) {
@@ -336,12 +336,10 @@ padding افقی و فاصلهٔ حاشیه را با همان متغیر مشت
 
 </Steps>
 
-بعد از این تغییرات، فاصلهٔ کارت را با کلاس دلخواه روی `Card` تنظیم کنید:
+بعد از این تغییرات، می‌توانید فاصله کارت را مستقیماً روی **`Card`** تنظیم کنید:
 
 ```tsx
-function Example() {
-  return <Card className="[--card-spacing:--spacing(6)]">...</Card>
-}
+<Card className="[--card-spacing:--spacing(6)]">...</Card>
 ```
 
 </DocsCollapsible>

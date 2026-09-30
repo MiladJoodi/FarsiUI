@@ -15,62 +15,64 @@ import {
 
 const timezones = [
   {
-    value: "Americas",
+    value: "آمریکا",
     items: [
-      "(GMT-5) New York",
-      "(GMT-8) Los Angeles",
-      "(GMT-6) Chicago",
-      "(GMT-5) Toronto",
-      "(GMT-8) Vancouver",
-      "(GMT-3) São Paulo",
+      "(GMT-۵) نیویورک",
+      "(GMT-۸) لس‌آنجلس",
+      "(GMT-۶) شیکاگو",
+      "(GMT-۵) تورنتو",
+      "(GMT-۸) ونکوور",
+      "(GMT-۳) سائوپائولو",
     ],
   },
   {
-    value: "Europe",
+    value: "اروپا",
     items: [
-      "(GMT+0) London",
-      "(GMT+1) Paris",
-      "(GMT+1) Berlin",
-      "(GMT+1) Rome",
-      "(GMT+1) Madrid",
-      "(GMT+1) Amsterdam",
+      "(GMT+۰) لندن",
+      "(GMT+۱) پاریس",
+      "(GMT+۱) برلین",
+      "(GMT+۱) رم",
+      "(GMT+۱) مادرید",
+      "(GMT+۱) آمستردام",
     ],
   },
   {
-    value: "Asia/Pacific",
+    value: "آسیا / اقیانوسیه",
     items: [
-      "(GMT+9) Tokyo",
-      "(GMT+8) Shanghai",
-      "(GMT+8) Singapore",
-      "(GMT+4) Dubai",
-      "(GMT+11) Sydney",
-      "(GMT+9) Seoul",
+      "(GMT+۳:۳۰) تهران",
+      "(GMT+۹) توکیو",
+      "(GMT+۸) شانگهای",
+      "(GMT+۸) سنگاپور",
+      "(GMT+۴) دبی",
+      "(GMT+۱۱) سیدنی",
     ],
   },
 ] as const
 
 export function ComboboxWithGroupsAndSeparator() {
   return (
-    <Combobox items={timezones}>
-      <ComboboxInput placeholder="Select a timezone" />
-      <ComboboxContent>
-        <ComboboxEmpty>No timezones found.</ComboboxEmpty>
-        <ComboboxList>
-          {(group, index) => (
-            <ComboboxGroup key={group.value} items={group.items}>
-              <ComboboxLabel>{group.value}</ComboboxLabel>
-              <ComboboxCollection>
-                {(item) => (
-                  <ComboboxItem key={item} value={item}>
-                    {item}
-                  </ComboboxItem>
-                )}
-              </ComboboxCollection>
-              {index < timezones.length - 1 && <ComboboxSeparator />}
-            </ComboboxGroup>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div dir="rtl">
+      <Combobox items={timezones}>
+        <ComboboxInput placeholder="منطقهٔ زمانی را انتخاب کنید" />
+        <ComboboxContent>
+          <ComboboxEmpty>منطقهٔ زمانی پیدا نشد.</ComboboxEmpty>
+          <ComboboxList>
+            {(group, index) => (
+              <ComboboxGroup key={group.value} items={group.items}>
+                <ComboboxLabel>{group.value}</ComboboxLabel>
+                <ComboboxCollection>
+                  {(item) => (
+                    <ComboboxItem key={item} value={item}>
+                      {item}
+                    </ComboboxItem>
+                  )}
+                </ComboboxCollection>
+                {index < timezones.length - 1 && <ComboboxSeparator />}
+              </ComboboxGroup>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   )
 }

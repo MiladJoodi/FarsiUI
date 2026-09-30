@@ -34,29 +34,29 @@ import {
 
 const chat = createChat()
   .user(
-    "We're seeing activation dip after workspace creation. Can you help me find the likely step?",
+    "بعد از ایجاد فضای کاری افت فعال‌سازی می‌بینیم. می‌توانید مرحلهٔ محتمل را پیدا کنید؟",
     { id: "command-activation" }
   )
   .assistant(
-    "The sharpest drop is between creating the workspace and inviting the first teammate.\n\nWorkspace creation is still healthy, but the invite step is where users pause. That suggests the product is asking for collaboration before the user has enough confidence in the workspace."
+    "تندترین افت بین ساخت فضای کاری و دعوت اولین هم‌تیمی است.\n\nساخت فضای کاری هنوز سالم است، اما مرحلهٔ دعوت جایی است که کاربران مکث می‌کنند. یعنی محصول قبل از اینکه کاربر به فضای کاری اعتماد کافی داشته باشد، همکاری می‌خواهد."
   )
-  .user("What should I compare before we change the onboarding flow?", {
+  .user("قبل از عوض کردن جریان onboarding چه چیزی را مقایسه کنم؟", {
     id: "command-compare",
   })
   .assistant(
-    "Compare three cohorts:\n\n1. Users who choose a template before inviting teammates.\n2. Users who start from a blank workspace.\n3. Users who skip invites and return within 24 hours.\n\nIf template users invite faster, the fix is probably better first-run guidance rather than a louder invite prompt."
+    "سه گروه را مقایسه کنید:\n\n۱. کاربرانی که قبل از دعوت هم‌تیمی یک قالب انتخاب می‌کنند.\n۲. کاربرانی که از فضای کاری خالی شروع می‌کنند.\n۳. کاربرانی که دعوت را رد می‌کنند و ظرف ۲۴ ساعت برمی‌گردند.\n\nاگر کاربران قالب زودتر دعوت کنند، اصلاح احتمالاً راهنمایی بهتر اولین اجراست نه پرامپت دعوت بلندتر."
   )
-  .user("Can you turn that into an experiment?", {
+  .user("می‌توانید آن را به یک آزمایش تبدیل کنید؟", {
     id: "command-experiment",
   })
   .assistant(
-    "Yes. Create a variant that shows a short checklist after workspace creation:\n\n- Pick a template.\n- Add one project detail.\n- Invite a teammate when the workspace has context.\n\nMeasure first invite completion, 24-hour return rate, and whether teams create a second project."
+    "بله. واریانتی بسازید که بعد از ایجاد فضای کاری چک‌لیست کوتاهی نشان دهد:\n\n- یک قالب انتخاب کنید.\n- یک جزئیات پروژه اضافه کنید.\n- وقتی فضای کاری زمینه دارد، هم‌تیمی دعوت کنید.\n\nتکمیل اولین دعوت، نرخ بازگشت ۲۴ ساعته و اینکه تیم‌ها پروژهٔ دوم می‌سازند یا نه را اندازه بگیرید."
   )
-  .user("What's the risk if we delay the invite prompt?", {
+  .user("اگر پرامپت دعوت را به تأخیر بیندازیم چه ریسکی هست؟", {
     id: "command-risk",
   })
   .assistant(
-    "The main risk is reducing team creation for accounts that already know who they want to invite.\n\nTo protect that path, keep the invite action visible in the header and only change the primary empty-state guidance. That gives confident teams a direct route without forcing uncertain users through the invite step too early."
+    "ریسک اصلی کاهش ساخت تیم برای حساب‌هایی است که از قبل می‌دانند چه کسی را دعوت کنند.\n\nبرای حفظ آن مسیر، اقدام دعوت را در هدر دیده‌پذیر نگه دارید و فقط راهنمای اصلی empty-state را عوض کنید. تیم‌های مطمئن مسیر مستقیم دارند بدون اینکه کاربران نامطمئن را خیلی زود از مرحلهٔ دعوت عبور دهید."
   )
 
 const messages = chat.get()
@@ -65,12 +65,12 @@ const userMessages = messages.filter((message) => message.role === "user")
 export function MessageScrollerCommands() {
   return (
     <MessageScrollerProvider defaultScrollPosition="end">
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <Card className="mx-auto h-140 w-full max-w-sm gap-0">
           <CardHeader className="gap-1 border-b">
-            <CardTitle>Commands</CardTitle>
+            <CardTitle>فرمان‌ها</CardTitle>
             <CardDescription>
-              Drive the transcript from outside.
+              رونوشت را از بیرون هدایت کنید.
             </CardDescription>
             <CardAction>
               <CommandMenu />
@@ -120,7 +120,7 @@ export function MessageScrollerCommands() {
           </CardContent>
         </Card>
         <div className="mx-auto max-w-sm px-0.5 text-center text-xs text-balance text-muted-foreground">
-          Use the controls to jump to any message in the conversation.
+          با کنترل‌ها به هر پیام در گفتگو بپرید.
         </div>
       </div>
     </MessageScrollerProvider>
@@ -135,11 +135,11 @@ function CommandMenu() {
       <DropdownMenuTrigger
         render={<Button type="button" variant="secondary" />}
       >
-        Jump to...
+        پرش به...
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" side="bottom" className="w-64">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Conversations</DropdownMenuLabel>
+          <DropdownMenuLabel>گفتگوها</DropdownMenuLabel>
           {userMessages.map((message) => (
             <DropdownMenuItem
               key={message.id}

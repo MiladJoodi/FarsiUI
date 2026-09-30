@@ -34,46 +34,48 @@ export function QuestionnaireFreeform() {
 
     const approach = new FormData(event.currentTarget).get("approach")
 
-    toast("Approach selected", {
-      description: `Approach: ${approach ?? "None"}`,
+    toast("رویکرد انتخاب شد", {
+      description: `رویکرد: ${approach ?? "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      items={items}
-      shortcuts="letters"
-      onSubmit={handleSubmit}
-    >
-      <QuestionnaireItem name="approach" required>
-        <QuestionnaireTitle>
-          How should the agent approach this refactor?
-        </QuestionnaireTitle>
-        <QuestionnaireDescription>
-          Choose a strategy or write a more specific instruction.
-        </QuestionnaireDescription>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="incremental">
-            Make the smallest safe change
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="module">
-            Refactor one module at a time
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="rewrite">
-            Replace the implementation completely
-          </QuestionnaireChoice>
-          <QuestionnaireInput
-            aria-label="Another refactoring approach"
-            placeholder="Describe another approach…"
-          />
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        items={items}
+        shortcuts="letters"
+        onSubmit={handleSubmit}
+      >
+        <QuestionnaireItem name="approach" required>
+          <QuestionnaireTitle>
+            عامل چگونه باید این بازآرایی را انجام دهد؟
+          </QuestionnaireTitle>
+          <QuestionnaireDescription>
+            یک استراتژی انتخاب کنید یا دستورالعمل دقیق‌تری بنویسید.
+          </QuestionnaireDescription>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="incremental">
+              کوچک‌ترین تغییر امن را اعمال کند
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="module">
+              هر بار یک ماژول را بازآرایی کند
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="rewrite">
+              پیاده‌سازی را به‌طور کامل جایگزین کند
+            </QuestionnaireChoice>
+            <QuestionnaireInput
+              aria-label="رویکرد بازآرایی دیگر"
+              placeholder="رویکرد دیگری توصیف کنید…"
+            />
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
 
-      <QuestionnaireActions>
-        <QuestionnaireSubmit>Use this approach</QuestionnaireSubmit>
-      </QuestionnaireActions>
-    </Questionnaire>
+        <QuestionnaireActions>
+          <QuestionnaireSubmit>استفاده از این رویکرد</QuestionnaireSubmit>
+        </QuestionnaireActions>
+      </Questionnaire>
+    </div>
   )
 }

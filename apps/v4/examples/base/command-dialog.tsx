@@ -37,51 +37,55 @@ export function CommandDialogDemo() {
   }, [])
 
   return (
-    <>
+    <div dir="rtl">
       <p className="text-sm text-muted-foreground">
-        Press{" "}
-        <kbd className="pointer-events-none inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 select-none">
+        کلید{" "}
+        <kbd
+          dir="ltr"
+          className="pointer-events-none inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 select-none"
+        >
           <span className="text-xs">⌘</span>J
-        </kbd>
+        </kbd>{" "}
+        را بزنید
       </p>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
+          <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+          <CommandGroup heading="پیشنهادها">
             <CommandItem>
               <Calendar />
-              <span>Calendar</span>
+              <span>تقویم</span>
             </CommandItem>
             <CommandItem>
               <Smile />
-              <span>Search Emoji</span>
+              <span>جستجوی ایموجی</span>
             </CommandItem>
             <CommandItem>
               <Calculator />
-              <span>Calculator</span>
+              <span>ماشین‌حساب</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Settings">
+          <CommandGroup heading="تنظیمات">
             <CommandItem>
               <User />
-              <span>Profile</span>
+              <span>پروفایل</span>
               <CommandShortcut>⌘P</CommandShortcut>
             </CommandItem>
             <CommandItem>
               <CreditCard />
-              <span>Billing</span>
+              <span>صورتحساب</span>
               <CommandShortcut>⌘B</CommandShortcut>
             </CommandItem>
             <CommandItem>
               <Settings />
-              <span>Settings</span>
+              <span>تنظیمات</span>
               <CommandShortcut>⌘S</CommandShortcut>
             </CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>
-    </>
+    </div>
   )
 }

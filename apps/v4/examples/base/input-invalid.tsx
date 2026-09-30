@@ -7,12 +7,10 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputInvalid() {
   return (
-    <Field data-invalid>
-      <FieldLabel htmlFor="input-invalid">Invalid Input</FieldLabel>
-      <Input id="input-invalid" placeholder="Error" aria-invalid />
-      <FieldDescription>
-        This field contains validation errors.
-      </FieldDescription>
+    <Field data-invalid dir="rtl">
+      <FieldLabel htmlFor="input-invalid">ورودی نامعتبر</FieldLabel>
+      <Input id="input-invalid" placeholder="خطا" aria-invalid />
+      <FieldDescription>این فیلد خطای اعتبارسنجی دارد.</FieldDescription>
     </Field>
   )
 }

@@ -10,15 +10,15 @@ import {
 
 export function ItemSizeDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-6">
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
       <Item variant="outline">
         <ItemMedia variant="icon">
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Default Size</ItemTitle>
+          <ItemTitle>اندازهٔ پیش‌فرض</ItemTitle>
           <ItemDescription>
-            The standard size for most use cases.
+            اندازهٔ استاندارد برای بیشتر کاربردها.
           </ItemDescription>
         </ItemContent>
       </Item>
@@ -27,8 +27,8 @@ export function ItemSizeDemo() {
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Small Size</ItemTitle>
-          <ItemDescription>A compact size for dense layouts.</ItemDescription>
+          <ItemTitle>اندازهٔ کوچک</ItemTitle>
+          <ItemDescription>اندازهٔ فشرده برای چیدمان‌های متراکم.</ItemDescription>
         </ItemContent>
       </Item>
       <Item variant="outline" size="xs">
@@ -36,8 +36,8 @@ export function ItemSizeDemo() {
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Extra Small Size</ItemTitle>
-          <ItemDescription>The most compact size available.</ItemDescription>
+          <ItemTitle>اندازهٔ خیلی کوچک</ItemTitle>
+          <ItemDescription>فشرده‌ترین اندازهٔ موجود.</ItemDescription>
         </ItemContent>
       </Item>
     </div>

@@ -9,49 +9,49 @@ import {
 } from "@/styles/base-nova/ui/select"
 
 const northAmerica = [
-  { label: "Eastern Standard Time", value: "est" },
-  { label: "Central Standard Time", value: "cst" },
-  { label: "Mountain Standard Time", value: "mst" },
-  { label: "Pacific Standard Time", value: "pst" },
-  { label: "Alaska Standard Time", value: "akst" },
-  { label: "Hawaii Standard Time", value: "hst" },
+  { label: "زمان استاندارد شرقی", value: "est" },
+  { label: "زمان استاندارد مرکزی", value: "cst" },
+  { label: "زمان استاندارد کوهستانی", value: "mst" },
+  { label: "زمان استاندارد اقیانوس آرام", value: "pst" },
+  { label: "زمان استاندارد آلاسکا", value: "akst" },
+  { label: "زمان استاندارد هاوایی", value: "hst" },
 ]
 
 const europeAfrica = [
-  { label: "Greenwich Mean Time", value: "gmt" },
-  { label: "Central European Time", value: "cet" },
-  { label: "Eastern European Time", value: "eet" },
-  { label: "Western European Summer Time", value: "west" },
-  { label: "Central Africa Time", value: "cat" },
-  { label: "East Africa Time", value: "eat" },
+  { label: "زمان میانگین گرینویچ", value: "gmt" },
+  { label: "زمان مرکزی اروپا", value: "cet" },
+  { label: "زمان شرقی اروپا", value: "eet" },
+  { label: "زمان تابستانی غرب اروپا", value: "west" },
+  { label: "زمان مرکزی آفریقا", value: "cat" },
+  { label: "زمان شرق آفریقا", value: "eat" },
 ]
 
 const asia = [
-  { label: "Moscow Time", value: "msk" },
-  { label: "India Standard Time", value: "ist" },
-  { label: "China Standard Time", value: "cst_china" },
-  { label: "Japan Standard Time", value: "jst" },
-  { label: "Korea Standard Time", value: "kst" },
-  { label: "Indonesia Central Standard Time", value: "ist_indonesia" },
+  { label: "زمان مسکو", value: "msk" },
+  { label: "زمان استاندارد هند", value: "ist" },
+  { label: "زمان استاندارد چین", value: "cst_china" },
+  { label: "زمان استاندارد ژاپن", value: "jst" },
+  { label: "زمان استاندارد کره", value: "kst" },
+  { label: "زمان استاندارد مرکزی اندونزی", value: "ist_indonesia" },
 ]
 
 const australiaPacific = [
-  { label: "Australian Western Standard Time", value: "awst" },
-  { label: "Australian Central Standard Time", value: "acst" },
-  { label: "Australian Eastern Standard Time", value: "aest" },
-  { label: "New Zealand Standard Time", value: "nzst" },
-  { label: "Fiji Time", value: "fjt" },
+  { label: "زمان استاندارد غربی استرالیا", value: "awst" },
+  { label: "زمان استاندارد مرکزی استرالیا", value: "acst" },
+  { label: "زمان استاندارد شرقی استرالیا", value: "aest" },
+  { label: "زمان استاندارد نیوزیلند", value: "nzst" },
+  { label: "زمان فیجی", value: "fjt" },
 ]
 
 const southAmerica = [
-  { label: "Argentina Time", value: "art" },
-  { label: "Bolivia Time", value: "bot" },
-  { label: "Brasilia Time", value: "brt" },
-  { label: "Chile Standard Time", value: "clt" },
+  { label: "زمان آرژانتین", value: "art" },
+  { label: "زمان بولیوی", value: "bot" },
+  { label: "زمان برازیلیا", value: "brt" },
+  { label: "زمان استاندارد شیلی", value: "clt" },
 ]
 
 const items = [
-  { label: "Select a timezone", value: null },
+  { label: "انتخاب منطقهٔ زمانی", value: null },
   ...northAmerica,
   ...europeAfrica,
   ...asia,
@@ -61,52 +61,54 @@ const items = [
 
 export function SelectScrollable() {
   return (
-    <Select items={items}>
-      <SelectTrigger className="w-full max-w-64">
-        <SelectValue />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>North America</SelectLabel>
-          {northAmerica.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Europe & Africa</SelectLabel>
-          {europeAfrica.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Asia</SelectLabel>
-          {asia.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Australia & Pacific</SelectLabel>
-          {australiaPacific.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>South America</SelectLabel>
-          {southAmerica.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div dir="rtl">
+      <Select items={items}>
+        <SelectTrigger className="w-full max-w-64">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>آمریکای شمالی</SelectLabel>
+            {northAmerica.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>اروپا و آفریقا</SelectLabel>
+            {europeAfrica.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>آسیا</SelectLabel>
+            {asia.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>استرالیا و اقیانوس آرام</SelectLabel>
+            {australiaPacific.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>آمریکای جنوبی</SelectLabel>
+            {southAmerica.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   )
 }

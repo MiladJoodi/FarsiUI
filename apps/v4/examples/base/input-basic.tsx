@@ -1,5 +1,5 @@
 import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputBasic() {
-  return <Input placeholder="Enter text" />
+  return <Input dir="rtl" placeholder="متن را وارد کنید" />
 }

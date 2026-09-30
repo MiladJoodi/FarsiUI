@@ -45,75 +45,77 @@ export function QuestionnaireNavigationState() {
 
     const formData = new FormData(event.currentTarget)
 
-    toast("Permissions saved", {
-      description: `Permission: ${formData.get("permission") ?? "None"} · Verification: ${formData.get("verification") ?? "None"}`,
+    toast("مجوزها ذخیره شد", {
+      description: `مجوز: ${formData.get("permission") ?? "هیچ"} · تأیید: ${formData.get("verification") ?? "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      item={item}
-      items={items}
-      onItemChange={(nextItem) => setItem(nextItem as ItemName)}
-      onSubmit={handleSubmit}
-    >
-      <QuestionnaireProgress />
-
-      <QuestionnaireItem
-        name="permission"
-        required
-        onStatusChange={(status) => setStatus("permission", status)}
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        item={item}
+        items={items}
+        onItemChange={(nextItem) => setItem(nextItem as ItemName)}
+        onSubmit={handleSubmit}
       >
-        <QuestionnaireTitle>What may the agent modify?</QuestionnaireTitle>
-        <QuestionnaireDescription>
-          Next is intentionally disabled until an answer is selected.
-        </QuestionnaireDescription>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="files">Project files</QuestionnaireChoice>
-          <QuestionnaireChoice value="tests">
-            Project files and tests
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="config">
-            Files, tests, and configuration
-          </QuestionnaireChoice>
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
+        <QuestionnaireProgress />
 
-      <QuestionnaireItem
-        name="verification"
-        required
-        onStatusChange={(status) => setStatus("verification", status)}
-      >
-        <QuestionnaireTitle>
-          What must pass before completion?
-        </QuestionnaireTitle>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="tests">Tests</QuestionnaireChoice>
-          <QuestionnaireChoice value="types">
-            Tests and types
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="all">
-            Tests, types, and visual QA
-          </QuestionnaireChoice>
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
-
-      <QuestionnaireActions>
-        <QuestionnairePrevious />
-        <QuestionnaireNext
-          className="data-[status=unanswered]:opacity-50"
-          disabled={unanswered}
-          variant="secondary"
+        <QuestionnaireItem
+          name="permission"
+          required
+          onStatusChange={(status) => setStatus("permission", status)}
         >
-          Next
-        </QuestionnaireNext>
-        <QuestionnaireSubmit disabled={unanswered}>
-          Save permissions
-        </QuestionnaireSubmit>
-      </QuestionnaireActions>
-    </Questionnaire>
+          <QuestionnaireTitle>عامل مجاز به تغییر چه چیزی است؟</QuestionnaireTitle>
+          <QuestionnaireDescription>
+            دکمهٔ بعدی عمداً تا انتخاب پاسخ غیرفعال است.
+          </QuestionnaireDescription>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="files">فایل‌های پروژه</QuestionnaireChoice>
+            <QuestionnaireChoice value="tests">
+              فایل‌های پروژه و تست‌ها
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="config">
+              فایل‌ها، تست‌ها و پیکربندی
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
+
+        <QuestionnaireItem
+          name="verification"
+          required
+          onStatusChange={(status) => setStatus("verification", status)}
+        >
+          <QuestionnaireTitle>
+            قبل از اتمام چه چیزی باید بگذرد؟
+          </QuestionnaireTitle>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="tests">تست‌ها</QuestionnaireChoice>
+            <QuestionnaireChoice value="types">
+              تست‌ها و تایپ‌ها
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="all">
+              تست‌ها، تایپ‌ها و کنترل کیفیت بصری
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
+
+        <QuestionnaireActions>
+          <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+          <QuestionnaireNext
+            className="data-[status=unanswered]:opacity-50"
+            disabled={unanswered}
+            variant="secondary"
+          >
+            بعدی
+          </QuestionnaireNext>
+          <QuestionnaireSubmit disabled={unanswered}>
+            ذخیرهٔ مجوزها
+          </QuestionnaireSubmit>
+        </QuestionnaireActions>
+      </Questionnaire>
+    </div>
   )
 }

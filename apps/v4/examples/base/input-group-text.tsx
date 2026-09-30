@@ -8,36 +8,36 @@ import {
 
 export default function InputGroupTextExample() {
   return (
-    <div className="grid w-full max-w-sm gap-6">
+    <div dir="rtl" className="grid w-full max-w-sm gap-6">
       <InputGroup>
         <InputGroupAddon>
-          <InputGroupText>$</InputGroupText>
+          <InputGroupText>تومان</InputGroupText>
         </InputGroupAddon>
-        <InputGroupInput placeholder="0.00" />
+        <InputGroupInput placeholder="۰" />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>USD</InputGroupText>
+          <InputGroupText>IRT</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
         <InputGroupAddon>
           <InputGroupText>https://</InputGroupText>
         </InputGroupAddon>
-        <InputGroupInput placeholder="example.com" className="pl-0.5!" />
+        <InputGroupInput placeholder="example.com" className="ps-0.5!" />
         <InputGroupAddon align="inline-end">
           <InputGroupText>.com</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Enter your username" />
+        <InputGroupInput placeholder="نام کاربری را وارد کنید" />
         <InputGroupAddon align="inline-end">
           <InputGroupText>@company.com</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupTextarea placeholder="Enter your message" />
+        <InputGroupTextarea placeholder="پیام خود را وارد کنید" />
         <InputGroupAddon align="block-end">
           <InputGroupText className="text-xs text-muted-foreground">
-            120 characters left
+            ۱۲۰ کاراکتر باقی مانده
           </InputGroupText>
         </InputGroupAddon>
       </InputGroup>

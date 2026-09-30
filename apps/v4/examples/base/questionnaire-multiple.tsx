@@ -34,45 +34,47 @@ export function QuestionnaireMultiple() {
 
     const context = new FormData(event.currentTarget).getAll("context")
 
-    toast("Context selected", {
-      description: `Context: ${context.join(", ") || "None"}`,
+    toast("زمینه انتخاب شد", {
+      description: `زمینه: ${context.join(", ") || "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      items={items}
-      shortcuts="letters"
-      onSubmit={handleSubmit}
-    >
-      <QuestionnaireItem name="context" multiple required>
-        <QuestionnaireTitle>
-          What context should the agent inspect?
-        </QuestionnaireTitle>
-        <QuestionnaireDescription>
-          Select every source that may affect the implementation.
-        </QuestionnaireDescription>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="source">
-            Relevant source files
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="tests">
-            Existing tests
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="docs">
-            Architecture documentation
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="history">
-            Recent commit history
-          </QuestionnaireChoice>
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        items={items}
+        shortcuts="letters"
+        onSubmit={handleSubmit}
+      >
+        <QuestionnaireItem name="context" multiple required>
+          <QuestionnaireTitle>
+            عامل باید کدام زمینه‌ها را بررسی کند؟
+          </QuestionnaireTitle>
+          <QuestionnaireDescription>
+            هر منبعی که ممکن است روی پیاده‌سازی اثر بگذارد را انتخاب کنید.
+          </QuestionnaireDescription>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="source">
+              فایل‌های منبع مرتبط
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="tests">
+              تست‌های موجود
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="docs">
+              مستندات معماری
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="history">
+              تاریخچهٔ اخیر کامیت‌ها
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
 
-      <QuestionnaireActions>
-        <QuestionnaireSubmit>Share context</QuestionnaireSubmit>
-      </QuestionnaireActions>
-    </Questionnaire>
+        <QuestionnaireActions>
+          <QuestionnaireSubmit>اشتراک زمینه</QuestionnaireSubmit>
+        </QuestionnaireActions>
+      </Questionnaire>
+    </div>
   )
 }

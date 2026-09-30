@@ -26,13 +26,13 @@ export default function InputGroupButtonExample() {
   const [isFavorite, setIsFavorite] = React.useState(false)
 
   return (
-    <div className="grid w-full max-w-sm gap-6">
+    <div dir="rtl" className="grid w-full max-w-sm gap-6">
       <InputGroup>
         <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
         <InputGroupAddon align="inline-end">
           <InputGroupButton
-            aria-label="Copy"
-            title="Copy"
+            aria-label="کپی"
+            title="کپی"
             size="icon-xs"
             onClick={() => {
               copyToClipboard("https://x.com/shadcn")
@@ -53,11 +53,11 @@ export default function InputGroupButtonExample() {
             align="start"
             className="flex flex-col gap-1 rounded-xl text-sm"
           >
-            <p className="font-medium">Your connection is not secure.</p>
-            <p>You should not enter any sensitive information on this site.</p>
+            <p className="font-medium">اتصال شما امن نیست.</p>
+            <p>اطلاعات حساس را در این سایت وارد نکنید.</p>
           </PopoverContent>
         </Popover>
-        <InputGroupAddon className="pl-1.5 text-muted-foreground">
+        <InputGroupAddon className="ps-1.5 text-muted-foreground">
           https://
         </InputGroupAddon>
         <InputGroupInput id="input-secure-19" />
@@ -74,9 +74,9 @@ export default function InputGroupButtonExample() {
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Type to search..." />
+        <InputGroupInput placeholder="برای جستجو تایپ کنید..." />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton variant="secondary">Search</InputGroupButton>
+          <InputGroupButton variant="secondary">جستجو</InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
     </div>

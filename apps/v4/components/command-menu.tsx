@@ -186,7 +186,7 @@ export function CommandMenu({
 
     return (
       <CommandGroup
-        heading="Pages"
+        heading="صفحات"
         className="p-0! **:[[cmdk-group-heading]]:scroll-mt-16 **:[[cmdk-group-heading]]:p-3! **:[[cmdk-group-heading]]:pb-1!"
       >
         {navItems.map((item) => (
@@ -213,7 +213,7 @@ export function CommandMenu({
   const stylesSection = React.useMemo(() => {
     return (
       <CommandGroup
-        heading="Styles"
+        heading="استایل‌ها"
         className="p-0! **:[[cmdk-group-heading]]:scroll-mt-16 **:[[cmdk-group-heading]]:p-3! **:[[cmdk-group-heading]]:pb-1!"
       >
         {STYLES.map((style) => (
@@ -342,7 +342,7 @@ export function CommandMenu({
 
     return (
       <CommandGroup
-        heading="Blocks"
+        heading="بلوک‌ها"
         className="p-0! **:[[cmdk-group-heading]]:p-3!"
       >
         {blocks.map((block) => (
@@ -427,19 +427,19 @@ export function CommandMenu({
         <Button
           variant="outline"
           className={cn(
-            "relative h-8 w-full justify-start rounded-lg border-none bg-muted pl-3 text-foreground shadow-none transition-colors hover:bg-muted/50 md:w-48 lg:w-40 xl:w-64 dark:bg-card"
+            "relative h-8 w-full justify-start rounded-lg border-none bg-muted ps-3 text-foreground shadow-none transition-colors hover:bg-muted/50 md:w-48 lg:w-40 xl:w-64 dark:bg-card"
           )}
           onClick={() => setOpen(true)}
           {...props}
         >
-          <span className="hidden xl:inline-flex">Search documentation...</span>
-          <span className="inline-flex xl:hidden">Search...</span>
+          <span className="hidden xl:inline-flex">جستجو در مستندات...</span>
+          <span className="inline-flex xl:hidden">جستجو...</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="rounded-xl border-none bg-clip-padding p-2 pb-11 shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800">
         <DialogHeader className="sr-only">
-          <DialogTitle>Search documentation...</DialogTitle>
-          <DialogDescription>Search for a command to run...</DialogDescription>
+          <DialogTitle>جستجو در مستندات...</DialogTitle>
+          <DialogDescription>جستجو برای اجرا کردن یک دستور...</DialogDescription>
         </DialogHeader>
         <Command
           className="rounded-none bg-transparent **:data-[slot=command-input]:h-9! **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:h-9! **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:border-input **:data-[slot=command-input-wrapper]:bg-input/50"
@@ -447,18 +447,18 @@ export function CommandMenu({
         >
           <div className="relative">
             <CommandInput
-              placeholder="Search documentation..."
+              placeholder="جستجو در مستندات..."
               onValueChange={handleSearchChange}
             />
             {query.isLoading && (
-              <div className="pointer-events-none absolute top-1/2 right-3 z-10 flex -translate-y-1/2 items-center justify-center">
+              <div className="pointer-events-none absolute top-1/2 start-auto end-3 z-10 flex -translate-y-1/2 items-center justify-center">
                 <Spinner className="size-4 text-muted-foreground" />
               </div>
             )}
           </div>
           <CommandList className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
             <CommandEmpty className="py-12 text-center text-sm text-muted-foreground">
-              {query.isLoading ? "Searching..." : "No results found."}
+              {query.isLoading ? "در حال جستجو..." : "نتیجه‌ای پیدا نشد."}
             </CommandEmpty>
             {navItemsSection}
             {stylesSection}
@@ -594,7 +594,7 @@ function SearchResults({
   return (
     <CommandGroup
       className="px-0! **:[[cmdk-group-heading]]:scroll-mt-16 **:[[cmdk-group-heading]]:p-3! **:[[cmdk-group-heading]]:pb-1!"
-      heading="Search Results"
+      heading="نتایج جستجو"
     >
       {uniqueResults.map((item) => {
         return (

@@ -42,6 +42,7 @@ import {
 } from "@/components/component-variant-preview-size"
 import { Button, buttonVariants } from "@/styles/base-nova/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
+import { DirectionProvider } from "@/styles/base-nova/ui/direction"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -411,11 +412,17 @@ export function ComponentVariantPreviewClient({
             <DocsPreviewSwitcherStage
               role="tabpanel"
               dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
-              className="w-full text-start [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full"
+              className="w-full text-start [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full [&_[data-slot=card]]:w-full [&_[data-slot=chart]]:w-full [&:has([data-slot=chart])]:items-stretch"
             >
-              <VariantPreviewSizeContext.Provider value={size}>
-                {activeLivePreview}
-              </VariantPreviewSizeContext.Provider>
+              <DirectionProvider
+                direction={
+                  active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")
+                }
+              >
+                <VariantPreviewSizeContext.Provider value={size}>
+                  {activeLivePreview}
+                </VariantPreviewSizeContext.Provider>
+              </DirectionProvider>
             </DocsPreviewSwitcherStage>
           </div>
         ) : (

@@ -15,10 +15,8 @@ import {
 } from "@/styles/base-rhea/ui/dialog"
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -32,39 +30,42 @@ export function DrawerDialogDemo() {
 
   if (isDesktop) {
     return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger render={<Button variant="outline" />}>
-          Edit Profile
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-            </DialogDescription>
-          </DialogHeader>
-          <ProfileForm />
-        </DialogContent>
-      </Dialog>
+      <div dir="rtl">
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger render={<Button variant="outline" />}>
+            ویرایش پروفایل
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>ویرایش پروفایل</DialogTitle>
+              <DialogDescription>
+                تغییرات پروفایل را اینجا اعمال کنید. بعد از اتمام، ذخیره را بزنید.
+              </DialogDescription>
+            </DialogHeader>
+            <ProfileForm />
+          </DialogContent>
+        </Dialog>
+      </div>
     )
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger render={<Button variant="outline" />}>
-        Edit Profile
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </DrawerDescription>
-        </DrawerHeader>
-        <ProfileForm className="p-4" />
-      </DrawerContent>
-    </Drawer>
+    <div dir="rtl">
+      <Drawer open={open} onOpenChange={setOpen}>
+        <DrawerTrigger render={<Button variant="outline" />}>
+          ویرایش پروفایل
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader className="text-start">
+            <DrawerTitle>ویرایش پروفایل</DrawerTitle>
+            <DrawerDescription>
+              تغییرات پروفایل را اینجا اعمال کنید. بعد از اتمام، ذخیره را بزنید.
+            </DrawerDescription>
+          </DrawerHeader>
+          <ProfileForm className="p-4" />
+        </DrawerContent>
+      </Drawer>
+    </div>
   )
 }
 
@@ -72,14 +73,14 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   return (
     <form className={cn("grid items-start gap-6", className)}>
       <div className="grid gap-3">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" defaultValue="shadcn@example.com" />
+        <Label htmlFor="email">ایمیل</Label>
+        <Input type="email" id="email" defaultValue="ali@example.com" />
       </div>
       <div className="grid gap-3">
-        <Label htmlFor="username">Username</Label>
-        <Input id="username" defaultValue="@shadcn" />
+        <Label htmlFor="username">نام کاربری</Label>
+        <Input id="username" defaultValue="@alireza" />
       </div>
-      <Button type="submit">Save changes</Button>
+      <Button type="submit">ذخیره تغییرات</Button>
     </form>
   )
 }

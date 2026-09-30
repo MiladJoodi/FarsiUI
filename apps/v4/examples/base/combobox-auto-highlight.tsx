@@ -19,18 +19,20 @@ const frameworks = [
 
 export function ComboboxAutoHighlight() {
   return (
-    <Combobox items={frameworks} autoHighlight>
-      <ComboboxInput placeholder="Select a framework" />
-      <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
-        <ComboboxList>
-          {(item) => (
-            <ComboboxItem key={item} value={item}>
-              {item}
-            </ComboboxItem>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div dir="rtl">
+      <Combobox items={frameworks} autoHighlight>
+        <ComboboxInput placeholder="یک فریم‌ورک انتخاب کنید" />
+        <ComboboxContent>
+          <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   )
 }

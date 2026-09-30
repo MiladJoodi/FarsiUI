@@ -10,42 +10,44 @@ import {
 
 export function ContextMenuShortcuts() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
-        <span className="hidden pointer-fine:inline-block">
-          Right click here
-        </span>
-        <span className="hidden pointer-coarse:inline-block">
-          Long press here
-        </span>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuGroup>
-          <ContextMenuItem>
-            Back
-            <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem disabled>
-            Forward
-            <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            Reload
-            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-          </ContextMenuItem>
-        </ContextMenuGroup>
-        <ContextMenuSeparator />
-        <ContextMenuGroup>
-          <ContextMenuItem>
-            Save
-            <ContextMenuShortcut>⌘S</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            Save As...
-            <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
-          </ContextMenuItem>
-        </ContextMenuGroup>
-      </ContextMenuContent>
-    </ContextMenu>
+    <div dir="rtl">
+      <ContextMenu>
+        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+          <span className="hidden pointer-fine:inline-block">
+            اینجا راست‌کلیک کنید
+          </span>
+          <span className="hidden pointer-coarse:inline-block">
+            اینجا لمس طولانی کنید
+          </span>
+        </ContextMenuTrigger>
+        <ContextMenuContent>
+          <ContextMenuGroup>
+            <ContextMenuItem>
+              بازگشت
+              <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem disabled>
+              جلو
+              <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem>
+              بارگذاری مجدد
+              <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+            </ContextMenuItem>
+          </ContextMenuGroup>
+          <ContextMenuSeparator />
+          <ContextMenuGroup>
+            <ContextMenuItem>
+              ذخیره
+              <ContextMenuShortcut>⌘S</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem>
+              ذخیره با نام...
+              <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
+            </ContextMenuItem>
+          </ContextMenuGroup>
+        </ContextMenuContent>
+      </ContextMenu>
+    </div>
   )
 }

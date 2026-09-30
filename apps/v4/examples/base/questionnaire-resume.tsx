@@ -37,79 +37,81 @@ export function QuestionnaireResume() {
       notes: formData.get("notes"),
     }
 
-    toast("Draft updated", {
-      description: `Migration: ${answers.change ?? "None"} · Verification: ${answers.verification.join(", ") || "None"} · Notes: ${answers.notes || "None"}`,
+    toast("پیش‌نویس به‌روز شد", {
+      description: `مهاجرت: ${answers.change ?? "هیچ"} · تأیید: ${answers.verification.join(", ") || "هیچ"} · یادداشت: ${answers.notes || "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      defaultItem="verification"
-      items={items}
-      onReset={() => toast("Saved answers restored")}
-      onSubmit={handleSubmit}
-    >
-      <QuestionnaireProgress />
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        defaultItem="verification"
+        items={items}
+        onReset={() => toast("پاسخ‌های ذخیره‌شده بازگردانده شد")}
+        onSubmit={handleSubmit}
+      >
+        <QuestionnaireProgress />
 
-      <QuestionnaireItem name="change" required>
-        <QuestionnaireTitle>What kind of migration is this?</QuestionnaireTitle>
-        <QuestionnaireDescription>
-          This answer was saved during the previous session.
-        </QuestionnaireDescription>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="incremental" defaultChecked>
-            Incremental migration
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="cutover">
-            Single cutover
-          </QuestionnaireChoice>
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
+        <QuestionnaireItem name="change" required>
+          <QuestionnaireTitle>این مهاجرت از چه نوعی است؟</QuestionnaireTitle>
+          <QuestionnaireDescription>
+            این پاسخ در نشست قبلی ذخیره شده بود.
+          </QuestionnaireDescription>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="incremental" defaultChecked>
+              مهاجرت تدریجی
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="cutover">
+              قطع‌و‌وصل یک‌مرحله‌ای
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
 
-      <QuestionnaireItem name="verification" multiple required>
-        <QuestionnaireTitle>
-          How should the migration be verified?
-        </QuestionnaireTitle>
-        <QuestionnaireDescription>
-          These checks were selected during the previous session.
-        </QuestionnaireDescription>
-        <QuestionnaireChoices>
-          <QuestionnaireChoice value="tests" defaultChecked>
-            Run migration tests
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="typecheck" defaultChecked>
-            Run the typecheck
-          </QuestionnaireChoice>
-          <QuestionnaireChoice value="manual">
-            Perform a manual smoke test
-          </QuestionnaireChoice>
-        </QuestionnaireChoices>
-        <QuestionnaireError />
-      </QuestionnaireItem>
+        <QuestionnaireItem name="verification" multiple required>
+          <QuestionnaireTitle>
+            مهاجرت چگونه باید تأیید شود؟
+          </QuestionnaireTitle>
+          <QuestionnaireDescription>
+            این بررسی‌ها در نشست قبلی انتخاب شده بودند.
+          </QuestionnaireDescription>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="tests" defaultChecked>
+              اجرای تست‌های مهاجرت
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="typecheck" defaultChecked>
+              اجرای بررسی نوع
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="manual">
+              تست دودی دستی
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
 
-      <QuestionnaireItem name="notes">
-        <QuestionnaireTitle>
-          Anything else the agent should remember?
-        </QuestionnaireTitle>
-        <QuestionnaireDescription>
-          This note was saved with the draft.
-        </QuestionnaireDescription>
-        <QuestionnaireInput
-          aria-label="Saved migration note"
-          defaultValue="Keep the existing public API stable."
-        />
-      </QuestionnaireItem>
+        <QuestionnaireItem name="notes">
+          <QuestionnaireTitle>
+            چیز دیگری هست که عامل باید به‌خاطر بسپارد؟
+          </QuestionnaireTitle>
+          <QuestionnaireDescription>
+            این یادداشت همراه پیش‌نویس ذخیره شده بود.
+          </QuestionnaireDescription>
+          <QuestionnaireInput
+            aria-label="یادداشت مهاجرت ذخیره‌شده"
+            defaultValue="API عمومی موجود را پایدار نگه دار."
+          />
+        </QuestionnaireItem>
 
-      <QuestionnaireActions>
-        <Button type="reset" variant="outline">
-          Reset changes
-        </Button>
-        <QuestionnairePrevious />
-        <QuestionnaireNext>Next</QuestionnaireNext>
-        <QuestionnaireSubmit>Update draft</QuestionnaireSubmit>
-      </QuestionnaireActions>
-    </Questionnaire>
+        <QuestionnaireActions>
+          <Button type="reset" variant="outline">
+            بازگردانی تغییرات
+          </Button>
+          <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+          <QuestionnaireNext>بعدی</QuestionnaireNext>
+          <QuestionnaireSubmit>به‌روزرسانی پیش‌نویس</QuestionnaireSubmit>
+        </QuestionnaireActions>
+      </Questionnaire>
+    </div>
   )
 }

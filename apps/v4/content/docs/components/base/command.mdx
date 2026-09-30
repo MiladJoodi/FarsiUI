@@ -1,35 +1,48 @@
 ---
-title: Command
-description: Command menu for search and quick actions.
+title: فرمان (Command)
+description: منوی فرمان برای جستجو و اقدام‌های سریع.
 base: base
 component: true
 links:
   doc: https://github.com/dip/cmdk
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="command-demo"
-  align="start"
-  previewClassName="h-[24.5rem]"
+  layout="switcher"
+  examples={[
+    { name: "command-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "command-basic", label: "پایه", sizeable: false },
+    { name: "command-shortcuts", label: "میانبر", sizeable: false },
+    { name: "command-groups", label: "گروه", sizeable: false },
+    { name: "command-scrollable", label: "اسکرول", sizeable: false },
+  ]}
 />
 
-## About
+<div className="hidden">
 
-The `<Command />` component uses the [`cmdk`](https://github.com/dip/cmdk) component by [Dip](https://www.dip.org/).
+## درباره
 
-## Installation
+</div>
+
+<DocsCollapsible title="درباره">
+
+کامپوننت `<Command />` بر پایهٔ [`cmdk`](https://github.com/dip/cmdk) ساختهٔ [Dip](https://www.dip.org/) است.
+
+</DocsCollapsible>
+
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add command
+npx farsiui@latest add command
 ```
 
 </TabsContent>
@@ -38,13 +51,13 @@ npx shadcn@latest add command
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install cmdk
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="command"
@@ -52,7 +65,7 @@ npm install cmdk
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -60,7 +73,7 @@ npm install cmdk
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -78,27 +91,33 @@ import {
 
 ```tsx showLineNumbers
 <Command className="max-w-sm rounded-lg border">
-  <CommandInput placeholder="Type a command or search..." />
+  <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
   <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Suggestions">
-      <CommandItem>Calendar</CommandItem>
-      <CommandItem>Search Emoji</CommandItem>
-      <CommandItem>Calculator</CommandItem>
+    <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+    <CommandGroup heading="پیشنهادها">
+      <CommandItem>تقویم</CommandItem>
+      <CommandItem>جستجوی ایموجی</CommandItem>
+      <CommandItem>ماشین‌حساب</CommandItem>
     </CommandGroup>
     <CommandSeparator />
-    <CommandGroup heading="Settings">
-      <CommandItem>Profile</CommandItem>
-      <CommandItem>Billing</CommandItem>
-      <CommandItem>Settings</CommandItem>
+    <CommandGroup heading="تنظیمات">
+      <CommandItem>پروفایل</CommandItem>
+      <CommandItem>صورتحساب</CommandItem>
+      <CommandItem>تنظیمات</CommandItem>
     </CommandGroup>
   </CommandList>
 </Command>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Command`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Command`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
 
 ```text
 Command
@@ -114,40 +133,187 @@ Command
         └── CommandItem
 ```
 
-## Basic
+</DocsCollapsible>
 
-A simple command menu in a dialog.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="command-basic" />
+## پایه
 
-## Shortcuts
+</div>
 
-<ComponentPreview styleName="base-nova" name="command-shortcuts" />
+<DocsCollapsible title="پایه">
 
-## Groups
+منوی فرمان ساده داخل دیالوگ.
 
-A command menu with groups, icons and separators.
+<ComponentPreview
+  styleName="base-nova"
+  name="command-basic"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-<ComponentPreview styleName="base-nova" name="command-groups" />
+</DocsCollapsible>
 
-## Scrollable
+<div className="hidden">
 
-Scrollable command menu with multiple items.
+## میانبر
 
-<ComponentPreview styleName="base-nova" name="command-scrollable" />
+</div>
 
-## RTL
+<DocsCollapsible title="میانبر">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="command-shortcuts"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه
+
+</div>
+
+<DocsCollapsible title="گروه">
+
+منوی فرمان با گروه، آیکون و جداکننده.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="command-groups"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اسکرول
+
+</div>
+
+<DocsCollapsible title="اسکرول">
+
+منوی فرمان قابل اسکرول با آیتم‌های زیاد.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="command-scrollable"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="command-rtl"
   direction="rtl"
-  align="start"
-  previewClassName="h-[24.5rem]"
+  previewClassName="h-auto! min-h-0 py-6 px-6 h-[24.5rem]"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [cmdk](https://github.com/dip/cmdk) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات cmdk](https://github.com/dip/cmdk) را ببینید.
+
+<DocsApiProps
+  title="Command"
+  description="ظرف ریشهٔ منوی فرمان."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CommandDialog"
+  description="نمایش منوی فرمان داخل دیالوگ."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CommandInput"
+  description="ورودی جستجوی منوی فرمان."
+  props={[
+    {
+      name: "placeholder",
+      description: "متن راهنمای ورودی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CommandItem"
+  description="یک آیتم قابل انتخاب در فهرست."
+  props={[
+    {
+      name: "disabled",
+      description: "غیرفعال کردن آیتم",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CommandGroup"
+  description="گروه‌بندی آیتم‌ها با عنوان اختیاری."
+  props={[
+    {
+      name: "heading",
+      description: "عنوان گروه",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CommandShortcut"
+  description="نمایش میانبر صفحه‌کلید کنار آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

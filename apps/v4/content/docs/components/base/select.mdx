@@ -1,6 +1,6 @@
 ---
-title: Select
-description: Displays a list of options for the user to pick from—triggered by a button.
+title: انتخابگر (Select)
+description: فهرست گزینه‌ها برای انتخاب کاربر — با دکمه باز می‌شود.
 base: base
 component: true
 featured: true
@@ -9,20 +9,31 @@ links:
   api: https://base-ui.com/react/components/select#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="select-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "select-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "select-align-item", label: "تراز آیتم", sizeable: false },
+    { name: "select-groups", label: "گروه", sizeable: false },
+    { name: "select-scrollable", label: "قابل پیمایش", sizeable: false },
+    { name: "select-disabled", label: "غیرفعال", sizeable: false },
+    { name: "select-invalid", label: "نامعتبر", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add select
+npx farsiui@latest add select
 ```
 
 </TabsContent>
@@ -31,13 +42,13 @@ npx shadcn@latest add select
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="select"
@@ -45,7 +56,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -53,7 +64,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -68,14 +79,14 @@ import {
 
 ```tsx showLineNumbers
 const items = [
-  { label: "Light", value: "light" },
-  { label: "Dark", value: "dark" },
-  { label: "System", value: "system" },
+  { label: "روشن", value: "light" },
+  { label: "تیره", value: "dark" },
+  { label: "سیستم", value: "system" },
 ]
 
 <Select items={items}>
   <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="تم" />
   </SelectTrigger>
   <SelectContent>
     <SelectGroup>
@@ -89,9 +100,15 @@ const items = [
 </Select>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Select`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+از ترکیب زیر برای ساخت `Select` استفاده کنید:
 
 ```text
 Select
@@ -109,49 +126,127 @@ Select
         └── SelectItem
 ```
 
-## Align Item With Trigger
+</DocsCollapsible>
 
-Use `alignItemWithTrigger` on `SelectContent` to control whether the selected item aligns with the trigger. When `true` (default), the popup positions so the selected item appears over the trigger. When `false`, the popup aligns to the trigger edge.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="select-align-item" />
+## تراز آیتم با تریگر
 
-## Groups
+</div>
 
-Use `SelectGroup`, `SelectLabel`, and `SelectSeparator` to organize items.
+<DocsCollapsible title="تراز آیتم با تریگر">
 
-<ComponentPreview styleName="base-nova" name="select-groups" />
+با `alignItemWithTrigger` روی `SelectContent` مشخص کنید که آیتم انتخاب‌شده با تریگر تراز شود یا نه. وقتی `true` باشد (پیش‌فرض)، پاپ‌آپ طوری قرار می‌گیرد که آیتم انتخاب‌شده روی تریگر دیده شود. وقتی `false` باشد، پاپ‌آپ با لبهٔ تریگر تراز می‌شود.
 
-## Scrollable
+<ComponentPreview
+  styleName="base-nova"
+  name="select-align-item"
+  direction="rtl"
+/>
 
-A select with many items that scrolls.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="select-scrollable" />
+<div className="hidden">
 
-## Disabled
+## گروه
 
-<ComponentPreview styleName="base-nova" name="select-disabled" />
+</div>
 
-## Invalid
+<DocsCollapsible title="گروه">
 
-Add the `data-invalid` attribute to the `Field` component and the `aria-invalid` attribute to the `SelectTrigger` component to show an error state.
+با `SelectGroup`، `SelectLabel` و `SelectSeparator` آیتم‌ها را سازمان‌دهی کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="select-groups"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## قابل پیمایش
+
+</div>
+
+<DocsCollapsible title="قابل پیمایش">
+
+انتخابگر با آیتم‌های زیاد که پیمایش می‌شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="select-scrollable"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="select-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+صفت `data-invalid` را روی `Field` و `aria-invalid` را روی `SelectTrigger` بگذارید تا حالت خطا نمایش داده شود.
 
 ```tsx showLineNumbers /data-invalid/ /aria-invalid/
 <Field data-invalid>
-  <FieldLabel>Fruit</FieldLabel>
+  <FieldLabel>میوه</FieldLabel>
   <SelectTrigger aria-invalid>
     <SelectValue />
   </SelectTrigger>
 </Field>
 ```
 
-<ComponentPreview styleName="base-nova" name="select-invalid" />
+<ComponentPreview
+  styleName="base-nova"
+  name="select-invalid"
+  direction="rtl"
+/>
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview styleName="base-nova" name="select-rtl" direction="rtl" />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Select](https://base-ui.com/react/components/select#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+مستندات [Base UI Select](https://base-ui.com/react/components/select#api-reference) را ببینید.
+
+</DocsCollapsible>

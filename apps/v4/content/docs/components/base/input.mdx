@@ -1,28 +1,43 @@
 ---
-title: Input
-description: A text input component for forms and user data entry with built-in styling and accessibility features.
+title: ورودی (Input)
+description: ورودی متن برای فرم‌ها و ورود داده با استایل و دسترس‌پذیری داخلی.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="input-demo"
-  previewClassName="*:max-w-xs"
+  layout="switcher"
+  examples={[
+    { name: "input-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "input-basic", label: "پایه", sizeable: false },
+    { name: "input-field", label: "فیلد", sizeable: false },
+    { name: "input-fieldgroup", label: "گروه فیلد", sizeable: false },
+    { name: "input-disabled", label: "غیرفعال", sizeable: false },
+    { name: "input-invalid", label: "نامعتبر", sizeable: false },
+    { name: "input-file", label: "فایل", sizeable: false },
+    { name: "input-inline", label: "درخط", sizeable: false },
+    { name: "input-grid", label: "شبکه", sizeable: false },
+    { name: "input-required", label: "اجباری", sizeable: false },
+    { name: "input-badge", label: "نشان", sizeable: false },
+    { name: "input-input-group", label: "گروه ورودی", sizeable: false },
+    { name: "input-button-group", label: "گروه دکمه", sizeable: false },
+    { name: "input-form", label: "فرم", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add input
+npx farsiui@latest add input
 ```
 
 </TabsContent>
@@ -31,7 +46,7 @@ npx shadcn@latest add input
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="input"
@@ -39,7 +54,7 @@ npx shadcn@latest add input
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +62,7 @@ npx shadcn@latest add input
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Input } from "@/components/ui/input"
@@ -57,139 +72,262 @@ import { Input } from "@/components/ui/input"
 <Input />
 ```
 
-## Basic
+<div className="hidden">
+
+## پایه
+
+</div>
+
+<DocsCollapsible title="پایه">
+
+ورودی متن ساده بدون برچسب.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-basic"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Field
+</DocsCollapsible>
 
-Use `Field`, `FieldLabel`, and `FieldDescription` to create an input with a
-label and description.
+<div className="hidden">
+
+## فیلد
+
+</div>
+
+<DocsCollapsible title="فیلد">
+
+با `Field`، `FieldLabel` و `FieldDescription` ورودی همراه با برچسب و توضیح بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-field"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Field Group
+</DocsCollapsible>
 
-Use `FieldGroup` to show multiple `Field` blocks and to build forms.
+<div className="hidden">
+
+## گروه فیلد
+
+</div>
+
+<DocsCollapsible title="گروه فیلد">
+
+با `FieldGroup` چند `Field` را کنار هم بگذارید و فرم بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-fieldgroup"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Disabled
+</DocsCollapsible>
 
-Use the `disabled` prop to disable the input. To style the disabled state, add the `data-disabled` attribute to the `Field` component.
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` ورودی را غیرفعال کنید. برای استایل حالت غیرفعال، attribute به نام `data-disabled` را روی `Field` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-disabled"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Invalid
+</DocsCollapsible>
 
-Use the `aria-invalid` prop to mark the input as invalid. To style the invalid state, add the `data-invalid` attribute to the `Field` component.
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با prop به نام `aria-invalid` ورودی را نامعتبر علامت بزنید. برای استایل حالت نامعتبر، attribute به نام `data-invalid` را روی `Field` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-invalid"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## File
+</DocsCollapsible>
 
-Use the `type="file"` prop to create a file input.
+<div className="hidden">
+
+## فایل
+
+</div>
+
+<DocsCollapsible title="فایل">
+
+با `type="file"` ورودی انتخاب فایل بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-file"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Inline
+</DocsCollapsible>
 
-Use `Field` with `orientation="horizontal"` to create an inline input.
-Pair with `Button` to create a search input with a button.
+<div className="hidden">
+
+## درخط
+
+</div>
+
+<DocsCollapsible title="درخط">
+
+با `Field` و `orientation="horizontal"` ورودی درخط بسازید. همراه با `Button` می‌توانید جستجوی دکمه‌دار بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-inline"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Grid
+</DocsCollapsible>
 
-Use a grid layout to place multiple inputs side by side.
+<div className="hidden">
+
+## شبکه
+
+</div>
+
+<DocsCollapsible title="شبکه">
+
+با چیدمان شبکه‌ای چند ورودی را کنار هم قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-grid"
+  direction="rtl"
   previewClassName="p-6"
 />
 
-## Required
+</DocsCollapsible>
 
-Use the `required` attribute to indicate required inputs.
+<div className="hidden">
+
+## اجباری
+
+</div>
+
+<DocsCollapsible title="اجباری">
+
+با attribute به نام `required` ورودی‌های اجباری را مشخص کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-required"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Badge
+</DocsCollapsible>
 
-Use `Badge` in the label to highlight a recommended field.
+<div className="hidden">
+
+## نشان
+
+</div>
+
+<DocsCollapsible title="نشان">
+
+با `Badge` در برچسب، فیلد پیشنهادی را برجسته کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-badge"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Input Group
+</DocsCollapsible>
 
-To add icons, text, or buttons inside an input, use the `InputGroup` component. See the [Input Group](/docs/components/input-group) component for more examples.
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+برای افزودن آیکون، متن یا دکمه داخل ورودی از `InputGroup` استفاده کنید. مثال‌های بیشتر را در [گروه ورودی](/docs/components/input-group) ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-input-group"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Button Group
+</DocsCollapsible>
 
-To add buttons to an input, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) component for more examples.
+<div className="hidden">
+
+## گروه دکمه
+
+</div>
+
+<DocsCollapsible title="گروه دکمه">
+
+برای افزودن دکمه به ورودی از `ButtonGroup` استفاده کنید. مثال‌های بیشتر را در [گروه دکمه](/docs/components/button-group) ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-button-group"
+  direction="rtl"
   previewClassName="*:max-w-xs"
 />
 
-## Form
+</DocsCollapsible>
 
-A full form example with multiple inputs, a select, and a button.
+<div className="hidden">
+
+## فرم
+
+</div>
+
+<DocsCollapsible title="فرم">
+
+نمونهٔ کامل فرم با چند ورودی، انتخابگر و دکمه.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-form"
+  direction="rtl"
   previewClassName="h-[32rem]"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -197,3 +335,55 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
   previewClassName="*:max-w-xs"
 />
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Input"
+  description="ورودی متن استاندارد برای فرم‌ها."
+  props={[
+    {
+      name: "type",
+      description: "نوع ورودی HTML",
+      values: ["string"],
+      defaultValue: "text",
+    },
+    {
+      name: "placeholder",
+      description: "متن راهنمای ورودی",
+      values: ["string"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن ورودی",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "required",
+      description: "اجباری بودن فیلد",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "aria-invalid",
+      description: "علامت‌گذاری حالت نامعتبر",
+      values: ["boolean"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

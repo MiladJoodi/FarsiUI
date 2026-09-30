@@ -22,12 +22,8 @@ import {
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Button } from "@/styles/base-nova/ui-rtl/button"
-import { Checkbox } from "@/styles/base-nova/ui-rtl/checkbox"
+import { Button } from "@/styles/base-nova/ui/button"
+import { Checkbox } from "@/styles/base-nova/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -37,8 +33,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui-rtl/dropdown-menu"
-import { Input } from "@/styles/base-nova/ui-rtl/input"
+} from "@/styles/base-nova/ui/dropdown-menu"
+import { Input } from "@/styles/base-nova/ui/input"
 import {
   Table,
   TableBody,
@@ -46,91 +42,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/styles/base-nova/ui-rtl/table"
+} from "@/styles/base-nova/ui/table"
 
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      filterEmails: "Filter emails...",
-      columns: "Columns",
-      status: "Status",
-      email: "Email",
-      amount: "Amount",
-      actions: "Actions",
-      copyPaymentId: "Copy payment ID",
-      viewCustomer: "View customer",
-      viewPaymentDetails: "View payment details",
-      selectAll: "Select all",
-      selectRow: "Select row",
-      openMenu: "Open menu",
-      noResults: "No results.",
-      rowsSelected: "of",
-      rowsSelectedSuffix: "row(s) selected.",
-      previous: "Previous",
-      next: "Next",
-      success: "Success",
-      processing: "Processing",
-      failed: "Failed",
-      pending: "Pending",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      filterEmails: "تصفية البريد الإلكتروني...",
-      columns: "الأعمدة",
-      status: "الحالة",
-      email: "البريد الإلكتروني",
-      amount: "المبلغ",
-      actions: "الإجراءات",
-      copyPaymentId: "نسخ معرف الدفع",
-      viewCustomer: "عرض العميل",
-      viewPaymentDetails: "عرض تفاصيل الدفع",
-      selectAll: "تحديد الكل",
-      selectRow: "تحديد الصف",
-      openMenu: "فتح القائمة",
-      noResults: "لا توجد نتائج.",
-      rowsSelected: "من",
-      rowsSelectedSuffix: "صف(وف) محدد.",
-      previous: "السابق",
-      next: "التالي",
-      success: "ناجح",
-      processing: "قيد المعالجة",
-      failed: "فشل",
-      pending: "قيد الانتظار",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      filterEmails: "סנן אימיילים...",
-      columns: "עמודות",
-      status: "סטטוס",
-      email: "אימייל",
-      amount: "סכום",
-      actions: "פעולות",
-      copyPaymentId: "העתק מזהה תשלום",
-      viewCustomer: "צפה בלקוח",
-      viewPaymentDetails: "צפה בפרטי תשלום",
-      selectAll: "בחר הכל",
-      selectRow: "בחר שורה",
-      openMenu: "פתח תפריט",
-      noResults: "אין תוצאות.",
-      rowsSelected: "מתוך",
-      rowsSelectedSuffix: "שורות נבחרו.",
-      previous: "הקודם",
-      next: "הבא",
-      success: "הצליח",
-      processing: "מעבד",
-      failed: "נכשל",
-      pending: "ממתין",
-    },
-  },
-}
-
-// New in v9: declare the features this table uses — anything you don't
-// register is tree-shaken out of the bundle.
 const features = tableFeatures({
   columnFilteringFeature,
   columnVisibilityFeature,
@@ -151,6 +64,19 @@ type Payment = {
   amount: number
   status: "pending" | "processing" | "success" | "failed"
   email: string
+}
+
+const statusLabel: Record<Payment["status"], string> = {
+  success: "موفق",
+  processing: "در حال پردازش",
+  failed: "ناموفق",
+  pending: "در انتظار",
+}
+
+const columnLabel: Record<string, string> = {
+  status: "وضعیت",
+  email: "ایمیل",
+  amount: "مبلغ",
 }
 
 const data: Payment[] = [
@@ -187,7 +113,6 @@ const data: Payment[] = [
 ]
 
 export function DataTableRtl() {
-  const { t, dir, language } = useTranslation(translations, "ar")
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -211,31 +136,26 @@ export function DataTableRtl() {
               onCheckedChange={(value) =>
                 table.toggleAllPageRowsSelected(!!value)
               }
-              aria-label={t.selectAll}
+              aria-label="انتخاب همه"
             />
           ),
           cell: ({ row }) => (
             <Checkbox
               checked={row.getIsSelected()}
               onCheckedChange={(value) => row.toggleSelected(!!value)}
-              aria-label={t.selectRow}
+              aria-label="انتخاب ردیف"
             />
           ),
           enableSorting: false,
           enableHiding: false,
         }),
         columnHelper.accessor("status", {
-          header: t.status,
-          cell: ({ row }) => {
-            const status = row.getValue("status") as string
-            const statusMap: Record<string, string> = {
-              success: t.success,
-              processing: t.processing,
-              failed: t.failed,
-              pending: t.pending,
-            }
-            return <div className="capitalize">{statusMap[status]}</div>
-          },
+          header: "وضعیت",
+          cell: ({ row }) => (
+            <div>
+              {statusLabel[row.getValue("status") as Payment["status"]]}
+            </div>
+          ),
         }),
         columnHelper.accessor("email", {
           header: ({ column }) => {
@@ -246,7 +166,7 @@ export function DataTableRtl() {
                   column.toggleSorting(column.getIsSorted() === "asc")
                 }
               >
-                {t.email}
+                ایمیل
                 <ArrowUpDown />
               </Button>
             )
@@ -256,16 +176,13 @@ export function DataTableRtl() {
           ),
         }),
         columnHelper.accessor("amount", {
-          header: () => <div className="text-start">{t.amount}</div>,
+          header: () => <div className="text-start">مبلغ</div>,
           cell: ({ row }) => {
             const amount = parseFloat(row.getValue("amount"))
-            const formatted = new Intl.NumberFormat(
-              dir === "rtl" ? "ar-SA" : "en-US",
-              {
-                style: "currency",
-                currency: "USD",
-              }
-            ).format(amount)
+            const formatted = new Intl.NumberFormat("fa-IR", {
+              style: "currency",
+              currency: "USD",
+            }).format(amount)
 
             return <div className="text-start font-medium">{formatted}</div>
           },
@@ -281,26 +198,22 @@ export function DataTableRtl() {
                 <DropdownMenuTrigger
                   render={<Button variant="ghost" size="icon-xs" />}
                 >
-                  <span className="sr-only">{t.openMenu}</span>
+                  <span className="sr-only">باز کردن منو</span>
                   <MoreHorizontal />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align={dir === "rtl" ? "start" : "end"}
-                  data-lang={dir === "rtl" ? language : undefined}
-                  className="w-40"
-                >
+                <DropdownMenuContent align="start" className="w-40">
                   <DropdownMenuGroup>
-                    <DropdownMenuLabel>{t.actions}</DropdownMenuLabel>
+                    <DropdownMenuLabel>اقدام‌ها</DropdownMenuLabel>
                     <DropdownMenuItem
                       onClick={() => navigator.clipboard.writeText(payment.id)}
                     >
-                      {t.copyPaymentId}
+                      کپی شناسه پرداخت
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
-                    <DropdownMenuItem>{t.viewCustomer}</DropdownMenuItem>
-                    <DropdownMenuItem>{t.viewPaymentDetails}</DropdownMenuItem>
+                    <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
+                    <DropdownMenuItem>جزئیات پرداخت</DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -308,7 +221,7 @@ export function DataTableRtl() {
           },
         }),
       ]),
-    [t, dir, language]
+    []
   )
 
   const table = useTable({
@@ -328,10 +241,10 @@ export function DataTableRtl() {
   })
 
   return (
-    <div className="w-full">
+    <div className="w-full" dir="rtl">
       <div className="flex items-center gap-2 py-4">
         <Input
-          placeholder={t.filterEmails}
+          placeholder="فیلتر ایمیل..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
@@ -342,12 +255,9 @@ export function DataTableRtl() {
           <DropdownMenuTrigger
             render={<Button variant="outline" className="ms-auto" />}
           >
-            {t.columns} <ChevronDown />
+            ستون‌ها <ChevronDown />
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align={dir === "rtl" ? "start" : "end"}
-            data-lang={dir === "rtl" ? language : undefined}
-          >
+          <DropdownMenuContent align="start">
             <DropdownMenuGroup>
               {table
                 .getAllColumns()
@@ -356,13 +266,12 @@ export function DataTableRtl() {
                   return (
                     <DropdownMenuCheckboxItem
                       key={column.id}
-                      className="capitalize"
                       checked={column.getIsVisible()}
                       onCheckedChange={(value) =>
                         column.toggleVisibility(!!value)
                       }
                     >
-                      {column.id}
+                      {columnLabel[column.id] ?? column.id}
                     </DropdownMenuCheckboxItem>
                   )
                 })}
@@ -407,7 +316,7 @@ export function DataTableRtl() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  {t.noResults}
+                  نتیجه‌ای پیدا نشد.
                 </TableCell>
               </TableRow>
             )}
@@ -416,8 +325,8 @@ export function DataTableRtl() {
       </div>
       <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} {t.rowsSelected}{" "}
-          {table.getFilteredRowModel().rows.length} {t.rowsSelectedSuffix}
+          {table.getFilteredSelectedRowModel().rows.length} از{" "}
+          {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
         </div>
         <div className="flex gap-2">
           <Button
@@ -426,7 +335,7 @@ export function DataTableRtl() {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            {t.previous}
+            قبلی
           </Button>
           <Button
             variant="outline"
@@ -434,7 +343,7 @@ export function DataTableRtl() {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            {t.next}
+            بعدی
           </Button>
         </div>
       </div>

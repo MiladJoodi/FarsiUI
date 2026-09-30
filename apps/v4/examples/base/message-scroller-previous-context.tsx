@@ -54,30 +54,30 @@ const DEFAULT_PEEK = 64
 
 const chat = createChat()
   .user(
-    "I'm building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around."
+    "دارم برای اپ‌مان چت می‌سازم و رفتار اسکرول دیوانه‌ام کرده. هر بار که AI جواب را استریم می‌کند، کل نخ می‌پرد."
   )
   .sleep(1000)
   .assistant(
-    "That's the classic streaming scroll problem. Wrap your message list in `MessageScroller` and turn on `autoScroll` — the viewport pins to the bottom as tokens arrive, so users always see the latest text land in place.\n\nThe important part: it only auto-scrolls while the reader is already at the bottom. The moment they scroll up to read something earlier, auto-scroll backs off and their position is preserved. You get smooth streaming without fighting the user's intent."
+    "این مشکل کلاسیک اسکرول استریم است. لیست پیام را در `MessageScroller` بپیچید و `autoScroll` را روشن کنید — ویوپورت با ورود توکن‌ها به پایین می‌چسبد تا کاربر همیشه آخرین متن را در جای درست ببیند.\n\nنکته مهم: فقط وقتی خواننده از قبل پایین است خودکار اسکرول می‌کند. به محض اسکرول به بالا برای خواندن پیام قبلی، خودکار اسکرول عقب می‌کشد و موقعیت حفظ می‌شود. استریم روان بدون جنگ با نیت کاربر."
   )
   .user(
-    "Okay, but when someone sends a new message the view still feels jarring — like the whole conversation reloads from the top."
+    "باشه، ولی وقتی کسی پیام جدید می‌فرستد هنوز دید ناگهانی است — انگار کل گفتگو از بالا دوباره لود می‌شود."
   )
   .sleep(1000)
   .assistant(
-    "MessageScrollerItem fixes that with turn anchoring. Set `scrollAnchor` on the turn that should settle near the top instead of blindly snapping to the document bottom.\n\nIt also leaves a small peek of the previous exchange visible above the anchor, so context isn't lost. The reply starts in view without that disorienting jump you get from a plain overflow container."
+    "`MessageScrollerItem` با لنگر نوبت این را درست می‌کند. `scrollAnchor` را روی نوبتی بگذارید که باید نزدیک بالا بنشیند، نه اینکه کورکورانه به ته سند بپرد.\n\nهمچنین کمی از تبادل قبلی بالای لنگر دیده می‌ماند تا زمینه از دست نرود. پاسخ بدون آن پرش گیج‌کنندهٔ overflow ساده در دید شروع می‌شود."
   )
   .user(
-    "And if they've scrolled up to re-read an older answer? I don't want to yank them back down."
+    "و اگر به بالا اسکرول کرده باشند تا جواب قدیمی را دوباره بخوانند؟ نمی‌خواهم ناگهان پایین بکشمشان."
   )
   .sleep(1000)
   .assistant(
-    "You won't. Auto-scroll only runs when the viewport is already pinned to the bottom, so scrolling up is a deliberate opt-out — their place in the thread stays put even as new tokens keep arriving below.\n\nWhen there is content they haven't seen yet, `MessageScrollerButton` appears at the bottom of the viewport. One tap jumps them back to the newest message and re-engages auto-scroll. Same pattern as Slack or iMessage: quiet when you're caught up, helpful when you're not."
+    "نمی‌کشید. خودکار اسکرول فقط وقتی ویوپورت به پایین چسبیده است اجرا می‌شود؛ پس اسکرول به بالا انصراف عمدی است — جایشان در نخ حفظ می‌شود حتی وقتی توکن‌های جدید پایین می‌آیند.\n\nوقتی محتوایی ندیده‌اند، `MessageScrollerButton` پایین ویوپورت ظاهر می‌شود. یک ضربه به جدیدترین پیام می‌برد و خودکار اسکرول را دوباره فعال می‌کند. مثل Slack یا iMessage: وقتی به‌روزید ساکت، وقتی نیستید مفید."
   )
-  .user("Last one — does this work with assistive tech?")
+  .user("آخری — با فناوری کمکی کار می‌کند؟")
   .sleep(1000)
   .assistant(
-    '`MessageScrollerContent` sets `role="log"` and `aria-relevant="additions"` by default, so screen readers announce new messages as they stream in.\n\nThe scroll button is a real `<button>` with an sr-only label, and it\'s removed from the tab order when you\'re already at the bottom — no ghost focus stops.'
+    '`MessageScrollerContent` به‌صورت پیش‌فرض `role="log"` و `aria-relevant="additions"` می‌گذارد تا صفحه‌خوان پیام‌های جدید را هنگام استریم اعلام کند.\n\nدکمهٔ اسکرول یک `<button>` واقعی با برچسب sr-only است و وقتی پایین هستید از ترتیب تب حذف می‌شود — بدون توقف فوکوس شبح.'
   )
 const initialMessages = chat.get(2)
 const transport = chat.transport({ delayMs: 35 })
@@ -98,12 +98,12 @@ export function MessageScrollerPreviousContext() {
       scrollMargin={24}
       scrollPreviousItemPeek={peek}
     >
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <Card className="mx-auto h-140 w-full max-w-sm gap-0">
           <CardHeader className="gap-1 border-b">
-            <CardTitle>Keeping Context Visible</CardTitle>
+            <CardTitle>حفظ زمینه در دید</CardTitle>
             <CardDescription>
-              New turns keep part of the previous reply in view.
+              نوبت‌های جدید بخشی از پاسخ قبلی را در دید نگه می‌دارند.
             </CardDescription>
             <CardAction>
               <Tooltip>
@@ -112,7 +112,7 @@ export function MessageScrollerPreviousContext() {
                     <Button
                       variant="outline"
                       size="icon"
-                      aria-label="Reset context example"
+                      aria-label="بازنشانی نمونهٔ زمینه"
                       disabled={isBusy}
                       onClick={() => {
                         setMessages(initialMessages)
@@ -125,7 +125,7 @@ export function MessageScrollerPreviousContext() {
                   <RotateCwIcon />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Reset</p>
+                  <p>بازنشانی</p>
                 </TooltipContent>
               </Tooltip>
             </CardAction>
@@ -170,7 +170,7 @@ export function MessageScrollerPreviousContext() {
                       getMessageText(nextMessage)
                     ) : (
                       <span className="text-muted-foreground">
-                        No messages queued. Reset the context.
+                        پیامی در صف نیست. زمینه را بازنشانی کنید.
                       </span>
                     )}
                   </span>
@@ -180,7 +180,7 @@ export function MessageScrollerPreviousContext() {
                     <DropdownMenuTrigger
                       render={
                         <InputGroupButton
-                          aria-label="Add files"
+                          aria-label="افزودن فایل"
                           type="button"
                           size="icon-sm"
                           variant="outline"
@@ -196,20 +196,20 @@ export function MessageScrollerPreviousContext() {
                     >
                       <DropdownMenuItem>
                         <PaperclipIcon />
-                        Add Photos & Files
+                        افزودن عکس و فایل
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem>
                         <ImageIcon />
-                        Create Image
+                        ساخت تصویر
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <TelescopeIcon />
-                        Deep Research
+                        پژوهش عمیق
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <GlobeIcon />
-                        Web Search
+                        جستجوی وب
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -218,7 +218,7 @@ export function MessageScrollerPreviousContext() {
                       {peek}px
                     </span>
                     <Slider
-                      aria-label="Previous context peek"
+                      aria-label="نمای کوتاه زمینهٔ قبلی"
                       value={[peek]}
                       min={64}
                       max={128}
@@ -238,10 +238,10 @@ export function MessageScrollerPreviousContext() {
                     variant="default"
                     size="icon-sm"
                     disabled={!nextMessage || isBusy}
-                    className="ml-auto"
+                    className="ms-auto"
                   >
                     <ArrowUpIcon />
-                    <span className="sr-only">Send</span>
+                    <span className="sr-only">ارسال</span>
                   </InputGroupButton>
                 </InputGroupAddon>
               </InputGroup>
@@ -249,7 +249,7 @@ export function MessageScrollerPreviousContext() {
           </CardFooter>
         </Card>
         <div className="px-0.5 text-center text-xs text-muted-foreground">
-          Adjust the slider and send. Observe the previous message peak
+          اسلایدر را تنظیم کنید و ارسال کنید. نمای کوتاه پیام قبلی را ببینید
         </div>
       </div>
     </MessageScrollerProvider>

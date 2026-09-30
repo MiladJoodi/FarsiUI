@@ -1,79 +1,88 @@
 ---
-title: Message Scroller
-description: A chat scroll container that anchors turns, opens saved transcripts, follows streamed responses, loads history without jumping, and jumps to any message.
+title: پیمایشگر پیام (Message Scroller)
+description: ظرف اسکرول چت که نوبت‌ها را لنگر می‌کند، رونوشت ذخیره‌شده را باز می‌کند، پاسخ استریم را دنبال می‌کند، تاریخچه را بدون پرش بار می‌گذارد و به هر پیام می‌پرد.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-rhea"
-  name="message-scroller-demo"
-  className="rounded-[34px] sm:rounded-4xl"
-  previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
+  layout="switcher"
+  examples={[
+    { name: "message-scroller-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "message-scroller-anchoring", label: "لنگر", sizeable: false },
+    { name: "message-scroller-group-chat", label: "گفتگوی گروهی", sizeable: false },
+    { name: "message-scroller-previous-context", label: "زمینهٔ قبلی", sizeable: false },
+    { name: "message-scroller-streaming", label: "استریم", sizeable: false },
+    { name: "message-scroller-opening-position", label: "موقعیت باز شدن", sizeable: false },
+    { name: "message-scroller-load-history", label: "بارگذاری تاریخچه", sizeable: false },
+    { name: "message-scroller-animation", label: "پویانمایی", sizeable: false },
+    { name: "message-scroller-commands", label: "فرمان‌ها", sizeable: false },
+    { name: "message-scroller-visibility", label: "دیده‌شدن", sizeable: false },
+    { name: "message-scroller-scrollable", label: "قابل‌اسکرول", sizeable: false },
+  ]}
 />
+<div className="hidden">
 
-## What Makes a Great Streaming Chat Experience
+## تجربهٔ استریم عالی
 
-Building a chat interface used to be simple. You create an inverted list with
-an input. Type a message, it appends at the bottom. When a reply comes in, the
-list grows and scrolls. Done.
+</div>
 
-Streaming breaks that model. Messages arrive in chunks while you may still be
-reading, scrolling, or looking somewhere else entirely.
+<DocsCollapsible title="تجربهٔ استریم عالی">
 
-Now the challenge is preserving the reader's place while the conversation keeps
-changing. Get that wrong and the experience feels jumpy: people are pulled to
-the bottom, lose context, and have to find their way back.
+ساخت رابط چت زمانی ساده بود. یک لیست معکوس با ورودی می‌ساختید. پیام می‌نوشتید، پایین اضافه می‌شد. وقتی جواب می‌آمد، لیست رشد می‌کرد و اسکرول می‌شد. تمام.
 
-In practice, this comes down to scroll: when to follow, when to hold, and when
-to let the reader decide. A great streaming chat should:
+استریم آن مدل را می‌شکند. پیام‌ها تکه‌تکه می‌رسند در حالی که شاید هنوز در حال خواندن، اسکرول یا نگاه به جای دیگری باشید.
 
-1. **Move only when the reader asked to move.** If someone is reading, don’t pull them somewhere else. Auto-scroll should never be the default.
-2. **Follow only while they’re following.** If they’re at the live edge, keep the stream in view. If they scroll away, leave them there.
-3. **Every interaction is a signal.** Scrolling is not the only one. Selecting text, using the keyboard, opening a link, or searching should all stop the interface from moving.
-4. **Start a new turn near the top of the viewport.** This gives the new turn somewhere it can be read from the beginning.
-5. **Then stream in the answer.** The answer should grow into the screen, not immediately push everything away.
-6. **Keep part of the previous conversation in context.** The prompt and reply should stay visually connected, and enough of the previous turn should remain visible so the reader knows where they are.
-7. **Let new content arrive offscreen.** The conversation can keep streaming without changing what the reader is looking at.
-8. **Show what’s happening out of view.** Make it clear when a response is still streaming or when new messages have arrived.
-9. **Make it easy to return to the latest reply.** A “Jump to latest” action should bring the reader back and resume following.
-10. **Let people jump anywhere in the conversation.** Long threads need message links, search, unread markers, and direct navigation.
-11. **Reopen where the reader left off.** A saved conversation should open at the last meaningful turn. Often this is the last user message. Not the absolute bottom.
-12. **Keep the reader’s place when layout changes.** Images load. Markdown expands. Code blocks render. Older messages appear above. None of that should make the reader lose their place.
-13. **Handle interruptions without stealing position.** Stopping, retrying, regenerating, branching, or errors should not unexpectedly move the conversation.
-14. **Stay responsive in long threads.** Streaming text, markdown, code, images, and long history should still feel responsive.
-15. **Be accessible without the noise.** Keep the transcript navigable, preserve keyboard focus, and announce important events at a comfortable pace.
+حالا چالش حفظ جای خواننده است در حالی که گفتگو مدام عوض می‌شود. اگر اشتباه کنید تجربه پرش‌دار می‌شود: افراد به پایین کشیده می‌شوند، زمینه را از دست می‌دهند و باید راه برگشت را پیدا کنند.
 
-**Never move the reader against their intent.**
+در عمل همه چیز به اسکرول برمی‌گردد: کی دنبال کند، کی نگه دارد و کی به خواننده تصمیم بدهد. یک چت استریم عالی باید:
 
-## MessageScroller
+1. **فقط وقتی حرکت کند که خواننده خواسته باشد.** اگر کسی می‌خواند، او را جابه‌جا نکنید. اسکرول خودکار هرگز نباید پیش‌فرض باشد.
+2. **فقط تا وقتی دنبال می‌کنند، دنبال کنید.** اگر روی لبهٔ زنده هستند، استریم را در دید نگه دارید. اگر دور شدند، همان‌جا رهایشان کنید.
+3. **هر تعامل یک سیگنال است.** اسکرول تنها نیست. انتخاب متن، کیبورد، باز کردن لینک یا جستجو باید همه جلوی حرکت رابط را بگیرند.
+4. **نوبت جدید را نزدیک بالای ویوپورت شروع کنید.** تا نوبت جدید جایی برای خواندن از ابتدا داشته باشد.
+5. **سپس جواب را استریم کنید.** جواب باید داخل صفحه رشد کند، نه اینکه فوری همه چیز را کنار بزند.
+6. **بخشی از گفتگوی قبلی را در زمینه نگه دارید.** پرامپت و پاسخ باید بصری متصل بمانند و به‌اندازهٔ کافی از نوبت قبلی دیده شود تا خواننده بداند کجاست.
+7. **بگذارید محتوای جدید خارج از صفحه برسد.** گفتگو می‌تواند بدون عوض کردن آنچه خواننده می‌بیند استریم کند.
+8. **نشان دهید خارج از دید چه می‌گذرد.** وقتی پاسخ هنوز استریم می‌شود یا پیام‌های جدید رسیده‌اند واضح باشد.
+9. **بازگشت به آخرین پاسخ را آسان کنید.** اقدام «پرش به جدیدترین» باید خواننده را برگرداند و دنبال‌کردن را از سر بگیرد.
+10. **بگذارید افراد به هر جای گفتگو بپرند.** نخ‌های بلند به لینک پیام، جستجو، نشانگر نخوانده و ناوبری مستقیم نیاز دارند.
+11. **جایی باز کنید که خواننده رها کرده.** گفتگوی ذخیره‌شده باید روی آخرین نوبت معنادار باز شود. اغلب آخرین پیام کاربر است، نه ته مطلق.
+12. **وقتی چیدمان عوض می‌شود جای خواننده را حفظ کنید.** تصویر لود می‌شود. مارک‌داون باز می‌شود. بلوک کد رندر می‌شود. پیام‌های قدیمی‌تر بالا ظاهر می‌شوند. هیچ‌کدام نباید جای خواننده را بدزدند.
+13. **وقفه را بدون دزدیدن موقعیت مدیریت کنید.** توقف، تلاش مجدد، بازتولید، شاخه یا خطا نباید ناگهان گفتگو را جابه‌جا کنند.
+14. **در نخ‌های بلند پاسخگو بمانید.** متن استریم، مارک‌داون، کد، تصویر و تاریخچهٔ بلند باید همچنان روان حس شوند.
+15. **بدون نویز دسترس‌پذیر باشید.** رونوشت را قابل‌ناوبری نگه دارید، فوکوس کیبورد را حفظ کنید و رویدادهای مهم را با ریتم راحت اعلام کنید.
 
-MessageScroller is a chat transcript scroller built for these behaviors.
-`MessageScrollerProvider` owns the scroll state and transcript-row behavior:
-opening position, streamed output, new-turn anchoring, prepended history,
-visibility, and scroll controls. `MessageScroller` is the styled frame that
-renders inside it.
+**هرگز خواننده را خلاف نیتش حرکت ندهید.**
 
-MessageScroller is scoped to the scroll viewport. It does not own messages, AI state,
-transport, persistence, branching, or model state. Your product code stays
-focused on composing messages, markers, tools, attachments, and prompt inputs.
+</DocsCollapsible>
 
-It gives you the scroll behavior that chat needs, without taking over the rest
-of the chat UI. And it stays fast, even in long conversations with rich
-markdown.
+`MessageScroller` یک اسکرولر رونوشت چت است که برای همین رفتارها ساخته شده.
+`MessageScrollerProvider` مالک وضعیت اسکرول و رفتار ردیف رونوشت است:
+موقعیت باز شدن، خروجی استریم، لنگر نوبت جدید، تاریخچهٔ پیش‌افزوده،
+دیده‌شدن و کنترل‌های اسکرول. `MessageScroller` قاب استایل‌شده‌ای است که
+داخل آن رندر می‌شود.
 
-## Installation
+`MessageScroller` به ویوپورت اسکرول محدود است. مالک پیام‌ها، وضعیت AI،
+حمل‌ونقل، پایداری، شاخه‌بندی یا وضعیت مدل نیست. کد محصول روی ترکیب پیام‌ها،
+نشانگرها، ابزارها، پیوست‌ها و ورودی پرامپت متمرکز می‌ماند.
+
+رفتار اسکرولی که چت نیاز دارد را می‌دهد، بدون اینکه بقیهٔ UI چت را بگیرد.
+و حتی در گفتگوهای بلند با مارک‌داون غنی سریع می‌ماند.
+
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add message-scroller
+npx farsiui@latest add message-scroller
 ```
 
 </TabsContent>
@@ -82,21 +91,21 @@ npx shadcn@latest add message-scroller
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @farsiui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="message-scroller"
   title="components/ui/message-scroller.tsx"
-  styleName="base-nova"
+  styleName="base-rhea"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -104,7 +113,7 @@ npm install @farsiui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Message } from "@/components/ui/message"
@@ -139,18 +148,25 @@ import {
 </MessageScrollerProvider>
 ```
 
-`MessageScroller` fills its parent, so place it inside a height-constrained
-container.
+`MessageScroller` والد خود را پر می‌کند؛ پس آن را داخل ظرفی با ارتفاع محدود بگذارید.
 
 ```tsx
 <div className="flex h-screen flex-col">
   <MessageScrollerProvider>
-    <MessageScroller className="flex-1">{/* transcript */}</MessageScroller>
+    <MessageScroller className="flex-1">{/* رونوشت */}</MessageScroller>
   </MessageScrollerProvider>
 </div>
 ```
 
-## Composition
+برای چیدمان ردیف پیام از [`پیام`](/docs/components/message) استفاده کنید.
+
+<div className="hidden">
+
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
 
 ```tsx
 <MessageScrollerProvider>
@@ -158,7 +174,7 @@ container.
     <MessageScrollerViewport>
       <MessageScrollerContent>
         <MessageScrollerItem>
-          {/* a message, marker, or row */}
+          {/* یک پیام، نشانگر یا ردیف */}
         </MessageScrollerItem>
         <MessageScrollerItem />
         <MessageScrollerItem />
@@ -169,47 +185,39 @@ container.
 </MessageScrollerProvider>
 ```
 
-- **`MessageScrollerProvider`** — the headless root. Owns scroll state and the
-  behavior props for opening position, auto-scroll, anchoring, scroll commands,
-  and visibility tracking.
-- **`MessageScroller`** — the styled frame. Lays out the viewport, content, and
-  controls inside the provider.
-- **`MessageScrollerViewport`** — the scrollable element. Receives native scroll
-  events and preserves the visible row when older messages are prepended.
-- **`MessageScrollerContent`** — the transcript container. Holds the rows and
-  provides the live-region defaults for new messages.
-- **`MessageScrollerItem`** — the transcript row boundary. Wrap every direct
-  child of the content so the scroller can measure, anchor, preserve position,
-  track visibility, and jump to it. An item can be a message, marker, typing
-  indicator, separator, join/leave event, or "load earlier" row.
-- **`MessageScrollerButton`** — the scroll control. Scrolls to the start or end of the transcript and is inert until there is content in its direction.
+- **`MessageScrollerProvider`** — ریشهٔ بدون‌استایل. مالک وضعیت اسکرول و props رفتار برای موقعیت باز شدن، اسکرول خودکار، لنگر، فرمان‌های اسکرول و ردیابی دیده‌شدن.
+- **`MessageScroller`** — قاب استایل‌شده. ویوپورت، محتوا و کنترل‌ها را داخل provider می‌چیند.
+- **`MessageScrollerViewport`** — عنصر قابل‌اسکرول. رویدادهای اسکرول بومی را می‌گیرد و هنگام پیش‌افزودن پیام‌های قدیمی‌تر ردیف دیده‌شده را حفظ می‌کند.
+- **`MessageScrollerContent`** — ظرف رونوشت. ردیف‌ها را نگه می‌دارد و پیش‌فرض‌های ناحیهٔ زنده برای پیام‌های جدید را فراهم می‌کند.
+- **`MessageScrollerItem`** — مرز ردیف رونوشت. هر فرزند مستقیم محتوا را بپیچید تا اسکرولر بتواند اندازه بگیرد، لنگر کند، موقعیت را حفظ کند، دیده‌شدن را ردیابی کند و به آن بپرد. آیتم می‌تواند پیام، نشانگر، نشانگر تایپ، جداکننده، رویداد پیوستن/ترک یا ردیف «بارگذاری قبلی» باشد.
+- **`MessageScrollerButton`** — کنترل اسکرول. به ابتدا یا انتهای رونوشت اسکرول می‌کند و تا وقتی در آن جهت محتوا نباشد inert است.
 
-## Core Concepts
+</DocsCollapsible>
 
-### Anchoring Turns
+<div className="hidden">
 
-A turn is the part of the conversation that starts a new exchange. In a simple
-AI chat, that is usually the user's message and the assistant reply that follows.
+## لنگر نوبت‌ها
 
-An anchor is the row the viewport should treat as the start of that turn. Mark
-that row with `scrollAnchor`. When a new anchor is appended, the viewport moves
-it near the top and keeps a peek of the previous item above it, so the new turn
-does not feel detached from its context.
+</div>
+
+<DocsCollapsible title="لنگر نوبت‌ها">
+
+نوبت بخشی از گفتگو است که تبادل جدید را شروع می‌کند. در چت سادهٔ AI معمولاً پیام کاربر و پاسخ دستیار بعدی است.
+
+لنگر ردیفی است که ویوپورت باید آن را شروع آن نوبت بداند. آن ردیف را با `scrollAnchor` علامت بزنید. وقتی لنگر جدید اضافه می‌شود، ویوپورت آن را نزدیک بالا می‌برد و کمی از آیتم قبلی را بالای آن نگه می‌دارد تا نوبت جدید از زمینه‌اش جدا حس نشود.
 
 ```tsx
-// This tells the scroller to anchor the user's message for the next turn.
+// به اسکرولر می‌گوید پیام کاربر را برای نوبت بعدی لنگر کند.
 <MessageScrollerItem
   messageId={message.id}
   scrollAnchor={message.role === "user"}
 />
 ```
 
-Scroll anchors are not tied to message role. You can turn any row into an anchor:
-a user message, a system marker, a handoff event, or anything else that starts a
-meaningful turn. `MessageScroller` only needs to know which row should anchor the
-viewport.
+لنگرهای اسکرول به نقش پیام گره نخورده‌اند. هر ردیفی را می‌توانید لنگر کنید:
+پیام کاربر، نشانگر سیستم، رویداد تحویل یا هر چیز دیگری که نوبت معنادار را شروع کند. `MessageScroller` فقط باید بداند کدام ردیف ویوپورت را لنگر کند.
 
-In the following example, the user's message is anchored. When you send a new message, the viewport anchors it near the top and appends the assistant reply below it. Toggle the anchor to the assistant's message to see the difference.
+در نمونهٔ زیر پیام کاربر لنگر است. وقتی پیام جدید می‌فرستید، ویوپورت آن را نزدیک بالا لنگر می‌کند و پاسخ دستیار را زیر آن اضافه می‌کند. لنگر را به پیام دستیار ببرید تا تفاوت را ببینید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -218,19 +226,26 @@ In the following example, the user's message is anchored. When you send a new me
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-### Group Chat
+</DocsCollapsible>
 
-In a group chat, the turn boundary is more specific than "the user message". It is often
-the message that asks the model to respond, or a marker like "Marcus joined the
-chat". Typing indicators and history controls usually should not anchor.
+<div className="hidden">
 
-Because anchoring is role-independent, you can anchor a marker just as easily as
-a message.
+## گفتگوی گروهی
+
+</div>
+
+<DocsCollapsible title="گفتگوی گروهی">
+
+در گفتگوی گروهی مرز نوبت مشخص‌تر از «پیام کاربر» است. اغلب
+پیامی است که از مدل پاسخ می‌خواهد، یا نشانگری مثل «Marcus به گفتگو پیوست».
+نشانگرهای تایپ و کنترل‌های تاریخچه معمولاً نباید لنگر شوند.
+
+چون لنگر مستقل از نقش است، نشانگر را به‌راحتی پیام می‌توانید لنگر کنید.
 
 ```tsx
 <MessageScrollerItem messageId="marcus-joined" scrollAnchor>
   <Marker variant="separator">
-    <MarkerContent>Marcus joined the chat</MarkerContent>
+    <MarkerContent>Marcus به گفتگو پیوست</MarkerContent>
   </Marker>
 </MessageScrollerItem>
 ```
@@ -242,21 +257,28 @@ a message.
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-### Keeping Context Visible
+</DocsCollapsible>
 
-When a new turn starts, it should still feel like part of the same continuous
-thread. `scrollPreviousItemPeek` keeps a slice of the previous item visible
-above the anchor, so the reader keeps their context instead of feeling like the
-conversation restarted on a blank page.
+<div className="hidden">
+
+## حفظ زمینه در دید
+
+</div>
+
+<DocsCollapsible title="حفظ زمینه در دید">
+
+وقتی نوبت جدید شروع می‌شود، باید همچنان بخشی از همان نخ پیوسته حس شود.
+`scrollPreviousItemPeek` تکه‌ای از آیتم قبلی را بالای لنگر دیده‌پذیر نگه می‌دارد
+تا خواننده زمینه را حفظ کند و حس نکند گفتگو روی صفحهٔ خالی از نو شروع شده.
 
 ```tsx
-// Keep 64px of the previous turn visible above the newly anchored row.
+// ۶۴ پیکسل از نوبت قبلی را بالای ردیف تازه‌لنگرشده نگه دارید.
 <MessageScrollerProvider scrollPreviousItemPeek={64}>
-  <MessageScroller>{/* anchored turns */}</MessageScroller>
+  <MessageScroller>{/* نوبت‌های لنگرشده */}</MessageScroller>
 </MessageScrollerProvider>
 ```
 
-Adjust the peek amount in the example below to see how it affects the conversation.
+مقدار peek را در نمونهٔ زیر تنظیم کنید تا اثرش روی گفتگو را ببینید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -265,22 +287,30 @@ Adjust the peek amount in the example below to see how it affects the conversati
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-### Following the Live Edge
+</DocsCollapsible>
 
-When the reader is at the live edge, either because they stayed there or
-returned there, `autoScroll` keeps streamed replies in view as they grow.
-Scrolling away from the live edge releases the view, whether by wheel, touch,
-keyboard scroll keys, or dragging the scrollbar. An explicit message jump
-releases it too. New chunks can then arrive without moving the reader.
+<div className="hidden">
 
-`autoScroll` composes with turn anchoring. When a new turn anchors near the
-top, the view stays put while the reply streams into the room below it. Once
-the reply fills the viewport, the reader is back at the live edge and
-follow-output takes over from the anchor.
+## دنبال کردن لبهٔ زنده
+
+</div>
+
+<DocsCollapsible title="دنبال کردن لبهٔ زنده">
+
+وقتی خواننده روی لبهٔ زنده است — چون مانده یا برگشته —
+`autoScroll` پاسخ‌های استریم را هنگام رشد در دید نگه می‌دارد.
+دور شدن از لبهٔ زنده — با چرخ، لمس، کلیدهای اسکرول کیبورد یا کشیدن نوار اسکرول —
+دید را رها می‌کند. پرش صریح به پیام هم همین کار را می‌کند. سپس تکه‌های جدید
+می‌توانند بدون جابه‌جایی خواننده برسند.
+
+`autoScroll` با لنگر نوبت ترکیب می‌شود. وقتی نوبت جدید نزدیک بالا لنگر می‌شود،
+دید ثابت می‌ماند در حالی که پاسخ در فضای زیر آن استریم می‌شود. وقتی پاسخ
+ویوپورت را پر کرد، خواننده دوباره روی لبهٔ زنده است و دنبال‌کردن خروجی جای
+لنگر را می‌گیرد.
 
 ```tsx
 <MessageScrollerProvider autoScroll>
-  <MessageScroller>{/* streamed turns */}</MessageScroller>
+  <MessageScroller>{/* نوبت‌های استریم */}</MessageScroller>
 </MessageScrollerProvider>
 ```
 
@@ -291,26 +321,31 @@ follow-output takes over from the anchor.
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-Calling `scrollToEnd`, or pressing `MessageScrollerButton`, re-engages
-follow-output when `autoScroll` is enabled, so a reader who scrolled away can
-return to the live edge and keep following. The root and viewport expose
-`data-autoscrolling` while that programmatic scroll to the latest message runs,
-so you can conditionally apply styles during the transition.
+فراخوانی `scrollToEnd` یا فشردن `MessageScrollerButton` وقتی `autoScroll` فعال است
+دوباره دنبال‌کردن خروجی را درگیر می‌کند تا خواننده‌ای که دور شده بتواند به لبهٔ
+زنده برگردد و دنبال کند. ریشه و ویوپورت هنگام آن اسکرول برنامه‌ای به جدیدترین
+پیام `data-autoscrolling` می‌گیرند تا بتوانید در انتقال استایل شرطی بزنید.
 
-### Opening Saved Threads
+</DocsCollapsible>
 
-It can seem reasonable to reopen a saved thread at the absolute end of the
-transcript, but that often drops the reader into the conversation without enough
-context. A better default is `"last-anchor"`: show the last meaningful turn,
-like the user's latest message, with the reply below it.
+<div className="hidden">
 
-That gives the reader an immediate place in the thread. They can see what they
-asked, where the answer starts, and continue from there without reconstructing
-the conversation from the bottom edge.
+## باز کردن نخ‌های ذخیره‌شده
+
+</div>
+
+<DocsCollapsible title="باز کردن نخ‌های ذخیره‌شده">
+
+باز کردن نخ ذخیره‌شده در ته مطلق رونوشت معقول به نظر می‌رسد، اما اغلب
+خواننده را بدون زمینهٔ کافی داخل گفتگو می‌اندازد. پیش‌فرض بهتر `"last-anchor"` است:
+آخرین نوبت معنادار را نشان دهید — مثل آخرین پیام کاربر — با پاسخ زیر آن.
+
+خواننده فوری جایی در نخ دارد. می‌بیند چه پرسیده، جواب از کجا شروع شده و بدون
+بازسازی گفتگو از لبهٔ پایین ادامه می‌دهد.
 
 ```tsx
 <MessageScrollerProvider defaultScrollPosition="last-anchor">
-  <MessageScroller>{/* transcript */}</MessageScroller>
+  <MessageScroller>{/* رونوشت */}</MessageScroller>
 </MessageScrollerProvider>
 ```
 
@@ -322,27 +357,33 @@ the conversation from the bottom edge.
   hideCode
 />
 
-`"last-anchor"` is keyed on `scrollAnchor`, not message role. If no anchor
-exists, or the last anchored turn already fits in the viewport, it falls back to
-`"end"`.
+`"last-anchor"` روی `scrollAnchor` کلید می‌خورد، نه نقش پیام. اگر لنگر نباشد،
+یا آخرین نوبت لنگرشده از قبل در ویوپورت جا شود، به `"end"` برمی‌گردد.
 
-Use `"start"` when you want to resume at the beginning of a conversation, or
-`"end"` when the absolute latest message is the right place to land.
+وقتی می‌خواهید از ابتدای گفتگو ادامه دهید از `"start"` استفاده کنید، یا وقتی
+آخرین پیام مطلق جای درست فرود است از `"end"`.
 
-### Avoiding a Flash on Reload
+</DocsCollapsible>
 
-A scroll container always opens at the top. HTML has no way to set `scrollTop`,
-so a server-rendered transcript shows the oldest messages first. After
-JavaScript runs, `defaultScrollPosition` moves the view, and you see a jump.
+<div className="hidden">
 
-When `defaultScrollPosition` is `"end"` or `"last-anchor"`, the viewport has
-`data-pending-scroll` until that position is applied. The styled viewport stays
-hidden while the attribute is present, so you see the frame instead of the jump.
-`"start"` does not need this.
+## جلوگیری از فلش هنگام بارگذاری مجدد
 
-If you want `"end"` visible on first paint, add an inline script right after the
-viewport. Give the viewport an `id`, scroll it to the bottom, and remove
-`data-pending-scroll`.
+</div>
+
+<DocsCollapsible title="جلوگیری از فلش هنگام بارگذاری مجدد">
+
+ظرف اسکرول همیشه از بالا باز می‌شود. HTML راهی برای تنظیم `scrollTop` ندارد،
+پس رونوشت سرور-رندرشده اول قدیمی‌ترین پیام‌ها را نشان می‌دهد. بعد از اجرای
+جاوااسکریپت، `defaultScrollPosition` دید را جابه‌جا می‌کند و پرش می‌بینید.
+
+وقتی `defaultScrollPosition` برابر `"end"` یا `"last-anchor"` است، ویوپورت تا
+اعمال آن موقعیت `data-pending-scroll` دارد. ویوپورت استایل‌شده تا حضور آن
+ویژگی پنهان می‌ماند تا قاب را ببینید نه پرش را. `"start"` به این نیاز ندارد.
+
+اگر می‌خواهید `"end"` در اولین paint دیده شود، بلافاصله بعد از ویوپورت یک اسکریپت
+inline بگذارید. به ویوپورت `id` بدهید، به پایین اسکرول کنید و `data-pending-scroll`
+را بردارید.
 
 ```tsx
 const scrollToEndScript = `(function () {
@@ -356,28 +397,36 @@ const scrollToEndScript = `(function () {
 
 <MessageScroller>
   <MessageScrollerViewport id="messages" suppressHydrationWarning>
-    <MessageScrollerContent>{/* transcript */}</MessageScrollerContent>
+    <MessageScrollerContent>{/* رونوشت */}</MessageScrollerContent>
   </MessageScrollerViewport>
   <script dangerouslySetInnerHTML={{ __html: scrollToEndScript }} />
   <MessageScrollerButton />
 </MessageScroller>
 ```
 
-Put the script in your page, not in the scroller. It only works for `"end"`, and
-only when the messages are already in the HTML. Add `suppressHydrationWarning` on
-the viewport. If you use a Content Security Policy, pass a `nonce`.
+اسکریپت را در صفحه بگذارید، نه داخل اسکرولر. فقط برای `"end"` کار می‌کند و
+فقط وقتی پیام‌ها از قبل در HTML هستند. روی ویوپورت `suppressHydrationWarning`
+بگذارید. اگر CSP دارید، `nonce` بدهید.
 
-Do not use this script with `"last-anchor"`. Skip it when messages load on the
-client.
+این اسکریپت را با `"last-anchor"` استفاده نکنید. وقتی پیام‌ها سمت کلاینت لود
+می‌شوند آن را رد کنید.
 
-### Loading Earlier Messages
+</DocsCollapsible>
 
-Loading earlier messages should not move the conversation the reader is already
-looking at. When older rows are prepended above the current transcript,
-`MessageScrollerViewport` preserves the visible row so the reader stays in the
-same place while history loads above them.
+<div className="hidden">
 
-This is enabled by default through `preserveScrollOnPrepend`.
+## بارگذاری پیام‌های قبلی
+
+</div>
+
+<DocsCollapsible title="بارگذاری پیام‌های قبلی">
+
+بارگذاری پیام‌های قبلی نباید گفتگویی را که خواننده می‌بیند جابه‌جا کند. وقتی
+ردیف‌های قدیمی‌تر بالای رونوشت فعلی پیش‌افزوده می‌شوند، `MessageScrollerViewport`
+ردیف دیده‌شده را حفظ می‌کند تا خواننده همان‌جا بماند در حالی که تاریخچه بالای او
+لود می‌شود.
+
+این رفتار به‌صورت پیش‌فرض با `preserveScrollOnPrepend` فعال است.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -386,19 +435,26 @@ This is enabled by default through `preserveScrollOnPrepend`.
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-Use stable `messageId` values for message rows. That gives the scroller a
-specific row to preserve instead of guessing from whichever pixel happens to sit
-at the viewport edge.
+برای ردیف‌های پیام از `messageId` پایدار استفاده کنید. به اسکرولر ردیف مشخصی
+برای حفظ می‌دهد به‌جای حدس از هر پیکسلی که روی لبهٔ ویوپورت نشسته.
 
-### Animating New Messages
+</DocsCollapsible>
 
-`MessageScrollerItem` can be animated directly. Create a motion version of the
-item, keep `messageId` and `scrollAnchor` on it, and use transform and opacity
-for the entrance.
+<div className="hidden">
 
-A common chat pattern is to animate the user's message when it is sent, then let
-the assistant reply stream into a regular row below it. Start the user row below
-its final position so it feels like it rises from the live edge of the viewport.
+## پویانمایی پیام‌های جدید
+
+</div>
+
+<DocsCollapsible title="پویانمایی پیام‌های جدید">
+
+`MessageScrollerItem` را می‌توان مستقیم پویانمایی کرد. نسخهٔ motion از آیتم
+بسازید، `messageId` و `scrollAnchor` را روی آن نگه دارید و برای ورود از
+transform و opacity استفاده کنید.
+
+الگوی رایج چت این است که پیام کاربر هنگام ارسال پویا شود، سپس پاسخ دستیار در
+ردیفی عادی زیر آن استریم شود. ردیف کاربر را از زیر موقعیت نهایی شروع کنید تا
+حس بالا آمدن از لبهٔ زندهٔ ویوپورت بدهد.
 
 ```tsx
 const MotionMessageScrollerItem = motion.create(MessageScrollerItem)
@@ -411,17 +467,25 @@ const MotionMessageScrollerItem = motion.create(MessageScrollerItem)
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-Avoid animating height, margin, or padding for row entrances; those changes can
-fight the scroller's positioning work. If the reader prefers reduced motion,
-skip the entrance animation and keep the scroll behavior the same.
+برای ورود ردیف از پویانمایی height، margin یا padding پرهیز کنید؛ آن تغییرات
+می‌توانند با کار موقعیت‌یابی اسکرولر بجنگند. اگر خواننده حرکت کمتر را ترجیح
+می‌دهد، پویانمایی ورود را رد کنید و رفتار اسکرول را همان نگه دارید.
 
-### Jumping to Messages
+</DocsCollapsible>
 
-Search results, permalinks, outline items, and toolbar buttons often need to
-drive the transcript from outside the message list. Use `useMessageScroller` for
-those controls. Because the hooks read from `MessageScrollerProvider`, they work
-in any component inside the provider, including controls rendered outside the
-`MessageScroller` frame.
+<div className="hidden">
+
+## پرش به پیام‌ها
+
+</div>
+
+<DocsCollapsible title="پرش به پیام‌ها">
+
+نتایج جستجو، permalinkها، آیتم‌های طرح کلی و دکمه‌های نوار ابزار اغلب باید
+رونوشت را از بیرون لیست پیام هدایت کنند. برای آن کنترل‌ها از `useMessageScroller`
+استفاده کنید. چون هوک‌ها از `MessageScrollerProvider` می‌خوانند، در هر کامپوننت
+داخل provider کار می‌کنند — از جمله کنترل‌هایی که بیرون قاب `MessageScroller`
+رندر می‌شوند.
 
 ```tsx
 import { useMessageScroller } from "@/components/ui/message-scroller"
@@ -439,20 +503,27 @@ const { scrollToMessage, scrollToEnd, scrollToStart } = useMessageScroller()
   hideCode
 />
 
-`scrollToMessage` targets the `messageId` on `MessageScrollerItem`, so rows that
-need to be addressable should have stable ids. `scrollToMessage` returns `false`
-when the target is not mounted and cannot be queued.
+`scrollToMessage` به `messageId` روی `MessageScrollerItem` هدف می‌زند؛ پس
+ردیف‌هایی که باید آدرس‌پذیر باشند باید id پایدار داشته باشند. وقتی هدف mount
+نیست و صف‌بندی ممکن نیست، `scrollToMessage` مقدار `false` برمی‌گرداند.
 
-`scrollToMessage` can queue a target before items exist, which covers
-client-resolved permalinks while the transcript mounts. After rows have mounted,
-a missing id returns `false` instead of starting a guessed retry loop. A `true`
-result means the scroll ran or was queued, not that the row is already in view.
+`scrollToMessage` می‌تواند قبل از وجود آیتم‌ها هدف را صف کند — برای permalinkهای
+حل‌شده سمت کلاینت هنگام mount رونوشت. بعد از mount ردیف‌ها، id گم‌شده به‌جای
+شروع حلقهٔ حدس‌زنی `false` برمی‌گرداند. نتیجهٔ `true` یعنی اسکرول اجرا یا صف
+شده، نه اینکه ردیف از قبل در دید باشد.
 
-### Tracking the Reader's Position
+</DocsCollapsible>
 
-Use `useMessageScrollerVisibility` to track the reader's position in the
-conversation. A common example is a table-of-contents or a jump menu that
-highlights the current anchored turn.
+<div className="hidden">
+
+## ردیابی موقعیت خواننده
+
+</div>
+
+<DocsCollapsible title="ردیابی موقعیت خواننده">
+
+با `useMessageScrollerVisibility` موقعیت خواننده در گفتگو را ردیابی کنید. مثال
+رایج فهرست مطالب یا منوی پرشی است که نوبت لنگرشدهٔ فعلی را برجسته می‌کند.
 
 ```tsx
 import { useMessageScrollerVisibility } from "@/components/ui/message-scroller"
@@ -470,21 +541,29 @@ const { currentAnchorId, visibleMessageIds } = useMessageScrollerVisibility()
   hideCode
 />
 
-`currentAnchorId` answers "where am I" by reporting the current anchored turn,
-and it stays set after that anchor scrolls above the viewport. `visibleMessageIds`
-answers "what is on screen", in document order.
+`currentAnchorId` به «کجا هستم» جواب می‌دهد با گزارش نوبت لنگرشدهٔ فعلی، و بعد
+از اسکرول آن لنگر به بالای ویوپورت هم می‌ماند. `visibleMessageIds` به «چه چیزی
+روی صفحه است» جواب می‌دهد، به ترتیب سند.
 
-Visibility is pay-for-what-you-use. Tracking only runs while something
-subscribes to `useMessageScrollerVisibility`, and rows need a `messageId` to
-participate.
+ردیابی دیده‌شدن pay-for-what-you-use است. فقط وقتی چیزی به
+`useMessageScrollerVisibility` مشترک شود اجرا می‌شود و ردیف‌ها برای مشارکت به
+`messageId` نیاز دارند.
 
-### Reading Scroll State
+</DocsCollapsible>
 
-Use `useMessageScrollerScrollable` when you need scroll state in JavaScript, such
-as a status indicator or a custom "jump to latest" control. It reports which
-edges the viewport can still scroll toward; "at the start/end" is the negation
-(`!start` / `!end`), and "scrollable at all" is `start || end`. For styling the
-scroller itself, prefer the `data-scrollable` attribute.
+<div className="hidden">
+
+## خواندن وضعیت اسکرول
+
+</div>
+
+<DocsCollapsible title="خواندن وضعیت اسکرول">
+
+وقتی وضعیت اسکرول را در جاوااسکریپت می‌خواهید — مثل نشانگر وضعیت یا کنترل سفارشی
+«پرش به جدیدترین» — از `useMessageScrollerScrollable` استفاده کنید. گزارش می‌دهد
+ویوپورت هنوز به کدام لبه‌ها می‌تواند اسکرول کند؛ «در ابتدا/انتها» نقیض است
+(`!start` / `!end`) و «اصلاً قابل‌اسکرول» برابر `start || end` است. برای استایل
+خود اسکرولر، ویژگی `data-scrollable` را ترجیح دهید.
 
 ```tsx
 import { useMessageScrollerScrollable } from "@/components/ui/message-scroller"
@@ -501,38 +580,54 @@ const { start, end } = useMessageScrollerScrollable()
   previewClassName="h-auto theme-blue bg-surface dark:bg-background p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm:py-16"
 />
 
-## Performance
+</DocsCollapsible>
 
-`MessageScroller` is benchmarked against large transcripts with markdown and
-composed message rows.
+<div className="hidden">
 
-Our performance goal for `MessageScroller` is to keep the scroll hot path outside of React state: no React rerenders for
-transcript rows, no forced layout on every scroll, and as little off-screen paint
-work as the browser can avoid.
+## کارایی
 
-Scroll position, anchoring, and follow-output are tracked imperatively and mirrored onto the root and viewport through `data-*` attributes, so scrolling and streaming do not rerender transcript rows.
+</div>
 
-The styled `MessageScrollerItem` also ships with `content-visibility: auto` and
-`contain-intrinsic-size`. Rows stay in the DOM for selection, copy,
-find-in-page, SSR, and assistive tech, but the browser can skip rendering work
-for rows far outside the viewport.
+<DocsCollapsible title="کارایی">
 
-Visibility tracking is pay-for-what-you-use. A jump menu or active
-turn indicator costs nothing until something subscribes to
-`useMessageScrollerVisibility`.
+`MessageScroller` در برابر رونوشت‌های بزرگ با مارک‌داون و ردیف‌های پیام ترکیبی
+بنچمارک شده است.
 
-This is comfortable for the expected range of a chat transcript: hundreds to low
-thousands of turns, including messages with markdown and composed components.
+هدف کارایی ما برای `MessageScroller` نگه داشتن مسیر داغ اسکرول بیرون از وضعیت
+React است: بدون رندر مجدد React برای ردیف‌های رونوشت، بدون layout اجباری در هر
+اسکرول، و تا جایی که مرورگر بتواند کار paint خارج از صفحه را کم کند.
 
-## Virtualization
+موقعیت اسکرول، لنگر و دنبال‌کردن خروجی به‌صورت imperatively ردیابی و از طریق
+ویژگی‌های `data-*` روی ریشه و ویوپورت آینه می‌شوند؛ پس اسکرول و استریم ردیف‌های
+رونوشت را دوباره رندر نمی‌کنند.
 
-Virtualization is intentionally left outside the primitive. `MessageScroller`
-renders real DOM rows and stays fast well into the thousands of turns (see
-[Performance](#performance)), so most transcripts never need it.
+`MessageScrollerItem` استایل‌شده همچنین با `content-visibility: auto` و
+`contain-intrinsic-size` عرضه می‌شود. ردیف‌ها برای انتخاب، کپی، find-in-page،
+SSR و فناوری کمکی در DOM می‌مانند، اما مرورگر می‌تواند کار رندر ردیف‌های دور از
+ویوپورت را رد کند.
 
-When a transcript is large enough to need virtualization, use
-`MessageScrollerViewport` as the scroll element and let the virtualizer own the
-rows.
+ردیابی دیده‌شدن pay-for-what-you-use است. منوی پرش یا نشانگر نوبت فعال تا وقتی
+چیزی به `useMessageScrollerVisibility` مشترک نشود هزینه‌ای ندارد.
+
+این برای بازهٔ مورد انتظار رونوشت چت راحت است: صدها تا هزاران کم نوبت، شامل
+پیام‌هایی با مارک‌داون و کامپوننت‌های ترکیبی.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مجازی‌سازی
+
+</div>
+
+<DocsCollapsible title="مجازی‌سازی">
+
+مجازی‌سازی عمداً بیرون از primitive مانده است. `MessageScroller`
+ردیف‌های DOM واقعی رندر می‌کند و تا هزاران نوبت سریع می‌ماند (ببینید
+[کارایی](#کارایی))؛ پس بیشتر رونوشت‌ها هرگز به آن نیاز ندارند.
+
+وقتی رونوشت آن‌قدر بزرگ است که مجازی‌سازی لازم است، `MessageScrollerViewport`
+را به‌عنوان عنصر اسکرول بگیرید و بگذارید مجازی‌ساز مالک ردیف‌ها باشد.
 
 ```tsx showLineNumbers
 import * as React from "react"
@@ -593,40 +688,66 @@ function VirtualizedTranscript({
 }
 ```
 
-## Accessibility
+</DocsCollapsible>
 
-`MessageScroller` keeps the scroll container keyboard reachable and the
-transcript announceable without forcing a specific message UI.
+<div className="hidden">
 
-`MessageScrollerViewport` is a labelled, keyboard-focusable scroll region by
-default. It uses `role="region"`, `aria-label="Messages"`, and `tabIndex={0}`,
-so keyboard users can focus the transcript and scroll it directly.
+## دسترس‌پذیری
 
-`MessageScrollerContent` marks the transcript as a live region with
-`role="log"` and `aria-relevant="additions"`. New rows can be announced, but
-streamed text mutations do not have to be announced token by token.
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+`MessageScroller` ظرف اسکرول را با کیبورد در دسترس نگه می‌دارد و رونوشت را
+قابل‌اعلام می‌کند بدون اینکه UI پیام خاصی را تحمیل کند.
+
+`MessageScrollerViewport` به‌صورت پیش‌فرض ناحیهٔ اسکرول برچسب‌دار و قابل‌فوکوس
+با کیبورد است. از `role="region"`، `aria-label="Messages"` و `tabIndex={0}`
+استفاده می‌کند تا کاربران کیبورد بتوانند رونوشت را فوکوس و مستقیم اسکرول کنند.
+
+`MessageScrollerContent` رونوشت را با `role="log"` و `aria-relevant="additions"`
+به‌عنوان ناحیهٔ زنده علامت می‌زند. ردیف‌های جدید می‌توانند اعلام شوند، اما
+تغییرات متن استریم لازم نیست توکن‌به‌توکن اعلام شوند.
 
 ```tsx
 <MessageScrollerContent aria-busy={status === "streaming"}>
-  {/* messages */}
+  {/* پیام‌ها */}
 </MessageScrollerContent>
 ```
 
-Pass `aria-busy` while a turn streams if announcements should wait for the
-completed message row.
+اگر اعلام‌ها باید منتظر ردیف پیام کامل بمانند، هنگام استریم نوبت `aria-busy`
+بدهید.
 
-`MessageScrollerButton` renders a real button. When there is nothing to scroll
-toward, it sets `inert`, uses `tabIndex={-1}`, and exposes `data-active="false"`
-so inactive scroll controls do not create extra focus stops.
+`MessageScrollerButton` یک دکمهٔ واقعی رندر می‌کند. وقتی چیزی برای اسکرول به آن
+سمت نیست، `inert` می‌گذارد، `tabIndex={-1}` می‌گیرد و `data-active="false"`
+می‌گذارد تا کنترل‌های اسکرول غیرفعال توقف فوکوس اضافه نسازند.
 
-## Unstyled
+</DocsCollapsible>
 
-The behavior in `MessageScroller` comes from the `@farsiui/react` package. To use
-it directly with your own markup and styles, see
-[Message Scroller](/docs/react/message-scroller) under @farsiui/react.
+<div className="hidden">
 
-## API Reference
+## بدون استایل
 
-The props, data attributes, and hooks for every part are documented on the
-[@farsiui/react Message Scroller](/docs/react/message-scroller#api-reference) page.
-They are identical for the styled component and the unstyled parts.
+</div>
+
+<DocsCollapsible title="بدون استایل">
+
+رفتار `MessageScroller` از بستهٔ `@farsiui/react` می‌آید. برای استفادهٔ مستقیم
+با markup و استایل خودتان،
+[پیمایشگر پیام](/docs/react/message-scroller) زیر @farsiui/react را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+props، ویژگی‌های داده و هوک‌های هر بخش در صفحهٔ
+[@farsiui/react Message Scroller](/docs/react/message-scroller#api-reference)
+مستند شده‌اند. برای کامپوننت استایل‌شده و بخش‌های بدون‌استایل یکسان‌اند.
+
+</DocsCollapsible>

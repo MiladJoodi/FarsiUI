@@ -12,21 +12,24 @@ import {
 
 export default function EmptyOutline() {
   return (
-    <Empty className="border border-dashed">
-      <EmptyHeader>
-        <EmptyMedia variant="icon">
-          <IconCloud />
-        </EmptyMedia>
-        <EmptyTitle>Cloud Storage Empty</EmptyTitle>
-        <EmptyDescription>
-          Upload files to your cloud storage to access them anywhere.
-        </EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent>
-        <Button variant="outline" size="sm">
-          Upload Files
-        </Button>
-      </EmptyContent>
-    </Empty>
+    <div dir="rtl">
+      <Empty className="border border-dashed">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <IconCloud />
+          </EmptyMedia>
+          <EmptyTitle>فضای ابری خالی است</EmptyTitle>
+          <EmptyDescription>
+            فایل‌ها را در فضای ابری آپلود کنید تا از هر جا به آن‌ها دسترسی داشته
+            باشید.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <Button variant="outline" size="sm">
+            آپلود فایل
+          </Button>
+        </EmptyContent>
+      </Empty>
+    </div>
   )
 }

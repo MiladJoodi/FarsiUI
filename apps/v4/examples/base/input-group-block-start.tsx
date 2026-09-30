@@ -17,40 +17,38 @@ import {
 
 export function InputGroupBlockStart() {
   return (
-    <FieldGroup className="max-w-sm">
+    <FieldGroup dir="rtl" className="max-w-sm">
       <Field>
-        <FieldLabel htmlFor="block-start-input">Input</FieldLabel>
+        <FieldLabel htmlFor="block-start-input">ورودی</FieldLabel>
         <InputGroup className="h-auto">
           <InputGroupInput
             id="block-start-input"
-            placeholder="Enter your name"
+            placeholder="نام خود را وارد کنید"
           />
           <InputGroupAddon align="block-start">
-            <InputGroupText>Full Name</InputGroupText>
+            <InputGroupText>نام کامل</InputGroupText>
           </InputGroupAddon>
         </InputGroup>
-        <FieldDescription>Header positioned above the input.</FieldDescription>
+        <FieldDescription>هدر بالای ورودی قرار گرفته است.</FieldDescription>
       </Field>
       <Field>
-        <FieldLabel htmlFor="block-start-textarea">Textarea</FieldLabel>
+        <FieldLabel htmlFor="block-start-textarea">متن‌بلند</FieldLabel>
         <InputGroup>
           <InputGroupTextarea
             id="block-start-textarea"
-            placeholder="console.log('Hello, world!');"
+            placeholder="console.log('سلام دنیا!');"
             className="font-mono text-sm"
           />
           <InputGroupAddon align="block-start">
             <FileCodeIcon className="text-muted-foreground" />
             <InputGroupText className="font-mono">script.js</InputGroupText>
-            <InputGroupButton size="icon-xs" className="ml-auto">
+            <InputGroupButton size="icon-xs" className="ms-auto">
               <CopyIcon />
-              <span className="sr-only">Copy</span>
+              <span className="sr-only">کپی</span>
             </InputGroupButton>
           </InputGroupAddon>
         </InputGroup>
-        <FieldDescription>
-          Header positioned above the textarea.
-        </FieldDescription>
+        <FieldDescription>هدر بالای متن‌بلند قرار گرفته است.</FieldDescription>
       </Field>
     </FieldGroup>
   )

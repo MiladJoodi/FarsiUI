@@ -11,8 +11,8 @@ import {
 
 export function InputOTPPattern() {
   return (
-    <Field className="w-fit">
-      <FieldLabel htmlFor="digits-only">Digits Only</FieldLabel>
+    <Field dir="rtl" className="w-fit">
+      <FieldLabel htmlFor="digits-only">فقط رقم</FieldLabel>
       <InputOTP id="digits-only" maxLength={6} pattern={REGEXP_ONLY_DIGITS}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />

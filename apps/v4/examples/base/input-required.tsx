@@ -7,16 +7,16 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputRequired() {
   return (
-    <Field>
+    <Field dir="rtl">
       <FieldLabel htmlFor="input-required">
-        Required Field <span className="text-destructive">*</span>
+        فیلد اجباری <span className="text-destructive">*</span>
       </FieldLabel>
       <Input
         id="input-required"
-        placeholder="This field is required"
+        placeholder="پر کردن این فیلد الزامی است"
         required
       />
-      <FieldDescription>This field must be filled out.</FieldDescription>
+      <FieldDescription>این فیلد باید پر شود.</FieldDescription>
     </Field>
   )
 }

@@ -1,26 +1,41 @@
 ---
-title: Item
-description: A versatile component for displaying content with media, title, description, and actions.
+title: آیتم (Item)
+description: کامپوننت چندمنظوره برای نمایش محتوا با رسانه، عنوان، توضیح و اقدام‌ها.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="item-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "item-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "item-variant", label: "واریانت", sizeable: false },
+    { name: "item-size", label: "اندازه", sizeable: false },
+    { name: "item-icon", label: "آیکون", sizeable: false },
+    { name: "item-avatar", label: "آواتار", sizeable: false },
+    { name: "item-image", label: "تصویر", sizeable: false },
+    { name: "item-group", label: "گروه", sizeable: false },
+    { name: "item-header", label: "هدر", sizeable: false },
+    { name: "item-link", label: "لینک", sizeable: false },
+    { name: "item-dropdown", label: "کشویی", sizeable: false },
+  ]}
+/>
 
-The `Item` component is a straightforward flex container that can house nearly any type of content. Use it to display a title, description, and actions. Group it with the `ItemGroup` component to create a list of items.
+کامپوننت `Item` یک ظرف فلکس ساده است که تقریباً هر نوع محتوایی را می‌تواند نگه دارد. از آن برای نمایش عنوان، توضیح و اقدام‌ها استفاده کنید. با `ItemGroup` گروهی از آیتم‌ها بسازید.
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add item
+npx farsiui@latest add item
 ```
 
 </TabsContent>
@@ -29,7 +44,7 @@ npx shadcn@latest add item
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="item"
@@ -37,7 +52,7 @@ npx shadcn@latest add item
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -45,7 +60,7 @@ npx shadcn@latest add item
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -64,18 +79,24 @@ import {
     <Icon />
   </ItemMedia>
   <ItemContent>
-    <ItemTitle>Title</ItemTitle>
-    <ItemDescription>Description</ItemDescription>
+    <ItemTitle>عنوان</ItemTitle>
+    <ItemDescription>توضیح</ItemDescription>
   </ItemContent>
   <ItemActions>
-    <Button>Action</Button>
+    <Button>اقدام</Button>
   </ItemActions>
 </Item>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `Item`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Item` از این ترکیب استفاده کنید:
 
 ```text
 ItemGroup
@@ -89,75 +110,167 @@ ItemGroup
     └── ItemFooter
 ```
 
-## Item vs Field
+</DocsCollapsible>
 
-Use `Field` if you need to display a form input such as a checkbox, input, radio, or select.
+<div className="hidden">
 
-If you only need to display content such as a title, description, and actions, use `Item`.
+## آیتم در برابر فیلد
 
-## Variant
+</div>
 
-Use the `variant` prop to change the visual style of the item.
+<DocsCollapsible title="آیتم در برابر فیلد">
+
+اگر نیاز به کنترل فرم مثل چک‌باکس، ورودی، رادیو یا انتخاب دارید از `Field` استفاده کنید.
+
+اگر فقط محتوایی مثل عنوان، توضیح و اقدام‌ها را نشان می‌دهید از `Item` استفاده کنید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## واریانت
+
+</div>
+
+<DocsCollapsible title="واریانت">
+
+با prop به نام `variant` استایل بصری آیتم را تغییر دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="item-variant"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## Size
+</DocsCollapsible>
 
-Use the `size` prop to change the size of the item. Available sizes are `default`, `sm`, and `xs`.
+<div className="hidden">
+
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+با prop به نام `size` اندازهٔ آیتم را تغییر دهید. اندازه‌های موجود: `default`، `sm` و `xs`.
 
 <ComponentPreview
   styleName="base-nova"
   name="item-size"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## Icon
+</DocsCollapsible>
 
-Use `ItemMedia` with `variant="icon"` to display an icon.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="item-icon" />
+## آیکون
 
-## Avatar
+</div>
 
-You can use `ItemMedia` with `variant="avatar"` to display an avatar.
+<DocsCollapsible title="آیکون">
 
-<ComponentPreview styleName="base-nova" name="item-avatar" />
+با `ItemMedia` و `variant="icon"` آیکون نمایش دهید.
 
-## Image
+<ComponentPreview
+  styleName="base-nova"
+  name="item-icon"
+  direction="rtl"
+/>
 
-Use `ItemMedia` with `variant="image"` to display an image.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="item-image" />
+<div className="hidden">
 
-## Group
+## آواتار
 
-Use `ItemGroup` to group related items together.
+</div>
+
+<DocsCollapsible title="آواتار">
+
+با `ItemMedia` و `variant="avatar"` آواتار نمایش دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="item-avatar"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تصویر
+
+</div>
+
+<DocsCollapsible title="تصویر">
+
+با `ItemMedia` و `variant="image"` تصویر نمایش دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="item-image"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه
+
+</div>
+
+<DocsCollapsible title="گروه">
+
+با `ItemGroup` آیتم‌های مرتبط را گروه‌بندی کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="item-group"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## Header
+</DocsCollapsible>
 
-Use `ItemHeader` to add a header above the item content.
+<div className="hidden">
+
+## هدر
+
+</div>
+
+<DocsCollapsible title="هدر">
+
+با `ItemHeader` بالای محتوای آیتم هدر اضافه کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="item-header"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## Link
+</DocsCollapsible>
 
-Use the `render` prop to render the item as a link. The hover and focus states will be applied to the anchor element.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="item-link" />
+## لینک
+
+</div>
+
+<DocsCollapsible title="لینک">
+
+با prop به نام `render` آیتم را به‌صورت لینک رندر کنید. حالت‌های هاور و فوکوس روی عنصر لنگر اعمال می‌شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="item-link"
+  direction="rtl"
+/>
 
 ```tsx showLineNumbers
 <Item render={<a href="/dashboard" />}>
@@ -165,37 +278,91 @@ Use the `render` prop to render the item as a link. The hover and focus states w
     <HomeIcon />
   </ItemMedia>
   <ItemContent>
-    <ItemTitle>Dashboard</ItemTitle>
-    <ItemDescription>Overview of your account and activity.</ItemDescription>
+    <ItemTitle>داشبورد</ItemTitle>
+    <ItemDescription>نمای کلی حساب و فعالیت‌های شما.</ItemDescription>
   </ItemContent>
 </Item>
 ```
 
-## Dropdown
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="item-dropdown" />
+<div className="hidden">
 
-## RTL
+## کشویی
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</div>
 
-<ComponentPreview styleName="base-nova" name="item-rtl" direction="rtl" />
+<DocsCollapsible title="کشویی">
 
-## API Reference
+<ComponentPreview
+  styleName="base-nova"
+  name="item-dropdown"
+  direction="rtl"
+/>
 
-### Item
+</DocsCollapsible>
 
-The main component for displaying content with media, title, description, and actions.
+<div className="hidden">
 
-| Prop      | Type                                | Default     |
-| --------- | ----------------------------------- | ----------- |
-| `variant` | `"default" \| "outline" \| "muted"` | `"default"` |
-| `size`    | `"default" \| "sm" \| "xs"`         | `"default"` |
-| `render`  | `React.ReactElement`                |             |
+## پشتیبانی RTL
 
-### ItemGroup
+</div>
 
-A container that groups related items together with consistent styling.
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="item-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Item"
+  description="کامپوننت اصلی برای نمایش محتوا با رسانه، عنوان، توضیح و اقدام‌ها."
+  props={[
+    {
+      name: "variant",
+      description: "واریانت بصری",
+      values: ["default", "outline", "muted"],
+      defaultValue: "default",
+    },
+    {
+      name: "size",
+      description: "اندازهٔ آیتم",
+      values: ["default", "sm", "xs"],
+      defaultValue: "default",
+    },
+    {
+      name: "render",
+      description: "عنصر جایگزین برای رندر (مثلاً لینک)",
+      values: ["ReactElement"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ItemGroup"
+  description="ظرفی که آیتم‌های مرتبط را با استایل یکسان گروه‌بندی می‌کند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <ItemGroup>
@@ -204,9 +371,17 @@ A container that groups related items together with consistent styling.
 </ItemGroup>
 ```
 
-### ItemSeparator
-
-A separator between items in a group.
+<DocsApiProps
+  title="ItemSeparator"
+  description="جداکننده بین آیتم‌ها در یک گروه."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <ItemGroup>
@@ -216,13 +391,18 @@ A separator between items in a group.
 </ItemGroup>
 ```
 
-### ItemMedia
-
-Use `ItemMedia` to display media content such as icons, images, or avatars.
-
-| Prop      | Type                             | Default     |
-| --------- | -------------------------------- | ----------- |
-| `variant` | `"default" \| "icon" \| "image"` | `"default"` |
+<DocsApiProps
+  title="ItemMedia"
+  description="نمایش رسانه مثل آیکون، تصویر یا آواتار."
+  props={[
+    {
+      name: "variant",
+      description: "نوع رسانه",
+      values: ["default", "icon", "image"],
+      defaultValue: "default",
+    },
+  ]}
+/>
 
 ```tsx
 <ItemMedia variant="icon">
@@ -236,61 +416,111 @@ Use `ItemMedia` to display media content such as icons, images, or avatars.
 </ItemMedia>
 ```
 
-### ItemContent
-
-Wraps the title and description of the item.
+<DocsApiProps
+  title="ItemContent"
+  description="پوشش عنوان و توضیح آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <ItemContent>
-  <ItemTitle>Title</ItemTitle>
-  <ItemDescription>Description</ItemDescription>
+  <ItemTitle>عنوان</ItemTitle>
+  <ItemDescription>توضیح</ItemDescription>
 </ItemContent>
 ```
 
-### ItemTitle
-
-Displays the title of the item.
+<DocsApiProps
+  title="ItemTitle"
+  description="عنوان آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
-<ItemTitle>Item Title</ItemTitle>
+<ItemTitle>عنوان آیتم</ItemTitle>
 ```
 
-### ItemDescription
-
-Displays the description of the item.
+<DocsApiProps
+  title="ItemDescription"
+  description="توضیح آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
-<ItemDescription>Item description</ItemDescription>
+<ItemDescription>توضیح آیتم</ItemDescription>
 ```
 
-### ItemActions
-
-Container for action buttons or other interactive elements.
+<DocsApiProps
+  title="ItemActions"
+  description="ظرف دکمه‌ها یا عناصر تعاملی."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <ItemActions>
-  <Button>Action</Button>
+  <Button>اقدام</Button>
 </ItemActions>
 ```
 
-### ItemHeader
-
-Displays a header above the item content.
+<DocsApiProps
+  title="ItemHeader"
+  description="هدر بالای محتوای آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <Item>
-  <ItemHeader>Header</ItemHeader>
+  <ItemHeader>هدر</ItemHeader>
   <ItemContent>...</ItemContent>
 </Item>
 ```
 
-### ItemFooter
-
-Displays a footer below the item content.
+<DocsApiProps
+  title="ItemFooter"
+  description="فوتر پایین محتوای آیتم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <Item>
   <ItemContent>...</ItemContent>
-  <ItemFooter>Footer</ItemFooter>
+  <ItemFooter>فوتر</ItemFooter>
 </Item>
 ```
+
+</DocsCollapsible>

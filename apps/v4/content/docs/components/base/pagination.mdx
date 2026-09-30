@@ -1,24 +1,32 @@
 ---
-title: Pagination
-description: Pagination with page navigation, next and previous links.
+title: صفحه‌بندی (Pagination)
+description: صفحه‌بندی با ناوبری صفحه و لینک قبلی و بعدی.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="pagination-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "pagination-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "pagination-simple", label: "ساده", sizeable: false },
+    { name: "pagination-icons-only", label: "فقط آیکون", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add pagination
+npx farsiui@latest add pagination
 ```
 
 </TabsContent>
@@ -27,7 +35,7 @@ npx shadcn@latest add pagination
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="pagination"
@@ -35,7 +43,7 @@ npx shadcn@latest add pagination
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -43,7 +51,7 @@ npx shadcn@latest add pagination
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -61,7 +69,7 @@ import {
 <Pagination>
   <PaginationContent>
     <PaginationItem>
-      <PaginationPrevious href="#" />
+      <PaginationPrevious href="#" text="قبلی" />
     </PaginationItem>
     <PaginationItem>
       <PaginationLink href="#">1</PaginationLink>
@@ -78,15 +86,21 @@ import {
       <PaginationEllipsis />
     </PaginationItem>
     <PaginationItem>
-      <PaginationNext href="#" />
+      <PaginationNext href="#" text="بعدی" />
     </PaginationItem>
   </PaginationContent>
 </Pagination>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Pagination`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Pagination` از این ترکیب استفاده کنید:
 
 ```text
 Pagination
@@ -101,23 +115,55 @@ Pagination
         └── PaginationNext
 ```
 
-## Simple
+</DocsCollapsible>
 
-A simple pagination with only page numbers.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="pagination-simple" />
+## ساده
 
-## Icons Only
+</div>
 
-Use just the previous and next buttons without page numbers. This is useful for data tables with a rows per page selector.
+<DocsCollapsible title="ساده">
 
-<ComponentPreview styleName="base-nova" name="pagination-icons-only" />
+صفحه‌بندی ساده فقط با شمارهٔ صفحات.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="pagination-simple"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## فقط آیکون
+
+</div>
+
+<DocsCollapsible title="فقط آیکون">
+
+فقط دکمه‌های قبلی و بعدی بدون شمارهٔ صفحه. برای جداول داده با انتخابگر ردیف در صفحه مفید است.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="pagination-icons-only"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## Next.js
 
-By default the `<PaginationLink />` component will render an `<a />` tag.
+</div>
 
-To use the Next.js `<Link />` component, make the following updates to `pagination.tsx`.
+<DocsCollapsible title="Next.js">
+
+به‌صورت پیش‌فرض `<PaginationLink />` یک تگ `<a />` رندر می‌کند.
+
+برای استفاده از `<Link />` در Next.js، این به‌روزرسانی‌ها را در `pagination.tsx` اعمال کنید.
 
 ```diff showLineNumbers /typeof Link/ {1}
 + import Link from "next/link"
@@ -139,25 +185,47 @@ const PaginationLink = ({...props }: ) => (
 
 <Callout className="mt-6">
 
-**Note:** We are making updates to the cli to automatically do this for you.
+**توجه:** در حال به‌روزرسانی CLI هستیم تا این کار را خودکار انجام دهد.
 
 </Callout>
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="pagination-rtl" direction="rtl" />
+## پشتیبانی RTL
 
-## Changelog
+</div>
 
-### RTL Support
+<DocsCollapsible title="پشتیبانی RTL">
 
-If you're upgrading from a previous version of the `Pagination` component, you'll need to apply the following updates to add the `text` prop:
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+با prop به نام `text` روی `PaginationPrevious` و `PaginationNext` برچسب فارسی بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="pagination-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تغییرات
+
+</div>
+
+<DocsCollapsible title="تغییرات">
+
+### پشتیبانی RTL
+
+اگر از نسخهٔ قبلی کامپوننت `Pagination` ارتقا می‌دهید، این به‌روزرسانی‌ها را برای افزودن prop به نام `text` اعمال کنید:
 
 <Steps>
 
-<Step>Update `PaginationPrevious`.</Step>
+<Step>`PaginationPrevious` را به‌روز کنید.</Step>
 
 ```diff
   function PaginationPrevious({
@@ -183,7 +251,7 @@ If you're upgrading from a previous version of the `Pagination` component, you'l
   }
 ```
 
-<Step>Update `PaginationNext`.</Step>
+<Step>`PaginationNext` را به‌روز کنید.</Step>
 
 ```diff
   function PaginationNext({
@@ -208,3 +276,5 @@ If you're upgrading from a previous version of the `Pagination` component, you'l
 ```
 
 </Steps>
+
+</DocsCollapsible>

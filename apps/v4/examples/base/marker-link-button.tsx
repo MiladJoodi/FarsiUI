@@ -7,26 +7,26 @@ import { Marker, MarkerContent, MarkerIcon } from "@/styles/base-rhea/ui/marker"
 
 export function MarkerLinkButtonDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker render={<a href="#links-and-buttons" />}>
         <MarkerIcon>
           <GitBranchIcon />
         </MarkerIcon>
-        <MarkerContent>View the pull request</MarkerContent>
+        <MarkerContent>مشاهدهٔ پول‌ریکوئست</MarkerContent>
       </Marker>
       <Marker
         render={
           <button
             type="button"
             className="transition-colors hover:text-foreground"
-            onClick={() => toast("You clicked the revert button")}
+            onClick={() => toast("دکمهٔ بازگردانی را کلیک کردید")}
           />
         }
       >
         <MarkerIcon>
           <RotateCcwIcon />
         </MarkerIcon>
-        <MarkerContent>Revert this change</MarkerContent>
+        <MarkerContent>بازگردانی این تغییر</MarkerContent>
       </Marker>
     </div>
   )

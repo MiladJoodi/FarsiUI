@@ -31,6 +31,7 @@ export default function CardDemo() {
               <Input
                 id="email"
                 type="email"
+                dir="ltr"
                 placeholder="m@example.com"
                 required
               />

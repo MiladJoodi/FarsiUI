@@ -1,18 +1,13 @@
 "use client"
 
-import * as React from "react"
 import { Search } from "lucide-react"
 
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-nova/ui-rtl/field"
+} from "@/styles/base-nova/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
@@ -20,98 +15,50 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/styles/base-nova/ui-rtl/input-group"
-import { Spinner } from "@/styles/base-nova/ui-rtl/spinner"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      placeholder: "Search...",
-      results: "12 results",
-      searching: "Searching...",
-      saving: "Saving...",
-      savingChanges: "Saving changes...",
-      textareaLabel: "Textarea",
-      textareaPlaceholder: "Write a comment...",
-      characterCount: "0/280",
-      post: "Post",
-      textareaDescription: "Footer positioned below the textarea.",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      placeholder: "بحث...",
-      results: "١٢ نتيجة",
-      searching: "جاري البحث...",
-      saving: "جاري الحفظ...",
-      savingChanges: "جاري حفظ التغييرات...",
-      textareaLabel: "منطقة النص",
-      textareaPlaceholder: "اكتب تعليقًا...",
-      characterCount: "٠/٢٨٠",
-      post: "نشر",
-      textareaDescription: "تذييل موضع أسفل منطقة النص.",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      placeholder: "חפש...",
-      results: "12 תוצאות",
-      searching: "מחפש...",
-      saving: "שומר...",
-      savingChanges: "שומר שינויים...",
-      textareaLabel: "אזור טקסט",
-      textareaPlaceholder: "כתוב תגובה...",
-      characterCount: "0/280",
-      post: "פרסם",
-      textareaDescription: "כותרת תחתונה ממוקמת מתחת לאזור הטקסט.",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/input-group"
+import { Spinner } from "@/styles/base-nova/ui/spinner"
 
 export function InputGroupRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <div className="grid w-full max-w-sm gap-6">
+    <div dir="rtl" className="grid w-full max-w-sm gap-6">
       <InputGroup className="max-w-xs">
-        <InputGroupInput placeholder={t.placeholder} />
+        <InputGroupInput placeholder="جستجو..." />
         <InputGroupAddon>
           <Search />
         </InputGroupAddon>
-        <InputGroupAddon align="inline-end">{t.results}</InputGroupAddon>
+        <InputGroupAddon align="inline-end">۱۲ نتیجه</InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder={t.searching} />
+        <InputGroupInput placeholder="در حال جستجو..." />
         <InputGroupAddon align="inline-end">
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder={t.savingChanges} />
+        <InputGroupInput placeholder="در حال ذخیرهٔ تغییرات..." />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>{t.saving}</InputGroupText>
+          <InputGroupText>در حال ذخیره...</InputGroupText>
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <FieldGroup className="max-w-sm">
         <Field>
-          <FieldLabel htmlFor="rtl-textarea">{t.textareaLabel}</FieldLabel>
+          <FieldLabel htmlFor="rtl-textarea">متن‌بلند</FieldLabel>
           <InputGroup>
             <InputGroupTextarea
               id="rtl-textarea"
-              placeholder={t.textareaPlaceholder}
+              placeholder="نظر خود را بنویسید..."
             />
             <InputGroupAddon align="block-end">
-              <InputGroupText>{t.characterCount}</InputGroupText>
+              <InputGroupText>۰/۲۸۰</InputGroupText>
               <InputGroupButton variant="default" size="sm" className="ms-auto">
-                {t.post}
+                ارسال
               </InputGroupButton>
             </InputGroupAddon>
           </InputGroup>
-          <FieldDescription>{t.textareaDescription}</FieldDescription>
+          <FieldDescription>
+            فوتر پایین متن‌بلند قرار گرفته است.
+          </FieldDescription>
         </Field>
       </FieldGroup>
     </div>

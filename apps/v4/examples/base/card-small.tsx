@@ -18,22 +18,22 @@ export function CardSmall() {
       <CardHeader>
         <CardTitle>{featureName}</CardTitle>
         <CardDescription>
-          خلاصهٔ هفتگی. دیگر نیازی به خروجی دستی نیست.
+          گزارش‌ها را خودکار و بدون ارسال دستی دریافت کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="grid gap-2 py-2 text-sm">
           <li className="flex gap-2">
             <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>زمان‌بندی را انتخاب کنید (روزانه یا هفتگی).</span>
+            <span>روزانه یا هفتگی</span>
           </li>
           <li className="flex gap-2">
             <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>به کانال‌ها یا اعضای مشخص ارسال کنید.</span>
+            <span>ارسال برای افراد یا کانال‌ها</span>
           </li>
           <li className="flex gap-2">
             <ChevronLeftIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-            <span>نمودار، جدول و شاخص‌های کلیدی را بگنجانید.</span>
+            <span>شامل نمودار و جدول</span>
           </li>
         </ul>
       </CardContent>

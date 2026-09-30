@@ -11,31 +11,35 @@ import {
 
 export function MenubarCheckbox() {
   return (
-    <Menubar className="w-72">
-      <MenubarMenu>
-        <MenubarTrigger>View</MenubarTrigger>
-        <MenubarContent className="w-64">
-          <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-          <MenubarCheckboxItem checked>
-            Always Show Full URLs
-          </MenubarCheckboxItem>
-          <MenubarSeparator />
-          <MenubarItem inset>
-            Reload <MenubarShortcut>⌘R</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem disabled inset>
-            Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>Format</MenubarTrigger>
-        <MenubarContent>
-          <MenubarCheckboxItem checked>Strikethrough</MenubarCheckboxItem>
-          <MenubarCheckboxItem>Code</MenubarCheckboxItem>
-          <MenubarCheckboxItem>Superscript</MenubarCheckboxItem>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
+    <div dir="rtl">
+      <Menubar className="w-80">
+        <MenubarMenu>
+          <MenubarTrigger>نمایش</MenubarTrigger>
+          <MenubarContent className="w-64">
+            <MenubarCheckboxItem>
+              همیشه نوار نشانک‌ها را نشان بده
+            </MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>
+              همیشه آدرس کامل را نشان بده
+            </MenubarCheckboxItem>
+            <MenubarSeparator />
+            <MenubarItem inset>
+              بارگذاری مجدد <MenubarShortcut>⌘R</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem disabled inset>
+              بارگذاری اجباری <MenubarShortcut>⇧⌘R</MenubarShortcut>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>قالب‌بندی</MenubarTrigger>
+          <MenubarContent>
+            <MenubarCheckboxItem checked>خط‌خورده</MenubarCheckboxItem>
+            <MenubarCheckboxItem>کد</MenubarCheckboxItem>
+            <MenubarCheckboxItem>بالانویس</MenubarCheckboxItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+    </div>
   )
 }

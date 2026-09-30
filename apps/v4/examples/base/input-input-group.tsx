@@ -10,8 +10,8 @@ import {
 
 export function InputInputGroup() {
   return (
-    <Field>
-      <FieldLabel htmlFor="input-group-url">Website URL</FieldLabel>
+    <Field dir="rtl">
+      <FieldLabel htmlFor="input-group-url">آدرس وب‌سایت</FieldLabel>
       <InputGroup>
         <InputGroupInput id="input-group-url" placeholder="example.com" />
         <InputGroupAddon>

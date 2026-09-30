@@ -12,25 +12,25 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function FieldResponsive() {
   return (
-    <div className="w-full max-w-lg">
+    <div className="w-full max-w-lg" dir="rtl">
       <form>
         <FieldSet>
-          <FieldLegend>Profile</FieldLegend>
-          <FieldDescription>Fill in your profile information.</FieldDescription>
+          <FieldLegend>پروفایل</FieldLegend>
+          <FieldDescription>اطلاعات پروفایل خود را وارد کنید.</FieldDescription>
           <FieldGroup>
             <Field orientation="responsive">
               <FieldContent>
-                <FieldLabel htmlFor="name">Name</FieldLabel>
+                <FieldLabel htmlFor="name">نام</FieldLabel>
                 <FieldDescription>
-                  Provide your full name for identification
+                  نام کامل خود را برای شناسایی وارد کنید
                 </FieldDescription>
               </FieldContent>
-              <Input id="name" placeholder="Evil Rabbit" required />
+              <Input id="name" placeholder="علی رضایی" required />
             </Field>
             <Field orientation="responsive">
-              <Button type="submit">Submit</Button>
+              <Button type="submit">ثبت</Button>
               <Button type="button" variant="outline">
-                Cancel
+                انصراف
               </Button>
             </Field>
           </FieldGroup>

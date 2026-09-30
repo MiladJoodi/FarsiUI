@@ -15,34 +15,32 @@ import {
 
 export function InputGroupBlockEnd() {
   return (
-    <FieldGroup className="max-w-sm">
+    <FieldGroup dir="rtl" className="max-w-sm">
       <Field>
-        <FieldLabel htmlFor="block-end-input">Input</FieldLabel>
+        <FieldLabel htmlFor="block-end-input">ورودی</FieldLabel>
         <InputGroup className="h-auto">
-          <InputGroupInput id="block-end-input" placeholder="Enter amount" />
+          <InputGroupInput id="block-end-input" placeholder="مبلغ را وارد کنید" />
           <InputGroupAddon align="block-end">
-            <InputGroupText>USD</InputGroupText>
+            <InputGroupText>تومان</InputGroupText>
           </InputGroupAddon>
         </InputGroup>
-        <FieldDescription>Footer positioned below the input.</FieldDescription>
+        <FieldDescription>فوتر پایین ورودی قرار گرفته است.</FieldDescription>
       </Field>
       <Field>
-        <FieldLabel htmlFor="block-end-textarea">Textarea</FieldLabel>
+        <FieldLabel htmlFor="block-end-textarea">متن‌بلند</FieldLabel>
         <InputGroup>
           <InputGroupTextarea
             id="block-end-textarea"
-            placeholder="Write a comment..."
+            placeholder="نظر خود را بنویسید..."
           />
           <InputGroupAddon align="block-end">
-            <InputGroupText>0/280</InputGroupText>
-            <InputGroupButton variant="default" size="sm" className="ml-auto">
-              Post
+            <InputGroupText>۰/۲۸۰</InputGroupText>
+            <InputGroupButton variant="default" size="sm" className="ms-auto">
+              ارسال
             </InputGroupButton>
           </InputGroupAddon>
         </InputGroup>
-        <FieldDescription>
-          Footer positioned below the textarea.
-        </FieldDescription>
+        <FieldDescription>فوتر پایین متن‌بلند قرار گرفته است.</FieldDescription>
       </Field>
     </FieldGroup>
   )

@@ -1,29 +1,35 @@
 ---
-title: Questionnaire
-description: A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions.
+title: پرسشنامه (Questionnaire)
+description: پرسشنامهٔ چندمرحله‌ای با انتخاب تکی، چندتایی، پاسخ آزاد و سؤال‌های قابل رد کردن.
 base: base
 component: true
 ---
 
-<ComponentPreview
-  align="end"
+<ComponentVariantPreview
   styleName="base-nova"
-  name="questionnaire-demo"
-  previewClassName="min-h-[560px] p-4 sm:p-8"
+  layout="switcher"
+  examples={[
+    { name: "questionnaire-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "questionnaire-multiple", label: "چندتایی", sizeable: false },
+    { name: "questionnaire-freeform", label: "آزاد", sizeable: false },
+    { name: "questionnaire-skip", label: "رد کردن", sizeable: false },
+    { name: "questionnaire-shortcuts", label: "میانبر", sizeable: false },
+    { name: "questionnaire-card", label: "کارت", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add questionnaire
+npx farsiui@latest add questionnaire
 ```
 
 </TabsContent>
@@ -32,13 +38,13 @@ npx shadcn@latest add questionnaire
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependency:</Step>
+<Step>وابستگی زیر را نصب کنید:</Step>
 
 ```bash
 npm install @farsiui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="questionnaire"
@@ -46,7 +52,7 @@ npm install @farsiui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -54,7 +60,7 @@ npm install @farsiui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import {
@@ -80,38 +86,37 @@ const items = [
   {
     name: "direction",
     required: true,
-    prompt: "What should we prototype next?",
-    description: "Choose a direction or write your own.",
+    prompt: "بعداً چه چیزی را نمونه‌سازی کنیم؟",
+    description: "یک مسیر انتخاب کنید یا پاسخ خود را بنویسید.",
     choices: [
       {
         value: "delegation",
-        label: "Delegation",
-        description: "Show how work moves to a specialist.",
+        label: "تفویض",
+        description: "نشان دهید کار چگونه به متخصص منتقل می‌شود.",
       },
       {
         value: "questions",
-        label: "Question prompts",
-        description: "Show choices while the interface waits.",
+        label: "سؤال‌های پیشنهادی",
+        description: "گزینه‌ها را هنگام انتظار رابط نشان دهید.",
       },
-      { value: "both", label: "Both together" },
+      { value: "both", label: "هر دو با هم" },
     ],
-    input: { label: "Another answer", placeholder: "Type another answer…" },
+    input: { label: "پاسخ دیگر", placeholder: "پاسخ دیگری بنویسید…" },
   },
   {
     name: "detail",
     required: false,
-    prompt: "How much detail should it include?",
-    description: "Skip this if you are not sure yet.",
+    prompt: "چقدر جزئیات لازم است؟",
+    description: "اگر هنوز مطمئن نیستید، این سؤال را رد کنید.",
     choices: [
-      { value: "focused", label: "Focused" },
-      { value: "complete", label: "Complete flow" },
+      { value: "focused", label: "متمرکز" },
+      { value: "complete", label: "جریان کامل" },
     ],
   },
 ] as const
 ```
 
-Define the collection once: pass it to `Questionnaire` for server-rendered
-progress, actions, and shortcuts, then map it into the parts.
+مجموعه را یک‌بار تعریف کنید: آن را به `Questionnaire` بدهید تا پیشرفت، اکشن‌ها و میانبرها سمت سرور رندر شوند، سپس همان مجموعه را به پارت‌ها map کنید.
 
 ```tsx
 <Questionnaire items={items} onSubmit={handleSubmit}>
@@ -148,10 +153,10 @@ progress, actions, and shortcuts, then map it into the parts.
     </QuestionnaireItem>
   ))}
   <QuestionnaireActions>
-    <QuestionnairePrevious />
-    <QuestionnaireSkip />
-    <QuestionnaireNext />
-    <QuestionnaireSubmit />
+    <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+    <QuestionnaireSkip>رد کردن</QuestionnaireSkip>
+    <QuestionnaireNext>بعدی</QuestionnaireNext>
+    <QuestionnaireSubmit>ارسال</QuestionnaireSubmit>
   </QuestionnaireActions>
 </Questionnaire>
 ```
@@ -160,11 +165,17 @@ progress, actions, and shortcuts, then map it into the parts.
 function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault()
   const answers = new FormData(event.currentTarget)
-  // answers.get("direction"), answers.getAll(...) for multiple items.
+  // answers.get("direction")، برای آیتم‌های چندتایی answers.getAll(...)
 }
 ```
 
-## Composition
+<div className="hidden">
+
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
 
 ```text
 Questionnaire
@@ -183,185 +194,318 @@ Questionnaire
     └── QuestionnaireSubmit
 ```
 
-Questionnaire owns the ordered items, active item, answer state, validation,
-progress, and navigation. The containing page, card, dialog, or drawer owns
-close and cancellation behavior, persistence, transport, and branching.
+`Questionnaire` ترتیب آیتم‌ها، آیتم فعال، وضعیت پاسخ، اعتبارسنجی، پیشرفت و ناوبری را مدیریت می‌کند. صفحه، کارت، دیالوگ یا کشوی میزبان، بستن، لغو، پایداری، انتقال و انشعاب را بر عهده دارد.
 
-## Server Rendering
+</DocsCollapsible>
 
-Pass `items` to server-render the active item, progress, actions, and answer
-shortcuts. See the
-[headless Questionnaire](/docs/react/questionnaire) for the complete behavior.
+<div className="hidden">
 
-## Multiple Selection
+## رندر سمت سرور
 
-Use `multiple` for an item that accepts more than one fixed answer.
+</div>
+
+<DocsCollapsible title="رندر سمت سرور">
+
+با پاس دادن `items` آیتم فعال، پیشرفت، اکشن‌ها و میانبر پاسخ‌ها را سمت سرور رندر کنید. برای رفتار کامل، [پرسشنامهٔ بدون استایل](/docs/react/questionnaire) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## انتخاب چندتایی
+
+</div>
+
+<DocsCollapsible title="انتخاب چندتایی">
+
+برای آیتمی که بیش از یک پاسخ ثابت می‌پذیرد، از `multiple` استفاده کنید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-multiple"
+  direction="rtl"
   previewClassName="min-h-[420px] p-4 sm:p-8"
 />
 
-## Freeform Answer
+</DocsCollapsible>
 
-Compose `QuestionnaireInput` with fixed choices when the user can provide another answer.
+<div className="hidden">
+
+## پاسخ آزاد
+
+</div>
+
+<DocsCollapsible title="پاسخ آزاد">
+
+وقتی کاربر می‌تواند پاسخ دیگری بدهد، `QuestionnaireInput` را کنار گزینه‌های ثابت قرار دهید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-freeform"
+  direction="rtl"
   previewClassName="min-h-[420px] p-4 sm:p-8"
 />
 
-## Explicit Skip
+</DocsCollapsible>
 
-Add `QuestionnaireSkip` when an optional item may be intentionally left unanswered.
+<div className="hidden">
+
+## رد کردن صریح
+
+</div>
+
+<DocsCollapsible title="رد کردن صریح">
+
+وقتی آیتم اختیاری ممکن است عمداً بدون پاسخ بماند، `QuestionnaireSkip` را اضافه کنید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-skip"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Shortcuts
+</DocsCollapsible>
 
-Assign a letter or number key to each answer with `shortcuts`.
+<div className="hidden">
+
+## میانبرها
+
+</div>
+
+<DocsCollapsible title="میانبرها">
+
+با `shortcuts` به هر پاسخ یک کلید حرف یا عدد اختصاص دهید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-shortcuts"
+  direction="rtl"
   previewClassName="min-h-[480px] p-4 sm:p-8"
 />
 
-## Custom Validation
+</DocsCollapsible>
 
-Combine controlled navigation with an external schema such as Zod to return to an invalid item and present its error.
+<div className="hidden">
+
+## اعتبارسنجی سفارشی
+
+</div>
+
+<DocsCollapsible title="اعتبارسنجی سفارشی">
+
+ناوبری کنترل‌شده را با اسکیمایی خارجی مثل Zod ترکیب کنید تا به آیتم نامعتبر برگردید و خطایش را نشان دهید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-validation"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Controlled
+</DocsCollapsible>
 
-Control the active item from host state, such as returning to an invalid step.
+<div className="hidden">
+
+## کنترل‌شده
+
+</div>
+
+<DocsCollapsible title="کنترل‌شده">
+
+آیتم فعال را از state میزبان کنترل کنید؛ مثلاً برای بازگشت به مرحلهٔ نامعتبر.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-controlled"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Resume
+</DocsCollapsible>
 
-Restore a saved active item and default answers, then reset changes back to that saved state.
+<div className="hidden">
+
+## از سرگیری
+
+</div>
+
+<DocsCollapsible title="از سرگیری">
+
+آیتم فعال ذخیره‌شده و پاسخ‌های پیش‌فرض را بازگردانید، سپس تغییرات را به همان وضعیت ذخیره‌شده ریست کنید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-resume"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Conditional Items
+</DocsCollapsible>
 
-Disable items that do not apply to the user's earlier answers.
+<div className="hidden">
+
+## آیتم‌های شرطی
+
+</div>
+
+<DocsCollapsible title="آیتم‌های شرطی">
+
+آیتم‌هایی که با پاسخ‌های قبلی کاربر مرتبط نیستند را غیرفعال کنید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-conditional"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Navigation State
+</DocsCollapsible>
 
-Read item status to opt into disabled navigation and custom action styling.
+<div className="hidden">
+
+## وضعیت ناوبری
+
+</div>
+
+<DocsCollapsible title="وضعیت ناوبری">
+
+وضعیت آیتم را بخوانید تا ناوبری غیرفعال و استایل اکشن سفارشی را فعال کنید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-navigation-state"
+  direction="rtl"
   previewClassName="min-h-[480px] p-4 sm:p-8"
 />
 
-## Custom Progress
+</DocsCollapsible>
 
-Use the Progress render state to build a custom progress indicator.
+<div className="hidden">
+
+## پیشرفت سفارشی
+
+</div>
+
+<DocsCollapsible title="پیشرفت سفارشی">
+
+با render state مربوط به Progress یک نشانگر پیشرفت سفارشی بسازید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-progress"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Animated Items
+</DocsCollapsible>
 
-Animate the active item while keeping progress and navigation stationary.
+<div className="hidden">
+
+## آیتم‌های متحرک
+
+</div>
+
+<DocsCollapsible title="آیتم‌های متحرک">
+
+آیتم فعال را متحرک کنید و پیشرفت و ناوبری را ثابت نگه دارید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-animated"
+  direction="rtl"
   previewClassName="min-h-[520px] p-4 sm:p-8"
 />
 
-## Card
+</DocsCollapsible>
 
-Compose Questionnaire with Card slots while keeping the question title and description semantic.
+<div className="hidden">
+
+## کارت
+
+</div>
+
+<DocsCollapsible title="کارت">
+
+`Questionnaire` را با اسلات‌های Card ترکیب کنید و عنوان و توضیح سؤال را معنایی نگه دارید.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-card"
+  direction="rtl"
   previewClassName="min-h-[560px] p-4 sm:p-8"
 />
 
-## Dialog
+</DocsCollapsible>
 
-Compose Questionnaire inside a Dialog while keeping cancellation and dismissal host-owned.
+<div className="hidden">
+
+## دیالوگ
+
+</div>
+
+<DocsCollapsible title="دیالوگ">
+
+`Questionnaire` را داخل Dialog قرار دهید؛ لغو و بستن همچنان در اختیار میزبان است.
 
 <ComponentPreview
   align="end"
   styleName="base-nova"
   name="questionnaire-dialog"
+  direction="rtl"
   previewClassName="min-h-[320px] p-4 sm:p-8"
 />
 
-## Accessibility
+</DocsCollapsible>
 
-`QuestionnaireItem` renders a `fieldset`, and `QuestionnaireTitle` renders its
-`legend`. Descriptions and active errors are associated with the current item,
-and invalid items and answer controls expose `aria-invalid`.
+<div className="hidden">
 
-Fixed choices preserve native radio and checkbox behavior. Progress is exposed
-as a named progressbar, navigation uses real buttons, and inactive items and
-actions are hidden and inert. Successful navigation focuses the newly active
-item; failed validation focuses an available answer control.
+## دسترس‌پذیری
 
-Always give `QuestionnaireInput` an accessible name with a visible label,
-`aria-label`, or `aria-labelledby`. A placeholder is not a label. See the
-[Questionnaire accessibility guide](/docs/react/questionnaire#accessibility)
-for labeling custom compositions and the complete keyboard behavior.
+</div>
 
-## Unstyled
+<DocsCollapsible title="دسترس‌پذیری">
 
-The behavior in `Questionnaire` comes from the `@farsiui/react` package. To use
-it directly with your own markup and styles, see
-[Questionnaire](/docs/react/questionnaire) under @farsiui/react.
+`QuestionnaireItem` یک `fieldset` و `QuestionnaireTitle` یک `legend` رندر می‌کند. توضیح‌ها و خطاهای فعال به آیتم جاری مرتبط می‌شوند و آیتم‌ها و کنترل‌های نامعتبر `aria-invalid` دارند.
 
-## API Reference
+گزینه‌های ثابت رفتار بومی radio و checkbox را حفظ می‌کنند. پیشرفت به‌صورت progressbar نام‌دار در دسترس است، ناوبری از دکمهٔ واقعی استفاده می‌کند و آیتم‌ها و اکشن‌های غیرفعال مخفی و inert هستند. ناوبری موفق روی آیتم تازه فعال فوکوس می‌گذارد؛ اعتبارسنجی ناموفق روی یک کنترل پاسخ در دسترس فوکوس می‌گذارد.
 
-The props, data attributes, and render states for every part are documented on
-the [@farsiui/react Questionnaire](/docs/react/questionnaire#api-reference) page.
-The styled components inherit the corresponding unstyled props. Navigation
-components also accept Button `size` and `variant` props, and
-`QuestionnaireActions` is a styled-only layout helper.
+همیشه به `QuestionnaireInput` با برچسب دیدنی، `aria-label` یا `aria-labelledby` نام دسترس‌پذیر بدهید. placeholder برچسب نیست. برای برچسب‌گذاری ترکیب‌های سفارشی و رفتار کامل صفحه‌کلید، [راهنمای دسترس‌پذیری Questionnaire](/docs/react/questionnaire#accessibility) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## بدون استایل
+
+</div>
+
+<DocsCollapsible title="بدون استایل">
+
+رفتار `Questionnaire` از پکیج `@farsiui/react` می‌آید. برای استفادهٔ مستقیم با markup و استایل خودتان، [Questionnaire](/docs/react/questionnaire) زیر @farsiui/react را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+props، data attributeها و render stateهای هر پارت در صفحهٔ [@farsiui/react Questionnaire](/docs/react/questionnaire#api-reference) مستند شده‌اند. کامپوننت‌های استایل‌دار props بدون استایل متناظر را به ارث می‌برند. کامپوننت‌های ناوبری همچنین props مربوط به `size` و `variant` دکمه را می‌پذیرند و `QuestionnaireActions` فقط یک کمک‌کنندهٔ چیدمان استایل‌دار است.
+
+</DocsCollapsible>

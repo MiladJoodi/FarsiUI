@@ -11,28 +11,28 @@ import {
 
 const music = [
   {
-    title: "Midnight City Lights",
-    artist: "Neon Dreams",
-    album: "Electric Nights",
-    duration: "3:45",
+    title: "چراغ‌های نیمه‌شب شهر",
+    artist: "رویای نئون",
+    album: "شب‌های الکتریک",
+    duration: "۳:۴۵",
   },
   {
-    title: "Coffee Shop Conversations",
-    artist: "The Morning Brew",
-    album: "Urban Stories",
-    duration: "4:05",
+    title: "گفت‌وگوهای کافه",
+    artist: "قهوهٔ صبح",
+    album: "داستان‌های شهری",
+    duration: "۴:۰۵",
   },
   {
-    title: "Digital Rain",
-    artist: "Cyber Symphony",
-    album: "Binary Beats",
-    duration: "3:30",
+    title: "باران دیجیتال",
+    artist: "سمفونی سایبر",
+    album: "بیت‌های باینری",
+    duration: "۳:۳۰",
   },
 ]
 
 export function ItemImage() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-6">
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
       <ItemGroup className="gap-4">
         {music.map((song) => (
           <Item

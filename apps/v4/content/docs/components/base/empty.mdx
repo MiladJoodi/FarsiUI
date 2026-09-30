@@ -1,28 +1,35 @@
 ---
-title: Empty
-description: Use the Empty component to display an empty state.
+title: خالی (Empty)
+description: نمایش حالت خالی وقتی داده‌ای برای نشان دادن نیست.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="empty-demo"
-  previewClassName="h-96 p-0"
+  layout="switcher"
+  examples={[
+    { name: "empty-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "empty-outline", label: "حاشیه", sizeable: false },
+    { name: "empty-background", label: "پس‌زمینه", sizeable: false },
+    { name: "empty-avatar", label: "آواتار", sizeable: false },
+    { name: "empty-avatar-group", label: "گروه آواتار", sizeable: false },
+    { name: "empty-input-group", label: "ورودی", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add empty
+npx farsiui@latest add empty
 ```
 
 </TabsContent>
@@ -31,7 +38,7 @@ npx shadcn@latest add empty
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="empty"
@@ -39,7 +46,7 @@ npx shadcn@latest add empty
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,9 +54,9 @@ npx shadcn@latest add empty
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
-```tsx
+```tsx showLineNumbers
 import {
   Empty,
   EmptyContent,
@@ -60,24 +67,30 @@ import {
 } from "@/components/ui/empty"
 ```
 
-```tsx
+```tsx showLineNumbers
 <Empty>
   <EmptyHeader>
     <EmptyMedia variant="icon">
       <Icon />
     </EmptyMedia>
-    <EmptyTitle>No data</EmptyTitle>
-    <EmptyDescription>No data found</EmptyDescription>
+    <EmptyTitle>داده‌ای نیست</EmptyTitle>
+    <EmptyDescription>موردی پیدا نشد</EmptyDescription>
   </EmptyHeader>
   <EmptyContent>
-    <Button>Add data</Button>
+    <Button>افزودن داده</Button>
   </EmptyContent>
 </Empty>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `Empty` state:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت حالت خالی از این ترکیب استفاده کنید:
 
 ```text
 Empty
@@ -88,153 +101,205 @@ Empty
 └── EmptyContent
 ```
 
-## Outline
+</DocsCollapsible>
 
-Use the `border` utility class to create an outline empty state.
+<div className="hidden">
+
+## حاشیه
+
+</div>
+
+<DocsCollapsible title="حاشیه">
+
+با کلاس `border` حالت خالی با حاشیه بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="empty-outline"
+  direction="rtl"
   previewClassName="h-96 p-6 md:p-10"
 />
 
-## Background
+</DocsCollapsible>
 
-Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
+<div className="hidden">
+
+## پس‌زمینه
+
+</div>
+
+<DocsCollapsible title="پس‌زمینه">
+
+با ابزارهای `bg-*` و `bg-gradient-*` به حالت خالی پس‌زمینه بدهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="empty-background"
+  direction="rtl"
   previewClassName="h-96 p-0"
 />
 
-## Avatar
+</DocsCollapsible>
 
-Use the `EmptyMedia` component to display an avatar in the empty state.
+<div className="hidden">
+
+## آواتار
+
+</div>
+
+<DocsCollapsible title="آواتار">
+
+با `EmptyMedia` آواتار را در حالت خالی نشان دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="empty-avatar"
+  direction="rtl"
   previewClassName="h-96 p-0"
 />
 
-## Avatar Group
+</DocsCollapsible>
 
-Use the `EmptyMedia` component to display an avatar group in the empty state.
+<div className="hidden">
+
+## گروه آواتار
+
+</div>
+
+<DocsCollapsible title="گروه آواتار">
+
+با `EmptyMedia` گروه آواتار را نشان دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="empty-avatar-group"
+  direction="rtl"
   previewClassName="h-96 p-0"
 />
 
-## InputGroup
+</DocsCollapsible>
 
-You can add an `InputGroup` component to the `EmptyContent` component.
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+می‌توانید `InputGroup` را داخل `EmptyContent` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="empty-input-group"
+  direction="rtl"
   previewClassName="h-96 p-0"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="empty-rtl" direction="rtl" />
+## پشتیبانی RTL
 
-## API Reference
+</div>
 
-### Empty
+<DocsCollapsible title="پشتیبانی RTL">
 
-The main component of the empty state. Wraps the `EmptyHeader` and `EmptyContent` components.
+روی ظرف حالت خالی `dir="rtl"` بگذارید. برای تنظیم سراسری، [راهنمای RTL](/docs/rtl) را ببینید.
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
+<ComponentPreview
+  styleName="base-nova"
+  name="empty-rtl"
+  direction="rtl"
+/>
 
-```tsx
-<Empty>
-  <EmptyHeader />
-  <EmptyContent />
-</Empty>
-```
+</DocsCollapsible>
 
-### EmptyHeader
+<div className="hidden">
 
-The `EmptyHeader` component wraps the empty media, title, and description.
+## مرجع API
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
+</div>
 
-```tsx
-<EmptyHeader>
-  <EmptyMedia />
-  <EmptyTitle />
-  <EmptyDescription />
-</EmptyHeader>
-```
+<DocsCollapsible title="مرجع API">
 
-### EmptyMedia
+<DocsApiProps
+  title="Empty"
+  description="ظرف ریشهٔ حالت خالی؛ هدر و محتوا را می‌پوشاند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی برای ظرف",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Use the `EmptyMedia` component to display the media of the empty state such as an icon or an image. You can also use it to display other components such as an avatar.
+<DocsApiProps
+  title="EmptyHeader"
+  description="پوشش مدیا، عنوان و توضیح."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type                  | Default   |
-| ----------- | --------------------- | --------- |
-| `variant`   | `"default" \| "icon"` | `default` |
-| `className` | `string`              |           |
+<DocsApiProps
+  title="EmptyMedia"
+  description="نمایش آیکون، تصویر یا آواتار."
+  props={[
+    {
+      name: "variant",
+      description: "ظاهر مدیا",
+      values: ['"default"', '"icon"'],
+      defaultValue: '"default"',
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-```tsx
-<EmptyMedia variant="icon">
-  <Icon />
-</EmptyMedia>
-```
+<DocsApiProps
+  title="EmptyTitle"
+  description="عنوان حالت خالی."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-```tsx
-<EmptyMedia>
-  <Avatar>
-    <AvatarImage src="..." />
-    <AvatarFallback>CN</AvatarFallback>
-  </Avatar>
-</EmptyMedia>
-```
+<DocsApiProps
+  title="EmptyDescription"
+  description="توضیح کوتاه زیر عنوان."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### EmptyTitle
+<DocsApiProps
+  title="EmptyContent"
+  description="اقدام‌ها مثل دکمه، ورودی یا لینک."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Use the `EmptyTitle` component to display the title of the empty state.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<EmptyTitle>No data</EmptyTitle>
-```
-
-### EmptyDescription
-
-Use the `EmptyDescription` component to display the description of the empty state.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<EmptyDescription>You do not have any notifications.</EmptyDescription>
-```
-
-### EmptyContent
-
-Use the `EmptyContent` component to display the content of the empty state such as a button, input or a link.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<EmptyContent>
-  <Button>Add Project</Button>
-</EmptyContent>
-```
+</DocsCollapsible>

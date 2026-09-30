@@ -12,7 +12,7 @@ export default function InputOTPControlled() {
   const [value, setValue] = React.useState("")
 
   return (
-    <div className="space-y-2">
+    <div dir="rtl" className="space-y-2">
       <InputOTP
         maxLength={6}
         value={value}
@@ -29,9 +29,9 @@ export default function InputOTPControlled() {
       </InputOTP>
       <div className="text-center text-sm">
         {value === "" ? (
-          <>Enter your one-time password.</>
+          <>رمز یک‌بارمصرف خود را وارد کنید.</>
         ) : (
-          <>You entered: {value}</>
+          <>مقدار واردشده: {value}</>
         )}
       </div>
     </div>

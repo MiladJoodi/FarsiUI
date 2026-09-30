@@ -2,59 +2,26 @@
 
 import * as React from "react"
 
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Card, CardContent } from "@/styles/base-nova/ui-rtl/card"
+import { Card, CardContent } from "@/styles/base-nova/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/styles/base-nova/ui-rtl/carousel"
+} from "@/styles/base-nova/ui/carousel"
 
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {},
-  },
-  ar: {
-    dir: "rtl",
-    values: {},
-  },
-  he: {
-    dir: "rtl",
-    values: {},
-  },
-}
-
-function toArabicNumerals(num: number): string {
-  const arabicNumerals = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
-  return num
-    .toString()
-    .split("")
-    .map((digit) => arabicNumerals[parseInt(digit, 10)])
-    .join("")
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
 }
 
 export function CarouselRtl() {
-  const { dir, language } = useTranslation(translations, "ar")
-
-  const formatNumber = (num: number): string => {
-    if (language === "ar") {
-      return toArabicNumerals(num)
-    }
-    return num.toString()
-  }
-
   return (
     <Carousel
-      dir={dir}
+      dir="rtl"
       className="w-full max-w-[12rem] sm:max-w-xs"
       opts={{
-        direction: dir,
+        direction: "rtl",
       }}
     >
       <CarouselContent>
@@ -64,7 +31,7 @@ export function CarouselRtl() {
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <span className="text-4xl font-semibold">
-                    {formatNumber(index + 1)}
+                    {toPersianDigits(index + 1)}
                   </span>
                 </CardContent>
               </Card>

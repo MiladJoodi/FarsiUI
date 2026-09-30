@@ -1,33 +1,10 @@
 "use client"
 
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Kbd, KbdGroup } from "@/styles/base-nova/ui-rtl/kbd"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {},
-  },
-  ar: {
-    dir: "rtl",
-    values: {},
-  },
-  he: {
-    dir: "rtl",
-    values: {},
-  },
-}
+import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
 
 export function KbdRtl() {
-  const { dir } = useTranslation(translations, "ar")
-
   return (
-    <div className="flex flex-col items-center gap-4" dir={dir}>
+    <div dir="rtl" className="flex flex-col items-center gap-4">
       <KbdGroup>
         <Kbd>⌘</Kbd>
         <Kbd>⇧</Kbd>

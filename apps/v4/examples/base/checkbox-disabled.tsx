@@ -3,7 +3,7 @@ import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 
 export function CheckboxDisabled() {
   return (
-    <FieldGroup className="mx-auto w-56">
+    <FieldGroup className="mx-auto w-56" dir="rtl">
       <Field orientation="horizontal" data-disabled>
         <Checkbox
           id="toggle-checkbox-disabled"
@@ -11,7 +11,7 @@ export function CheckboxDisabled() {
           disabled
         />
         <FieldLabel htmlFor="toggle-checkbox-disabled">
-          Enable notifications
+          فعال‌سازی اعلان‌ها
         </FieldLabel>
       </Field>
     </FieldGroup>

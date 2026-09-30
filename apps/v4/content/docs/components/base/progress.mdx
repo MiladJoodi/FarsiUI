@@ -1,6 +1,6 @@
 ---
-title: Progress
-description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+title: پیشرفت (Progress)
+description: نشانگری که میزان تکمیل یک کار را نمایش می‌دهد؛ معمولاً به‌صورت نوار پیشرفت.
 base: base
 component: true
 links:
@@ -8,20 +8,28 @@ links:
   api: https://base-ui.com/react/components/progress#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="progress-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "progress-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "progress-label", label: "برچسب", sizeable: false },
+    { name: "progress-controlled", label: "کنترل‌شده", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add progress
+npx farsiui@latest add progress
 ```
 
 </TabsContent>
@@ -30,13 +38,13 @@ npx shadcn@latest add progress
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="progress"
@@ -44,7 +52,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +60,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Progress } from "@/components/ui/progress"
@@ -62,24 +70,15 @@ import { Progress } from "@/components/ui/progress"
 <Progress value={33} />
 ```
 
-## Composition
+<div className="hidden">
 
-### With label and value
+## ترکیب
 
-Use `ProgressLabel` and `ProgressValue` to add a label and value display.
+</div>
 
-```tsx showLineNumbers
-import {
-  Progress,
-  ProgressLabel,
-  ProgressValue,
-} from "@/components/ui/progress"
+<DocsCollapsible title="ترکیب">
 
-;<Progress value={56} className="w-full max-w-sm">
-  <ProgressLabel>Upload progress</ProgressLabel>
-  <ProgressValue />
-</Progress>
-```
+برای ساخت `Progress` از این ترکیب استفاده کنید:
 
 ```text
 Progress
@@ -89,24 +88,85 @@ Progress
     └── ProgressIndicator
 ```
 
-## Label
+با `ProgressLabel` و `ProgressValue` برچسب و مقدار را نمایش دهید:
 
-Use `ProgressLabel` and `ProgressValue` to add a label and value display.
+```tsx showLineNumbers
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+} from "@/components/ui/progress"
 
-<ComponentPreview styleName="base-nova" name="progress-label" />
+;<Progress value={56} className="w-full max-w-sm">
+  <ProgressLabel>پیشرفت آپلود</ProgressLabel>
+  <ProgressValue />
+</Progress>
+```
 
-## Controlled
+</DocsCollapsible>
 
-A progress bar that can be controlled by a slider.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="progress-controlled" />
+## برچسب
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="برچسب">
 
-<ComponentPreview styleName="base-nova" name="progress-rtl" direction="rtl" />
+با `ProgressLabel` و `ProgressValue` برچسب و مقدار را به نوار پیشرفت اضافه کنید.
 
-## API Reference
+<ComponentPreview
+  styleName="base-nova"
+  name="progress-label"
+  direction="rtl"
+/>
 
-See the [Base UI Progress](https://base-ui.com/react/components/progress#api-reference) documentation.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کنترل‌شده
+
+</div>
+
+<DocsCollapsible title="کنترل‌شده">
+
+نوار پیشرفتی که با اسلایدر کنترل می‌شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="progress-controlled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="progress-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Progress](https://base-ui.com/react/components/progress#api-reference) را ببینید.
+
+</DocsCollapsible>

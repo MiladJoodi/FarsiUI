@@ -5,11 +5,13 @@ import {
 
 export function NativeSelectInvalid() {
   return (
-    <NativeSelect aria-invalid="true">
-      <NativeSelectOption value="">Error state</NativeSelectOption>
-      <NativeSelectOption value="apple">Apple</NativeSelectOption>
-      <NativeSelectOption value="banana">Banana</NativeSelectOption>
-      <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
-    </NativeSelect>
+    <div dir="rtl">
+      <NativeSelect aria-invalid="true">
+        <NativeSelectOption value="">حالت خطا</NativeSelectOption>
+        <NativeSelectOption value="apple">سیب</NativeSelectOption>
+        <NativeSelectOption value="banana">موز</NativeSelectOption>
+        <NativeSelectOption value="blueberry">بلوبری</NativeSelectOption>
+      </NativeSelect>
+    </div>
   )
 }

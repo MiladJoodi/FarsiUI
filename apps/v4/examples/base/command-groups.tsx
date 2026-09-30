@@ -27,44 +27,44 @@ export function CommandWithGroups() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" dir="rtl">
       <Button onClick={() => setOpen(true)} variant="outline" className="w-fit">
-        Open Menu
+        باز کردن منو
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
-          <CommandInput placeholder="Type a command or search..." />
+          <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
+            <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+            <CommandGroup heading="پیشنهادها">
               <CommandItem>
                 <CalendarIcon />
-                <span>Calendar</span>
+                <span>تقویم</span>
               </CommandItem>
               <CommandItem>
                 <SmileIcon />
-                <span>Search Emoji</span>
+                <span>جستجوی ایموجی</span>
               </CommandItem>
               <CommandItem>
                 <CalculatorIcon />
-                <span>Calculator</span>
+                <span>ماشین‌حساب</span>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
-            <CommandGroup heading="Settings">
+            <CommandGroup heading="تنظیمات">
               <CommandItem>
                 <UserIcon />
-                <span>Profile</span>
+                <span>پروفایل</span>
                 <CommandShortcut>⌘P</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <CreditCardIcon />
-                <span>Billing</span>
+                <span>صورتحساب</span>
                 <CommandShortcut>⌘B</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <SettingsIcon />
-                <span>Settings</span>
+                <span>تنظیمات</span>
                 <CommandShortcut>⌘S</CommandShortcut>
               </CommandItem>
             </CommandGroup>

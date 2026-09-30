@@ -13,15 +13,15 @@ import {
 
 export function InputGroupInlineStart() {
   return (
-    <Field className="max-w-sm">
-      <FieldLabel htmlFor="inline-start-input">Input</FieldLabel>
+    <Field dir="rtl" className="max-w-sm">
+      <FieldLabel htmlFor="inline-start-input">ورودی</FieldLabel>
       <InputGroup>
-        <InputGroupInput id="inline-start-input" placeholder="Search..." />
+        <InputGroupInput id="inline-start-input" placeholder="جستجو..." />
         <InputGroupAddon align="inline-start">
           <SearchIcon className="text-muted-foreground" />
         </InputGroupAddon>
       </InputGroup>
-      <FieldDescription>Icon positioned at the start.</FieldDescription>
+      <FieldDescription>آیکون در شروع خط قرار گرفته است.</FieldDescription>
     </Field>
   )
 }

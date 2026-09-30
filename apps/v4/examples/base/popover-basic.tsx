@@ -10,20 +10,20 @@ import {
 
 export function PopoverBasic() {
   return (
-    <>
+    <div dir="rtl">
       <Popover>
         <PopoverTrigger render={<Button variant="outline" className="w-fit" />}>
-          Open Popover
+          باز کردن پاپ‌اور
         </PopoverTrigger>
         <PopoverContent align="start">
           <PopoverHeader>
-            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverTitle>ابعاد</PopoverTitle>
             <PopoverDescription>
-              Set the dimensions for the layer.
+              ابعاد لایه را تنظیم کنید.
             </PopoverDescription>
           </PopoverHeader>
         </PopoverContent>
       </Popover>
-    </>
+    </div>
   )
 }

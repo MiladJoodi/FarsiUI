@@ -16,7 +16,7 @@ import {
 
 export function MessageAvatarDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-6 py-12">
       <Message>
         <MessageAvatar>
           <Avatar>
@@ -27,7 +27,7 @@ export function MessageAvatarDemo() {
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              The build failed during dependency installation.
+              بیلد هنگام نصب وابستگی‌ها شکست خورد.
             </BubbleContent>
           </Bubble>
         </MessageContent>
@@ -41,7 +41,7 @@ export function MessageAvatarDemo() {
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>Can you share the exact error?</BubbleContent>
+            <BubbleContent>می‌توانید خطای دقیق را بفرستید؟</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -55,12 +55,12 @@ export function MessageAvatarDemo() {
         <MessageContent>
           <BubbleGroup>
             <Bubble variant="muted">
-              <BubbleContent>Here&apos;s the error from the logs</BubbleContent>
+              <BubbleContent>این خطا از لاگ‌ها است</BubbleContent>
             </Bubble>
             <Bubble variant="muted">
               <BubbleContent>
-                Something went wrong with the build. The libraries are not
-                installed correctly. Try running the build again.
+                مشکلی در بیلد پیش آمد. کتابخانه‌ها درست نصب نشده‌اند. دوباره
+                بیلد را اجرا کنید.
               </BubbleContent>
             </Bubble>
           </BubbleGroup>

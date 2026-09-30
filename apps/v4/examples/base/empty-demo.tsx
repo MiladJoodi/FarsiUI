@@ -13,30 +13,32 @@ import {
 
 export default function EmptyDemo() {
   return (
-    <Empty>
-      <EmptyHeader>
-        <EmptyMedia variant="icon">
-          <IconFolderCode />
-        </EmptyMedia>
-        <EmptyTitle>No Projects Yet</EmptyTitle>
-        <EmptyDescription>
-          You haven&apos;t created any projects yet. Get started by creating
-          your first project.
-        </EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent className="flex-row justify-center gap-2">
-        <Button>Create Project</Button>
-        <Button variant="outline">Import Project</Button>
-      </EmptyContent>
-      <Button
-        variant="link"
-        render={<a href="#" />}
-        className="text-muted-foreground"
-        size="sm"
-        nativeButton={false}
-      >
-        Learn More <ArrowUpRightIcon />
-      </Button>
-    </Empty>
+    <div dir="rtl">
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <IconFolderCode />
+          </EmptyMedia>
+          <EmptyTitle>هنوز پروژه‌ای نیست</EmptyTitle>
+          <EmptyDescription>
+            هنوز پروژه‌ای نساخته‌اید. با ساخت اولین پروژه شروع کنید.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent className="flex-row justify-center gap-2">
+          <Button>ساخت پروژه</Button>
+          <Button variant="outline">ورود پروژه</Button>
+        </EmptyContent>
+        <Button
+          variant="link"
+          render={<a href="#" />}
+          className="text-muted-foreground"
+          size="sm"
+          nativeButton={false}
+        >
+          بیشتر بدانید{" "}
+          <ArrowUpRightIcon className="rtl:rotate-270" data-icon="inline-end" />
+        </Button>
+      </Empty>
+    </div>
   )
 }

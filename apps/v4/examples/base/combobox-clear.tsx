@@ -19,18 +19,20 @@ const frameworks = [
 
 export function ComboboxWithClear() {
   return (
-    <Combobox items={frameworks} defaultValue={frameworks[0]}>
-      <ComboboxInput placeholder="Select a framework" showClear />
-      <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
-        <ComboboxList>
-          {(item) => (
-            <ComboboxItem key={item} value={item}>
-              {item}
-            </ComboboxItem>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div dir="rtl">
+      <Combobox items={frameworks} defaultValue={frameworks[0]}>
+        <ComboboxInput placeholder="یک فریم‌ورک انتخاب کنید" showClear />
+        <ComboboxContent>
+          <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   )
 }

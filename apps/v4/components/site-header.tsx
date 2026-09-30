@@ -19,7 +19,7 @@ export function SiteHeader() {
   const pageTree = source.pageTree
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background">
+    <header dir="rtl" lang="fa" className="sticky top-0 z-50 w-full bg-background">
       <div className="container-wrapper px-6 group-has-data-[slot=designer]/layout:max-w-none 3xl:fixed:px-0">
         <div className="flex h-(--header-height) items-center **:data-[slot=separator]:h-4! group-has-data-[slot=designer]/layout:fixed:max-w-none 3xl:fixed:container">
           <MobileNav
@@ -28,7 +28,7 @@ export function SiteHeader() {
             className="flex lg:hidden"
           />
           <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
-          <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
+          <div className="ms-auto flex items-center gap-2 md:flex-1 md:justify-end">
             <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
               <CommandMenu
                 tree={pageTree}
@@ -38,7 +38,7 @@ export function SiteHeader() {
             </div>
             <Separator
               orientation="vertical"
-              className="ml-2 hidden lg:block"
+              className="ms-2 hidden lg:block"
             />
             <GitHubLink />
             <Separator orientation="vertical" />
@@ -49,7 +49,7 @@ export function SiteHeader() {
               <Button asChild size="sm" className="h-[31px] rounded-lg">
                 <Link href="/create">
                   <HugeiconsIcon icon={PlusSignIcon} />
-                  New
+                  جدید
                 </Link>
               </Button>
             </div>

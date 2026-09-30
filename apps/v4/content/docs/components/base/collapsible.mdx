@@ -1,6 +1,6 @@
 ---
-title: Collapsible
-description: An interactive component which expands/collapses a panel.
+title: جمع‌شونده (Collapsible)
+description: کامپوننت تعاملی برای باز و بسته کردن یک پنل.
 base: base
 component: true
 featured: true
@@ -9,20 +9,29 @@ links:
   api: https://base-ui.com/react/components/collapsible#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="collapsible-demo" align="start" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "collapsible-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "collapsible-basic", label: "پایه", sizeable: false },
+    { name: "collapsible-settings", label: "تنظیمات", sizeable: false },
+    { name: "collapsible-file-tree", label: "درخت فایل", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add collapsible
+npx farsiui@latest add collapsible
 ```
 
 </TabsContent>
@@ -31,13 +40,13 @@ npx shadcn@latest add collapsible
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="collapsible"
@@ -45,7 +54,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -53,7 +62,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -65,17 +74,22 @@ import {
 
 ```tsx showLineNumbers
 <Collapsible>
-  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+  <CollapsibleTrigger>می‌توانم در پروژه‌ام استفاده کنم؟</CollapsibleTrigger>
   <CollapsibleContent>
-    Yes. Free to use for personal and commercial projects. No attribution
-    required.
+    بله. برای پروژه‌های شخصی و تجاری رایگان است و نیازی به ذکر منبع نیست.
   </CollapsibleContent>
 </Collapsible>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Collapsible`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Collapsible`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
 
 ```text
 Collapsible
@@ -83,9 +97,17 @@ Collapsible
 └── CollapsibleContent
 ```
 
-## Controlled State
+</DocsCollapsible>
 
-Use the `open` and `onOpenChange` props to control the state.
+<div className="hidden">
+
+## حالت کنترل‌شده
+
+</div>
+
+<DocsCollapsible title="حالت کنترل‌شده">
+
+با propهای `open` و `onOpenChange` حالت را کنترل کنید.
 
 ```tsx showLineNumbers
 import * as React from "react"
@@ -95,48 +117,150 @@ export function Example() {
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
-      <CollapsibleContent>Content</CollapsibleContent>
+      <CollapsibleTrigger>باز و بسته</CollapsibleTrigger>
+      <CollapsibleContent>محتوا</CollapsibleContent>
     </Collapsible>
   )
 }
 ```
 
-## Basic
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پایه
+
+</div>
+
+<DocsCollapsible title="پایه">
 
 <ComponentPreview
   styleName="base-nova"
   name="collapsible-basic"
-  align="start"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## Settings Panel
+</DocsCollapsible>
 
-Use a trigger button to reveal additional settings.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="collapsible-settings" />
+## پنل تنظیمات
 
-## File Tree
+</div>
 
-Use nested collapsibles to build a file tree.
+<DocsCollapsible title="پنل تنظیمات">
+
+با دکمهٔ تریگر، تنظیمات بیشتر را نشان دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="collapsible-settings"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## درخت فایل
+
+</div>
+
+<DocsCollapsible title="درخت فایل">
+
+با جمع‌شونده‌های تودرتو، درخت فایل بسازید.
 
 <ComponentPreview
   styleName="base-nova"
   name="collapsible-file-tree"
-  previewClassName="h-[36rem]"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6 h-[36rem]"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="collapsible-rtl"
   direction="rtl"
-  align="start"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI](https://base-ui.com/react/components/collapsible#api-reference) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/collapsible#api-reference) را ببینید.
+
+<DocsApiProps
+  title="Collapsible"
+  description="ظرف ریشهٔ پنل جمع‌شونده."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "defaultOpen",
+      description: "حالت اولیه در حالت کنترل‌نشده",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن تعامل",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CollapsibleTrigger"
+  description="دکمه یا عنصری که پنل را باز و بسته می‌کند."
+  props={[
+    {
+      name: "render",
+      description: "عنصر سفارشی به‌جای عنصر پیش‌فرض",
+      values: ["React.ReactElement"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="CollapsibleContent"
+  description="محتوای جمع‌شونده."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

@@ -1,6 +1,6 @@
 ---
-title: Carousel
-description: A carousel with motion and swipe built using Embla.
+title: کاروسل (Carousel)
+description: کاروسل با حرکت و سوایپ، ساخته‌شده با Embla.
 base: base
 component: true
 links:
@@ -8,29 +8,32 @@ links:
   api: https://www.embla-carousel.com/api
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="carousel-demo"
-  previewClassName="h-80 sm:h-[32rem]"
+  layout="switcher"
+  examples={[
+    { name: "carousel-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "carousel-size", label: "اندازه", sizeable: false },
+    { name: "carousel-spacing", label: "فاصله", sizeable: false },
+    { name: "carousel-orientation", label: "جهت", sizeable: false },
+    { name: "carousel-api", label: "API", sizeable: false },
+    { name: "carousel-plugin", label: "افزونه", sizeable: false },
+  ]}
 />
 
-## About
-
-The carousel component is built using the [Embla Carousel](https://www.embla-carousel.com/) library.
-
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add carousel
+npx farsiui@latest add carousel
 ```
 
 </TabsContent>
@@ -39,13 +42,13 @@ npx shadcn@latest add carousel
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install embla-carousel-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="carousel"
@@ -53,7 +56,7 @@ npm install embla-carousel-react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -61,7 +64,7 @@ npm install embla-carousel-react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -85,9 +88,27 @@ import {
 </Carousel>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Carousel`:
+## درباره
+
+</div>
+
+<DocsCollapsible title="درباره">
+
+کامپوننت `Carousel` بر پایه کتابخانهٔ [Embla Carousel](https://www.embla-carousel.com/) ساخته شده است.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `Carousel`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
 
 ```text
 Carousel
@@ -98,14 +119,27 @@ Carousel
 └── CarouselNext
 ```
 
-## Sizes
+</DocsCollapsible>
 
-To set the size of the items, you can use the `basis` utility class on the `<CarouselItem />`.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="carousel-size" />
+## اندازه
+
+</div>
+
+<DocsCollapsible title="اندازه">
+
+برای تنظیم اندازهٔ آیتم‌ها، از کلاس `basis` روی `<CarouselItem />` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="carousel-size"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
 ```tsx showLineNumbers {4-6}
-// 33% of the carousel width.
+// ۳۳٪ از عرض کاروسل
 <Carousel>
   <CarouselContent>
     <CarouselItem className="basis-1/3">...</CarouselItem>
@@ -116,7 +150,7 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 ```
 
 ```tsx showLineNumbers {4-6}
-// 50% on small screens and 33% on larger screens.
+// در صفحه‌های کوچک ۵۰٪ و در صفحه‌های بزرگ‌تر ۳۳٪
 <Carousel>
   <CarouselContent>
     <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
@@ -126,40 +160,62 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 </Carousel>
 ```
 
-## Spacing
+</DocsCollapsible>
 
-To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<CarouselItem />` and a negative `-ml-[VALUE]` on the `<CarouselContent />`.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="carousel-spacing" />
+## فاصله‌گذاری
 
-```tsx showLineNumbers /-ml-4/ /pl-4/
+</div>
+
+<DocsCollapsible title="فاصله‌گذاری">
+
+برای فاصله بین آیتم‌ها، روی `<CarouselItem />` از `ps-[VALUE]` و روی `<CarouselContent />` از حاشیهٔ منفی `-ms-[VALUE]` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="carousel-spacing"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+```tsx showLineNumbers /-ms-4/ /ps-4/
 <Carousel>
-  <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4">...</CarouselItem>
-    <CarouselItem className="pl-4">...</CarouselItem>
-    <CarouselItem className="pl-4">...</CarouselItem>
+  <CarouselContent className="-ms-4">
+    <CarouselItem className="ps-4">...</CarouselItem>
+    <CarouselItem className="ps-4">...</CarouselItem>
+    <CarouselItem className="ps-4">...</CarouselItem>
   </CarouselContent>
 </Carousel>
 ```
 
-```tsx showLineNumbers /-ml-2/ /pl-2/ /md:-ml-4/ /md:pl-4/
+```tsx showLineNumbers /-ms-2/ /ps-2/ /md:-ms-4/ /md:ps-4/
 <Carousel>
-  <CarouselContent className="-ml-2 md:-ml-4">
-    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
-    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
-    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
+  <CarouselContent className="-ms-2 md:-ms-4">
+    <CarouselItem className="ps-2 md:ps-4">...</CarouselItem>
+    <CarouselItem className="ps-2 md:ps-4">...</CarouselItem>
+    <CarouselItem className="ps-2 md:ps-4">...</CarouselItem>
   </CarouselContent>
 </Carousel>
 ```
 
-## Orientation
+</DocsCollapsible>
 
-Use the `orientation` prop to set the orientation of the carousel.
+<div className="hidden">
+
+## جهت
+
+</div>
+
+<DocsCollapsible title="جهت">
+
+با prop به نام `orientation` جهت کاروسل را تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="carousel-orientation"
-  previewClassName="h-[32rem]"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6 h-[32rem]"
 />
 
 ```tsx showLineNumbers /vertical | horizontal/
@@ -172,9 +228,17 @@ Use the `orientation` prop to set the orientation of the carousel.
 </Carousel>
 ```
 
-## Options
+</DocsCollapsible>
 
-You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
+<div className="hidden">
+
+## گزینه‌ها
+
+</div>
+
+<DocsCollapsible title="گزینه‌ها">
+
+با prop به نام `opts` می‌توانید گزینه‌های Embla را به کاروسل بدهید. برای جزئیات بیشتر، [مستندات Embla](https://www.embla-carousel.com/api/options/) را ببینید.
 
 ```tsx showLineNumbers {2-5}
 <Carousel
@@ -191,14 +255,23 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 </Carousel>
 ```
 
+</DocsCollapsible>
+
+<div className="hidden">
+
 ## API
 
-Use a state and the `setApi` prop to get an instance of the carousel API.
+</div>
+
+<DocsCollapsible title="API">
+
+با یک state و prop به نام `setApi` می‌توانید به نمونهٔ API کاروسل دسترسی داشته باشید.
 
 <ComponentPreview
   styleName="base-nova"
   name="carousel-api"
-  previewClassName="sm:h-[32rem]"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6 sm:h-[32rem]"
 />
 
 ```tsx showLineNumbers {1,4,22}
@@ -234,9 +307,17 @@ export function Example() {
 }
 ```
 
-## Events
+</DocsCollapsible>
 
-You can listen to events using the api instance from `setApi`.
+<div className="hidden">
+
+## رویدادها
+
+</div>
+
+<DocsCollapsible title="رویدادها">
+
+با نمونهٔ `api` از `setApi` می‌توانید به رویدادها گوش دهید.
 
 ```tsx showLineNumbers {1,4-14,16}
 import { type CarouselApi } from "@/components/ui/carousel"
@@ -250,7 +331,7 @@ export function Example() {
     }
 
     api.on("select", () => {
-      // Do something on select.
+      // هنگام انتخاب اسلاید کاری انجام دهید.
     })
   }, [api])
 
@@ -266,11 +347,19 @@ export function Example() {
 }
 ```
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
+برای اطلاعات بیشتر، [مستندات رویدادهای Embla](https://www.embla-carousel.com/api/events/) را ببینید.
 
-## Plugins
+</DocsCollapsible>
 
-You can use the `plugins` prop to add plugins to the carousel.
+<div className="hidden">
+
+## افزونه‌ها
+
+</div>
+
+<DocsCollapsible title="افزونه‌ها">
+
+با prop به نام `plugins` می‌توانید افزونه به کاروسل اضافه کنید.
 
 ```ts showLineNumbers {1,6-10}
 import Autoplay from "embla-carousel-autoplay"
@@ -293,27 +382,27 @@ export function Example() {
 <ComponentPreview
   styleName="base-nova"
   name="carousel-plugin"
-  previewClassName="sm:h-[32rem]"
-/>
-
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
-
-<ComponentPreview
-  styleName="base-nova"
-  name="carousel-rtl"
   direction="rtl"
-  previewClassName="h-80 sm:h-[32rem]"
+  previewClassName="h-auto! min-h-0 py-6 px-6 sm:h-[32rem]"
 />
 
-When localizing the carousel for RTL languages, you need to set the `direction` option in the `opts` prop to match the text direction. This ensures the carousel scrolls in the correct direction.
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+در FarsiUI، برای کاروسل RTL مقدار `direction` را در `opts` با `dir` هم‌تراز کنید تا اسکرول در جهت درست باشد.
 
 ```tsx showLineNumbers {2-5}
 <Carousel
-  dir={dir}
+  dir="rtl"
   opts={{
-    direction: dir,
+    direction: "rtl",
   }}
 >
   <CarouselContent>
@@ -321,13 +410,51 @@ When localizing the carousel for RTL languages, you need to set the `direction` 
     <CarouselItem>...</CarouselItem>
     <CarouselItem>...</CarouselItem>
   </CarouselContent>
-  <CarouselPrevious className="rtl:rotate-180" />
-  <CarouselNext className="rtl:rotate-180" />
+  <CarouselPrevious />
+  <CarouselNext />
 </Carousel>
 ```
 
-The `direction` option accepts `"ltr"` or `"rtl"` and should match the `dir` prop value. You may also want to rotate the navigation buttons using the `rtl:rotate-180` class to ensure they point in the correct direction.
+گزینهٔ `direction` مقدار `"ltr"` یا `"rtl"` می‌پذیرد و باید با prop به نام `dir` یکی باشد.
 
-## API Reference
+</DocsCollapsible>
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/) for more information on props and plugins.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات props و افزونه‌ها به مستندات [Embla Carousel](https://www.embla-carousel.com/api/) مراجعه کنید.
+
+<DocsApiProps
+  title="Carousel"
+  description="ظرف ریشهٔ کاروسل."
+  props={[
+    {
+      name: "orientation",
+      defaultValue: "horizontal",
+      description: "جهت حرکت کاروسل",
+      values: ["horizontal", "vertical"],
+    },
+    {
+      name: "opts",
+      description: "گزینه‌های Embla Carousel",
+      values: ["CarouselOptions"],
+    },
+    {
+      name: "plugins",
+      description: "افزونه‌های Embla",
+      values: ["CarouselPlugin"],
+    },
+    {
+      name: "setApi",
+      description: "دریافت نمونهٔ API کاروسل",
+      values: ["(api: CarouselApi) => void"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

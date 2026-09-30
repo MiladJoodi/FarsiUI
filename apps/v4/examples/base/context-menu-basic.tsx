@@ -8,22 +8,24 @@ import {
 
 export function ContextMenuBasic() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
-        <span className="hidden pointer-fine:inline-block">
-          Right click here
-        </span>
-        <span className="hidden pointer-coarse:inline-block">
-          Long press here
-        </span>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuGroup>
-          <ContextMenuItem>Back</ContextMenuItem>
-          <ContextMenuItem disabled>Forward</ContextMenuItem>
-          <ContextMenuItem>Reload</ContextMenuItem>
-        </ContextMenuGroup>
-      </ContextMenuContent>
-    </ContextMenu>
+    <div dir="rtl">
+      <ContextMenu>
+        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+          <span className="hidden pointer-fine:inline-block">
+            اینجا راست‌کلیک کنید
+          </span>
+          <span className="hidden pointer-coarse:inline-block">
+            اینجا لمس طولانی کنید
+          </span>
+        </ContextMenuTrigger>
+        <ContextMenuContent>
+          <ContextMenuGroup>
+            <ContextMenuItem>بازگشت</ContextMenuItem>
+            <ContextMenuItem disabled>جلو</ContextMenuItem>
+            <ContextMenuItem>بارگذاری مجدد</ContextMenuItem>
+          </ContextMenuGroup>
+        </ContextMenuContent>
+      </ContextMenu>
+    </div>
   )
 }

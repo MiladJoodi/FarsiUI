@@ -1,6 +1,6 @@
 ---
-title: Scroll Area
-description: Augments native scroll functionality for custom, cross-browser styling.
+title: ناحیهٔ پیمایش (Scroll Area)
+description: پیمایش بومی را برای استایل سفارشی و یکسان بین مرورگرها تقویت می‌کند.
 base: base
 component: true
 links:
@@ -8,24 +8,27 @@ links:
   api: https://base-ui.com/react/components/scroll-area#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="scroll-area-demo"
-  previewClassName="h-96"
+  layout="switcher"
+  examples={[
+    { name: "scroll-area-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "scroll-area-horizontal-demo", label: "افقی", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add scroll-area
+npx farsiui@latest add scroll-area
 ```
 
 </TabsContent>
@@ -34,13 +37,13 @@ npx shadcn@latest add scroll-area
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="scroll-area"
@@ -48,7 +51,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +59,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
@@ -64,28 +67,54 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
 ```tsx showLineNumbers
 <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-  Your scrollable content here.
+  محتوای قابل‌پیمایش اینجا.
 </ScrollArea>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `ScrollArea`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `ScrollArea` از این ترکیب استفاده کنید:
 
 ```text
 ScrollArea
 └── ScrollBar
 ```
 
-## Horizontal
+</DocsCollapsible>
 
-Use `ScrollBar` with `orientation="horizontal"` for horizontal scrolling.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="scroll-area-horizontal-demo" />
+## افقی
 
-## RTL
+</div>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<DocsCollapsible title="افقی">
+
+برای پیمایش افقی، `ScrollBar` را با `orientation="horizontal"` به‌کار ببرید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="scroll-area-horizontal-demo"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -94,6 +123,16 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   previewClassName="h-auto"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Scroll Area](https://base-ui.com/react/components/scroll-area#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Scroll Area](https://base-ui.com/react/components/scroll-area#api-reference) را ببینید.
+
+</DocsCollapsible>

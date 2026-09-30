@@ -13,19 +13,19 @@ import {
 
 export function InputGroupInlineEnd() {
   return (
-    <Field className="max-w-sm">
-      <FieldLabel htmlFor="inline-end-input">Input</FieldLabel>
+    <Field dir="rtl" className="max-w-sm">
+      <FieldLabel htmlFor="inline-end-input">ورودی</FieldLabel>
       <InputGroup>
         <InputGroupInput
           id="inline-end-input"
           type="password"
-          placeholder="Enter password"
+          placeholder="رمز عبور را وارد کنید"
         />
         <InputGroupAddon align="inline-end">
           <EyeOffIcon />
         </InputGroupAddon>
       </InputGroup>
-      <FieldDescription>Icon positioned at the end.</FieldDescription>
+      <FieldDescription>آیکون در پایان خط قرار گرفته است.</FieldDescription>
     </Field>
   )
 }

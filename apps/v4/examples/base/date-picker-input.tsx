@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { CalendarIcon } from "lucide-react"
+import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
 import { Calendar } from "@/styles/base-nova/ui/calendar"
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
@@ -22,8 +23,8 @@ function formatDate(date: Date | undefined) {
     return ""
   }
 
-  return date.toLocaleDateString("en-US", {
-    day: "2-digit",
+  return date.toLocaleDateString("fa-IR", {
+    day: "numeric",
     month: "long",
     year: "numeric",
   })
@@ -45,13 +46,13 @@ export function DatePickerInput() {
   const [value, setValue] = React.useState(formatDate(date))
 
   return (
-    <Field className="mx-auto w-48">
-      <FieldLabel htmlFor="date-required">Subscription Date</FieldLabel>
+    <Field className="mx-auto w-48" dir="rtl">
+      <FieldLabel htmlFor="date-required">تاریخ اشتراک</FieldLabel>
       <InputGroup>
         <InputGroupInput
           id="date-required"
           value={value}
-          placeholder="June 01, 2025"
+          placeholder="۱ ژوئن ۲۰۲۵"
           onChange={(e) => {
             const date = new Date(e.target.value)
             setValue(e.target.value)
@@ -75,12 +76,12 @@ export function DatePickerInput() {
                   id="date-picker"
                   variant="ghost"
                   size="icon-xs"
-                  aria-label="Select date"
+                  aria-label="انتخاب تاریخ"
                 />
               }
             >
               <CalendarIcon />
-              <span className="sr-only">Select date</span>
+              <span className="sr-only">انتخاب تاریخ</span>
             </PopoverTrigger>
             <PopoverContent
               className="w-auto overflow-hidden p-0"
@@ -93,6 +94,8 @@ export function DatePickerInput() {
                 selected={date}
                 month={month}
                 onMonthChange={setMonth}
+                locale={faIRDayPicker}
+                dir="rtl"
                 onSelect={(date) => {
                   setDate(date)
                   setValue(formatDate(date))

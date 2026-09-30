@@ -18,29 +18,31 @@ import {
 
 export function DropdownMenuIcons() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Open
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuItem>
-          <UserIcon />
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <CreditCardIcon />
-          Billing
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <SettingsIcon />
-          Settings
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive">
-          <LogOutIcon />
-          Log out
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          باز کردن
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>
+            <UserIcon />
+            پروفایل
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCardIcon />
+            صورتحساب
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <SettingsIcon />
+            تنظیمات
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive">
+            <LogOutIcon />
+            خروج
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

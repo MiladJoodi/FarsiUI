@@ -1,4 +1,4 @@
-import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react"
+import { ChevronLeftIcon, FileIcon, FolderIcon } from "lucide-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import { Card, CardContent, CardHeader } from "@/styles/base-nova/ui/card"
@@ -77,11 +77,11 @@ export function CollapsibleFileTree() {
               />
             }
           >
-            <ChevronRightIcon className="transition-transform group-data-[state=open]:rotate-90" />
+            <ChevronLeftIcon className="transition-transform group-data-[state=open]:-rotate-90" />
             <FolderIcon />
-            {fileItem.name}
+            <span dir="ltr">{fileItem.name}</span>
           </CollapsibleTrigger>
-          <CollapsibleContent className="mt-1 ml-5 style-lyra:ml-4">
+          <CollapsibleContent className="mt-1 ms-5 style-lyra:ms-4">
             <div className="flex flex-col gap-1">
               {fileItem.items.map((child) => renderItem(child))}
             </div>
@@ -97,18 +97,18 @@ export function CollapsibleFileTree() {
         className="w-full justify-start gap-2 text-foreground"
       >
         <FileIcon />
-        <span>{fileItem.name}</span>
+        <span dir="ltr">{fileItem.name}</span>
       </Button>
     )
   }
 
   return (
-    <Card className="mx-auto w-full max-w-[16rem] gap-2" size="sm">
+    <Card className="mx-auto w-full max-w-[16rem] gap-2" size="sm" dir="rtl">
       <CardHeader>
         <Tabs defaultValue="explorer">
           <TabsList className="w-full">
-            <TabsTrigger value="explorer">Explorer</TabsTrigger>
-            <TabsTrigger value="settings">Outline</TabsTrigger>
+            <TabsTrigger value="explorer">کاوشگر</TabsTrigger>
+            <TabsTrigger value="outline">طرح کلی</TabsTrigger>
           </TabsList>
         </Tabs>
       </CardHeader>

@@ -5,24 +5,29 @@ import {
   HoverCardTrigger,
 } from "@/styles/base-nova/ui/hover-card"
 
-const HOVER_CARD_SIDES = ["left", "top", "bottom", "right"] as const
+const HOVER_CARD_SIDES = [
+  { side: "left", label: "چپ" },
+  { side: "top", label: "بالا" },
+  { side: "bottom", label: "پایین" },
+  { side: "right", label: "راست" },
+] as const
 
 export function HoverCardSides() {
   return (
-    <div className="flex flex-wrap justify-center gap-2">
-      {HOVER_CARD_SIDES.map((side) => (
+    <div dir="rtl" className="flex flex-wrap justify-center gap-2">
+      {HOVER_CARD_SIDES.map(({ side, label }) => (
         <HoverCard key={side}>
           <HoverCardTrigger
             delay={100}
             closeDelay={100}
-            render={<Button variant="outline" className="capitalize" />}
+            render={<Button variant="outline" />}
           >
-            {side}
+            {label}
           </HoverCardTrigger>
           <HoverCardContent side={side}>
             <div className="flex flex-col gap-1">
-              <h4 className="font-medium">Hover Card</h4>
-              <p>This hover card appears on the {side} side of the trigger.</p>
+              <h4 className="font-medium">کارت شناور</h4>
+              <p>این کارت در سمت {label} تریگر نمایش داده می‌شود.</p>
             </div>
           </HoverCardContent>
         </HoverCard>

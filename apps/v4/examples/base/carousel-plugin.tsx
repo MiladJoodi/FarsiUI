@@ -12,6 +12,10 @@ import {
   CarouselPrevious,
 } from "@/styles/base-nova/ui/carousel"
 
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export default function CarouselPlugin() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
@@ -19,6 +23,8 @@ export default function CarouselPlugin() {
 
   return (
     <Carousel
+      dir="rtl"
+      opts={{ direction: "rtl" }}
       plugins={[plugin.current]}
       className="w-full max-w-[10rem] sm:max-w-xs"
       onMouseEnter={plugin.current.stop}
@@ -30,7 +36,9 @@ export default function CarouselPlugin() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                  <span className="text-4xl font-semibold">
+                    {toPersianDigits(index + 1)}
+                  </span>
                 </CardContent>
               </Card>
             </div>

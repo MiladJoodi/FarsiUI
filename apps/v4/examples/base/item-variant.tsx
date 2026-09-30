@@ -10,16 +10,14 @@ import {
 
 export function ItemVariant() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-6">
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
       <Item>
         <ItemMedia variant="icon">
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Default Variant</ItemTitle>
-          <ItemDescription>
-            Transparent background with no border.
-          </ItemDescription>
+          <ItemTitle>واریانت پیش‌فرض</ItemTitle>
+          <ItemDescription>پس‌زمینه شفاف بدون حاشیه.</ItemDescription>
         </ItemContent>
       </Item>
       <Item variant="outline">
@@ -27,10 +25,8 @@ export function ItemVariant() {
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Outline Variant</ItemTitle>
-          <ItemDescription>
-            Outlined style with a visible border.
-          </ItemDescription>
+          <ItemTitle>واریانت حاشیه</ItemTitle>
+          <ItemDescription>استایل حاشیه‌دار با مرز مشخص.</ItemDescription>
         </ItemContent>
       </Item>
       <Item variant="muted">
@@ -38,9 +34,9 @@ export function ItemVariant() {
           <InboxIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Muted Variant</ItemTitle>
+          <ItemTitle>واریانت کم‌رنگ</ItemTitle>
           <ItemDescription>
-            Muted background for secondary content.
+            پس‌زمینهٔ کم‌رنگ برای محتوای ثانویه.
           </ItemDescription>
         </ItemContent>
       </Item>

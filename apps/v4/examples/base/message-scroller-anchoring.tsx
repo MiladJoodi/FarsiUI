@@ -49,32 +49,32 @@ const scriptedMessages: ChatMessage[] = [
   {
     id: "anchor-1-user",
     role: "user",
-    text: "Can you show me how anchoring behaves when a new prompt starts the turn?",
+    text: "می‌توانید نشان دهید لنگر وقتی پرامپت جدید نوبت را شروع می‌کند چطور رفتار می‌کند؟",
   },
   {
     id: "anchor-1-assistant",
     role: "assistant",
-    text: "Append the user prompt first, then append the assistant response. With User selected, the prompt settles near the top and the assistant response fills in below it.",
+    text: "ابتدا پرامپت کاربر را اضافه کنید، سپس پاسخ دستیار را. با انتخاب «کاربر»، پرامپت نزدیک بالا می‌نشیند و پاسخ دستیار زیر آن پر می‌شود.",
   },
   {
     id: "anchor-2-user",
     role: "user",
-    text: "What changes when assistant messages are the anchor?",
+    text: "وقتی پیام‌های دستیار لنگر باشند چه تغییری می‌کند؟",
   },
   {
     id: "anchor-2-assistant",
     role: "assistant",
-    text: "Now each assistant response is the item `MessageScroller` keeps in view. This is useful when the reply is the moment you want readers to land on after each turn.",
+    text: "حالا هر پاسخ دستیار آیتمی است که `MessageScroller` در دید نگه می‌دارد. وقتی می‌خواهید خواننده بعد از هر نوبت روی پاسخ فرود بیاید مفید است.",
   },
   {
     id: "anchor-3-user",
     role: "user",
-    text: "Can I switch roles and keep adding turns?",
+    text: "می‌توانم نقش را عوض کنم و همچنان نوبت اضافه کنم؟",
   },
   {
     id: "anchor-3-assistant",
     role: "assistant",
-    text: "Yes. The next appended message with the selected role becomes the anchor, so you can compare user and assistant anchoring without resetting the demo.",
+    text: "بله. پیام بعدی با نقش انتخاب‌شده لنگر می‌شود؛ پس بدون بازنشانی دمو می‌توانید لنگر کاربر و دستیار را مقایسه کنید.",
   },
 ]
 
@@ -85,19 +85,19 @@ export function MessageScrollerAnchoring() {
   const nextMessage = scriptedMessages[messageIndex]
 
   return (
-    <div className="relative flex flex-col gap-4">
+    <div dir="rtl" className="relative flex flex-col gap-4">
       <Card className="mx-auto h-140 w-full max-w-sm gap-0">
         <CardHeader className="border-b">
-          <CardTitle>Anchoring Turns</CardTitle>
+          <CardTitle>لنگر نوبت‌ها</CardTitle>
           <CardDescription>
-            Choose which role settles near the top edge.
+            نقش لنگر را نزدیک لبهٔ بالا انتخاب کنید
           </CardDescription>
           <CardAction>
             <Button
               type="button"
               variant="outline"
               size="icon"
-              aria-label="Reset anchored turns"
+              aria-label="بازنشانی نوبت‌های لنگرشده"
               disabled={messages.length === 0}
               onClick={() => {
                 setMessages([])
@@ -115,9 +115,9 @@ export function MessageScrollerAnchoring() {
                 <EmptyMedia variant="icon">
                   <MessageCircleDashedIcon />
                 </EmptyMedia>
-                <EmptyTitle>No anchored messages yet</EmptyTitle>
+                <EmptyTitle>هنوز پیام لنگرشده‌ای نیست</EmptyTitle>
                 <EmptyDescription>
-                  Send the first message to see the selected role anchor.
+                  اولین پیام را بفرستید تا نقش انتخاب‌شده لنگر شود
                 </EmptyDescription>
               </EmptyHeader>
             </Empty>
@@ -144,7 +144,7 @@ export function MessageScrollerAnchoring() {
         </CardContent>
         <CardFooter>
           <ToggleGroup
-            aria-label="Select scroll anchor role"
+            aria-label="انتخاب نقش لنگر اسکرول"
             value={[anchorRole]}
             onValueChange={(value) => {
               const nextValue = value[0]
@@ -156,20 +156,20 @@ export function MessageScrollerAnchoring() {
               }
             }}
           >
-            <ToggleGroupItem value="user" aria-label="Anchor user messages">
-              User
+            <ToggleGroupItem value="user" aria-label="لنگر پیام‌های کاربر">
+              کاربر
             </ToggleGroupItem>
             <ToggleGroupItem
               value="assistant"
-              aria-label="Anchor assistant messages"
+              aria-label="لنگر پیام‌های دستیار"
             >
-              Assistant
+              دستیار
             </ToggleGroupItem>
           </ToggleGroup>
           <Button
             type="button"
             size="icon"
-            className="ml-auto"
+            className="ms-auto"
             disabled={!nextMessage}
             onClick={() => {
               if (!nextMessage) {
@@ -181,13 +181,12 @@ export function MessageScrollerAnchoring() {
             }}
           >
             <ArrowUpIcon />
-            <span className="sr-only">Send Message</span>
+            <span className="sr-only">ارسال پیام</span>
           </Button>
         </CardFooter>
       </Card>
       <div className="mx-auto max-w-xs px-0.5 text-center text-xs text-muted-foreground">
-        Toggle the anchor role, then send messages to compare where turns
-        settle.
+        نقش لنگر را عوض کنید، سپس پیام بفرستید تا ببینید نوبت‌ها کجا می‌نشینند.
       </div>
     </div>
   )

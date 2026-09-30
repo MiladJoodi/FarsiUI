@@ -15,27 +15,27 @@ import {
 const tableData = [
   {
     id: "1",
-    name: "Sarah Chen",
+    name: "سارا چن",
     email: "sarah.chen@example.com",
-    role: "Admin",
+    role: "مدیر",
   },
   {
     id: "2",
-    name: "Marcus Rodriguez",
+    name: "مارکوس رودریگز",
     email: "marcus.rodriguez@example.com",
-    role: "User",
+    role: "کاربر",
   },
   {
     id: "3",
-    name: "Priya Patel",
+    name: "پریا پاتل",
     email: "priya.patel@example.com",
-    role: "User",
+    role: "کاربر",
   },
   {
     id: "4",
-    name: "David Kim",
+    name: "دیوید کیم",
     email: "david.kim@example.com",
-    role: "Editor",
+    role: "ویرایشگر",
   },
 ]
 
@@ -65,7 +65,7 @@ export function CheckboxInTable() {
   }
 
   return (
-    <Table>
+    <Table dir="rtl">
       <TableHeader>
         <TableRow>
           <TableHead className="w-8">
@@ -74,11 +74,12 @@ export function CheckboxInTable() {
               name="select-all-checkbox"
               checked={selectAll}
               onCheckedChange={handleSelectAll}
+              aria-label="انتخاب همه"
             />
           </TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Email</TableHead>
-          <TableHead>Role</TableHead>
+          <TableHead>نام</TableHead>
+          <TableHead>ایمیل</TableHead>
+          <TableHead>نقش</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -95,10 +96,13 @@ export function CheckboxInTable() {
                 onCheckedChange={(checked) =>
                   handleSelectRow(row.id, checked === true)
                 }
+                aria-label={`انتخاب ${row.name}`}
               />
             </TableCell>
             <TableCell className="font-medium">{row.name}</TableCell>
-            <TableCell>{row.email}</TableCell>
+            <TableCell dir="ltr" className="text-start">
+              {row.email}
+            </TableCell>
             <TableCell>{row.role}</TableCell>
           </TableRow>
         ))}

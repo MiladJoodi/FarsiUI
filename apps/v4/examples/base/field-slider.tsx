@@ -13,22 +13,30 @@ export default function FieldSlider() {
   const [value, setValue] = React.useState([200, 800])
 
   return (
-    <Field className="w-full max-w-xs">
-      <FieldTitle>Price Range</FieldTitle>
-      <FieldDescription>
-        Set your budget range ($
-        <span className="font-medium tabular-nums">{value[0]}</span> -{" "}
-        <span className="font-medium tabular-nums">{value[1]}</span>).
-      </FieldDescription>
-      <Slider
-        value={value}
-        onValueChange={(value) => setValue(value as [number, number])}
-        max={1000}
-        min={0}
-        step={10}
-        className="mt-2 w-full"
-        aria-label="Price Range"
-      />
-    </Field>
+    <div dir="rtl">
+      <Field className="w-full max-w-xs">
+        <FieldTitle>بازه قیمت</FieldTitle>
+        <FieldDescription>
+          بودجهٔ خود را تنظیم کنید (
+          <span className="font-medium tabular-nums" dir="ltr">
+            {value[0].toLocaleString("fa-IR")}
+          </span>{" "}
+          تا{" "}
+          <span className="font-medium tabular-nums" dir="ltr">
+            {value[1].toLocaleString("fa-IR")}
+          </span>{" "}
+          تومان).
+        </FieldDescription>
+        <Slider
+          value={value}
+          onValueChange={(value) => setValue(value as [number, number])}
+          max={1000}
+          min={0}
+          step={10}
+          className="mt-2 w-full"
+          aria-label="بازه قیمت"
+        />
+      </Field>
+    </div>
   )
 }

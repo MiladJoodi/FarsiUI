@@ -8,12 +8,12 @@ import {
 
 export function MessageHeaderFooterDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message>
         <MessageContent>
-          <MessageHeader>Olivia</MessageHeader>
+          <MessageHeader>اولیویا</MessageHeader>
           <Bubble variant="muted">
-            <BubbleContent>I already checked the logs.</BubbleContent>
+            <BubbleContent>لاگ‌ها را قبلاً بررسی کردم.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -21,12 +21,13 @@ export function MessageHeaderFooterDemo() {
         <MessageContent>
           <Bubble>
             <BubbleContent>
-              Send the report to the team. Ping @shadcn if you need help.
+              گزارش را برای تیم بفرستید. اگر کمک لازم داشتید به @shadcn پیام
+              دهید.
             </BubbleContent>
           </Bubble>
           <MessageFooter>
             <div>
-              Read <span className="font-normal">Yesterday</span>
+              خوانده‌شده <span className="font-normal">دیروز</span>
             </div>
           </MessageFooter>
         </MessageContent>

@@ -1,31 +1,40 @@
 ---
-title: Native Select
-description: A styled native HTML select element with consistent design system integration.
+title: انتخاب بومی (Native Select)
+description: عنصر select بومی HTML با استایل یکپارچه در سیستم طراحی.
 base: base
 component: true
 ---
 
 import { InfoIcon } from "lucide-react"
 
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "native-select-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "native-select-groups", label: "گروه", sizeable: false },
+    { name: "native-select-disabled", label: "غیرفعال", sizeable: false },
+    { name: "native-select-invalid", label: "نامعتبر", sizeable: false },
+  ]}
+/>
+
 <Callout variant="info" icon={<InfoIcon className="translate-y-[3px]!" />}>
-  For a styled select component, see the [Select](/docs/components/select)
-  component.
+  برای انتخاب استایل‌شده، کامپوننت [`Select`](/docs/components/select) را
+  ببینید.
 </Callout>
 
-<ComponentPreview styleName="base-nova" name="native-select-demo" />
-
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add native-select
+npx farsiui@latest add native-select
 ```
 
 </TabsContent>
@@ -34,7 +43,7 @@ npx shadcn@latest add native-select
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="native-select"
@@ -42,7 +51,7 @@ npx shadcn@latest add native-select
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -50,7 +59,7 @@ npx shadcn@latest add native-select
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -62,19 +71,25 @@ import {
 
 ```tsx showLineNumbers
 <NativeSelect>
-  <NativeSelectOption value="">Select a fruit</NativeSelectOption>
-  <NativeSelectOption value="apple">Apple</NativeSelectOption>
-  <NativeSelectOption value="banana">Banana</NativeSelectOption>
-  <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
-  <NativeSelectOption value="pineapple">Pineapple</NativeSelectOption>
+  <NativeSelectOption value="">یک میوه انتخاب کنید</NativeSelectOption>
+  <NativeSelectOption value="apple">سیب</NativeSelectOption>
+  <NativeSelectOption value="banana">موز</NativeSelectOption>
+  <NativeSelectOption value="blueberry">بلوبری</NativeSelectOption>
+  <NativeSelectOption value="pineapple">آناناس</NativeSelectOption>
 </NativeSelect>
 ```
 
-## Composition
+<div className="hidden">
 
-### Simple
+## ترکیب
 
-Options placed directly under `NativeSelect` (no `NativeSelectOptGroup`).
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+### ساده
+
+گزینه‌ها مستقیم زیر `NativeSelect` (بدون `NativeSelectOptGroup`).
 
 ```text
 NativeSelect
@@ -84,9 +99,9 @@ NativeSelect
 └── NativeSelectOption
 ```
 
-### With groups
+### با گروه
 
-Use `NativeSelectOptGroup` to organize options into categories.
+با `NativeSelectOptGroup` گزینه‌ها را دسته‌بندی کنید.
 
 ```text
 NativeSelect
@@ -98,32 +113,84 @@ NativeSelect
     └── NativeSelectOption
 ```
 
-## Groups
+</DocsCollapsible>
 
-Use `NativeSelectOptGroup` to organize options into categories.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="native-select-groups" />
+## گروه
 
-## Disabled
+</div>
 
-Add the `disabled` prop to the `NativeSelect` component to disable the select.
+<DocsCollapsible title="گروه">
 
-<ComponentPreview styleName="base-nova" name="native-select-disabled" />
+با `NativeSelectOptGroup` گزینه‌ها را دسته‌بندی کنید.
 
-## Invalid
+<ComponentPreview
+  styleName="base-nova"
+  name="native-select-groups"
+  direction="rtl"
+/>
 
-Use `aria-invalid` to show validation errors and the `data-invalid` attribute to the `Field` component for styling.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="native-select-invalid" />
+<div className="hidden">
 
-## Native Select vs Select
+## غیرفعال
 
-- Use `NativeSelect` for native browser behavior, better performance, or mobile-optimized dropdowns.
-- Use `Select` for custom styling, animations, or complex interactions.
+</div>
 
-## RTL
+<DocsCollapsible title="غیرفعال">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+با prop به نام `disabled` روی `NativeSelect` انتخاب را غیرفعال کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="native-select-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با `aria-invalid` خطای اعتبارسنجی نشان دهید و برای استایل، صفت `data-invalid` را روی کامپوننت `Field` بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="native-select-invalid"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## Native Select در برابر Select
+
+</div>
+
+<DocsCollapsible title="Native Select در برابر Select">
+
+- از `NativeSelect` برای رفتار بومی مرورگر، عملکرد بهتر یا منوی بهینه‌شدهٔ موبایل استفاده کنید.
+- از `Select` برای استایل سفارشی، پویانمایی یا تعامل پیچیده استفاده کنید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -131,40 +198,68 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
 />
 
-## API Reference
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
 
 ### NativeSelect
 
-The main select component that wraps the native HTML select element.
+کامپوننت اصلی که عنصر select بومی HTML را می‌پوشاند.
 
 ```tsx
 <NativeSelect>
-  <NativeSelectOption value="option1">Option 1</NativeSelectOption>
-  <NativeSelectOption value="option2">Option 2</NativeSelectOption>
+  <NativeSelectOption value="option1">گزینه ۱</NativeSelectOption>
+  <NativeSelectOption value="option2">گزینه ۲</NativeSelectOption>
 </NativeSelect>
 ```
 
-### NativeSelectOption
+<DocsApiProps
+  title="NativeSelectOption"
+  description="یک گزینهٔ تکی در انتخاب."
+  props={[
+    {
+      name: "value",
+      description: "مقدار گزینه",
+      values: ["string"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن گزینه",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
 
-Represents an individual option within the select.
-
-| Prop       | Type      | Default |
-| ---------- | --------- | ------- |
-| `value`    | `string`  |         |
-| `disabled` | `boolean` | `false` |
-
-### NativeSelectOptGroup
-
-Groups related options together for better organization.
-
-| Prop       | Type      | Default |
-| ---------- | --------- | ------- |
-| `label`    | `string`  |         |
-| `disabled` | `boolean` | `false` |
+<DocsApiProps
+  title="NativeSelectOptGroup"
+  description="گزینه‌های مرتبط را برای سازمان‌دهی بهتر گروه‌بندی می‌کند."
+  props={[
+    {
+      name: "label",
+      description: "برچسب گروه",
+      values: ["string"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن گروه",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
 
 ```tsx
-<NativeSelectOptGroup label="Fruits">
-  <NativeSelectOption value="apple">Apple</NativeSelectOption>
-  <NativeSelectOption value="banana">Banana</NativeSelectOption>
+<NativeSelectOptGroup label="میوه‌ها">
+  <NativeSelectOption value="apple">سیب</NativeSelectOption>
+  <NativeSelectOption value="banana">موز</NativeSelectOption>
 </NativeSelectOptGroup>
 ```
+
+</DocsCollapsible>

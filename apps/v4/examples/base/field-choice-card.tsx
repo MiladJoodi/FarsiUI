@@ -12,37 +12,39 @@ import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
 export default function FieldChoiceCard() {
   return (
-    <FieldGroup className="w-full max-w-xs">
-      <FieldSet>
-        <FieldLegend variant="label">Compute Environment</FieldLegend>
-        <FieldDescription>
-          Select the compute environment for your cluster.
-        </FieldDescription>
-        <RadioGroup defaultValue="kubernetes">
-          <FieldLabel htmlFor="kubernetes-r2h">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>Kubernetes</FieldTitle>
-                <FieldDescription>
-                  Run GPU workloads on a K8s cluster.
-                </FieldDescription>
-              </FieldContent>
-              <RadioGroupItem value="kubernetes" id="kubernetes-r2h" />
-            </Field>
-          </FieldLabel>
-          <FieldLabel htmlFor="vm-z4k">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>Virtual Machine</FieldTitle>
-                <FieldDescription>
-                  Access a cluster to run GPU workloads.
-                </FieldDescription>
-              </FieldContent>
-              <RadioGroupItem value="vm" id="vm-z4k" />
-            </Field>
-          </FieldLabel>
-        </RadioGroup>
-      </FieldSet>
-    </FieldGroup>
+    <div dir="rtl">
+      <FieldGroup className="w-full max-w-xs">
+        <FieldSet>
+          <FieldLegend variant="label">محیط محاسبه</FieldLegend>
+          <FieldDescription>
+            محیط محاسبهٔ خوشهٔ خود را انتخاب کنید.
+          </FieldDescription>
+          <RadioGroup defaultValue="kubernetes">
+            <FieldLabel htmlFor="kubernetes-r2h">
+              <Field orientation="horizontal">
+                <FieldContent>
+                  <FieldTitle>کوبرنتیز</FieldTitle>
+                  <FieldDescription>
+                    اجرای بار کاری GPU روی خوشهٔ K8s.
+                  </FieldDescription>
+                </FieldContent>
+                <RadioGroupItem value="kubernetes" id="kubernetes-r2h" />
+              </Field>
+            </FieldLabel>
+            <FieldLabel htmlFor="vm-z4k">
+              <Field orientation="horizontal">
+                <FieldContent>
+                  <FieldTitle>ماشین مجازی</FieldTitle>
+                  <FieldDescription>
+                    دسترسی به خوشه برای اجرای بار کاری GPU.
+                  </FieldDescription>
+                </FieldContent>
+                <RadioGroupItem value="vm" id="vm-z4k" />
+              </Field>
+            </FieldLabel>
+          </RadioGroup>
+        </FieldSet>
+      </FieldGroup>
+    </div>
   )
 }

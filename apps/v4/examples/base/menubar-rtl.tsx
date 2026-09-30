@@ -3,10 +3,6 @@
 import * as React from "react"
 
 import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import {
   Menubar,
   MenubarCheckboxItem,
   MenubarContent,
@@ -21,263 +17,128 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/styles/base-nova/ui-rtl/menubar"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      file: "File",
-      newTab: "New Tab",
-      newWindow: "New Window",
-      newIncognitoWindow: "New Incognito Window",
-      share: "Share",
-      emailLink: "Email link",
-      messages: "Messages",
-      notes: "Notes",
-      print: "Print...",
-      edit: "Edit",
-      undo: "Undo",
-      redo: "Redo",
-      find: "Find",
-      searchTheWeb: "Search the web",
-      findItem: "Find...",
-      findNext: "Find Next",
-      findPrevious: "Find Previous",
-      cut: "Cut",
-      copy: "Copy",
-      paste: "Paste",
-      view: "View",
-      bookmarksBar: "Bookmarks Bar",
-      fullUrls: "Full URLs",
-      reload: "Reload",
-      forceReload: "Force Reload",
-      toggleFullscreen: "Toggle Fullscreen",
-      hideSidebar: "Hide Sidebar",
-      profiles: "Profiles",
-      andy: "Andy",
-      benoit: "Benoit",
-      luis: "Luis",
-      editProfile: "Edit...",
-      addProfile: "Add Profile...",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      file: "ملف",
-      newTab: "علامة تبويب جديدة",
-      newWindow: "نافذة جديدة",
-      newIncognitoWindow: "نافذة التصفح المتخفي الجديدة",
-      share: "مشاركة",
-      emailLink: "رابط البريد الإلكتروني",
-      messages: "الرسائل",
-      notes: "الملاحظات",
-      print: "طباعة...",
-      edit: "تعديل",
-      undo: "تراجع",
-      redo: "إعادة",
-      find: "بحث",
-      searchTheWeb: "البحث على الويب",
-      findItem: "بحث...",
-      findNext: "البحث التالي",
-      findPrevious: "البحث السابق",
-      cut: "قص",
-      copy: "نسخ",
-      paste: "لصق",
-      view: "عرض",
-      bookmarksBar: "شريط الإشارات المرجعية",
-      fullUrls: "عناوين URL الكاملة",
-      reload: "إعادة تحميل",
-      forceReload: "إعادة تحميل قسري",
-      toggleFullscreen: "تبديل وضع ملء الشاشة",
-      hideSidebar: "إخفاء الشريط الجانبي",
-      profiles: "الملفات الشخصية",
-      andy: "Andy",
-      benoit: "Benoit",
-      luis: "Luis",
-      editProfile: "تعديل...",
-      addProfile: "إضافة ملف شخصي...",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      file: "קובץ",
-      newTab: "כרטיסייה חדשה",
-      newWindow: "חלון חדש",
-      newIncognitoWindow: "חלון גלישה בסתר חדש",
-      share: "שתף",
-      emailLink: "קישור אימייל",
-      messages: "הודעות",
-      notes: "הערות",
-      print: "הדפס...",
-      edit: "ערוך",
-      undo: "בטל",
-      redo: "בצע שוב",
-      find: "מצא",
-      searchTheWeb: "חפש באינטרנט",
-      findItem: "מצא...",
-      findNext: "מצא הבא",
-      findPrevious: "מצא הקודם",
-      cut: "גזור",
-      copy: "העתק",
-      paste: "הדבק",
-      view: "תצוגה",
-      bookmarksBar: "סרגל סימניות",
-      fullUrls: "כתובות URL מלאות",
-      reload: "רענן",
-      forceReload: "רענן בכוח",
-      toggleFullscreen: "החלף מסך מלא",
-      hideSidebar: "הסתר סרגל צד",
-      profiles: "פרופילים",
-      andy: "Andy",
-      benoit: "Benoit",
-      luis: "Luis",
-      editProfile: "ערוך...",
-      addProfile: "הוסף פרופיל...",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/menubar"
 
 export function MenubarRtl() {
-  const { dir, t, language } = useTranslation(translations, "ar")
   const [profile, setProfile] = React.useState("benoit")
 
   return (
-    <Menubar className="w-72" dir={dir}>
-      <MenubarMenu>
-        <MenubarTrigger>{t.file}</MenubarTrigger>
-        <MenubarContent dir={dir} align={dir === "rtl" ? "end" : "start"}>
-          <MenubarGroup>
-            <MenubarItem>
-              {t.newTab} <MenubarShortcut>⌘T</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem>
-              {t.newWindow} <MenubarShortcut>⌘N</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem disabled>{t.newIncognitoWindow}</MenubarItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarSub>
-              <MenubarSubTrigger>{t.share}</MenubarSubTrigger>
-              <MenubarSubContent
-                dir={dir}
-                data-lang={dir === "rtl" ? language : undefined}
-              >
-                <MenubarGroup>
-                  <MenubarItem>{t.emailLink}</MenubarItem>
-                  <MenubarItem>{t.messages}</MenubarItem>
-                  <MenubarItem>{t.notes}</MenubarItem>
-                </MenubarGroup>
-              </MenubarSubContent>
-            </MenubarSub>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem>
-              {t.print} <MenubarShortcut>⌘P</MenubarShortcut>
-            </MenubarItem>
-          </MenubarGroup>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{t.edit}</MenubarTrigger>
-        <MenubarContent
-          dir={dir}
-          align={dir === "rtl" ? "end" : "start"}
-          data-lang={dir === "rtl" ? language : undefined}
-        >
-          <MenubarGroup>
-            <MenubarItem>
-              {t.undo} <MenubarShortcut>⌘Z</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem>
-              {t.redo} <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-            </MenubarItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarSub>
-              <MenubarSubTrigger>{t.find}</MenubarSubTrigger>
-              <MenubarSubContent
-                dir={dir}
-                data-lang={dir === "rtl" ? language : undefined}
-              >
-                <MenubarGroup>
-                  <MenubarItem>{t.searchTheWeb}</MenubarItem>
-                </MenubarGroup>
-                <MenubarSeparator />
-                <MenubarGroup>
-                  <MenubarItem>{t.findItem}</MenubarItem>
-                  <MenubarItem>{t.findNext}</MenubarItem>
-                  <MenubarItem>{t.findPrevious}</MenubarItem>
-                </MenubarGroup>
-              </MenubarSubContent>
-            </MenubarSub>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem>{t.cut}</MenubarItem>
-            <MenubarItem>{t.copy}</MenubarItem>
-            <MenubarItem>{t.paste}</MenubarItem>
-          </MenubarGroup>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{t.view}</MenubarTrigger>
-        <MenubarContent
-          className="w-44"
-          dir={dir}
-          align={dir === "rtl" ? "end" : "start"}
-          data-lang={dir === "rtl" ? language : undefined}
-        >
-          <MenubarGroup>
-            <MenubarCheckboxItem>{t.bookmarksBar}</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>{t.fullUrls}</MenubarCheckboxItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem inset>
-              {t.reload} <MenubarShortcut>⌘R</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem disabled inset>
-              {t.forceReload} <MenubarShortcut>⇧⌘R</MenubarShortcut>
-            </MenubarItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem inset>{t.toggleFullscreen}</MenubarItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem inset>{t.hideSidebar}</MenubarItem>
-          </MenubarGroup>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{t.profiles}</MenubarTrigger>
-        <MenubarContent
-          dir={dir}
-          align={dir === "rtl" ? "end" : "start"}
-          data-lang={dir === "rtl" ? language : undefined}
-        >
-          <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-            <MenubarRadioItem value="andy">{t.andy}</MenubarRadioItem>
-            <MenubarRadioItem value="benoit">{t.benoit}</MenubarRadioItem>
-            <MenubarRadioItem value="Luis">{t.luis}</MenubarRadioItem>
-          </MenubarRadioGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem inset>{t.editProfile}</MenubarItem>
-          </MenubarGroup>
-          <MenubarSeparator />
-          <MenubarGroup>
-            <MenubarItem inset>{t.addProfile}</MenubarItem>
-          </MenubarGroup>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
+    <div dir="rtl">
+      <Menubar className="w-80">
+        <MenubarMenu>
+          <MenubarTrigger>فایل</MenubarTrigger>
+          <MenubarContent>
+            <MenubarGroup>
+              <MenubarItem>
+                زبانهٔ جدید <MenubarShortcut>⌘T</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem>
+                پنجرهٔ جدید <MenubarShortcut>⌘N</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem disabled>پنجرهٔ ناشناس جدید</MenubarItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarSub>
+                <MenubarSubTrigger>اشتراک‌گذاری</MenubarSubTrigger>
+                <MenubarSubContent>
+                  <MenubarGroup>
+                    <MenubarItem>لینک ایمیل</MenubarItem>
+                    <MenubarItem>پیام‌ها</MenubarItem>
+                    <MenubarItem>یادداشت‌ها</MenubarItem>
+                  </MenubarGroup>
+                </MenubarSubContent>
+              </MenubarSub>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem>
+                چاپ... <MenubarShortcut>⌘P</MenubarShortcut>
+              </MenubarItem>
+            </MenubarGroup>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>ویرایش</MenubarTrigger>
+          <MenubarContent>
+            <MenubarGroup>
+              <MenubarItem>
+                واگرد <MenubarShortcut>⌘Z</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem>
+                ازنو <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+              </MenubarItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarSub>
+                <MenubarSubTrigger>یافتن</MenubarSubTrigger>
+                <MenubarSubContent>
+                  <MenubarGroup>
+                    <MenubarItem>جستجو در وب</MenubarItem>
+                  </MenubarGroup>
+                  <MenubarSeparator />
+                  <MenubarGroup>
+                    <MenubarItem>یافتن...</MenubarItem>
+                    <MenubarItem>بعدی</MenubarItem>
+                    <MenubarItem>قبلی</MenubarItem>
+                  </MenubarGroup>
+                </MenubarSubContent>
+              </MenubarSub>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem>برش</MenubarItem>
+              <MenubarItem>کپی</MenubarItem>
+              <MenubarItem>جای‌گذاری</MenubarItem>
+            </MenubarGroup>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>نمایش</MenubarTrigger>
+          <MenubarContent className="w-44">
+            <MenubarGroup>
+              <MenubarCheckboxItem>نوار نشانک‌ها</MenubarCheckboxItem>
+              <MenubarCheckboxItem checked>آدرس کامل</MenubarCheckboxItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem inset>
+                بارگذاری مجدد <MenubarShortcut>⌘R</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem disabled inset>
+                بارگذاری اجباری <MenubarShortcut>⇧⌘R</MenubarShortcut>
+              </MenubarItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem inset>تمام‌صفحه</MenubarItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem inset>پنهان کردن نوار کناری</MenubarItem>
+            </MenubarGroup>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>پروفایل‌ها</MenubarTrigger>
+          <MenubarContent>
+            <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+            </MenubarRadioGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem inset>ویرایش...</MenubarItem>
+            </MenubarGroup>
+            <MenubarSeparator />
+            <MenubarGroup>
+              <MenubarItem inset>افزودن پروفایل...</MenubarItem>
+            </MenubarGroup>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+    </div>
   )
 }

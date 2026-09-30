@@ -8,12 +8,14 @@ import {
 
 export function InputGroupDemo() {
   return (
-    <InputGroup className="max-w-xs">
-      <InputGroupInput placeholder="Search..." />
-      <InputGroupAddon>
-        <Search />
-      </InputGroupAddon>
-      <InputGroupAddon align="inline-end">12 results</InputGroupAddon>
-    </InputGroup>
+    <div dir="rtl">
+      <InputGroup className="max-w-xs">
+        <InputGroupInput placeholder="جستجو..." />
+        <InputGroupAddon>
+          <Search />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">۱۲ نتیجه</InputGroupAddon>
+      </InputGroup>
+    </div>
   )
 }

@@ -7,15 +7,15 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputField() {
   return (
-    <Field>
-      <FieldLabel htmlFor="input-field-username">Username</FieldLabel>
+    <Field dir="rtl">
+      <FieldLabel htmlFor="input-field-username">نام کاربری</FieldLabel>
       <Input
         id="input-field-username"
         type="text"
-        placeholder="Enter your username"
+        placeholder="نام کاربری خود را وارد کنید"
       />
       <FieldDescription>
-        Choose a unique username for your account.
+        یک نام کاربری یکتا برای حساب خود انتخاب کنید.
       </FieldDescription>
     </Field>
   )

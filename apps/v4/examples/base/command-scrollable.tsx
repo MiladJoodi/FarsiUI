@@ -44,134 +44,134 @@ export function CommandManyItems() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" dir="rtl">
       <Button onClick={() => setOpen(true)} variant="outline" className="w-fit">
-        Open Menu
+        باز کردن منو
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
-          <CommandInput placeholder="Type a command or search..." />
+          <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Navigation">
+            <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+            <CommandGroup heading="ناوبری">
               <CommandItem>
                 <HomeIcon />
-                <span>Home</span>
+                <span>خانه</span>
                 <CommandShortcut>⌘H</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <InboxIcon />
-                <span>Inbox</span>
+                <span>صندوق ورودی</span>
                 <CommandShortcut>⌘I</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <FileTextIcon />
-                <span>Documents</span>
+                <span>اسناد</span>
                 <CommandShortcut>⌘D</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <FolderIcon />
-                <span>Folders</span>
+                <span>پوشه‌ها</span>
                 <CommandShortcut>⌘F</CommandShortcut>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
-            <CommandGroup heading="Actions">
+            <CommandGroup heading="اقدام‌ها">
               <CommandItem>
                 <PlusIcon />
-                <span>New File</span>
+                <span>فایل جدید</span>
                 <CommandShortcut>⌘N</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <FolderPlusIcon />
-                <span>New Folder</span>
+                <span>پوشه جدید</span>
                 <CommandShortcut>⇧⌘N</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <CopyIcon />
-                <span>Copy</span>
+                <span>کپی</span>
                 <CommandShortcut>⌘C</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <ScissorsIcon />
-                <span>Cut</span>
+                <span>برش</span>
                 <CommandShortcut>⌘X</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <ClipboardPasteIcon />
-                <span>Paste</span>
+                <span>جای‌گذاری</span>
                 <CommandShortcut>⌘V</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <TrashIcon />
-                <span>Delete</span>
+                <span>حذف</span>
                 <CommandShortcut>⌫</CommandShortcut>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
-            <CommandGroup heading="View">
+            <CommandGroup heading="نمایش">
               <CommandItem>
                 <LayoutGridIcon />
-                <span>Grid View</span>
+                <span>نمای شبکه‌ای</span>
               </CommandItem>
               <CommandItem>
                 <ListIcon />
-                <span>List View</span>
+                <span>نمای فهرستی</span>
               </CommandItem>
               <CommandItem>
                 <ZoomInIcon />
-                <span>Zoom In</span>
+                <span>بزرگ‌نمایی</span>
                 <CommandShortcut>⌘+</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <ZoomOutIcon />
-                <span>Zoom Out</span>
+                <span>کوچک‌نمایی</span>
                 <CommandShortcut>⌘-</CommandShortcut>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
-            <CommandGroup heading="Account">
+            <CommandGroup heading="حساب">
               <CommandItem>
                 <UserIcon />
-                <span>Profile</span>
+                <span>پروفایل</span>
                 <CommandShortcut>⌘P</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <CreditCardIcon />
-                <span>Billing</span>
+                <span>صورتحساب</span>
                 <CommandShortcut>⌘B</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <SettingsIcon />
-                <span>Settings</span>
+                <span>تنظیمات</span>
                 <CommandShortcut>⌘S</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <BellIcon />
-                <span>Notifications</span>
+                <span>اعلان‌ها</span>
               </CommandItem>
               <CommandItem>
                 <HelpCircleIcon />
-                <span>Help & Support</span>
+                <span>راهنما و پشتیبانی</span>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
-            <CommandGroup heading="Tools">
+            <CommandGroup heading="ابزارها">
               <CommandItem>
                 <CalculatorIcon />
-                <span>Calculator</span>
+                <span>ماشین‌حساب</span>
               </CommandItem>
               <CommandItem>
                 <CalendarIcon />
-                <span>Calendar</span>
+                <span>تقویم</span>
               </CommandItem>
               <CommandItem>
                 <ImageIcon />
-                <span>Image Editor</span>
+                <span>ویرایشگر تصویر</span>
               </CommandItem>
               <CommandItem>
                 <CodeIcon />
-                <span>Code Editor</span>
+                <span>ویرایشگر کد</span>
               </CommandItem>
             </CommandGroup>
           </CommandList>

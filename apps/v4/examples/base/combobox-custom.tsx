@@ -16,84 +16,110 @@ import {
 } from "@/styles/base-nova/ui/item"
 
 const countries = [
-  { code: "", value: "", continent: "", label: "Select country" },
   {
-    code: "ar",
-    value: "argentina",
-    label: "Argentina",
-    continent: "South America",
+    code: "ir",
+    value: "iran",
+    label: "ایران",
+    continent: "آسیا",
   },
-  { code: "au", value: "australia", label: "Australia", continent: "Oceania" },
-  { code: "br", value: "brazil", label: "Brazil", continent: "South America" },
-  { code: "ca", value: "canada", label: "Canada", continent: "North America" },
-  { code: "cn", value: "china", label: "China", continent: "Asia" },
   {
-    code: "co",
-    value: "colombia",
-    label: "Colombia",
-    continent: "South America",
+    code: "tr",
+    value: "turkey",
+    label: "ترکیه",
+    continent: "آسیا",
   },
-  { code: "eg", value: "egypt", label: "Egypt", continent: "Africa" },
-  { code: "fr", value: "france", label: "France", continent: "Europe" },
-  { code: "de", value: "germany", label: "Germany", continent: "Europe" },
-  { code: "it", value: "italy", label: "Italy", continent: "Europe" },
-  { code: "jp", value: "japan", label: "Japan", continent: "Asia" },
-  { code: "ke", value: "kenya", label: "Kenya", continent: "Africa" },
-  { code: "mx", value: "mexico", label: "Mexico", continent: "North America" },
   {
-    code: "nz",
-    value: "new-zealand",
-    label: "New Zealand",
-    continent: "Oceania",
+    code: "ae",
+    value: "uae",
+    label: "امارات",
+    continent: "آسیا",
   },
-  { code: "ng", value: "nigeria", label: "Nigeria", continent: "Africa" },
   {
-    code: "za",
-    value: "south-africa",
-    label: "South Africa",
-    continent: "Africa",
+    code: "de",
+    value: "germany",
+    label: "آلمان",
+    continent: "اروپا",
   },
-  { code: "kr", value: "south-korea", label: "South Korea", continent: "Asia" },
+  {
+    code: "fr",
+    value: "france",
+    label: "فرانسه",
+    continent: "اروپا",
+  },
   {
     code: "gb",
     value: "united-kingdom",
-    label: "United Kingdom",
-    continent: "Europe",
+    label: "بریتانیا",
+    continent: "اروپا",
   },
   {
     code: "us",
     value: "united-states",
-    label: "United States",
-    continent: "North America",
+    label: "آمریکا",
+    continent: "آمریکای شمالی",
+  },
+  {
+    code: "ca",
+    value: "canada",
+    label: "کانادا",
+    continent: "آمریکای شمالی",
+  },
+  {
+    code: "br",
+    value: "brazil",
+    label: "برزیل",
+    continent: "آمریکای جنوبی",
+  },
+  {
+    code: "jp",
+    value: "japan",
+    label: "ژاپن",
+    continent: "آسیا",
+  },
+  {
+    code: "au",
+    value: "australia",
+    label: "استرالیا",
+    continent: "اقیانوسیه",
+  },
+  {
+    code: "eg",
+    value: "egypt",
+    label: "مصر",
+    continent: "آفریقا",
   },
 ]
 
 export function ComboboxWithCustomItems() {
   return (
-    <Combobox
-      items={countries.filter((country) => country.code !== "")}
-      itemToStringValue={(country: (typeof countries)[number]) => country.label}
-    >
-      <ComboboxInput placeholder="Search countries..." />
-      <ComboboxContent>
-        <ComboboxEmpty>No countries found.</ComboboxEmpty>
-        <ComboboxList>
-          {(country) => (
-            <ComboboxItem key={country.code} value={country}>
-              <Item size="xs" className="p-0">
-                <ItemContent>
-                  <ItemTitle className="whitespace-nowrap">
-                    {country.label}
-                  </ItemTitle>
-                  <ItemDescription>
-                    {country.continent} ({country.code})
-                  </ItemDescription>
-                </ItemContent>
-              </Item>
-            </ComboboxItem>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div dir="rtl">
+      <Combobox
+        items={countries}
+        itemToStringValue={(country: (typeof countries)[number]) =>
+          country.label
+        }
+      >
+        <ComboboxInput placeholder="جستجوی کشورها..." />
+        <ComboboxContent>
+          <ComboboxEmpty>کشوری پیدا نشد.</ComboboxEmpty>
+          <ComboboxList>
+            {(country) => (
+              <ComboboxItem key={country.code} value={country}>
+                <Item size="xs" className="p-0">
+                  <ItemContent>
+                    <ItemTitle className="whitespace-nowrap">
+                      {country.label}
+                    </ItemTitle>
+                    <ItemDescription>
+                      {country.continent} ({country.code})
+                    </ItemDescription>
+                  </ItemContent>
+                </Item>
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   )
 }

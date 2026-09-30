@@ -41,7 +41,7 @@ const questionnaireSchema = z
       context.addIssue({
         code: z.ZodIssueCode.custom,
         message:
-          "Public answers need enough context. Choose a complete answer.",
+          "پاسخ‌های عمومی به زمینهٔ کافی نیاز دارند. پاسخ کامل را انتخاب کنید.",
         path: ["detail"],
       })
     }
@@ -88,8 +88,8 @@ export function QuestionnaireValidation() {
 
     if (result.success) {
       setErrors({})
-      toast("Agent response configured", {
-        description: `Detail: ${result.data.detail} · Audience: ${result.data.audience}`,
+      toast("پاسخ عامل پیکربندی شد", {
+        description: `جزئیات: ${result.data.detail} · مخاطب: ${result.data.audience}`,
       })
       return
     }
@@ -114,90 +114,92 @@ export function QuestionnaireValidation() {
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      item={item}
-      items={items}
-      onItemChange={setItem}
-      onSubmit={handleSubmit}
-    >
-      <Card className="w-full">
-        <QuestionnaireItem
-          invalid={Boolean(errors.detail)}
-          name="detail"
-          required
-        >
-          <CardHeader>
-            <QuestionnaireTitle>
-              How much detail should the answer include?
-            </QuestionnaireTitle>
-            <QuestionnaireDescription>
-              Choose the response depth.
-            </QuestionnaireDescription>
-            <CardAction>
-              <ValidationProgress />
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice
-                value="summary"
-                onChange={() => clearError("detail")}
-              >
-                Concise summary
-              </QuestionnaireChoice>
-              <QuestionnaireChoice
-                value="complete"
-                onChange={() => clearError("detail")}
-              >
-                Complete answer
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError>{errors.detail}</QuestionnaireError>
-          </CardContent>
-        </QuestionnaireItem>
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        item={item}
+        items={items}
+        onItemChange={setItem}
+        onSubmit={handleSubmit}
+      >
+        <Card className="w-full">
+          <QuestionnaireItem
+            invalid={Boolean(errors.detail)}
+            name="detail"
+            required
+          >
+            <CardHeader>
+              <QuestionnaireTitle>
+                پاسخ باید چقدر جزئیات داشته باشد؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription>
+                عمق پاسخ را انتخاب کنید.
+              </QuestionnaireDescription>
+              <CardAction>
+                <ValidationProgress />
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice
+                  value="summary"
+                  onChange={() => clearError("detail")}
+                >
+                  خلاصهٔ مختصر
+                </QuestionnaireChoice>
+                <QuestionnaireChoice
+                  value="complete"
+                  onChange={() => clearError("detail")}
+                >
+                  پاسخ کامل
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError>{errors.detail}</QuestionnaireError>
+            </CardContent>
+          </QuestionnaireItem>
 
-        <QuestionnaireItem
-          invalid={Boolean(errors.audience)}
-          name="audience"
-          required
-        >
-          <CardHeader>
-            <QuestionnaireTitle>Who will read the answer?</QuestionnaireTitle>
-            <QuestionnaireDescription>
-              Public answers require complete context.
-            </QuestionnaireDescription>
-            <CardAction>
-              <ValidationProgress />
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice
-                value="team"
-                onChange={() => clearError("audience")}
-              >
-                My team
-              </QuestionnaireChoice>
-              <QuestionnaireChoice
-                value="public"
-                onChange={() => clearError("audience")}
-              >
-                Public audience
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError>{errors.audience}</QuestionnaireError>
-          </CardContent>
-        </QuestionnaireItem>
+          <QuestionnaireItem
+            invalid={Boolean(errors.audience)}
+            name="audience"
+            required
+          >
+            <CardHeader>
+              <QuestionnaireTitle>چه کسی پاسخ را می‌خواند؟</QuestionnaireTitle>
+              <QuestionnaireDescription>
+                پاسخ‌های عمومی به زمینهٔ کامل نیاز دارند.
+              </QuestionnaireDescription>
+              <CardAction>
+                <ValidationProgress />
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice
+                  value="team"
+                  onChange={() => clearError("audience")}
+                >
+                  تیم من
+                </QuestionnaireChoice>
+                <QuestionnaireChoice
+                  value="public"
+                  onChange={() => clearError("audience")}
+                >
+                  مخاطب عمومی
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError>{errors.audience}</QuestionnaireError>
+            </CardContent>
+          </QuestionnaireItem>
 
-        <CardFooter>
-          <QuestionnaireActions>
-            <QuestionnairePrevious />
-            <QuestionnaireNext>Next</QuestionnaireNext>
-            <QuestionnaireSubmit>Validate answers</QuestionnaireSubmit>
-          </QuestionnaireActions>
-        </CardFooter>
-      </Card>
-    </Questionnaire>
+          <CardFooter>
+            <QuestionnaireActions>
+              <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+              <QuestionnaireNext>بعدی</QuestionnaireNext>
+              <QuestionnaireSubmit>اعتبارسنجی پاسخ‌ها</QuestionnaireSubmit>
+            </QuestionnaireActions>
+          </CardFooter>
+        </Card>
+      </Questionnaire>
+    </div>
   )
 }

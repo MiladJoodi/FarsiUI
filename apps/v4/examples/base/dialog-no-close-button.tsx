@@ -1,10 +1,8 @@
 import { Button } from "@/styles/base-nova/ui/button"
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,19 +10,20 @@ import {
 
 export function DialogNoCloseButton() {
   return (
-    <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>
-        No Close Button
-      </DialogTrigger>
-      <DialogContent showCloseButton={false}>
-        <DialogHeader>
-          <DialogTitle>No Close Button</DialogTitle>
-          <DialogDescription>
-            This dialog doesn&apos;t have a close button in the top-right
-            corner.
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+    <div dir="rtl">
+      <Dialog>
+        <DialogTrigger render={<Button variant="outline" />}>
+          بدون دکمه بستن
+        </DialogTrigger>
+        <DialogContent showCloseButton={false}>
+          <DialogHeader>
+            <DialogTitle>بدون دکمه بستن</DialogTitle>
+            <DialogDescription>
+              این دیالوگ دکمهٔ بستن در گوشهٔ شروع ندارد.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </div>
   )
 }

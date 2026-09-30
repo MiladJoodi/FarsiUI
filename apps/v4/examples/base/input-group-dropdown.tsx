@@ -18,16 +18,16 @@ import {
 
 export function InputGroupDropdown() {
   return (
-    <div className="grid w-full max-w-sm gap-4">
+    <div dir="rtl" className="grid w-full max-w-sm gap-4">
       <InputGroup>
-        <InputGroupInput placeholder="Enter file name" />
+        <InputGroupInput placeholder="نام فایل را وارد کنید" />
         <InputGroupAddon align="inline-end">
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
                 <InputGroupButton
                   variant="ghost"
-                  aria-label="More"
+                  aria-label="بیشتر"
                   size="icon-xs"
                 />
               }
@@ -36,30 +36,30 @@ export function InputGroupDropdown() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" sideOffset={8} alignOffset={-4}>
               <DropdownMenuGroup>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
-                <DropdownMenuItem>Copy path</DropdownMenuItem>
-                <DropdownMenuItem>Open location</DropdownMenuItem>
+                <DropdownMenuItem>تنظیمات</DropdownMenuItem>
+                <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
+                <DropdownMenuItem>باز کردن مکان</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Enter search query" />
+        <InputGroupInput placeholder="عبارت جستجو را وارد کنید" />
         <InputGroupAddon align="inline-end">
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <InputGroupButton variant="ghost" className="pr-1.5! text-xs" />
+                <InputGroupButton variant="ghost" className="pe-1.5! text-xs" />
               }
             >
-              Search In... <ChevronDownIcon className="size-3" />
+              جستجو در... <ChevronDownIcon className="size-3" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" sideOffset={8} alignOffset={-4}>
               <DropdownMenuGroup>
-                <DropdownMenuItem>Documentation</DropdownMenuItem>
-                <DropdownMenuItem>Blog Posts</DropdownMenuItem>
-                <DropdownMenuItem>Changelog</DropdownMenuItem>
+                <DropdownMenuItem>مستندات</DropdownMenuItem>
+                <DropdownMenuItem>نوشته‌های وبلاگ</DropdownMenuItem>
+                <DropdownMenuItem>تغییرات</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>

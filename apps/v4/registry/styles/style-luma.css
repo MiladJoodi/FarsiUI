@@ -1,4 +1,4 @@
-.style-luma {
+﻿.style-luma {
   /* MARK: Slider */
   .cn-slider {
     @apply data-vertical:min-h-40;
@@ -197,7 +197,7 @@
   }
 
   .cn-select-item-indicator {
-    @apply pointer-events-none absolute right-2 flex size-4 items-center justify-center;
+    @apply pointer-events-none absolute start-2 flex size-4 items-center justify-center;
   }
 
   .cn-select-group {
@@ -255,7 +255,7 @@
   }
 
   .cn-combobox-item-indicator {
-    @apply pointer-events-none absolute right-2 flex size-4 items-center justify-center;
+    @apply pointer-events-none absolute start-2 flex size-4 items-center justify-center;
   }
 
   .cn-combobox-empty {
@@ -402,7 +402,7 @@
   }
 
   .cn-field-description {
-    @apply text-muted-foreground text-left text-sm [[data-variant=legend]+&]:-mt-1.5;
+    @apply text-muted-foreground text-start text-sm [[data-variant=legend]+&]:-mt-1.5;
   }
 
   .cn-field-separator {
@@ -655,7 +655,7 @@
   }
 
   .cn-command-shortcut {
-    @apply text-muted-foreground group-data-selected/command-item:text-foreground ml-auto text-xs tracking-widest;
+    @apply text-muted-foreground group-data-selected/command-item:text-foreground ms-auto text-xs tracking-widest;
   }
 
   .cn-command-shortcut-aria {
@@ -684,7 +684,7 @@
   }
 
   .cn-context-menu-item-indicator {
-    @apply absolute right-2;
+    @apply absolute start-2;
   }
 
   .cn-context-menu-label {
@@ -696,7 +696,7 @@
   }
 
   .cn-context-menu-shortcut {
-    @apply text-muted-foreground group-focus/context-menu-item:text-accent-foreground ml-auto text-xs tracking-widest;
+    @apply text-muted-foreground group-focus/context-menu-item:text-accent-foreground ms-auto text-xs tracking-widest;
   }
 
   .cn-context-menu-sub-trigger {
@@ -807,7 +807,7 @@
   }
 
   .cn-dropdown-menu-item-indicator {
-    @apply absolute right-2 flex items-center justify-center;
+    @apply absolute start-2 flex items-center justify-center;
   }
 
   .cn-dropdown-menu-label {
@@ -819,7 +819,7 @@
   }
 
   .cn-dropdown-menu-shortcut {
-    @apply text-muted-foreground group-focus/dropdown-menu-item:text-accent-foreground ml-auto text-xs tracking-widest;
+    @apply text-muted-foreground group-focus/dropdown-menu-item:text-accent-foreground ms-auto text-xs tracking-widest;
   }
 
   .cn-dropdown-menu-sub-trigger {
@@ -888,7 +888,7 @@
   }
 
   .cn-item-description {
-    @apply text-muted-foreground text-left text-sm;
+    @apply text-muted-foreground text-start text-sm;
   }
 
   .cn-item-actions {

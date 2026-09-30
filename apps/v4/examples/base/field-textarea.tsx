@@ -9,20 +9,20 @@ import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 export default function FieldTextarea() {
   return (
-    <FieldSet className="w-full max-w-xs">
-      <FieldGroup>
-        <Field>
-          <FieldLabel htmlFor="feedback">Feedback</FieldLabel>
-          <Textarea
-            id="feedback"
-            placeholder="Your feedback helps us improve..."
-            rows={4}
-          />
-          <FieldDescription>
-            Share your thoughts about our service.
-          </FieldDescription>
-        </Field>
-      </FieldGroup>
-    </FieldSet>
+    <div dir="rtl">
+      <FieldSet className="w-full max-w-xs">
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="feedback">بازخورد</FieldLabel>
+            <Textarea
+              id="feedback"
+              placeholder="نظر شما به بهبود ما کمک می‌کند..."
+              rows={4}
+            />
+            <FieldDescription>نظر خود را دربارهٔ سرویس بنویسید.</FieldDescription>
+          </Field>
+        </FieldGroup>
+      </FieldSet>
+    </div>
   )
 }

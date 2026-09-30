@@ -27,29 +27,29 @@ import {
 } from "@/styles/base-rhea/ui/message-scroller"
 
 const chat = createChat()
-  .user("Review the incident handoff and tell me what to read first.", {
+  .user("تحویل حادثه را مرور کن و بگو اول چه چیزی را بخوانم.", {
     id: "vis-brief",
   })
   .assistant(
-    "Start with the summary and the impact section. The regression affected the upload queue, but the recovery path completed for every queued job."
+    "از خلاصه و بخش تأثیر شروع کنید. رگرسیون صف آپلود را تحت تأثیر قرار داد، اما مسیر بازیابی برای هر کار در صف کامل شد."
   )
-  .user("What was the customer impact?", {
+  .user("تأثیر روی مشتری چه بود؟", {
     id: "vis-impact",
   })
   .assistant(
-    "Impact was limited to delayed processing.\n\nNo records were dropped, and the reconciliation worker confirmed each retry batch. Support saw confusion from two customers, but there were no checkout or billing errors."
+    "تأثیر محدود به تأخیر پردازش بود.\n\nهیچ رکوردی از دست نرفت و worker تطبیق هر دستهٔ تلاش مجدد را تأیید کرد. پشتیبانی سردرگمی از دو مشتری دید، اما خطای checkout یا صورتحساب نبود."
   )
-  .user("What actions are open?", {
+  .user("چه اقدام‌هایی باز است؟", {
     id: "vis-actions",
   })
   .assistant(
-    "Keep the retry window enabled until the next deploy, then add a queue-depth alert as the long-term fix.\n\nThe alert should fire on sustained queue growth, not a single short spike."
+    "پنجرهٔ تلاش مجدد را تا دیپلوی بعدی روشن نگه دارید؛ سپس هشدار عمق صف را به‌عنوان اصلاح بلندمدت اضافه کنید.\n\nهشدار باید روی رشد پایدار صف شلیک کند، نه یک اسپایک کوتاه."
   )
-  .user("Give me the follow-up checklist.", {
+  .user("چک‌لیست پیگیری را بده.", {
     id: "vis-checklist",
   })
   .assistant(
-    "After that, compare the queue recovery graph with the deploy timeline so the handoff shows exactly when processing returned to baseline. That makes it easier for support and engineering to answer the same customer questions without re-reading the whole incident thread.\n\nI would also add a short owner note beside each follow-up item. The checklist is small, but ownership keeps the retry-window decision, alert tuning, and support macro from drifting into separate follow-up conversations.\n\nKeep the retry window enabled until the next deploy, then add a queue-depth alert as the long-term fix.\n\nThe alert should fire on sustained queue growth, not a single short spike."
+    "بعد از آن، نمودار بازیابی صف را با زمان‌بندی دیپلوی مقایسه کنید تا تحویل دقیقاً نشان دهد پردازش چه زمانی به خط پایه برگشت. پشتیبانی و مهندسی می‌توانند همان سوال‌های مشتری را بدون بازخوانی کل نخ حادثه جواب دهند.\n\nکنار هر آیتم پیگیری یک یادداشت کوتاه مالک هم اضافه می‌کنم. چک‌لیست کوچک است، اما مالکیت جلوی پراکنده شدن تصمیم پنجرهٔ تلاش مجدد، تنظیم هشدار و ماکرو پشتیبانی در گفتگوهای جدا را می‌گیرد.\n\nپنجرهٔ تلاش مجدد را تا دیپلوی بعدی روشن نگه دارید؛ سپس هشدار عمق صف را به‌عنوان اصلاح بلندمدت اضافه کنید.\n\nهشدار باید روی رشد پایدار صف شلیک کند، نه یک اسپایک کوتاه."
   )
 
 const messages = chat.get()
@@ -58,13 +58,13 @@ const userMessages = messages.filter((message) => message.role === "user")
 export function MessageScrollerVisibility() {
   return (
     <MessageScrollerProvider scrollMargin={12}>
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <div className="relative mx-auto w-full max-w-sm">
           <Card className="h-140 w-full gap-0">
             <CardHeader className="gap-1 border-b">
-              <CardTitle>Transcript Outline</CardTitle>
+              <CardTitle>طرح کلی رونوشت</CardTitle>
               <CardDescription>
-                Track the current anchored turn.
+                نوبت لنگرشدهٔ فعلی را دنبال کنید.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-1 overflow-hidden p-0">
@@ -112,12 +112,12 @@ export function MessageScrollerVisibility() {
               </MessageScroller>
             </CardContent>
           </Card>
-          <div className="absolute top-1/2 -right-12 -translate-y-1/2">
+          <div className="absolute top-1/2 -end-12 -translate-y-1/2">
             <TranscriptOutline />
           </div>
         </div>
         <div className="mx-auto max-w-sm px-0.5 text-center text-xs text-muted-foreground">
-          Open the outline to jump between anchored turns as you read.
+          طرح کلی را باز کنید تا هنگام خواندن بین نوبت‌های لنگرشده بپرید.
         </div>
       </div>
     </MessageScrollerProvider>
@@ -134,7 +134,7 @@ function TranscriptOutline() {
         render={
           <button
             type="button"
-            aria-label="Open transcript outline"
+            aria-label="باز کردن طرح کلی رونوشت"
             className="flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-md transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
           />
         }
@@ -160,7 +160,7 @@ function TranscriptOutline() {
             aria-current={
               currentAnchorId === message.id ? "location" : undefined
             }
-            className="flex min-h-7 items-center rounded-xl px-2 py-1.5 text-left text-sm transition-colors outline-none hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground aria-current:bg-accent aria-current:text-accent-foreground"
+            className="flex min-h-7 items-center rounded-xl px-2 py-1.5 text-start text-sm transition-colors outline-none hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground aria-current:bg-accent aria-current:text-accent-foreground"
             onClick={() =>
               scrollToMessage(message.id, {
                 align: "start",

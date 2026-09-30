@@ -13,13 +13,13 @@ import {
 
 export function MessageGroupDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-6 py-12">
       <MessageGroup>
         <Message>
           <MessageAvatar />
           <MessageContent>
             <Bubble variant="muted">
-              <BubbleContent>I checked the registry addresses.</BubbleContent>
+              <BubbleContent>آدرس‌های رجیستری را بررسی کردم.</BubbleContent>
             </Bubble>
           </MessageContent>
         </Message>
@@ -33,7 +33,7 @@ export function MessageGroupDemo() {
           <MessageContent>
             <Bubble variant="muted">
               <BubbleContent>
-                The component and example JSON now live under the UI registry.
+                JSON کامپوننت و مثال حالا زیر رجیستری UI هستند.
               </BubbleContent>
             </Bubble>
           </MessageContent>

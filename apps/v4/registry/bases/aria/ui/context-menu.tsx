@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { cva } from "class-variance-authority"
@@ -197,7 +197,7 @@ function ContextMenuSubTrigger({
             hugeicons="ArrowRight01Icon"
             phosphor="CaretRightIcon"
             remixicon="RiArrowRightSLine"
-            className="cn-rtl-flip ml-auto"
+            className="cn-rtl-flip ms-auto"
           />
         </>
       ))}

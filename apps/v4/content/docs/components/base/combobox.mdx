@@ -1,6 +1,6 @@
 ---
-title: Combobox
-description: Autocomplete input with a list of suggestions.
+title: کامبوباکس (Combobox)
+description: ورودی تکمیل خودکار با فهرست پیشنهادها.
 base: base
 component: true
 links:
@@ -8,24 +8,36 @@ links:
   api: https://base-ui.com/react/components/combobox#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="combobox-demo"
-  description="A combobox with a list of frameworks."
+  layout="switcher"
+  examples={[
+    { name: "combobox-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "combobox-basic", label: "پایه", sizeable: false },
+    { name: "combobox-multiple", label: "چندتایی", sizeable: false },
+    { name: "combobox-clear", label: "پاک کردن", sizeable: false },
+    { name: "combobox-groups", label: "گروه", sizeable: false },
+    { name: "combobox-custom", label: "سفارشی", sizeable: false },
+    { name: "combobox-invalid", label: "نامعتبر", sizeable: false },
+    { name: "combobox-disabled", label: "غیرفعال", sizeable: false },
+    { name: "combobox-auto-highlight", label: "هایلایت", sizeable: false },
+    { name: "combobox-popup", label: "پاپ‌آپ", sizeable: false },
+    { name: "combobox-input-group", label: "گروه ورودی", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add combobox
+npx farsiui@latest add combobox
 ```
 
 </TabsContent>
@@ -33,13 +45,13 @@ npx shadcn@latest add combobox
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="combobox"
@@ -47,7 +59,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -55,7 +67,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -74,9 +86,9 @@ const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]
 export function ExampleCombobox() {
   return (
     <Combobox items={frameworks}>
-      <ComboboxInput placeholder="Select a framework" />
+      <ComboboxInput placeholder="یک فریم‌ورک انتخاب کنید" />
       <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item} value={item}>
@@ -90,11 +102,17 @@ export function ExampleCombobox() {
 }
 ```
 
-## Composition
+<div className="hidden">
 
-### Simple
+## ترکیب
 
-A single-line input and a flat list (see [Basic](#basic)).
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+### ساده
+
+ورودی تک‌خطی و فهرست تخت (بخش [پایه](#پایه) را ببینید).
 
 ```text
 Combobox
@@ -106,9 +124,9 @@ Combobox
         └── ComboboxItem
 ```
 
-### With chips
+### با چیپ
 
-Multi-select with `multiple`, chips, and a chips input (see [Multiple](#multiple)).
+انتخاب چندتایی با `multiple`، چیپ‌ها و ورودی چیپ (بخش [چندتایی](#چندتایی) را ببینید).
 
 ```text
 Combobox
@@ -123,9 +141,9 @@ Combobox
         └── ComboboxItem
 ```
 
-### With groups and collection
+### با گروه و مجموعه
 
-Nested items per group using `ComboboxCollection` inside each `ComboboxGroup`, with a separator between groups (see [Groups](#groups)).
+آیتم‌های تودرتو در هر گروه با `ComboboxCollection` داخل `ComboboxGroup` و جداکننده بین گروه‌ها (بخش [گروه](#گروه) را ببینید).
 
 ```text
 Combobox
@@ -146,9 +164,17 @@ Combobox
                 └── ComboboxItem
 ```
 
-## Custom Items
+</DocsCollapsible>
 
-Use `itemToStringValue` when your items are objects.
+<div className="hidden">
+
+## آیتم سفارشی
+
+</div>
+
+<DocsCollapsible title="آیتم سفارشی">
+
+وقتی آیتم‌ها شیء هستند، از `itemToStringValue` استفاده کنید.
 
 ```tsx showLineNumbers
 import * as React from "react"
@@ -179,9 +205,9 @@ export function ExampleComboboxCustomItems() {
       items={frameworks}
       itemToStringValue={(framework) => framework.label}
     >
-      <ComboboxInput placeholder="Select a framework" />
+      <ComboboxInput placeholder="یک فریم‌ورک انتخاب کنید" />
       <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
         <ComboboxList>
           {(framework) => (
             <ComboboxItem key={framework.value} value={framework}>
@@ -195,9 +221,17 @@ export function ExampleComboboxCustomItems() {
 }
 ```
 
-## Multiple Selection
+</DocsCollapsible>
 
-Use `multiple` with chips for multi-select behavior.
+<div className="hidden">
+
+## انتخاب چندتایی
+
+</div>
+
+<DocsCollapsible title="انتخاب چندتایی">
+
+برای انتخاب چندتایی از `multiple` همراه با چیپ استفاده کنید.
 
 ```tsx showLineNumbers
 import * as React from "react"
@@ -209,7 +243,6 @@ import {
   ComboboxChipsInput,
   ComboboxContent,
   ComboboxEmpty,
-  ComboboxInput,
   ComboboxItem,
   ComboboxList,
   ComboboxValue,
@@ -233,10 +266,10 @@ export function ExampleComboboxMultiple() {
             <ComboboxChip key={item}>{item}</ComboboxChip>
           ))}
         </ComboboxValue>
-        <ComboboxChipsInput placeholder="Add framework" />
+        <ComboboxChipsInput placeholder="افزودن فریم‌ورک" />
       </ComboboxChips>
       <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item} value={item}>
@@ -250,77 +283,299 @@ export function ExampleComboboxMultiple() {
 }
 ```
 
-## Basic
+</DocsCollapsible>
 
-A simple combobox with a list of frameworks.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="combobox-basic" />
+## پایه
 
-## Multiple
+</div>
 
-A combobox with multiple selection using `multiple` and `ComboboxChips`.
+<DocsCollapsible title="پایه">
 
-<ComponentPreview styleName="base-nova" name="combobox-multiple" />
+یک کامبوباکس ساده با فهرست فریم‌ورک‌ها.
 
-## Clear Button
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-basic"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-Use the `showClear` prop to show a clear button.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="combobox-clear" />
+<div className="hidden">
 
-## Groups
+## چندتایی
 
-Use `ComboboxGroup` and `ComboboxSeparator` to group items.
+</div>
 
-<ComponentPreview styleName="base-nova" name="combobox-groups" />
+<DocsCollapsible title="چندتایی">
 
-## Custom Items
+کامبوباکس با انتخاب چندتایی از طریق `multiple` و `ComboboxChips`.
 
-You can render a custom component inside `ComboboxItem`.
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-multiple"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-<ComponentPreview styleName="base-nova" name="combobox-custom" />
+</DocsCollapsible>
 
-## Invalid
+<div className="hidden">
 
-Use the `aria-invalid` prop to make the combobox invalid.
+## دکمه پاک کردن
 
-<ComponentPreview styleName="base-nova" name="combobox-invalid" />
+</div>
 
-## Disabled
+<DocsCollapsible title="دکمه پاک کردن">
 
-Use the `disabled` prop to disable the combobox.
+با prop به نام `showClear` دکمهٔ پاک کردن را نشان دهید.
 
-<ComponentPreview styleName="base-nova" name="combobox-disabled" />
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-clear"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-## Auto Highlight
+</DocsCollapsible>
 
-Use the `autoHighlight` prop to automatically highlight the first item on filter.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="combobox-auto-highlight" />
+## گروه
 
-## Popup
+</div>
 
-You can trigger the combobox from a button or any other component by using the `render` prop. Move the `ComboboxInput` inside the `ComboboxContent`.
+<DocsCollapsible title="گروه">
 
-<ComponentPreview styleName="base-nova" name="combobox-popup" />
+با `ComboboxGroup` و `ComboboxSeparator` آیتم‌ها را گروه‌بندی کنید.
 
-## Input Group
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-groups"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-You can add an addon to the combobox by using the `InputGroupAddon` component inside the `ComboboxInput`.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="combobox-input-group" />
+<div className="hidden">
 
-## RTL
+## آیتم‌های سفارشی
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</div>
+
+<DocsCollapsible title="آیتم‌های سفارشی">
+
+می‌توانید داخل `ComboboxItem` کامپوننت سفارشی رندر کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-custom"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با prop به نام `aria-invalid` کامبوباکس را نامعتبر کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-invalid"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` کامبوباکس را غیرفعال کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-disabled"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## هایلایت خودکار
+
+</div>
+
+<DocsCollapsible title="هایلایت خودکار">
+
+با prop به نام `autoHighlight` اولین آیتم فیلترشده به‌صورت خودکار هایلایت می‌شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-auto-highlight"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پاپ‌آپ
+
+</div>
+
+<DocsCollapsible title="پاپ‌آپ">
+
+با prop به نام `render` می‌توانید کامبوباکس را از دکمه یا هر عنصر دیگری باز کنید. `ComboboxInput` را داخل `ComboboxContent` قرار دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-popup"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+با `InputGroupAddon` داخل `ComboboxInput` می‌توانید addon اضافه کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="combobox-input-group"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="combobox-rtl"
   direction="rtl"
-  align="start"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI](https://base-ui.com/react/components/combobox#api-reference) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/combobox#api-reference) را ببینید.
+
+<DocsApiProps
+  title="Combobox"
+  description="ظرف ریشهٔ کامبوباکس."
+  props={[
+    {
+      name: "items",
+      description: "فهرست آیتم‌های قابل انتخاب",
+      values: ["array"],
+    },
+    {
+      name: "multiple",
+      description: "فعال‌سازی انتخاب چندتایی",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "autoHighlight",
+      description: "هایلایت خودکار اولین نتیجه",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "value",
+      description: "مقدار کنترل‌شده",
+      values: ["unknown"],
+    },
+    {
+      name: "defaultValue",
+      description: "مقدار اولیه در حالت کنترل‌نشده",
+      values: ["unknown"],
+    },
+    {
+      name: "onValueChange",
+      description: "فراخوان هنگام تغییر مقدار",
+      values: ["function"],
+    },
+    {
+      name: "itemToStringValue",
+      description: "تبدیل شیء آیتم به رشته برای نمایش و فیلتر",
+      values: ["function"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن تعامل",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ComboboxInput"
+  description="ورودی جستجو و انتخاب."
+  props={[
+    {
+      name: "showClear",
+      description: "نمایش دکمهٔ پاک کردن",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "showTrigger",
+      description: "نمایش دکمهٔ باز کردن فهرست",
+      values: ["boolean"],
+      defaultValue: "true",
+    },
+    {
+      name: "placeholder",
+      description: "متن راهنمای ورودی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

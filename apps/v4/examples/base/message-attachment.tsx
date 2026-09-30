@@ -16,21 +16,21 @@ import { Message, MessageContent } from "@/styles/base-rhea/ui/message"
 
 export function MessageAttachmentDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message align="end">
         <MessageContent>
           <Attachment orientation="vertical">
             <AttachmentMedia variant="image">
               <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80"
-                alt="Workspace"
+                alt="فضای کار"
               />
             </AttachmentMedia>
           </Attachment>
           <Bubble>
             <BubbleContent>
-              Here&apos;s the image. Can you add it to the PDF? Use it for the
-              cover page.
+              این تصویر است. می‌توانید به PDF اضافه کنید؟ برای صفحهٔ جلد
+              استفاده کنید.
             </BubbleContent>
           </Bubble>
         </MessageContent>
@@ -39,7 +39,7 @@ export function MessageAttachmentDemo() {
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              Done. Here&apos;s the PDF with the image added as the cover page.
+              انجام شد. این PDF با تصویر به‌عنوان صفحهٔ جلد است.
             </BubbleContent>
           </Bubble>
           <Attachment>
@@ -53,8 +53,8 @@ export function MessageAttachmentDemo() {
             <AttachmentActions>
               <AttachmentAction
                 type="button"
-                title="Download"
-                aria-label="Download"
+                title="دانلود"
+                aria-label="دانلود"
                 size="icon-sm"
                 variant="secondary"
               >
@@ -67,7 +67,7 @@ export function MessageAttachmentDemo() {
       <Message align="end">
         <MessageContent>
           <Bubble>
-            <BubbleContent>Thanks. Looks good.</BubbleContent>
+            <BubbleContent>ممنون. خوب به نظر می‌رسد.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>

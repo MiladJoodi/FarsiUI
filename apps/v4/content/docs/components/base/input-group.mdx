@@ -1,30 +1,44 @@
 ---
-title: Input Group
-description: Add addons, buttons, and helper content to inputs.
+title: گروه ورودی (Input Group)
+description: افزودن addon، دکمه و محتوای کمکی به ورودی‌ها.
 base: base
 component: true
 ---
 
 import { IconInfoCircle } from "@tabler/icons-react"
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="input-group-demo"
-  previewClassName="h-[26rem]"
+  layout="switcher"
+  examples={[
+    { name: "input-group-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "input-group-inline-start", label: "شروع خط", sizeable: false },
+    { name: "input-group-inline-end", label: "پایان خط", sizeable: false },
+    { name: "input-group-block-start", label: "بالا", sizeable: false },
+    { name: "input-group-block-end", label: "پایین", sizeable: false },
+    { name: "input-group-icon", label: "آیکون", sizeable: false },
+    { name: "input-group-text", label: "متن", sizeable: false },
+    { name: "input-group-button", label: "دکمه", sizeable: false },
+    { name: "input-group-kbd", label: "کیبورد", sizeable: false },
+    { name: "input-group-dropdown", label: "کشویی", sizeable: false },
+    { name: "input-group-spinner", label: "اسپینر", sizeable: false },
+    { name: "input-group-textarea", label: "متن‌بلند", sizeable: false },
+    { name: "input-group-custom", label: "سفارشی", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add input-group
+npx farsiui@latest add input-group
 ```
 
 </TabsContent>
@@ -33,7 +47,7 @@ npx shadcn@latest add input-group
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="input-group"
@@ -41,7 +55,7 @@ npx shadcn@latest add input-group
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -49,7 +63,7 @@ npx shadcn@latest add input-group
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -64,16 +78,22 @@ import {
 
 ```tsx showLineNumbers
 <InputGroup>
-  <InputGroupInput placeholder="Search..." />
+  <InputGroupInput placeholder="جستجو..." />
   <InputGroupAddon>
     <SearchIcon />
   </InputGroupAddon>
 </InputGroup>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `InputGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `InputGroup` از این ترکیب استفاده کنید:
 
 ```text
 InputGroup
@@ -83,127 +103,219 @@ InputGroup
 └── InputGroupText
 ```
 
-## Align
+</DocsCollapsible>
 
-Use the `align` prop on `InputGroupAddon` to position the addon relative to the input.
+<div className="hidden">
+
+## تراز
+
+</div>
+
+<DocsCollapsible title="تراز">
+
+با prop به نام `align` روی `InputGroupAddon` جایگاه addon نسبت به ورودی را تنظیم کنید.
 
 <Callout>
-  For proper focus management, `InputGroupAddon` should always be placed after
-  `InputGroupInput` or `InputGroupTextarea` in the DOM. Use the `align` prop to
-  visually position the addon.
+  برای مدیریت درست فوکوس، `InputGroupAddon` باید همیشه بعد از
+  `InputGroupInput` یا `InputGroupTextarea` در DOM قرار بگیرد. با `align`
+  جایگاه بصری را تنظیم کنید.
 </Callout>
 
-### inline-start
+### شروع خط
 
-Use `align="inline-start"` to position the addon at the start of the input. This is the default.
+با `align="inline-start"` addon را در شروع ورودی قرار دهید. این مقدار پیش‌فرض است.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-inline-start"
+  direction="rtl"
   previewClassName="h-48"
 />
 
-### inline-end
+### پایان خط
 
-Use `align="inline-end"` to position the addon at the end of the input.
+با `align="inline-end"` addon را در پایان ورودی قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-inline-end"
+  direction="rtl"
   previewClassName="h-48"
 />
 
-### block-start
+### بالا
 
-Use `align="block-start"` to position the addon above the input.
+با `align="block-start"` addon را بالای ورودی قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-block-start"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-### block-end
+### پایین
 
-Use `align="block-end"` to position the addon below the input.
+با `align="block-end"` addon را پایین ورودی قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-block-end"
+  direction="rtl"
   previewClassName="h-[26rem]"
 />
 
-## Icon
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آیکون
+
+</div>
+
+<DocsCollapsible title="آیکون">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-icon"
+  direction="rtl"
   previewClassName="h-80"
 />
 
-## Text
+</DocsCollapsible>
+
+<div className="hidden">
+
+## متن
+
+</div>
+
+<DocsCollapsible title="متن">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-text"
+  direction="rtl"
   previewClassName="h-80"
 />
 
-## Button
+</DocsCollapsible>
+
+<div className="hidden">
+
+## دکمه
+
+</div>
+
+<DocsCollapsible title="دکمه">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-button"
+  direction="rtl"
   previewClassName="h-72"
 />
 
-## Kbd
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کیبورد
+
+</div>
+
+<DocsCollapsible title="کیبورد">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-kbd"
+  direction="rtl"
   previewClassName="h-40"
 />
 
-## Dropdown
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کشویی
+
+</div>
+
+<DocsCollapsible title="کشویی">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-dropdown"
+  direction="rtl"
   previewClassName="h-56"
 />
 
-## Spinner
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اسپینر
+
+</div>
+
+<DocsCollapsible title="اسپینر">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-spinner"
+  direction="rtl"
   previewClassName="h-80"
 />
 
-## Textarea
+</DocsCollapsible>
+
+<div className="hidden">
+
+## متن‌بلند
+
+</div>
+
+<DocsCollapsible title="متن‌بلند">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-textarea"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## Custom Input
+</DocsCollapsible>
 
-Add the `data-slot="input-group-control"` attribute to your custom input for automatic focus state handling.
+<div className="hidden">
 
-Here's an example of a custom resizable textarea from a third-party library.
+## ورودی سفارشی
+
+</div>
+
+<DocsCollapsible title="ورودی سفارشی">
+
+attribute به نام `data-slot="input-group-control"` را به ورودی سفارشی اضافه کنید تا حالت فوکوس خودکار اعمال شود.
+
+نمونهٔ متن‌بلند قابل‌تغییراندازه از یک کتابخانهٔ شخص ثالث:
 
 <ComponentPreview
   styleName="base-nova"
   name="input-group-custom"
+  direction="rtl"
   previewClassName="h-56"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -212,15 +324,27 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   previewClassName="h-[30rem]"
 />
 
-## API Reference
+</DocsCollapsible>
 
-### InputGroup
+<div className="hidden">
 
-The main component that wraps inputs and addons.
+## مرجع API
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="InputGroup"
+  description="ظرف اصلی که ورودی‌ها و addonها را می‌پوشاند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <InputGroup>
@@ -229,19 +353,28 @@ The main component that wraps inputs and addons.
 </InputGroup>
 ```
 
-### InputGroupAddon
+<DocsApiProps
+  title="InputGroupAddon"
+  description="نمایش آیکون، متن، دکمه یا محتوای دیگر کنار ورودی."
+  props={[
+    {
+      name: "align",
+      description: "جایگاه نسبت به ورودی",
+      values: ["inline-start", "inline-end", "block-start", "block-end"],
+      defaultValue: "inline-start",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Displays icons, text, buttons, or other content alongside inputs.
-
-<Callout icon={<IconInfoCircle />} title="Focus Navigation">
-  For proper focus navigation, the `InputGroupAddon` component should be placed
-  after the input. Set the `align` prop to position the addon.
+<Callout icon={<IconInfoCircle />} title="ناوبری فوکوس">
+  برای ناوبری درست فوکوس، `InputGroupAddon` باید بعد از ورودی قرار بگیرد.
+  با `align` جایگاه addon را تنظیم کنید.
 </Callout>
-
-| Prop        | Type                                                             | Default          |
-| ----------- | ---------------------------------------------------------------- | ---------------- |
-| `align`     | `"inline-start" \| "inline-end" \| "block-start" \| "block-end"` | `"inline-start"` |
-| `className` | `string`                                                         |                  |
 
 ```tsx
 <InputGroupAddon align="inline-end">
@@ -249,68 +382,92 @@ Displays icons, text, buttons, or other content alongside inputs.
 </InputGroupAddon>
 ```
 
-**For `<InputGroupInput />`, use the `inline-start` or `inline-end` alignment. For `<InputGroupTextarea />`, use the `block-start` or `block-end` alignment.**
+برای `<InputGroupInput />` از `inline-start` یا `inline-end` استفاده کنید. برای `<InputGroupTextarea />` از `block-start` یا `block-end` استفاده کنید.
 
-The `InputGroupAddon` component can have multiple `InputGroupButton` components and icons.
+`InputGroupAddon` می‌تواند چند `InputGroupButton` و آیکون داشته باشد.
 
 ```tsx
 <InputGroupAddon>
-  <InputGroupButton>Button</InputGroupButton>
-  <InputGroupButton>Button</InputGroupButton>
+  <InputGroupButton>دکمه</InputGroupButton>
+  <InputGroupButton>دکمه</InputGroupButton>
 </InputGroupAddon>
 ```
 
-### InputGroupButton
-
-Displays buttons within input groups.
-
-| Prop        | Type                                                                          | Default   |
-| ----------- | ----------------------------------------------------------------------------- | --------- |
-| `size`      | `"xs" \| "icon-xs" \| "sm" \| "icon-sm"`                                      | `"xs"`    |
-| `variant`   | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | `"ghost"` |
-| `className` | `string`                                                                      |           |
+<DocsApiProps
+  title="InputGroupButton"
+  description="دکمه‌ها داخل گروه ورودی."
+  props={[
+    {
+      name: "size",
+      description: "اندازهٔ دکمه",
+      values: ["xs", "icon-xs", "sm", "icon-sm"],
+      defaultValue: "xs",
+    },
+    {
+      name: "variant",
+      description: "واریانت بصری",
+      values: ["default", "destructive", "outline", "secondary", "ghost", "link"],
+      defaultValue: "ghost",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
-<InputGroupButton>Button</InputGroupButton>
-<InputGroupButton size="icon-xs" aria-label="Copy">
+<InputGroupButton>دکمه</InputGroupButton>
+<InputGroupButton size="icon-xs" aria-label="کپی">
   <CopyIcon />
 </InputGroupButton>
 ```
 
-### InputGroupInput
+<DocsApiProps
+  title="InputGroupInput"
+  description="جایگزین Input برای ساخت گروه ورودی؛ استایل گروه از قبل اعمال شده و از data-slot برای فوکوس استفاده می‌کند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Replacement for `<Input />` when building input groups. This component has the input group styles pre-applied and uses the unified `data-slot="input-group-control"` for focus state handling.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-All other props are passed through to the underlying `<Input />` component.
+بقیهٔ propها به `<Input />` زیرین پاس داده می‌شوند.
 
 ```tsx
 <InputGroup>
-  <InputGroupInput placeholder="Enter text..." />
+  <InputGroupInput placeholder="متن را وارد کنید..." />
   <InputGroupAddon>
     <SearchIcon />
   </InputGroupAddon>
 </InputGroup>
 ```
 
-### InputGroupTextarea
+<DocsApiProps
+  title="InputGroupTextarea"
+  description="جایگزین Textarea برای ساخت گروه ورودی؛ استایل گروه از قبل اعمال شده و از data-slot برای فوکوس استفاده می‌کند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Replacement for `<Textarea />` when building input groups. This component has the textarea group styles pre-applied and uses the unified `data-slot="input-group-control"` for focus state handling.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-All other props are passed through to the underlying `<Textarea />` component.
+بقیهٔ propها به `<Textarea />` زیرین پاس داده می‌شوند.
 
 ```tsx
 <InputGroup>
-  <InputGroupTextarea placeholder="Enter message..." />
+  <InputGroupTextarea placeholder="پیام را وارد کنید..." />
   <InputGroupAddon align="block-end">
-    <InputGroupButton>Send</InputGroupButton>
+    <InputGroupButton>ارسال</InputGroupButton>
   </InputGroupAddon>
 </InputGroup>
 ```
+
+</DocsCollapsible>

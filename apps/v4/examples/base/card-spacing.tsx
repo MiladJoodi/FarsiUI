@@ -85,6 +85,7 @@ export function CardSpacing() {
                 <Input
                   id="email-spacing"
                   type="email"
+                  dir="ltr"
                   placeholder="m@example.com"
                   required
                 />

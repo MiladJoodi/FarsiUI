@@ -19,7 +19,7 @@ import {
 
 export function MessageDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-6 py-12">
       <Message align="end">
         <MessageAvatar>
           <Avatar>
@@ -29,7 +29,7 @@ export function MessageDemo() {
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>Deploying to prod real quick.</BubbleContent>
+            <BubbleContent>الان سریع روی prod دیپلوی می‌کنم.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -42,7 +42,7 @@ export function MessageDemo() {
         </MessageAvatar>
         <MessageContent>
           <Bubble variant="muted">
-            <BubbleContent>It&apos;s 4:55 PM. On a Friday.</BubbleContent>
+            <BubbleContent>ساعت ۱۶:۵۵ است. جمعه.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -55,9 +55,9 @@ export function MessageDemo() {
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>It&apos;s a one-line change.</BubbleContent>
+            <BubbleContent>فقط یک خط تغییر است.</BubbleContent>
           </Bubble>
-          <MessageFooter>Delivered</MessageFooter>
+          <MessageFooter>تحویل شد</MessageFooter>
         </MessageContent>
       </Message>
       <Message>
@@ -70,13 +70,11 @@ export function MessageDemo() {
         <MessageContent>
           <BubbleGroup>
             <Bubble variant="muted">
-              <BubbleContent>
-                It&apos;s always a one-line change 😭.
-              </BubbleContent>
+              <BubbleContent>همیشه می‌گویند فقط یک خط است 😭.</BubbleContent>
             </Bubble>
             <Bubble variant="muted">
-              <BubbleContent>Alright, let me take a look.</BubbleContent>
-              <BubbleReactions aria-label="Reactions: thumbs up">
+              <BubbleContent>باشه، بگذارید نگاهی بیندازم.</BubbleContent>
+              <BubbleReactions aria-label="واکنش‌ها: پسند">
                 <span>👍</span>
               </BubbleReactions>
             </Bubble>
@@ -85,7 +83,7 @@ export function MessageDemo() {
       </Message>
       <Marker role="status">
         <MarkerContent className="shimmer">
-          <span className="font-medium">Oliver</span> is typing...
+          <span className="font-medium">الیور</span> در حال تایپ است...
         </MarkerContent>
       </Marker>
     </div>

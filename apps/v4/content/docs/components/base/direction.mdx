@@ -1,6 +1,6 @@
 ---
-title: Direction
-description: A provider component that sets the text direction for your application.
+title: جهت (Direction)
+description: ارائه‌دهنده‌ای برای تنظیم جهت متن در اپلیکیشن.
 base: base
 component: true
 links:
@@ -8,31 +8,34 @@ links:
   api: https://base-ui.com/react/utils/direction-provider#api-reference
 ---
 
-The `DirectionProvider` component is used to set the text direction (`ltr` or `rtl`) for your application. This is essential for supporting right-to-left languages like Arabic, Hebrew, and Persian.
+`DirectionProvider` جهت متن (`ltr` یا `rtl`) را برای اپ تنظیم می‌کند. برای زبان‌های راست‌چین مثل فارسی ضروری است.
 
-Here's a preview of the component in RTL mode. Use the language selector to switch the language. To see more examples, look for the RTL section on components pages.
+پیش‌نمایش چند کامپوننت در حالت RTL:
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="card-rtl"
-  direction="rtl"
-  previewClassName="h-auto"
-  hideCode
+  layout="switcher"
+  examples={[
+    { name: "card-rtl", label: "کارت", sizeable: false },
+    { name: "checkbox-rtl", label: "چک‌باکس", sizeable: false },
+    { name: "dialog-rtl", label: "دیالوگ", sizeable: false },
+    { name: "combobox-rtl", label: "کامبوباکس", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add direction
+npx farsiui@latest add direction
 ```
 
 </TabsContent>
@@ -41,13 +44,13 @@ npx shadcn@latest add direction
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="direction"
@@ -55,7 +58,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -63,7 +66,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { DirectionProvider } from "@/components/ui/direction"
@@ -73,21 +76,85 @@ import { DirectionProvider } from "@/components/ui/direction"
 <html dir="rtl">
   <body>
     <DirectionProvider direction="rtl">
-      {/* Your app content */}
+      {/* محتوای اپ */}
     </DirectionProvider>
   </body>
 </html>
 ```
 
+<div className="hidden">
+
 ## useDirection
 
-The `useDirection` hook is used to get the current direction of the application.
+</div>
+
+<DocsCollapsible title="useDirection">
+
+هوک `useDirection` جهت فعلی اپ را برمی‌گرداند.
 
 ```tsx showLineNumbers
 import { useDirection } from "@/components/ui/direction"
 
 function MyComponent() {
   const direction = useDirection()
-  return <div>Current direction: {direction}</div>
+  return <div>جهت فعلی: {direction}</div>
 }
 ```
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی `<html>` مقدار `dir="rtl"` بگذارید و اپ را داخل `DirectionProvider` با `direction="rtl"` بپیچید تا کامپوننت‌های Base UI جهت را درست اعمال کنند.
+
+برای جزئیات بیشتر، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/utils/direction-provider#api-reference) را ببینید.
+
+<DocsApiProps
+  title="DirectionProvider"
+  description="ارائه‌دهندهٔ جهت متن برای فرزندان."
+  props={[
+    {
+      name: "direction",
+      description: "جهت متن",
+      values: ['"ltr"', '"rtl"'],
+      defaultValue: '"ltr"',
+    },
+    {
+      name: "children",
+      description: "محتوای اپ",
+      values: ["ReactNode"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="useDirection"
+  description="خواندن جهت فعلی از نزدیک‌ترین DirectionProvider."
+  props={[
+    {
+      name: "returns",
+      description: "مقدار جهت فعلی",
+      values: ['"ltr"', '"rtl"'],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

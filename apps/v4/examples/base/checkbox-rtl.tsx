@@ -1,12 +1,6 @@
 "use client"
 
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Checkbox } from "@/styles/base-nova/ui-rtl/checkbox"
+import { Checkbox } from "@/styles/base-nova/ui/checkbox"
 import {
   Field,
   FieldContent,
@@ -14,52 +8,15 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/base-nova/ui-rtl/field"
-import { Label } from "@/styles/base-nova/ui-rtl/label"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      acceptTerms: "Accept terms and conditions",
-      acceptTermsDescription:
-        "By clicking this checkbox, you agree to the terms.",
-      enableNotifications: "Enable notifications",
-      enableNotificationsDescription:
-        "You can enable or disable notifications at any time.",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      acceptTerms: "قبول الشروط والأحكام",
-      acceptTermsDescription: "بالنقر على هذا المربع، فإنك توافق على الشروط.",
-      enableNotifications: "تفعيل الإشعارات",
-      enableNotificationsDescription:
-        "يمكنك تفعيل أو إلغاء تفعيل الإشعارات في أي وقت.",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      acceptTerms: "קבל תנאים והגבלות",
-      acceptTermsDescription:
-        "על ידי לחיצה על תיבת הסימון הזו, אתה מסכים לתנאים.",
-      enableNotifications: "הפעל התראות",
-      enableNotificationsDescription:
-        "אתה יכול להפעיל או להשבית התראות בכל עת.",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/field"
+import { Label } from "@/styles/base-nova/ui/label"
 
 export function CheckboxRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <FieldGroup className="max-w-sm" dir={dir}>
+    <FieldGroup className="max-w-sm" dir="rtl">
       <Field orientation="horizontal">
         <Checkbox id="terms-checkbox-rtl" name="terms-checkbox" />
-        <Label htmlFor="terms-checkbox-rtl">{t.acceptTerms}</Label>
+        <Label htmlFor="terms-checkbox-rtl">پذیرش شرایط و قوانین</Label>
       </Field>
       <Field orientation="horizontal">
         <Checkbox
@@ -69,24 +26,24 @@ export function CheckboxRtl() {
         />
         <FieldContent>
           <FieldLabel htmlFor="terms-checkbox-2-rtl">
-            {t.acceptTerms}
+            پذیرش شرایط و قوانین
           </FieldLabel>
-          <FieldDescription>{t.acceptTermsDescription}</FieldDescription>
+          <FieldDescription>
+            با زدن این گزینه، شرایط و قوانین را می‌پذیرید.
+          </FieldDescription>
         </FieldContent>
       </Field>
       <Field orientation="horizontal" data-disabled>
         <Checkbox id="toggle-checkbox-rtl" name="toggle-checkbox" disabled />
-        <FieldLabel htmlFor="toggle-checkbox-rtl">
-          {t.enableNotifications}
-        </FieldLabel>
+        <FieldLabel htmlFor="toggle-checkbox-rtl">فعال‌سازی اعلان‌ها</FieldLabel>
       </Field>
       <FieldLabel>
         <Field orientation="horizontal">
-          <Checkbox id="toggle-checkbox-2" name="toggle-checkbox-2" />
+          <Checkbox id="toggle-checkbox-2-rtl" name="toggle-checkbox-2" />
           <FieldContent>
-            <FieldTitle>{t.enableNotifications}</FieldTitle>
+            <FieldTitle>فعال‌سازی اعلان‌ها</FieldTitle>
             <FieldDescription>
-              {t.enableNotificationsDescription}
+              هر زمان بخواهید می‌توانید اعلان‌ها را روشن یا خاموش کنید.
             </FieldDescription>
           </FieldContent>
         </Field>

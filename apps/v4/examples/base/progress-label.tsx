@@ -6,9 +6,11 @@ import {
 
 export function ProgressWithLabel() {
   return (
-    <Progress value={56} className="w-full max-w-sm">
-      <ProgressLabel>Upload progress</ProgressLabel>
-      <ProgressValue />
-    </Progress>
+    <div dir="rtl" className="w-full max-w-sm">
+      <Progress value={56} className="w-full">
+        <ProgressLabel>پیشرفت آپلود</ProgressLabel>
+        <ProgressValue />
+      </Progress>
+    </div>
   )
 }

@@ -12,34 +12,34 @@ import {
 
 export function PopoverForm() {
   return (
-    <>
+    <div dir="rtl">
       <Popover>
         <PopoverTrigger render={<Button variant="outline" />}>
-          Open Popover
+          باز کردن پاپ‌اور
         </PopoverTrigger>
         <PopoverContent className="w-64" align="start">
           <PopoverHeader>
-            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverTitle>ابعاد</PopoverTitle>
             <PopoverDescription>
-              Set the dimensions for the layer.
+              ابعاد لایه را تنظیم کنید.
             </PopoverDescription>
           </PopoverHeader>
           <FieldGroup className="gap-4">
             <Field orientation="horizontal">
               <FieldLabel htmlFor="width" className="w-1/2">
-                Width
+                عرض
               </FieldLabel>
               <Input id="width" defaultValue="100%" />
             </Field>
             <Field orientation="horizontal">
               <FieldLabel htmlFor="height" className="w-1/2">
-                Height
+                ارتفاع
               </FieldLabel>
               <Input id="height" defaultValue="25px" />
             </Field>
           </FieldGroup>
         </PopoverContent>
       </Popover>
-    </>
+    </div>
   )
 }

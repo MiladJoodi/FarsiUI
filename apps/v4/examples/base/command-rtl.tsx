@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   Calculator,
   Calendar,
@@ -11,10 +10,6 @@ import {
 } from "lucide-react"
 
 import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import {
   Command,
   CommandEmpty,
   CommandGroup,
@@ -23,90 +18,43 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/styles/base-nova/ui-rtl/command"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      placeholder: "Type a command or search...",
-      empty: "No results found.",
-      suggestions: "Suggestions",
-      calendar: "Calendar",
-      searchEmoji: "Search Emoji",
-      calculator: "Calculator",
-      settings: "Settings",
-      profile: "Profile",
-      billing: "Billing",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      placeholder: "اكتب أمرًا أو ابحث...",
-      empty: "لم يتم العثور على نتائج.",
-      suggestions: "اقتراحات",
-      calendar: "التقويم",
-      searchEmoji: "البحث عن الرموز التعبيرية",
-      calculator: "الآلة الحاسبة",
-      settings: "الإعدادات",
-      profile: "الملف الشخصي",
-      billing: "الفوترة",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      placeholder: "הקלד פקודה או חפש...",
-      empty: "לא נמצאו תוצאות.",
-      suggestions: "הצעות",
-      calendar: "לוח שנה",
-      searchEmoji: "חפש אמוג'י",
-      calculator: "מחשבון",
-      settings: "הגדרות",
-      profile: "פרופיל",
-      billing: "חיוב",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/command"
 
 export function CommandRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <Command className="max-w-sm rounded-lg border" dir={dir}>
-      <CommandInput placeholder={t.placeholder} dir={dir} />
+    <Command className="max-w-sm rounded-lg border" dir="rtl">
+      <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
       <CommandList>
-        <CommandEmpty>{t.empty}</CommandEmpty>
-        <CommandGroup heading={t.suggestions}>
+        <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+        <CommandGroup heading="پیشنهادها">
           <CommandItem>
             <Calendar />
-            <span>{t.calendar}</span>
+            <span>تقویم</span>
           </CommandItem>
           <CommandItem>
             <Smile />
-            <span>{t.searchEmoji}</span>
+            <span>جستجوی ایموجی</span>
           </CommandItem>
           <CommandItem disabled>
             <Calculator />
-            <span>{t.calculator}</span>
+            <span>ماشین‌حساب</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading={t.settings}>
+        <CommandGroup heading="تنظیمات">
           <CommandItem>
             <User />
-            <span>{t.profile}</span>
+            <span>پروفایل</span>
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
             <CreditCard />
-            <span>{t.billing}</span>
+            <span>صورتحساب</span>
             <CommandShortcut>⌘B</CommandShortcut>
           </CommandItem>
           <CommandItem>
             <Settings />
-            <span>{t.settings}</span>
+            <span>تنظیمات</span>
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>
         </CommandGroup>

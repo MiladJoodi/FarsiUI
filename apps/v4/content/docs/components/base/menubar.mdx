@@ -1,6 +1,6 @@
 ---
-title: Menubar
-description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+title: نوار منو (Menubar)
+description: منوی پایدار دسکتاپ برای دسترسی سریع به مجموعه‌ای ثابت از فرمان‌ها.
 base: base
 component: true
 links:
@@ -8,20 +8,30 @@ links:
   api: https://base-ui.com/react/components/menubar#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="menubar-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "menubar-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "menubar-checkbox", label: "چک‌باکس", sizeable: false },
+    { name: "menubar-radio", label: "رادیو", sizeable: false },
+    { name: "menubar-submenu", label: "زیرمنو", sizeable: false },
+    { name: "menubar-icons", label: "آیکون", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add menubar
+npx farsiui@latest add menubar
 ```
 
 </TabsContent>
@@ -30,13 +40,13 @@ npx shadcn@latest add menubar
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="menubar"
@@ -44,7 +54,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +62,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -70,27 +80,33 @@ import {
 ```tsx showLineNumbers
 <Menubar>
   <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarTrigger>فایل</MenubarTrigger>
     <MenubarContent>
       <MenubarGroup>
         <MenubarItem>
-          New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+          زبانهٔ جدید <MenubarShortcut>⌘T</MenubarShortcut>
         </MenubarItem>
-        <MenubarItem>New Window</MenubarItem>
+        <MenubarItem>پنجرهٔ جدید</MenubarItem>
       </MenubarGroup>
       <MenubarSeparator />
       <MenubarGroup>
-        <MenubarItem>Share</MenubarItem>
-        <MenubarItem>Print</MenubarItem>
+        <MenubarItem>اشتراک‌گذاری</MenubarItem>
+        <MenubarItem>چاپ</MenubarItem>
       </MenubarGroup>
     </MenubarContent>
   </MenubarMenu>
 </Menubar>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Menubar`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Menubar` از این ترکیب استفاده کنید:
 
 ```text
 Menubar
@@ -128,34 +144,106 @@ Menubar
             └── MenubarItem
 ```
 
-## Checkbox
+</DocsCollapsible>
 
-Use `MenubarCheckboxItem` for toggleable options.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="menubar-checkbox" />
+## چک‌باکس
 
-## Radio
+</div>
 
-Use `MenubarRadioGroup` and `MenubarRadioItem` for single-select options.
+<DocsCollapsible title="چک‌باکس">
 
-<ComponentPreview styleName="base-nova" name="menubar-radio" />
+برای گزینه‌های روشن/خاموش از `MenubarCheckboxItem` استفاده کنید.
 
-## Submenu
+<ComponentPreview
+  styleName="base-nova"
+  name="menubar-checkbox"
+  direction="rtl"
+/>
 
-Use `MenubarSub`, `MenubarSubTrigger`, and `MenubarSubContent` for nested menus.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="menubar-submenu" />
+<div className="hidden">
 
-## With Icons
+## رادیو
 
-<ComponentPreview styleName="base-nova" name="menubar-icons" />
+</div>
 
-## RTL
+<DocsCollapsible title="رادیو">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+برای انتخاب انحصاری از `MenubarRadioGroup` و `MenubarRadioItem` استفاده کنید.
 
-<ComponentPreview styleName="base-nova" name="menubar-rtl" direction="rtl" />
+<ComponentPreview
+  styleName="base-nova"
+  name="menubar-radio"
+  direction="rtl"
+/>
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Menubar](https://base-ui.com/react/components/menubar#api-reference) documentation.
+<div className="hidden">
+
+## زیرمنو
+
+</div>
+
+<DocsCollapsible title="زیرمنو">
+
+برای منوهای تو در تو از `MenubarSub`، `MenubarSubTrigger` و `MenubarSubContent` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="menubar-submenu"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## با آیکون
+
+</div>
+
+<DocsCollapsible title="با آیکون">
+
+آیکون را کنار برچسب بگذارید تا اسکن سریع‌تر شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="menubar-icons"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="menubar-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Menubar](https://base-ui.com/react/components/menubar#api-reference) را ببینید.
+
+</DocsCollapsible>

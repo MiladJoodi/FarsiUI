@@ -21,42 +21,44 @@ export function DropdownMenuCheckboxesIcons() {
   })
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Notifications
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-48">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Notification Preferences</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem
-            checked={notifications.email}
-            onCheckedChange={(checked) =>
-              setNotifications({ ...notifications, email: checked === true })
-            }
-          >
-            <MailIcon />
-            Email notifications
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={notifications.sms}
-            onCheckedChange={(checked) =>
-              setNotifications({ ...notifications, sms: checked === true })
-            }
-          >
-            <MessageSquareIcon />
-            SMS notifications
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={notifications.push}
-            onCheckedChange={(checked) =>
-              setNotifications({ ...notifications, push: checked === true })
-            }
-          >
-            <BellIcon />
-            Push notifications
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          اعلان‌ها
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-48">
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>ترجیحات اعلان</DropdownMenuLabel>
+            <DropdownMenuCheckboxItem
+              checked={notifications.email}
+              onCheckedChange={(checked) =>
+                setNotifications({ ...notifications, email: checked === true })
+              }
+            >
+              <MailIcon />
+              اعلان ایمیلی
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={notifications.sms}
+              onCheckedChange={(checked) =>
+                setNotifications({ ...notifications, sms: checked === true })
+              }
+            >
+              <MessageSquareIcon />
+              اعلان پیامکی
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={notifications.push}
+              onCheckedChange={(checked) =>
+                setNotifications({ ...notifications, push: checked === true })
+              }
+            >
+              <BellIcon />
+              اعلان پوش
+            </DropdownMenuCheckboxItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

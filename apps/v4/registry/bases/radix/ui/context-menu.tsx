@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { cn } from "cn"
@@ -126,7 +126,7 @@ function ContextMenuSubTrigger({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip ml-auto"
+        className="cn-rtl-flip ms-auto"
       />
     </ContextMenuPrimitive.SubTrigger>
   )

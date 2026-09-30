@@ -18,28 +18,29 @@ export default function CollapsibleDemo() {
       open={isOpen}
       onOpenChange={setIsOpen}
       className="flex w-[350px] flex-col gap-2"
+      dir="rtl"
     >
       <div className="flex items-center justify-between gap-4 px-4">
-        <h4 className="text-sm font-semibold">Order #4189</h4>
+        <h4 className="text-sm font-semibold">سفارش ۴۱۸۹</h4>
         <CollapsibleTrigger
           render={<Button variant="ghost" size="icon" className="size-8" />}
         >
           <ChevronsUpDown />
-          <span className="sr-only">Toggle details</span>
+          <span className="sr-only">نمایش جزئیات</span>
         </CollapsibleTrigger>
       </div>
       <div className="flex items-center justify-between rounded-md border px-4 py-2 text-sm">
-        <span className="text-muted-foreground">Status</span>
-        <span className="font-medium">Shipped</span>
+        <span className="text-muted-foreground">وضعیت</span>
+        <span className="font-medium">ارسال‌شده</span>
       </div>
       <CollapsibleContent className="flex flex-col gap-2">
         <div className="rounded-md border px-4 py-2 text-sm">
-          <p className="font-medium">Shipping address</p>
-          <p className="text-muted-foreground">100 Market St, San Francisco</p>
+          <p className="font-medium">آدرس ارسال</p>
+          <p className="text-muted-foreground">تهران، خیابان ولیعصر، پلاک ۱۰۰</p>
         </div>
         <div className="rounded-md border px-4 py-2 text-sm">
-          <p className="font-medium">Items</p>
-          <p className="text-muted-foreground">2x Studio Headphones</p>
+          <p className="font-medium">اقلام</p>
+          <p className="text-muted-foreground">۲× هدفون استودیویی</p>
         </div>
       </CollapsibleContent>
     </Collapsible>

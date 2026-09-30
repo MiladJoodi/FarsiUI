@@ -13,22 +13,24 @@ import {
 
 export function DropdownMenuBasic() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Open
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          باز کردن
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>حساب من</DropdownMenuLabel>
+            <DropdownMenuItem>پروفایل</DropdownMenuItem>
+            <DropdownMenuItem>صورتحساب</DropdownMenuItem>
+            <DropdownMenuItem>تنظیمات</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>گیت‌هاب</DropdownMenuItem>
+          <DropdownMenuItem>پشتیبانی</DropdownMenuItem>
+          <DropdownMenuItem disabled>API</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

@@ -23,10 +23,10 @@ export function CollapsibleSettings() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <Card className="mx-auto w-full max-w-xs" size="sm">
+    <Card className="mx-auto w-full max-w-xs" size="sm" dir="rtl">
       <CardHeader>
-        <CardTitle>Radius</CardTitle>
-        <CardDescription>Set the corner radius of the element.</CardDescription>
+        <CardTitle>شعاع گوشه</CardTitle>
+        <CardDescription>شعاع گوشه‌های عنصر را تنظیم کنید.</CardDescription>
       </CardHeader>
       <CardContent>
         <Collapsible
@@ -37,32 +37,55 @@ export function CollapsibleSettings() {
           <FieldGroup className="grid w-full grid-cols-2 gap-2">
             <Field>
               <FieldLabel htmlFor="radius-x" className="sr-only">
-                Radius X
+                شعاع افقی
               </FieldLabel>
-              <Input id="radius" placeholder="0" defaultValue={0} />
+              <Input
+                id="radius-x"
+                dir="ltr"
+                placeholder="۰"
+                defaultValue={0}
+              />
             </Field>
             <Field>
               <FieldLabel htmlFor="radius-y" className="sr-only">
-                Radius Y
+                شعاع عمودی
               </FieldLabel>
-              <Input id="radius" placeholder="0" defaultValue={0} />
+              <Input
+                id="radius-y"
+                dir="ltr"
+                placeholder="۰"
+                defaultValue={0}
+              />
             </Field>
             <CollapsibleContent className="col-span-full grid grid-cols-subgrid gap-2">
               <Field>
-                <FieldLabel htmlFor="radius-x" className="sr-only">
-                  Radius X
+                <FieldLabel htmlFor="radius-x-extra" className="sr-only">
+                  شعاع افقی اضافی
                 </FieldLabel>
-                <Input id="radius" placeholder="0" defaultValue={0} />
+                <Input
+                  id="radius-x-extra"
+                  dir="ltr"
+                  placeholder="۰"
+                  defaultValue={0}
+                />
               </Field>
               <Field>
-                <FieldLabel htmlFor="radius-y" className="sr-only">
-                  Radius Y
+                <FieldLabel htmlFor="radius-y-extra" className="sr-only">
+                  شعاع عمودی اضافی
                 </FieldLabel>
-                <Input id="radius" placeholder="0" defaultValue={0} />
+                <Input
+                  id="radius-y-extra"
+                  dir="ltr"
+                  placeholder="۰"
+                  defaultValue={0}
+                />
               </Field>
             </CollapsibleContent>
           </FieldGroup>
-          <CollapsibleTrigger render={<Button variant="outline" size="icon" />}>
+          <CollapsibleTrigger
+            render={<Button variant="outline" size="icon" />}
+            aria-label={isOpen ? "بستن تنظیمات" : "باز کردن تنظیمات"}
+          >
             {isOpen ? <MinimizeIcon /> : <MaximizeIcon />}
           </CollapsibleTrigger>
         </Collapsible>

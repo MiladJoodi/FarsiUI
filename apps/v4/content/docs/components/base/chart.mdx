@@ -1,77 +1,47 @@
 ---
-title: Chart
-description: Beautiful charts. Built using Recharts. Copy and paste into your apps.
+title: نمودار (Chart)
+description: نمودارهای زیبا با Recharts؛ کپی کنید و در پروژه‌تان استفاده کنید.
 base: base
 component: true
 ---
 
-<Callout className="mt-4">
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "chart-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "chart-example", label: "پایه", sizeable: false },
+    { name: "chart-example-grid", label: "شبکه", sizeable: false },
+    { name: "chart-example-axis", label: "محور", sizeable: false },
+    { name: "chart-example-tooltip", label: "راهنما", sizeable: false },
+    { name: "chart-example-legend", label: "افسانه", sizeable: false },
+  ]}
+/>
 
-**Updated:** The `chart` component now uses Recharts v3. If you're upgrading existing chart code, see [Updating to Recharts v3](#updating-to-recharts-v3).
+<Callout>
+
+**به‌روز شد:** کامپوننت `chart` الان از Recharts v3 استفاده می‌کند. اگر کد قبلی دارید، بخش [به‌روزرسانی به Recharts v3](#updating-to-recharts-v3) را ببینید.
 
 </Callout>
 
-<ComponentPreview
-  styleName="base-nova"
-  name="chart-demo"
-  className="theme-blue [&_.preview]:h-auto [&_.preview]:p-0 [&_.preview]:lg:min-h-[404px] [&_.preview>div]:w-full [&_.preview>div]:border-none [&_.preview>div]:shadow-none"
-  hideCode
-/>
+**نمودارها** مجموعه‌ای از کامپوننت‌های نمودار هستند که می‌توانید در اپ خود کپی کنید.
 
-Introducing **Charts**. A collection of chart components that you can copy and paste into your apps.
+از ابتدا ظاهر خوبی دارند، با بقیهٔ کامپوننت‌ها هماهنگ‌اند و کاملاً قابل سفارشی‌سازی‌اند.
 
-Charts are designed to look great out of the box. They work well with the other components and are fully customizable to fit your project.
+[کتابخانهٔ نمودارها را ببینید](/charts).
 
-[Browse the Charts Library](/charts).
-
-## Component
-
-We use [Recharts](https://recharts.org/) under the hood.
-
-We designed the `chart` component with composition in mind. **You build your charts using Recharts components and only bring in custom components, such as `ChartTooltip`, when and where you need it**.
-
-```tsx showLineNumbers /ChartContainer/ /ChartTooltipContent/
-import { Bar, BarChart } from "recharts"
-
-import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
-
-export function MyChart() {
-  return (
-    <ChartContainer>
-      <BarChart data={data}>
-        <Bar dataKey="value" />
-        <ChartTooltip content={<ChartTooltipContent />} />
-      </BarChart>
-    </ChartContainer>
-  )
-}
-```
-
-We do not wrap Recharts. This means you're not locked into an abstraction. When a new Recharts version is released, you can follow the official upgrade path to upgrade your charts.
-
-**The components are yours**.
-
-## Updating to Recharts v3
-
-If you're updating older chart code to Recharts v3:
-
-- Use `var(--chart-1)` instead of `hsl(var(--chart-1))` when you reference chart tokens from your CSS variables.
-- Use `ChartTooltip.defaultIndex` for initial tooltip state only. Keep persistent active shapes in your own chart state.
-- Remove `layout` from `<Bar>` when the parent `<BarChart>` already defines it.
-- Keep a height, `min-h-*`, or `aspect-*` on `ChartContainer` so `ResponsiveContainer` can measure on first render.
-
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add chart
+npx farsiui@latest add chart
 ```
 
 </TabsContent>
@@ -80,13 +50,13 @@ npx shadcn@latest add chart
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install recharts
 ```
 
-<Step>Copy and paste the following code into `components/ui/chart.tsx`.</Step>
+<Step>کد زیر را در `components/ui/chart.tsx` قرار دهید.</Step>
 
 <ComponentSource
   name="chart"
@@ -94,7 +64,7 @@ npm install recharts
   styleName="base-nova"
 />
 
-<Step>Add the following colors to your CSS file</Step>
+<Step>رنگ‌های زیر را به فایل CSS اضافه کنید.</Step>
 
 ```css title="app/globals.css" showLineNumbers
 @layer base {
@@ -122,83 +92,144 @@ npm install recharts
 
 </CodeTabs>
 
-## Your First Chart
+<div className="hidden">
 
-Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip and legend.
+## کامپوننت
+
+</div>
+
+<DocsCollapsible title="کامپوننت">
+
+زیرساخت ما [Recharts](https://recharts.org/) است.
+
+کامپوننت `chart` با ترکیب‌پذیری طراحی شده است. **نمودار را با کامپوننت‌های Recharts می‌سازید و فقط وقتی لازم است، کامپوننت‌های سفارشی مثل `ChartTooltip` را اضافه می‌کنید.**
+
+```tsx showLineNumbers /ChartContainer/ /ChartTooltipContent/
+import { Bar, BarChart } from "recharts"
+
+import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
+
+export function MyChart() {
+  return (
+    <ChartContainer>
+      <BarChart data={data}>
+        <Bar dataKey="value" />
+        <ChartTooltip content={<ChartTooltipContent />} />
+      </BarChart>
+    </ChartContainer>
+  )
+}
+```
+
+Recharts را wrap نمی‌کنیم؛ بنابراین به abstraction قفل نمی‌شوید. با نسخهٔ جدید Recharts می‌توانید مسیر رسمی ارتقا را دنبال کنید.
+
+**کامپوننت‌ها مال خودتان‌اند.**
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## به‌روزرسانی به Recharts v3
+
+</div>
+
+<a id="updating-to-recharts-v3"></a>
+
+<DocsCollapsible title="به‌روزرسانی به Recharts v3">
+
+اگر کد قدیمی نمودار را به Recharts v3 می‌برید:
+
+- به‌جای `hsl(var(--chart-1))` از `var(--chart-1)` برای توکن‌های CSS استفاده کنید.
+- `ChartTooltip.defaultIndex` فقط برای حالت اولیهٔ راهنماست؛ شکل فعال پایدار را در state خود نگه دارید.
+- اگر `<BarChart>` خودش `layout` دارد، `layout` را از `<Bar>` بردارید.
+- روی `ChartContainer` ارتفاع، `min-h-*` یا `aspect-*` بگذارید تا `ResponsiveContainer` در رندر اول اندازه بگیرد.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اولین نمودار
+
+</div>
+
+<DocsCollapsible title="اولین نمودار" defaultOpen>
+
+یک نمودار میله‌ای می‌سازیم و شبکه، محور، راهنما و افسانه را اضافه می‌کنیم.
 
 <Steps>
 
-<Step>Start by defining your data</Step>
+<Step>ابتدا داده را تعریف کنید</Step>
 
-The following data represents the number of desktop and mobile users for each month.
+این داده تعداد کاربران دسکتاپ و موبایل در هر ماه را نشان می‌دهد.
 
 <Callout className="mt-4">
 
-**Note:** Your data can be in any shape. You are not limited to the shape of the data below. Use the `dataKey` prop to map your data to the chart.
+**نکته:** شکل داده آزاد است. با prop به نام `dataKey` داده را به نمودار وصل کنید.
 
 </Callout>
 
 ```tsx title="components/example-chart.tsx" showLineNumbers
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "فروردین", desktop: 186, mobile: 80 },
+  { month: "اردیبهشت", desktop: 305, mobile: 200 },
+  { month: "خرداد", desktop: 237, mobile: 120 },
+  { month: "تیر", desktop: 73, mobile: 190 },
+  { month: "مرداد", desktop: 209, mobile: 130 },
+  { month: "شهریور", desktop: 214, mobile: 140 },
 ]
 ```
 
-<Step>Define your chart config</Step>
+<Step>پیکربندی نمودار را تعریف کنید</Step>
 
-The chart config holds configuration for the chart. This is where you place human-readable strings, such as labels, icons and color tokens for theming.
+`chartConfig` برچسب‌ها، آیکون‌ها و رنگ‌ها را نگه می‌دارد.
 
 ```tsx title="components/example-chart.tsx" showLineNumbers
 import { type ChartConfig } from "@/components/ui/chart"
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     color: "#2563eb",
   },
   mobile: {
-    label: "Mobile",
+    label: "موبایل",
     color: "#60a5fa",
   },
 } satisfies ChartConfig
 ```
 
-<Step>Build your chart</Step>
+<Step>نمودار را بسازید</Step>
 
-You can now build your chart using Recharts components.
+حالا با کامپوننت‌های Recharts نمودار را بسازید.
 
 <Callout className="mt-4 bg-amber-50 border-amber-200 dark:bg-amber-950/50 dark:border-amber-950">
 
-**Important:** Remember to set a `min-h-[VALUE]` on the `ChartContainer` component. This is required for the chart to be responsive.
+**مهم:** روی `ChartContainer` حتماً `min-h-[VALUE]` بگذارید تا نمودار واکنش‌گرا باشد.
 
 </Callout>
 
 <ComponentPreview
   styleName="base-nova"
   name="chart-example"
+  direction="rtl"
   previewClassName="h-80"
 />
 
 </Steps>
 
-### Add a Grid
+### افزودن شبکه
 
-Let's add a grid to the chart.
+شبکه را به نمودار اضافه می‌کنیم.
 
 <Steps className="mb-0 pt-2">
 
-<Step>Import the `CartesianGrid` component.</Step>
+<Step>کامپوننت `CartesianGrid` را import کنید.</Step>
 
 ```tsx /CartesianGrid/
 import { Bar, BarChart, CartesianGrid } from "recharts"
 ```
 
-<Step>Add the `CartesianGrid` component to your chart.</Step>
+<Step>`CartesianGrid` را به نمودار اضافه کنید.</Step>
 
 ```tsx showLineNumbers {3}
 <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
@@ -213,24 +244,25 @@ import { Bar, BarChart, CartesianGrid } from "recharts"
 <ComponentPreview
   styleName="base-nova"
   name="chart-example-grid"
+  direction="rtl"
   previewClassName="h-80"
 />
 
 </Steps>
 
-### Add an Axis
+### افزودن محور
 
-To add an x-axis to the chart, we'll use the `XAxis` component.
+برای محور افقی از `XAxis` استفاده کنید.
 
 <Steps className="mb-0 pt-2">
 
-<Step>Import the `XAxis` component.</Step>
+<Step>کامپوننت `XAxis` را import کنید.</Step>
 
 ```tsx /XAxis/
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 ```
 
-<Step>Add the `XAxis` component to your chart.</Step>
+<Step>`XAxis` را به نمودار اضافه کنید.</Step>
 
 ```tsx showLineNumbers {4-10}
 <ChartContainer config={chartConfig} className="h-[200px] w-full">
@@ -252,26 +284,25 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 <ComponentPreview
   styleName="base-nova"
   name="chart-example-axis"
+  direction="rtl"
   previewClassName="h-80"
 />
 
 </Steps>
 
-### Add Tooltip
+### افزودن راهنما
 
-So far we've only used components from Recharts. They look great out of the box thanks to some customization in the `chart` component.
-
-To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` components from `chart`.
+تا اینجا فقط از کامپوننت‌های Recharts استفاده کردیم. برای راهنما، `ChartTooltip` و `ChartTooltipContent` را از `chart` بیاورید.
 
 <Steps className="mb-0 pt-2">
 
-<Step>Import the `ChartTooltip` and `ChartTooltipContent` components.</Step>
+<Step>`ChartTooltip` و `ChartTooltipContent` را import کنید.</Step>
 
 ```tsx
 import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 ```
 
-<Step>Add the components to your chart.</Step>
+<Step>آن‌ها را به نمودار اضافه کنید.</Step>
 
 ```tsx showLineNumbers {11}
 <ChartContainer config={chartConfig} className="h-[200px] w-full">
@@ -294,26 +325,27 @@ import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 <ComponentPreview
   styleName="base-nova"
   name="chart-example-tooltip"
+  direction="rtl"
   previewClassName="h-80"
 />
 
-Hover to see the tooltips. Easy, right? Two components, and we've got a beautiful tooltip.
+روی نمودار هاور کنید تا راهنما را ببینید.
 
 </Steps>
 
-### Add Legend
+### افزودن افسانه
 
-We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendContent` components from `chart`.
+همین کار را برای افسانه با `ChartLegend` و `ChartLegendContent` انجام دهید.
 
 <Steps className="mb-0 pt-2">
 
-<Step>Import the `ChartLegend` and `ChartLegendContent` components.</Step>
+<Step>`ChartLegend` و `ChartLegendContent` را import کنید.</Step>
 
 ```tsx
 import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
 ```
 
-<Step>Add the components to your chart.</Step>
+<Step>آن‌ها را به نمودار اضافه کنید.</Step>
 
 ```tsx showLineNumbers {12}
 <ChartContainer config={chartConfig} className="h-[200px] w-full">
@@ -337,24 +369,29 @@ import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
 <ComponentPreview
   styleName="base-nova"
   name="chart-example-legend"
+  direction="rtl"
   previewClassName="h-80"
 />
 
 </Steps>
 
-Done. You've built your first chart! What's next?
+اولین نمودارتان آماده است. ادامه:
 
-- [Themes and Colors](/docs/components/chart#theming)
-- [Tooltip](/docs/components/chart#tooltip)
-- [Legend](/docs/components/chart#legend)
+- [تم و رنگ](/docs/components/base/chart#theming)
+- [راهنما](/docs/components/base/chart#tooltip)
+- [افسانه](/docs/components/base/chart#legend)
 
-## Chart Config
+</DocsCollapsible>
 
-The chart config is where you define the labels, icons and colors for a chart.
+<div className="hidden">
 
-It is intentionally decoupled from chart data.
+## پیکربندی نمودار
 
-This allows you to share config and color tokens between charts. It can also work independently for cases where your data or color tokens live remotely or in a different format.
+</div>
+
+<DocsCollapsible title="پیکربندی نمودار">
+
+در `chartConfig` برچسب، آیکون و رنگ‌ها را تعریف می‌کنید. این پیکربندی عمداً از داده جداست تا بین نمودارها قابل اشتراک باشد.
 
 ```tsx showLineNumbers /ChartConfig/
 import { Monitor } from "lucide-react"
@@ -363,11 +400,9 @@ import { type ChartConfig } from "@/components/ui/chart"
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     icon: Monitor,
-    // A color like 'hsl(220, 98%, 61%)' or 'var(--color-name)'
     color: "#2563eb",
-    // OR a theme object with 'light' and 'dark' keys
     theme: {
       light: "#2563eb",
       dark: "#dc2626",
@@ -376,15 +411,25 @@ const chartConfig = {
 } satisfies ChartConfig
 ```
 
-## Theming
+</DocsCollapsible>
 
-Charts have built-in support for theming. You can use css variables (recommended) or color values in any color format, such as hex, hsl or oklch.
+<div className="hidden">
 
-### CSS Variables
+## تم‌دهی
+
+</div>
+
+<a id="theming"></a>
+
+<DocsCollapsible title="تم‌دهی">
+
+نمودارها از تم پشتیبانی می‌کنند. می‌توانید از متغیر CSS (پیشنهادی) یا مقادیر hex، hsl و oklch استفاده کنید.
+
+### متغیرهای CSS
 
 <Steps className="mb-0 pt-2">
 
-<Step>Define your colors in your css file</Step>
+<Step>رنگ‌ها را در فایل CSS تعریف کنید</Step>
 
 ```css title="app/globals.css" showLineNumbers
 @layer base {
@@ -400,16 +445,16 @@ Charts have built-in support for theming. You can use css variables (recommended
 }
 ```
 
-<Step>Add the color to your `chartConfig`</Step>
+<Step>رنگ را به `chartConfig` اضافه کنید</Step>
 
 ```tsx title="components/example-chart.tsx" showLineNumbers
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: "موبایل",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -417,42 +462,42 @@ const chartConfig = {
 
 </Steps>
 
-### hex, hsl or oklch
+### hex، hsl یا oklch
 
-You can also define your colors directly in the chart config. Use the color format you prefer.
+رنگ را می‌توانید مستقیم در config بگذارید:
 
 ```tsx title="components/example-chart.tsx" showLineNumbers
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     color: "#2563eb",
   },
   mobile: {
-    label: "Mobile",
+    label: "موبایل",
     color: "hsl(220, 98%, 61%)",
   },
   tablet: {
-    label: "Tablet",
+    label: "تبلت",
     color: "oklch(0.5 0.2 240)",
   },
   laptop: {
-    label: "Laptop",
+    label: "لپ‌تاپ",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 ```
 
-### Using Colors
+### استفاده از رنگ‌ها
 
-To use the theme colors in your chart, reference the colors using the format `var(--color-KEY)`.
+رنگ تم را با قالب `var(--color-KEY)` صدا بزنید.
 
-#### Components
+#### کامپوننت‌ها
 
 ```tsx
 <Bar dataKey="desktop" fill="var(--color-desktop)" />
 ```
 
-#### Chart Data
+#### دادهٔ نمودار
 
 ```tsx title="components/example-chart.tsx" showLineNumbers
 const chartData = [
@@ -467,17 +512,30 @@ const chartData = [
 <LabelList className="fill-(--color-desktop)" />
 ```
 
-## Tooltip
+</DocsCollapsible>
 
-A chart tooltip contains a label, name, indicator and value. You can use a combination of these to customize your tooltip.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="chart-tooltip" hideCode />
+## راهنما
 
-You can turn on/off any of these using the `hideLabel`, `hideIndicator` props and customize the indicator style using the `indicator` prop.
+</div>
 
-Use `labelKey` and `nameKey` to use a custom key for the tooltip label and name.
+<a id="tooltip"></a>
 
-Chart comes with the `<ChartTooltip>` and `<ChartTooltipContent>` components. You can use these two components to add custom tooltips to your chart.
+<DocsCollapsible title="راهنما">
+
+راهنمای نمودار شامل برچسب، نام، نشانگر و مقدار است.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="chart-tooltip"
+  direction="rtl"
+  hideCode
+/>
+
+با `hideLabel` و `hideIndicator` می‌توانید بخش‌ها را خاموش کنید و با `indicator` ظاهر نشانگر را عوض کنید.
+
+با `labelKey` و `nameKey` کلید سفارشی برای برچسب و نام بگذارید.
 
 ```tsx title="components/example-chart.tsx"
 import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -489,23 +547,19 @@ import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
 ### Props
 
-Use the following props to customize the tooltip.
+| Prop            | Type                     | Description                                      |
+| :-------------- | :----------------------- | :----------------------------------------------- |
+| `labelKey`      | string                   | کلید config یا داده برای برچسب                   |
+| `nameKey`       | string                   | کلید config یا داده برای نام                     |
+| `indicator`     | `dot` `line` یا `dashed` | ظاهر نشانگر                                      |
+| `hideLabel`     | boolean                  | مخفی کردن برچسب                                  |
+| `hideIndicator` | boolean                  | مخفی کردن نشانگر                                 |
 
-| Prop            | Type                     | Description                                  |
-| :-------------- | :----------------------- | :------------------------------------------- |
-| `labelKey`      | string                   | The config or data key to use for the label. |
-| `nameKey`       | string                   | The config or data key to use for the name.  |
-| `indicator`     | `dot` `line` or `dashed` | The indicator style for the tooltip.         |
-| `hideLabel`     | boolean                  | Whether to hide the label.                   |
-| `hideIndicator` | boolean                  | Whether to hide the indicator.               |
+### رنگ‌ها
 
-### Colors
+رنگ‌ها به‌صورت خودکار از `chartConfig` خوانده می‌شوند.
 
-Colors are automatically referenced from the chart config.
-
-### Custom
-
-To use a custom key for tooltip label and names, use the `labelKey` and `nameKey` props.
+### سفارشی
 
 ```tsx showLineNumbers /browser/
 const chartData = [
@@ -515,14 +569,14 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Total Visitors",
+    label: "کل بازدیدکنندگان",
   },
   chrome: {
-    label: "Chrome",
+    label: "کروم",
     color: "var(--chart-1)",
   },
   safari: {
-    label: "Safari",
+    label: "سافاری",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -534,11 +588,21 @@ const chartConfig = {
 />
 ```
 
-This will use `Total Visitors` for label and `Chrome` and `Safari` for the tooltip names.
+برچسب `کل بازدیدکنندگان` و نام‌های `کروم` و `سافاری` نمایش داده می‌شود.
 
-## Legend
+</DocsCollapsible>
 
-You can use the custom `<ChartLegend>` and `<ChartLegendContent>` components to add a legend to your chart.
+<div className="hidden">
+
+## افسانه
+
+</div>
+
+<a id="legend"></a>
+
+<DocsCollapsible title="افسانه">
+
+با `<ChartLegend>` و `<ChartLegendContent>` افسانه اضافه کنید.
 
 ```tsx title="components/example-chart.tsx"
 import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
@@ -548,13 +612,13 @@ import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
 <ChartLegend content={<ChartLegendContent />} />
 ```
 
-### Colors
+### رنگ‌ها
 
-Colors are automatically referenced from the chart config.
+رنگ‌ها از `chartConfig` می‌آیند.
 
-### Custom
+### سفارشی
 
-To use a custom key for legend names, use the `nameKey` prop.
+با `nameKey` کلید سفارشی برای نام‌های افسانه بگذارید.
 
 ```tsx showLineNumbers /browser/
 const chartData = [
@@ -564,11 +628,11 @@ const chartData = [
 
 const chartConfig = {
   chrome: {
-    label: "Chrome",
+    label: "کروم",
     color: "var(--chart-1)",
   },
   safari: {
-    label: "Safari",
+    label: "سافاری",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -578,21 +642,35 @@ const chartConfig = {
 <ChartLegend content={<ChartLegendContent nameKey="browser" />} />
 ```
 
-This will use `Chrome` and `Safari` for the legend names.
+نام‌های افسانه `کروم` و `سافاری` می‌شوند.
 
-## Accessibility
+</DocsCollapsible>
 
-You can turn on the `accessibilityLayer` prop to add an accessible layer to your chart.
+<div className="hidden">
 
-This prop adds keyboard access and screen reader support to your charts.
+## دسترس‌پذیری
+
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+با prop به نام `accessibilityLayer` لایهٔ دسترس‌پذیر اضافه کنید تا کیبورد و صفحه‌خوان پشتیبانی شوند.
 
 ```tsx title="components/example-chart.tsx"
 <LineChart accessibilityLayer />
 ```
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+در FarsiUI مثال‌های نمودار به‌صورت پیش‌فرض RTL هستند. برای جزئیات بیشتر، [راهنمای RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -600,3 +678,5 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
   previewClassName="h-92"
 />
+
+</DocsCollapsible>

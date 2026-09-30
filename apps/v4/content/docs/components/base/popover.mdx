@@ -1,6 +1,6 @@
 ---
-title: Popover
-description: Displays rich content in a portal, triggered by a button.
+title: پاپ‌اور (Popover)
+description: نمایش محتوای غنی در پورتال، با تریگر دکمه.
 base: base
 component: true
 links:
@@ -8,20 +8,29 @@ links:
   api: https://base-ui.com/react/components/popover#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="popover-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "popover-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "popover-basic", label: "پایه", sizeable: false },
+    { name: "popover-alignments", label: "تراز", sizeable: false },
+    { name: "popover-form", label: "فرم", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add popover
+npx farsiui@latest add popover
 ```
 
 </TabsContent>
@@ -30,13 +39,13 @@ npx shadcn@latest add popover
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="popover"
@@ -44,7 +53,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +61,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -68,20 +77,26 @@ import {
 ```tsx showLineNumbers
 <Popover>
   <PopoverTrigger render={<Button variant="outline" />}>
-    Open Popover
+    باز کردن پاپ‌اور
   </PopoverTrigger>
   <PopoverContent>
     <PopoverHeader>
-      <PopoverTitle>Title</PopoverTitle>
-      <PopoverDescription>Description text here.</PopoverDescription>
+      <PopoverTitle>عنوان</PopoverTitle>
+      <PopoverDescription>متن توضیح اینجا.</PopoverDescription>
     </PopoverHeader>
   </PopoverContent>
 </Popover>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Popover`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Popover` از این ترکیب استفاده کنید:
 
 ```text
 Popover
@@ -89,30 +104,90 @@ Popover
 └── PopoverContent
 ```
 
-## Basic
+</DocsCollapsible>
 
-A simple popover with a header, title, and description.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="popover-basic" />
+## پایه
 
-## Align
+</div>
 
-Use the `align` prop on `PopoverContent` to control the horizontal alignment.
+<DocsCollapsible title="پایه">
 
-<ComponentPreview styleName="base-nova" name="popover-alignments" />
+پاپ‌اور ساده با هدر، عنوان و توضیح.
 
-## With Form
+<ComponentPreview
+  styleName="base-nova"
+  name="popover-basic"
+  direction="rtl"
+/>
 
-A popover with form fields inside.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="popover-form" />
+<div className="hidden">
 
-## RTL
+## تراز
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</div>
 
-<ComponentPreview styleName="base-nova" name="popover-rtl" direction="rtl" />
+<DocsCollapsible title="تراز">
 
-## API Reference
+با prop به نام `align` روی `PopoverContent` تراز افقی را کنترل کنید.
 
-See the [Base UI Popover](https://base-ui.com/react/components/popover#api-reference) documentation.
+<ComponentPreview
+  styleName="base-nova"
+  name="popover-alignments"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## با فرم
+
+</div>
+
+<DocsCollapsible title="با فرم">
+
+پاپ‌اور با فیلدهای فرم داخل آن.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="popover-form"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+با `side="inline-start"` یا `side="inline-end"` سمت منطقی را نسبت به تریگر تنظیم کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="popover-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Popover](https://base-ui.com/react/components/popover#api-reference) را ببینید.
+
+</DocsCollapsible>

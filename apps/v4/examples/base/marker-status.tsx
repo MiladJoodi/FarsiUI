@@ -3,18 +3,18 @@ import { Spinner } from "@/styles/base-rhea/ui/spinner"
 
 export function MarkerStatusDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker role="status">
         <MarkerIcon>
           <Spinner />
         </MarkerIcon>
-        <MarkerContent>Compacting conversation</MarkerContent>
+        <MarkerContent>در حال فشرده‌سازی گفتگو</MarkerContent>
       </Marker>
       <Marker variant="separator" role="status">
         <MarkerIcon>
           <Spinner />
         </MarkerIcon>
-        <MarkerContent>Running tests</MarkerContent>
+        <MarkerContent>در حال اجرای تست‌ها</MarkerContent>
       </Marker>
     </div>
   )

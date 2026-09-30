@@ -11,35 +11,35 @@ export const siteConfig = {
   navItems: [
     {
       href: "/",
-      label: "Home",
+      label: "خانه",
     },
     {
       href: "/docs/installation",
-      label: "Docs",
+      label: "مستندات",
     },
     {
       href: "/docs/components",
-      label: "Components",
+      label: "کامپوننت‌ها",
     },
     {
       href: "/blocks",
-      label: "Blocks",
+      label: "بلوک‌ها",
     },
     {
       href: "/charts/area",
-      label: "Charts",
+      label: "نمودارها",
     },
     {
       href: "/docs/directory",
-      label: "Directory",
+      label: "فهرست",
     },
     {
       href: "/typeset",
-      label: "Typeset",
+      label: "تایپ‌ست",
     },
     {
       href: "/create",
-      label: "Create",
+      label: "ساخت",
     },
   ],
 }

@@ -1,6 +1,6 @@
 ---
-title: Checkbox
-description: A control that allows the user to toggle between checked and not checked.
+title: چک‌باکس (Checkbox)
+description: کنترلی برای جابه‌جایی بین حالت انتخاب‌شده و نشده.
 base: base
 component: true
 links:
@@ -8,24 +8,32 @@ links:
   api: https://base-ui.com/react/components/checkbox#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="checkbox-demo"
-  previewClassName="h-80"
+  layout="switcher"
+  examples={[
+    { name: "checkbox-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "checkbox-basic", label: "پایه", sizeable: false },
+    { name: "checkbox-description", label: "توضیح", sizeable: false },
+    { name: "checkbox-disabled", label: "غیرفعال", sizeable: false },
+    { name: "checkbox-invalid", label: "نامعتبر", sizeable: false },
+    { name: "checkbox-group", label: "گروه", sizeable: false },
+    { name: "checkbox-table", label: "جدول", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add checkbox
+npx farsiui@latest add checkbox
 ```
 
 </TabsContent>
@@ -34,13 +42,13 @@ npx shadcn@latest add checkbox
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="checkbox"
@@ -48,7 +56,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,20 +64,25 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
-```tsx
+```tsx showLineNumbers
 import { Checkbox } from "@/components/ui/checkbox"
 ```
 
-```tsx
+```tsx showLineNumbers
 <Checkbox />
 ```
 
-## Checked State
+<div className="hidden">
 
-Use `defaultChecked` for uncontrolled checkboxes, or `checked` and
-`onCheckedChange` to control the state.
+## حالت انتخاب
+
+</div>
+
+<DocsCollapsible title="حالت انتخاب">
+
+برای حالت کنترل‌نشده از `defaultChecked` و برای کنترل‌شده از `checked` و `onCheckedChange` استفاده کنید.
 
 ```tsx showLineNumbers
 import * as React from "react"
@@ -81,56 +94,194 @@ export function Example() {
 }
 ```
 
-## Invalid State
+</DocsCollapsible>
 
-Set `aria-invalid` on the checkbox and `data-invalid` on the field wrapper to
-show the invalid styles.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="checkbox-invalid" />
+## حالت نامعتبر
 
-## Basic
+</div>
 
-Pair the checkbox with `Field` and `FieldLabel` for proper layout and labeling.
+<DocsCollapsible title="حالت نامعتبر">
 
-<ComponentPreview styleName="base-nova" name="checkbox-basic" />
+روی چک‌باکس `aria-invalid` و روی ظرف فیلد `data-invalid` بگذارید تا استایل نامعتبر اعمال شود.
 
-## Description
+<ComponentPreview
+  styleName="base-nova"
+  name="checkbox-invalid"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-Use `FieldContent` and `FieldDescription` for helper text.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="checkbox-description" />
+<div className="hidden">
 
-## Disabled
+## پایه
 
-Use the `disabled` prop to prevent interaction and add the `data-disabled` attribute to the `<Field>` component for disabled styles.
+</div>
 
-<ComponentPreview styleName="base-nova" name="checkbox-disabled" />
+<DocsCollapsible title="پایه">
 
-## Group
+چک‌باکس را با `Field` و `FieldLabel` جفت کنید تا چیدمان و برچسب درست باشد.
 
-Use multiple fields to create a checkbox list.
+<ComponentPreview
+  styleName="base-nova"
+  name="checkbox-basic"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-<ComponentPreview styleName="base-nova" name="checkbox-group" />
+</DocsCollapsible>
 
-## Table
+<div className="hidden">
+
+## توضیح
+
+</div>
+
+<DocsCollapsible title="توضیح">
+
+برای متن کمکی از `FieldContent` و `FieldDescription` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="checkbox-description"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` تعامل را ببندید و برای استایل غیرفعال، `data-disabled` را روی `<Field>` بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="checkbox-disabled"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه
+
+</div>
+
+<DocsCollapsible title="گروه">
+
+با چند فیلد، یک فهرست چک‌باکس بسازید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="checkbox-group"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جدول
+
+</div>
+
+<DocsCollapsible title="جدول">
+
+چک‌باکس را برای انتخاب ردیف داخل جدول به‌کار ببرید.
 
 <ComponentPreview
   styleName="base-nova"
   name="checkbox-table"
-  previewClassName="p-4 md:p-8"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 p-4 md:p-8"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="checkbox-rtl"
   direction="rtl"
-  previewClassName="h-80"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI](https://base-ui.com/react/components/checkbox#api-reference) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/checkbox#api-reference) را ببینید.
+
+<DocsApiProps
+  title="Checkbox"
+  description="کنترل انتخاب دوحالته."
+  props={[
+    {
+      name: "checked",
+      description: "حالت کنترل‌شدهٔ انتخاب",
+      values: ["boolean"],
+    },
+    {
+      name: "defaultChecked",
+      description: "حالت اولیه در حالت کنترل‌نشده",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "onCheckedChange",
+      description: "فراخوان هنگام تغییر حالت",
+      values: ["function"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن تعامل",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "required",
+      description: "الزامی بودن برای فرم",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "name",
+      description: "نام فیلد در ارسال فرم",
+      values: ["string"],
+    },
+    {
+      name: "value",
+      description: "مقدار ارسالی هنگام انتخاب",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

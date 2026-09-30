@@ -20,39 +20,39 @@ import {
 
 export function CommandDemo() {
   return (
-    <Command className="max-w-sm rounded-lg border">
-      <CommandInput placeholder="Type a command or search..." />
+    <Command className="max-w-sm rounded-lg border" dir="rtl">
+      <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
+        <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+        <CommandGroup heading="پیشنهادها">
           <CommandItem>
             <Calendar />
-            <span>Calendar</span>
+            <span>تقویم</span>
           </CommandItem>
           <CommandItem>
             <Smile />
-            <span>Search Emoji</span>
+            <span>جستجوی ایموجی</span>
           </CommandItem>
           <CommandItem disabled>
             <Calculator />
-            <span>Calculator</span>
+            <span>ماشین‌حساب</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Settings">
+        <CommandGroup heading="تنظیمات">
           <CommandItem>
             <User />
-            <span>Profile</span>
+            <span>پروفایل</span>
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
             <CreditCard />
-            <span>Billing</span>
+            <span>صورتحساب</span>
             <CommandShortcut>⌘B</CommandShortcut>
           </CommandItem>
           <CommandItem>
             <Settings />
-            <span>Settings</span>
+            <span>تنظیمات</span>
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>
         </CommandGroup>

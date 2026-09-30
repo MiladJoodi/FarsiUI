@@ -33,25 +33,25 @@ import {
 } from "@/styles/base-rhea/ui/tooltip"
 
 const chat = createChat()
-  .user("Can you summarize the incident channel?")
+  .user("می‌توانید کانال حادثه را خلاصه کنید؟")
   .assistant(
-    "The first alert was a delayed export job. It started backing up around 09:42 UTC and triggered the warning once the retry queue crossed the threshold.\n\nNo customer-facing checkout paths were affected, but exports for larger workspaces were running about 12 minutes behind."
+    "اولین هشدار یک کار export تأخیری بود. حدود ۰۹:۴۲ UTC صف شروع به انباشت کرد و وقتی صف تلاش مجدد از آستانه گذشت، هشدار فعال شد.\n\nمسیرهای checkout رو به مشتری آسیب ندید، اما exportهای فضاهای کاری بزرگ حدود ۱۲ دقیقه عقب بودند."
   )
-  .user("Was checkout affected?")
+  .user("آیا checkout آسیب دید؟")
   .assistant(
-    "No checkout errors were reported. Payment authorization, order creation, and confirmation emails stayed inside their normal latency bands.\n\nThe only elevated metric was export queue depth, which maps to analytics downloads instead of checkout."
+    "هیچ خطای checkout گزارش نشد. تأیید پرداخت، ایجاد سفارش و ایمیل‌های تأیید داخل باند تأخیر عادی ماندند.\n\nتنها متریک بالا عمق صف export بود که به دانلودهای analytics مربوط است نه checkout."
   )
-  .user("What changed in the last deploy?")
+  .user("در آخرین دیپلوی چه عوض شد؟")
   .assistant(
-    "Only the export queue worker changed. The deploy moved large CSV jobs onto the shared retry policy, which made each failed attempt hold a worker slot longer than before.\n\nThe app deploy did not include checkout, pricing, or billing API changes."
+    "فقط worker صف export عوض شد. دیپلوی کارهای CSV بزرگ را روی سیاست تلاش مجدد مشترک برد که باعث شد هر تلاش ناموفق اسلات worker را طولانی‌تر نگه دارد.\n\nدیپلوی اپ تغییر checkout، قیمت‌گذاری یا API صورتحساب نداشت."
   )
-  .user("Do we need to roll back?")
+  .user("باید rollback کنیم؟")
   .assistant(
-    "Not yet. Queue depth is recovering after we reduced retry concurrency, and the oldest pending job is now under five minutes old.\n\nKeep rollback ready if the queue starts climbing again, but the current trend points toward recovery."
+    "هنوز نه. عمق صف بعد از کاهش هم‌زمانی تلاش مجدد در حال بهبود است و قدیمی‌ترین کار در انتظار الان کمتر از پنج دقیقه سن دارد.\n\nاگر صف دوباره بالا رفت rollback را آماده نگه دارید، اما روند فعلی به سمت بازیابی است."
   )
-  .user("Keep watching for customer-visible issues.")
+  .user("مراقب مسائل دیده‌شده توسط مشتری بمانید.")
   .assistant(
-    "I will watch the queue and support tags for another 15 minutes. I am tracking export failures, delayed download requests, and any support thread that mentions missing reports.\n\nIf those stay quiet through the next batch window, we can close this as an internal degradation."
+    "۱۵ دقیقهٔ دیگر صف و تگ‌های پشتیبانی را زیر نظر می‌گیرم. شکست‌های export، درخواست‌های دانلود تأخیری و هر نخ پشتیبانی که به گزارش‌های گم‌شده اشاره کند را ردیابی می‌کنم.\n\nاگر تا پنجرهٔ دستهٔ بعدی ساکت بمانند، می‌توانیم این را به‌عنوان افت داخلی ببندیم."
   )
 
 const history = chat.get()
@@ -65,12 +65,12 @@ export function MessageScrollerLoadHistory() {
 
   return (
     <MessageScrollerProvider>
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <Card className="mx-auto h-140 w-full max-w-sm gap-0">
           <CardHeader className="gap-1 border-b">
-            <CardTitle>Load History</CardTitle>
+            <CardTitle>بارگذاری تاریخچه</CardTitle>
             <CardDescription>
-              Prepended messages keep your place.
+              پیام‌های پیش‌افزوده موقعتان را حفظ می‌کنند.
             </CardDescription>
             <CardAction>
               <Tooltip>
@@ -80,7 +80,7 @@ export function MessageScrollerLoadHistory() {
                       type="button"
                       variant="outline"
                       size="icon"
-                      aria-label="Reset loaded messages"
+                      aria-label="بازنشانی پیام‌های بارگذاری‌شده"
                       disabled={visibleCount === INITIAL_VISIBLE_COUNT}
                       onClick={() => {
                         setVisibleCount(INITIAL_VISIBLE_COUNT)
@@ -92,7 +92,7 @@ export function MessageScrollerLoadHistory() {
                   <RotateCwIcon />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Reset</p>
+                  <p>بازنشانی</p>
                 </TooltipContent>
               </Tooltip>
             </CardAction>
@@ -134,7 +134,7 @@ export function MessageScrollerLoadHistory() {
                   })}
                   <MessageScrollerItem scrollAnchor={false}>
                     <Marker variant="separator">
-                      <MarkerContent>End of Conversation</MarkerContent>
+                      <MarkerContent>پایان گفتگو</MarkerContent>
                     </Marker>
                   </MessageScrollerItem>
                 </MessageScrollerContent>
@@ -148,22 +148,22 @@ export function MessageScrollerLoadHistory() {
               disabled={!canLoadHistory}
               onClick={() => {
                 setVisibleCount(history.length)
-                toast("History loaded", {
-                  description: "Scroll up to see earlier messages.",
+                toast("تاریخچه بارگذاری شد", {
+                  description: "برای دیدن پیام‌های قبلی به بالا اسکرول کنید.",
                 })
               }}
               className="w-full"
               variant="secondary"
             >
-              {canLoadHistory ? "Load History" : "History Loaded"}
+              {canLoadHistory ? "بارگذاری تاریخچه" : "تاریخچه بارگذاری شد"}
             </Button>
             <p className="text-xs text-muted-foreground">
-              Restore earlier messages while keeping your place.
+              پیام‌های قبلی را با حفظ جایگاهتان بازیابی کنید.
             </p>
           </CardFooter>
         </Card>
         <div className="mx-auto max-w-sm px-0.5 text-center text-xs text-balance text-muted-foreground">
-          Click Load History to load the entire conversation
+          برای بارگذاری کل گفتگو، بارگذاری تاریخچه را بزنید
         </div>
       </div>
     </MessageScrollerProvider>

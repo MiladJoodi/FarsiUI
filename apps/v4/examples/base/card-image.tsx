@@ -24,7 +24,7 @@ export function CardImage() {
         </CardAction>
         <CardTitle>دورهمی سیستم طراحی</CardTitle>
         <CardDescription>
-          گفت‌وگویی کاربردی دربارهٔ API کامپوننت، دسترس‌پذیری و تحویل سریع‌تر.
+          گفت‌وگویی کاربردی درباره API کامپوننت‌ها، دسترس‌پذیری و توسعه سریع‌تر.
         </CardDescription>
       </CardHeader>
       <CardFooter>

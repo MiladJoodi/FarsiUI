@@ -10,27 +10,29 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function FieldFieldset() {
   return (
-    <FieldSet className="w-full max-w-sm">
-      <FieldLegend>Address Information</FieldLegend>
-      <FieldDescription>
-        We need your address to deliver your order.
-      </FieldDescription>
-      <FieldGroup>
-        <Field>
-          <FieldLabel htmlFor="street">Street Address</FieldLabel>
-          <Input id="street" type="text" placeholder="123 Main St" />
-        </Field>
-        <div className="grid grid-cols-2 gap-4">
+    <div dir="rtl">
+      <FieldSet className="w-full max-w-sm">
+        <FieldLegend>اطلاعات آدرس</FieldLegend>
+        <FieldDescription>
+          برای تحویل سفارش به آدرس شما نیاز داریم.
+        </FieldDescription>
+        <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="city">City</FieldLabel>
-            <Input id="city" type="text" placeholder="New York" />
+            <FieldLabel htmlFor="street">آدرس خیابان</FieldLabel>
+            <Input id="street" type="text" placeholder="خیابان ولیعصر، پلاک ۱۲" />
           </Field>
-          <Field>
-            <FieldLabel htmlFor="zip">Postal Code</FieldLabel>
-            <Input id="zip" type="text" placeholder="90502" />
-          </Field>
-        </div>
-      </FieldGroup>
-    </FieldSet>
+          <div className="grid grid-cols-2 gap-4">
+            <Field>
+              <FieldLabel htmlFor="city">شهر</FieldLabel>
+              <Input id="city" type="text" placeholder="تهران" />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="zip">کد پستی</FieldLabel>
+              <Input id="zip" type="text" dir="ltr" placeholder="1234567890" />
+            </Field>
+          </div>
+        </FieldGroup>
+      </FieldSet>
+    </div>
   )
 }

@@ -37,15 +37,15 @@ export function QuestionnaireShortcuts() {
 
     const action = new FormData(event.currentTarget).get("action")
 
-    toast("Next action selected", {
-      description: `Action: ${action ?? "None"} · Shortcuts: ${shortcuts ?? "none"}`,
+    toast("اقدام بعدی انتخاب شد", {
+      description: `اقدام: ${action ?? "هیچ"} · میانبرها: ${shortcuts ?? "هیچ"}`,
     })
   }
 
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-md flex-col">
+    <div dir="rtl" className="relative mx-auto flex h-full w-full max-w-md flex-col">
       <NativeSelect
-        aria-label="Shortcut style"
+        aria-label="سبک میانبر"
         className="absolute end-0 top-0"
         value={shortcuts ?? "none"}
         onChange={(event) => {
@@ -55,9 +55,9 @@ export function QuestionnaireShortcuts() {
           )
         }}
       >
-        <NativeSelectOption value="none">No shortcuts</NativeSelectOption>
-        <NativeSelectOption value="letters">Letters</NativeSelectOption>
-        <NativeSelectOption value="numbers">Numbers</NativeSelectOption>
+        <NativeSelectOption value="none">بدون میانبر</NativeSelectOption>
+        <NativeSelectOption value="letters">حروف</NativeSelectOption>
+        <NativeSelectOption value="numbers">اعداد</NativeSelectOption>
       </NativeSelect>
 
       <Questionnaire
@@ -68,27 +68,27 @@ export function QuestionnaireShortcuts() {
       >
         <QuestionnaireItem name="action" required>
           <QuestionnaireTitle>
-            What should the agent do next?
+            عامل باید بعداً چه کاری انجام دهد؟
           </QuestionnaireTitle>
           <QuestionnaireDescription>
-            Use the displayed shortcut or navigate with the keyboard.
+            از میانبر نمایش‌داده‌شده استفاده کنید یا با صفحه‌کلید جابه‌جا شوید.
           </QuestionnaireDescription>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="inspect">
-              Inspect the implementation
+              بررسی پیاده‌سازی
             </QuestionnaireChoice>
             <QuestionnaireChoice value="tests">
-              Run the relevant tests
+              اجرای تست‌های مرتبط
             </QuestionnaireChoice>
             <QuestionnaireChoice value="patch">
-              Prepare the patch
+              آماده‌سازی پچ
             </QuestionnaireChoice>
           </QuestionnaireChoices>
           <QuestionnaireError />
         </QuestionnaireItem>
 
         <QuestionnaireActions>
-          <QuestionnaireSubmit>Confirm action</QuestionnaireSubmit>
+          <QuestionnaireSubmit>تأیید اقدام</QuestionnaireSubmit>
         </QuestionnaireActions>
       </Questionnaire>
     </div>

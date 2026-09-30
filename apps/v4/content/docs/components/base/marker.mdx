@@ -1,30 +1,39 @@
 ---
-title: Marker
-description: Displays an inline status, system note, bordered row, or labeled separator in a conversation.
+title: نشانگر (Marker)
+description: نمایش وضعیت درخط، یادداشت سیستمی، ردیف حاشیه‌دار یا جداکنندهٔ برچسب‌دار در گفتگو.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-rhea"
-  name="marker-demo"
-  previewClassName="h-auto theme-blue"
+  layout="switcher"
+  examples={[
+    { name: "marker-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "marker-variants", label: "واریانت‌ها", sizeable: false },
+    { name: "marker-status", label: "وضعیت", sizeable: false },
+    { name: "marker-shimmer", label: "شیمر", sizeable: false },
+    { name: "marker-separator", label: "جداکننده", sizeable: false },
+    { name: "marker-border", label: "حاشیه", sizeable: false },
+    { name: "marker-icon", label: "آیکون", sizeable: false },
+    { name: "marker-link-button", label: "لینک و دکمه", sizeable: false },
+  ]}
 />
 
-The `Marker` component displays inline conversation markers such as status updates, system notes, bordered rows, and labeled separators. Compose it with [`Message`](/docs/components/message) in a conversation thread.
+کامپوننت `Marker` نشانگرهای درخط گفتگو مثل به‌روزرسانی وضعیت، یادداشت سیستمی، ردیف حاشیه‌دار و جداکنندهٔ برچسب‌دار را نمایش می‌دهد. آن را با [`پیام`](/docs/components/message) در یک نخ گفتگو ترکیب کنید.
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add marker
+npx farsiui@latest add marker
 ```
 
 </TabsContent>
@@ -33,7 +42,7 @@ npx shadcn@latest add marker
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="marker"
@@ -41,7 +50,7 @@ npx shadcn@latest add marker
   styleName="base-rhea"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -49,7 +58,7 @@ npx shadcn@latest add marker
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Marker, MarkerContent, MarkerIcon } from "@/components/ui/marker"
@@ -60,13 +69,19 @@ import { Marker, MarkerContent, MarkerIcon } from "@/components/ui/marker"
   <MarkerIcon>
     <CheckIcon />
   </MarkerIcon>
-  <MarkerContent>Explored 4 files</MarkerContent>
+  <MarkerContent>۴ فایل بررسی شد</MarkerContent>
 </Marker>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a marker:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت نشانگر از این ترکیب استفاده کنید:
 
 ```text
 Marker
@@ -74,87 +89,158 @@ Marker
 └── MarkerContent
 ```
 
-## Features
+</DocsCollapsible>
 
-- Inline marker, bordered row, and labeled separator variants
-- Decorative icon slot that is hidden from assistive tech
-- Polymorphic root via `render` for link and button markers
-- Pairs with the [`shimmer`](/docs/utils/shimmer) utility for streaming status text
-- Customizable styling through the `className` prop on every part
+<div className="hidden">
 
-## Variants
+## قابلیت‌ها
 
-Use `variant` to switch between an inline marker, bordered row, and labeled separator.
+</div>
+
+<DocsCollapsible title="قابلیت‌ها">
+
+- واریانت‌های نشانگر درخط، ردیف حاشیه‌دار و جداکنندهٔ برچسب‌دار
+- اسلات آیکون تزئینی که از فناوری کمکی پنهان است
+- ریشهٔ چندشکلی با `render` برای نشانگر لینک و دکمه
+- همراهی با ابزار [`shimmer`](/docs/utils/shimmer) برای متن وضعیت جریانی
+- استایل‌دهی سفارشی از طریق `className` روی هر بخش
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## واریانت‌ها
+
+</div>
+
+<DocsCollapsible title="واریانت‌ها">
+
+با `variant` بین نشانگر درخط، ردیف حاشیه‌دار و جداکنندهٔ برچسب‌دار جابه‌جا شوید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-variants"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-| Variant     | Description                                          |
-| ----------- | ---------------------------------------------------- |
-| `default`   | An inline marker for status, notes, and actions.     |
-| `border`    | A default marker with a bottom border under the row. |
-| `separator` | A centered label with divider lines on each side.    |
+| واریانت     | توضیح                                                   |
+| ----------- | ------------------------------------------------------- |
+| `default`   | نشانگر درخط برای وضعیت، یادداشت و اقدام‌ها.           |
+| `border`    | نشانگر پیش‌فرض با حاشیهٔ پایین زیر ردیف.              |
+| `separator` | برچسب وسط با خطوط جداکننده در دو طرف.                 |
 
-## Status
+</DocsCollapsible>
 
-Set `role="status"` and include a [`Spinner`](/docs/components/spinner) for streaming or in-progress markers so updates are announced.
+<div className="hidden">
+
+## وضعیت
+
+</div>
+
+<DocsCollapsible title="وضعیت">
+
+برای نشانگرهای جریانی یا در حال انجام، `role="status"` بگذارید و [`Spinner`](/docs/components/spinner) اضافه کنید تا به‌روزرسانی‌ها اعلام شوند.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-status"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Shimmer
+</DocsCollapsible>
 
-Add the [`shimmer`](/docs/utils/shimmer) utility class to `MarkerContent` for an animated streaming-text effect. The utility ships with the `shadcn` package — see the shimmer docs for installation.
+<div className="hidden">
+
+## شیمر
+
+</div>
+
+<DocsCollapsible title="شیمر">
+
+کلاس ابزار [`shimmer`](/docs/utils/shimmer) را به `MarkerContent` اضافه کنید تا افکت متن جریانی متحرک داشته باشید. این ابزار همراه بستهٔ `farsiui` است — برای نصب، مستندات شیمر را ببینید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-shimmer"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Separator
+</DocsCollapsible>
 
-Use the `separator` variant for labeled dividers, such as dates or section breaks, in a conversation.
+<div className="hidden">
+
+## جداکننده
+
+</div>
+
+<DocsCollapsible title="جداکننده">
+
+از واریانت `separator` برای جداکننده‌های برچسب‌دار مثل تاریخ یا شکست بخش در گفتگو استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-separator"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Border
+</DocsCollapsible>
 
-Use the `border` variant for status rows that should keep the default marker alignment while separating the next row.
+<div className="hidden">
+
+## حاشیه
+
+</div>
+
+<DocsCollapsible title="حاشیه">
+
+از واریانت `border` برای ردیف‌های وضعیتی استفاده کنید که تراز نشانگر پیش‌فرض را نگه می‌دارند و ردیف بعدی را جدا می‌کنند.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-border"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## With Icon
+</DocsCollapsible>
 
-Use `MarkerIcon` to render an icon alongside the content. Use `flex-col` to stack the icon above the content.
+<div className="hidden">
+
+## با آیکون
+
+</div>
+
+<DocsCollapsible title="با آیکون">
+
+با `MarkerIcon` آیکون کنار محتوا بگذارید. با `flex-col` آیکون را بالای محتوا بچینید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-icon"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Links and Buttons
+</DocsCollapsible>
 
-Turn a marker into a link or button with the `render` prop on `Marker`.
+<div className="hidden">
+
+## لینک و دکمه
+
+</div>
+
+<DocsCollapsible title="لینک و دکمه">
+
+با prop به نام `render` روی `Marker` نشانگر را به لینک یا دکمه تبدیل کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="marker-link-button"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
@@ -164,108 +250,166 @@ import { Marker, MarkerContent } from "@/components/ui/marker"
 export function MarkerLinkDemo() {
   return (
     <Marker render={<a href="#" />}>
-      <MarkerContent>View the pull request</MarkerContent>
+      <MarkerContent>مشاهدهٔ پول‌ریکوئست</MarkerContent>
     </Marker>
   )
 }
 ```
 
-## Accessibility
+</DocsCollapsible>
 
-`Marker` is presentational by default. The correct semantics depend on how you use it, so choose the role based on intent rather than relying on a single default.
+<div className="hidden">
 
-### Status and Progress
+## دسترس‌پذیری
 
-For streaming or progress markers such as "Thinking..." or a running tool, set `role="status"` so assistive tech announces the update as it appears. `Marker` forwards `role` to the underlying element.
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+`Marker` به‌صورت پیش‌فرض نمایشی است. معنای درست به نحوهٔ استفاده بستگی دارد؛ نقش را بر اساس نیت انتخاب کنید، نه یک پیش‌فرض واحد.
+
+### وضعیت و پیشرفت
+
+برای نشانگرهای جریانی یا پیشرفت مثل «در حال فکر کردن...» یا ابزار در حال اجرا، `role="status"` بگذارید تا فناوری کمکی به‌روزرسانی را اعلام کند. `Marker` مقدار `role` را به عنصر زیرین پاس می‌دهد.
 
 ```tsx showLineNumbers
 <Marker role="status">
   <MarkerIcon>
     <Spinner />
   </MarkerIcon>
-  <MarkerContent>Compacting conversation</MarkerContent>
+  <MarkerContent>در حال فشرده‌سازی گفتگو</MarkerContent>
 </Marker>
 ```
 
-### Labeled Separators
+### جداکننده‌های برچسب‌دار
 
-A separator that carries text, such as a date or a section label, needs no role. The divider lines are decorative CSS pseudo-elements, and the text is announced as ordinary content.
+جداکننده‌ای که متن دارد (مثل تاریخ یا برچسب بخش) نیازی به نقش ندارد. خطوط جداکننده با CSS تزئینی‌اند و متن مثل محتوای معمولی اعلام می‌شود.
 
 ```tsx showLineNumbers
 <Marker variant="separator">
-  <MarkerContent>Today</MarkerContent>
+  <MarkerContent>امروز</MarkerContent>
 </Marker>
 ```
 
 <Callout>
-  **Note:** Do not add `role="separator"` to a labeled divider. A separator
-  takes its accessible name from `aria-label`, not from its text, and its
-  contents are treated as presentational, so the visible label would not be
-  announced. Reserve `role="separator"` for a divider with no meaningful text.
+  **توجه:** به جداکنندهٔ برچسب‌دار `role="separator"` ندهید. جداکننده نام
+  دسترس‌پذیر را از `aria-label` می‌گیرد نه از متن، و محتوایش نمایشی تلقی
+  می‌شود؛ پس برچسب دیده‌شده اعلام نمی‌شود. `role="separator"` را برای
+  جداکننده بدون متن معنادار نگه دارید.
 </Callout>
 
-### Bordered Markers
+### نشانگرهای حاشیه‌دار
 
-A bordered marker keeps the same semantics as the default marker. The bottom border is decorative, so choose `role="status"`, `render`, or no role based on the marker's purpose.
+نشانگر حاشیه‌دار همان معنای نشانگر پیش‌فرض را دارد. حاشیهٔ پایین تزئینی است؛ بر اساس هدف نشانگر `role="status"`، `render` یا بدون نقش را انتخاب کنید.
 
 ```tsx showLineNumbers
 <Marker variant="border">
   <MarkerIcon>
     <FileTextIcon />
   </MarkerIcon>
-  <MarkerContent>Opened implementation notes</MarkerContent>
+  <MarkerContent>یادداشت‌های پیاده‌سازی باز شد</MarkerContent>
 </Marker>
 ```
 
-### Decorative Icons
+### آیکون‌های تزئینی
 
-`MarkerIcon` is decorative and hidden from assistive tech with `aria-hidden`, so the adjacent `MarkerContent` carries the meaning. For an icon-only marker, provide an `aria-label` or visible text so it is not announced as empty.
+`MarkerIcon` تزئینی است و با `aria-hidden` از فناوری کمکی پنهان می‌شود؛ معنای معنایی را `MarkerContent` مجاور می‌برد. برای نشانگر فقط‌آیکون، `aria-label` یا متن دیده‌شده بگذارید تا خالی اعلام نشود.
 
 ```tsx showLineNumbers
-<Marker aria-label="Synced">
+<Marker aria-label="همگام شد">
   <MarkerIcon>
     <CheckIcon />
   </MarkerIcon>
 </Marker>
 ```
 
-### Interactive Markers
+### نشانگرهای تعاملی
 
-When a marker links or triggers an action, render it as a real `<button>` or `<a>` with the `render` prop so it is focusable and exposes the correct role. The accessible name comes from the marker text.
+وقتی نشانگر لینک می‌دهد یا اقدامی را اجرا می‌کند، با `render` آن را به‌صورت `<button>` یا `<a>` واقعی رندر کنید تا فوکوس‌پذیر باشد و نقش درست داشته باشد. نام دسترس‌پذیر از متن نشانگر می‌آید.
 
 ```tsx showLineNumbers
 <Marker render={<a href="/files" />}>
   <MarkerIcon>
     <FileTextIcon />
   </MarkerIcon>
-  <MarkerContent>Explored 4 files</MarkerContent>
+  <MarkerContent>۴ فایل بررسی شد</MarkerContent>
 </Marker>
 ```
 
-## API Reference
+</DocsCollapsible>
 
-### Marker
+<div className="hidden">
 
-The root marker element. The file also exports `markerVariants` for composing the marker styles into custom components.
+## پشتیبانی RTL
 
-| Prop        | Type                                   | Default     | Description                                      |
-| ----------- | -------------------------------------- | ----------- | ------------------------------------------------ |
-| `variant`   | `"default" \| "border" \| "separator"` | `"default"` | The marker layout.                               |
-| `render`    | `ReactElement \| function`             | -           | Render as a different element, such as a link.   |
-| `className` | `string`                               | -           | Additional classes to apply to the root element. |
+</div>
 
-### MarkerIcon
+<DocsCollapsible title="پشتیبانی RTL">
 
-A decorative icon slot. Hidden from assistive tech with `aria-hidden`.
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
-| Prop        | Type     | Default | Description                                   |
-| ----------- | -------- | ------- | --------------------------------------------- |
-| `className` | `string` | -       | Additional classes to apply to the icon slot. |
+<ComponentPreview
+  styleName="base-rhea"
+  name="marker-demo"
+  direction="rtl"
+  previewClassName="h-auto theme-blue"
+/>
 
-### MarkerContent
+</DocsCollapsible>
 
-The marker text content.
+<div className="hidden">
 
-| Prop        | Type     | Default | Description                                      |
-| ----------- | -------- | ------- | ------------------------------------------------ |
-| `className` | `string` | -       | Additional classes to apply to the content slot. |
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Marker"
+  description="عنصر ریشهٔ نشانگر. فایل همچنین markerVariants را برای ترکیب استایل در کامپوننت‌های سفارشی صادر می‌کند."
+  props={[
+    {
+      name: "variant",
+      description: "چیدمان نشانگر",
+      values: ["default", "border", "separator"],
+      defaultValue: "default",
+    },
+    {
+      name: "render",
+      description: "رندر به‌عنوان عنصر دیگر، مثل لینک",
+      values: ["ReactElement", "function"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی ریشه",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="MarkerIcon"
+  description="اسلات آیکون تزئینی. با aria-hidden از فناوری کمکی پنهان است."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی اسلات آیکون",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="MarkerContent"
+  description="محتوای متنی نشانگر."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی اسلات محتوا",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

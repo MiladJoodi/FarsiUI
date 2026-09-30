@@ -31,6 +31,7 @@ export function CardRtl() {
               <Input
                 id="email-rtl"
                 type="email"
+                dir="ltr"
                 placeholder="m@example.com"
                 required
               />

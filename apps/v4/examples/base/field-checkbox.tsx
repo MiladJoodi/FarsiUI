@@ -12,67 +12,68 @@ import {
 
 export function FieldCheckbox() {
   return (
-    <FieldGroup className="w-full max-w-xs">
-      <FieldSet>
-        <FieldLegend variant="label">
-          Show these items on the desktop
-        </FieldLegend>
-        <FieldDescription>
-          Select the items you want to show on the desktop.
-        </FieldDescription>
-        <FieldGroup className="gap-3">
-          <Field orientation="horizontal">
-            <Checkbox id="finder-pref-9k2-hard-disks-ljj" />
-            <FieldLabel
-              htmlFor="finder-pref-9k2-hard-disks-ljj"
-              className="font-normal"
-              defaultChecked
-            >
-              Hard disks
-            </FieldLabel>
-          </Field>
-          <Field orientation="horizontal">
-            <Checkbox id="finder-pref-9k2-external-disks-1yg" />
-            <FieldLabel
-              htmlFor="finder-pref-9k2-external-disks-1yg"
-              className="font-normal"
-            >
-              External disks
-            </FieldLabel>
-          </Field>
-          <Field orientation="horizontal">
-            <Checkbox id="finder-pref-9k2-cds-dvds-fzt" />
-            <FieldLabel
-              htmlFor="finder-pref-9k2-cds-dvds-fzt"
-              className="font-normal"
-            >
-              CDs, DVDs, and iPods
-            </FieldLabel>
-          </Field>
-          <Field orientation="horizontal">
-            <Checkbox id="finder-pref-9k2-connected-servers-6l2" />
-            <FieldLabel
-              htmlFor="finder-pref-9k2-connected-servers-6l2"
-              className="font-normal"
-            >
-              Connected servers
-            </FieldLabel>
-          </Field>
-        </FieldGroup>
-      </FieldSet>
-      <FieldSeparator />
-      <Field orientation="horizontal">
-        <Checkbox id="finder-pref-9k2-sync-folders-nep" defaultChecked />
-        <FieldContent>
-          <FieldLabel htmlFor="finder-pref-9k2-sync-folders-nep">
-            Sync Desktop & Documents folders
-          </FieldLabel>
+    <div dir="rtl">
+      <FieldGroup className="w-full max-w-xs">
+        <FieldSet>
+          <FieldLegend variant="label">
+            این موارد را روی دسکتاپ نشان بده
+          </FieldLegend>
           <FieldDescription>
-            Your Desktop & Documents folders are being synced with iCloud Drive.
-            You can access them from other devices.
+            مواردی را که می‌خواهید روی دسکتاپ دیده شوند انتخاب کنید.
           </FieldDescription>
-        </FieldContent>
-      </Field>
-    </FieldGroup>
+          <FieldGroup className="gap-3">
+            <Field orientation="horizontal">
+              <Checkbox id="finder-pref-9k2-hard-disks-ljj" defaultChecked />
+              <FieldLabel
+                htmlFor="finder-pref-9k2-hard-disks-ljj"
+                className="font-normal"
+              >
+                دیسک‌های سخت
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <Checkbox id="finder-pref-9k2-external-disks-1yg" />
+              <FieldLabel
+                htmlFor="finder-pref-9k2-external-disks-1yg"
+                className="font-normal"
+              >
+                دیسک‌های خارجی
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <Checkbox id="finder-pref-9k2-cds-dvds-fzt" />
+              <FieldLabel
+                htmlFor="finder-pref-9k2-cds-dvds-fzt"
+                className="font-normal"
+              >
+                سی‌دی، دی‌وی‌دی و آیپاد
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <Checkbox id="finder-pref-9k2-connected-servers-6l2" />
+              <FieldLabel
+                htmlFor="finder-pref-9k2-connected-servers-6l2"
+                className="font-normal"
+              >
+                سرورهای متصل
+              </FieldLabel>
+            </Field>
+          </FieldGroup>
+        </FieldSet>
+        <FieldSeparator />
+        <Field orientation="horizontal">
+          <Checkbox id="finder-pref-9k2-sync-folders-nep" defaultChecked />
+          <FieldContent>
+            <FieldLabel htmlFor="finder-pref-9k2-sync-folders-nep">
+              همگام‌سازی پوشهٔ دسکتاپ و اسناد
+            </FieldLabel>
+            <FieldDescription>
+              پوشه‌های دسکتاپ و اسناد با آی‌کلود همگام می‌شوند. می‌توانید از
+              دستگاه‌های دیگر به آن‌ها دسترسی داشته باشید.
+            </FieldDescription>
+          </FieldContent>
+        </Field>
+      </FieldGroup>
+    </div>
   )
 }

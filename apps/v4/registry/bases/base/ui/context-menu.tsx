@@ -140,7 +140,7 @@ function ContextMenuSubTrigger({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip ml-auto"
+        className="cn-rtl-flip ms-auto"
       />
     </ContextMenuPrimitive.SubmenuTrigger>
   )
@@ -153,7 +153,7 @@ function ContextMenuSubContent({
     <ContextMenuContent
       data-slot="context-menu-sub-content"
       className="cn-context-menu-subcontent cn-menu-target cn-menu-translucent"
-      side="right"
+      side="inline-end"
       {...props}
     />
   )

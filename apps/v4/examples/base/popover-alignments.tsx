@@ -7,33 +7,31 @@ import {
 
 export function PopoverAlignments() {
   return (
-    <>
-      <div className="flex gap-6">
-        <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
-            Start
-          </PopoverTrigger>
-          <PopoverContent align="start" className="w-40">
-            Aligned to start
-          </PopoverContent>
-        </Popover>
-        <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
-            Center
-          </PopoverTrigger>
-          <PopoverContent align="center" className="w-40">
-            Aligned to center
-          </PopoverContent>
-        </Popover>
-        <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
-            End
-          </PopoverTrigger>
-          <PopoverContent align="end" className="w-40">
-            Aligned to end
-          </PopoverContent>
-        </Popover>
-      </div>
-    </>
+    <div dir="rtl" className="flex gap-6">
+      <Popover>
+        <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          شروع
+        </PopoverTrigger>
+        <PopoverContent align="start" className="w-40">
+          تراز به شروع
+        </PopoverContent>
+      </Popover>
+      <Popover>
+        <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          مرکز
+        </PopoverTrigger>
+        <PopoverContent align="center" className="w-40">
+          تراز به مرکز
+        </PopoverContent>
+      </Popover>
+      <Popover>
+        <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          پایان
+        </PopoverTrigger>
+        <PopoverContent align="end" className="w-40">
+          تراز به پایان
+        </PopoverContent>
+      </Popover>
+    </div>
   )
 }

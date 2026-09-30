@@ -1,6 +1,6 @@
 ---
-title: Radio Group
-description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+title: گروه رادیویی (Radio Group)
+description: مجموعه‌ای از دکمه‌های قابل انتخاب — دکمه‌های رادیویی — که در هر لحظه حداکثر یکی از آن‌ها انتخاب می‌شود.
 base: base
 component: true
 links:
@@ -8,20 +8,31 @@ links:
   api: https://base-ui.com/react/components/radio-group#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="radio-group-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "radio-group-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "radio-group-description", label: "توضیح", sizeable: false },
+    { name: "radio-group-choice-card", label: "کارت انتخاب", sizeable: false },
+    { name: "radio-group-fieldset", label: "فیلدست", sizeable: false },
+    { name: "radio-group-disabled", label: "غیرفعال", sizeable: false },
+    { name: "radio-group-invalid", label: "نامعتبر", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add radio-group
+npx farsiui@latest add radio-group
 ```
 
 </TabsContent>
@@ -30,13 +41,13 @@ npx shadcn@latest add radio-group
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="radio-group"
@@ -44,7 +55,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -52,7 +63,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Label } from "@/components/ui/label"
@@ -63,18 +74,24 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 <RadioGroup defaultValue="option-one">
   <div className="flex items-center gap-3">
     <RadioGroupItem value="option-one" id="option-one" />
-    <Label htmlFor="option-one">Option One</Label>
+    <Label htmlFor="option-one">گزینه یک</Label>
   </div>
   <div className="flex items-center gap-3">
     <RadioGroupItem value="option-two" id="option-two" />
-    <Label htmlFor="option-two">Option Two</Label>
+    <Label htmlFor="option-two">گزینه دو</Label>
   </div>
 </RadioGroup>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `RadioGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `RadioGroup` از این ترکیب استفاده کنید:
 
 ```text
 RadioGroup
@@ -82,39 +99,107 @@ RadioGroup
 └── RadioGroupItem
 ```
 
-## Description
+</DocsCollapsible>
 
-Radio group items with a description using the `Field` component.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="radio-group-description" />
+## توضیح
 
-## Choice Card
+</div>
 
-Use `FieldLabel` to wrap the entire `Field` for a clickable card-style selection.
+<DocsCollapsible title="توضیح">
 
-<ComponentPreview styleName="base-nova" name="radio-group-choice-card" />
+آیتم‌های گروه رادیویی با توضیح، با کامپوننت `Field`.
 
-## Fieldset
+<ComponentPreview
+  styleName="base-nova"
+  name="radio-group-description"
+  direction="rtl"
+/>
 
-Use `FieldSet` and `FieldLegend` to group radio items with a label and description.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="radio-group-fieldset" />
+<div className="hidden">
 
-## Disabled
+## کارت انتخاب
 
-Use the `disabled` prop on `RadioGroup` to disable all items.
+</div>
 
-<ComponentPreview styleName="base-nova" name="radio-group-disabled" />
+<DocsCollapsible title="کارت انتخاب">
 
-## Invalid
+با `FieldLabel` کل `Field` را بپوشانید تا انتخاب به‌صورت کارت قابل کلیک باشد.
 
-Use `aria-invalid` on `RadioGroupItem` and `data-invalid` on `Field` to show validation errors.
+<ComponentPreview
+  styleName="base-nova"
+  name="radio-group-choice-card"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="radio-group-invalid" />
+</DocsCollapsible>
 
-## RTL
+<div className="hidden">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+## فیلدست
+
+</div>
+
+<DocsCollapsible title="فیلدست">
+
+با `FieldSet` و `FieldLegend` آیتم‌های رادیویی را با برچسب و توضیح گروه‌بندی کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="radio-group-fieldset"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## غیرفعال
+
+</div>
+
+<DocsCollapsible title="غیرفعال">
+
+با prop به نام `disabled` روی `RadioGroupItem` تعامل را ببندید و برای استایل غیرفعال، `data-disabled` را روی `<Field>` بگذارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="radio-group-disabled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+روی `RadioGroupItem` مقدار `aria-invalid` و روی `Field` مقدار `data-invalid` بگذارید تا خطای اعتبارسنجی نمایش داده شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="radio-group-invalid"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -122,6 +207,16 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Radio Group](https://base-ui.com/react/components/radio-group#api-reference) documentation.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Radio Group](https://base-ui.com/react/components/radio-group#api-reference) را ببینید.
+
+</DocsCollapsible>

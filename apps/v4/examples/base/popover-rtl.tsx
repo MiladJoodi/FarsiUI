@@ -1,10 +1,4 @@
-"use client"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Button } from "@/styles/base-nova/ui-rtl/button"
+import { Button } from "@/styles/base-nova/ui/button"
 import {
   Popover,
   PopoverContent,
@@ -12,83 +6,52 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/styles/base-nova/ui-rtl/popover"
+} from "@/styles/base-nova/ui/popover"
 
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      title: "Dimensions",
-      description: "Set the dimensions for the layer.",
-      "inline-start": "Inline Start",
-      left: "Left",
-      top: "Top",
-      bottom: "Bottom",
-      right: "Right",
-      "inline-end": "Inline End",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      title: "الأبعاد",
-      description: "تعيين الأبعاد للطبقة.",
-      "inline-start": "بداية السطر",
-      left: "يسار",
-      top: "أعلى",
-      bottom: "أسفل",
-      right: "يمين",
-      "inline-end": "نهاية السطر",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      title: "מימדים",
-      description: "הגדר את המימדים לשכבה.",
-      "inline-start": "תחילת השורה",
-      left: "שמאל",
-      top: "למעלה",
-      bottom: "למטה",
-      right: "ימין",
-      "inline-end": "סוף השורה",
-    },
-  },
-}
+const physicalSides = [
+  { side: "left" as const, label: "چپ" },
+  { side: "top" as const, label: "بالا" },
+  { side: "bottom" as const, label: "پایین" },
+  { side: "right" as const, label: "راست" },
+]
 
-const physicalSides = ["left", "top", "bottom", "right"] as const
-const logicalSides = ["inline-start", "inline-end"] as const
+const logicalSides = [
+  { side: "inline-start" as const, label: "شروع درون‌خطی" },
+  { side: "inline-end" as const, label: "پایان درون‌خطی" },
+]
 
 export function PopoverRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <div className="grid gap-4">
+    <div dir="rtl" className="grid gap-4">
       <div className="flex flex-wrap justify-center gap-2">
-        {physicalSides.map((side) => (
+        {physicalSides.map(({ side, label }) => (
           <Popover key={side}>
             <PopoverTrigger render={<Button variant="outline" />}>
-              {t[side]}
+              {label}
             </PopoverTrigger>
-            <PopoverContent side={side} dir={dir}>
+            <PopoverContent side={side}>
               <PopoverHeader>
-                <PopoverTitle>{t.title}</PopoverTitle>
-                <PopoverDescription>{t.description}</PopoverDescription>
+                <PopoverTitle>ابعاد</PopoverTitle>
+                <PopoverDescription>
+                  ابعاد لایه را تنظیم کنید.
+                </PopoverDescription>
               </PopoverHeader>
             </PopoverContent>
           </Popover>
         ))}
       </div>
       <div className="flex flex-wrap justify-center gap-2">
-        {logicalSides.map((side) => (
+        {logicalSides.map(({ side, label }) => (
           <Popover key={side}>
             <PopoverTrigger render={<Button variant="outline" />}>
-              {t[side]}
+              {label}
             </PopoverTrigger>
-            <PopoverContent side={side} dir={dir}>
+            <PopoverContent side={side}>
               <PopoverHeader>
-                <PopoverTitle>{t.title}</PopoverTitle>
-                <PopoverDescription>{t.description}</PopoverDescription>
+                <PopoverTitle>ابعاد</PopoverTitle>
+                <PopoverDescription>
+                  ابعاد لایه را تنظیم کنید.
+                </PopoverDescription>
               </PopoverHeader>
             </PopoverContent>
           </Popover>

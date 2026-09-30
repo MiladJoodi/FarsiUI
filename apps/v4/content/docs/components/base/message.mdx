@@ -1,32 +1,39 @@
 ---
-title: Message
-description: Displays a message in a conversation, with optional avatar, header, footer, and alignment.
+title: پیام (Message)
+description: نمایش یک پیام در گفتگو، با آواتار، هدر، فوتر و تراز اختیاری.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-rhea"
-  name="message-demo"
-  previewClassName="h-auto theme-blue"
+  layout="switcher"
+  examples={[
+    { name: "message-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "message-avatar", label: "آواتار", sizeable: false },
+    { name: "message-group", label: "گروه", sizeable: false },
+    { name: "message-header-footer", label: "هدر و فوتر", sizeable: false },
+    { name: "message-actions", label: "اقدام‌ها", sizeable: false },
+    { name: "message-attachment", label: "پیوست", sizeable: false },
+  ]}
 />
 
-The `Message` component lays out a single message in a conversation. It handles the avatar, alignment, header, and footer around the message surface.
+کامپوننت `Message` چیدمان یک پیام در گفتگو را می‌سازد؛ آواتار، تراز، هدر و فوتر را اطراف سطح پیام مدیریت می‌کند.
 
-For AI apps, you can render reasoning steps, tool calls and assistant messages using the `Message` component.
+در اپ‌های هوش مصنوعی می‌توانید مراحل استدلال، فراخوانی ابزار و پیام‌های دستیار را با `Message` رندر کنید.
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add message
+npx farsiui@latest add message
 ```
 
 </TabsContent>
@@ -35,7 +42,7 @@ npx shadcn@latest add message
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="message"
@@ -43,7 +50,7 @@ npx shadcn@latest add message
   styleName="base-rhea"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -51,7 +58,7 @@ npx shadcn@latest add message
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -69,20 +76,26 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
   </MessageAvatar>
   <MessageContent>
     <Bubble>
-      <BubbleContent>How can I help you today?</BubbleContent>
+      <BubbleContent>چطور می‌توانم کمکتان کنم؟</BubbleContent>
     </Bubble>
   </MessageContent>
 </Message>
 ```
 
-**Note:** `Message` owns the row layout—avatar, alignment, header, and footer.
-Render the visible message surface inside it with
-[`Bubble`](/docs/components/bubble). For the scroll container around a
-conversation, use [`MessageScroller`](/docs/components/message-scroller).
+**توجه:** `Message` مالک چیدمان ردیف است — آواتار، تراز، هدر و فوتر.
+سطح دیده‌شدهٔ پیام را داخل آن با [`حباب`](/docs/components/bubble) رندر کنید.
+برای ظرف اسکرول اطراف گفتگو از
+[`پیمایشگر پیام`](/docs/components/message-scroller) استفاده کنید.
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a message:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت پیام از این ترکیب استفاده کنید:
 
 ```text
 Message
@@ -93,7 +106,7 @@ Message
     └── MessageFooter
 ```
 
-Use `MessageGroup` to stack consecutive messages from the same sender:
+با `MessageGroup` پیام‌های پشت‌سرهم یک فرستنده را روی هم بچینید:
 
 ```text
 MessageGroup
@@ -101,87 +114,148 @@ MessageGroup
 └── Message
 ```
 
-## Features
+</DocsCollapsible>
 
-- Start and end alignment for sender and receiver rows via the `align` prop
-- Avatar slot that anchors to the bottom of the message and stays clear of the footer
-- Header and footer slots for sender names, status, and message actions
-- Footer follows the message side; actions stay aligned on `align="end"` rows
-- Group wrapper for stacking consecutive messages from the same sender
-- Customizable styling through the `className` prop on every part
+<div className="hidden">
 
-## Avatar
+## قابلیت‌ها
 
-Use `MessageAvatar` to render an avatar next to the message. Set `align="end"` on the message to align the avatar to the end of the message.
+</div>
+
+<DocsCollapsible title="قابلیت‌ها">
+
+- تراز شروع و پایان برای ردیف فرستنده و گیرنده با prop به نام `align`
+- اسلات آواتار که به پایین پیام لنگر می‌شود و از فوتر فاصله می‌گیرد
+- اسلات هدر و فوتر برای نام فرستنده، وضعیت و اقدام‌های پیام
+- فوتر سمت پیام را دنبال می‌کند؛ اقدام‌ها روی ردیف‌های `align="end"` تراز می‌مانند
+- ظرف گروه برای چیدن پیام‌های پشت‌سرهم یک فرستنده
+- استایل‌دهی سفارشی از طریق `className` روی هر بخش
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آواتار
+
+</div>
+
+<DocsCollapsible title="آواتار">
+
+با `MessageAvatar` آواتار کنار پیام بگذارید. با `align="end"` روی پیام، آواتار را به انتهای پیام تراز کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="message-avatar"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-| align   | Description                                         |
-| ------- | --------------------------------------------------- |
-| `start` | Align the message to the start of the conversation. |
-| `end`   | Align the message to the end of the conversation.   |
+| تراز    | توضیح                                          |
+| ------- | ---------------------------------------------- |
+| `start` | پیام را به ابتدای گفتگو تراز می‌کند.         |
+| `end`   | پیام را به انتهای گفتگو تراز می‌کند.         |
 
-## Group
+</DocsCollapsible>
 
-Use `MessageGroup` to stack consecutive messages from the same sender. Render an empty `MessageAvatar` on the earlier messages to keep them aligned with the avatar on the last one.
+<div className="hidden">
+
+## گروه
+
+</div>
+
+<DocsCollapsible title="گروه">
+
+با `MessageGroup` پیام‌های پشت‌سرهم یک فرستنده را روی هم بچینید. روی پیام‌های قبلی `MessageAvatar` خالی بگذارید تا با آواتار آخرین پیام هم‌تراز بمانند.
 
 <ComponentPreview
   styleName="base-rhea"
   name="message-group"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Header and Footer
+</DocsCollapsible>
 
-Use `MessageHeader` for a sender name and `MessageFooter` for metadata such as a delivery or read status.
+<div className="hidden">
+
+## هدر و فوتر
+
+</div>
+
+<DocsCollapsible title="هدر و فوتر">
+
+از `MessageHeader` برای نام فرستنده و از `MessageFooter` برای متادیتا مثل وضعیت تحویل یا خوانده‌شدن استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="message-header-footer"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Actions
+</DocsCollapsible>
 
-Place message-level actions in `MessageFooter`, such as copy, retry, or feedback buttons.
+<div className="hidden">
+
+## اقدام‌ها
+
+</div>
+
+<DocsCollapsible title="اقدام‌ها">
+
+اقدام‌های سطح پیام مثل کپی، تلاش مجدد یا بازخورد را در `MessageFooter` بگذارید.
 
 <ComponentPreview
   styleName="base-rhea"
   name="message-actions"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Attachment
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پیوست
+
+</div>
+
+<DocsCollapsible title="پیوست">
 
 <ComponentPreview
   styleName="base-rhea"
   name="message-attachment"
+  direction="rtl"
   previewClassName="h-auto theme-blue"
 />
 
-## Accessibility
+</DocsCollapsible>
 
-`Message` is a presentational layout wrapper. Accessibility comes from the content you place inside it.
+<div className="hidden">
 
-### Label icon-only actions
+## دسترس‌پذیری
 
-Action buttons in `MessageFooter` are usually icon-only, so give each one an `aria-label`.
+</div>
+
+<DocsCollapsible title="دسترس‌پذیری">
+
+`Message` یک ظرف چیدمان نمایشی است. دسترس‌پذیری از محتوایی که داخلش می‌گذارید می‌آید.
+
+### برچسب اقدام‌های فقط‌آیکون
+
+دکمه‌های اقدام در `MessageFooter` معمولاً فقط‌آیکون‌اند؛ به هرکدام `aria-label` بدهید.
 
 ```tsx showLineNumbers
 <MessageFooter>
-  <Button variant="ghost" size="icon" aria-label="Copy">
+  <Button variant="ghost" size="icon" aria-label="کپی">
     <CopyIcon />
   </Button>
 </MessageFooter>
 ```
 
-### Status updates
+### به‌روزرسانی وضعیت
 
-For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="status"` so assistive tech announces the update as it appears.
+برای پیام‌های در حال انجام، از [`نشانگر`](/docs/components/marker) با `role="status"` استفاده کنید تا فناوری کمکی به‌روزرسانی را اعلام کند.
 
 ```tsx showLineNumbers
 <Message>
@@ -189,58 +263,116 @@ For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="
     <MarkerIcon>
       <Spinner />
     </MarkerIcon>
-    <MarkerContent>Checking the logs...</MarkerContent>
+    <MarkerContent>در حال بررسی لاگ‌ها...</MarkerContent>
   </Marker>
 </Message>
 ```
 
-## API Reference
+</DocsCollapsible>
 
-### Message
+<div className="hidden">
 
-The message row wrapper.
+## پشتیبانی RTL
 
-| Prop        | Type               | Default   | Description                                       |
-| ----------- | ------------------ | --------- | ------------------------------------------------- |
-| `align`     | `"start" \| "end"` | `"start"` | The alignment of the message in the conversation. |
-| `className` | `string`           | -         | Additional classes to apply to the row.           |
+</div>
 
-### MessageGroup
+<DocsCollapsible title="پشتیبانی RTL">
 
-Groups consecutive messages from the same sender.
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
-| Prop        | Type     | Default | Description                                    |
-| ----------- | -------- | ------- | ---------------------------------------------- |
-| `className` | `string` | -       | Additional classes to apply to the group root. |
+<ComponentPreview
+  styleName="base-rhea"
+  name="message-demo"
+  direction="rtl"
+  previewClassName="h-auto theme-blue"
+/>
 
-### MessageAvatar
+</DocsCollapsible>
 
-The avatar slot, aligned to the bottom of the message. When the message has a `MessageFooter`, the avatar shifts up to stay aligned with the message surface instead of the footer.
+<div className="hidden">
 
-| Prop        | Type     | Default | Description                                     |
-| ----------- | -------- | ------- | ----------------------------------------------- |
-| `className` | `string` | -       | Additional classes to apply to the avatar slot. |
+## مرجع API
 
-### MessageContent
+</div>
 
-Wraps the header, message surface, and footer.
+<DocsCollapsible title="مرجع API">
 
-| Prop        | Type     | Default | Description                                      |
-| ----------- | -------- | ------- | ------------------------------------------------ |
-| `className` | `string` | -       | Additional classes to apply to the content slot. |
+<DocsApiProps
+  title="Message"
+  description="ظرف ردیف پیام."
+  props={[
+    {
+      name: "align",
+      description: "تراز پیام در گفتگو",
+      values: ["start", "end"],
+      defaultValue: "start",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی ردیف",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### MessageHeader
+<DocsApiProps
+  title="MessageGroup"
+  description="گروه پیام‌های پشت‌سرهم یک فرستنده."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی ریشهٔ گروه",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Displays content above the message, such as a sender name. Stays aligned to the start regardless of `align`.
+<DocsApiProps
+  title="MessageAvatar"
+  description="اسلات آواتار، تراز با پایین پیام. وقتی MessageFooter هست، آواتار بالا می‌رود تا با سطح پیام هم‌تراز بماند نه فوتر."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی اسلات آواتار",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default | Description                                |
-| ----------- | -------- | ------- | ------------------------------------------ |
-| `className` | `string` | -       | Additional classes to apply to the header. |
+<DocsApiProps
+  title="MessageContent"
+  description="هدر، سطح پیام و فوتر را می‌پوشاند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی اسلات محتوا",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### MessageFooter
+<DocsApiProps
+  title="MessageHeader"
+  description="محتوا بالای پیام، مثل نام فرستنده. صرف‌نظر از align به شروع تراز می‌ماند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی هدر",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Displays content below the message, such as status or actions. Aligns to the message side.
+<DocsApiProps
+  title="MessageFooter"
+  description="محتوا زیر پیام، مثل وضعیت یا اقدام‌ها. به سمت پیام تراز می‌شود."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی فوتر",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default | Description                                |
-| ----------- | -------- | ------- | ------------------------------------------ |
-| `className` | `string` | -       | Additional classes to apply to the footer. |
+</DocsCollapsible>

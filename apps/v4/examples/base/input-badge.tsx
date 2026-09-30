@@ -4,11 +4,11 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputBadge() {
   return (
-    <Field>
+    <Field dir="rtl">
       <FieldLabel htmlFor="input-badge">
-        Webhook URL{" "}
-        <Badge variant="secondary" className="ml-auto">
-          Beta
+        آدرس وب‌هوک{" "}
+        <Badge variant="secondary" className="ms-auto">
+          بتا
         </Badge>
       </FieldLabel>
       <Input

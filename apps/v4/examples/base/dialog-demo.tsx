@@ -15,37 +15,42 @@ import { Label } from "@/styles/base-nova/ui/label"
 
 export function DialogDemo() {
   return (
-    <Dialog>
-      <form>
-        <DialogTrigger render={<Button variant="outline" />}>
-          Open Dialog
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-            </DialogDescription>
-          </DialogHeader>
-          <FieldGroup>
-            <Field>
-              <Label htmlFor="name-1">Name</Label>
-              <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
-            </Field>
-            <Field>
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </Field>
-          </FieldGroup>
-          <DialogFooter>
-            <DialogClose render={<Button variant="outline" />}>
-              Cancel
-            </DialogClose>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
-        </DialogContent>
-      </form>
-    </Dialog>
+    <div dir="rtl">
+      <Dialog>
+        <form>
+          <DialogTrigger render={<Button variant="outline" />}>
+            باز کردن دیالوگ
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-sm">
+            <DialogHeader>
+              <DialogTitle>ویرایش پروفایل</DialogTitle>
+              <DialogDescription>
+                تغییرات پروفایل را اینجا اعمال کنید. بعد از اتمام، ذخیره را بزنید.
+              </DialogDescription>
+            </DialogHeader>
+            <FieldGroup>
+              <Field>
+                <Label htmlFor="name-1">نام</Label>
+                <Input id="name-1" name="name" defaultValue="علی رضایی" />
+              </Field>
+              <Field>
+                <Label htmlFor="username-1">نام کاربری</Label>
+                <Input
+                  id="username-1"
+                  name="username"
+                  defaultValue="@alireza"
+                />
+              </Field>
+            </FieldGroup>
+            <DialogFooter>
+              <DialogClose render={<Button variant="outline" />}>
+                انصراف
+              </DialogClose>
+              <Button type="submit">ذخیره تغییرات</Button>
+            </DialogFooter>
+          </DialogContent>
+        </form>
+      </Dialog>
+    </div>
   )
 }

@@ -1,49 +1,20 @@
 "use client"
 
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Field, FieldLabel } from "@/styles/base-nova/ui-rtl/field"
+import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/styles/base-nova/ui-rtl/input-otp"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      verificationCode: "Verification code",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      verificationCode: "رمز التحقق",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      verificationCode: "קוד אימות",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/input-otp"
 
 export function InputOTPRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <Field className="mx-auto max-w-xs">
-      <FieldLabel htmlFor="input-otp-rtl">{t.verificationCode}</FieldLabel>
+    <Field dir="rtl" className="mx-auto max-w-xs">
+      <FieldLabel htmlFor="input-otp-rtl">کد تأیید</FieldLabel>
       <InputOTP
         maxLength={6}
         defaultValue="123456"
-        dir={dir}
+        dir="rtl"
         id="input-otp-rtl"
       >
         <InputOTPGroup>

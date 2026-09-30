@@ -15,26 +15,31 @@ import {
 
 export function MessageActionsDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message>
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              The install failure is coming from the workspace package.
+              خطای نصب از پکیج workspace می‌آید.
             </BubbleContent>
           </Bubble>
           <MessageFooter>
-            <Button variant="ghost" size="icon" aria-label="Copy" title="Copy">
+            <Button variant="ghost" size="icon" aria-label="کپی" title="کپی">
               <CopyIcon />
             </Button>
-            <Button variant="ghost" size="icon" aria-label="Like" title="Like">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="پسند"
+              title="پسند"
+            >
               <ThumbsUpIcon />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              aria-label="Dislike"
-              title="Dislike"
+              aria-label="نپسندیدن"
+              title="نپسندیدن"
             >
               <ThumbsDownIcon />
             </Button>
@@ -44,15 +49,17 @@ export function MessageActionsDemo() {
       <Message align="end">
         <MessageContent>
           <Bubble>
-            <BubbleContent>Okay drop me a link. Taking a look...</BubbleContent>
+            <BubbleContent>
+              باشه لینک بفرستید. دارم نگاه می‌کنم...
+            </BubbleContent>
           </Bubble>
           <MessageFooter className="gap-2">
-            <span className="font-normal text-destructive">Failed to send</span>
+            <span className="font-normal text-destructive">ارسال نشد</span>
             <Button
               variant="ghost"
               size="icon-xs"
-              title="Retry"
-              aria-label="Retry"
+              title="تلاش مجدد"
+              aria-label="تلاش مجدد"
             >
               <RefreshCcwIcon />
             </Button>

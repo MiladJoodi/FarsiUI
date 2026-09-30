@@ -3,14 +3,14 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputGrid() {
   return (
-    <FieldGroup className="grid max-w-sm grid-cols-2">
+    <FieldGroup dir="rtl" className="grid max-w-sm grid-cols-2">
       <Field>
-        <FieldLabel htmlFor="first-name">First Name</FieldLabel>
-        <Input id="first-name" placeholder="Jordan" />
+        <FieldLabel htmlFor="first-name">نام</FieldLabel>
+        <Input id="first-name" placeholder="علی" />
       </Field>
       <Field>
-        <FieldLabel htmlFor="last-name">Last Name</FieldLabel>
-        <Input id="last-name" placeholder="Lee" />
+        <FieldLabel htmlFor="last-name">نام خانوادگی</FieldLabel>
+        <Input id="last-name" placeholder="رضایی" />
       </Field>
     </FieldGroup>
   )

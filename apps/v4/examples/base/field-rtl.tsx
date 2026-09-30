@@ -1,13 +1,5 @@
-"use client"
-
-import * as React from "react"
-
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Button } from "@/styles/base-nova/ui-rtl/button"
-import { Checkbox } from "@/styles/base-nova/ui-rtl/checkbox"
+import { Button } from "@/styles/base-nova/ui/button"
+import { Checkbox } from "@/styles/base-nova/ui/checkbox"
 import {
   Field,
   FieldDescription,
@@ -16,8 +8,8 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/styles/base-nova/ui-rtl/field"
-import { Input } from "@/styles/base-nova/ui-rtl/input"
+} from "@/styles/base-nova/ui/field"
+import { Input } from "@/styles/base-nova/ui/input"
 import {
   Select,
   SelectContent,
@@ -25,190 +17,84 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-nova/ui-rtl/select"
-import { Textarea } from "@/styles/base-nova/ui-rtl/textarea"
+} from "@/styles/base-nova/ui/select"
+import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 const months = [
-  { label: "MM", value: null },
-  { label: "01", value: "01" },
-  { label: "02", value: "02" },
-  { label: "03", value: "03" },
-  { label: "04", value: "04" },
-  { label: "05", value: "05" },
-  { label: "06", value: "06" },
-  { label: "07", value: "07" },
-  { label: "08", value: "08" },
-  { label: "09", value: "09" },
-  { label: "10", value: "10" },
-  { label: "11", value: "11" },
-  { label: "12", value: "12" },
+  { label: "ماه", value: null },
+  { label: "۰۱", value: "01" },
+  { label: "۰۲", value: "02" },
+  { label: "۰۳", value: "03" },
+  { label: "۰۴", value: "04" },
+  { label: "۰۵", value: "05" },
+  { label: "۰۶", value: "06" },
+  { label: "۰۷", value: "07" },
+  { label: "۰۸", value: "08" },
+  { label: "۰۹", value: "09" },
+  { label: "۱۰", value: "10" },
+  { label: "۱۱", value: "11" },
+  { label: "۱۲", value: "12" },
 ]
 
 const years = [
-  { label: "YYYY", value: null },
-  { label: "2024", value: "2024" },
-  { label: "2025", value: "2025" },
-  { label: "2026", value: "2026" },
-  { label: "2027", value: "2027" },
-  { label: "2028", value: "2028" },
-  { label: "2029", value: "2029" },
+  { label: "سال", value: null },
+  { label: "۲۰۲۴", value: "2024" },
+  { label: "۲۰۲۵", value: "2025" },
+  { label: "۲۰۲۶", value: "2026" },
+  { label: "۲۰۲۷", value: "2027" },
+  { label: "۲۰۲۸", value: "2028" },
+  { label: "۲۰۲۹", value: "2029" },
 ]
 
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      paymentMethod: "Payment Method",
-      secureTransactions: "All transactions are secure and encrypted",
-      nameOnCard: "Name on Card",
-      cardNumber: "Card Number",
-      cardNumberDescription: "Enter your 16-digit card number",
-      month: "Month",
-      year: "Year",
-      cvv: "CVV",
-      monthPlaceholder: "MM",
-      month01: "01",
-      month02: "02",
-      month03: "03",
-      month04: "04",
-      month05: "05",
-      month06: "06",
-      month07: "07",
-      month08: "08",
-      month09: "09",
-      month10: "10",
-      month11: "11",
-      month12: "12",
-      billingAddress: "Billing Address",
-      billingAddressDescription:
-        "The billing address associated with your payment method",
-      sameAsShipping: "Same as shipping address",
-      comments: "Comments",
-      commentsPlaceholder: "Add any additional comments",
-      submit: "Submit",
-      cancel: "Cancel",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      paymentMethod: "طريقة الدفع",
-      secureTransactions: "جميع المعاملات آمنة ومشفرة",
-      nameOnCard: "الاسم على البطاقة",
-      cardNumber: "رقم البطاقة",
-      cardNumberDescription: "أدخل رقم البطاقة المكون من 16 رقمًا",
-      month: "الشهر",
-      year: "السنة",
-      cvv: "CVV",
-      monthPlaceholder: "ش.ش",
-      month01: "٠١",
-      month02: "٠٢",
-      month03: "٠٣",
-      month04: "٠٤",
-      month05: "٠٥",
-      month06: "٠٦",
-      month07: "٠٧",
-      month08: "٠٨",
-      month09: "٠٩",
-      month10: "١٠",
-      month11: "١١",
-      month12: "١٢",
-      billingAddress: "عنوان الفوترة",
-      billingAddressDescription: "عنوان الفوترة المرتبط بطريقة الدفع الخاصة بك",
-      sameAsShipping: "نفس عنوان الشحن",
-      comments: "تعليقات",
-      commentsPlaceholder: "أضف أي تعليقات إضافية",
-      submit: "إرسال",
-      cancel: "إلغاء",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      paymentMethod: "אמצעי תשלום",
-      secureTransactions: "כל העסקאות מאובטחות ומוצפנות",
-      nameOnCard: "שם על הכרטיס",
-      cardNumber: "מספר כרטיס",
-      cardNumberDescription: "הזן את מספר הכרטיס בן 16 הספרות שלך",
-      month: "חודש",
-      year: "שנה",
-      cvv: "CVV",
-      monthPlaceholder: "MM",
-      month01: "01",
-      month02: "02",
-      month03: "03",
-      month04: "04",
-      month05: "05",
-      month06: "06",
-      month07: "07",
-      month08: "08",
-      month09: "09",
-      month10: "10",
-      month11: "11",
-      month12: "12",
-      billingAddress: "כתובת חיוב",
-      billingAddressDescription: "כתובת החיוב המשויכת לאמצעי התשלום שלך",
-      sameAsShipping: "זהה לכתובת המשלוח",
-      comments: "הערות",
-      commentsPlaceholder: "הוסף הערות נוספות",
-      submit: "שלח",
-      cancel: "בטל",
-    },
-  },
-}
-
 export function FieldRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
-  const getMonthLabel = (value: string | null): string => {
-    if (value === null) return t.monthPlaceholder
-    const monthKey = `month${value}` as keyof typeof t
-    return t[monthKey] || value
-  }
-
   return (
-    <div className="w-full max-w-md py-6" dir={dir}>
+    <div className="w-full max-w-md py-6" dir="rtl">
       <form>
         <FieldGroup>
           <FieldSet>
-            <FieldLegend>{t.paymentMethod}</FieldLegend>
-            <FieldDescription>{t.secureTransactions}</FieldDescription>
+            <FieldLegend>روش پرداخت</FieldLegend>
+            <FieldDescription>
+              همهٔ تراکنش‌ها امن و رمزگذاری‌شده‌اند
+            </FieldDescription>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-card-name-43j-rtl">
-                  {t.nameOnCard}
+                  نام روی کارت
                 </FieldLabel>
                 <Input
                   id="checkout-7j9-card-name-43j-rtl"
-                  placeholder="Evil Rabbit"
+                  placeholder="علی رضایی"
                   required
                 />
               </Field>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-card-number-uw1-rtl">
-                  {t.cardNumber}
+                  شماره کارت
                 </FieldLabel>
                 <Input
                   id="checkout-7j9-card-number-uw1-rtl"
+                  dir="ltr"
                   placeholder="1234 5678 9012 3456"
                   required
                 />
-                <FieldDescription>{t.cardNumberDescription}</FieldDescription>
+                <FieldDescription>
+                  شماره ۱۶ رقمی کارت را وارد کنید
+                </FieldDescription>
               </Field>
               <div className="grid grid-cols-3 gap-4">
                 <Field>
                   <FieldLabel htmlFor="checkout-exp-month-ts6-rtl">
-                    {t.month}
+                    ماه
                   </FieldLabel>
                   <Select items={months}>
                     <SelectTrigger id="checkout-exp-month-ts6-rtl">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent dir={dir}>
+                    <SelectContent>
                       <SelectGroup>
                         {months.map((item) => (
                           <SelectItem key={item.value} value={item.value}>
-                            {getMonthLabel(item.value)}
+                            {item.label}
                           </SelectItem>
                         ))}
                       </SelectGroup>
@@ -217,13 +103,13 @@ export function FieldRtl() {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="checkout-7j9-exp-year-f59-rtl">
-                    {t.year}
+                    سال
                   </FieldLabel>
                   <Select items={years}>
                     <SelectTrigger id="checkout-7j9-exp-year-f59-rtl">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent dir={dir}>
+                    <SelectContent>
                       <SelectGroup>
                         {years.map((item) => (
                           <SelectItem key={item.value} value={item.value}>
@@ -235,18 +121,23 @@ export function FieldRtl() {
                   </Select>
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="checkout-7j9-cvv-rtl">
-                    {t.cvv}
-                  </FieldLabel>
-                  <Input id="checkout-7j9-cvv-rtl" placeholder="123" required />
+                  <FieldLabel htmlFor="checkout-7j9-cvv-rtl">CVV</FieldLabel>
+                  <Input
+                    id="checkout-7j9-cvv-rtl"
+                    dir="ltr"
+                    placeholder="123"
+                    required
+                  />
                 </Field>
               </div>
             </FieldGroup>
           </FieldSet>
           <FieldSeparator />
           <FieldSet>
-            <FieldLegend>{t.billingAddress}</FieldLegend>
-            <FieldDescription>{t.billingAddressDescription}</FieldDescription>
+            <FieldLegend>آدرس صورتحساب</FieldLegend>
+            <FieldDescription>
+              آدرس صورتحساب مرتبط با روش پرداخت شما
+            </FieldDescription>
             <FieldGroup>
               <Field orientation="horizontal">
                 <Checkbox
@@ -257,7 +148,7 @@ export function FieldRtl() {
                   htmlFor="checkout-7j9-same-as-shipping-wgm-rtl"
                   className="font-normal"
                 >
-                  {t.sameAsShipping}
+                  همان آدرس ارسال
                 </FieldLabel>
               </Field>
             </FieldGroup>
@@ -266,20 +157,20 @@ export function FieldRtl() {
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-optional-comments-rtl">
-                  {t.comments}
+                  توضیحات
                 </FieldLabel>
                 <Textarea
                   id="checkout-7j9-optional-comments-rtl"
-                  placeholder={t.commentsPlaceholder}
+                  placeholder="توضیحات تکمیلی را بنویسید"
                   className="resize-none"
                 />
               </Field>
             </FieldGroup>
           </FieldSet>
           <Field orientation="horizontal">
-            <Button type="submit">{t.submit}</Button>
+            <Button type="submit">ثبت</Button>
             <Button variant="outline" type="button">
-              {t.cancel}
+              انصراف
             </Button>
           </Field>
         </FieldGroup>

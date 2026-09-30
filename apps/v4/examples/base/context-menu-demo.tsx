@@ -17,66 +17,66 @@ import {
 
 export function ContextMenuDemo() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
-        <span className="hidden pointer-fine:inline-block">
-          Right click here
-        </span>
-        <span className="hidden pointer-coarse:inline-block">
-          Long press here
-        </span>
-      </ContextMenuTrigger>
-      <ContextMenuContent className="w-48">
-        <ContextMenuGroup>
-          <ContextMenuItem>
-            Back
-            <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem disabled>
-            Forward
-            <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            Reload
-            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-44">
-              <ContextMenuGroup>
-                <ContextMenuItem>Save Page...</ContextMenuItem>
-                <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-                <ContextMenuItem>Name Window...</ContextMenuItem>
-              </ContextMenuGroup>
-              <ContextMenuSeparator />
-              <ContextMenuGroup>
-                <ContextMenuItem>Developer Tools</ContextMenuItem>
-              </ContextMenuGroup>
-              <ContextMenuSeparator />
-              <ContextMenuGroup>
-                <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
-              </ContextMenuGroup>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
-        </ContextMenuGroup>
-        <ContextMenuSeparator />
-        <ContextMenuGroup>
-          <ContextMenuCheckboxItem checked>
-            Show Bookmarks
-          </ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-        </ContextMenuGroup>
-        <ContextMenuSeparator />
-        <ContextMenuGroup>
-          <ContextMenuRadioGroup value="pedro">
-            <ContextMenuLabel>People</ContextMenuLabel>
-            <ContextMenuRadioItem value="pedro">
-              Pedro Duarte
-            </ContextMenuRadioItem>
-            <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuGroup>
-      </ContextMenuContent>
-    </ContextMenu>
+    <div dir="rtl">
+      <ContextMenu>
+        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+          <span className="hidden pointer-fine:inline-block">
+            اینجا راست‌کلیک کنید
+          </span>
+          <span className="hidden pointer-coarse:inline-block">
+            اینجا لمس طولانی کنید
+          </span>
+        </ContextMenuTrigger>
+        <ContextMenuContent className="w-48">
+          <ContextMenuGroup>
+            <ContextMenuItem>
+              بازگشت
+              <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem disabled>
+              جلو
+              <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem>
+              بارگذاری مجدد
+              <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuSub>
+              <ContextMenuSubTrigger>ابزارهای بیشتر</ContextMenuSubTrigger>
+              <ContextMenuSubContent className="w-44">
+                <ContextMenuGroup>
+                  <ContextMenuItem>ذخیرهٔ صفحه...</ContextMenuItem>
+                  <ContextMenuItem>ساخت میانبر...</ContextMenuItem>
+                  <ContextMenuItem>نام‌گذاری پنجره...</ContextMenuItem>
+                </ContextMenuGroup>
+                <ContextMenuSeparator />
+                <ContextMenuGroup>
+                  <ContextMenuItem>ابزارهای توسعه‌دهنده</ContextMenuItem>
+                </ContextMenuGroup>
+                <ContextMenuSeparator />
+                <ContextMenuGroup>
+                  <ContextMenuItem variant="destructive">حذف</ContextMenuItem>
+                </ContextMenuGroup>
+              </ContextMenuSubContent>
+            </ContextMenuSub>
+          </ContextMenuGroup>
+          <ContextMenuSeparator />
+          <ContextMenuGroup>
+            <ContextMenuCheckboxItem checked>
+              نمایش نشانک‌ها
+            </ContextMenuCheckboxItem>
+            <ContextMenuCheckboxItem>نمایش آدرس کامل</ContextMenuCheckboxItem>
+          </ContextMenuGroup>
+          <ContextMenuSeparator />
+          <ContextMenuGroup>
+            <ContextMenuRadioGroup value="sara">
+              <ContextMenuLabel>افراد</ContextMenuLabel>
+              <ContextMenuRadioItem value="sara">سارا احمدی</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="reza">رضا محمدی</ContextMenuRadioItem>
+            </ContextMenuRadioGroup>
+          </ContextMenuGroup>
+        </ContextMenuContent>
+      </ContextMenu>
+    </div>
   )
 }

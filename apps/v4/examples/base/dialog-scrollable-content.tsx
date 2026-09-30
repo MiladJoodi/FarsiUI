@@ -8,33 +8,32 @@ import {
   DialogTrigger,
 } from "@/styles/base-nova/ui/dialog"
 
+const sampleText =
+  "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می‌باشد."
+
 export function DialogScrollableContent() {
   return (
-    <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>
-        Scrollable Content
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Scrollable Content</DialogTitle>
-          <DialogDescription>
-            This is a dialog with scrollable content.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="-mx-4 no-scrollbar max-h-[50vh] overflow-y-auto px-4">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <p key={index} className="mb-4 leading-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          ))}
-        </div>
-      </DialogContent>
-    </Dialog>
+    <div dir="rtl">
+      <Dialog>
+        <DialogTrigger render={<Button variant="outline" />}>
+          محتوای اسکرول‌شونده
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>محتوای اسکرول‌شونده</DialogTitle>
+            <DialogDescription>
+              دیالوگی با محتوای طولانی که قابل اسکرول است.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="-mx-4 no-scrollbar max-h-[50vh] overflow-y-auto px-4">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <p key={index} className="mb-4 leading-normal">
+                {sampleText}
+              </p>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </div>
   )
 }

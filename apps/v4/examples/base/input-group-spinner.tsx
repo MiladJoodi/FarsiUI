@@ -10,34 +10,34 @@ import { Spinner } from "@/styles/base-nova/ui/spinner"
 
 export default function InputGroupSpinner() {
   return (
-    <div className="grid w-full max-w-sm gap-4">
+    <div dir="rtl" className="grid w-full max-w-sm gap-4">
       <InputGroup>
-        <InputGroupInput placeholder="Searching..." />
+        <InputGroupInput placeholder="در حال جستجو..." />
         <InputGroupAddon align="inline-end">
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Processing..." />
+        <InputGroupInput placeholder="در حال پردازش..." />
         <InputGroupAddon>
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Saving changes..." />
+        <InputGroupInput placeholder="در حال ذخیرهٔ تغییرات..." />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>Saving...</InputGroupText>
+          <InputGroupText>در حال ذخیره...</InputGroupText>
           <Spinner />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Refreshing data..." />
+        <InputGroupInput placeholder="در حال تازه‌سازی داده..." />
         <InputGroupAddon>
           <LoaderIcon className="animate-spin" />
         </InputGroupAddon>
         <InputGroupAddon align="inline-end">
           <InputGroupText className="text-muted-foreground">
-            Please wait...
+            لطفاً صبر کنید...
           </InputGroupText>
         </InputGroupAddon>
       </InputGroup>

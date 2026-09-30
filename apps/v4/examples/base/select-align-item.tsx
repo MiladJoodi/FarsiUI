@@ -9,7 +9,6 @@ import {
   FieldGroup,
   FieldLabel,
 } from "@/styles/base-nova/ui/field"
-import { Label } from "@/styles/base-nova/ui/label"
 import {
   Select,
   SelectContent,
@@ -21,24 +20,24 @@ import {
 import { Switch } from "@/styles/base-nova/ui/switch"
 
 const items = [
-  { label: "Select a fruit", value: null },
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Blueberry", value: "blueberry" },
-  { label: "Grapes", value: "grapes" },
-  { label: "Pineapple", value: "pineapple" },
+  { label: "انتخاب میوه", value: null },
+  { label: "سیب", value: "apple" },
+  { label: "موز", value: "banana" },
+  { label: "بلوبری", value: "blueberry" },
+  { label: "انگور", value: "grapes" },
+  { label: "آناناس", value: "pineapple" },
 ]
 
 export function SelectAlignItem() {
   const [alignItemWithTrigger, setAlignItemWithTrigger] = React.useState(true)
 
   return (
-    <FieldGroup className="w-full max-w-xs">
+    <FieldGroup className="w-full max-w-xs" dir="rtl">
       <Field orientation="horizontal">
         <FieldContent>
-          <FieldLabel htmlFor="align-item">Align Item</FieldLabel>
+          <FieldLabel htmlFor="align-item">تراز آیتم</FieldLabel>
           <FieldDescription>
-            Toggle to align the item with the trigger.
+            برای تراز آیتم انتخاب‌شده با تریگر تغییر دهید.
           </FieldDescription>
         </FieldContent>
         <Switch

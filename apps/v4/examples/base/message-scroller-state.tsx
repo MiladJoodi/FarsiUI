@@ -24,8 +24,8 @@ const messages = Array.from({ length: 12 }, (_, index) => ({
   role: index % 2 === 0 ? "user" : "assistant",
   text:
     index % 2 === 0
-      ? `Check section ${index + 1} of the transcript.`
-      : `Section ${index + 1} is ready. Scroll state updates without rerendering the rows.`,
+      ? `بخش ${index + 1} رونوشت را بررسی کنید.`
+      : `بخش ${index + 1} آماده است. وضعیت اسکرول بدون رندر مجدد ردیف‌ها به‌روز می‌شود.`,
 })) satisfies Array<{
   id: string
   role: "user" | "assistant"
@@ -34,11 +34,11 @@ const messages = Array.from({ length: 12 }, (_, index) => ({
 
 export function MessageScrollerState() {
   return (
-    <Card className="mx-auto h-112 w-full max-w-md gap-0">
+    <Card dir="rtl" className="mx-auto h-112 w-full max-w-md gap-0">
       <CardHeader className="border-b">
-        <CardTitle>Scroll State</CardTitle>
+        <CardTitle>وضعیت اسکرول</CardTitle>
         <CardDescription>
-          Read scroll state in JavaScript with the state hook.
+          وضعیت اسکرول را در جاوااسکریپت با هوک وضعیت بخوانید.
         </CardDescription>
       </CardHeader>
       <CardContent className="min-h-0 flex-1 p-0">
@@ -79,10 +79,10 @@ export function MessageScrollerState() {
 function StatusBar() {
   const { start, end } = useMessageScrollerScrollable()
   const states = [
-    { label: "At top", on: !start },
-    { label: "At bottom", on: !end },
-    { label: "Older above", on: start },
-    { label: "Newer below", on: end },
+    { label: "بالا", on: !start },
+    { label: "پایین", on: !end },
+    { label: "قدیمی‌تر بالا", on: start },
+    { label: "جدیدتر پایین", on: end },
   ]
 
   return (

@@ -1,6 +1,6 @@
 ---
-title: Resizable
-description: Accessible resizable panel groups and layouts with keyboard support.
+title: قابل‌تغییراندازه (Resizable)
+description: گروه‌ها و چیدمان‌های پنل قابل‌تغییراندازه با پشتیبانی صفحه‌کلید.
 base: base
 component: true
 links:
@@ -8,28 +8,40 @@ links:
   api: https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="resizable-demo"
-  previewClassName="h-80"
+  layout="switcher"
+  examples={[
+    { name: "resizable-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "resizable-vertical", label: "عمودی", sizeable: false },
+    { name: "resizable-handle", label: "دستگیره", sizeable: false },
+  ]}
 />
 
-## About
+<div className="hidden">
 
-The `Resizable` component is built on top of [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) by [bvaughn](https://github.com/bvaughn).
+## درباره
 
-## Installation
+</div>
+
+<DocsCollapsible title="درباره">
+
+کامپوننت `Resizable` روی [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) ساخته شده؛ اثر [bvaughn](https://github.com/bvaughn).
+
+</DocsCollapsible>
+
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add resizable
+npx farsiui@latest add resizable
 ```
 
 </TabsContent>
@@ -38,13 +50,13 @@ npx shadcn@latest add resizable
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install react-resizable-panels
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="resizable"
@@ -52,7 +64,7 @@ npm install react-resizable-panels
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -60,7 +72,7 @@ npm install react-resizable-panels
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -72,15 +84,21 @@ import {
 
 ```tsx showLineNumbers
 <ResizablePanelGroup orientation="horizontal">
-  <ResizablePanel>One</ResizablePanel>
+  <ResizablePanel>یک</ResizablePanel>
   <ResizableHandle />
-  <ResizablePanel>Two</ResizablePanel>
+  <ResizablePanel>دو</ResizablePanel>
 </ResizablePanelGroup>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `ResizablePanelGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `ResizablePanelGroup` از این ترکیب استفاده کنید:
 
 ```text
 ResizablePanelGroup
@@ -89,48 +107,102 @@ ResizablePanelGroup
 └── ResizablePanel
 ```
 
-## Vertical
+</DocsCollapsible>
 
-Use `orientation="vertical"` for vertical resizing.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="resizable-vertical" />
+## عمودی
 
-## Handle
+</div>
 
-Use the `withHandle` prop on `ResizableHandle` to show a visible handle.
+<DocsCollapsible title="عمودی">
 
-<ComponentPreview styleName="base-nova" name="resizable-handle" />
+برای تغییراندازهٔ عمودی از `orientation="vertical"` استفاده کنید.
 
-## RTL
+<ComponentPreview
+  styleName="base-nova"
+  name="resizable-vertical"
+  direction="rtl"
+/>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="resizable-rtl" direction="rtl" />
+<div className="hidden">
 
-## API Reference
+## دستگیره
 
-See the [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels) documentation.
+</div>
 
-## Changelog
+<DocsCollapsible title="دستگیره">
 
-### 2025-02-02 `react-resizable-panels` v4
+با prop به نام `withHandle` روی `ResizableHandle` دستگیرهٔ دیدنی نشان دهید.
 
-Updated to `react-resizable-panels` v4. See the [v4.0.0 release notes](https://github.com/bvaughn/react-resizable-panels/releases/tag/4.0.0) for full details.
+<ComponentPreview
+  styleName="base-nova"
+  name="resizable-handle"
+  direction="rtl"
+/>
 
-If you're using `react-resizable-panels` primitives directly, note the following changes:
+</DocsCollapsible>
 
-| v3                           | v4                      |
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="resizable-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات react-resizable-panels](https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels) را ببینید.
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## تغییرات
+
+</div>
+
+<DocsCollapsible title="تغییرات">
+
+### ۲۰۲۵-۰۲-۰۲ — `react-resizable-panels` نسخهٔ ۴
+
+به `react-resizable-panels` نسخهٔ ۴ به‌روز شد. جزئیات کامل را در [یادداشت انتشار v4.0.0](https://github.com/bvaughn/react-resizable-panels/releases/tag/4.0.0) ببینید.
+
+اگر مستقیماً از primitiveهای `react-resizable-panels` استفاده می‌کنید، به این تغییرات توجه کنید:
+
+| نسخهٔ ۳                      | نسخهٔ ۴                 |
 | ---------------------------- | ----------------------- |
 | `PanelGroup`                 | `Group`                 |
 | `PanelResizeHandle`          | `Separator`             |
-| `direction` prop             | `orientation` prop      |
+| prop به نام `direction`      | prop به نام `orientation` |
 | `defaultSize={50}`           | `defaultSize="50%"`     |
 | `onLayout`                   | `onLayoutChange`        |
 | `ImperativePanelHandle`      | `PanelImperativeHandle` |
-| `ref` prop on Panel          | `panelRef` prop         |
+| prop به نام `ref` روی Panel  | prop به نام `panelRef`  |
 | `data-panel-group-direction` | `aria-orientation`      |
 
 <Callout>
-  The shadcn/ui wrapper components (`ResizablePanelGroup`, `ResizablePanel`,
-  `ResizableHandle`) remain unchanged.
+  کامپوننت‌های wrapper در FarsiUI (`ResizablePanelGroup`، `ResizablePanel`،
+  `ResizableHandle`) بدون تغییر باقی می‌مانند.
 </Callout>
+
+</DocsCollapsible>

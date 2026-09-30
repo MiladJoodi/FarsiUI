@@ -18,32 +18,34 @@ export function DropdownMenuRadioIcons() {
   const [paymentMethod, setPaymentMethod] = React.useState("card")
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Payment Method
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-56">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Select Payment Method</DropdownMenuLabel>
-          <DropdownMenuRadioGroup
-            value={paymentMethod}
-            onValueChange={setPaymentMethod}
-          >
-            <DropdownMenuRadioItem value="card">
-              <CreditCardIcon />
-              Credit Card
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="paypal">
-              <WalletIcon />
-              PayPal
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="bank">
-              <Building2Icon />
-              Bank Transfer
-            </DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          روش پرداخت
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="min-w-56">
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>انتخاب روش پرداخت</DropdownMenuLabel>
+            <DropdownMenuRadioGroup
+              value={paymentMethod}
+              onValueChange={setPaymentMethod}
+            >
+              <DropdownMenuRadioItem value="card">
+                <CreditCardIcon />
+                کارت بانکی
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="paypal">
+                <WalletIcon />
+                کیف پول
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="bank">
+                <Building2Icon />
+                انتقال بانکی
+              </DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

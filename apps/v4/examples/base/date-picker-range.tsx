@@ -2,8 +2,10 @@
 
 import * as React from "react"
 import { addDays, format } from "date-fns"
+import { faIR } from "date-fns/locale"
 import { CalendarIcon } from "lucide-react"
 import { type DateRange } from "react-day-picker"
+import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import { Calendar } from "@/styles/base-nova/ui/calendar"
@@ -21,8 +23,8 @@ export function DatePickerWithRange() {
   })
 
   return (
-    <Field className="mx-auto w-60">
-      <FieldLabel htmlFor="date-picker-range">Date Picker Range</FieldLabel>
+    <Field className="mx-auto w-60" dir="rtl">
+      <FieldLabel htmlFor="date-picker-range">بازهٔ تاریخ</FieldLabel>
       <Popover>
         <PopoverTrigger
           render={
@@ -37,14 +39,14 @@ export function DatePickerWithRange() {
           {date?.from ? (
             date.to ? (
               <>
-                {format(date.from, "LLL dd, y")} -{" "}
-                {format(date.to, "LLL dd, y")}
+                {format(date.from, "d LLL y", { locale: faIR })} –{" "}
+                {format(date.to, "d LLL y", { locale: faIR })}
               </>
             ) : (
-              format(date.from, "LLL dd, y")
+              format(date.from, "d LLL y", { locale: faIR })
             )
           ) : (
-            <span>Pick a date</span>
+            <span>انتخاب تاریخ</span>
           )}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
@@ -54,6 +56,8 @@ export function DatePickerWithRange() {
             selected={date}
             onSelect={setDate}
             numberOfMonths={2}
+            locale={faIRDayPicker}
+            dir="rtl"
           />
         </PopoverContent>
       </Popover>

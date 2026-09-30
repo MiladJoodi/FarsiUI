@@ -1,6 +1,6 @@
 ---
-title: Navigation Menu
-description: A collection of links for navigating websites.
+title: منوی ناوبری (Navigation Menu)
+description: مجموعه‌ای از لینک‌ها برای ناوبری در وب‌سایت.
 base: base
 component: true
 links:
@@ -8,24 +8,26 @@ links:
   api: https://base-ui.com/react/components/navigation-menu#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="navigation-menu-demo"
-  previewClassName="h-96"
+  layout="switcher"
+  examples={[
+    { name: "navigation-menu-demo", label: "پیش‌فرض", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add navigation-menu
+npx farsiui@latest add navigation-menu
 ```
 
 </TabsContent>
@@ -34,13 +36,13 @@ npx shadcn@latest add navigation-menu
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="navigation-menu"
@@ -48,7 +50,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +58,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -73,18 +75,24 @@ import {
 <NavigationMenu>
   <NavigationMenuList>
     <NavigationMenuItem>
-      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+      <NavigationMenuTrigger>آیتم یک</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <NavigationMenuLink>Link</NavigationMenuLink>
+        <NavigationMenuLink>لینک</NavigationMenuLink>
       </NavigationMenuContent>
     </NavigationMenuItem>
   </NavigationMenuList>
 </NavigationMenu>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `NavigationMenu`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `NavigationMenu` از این ترکیب استفاده کنید:
 
 ```text
 NavigationMenu
@@ -99,9 +107,17 @@ NavigationMenu
 └── NavigationMenuIndicator
 ```
 
-## Link Component
+</DocsCollapsible>
 
-Use the `render` prop to compose a custom link component such as Next.js `Link`.
+<div className="hidden">
+
+## کامپوننت لینک
+
+</div>
+
+<DocsCollapsible title="کامپوننت لینک">
+
+با prop به نام `render` یک کامپوننت لینک سفارشی مثل `Link` در Next.js بسازید.
 
 ```tsx showLineNumbers
 import Link from "next/link"
@@ -119,16 +135,24 @@ export function NavigationMenuDemo() {
         render={<Link href="/docs" />}
         className={navigationMenuTriggerStyle()}
       >
-        Documentation
+        مستندات
       </NavigationMenuLink>
     </NavigationMenuItem>
   )
 }
 ```
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -137,6 +161,16 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   previewClassName="h-96"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI Navigation Menu](https://base-ui.com/react/components/navigation-menu#api-reference) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Navigation Menu](https://base-ui.com/react/components/navigation-menu#api-reference) را ببینید.
+
+</DocsCollapsible>

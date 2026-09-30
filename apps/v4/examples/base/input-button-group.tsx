@@ -5,11 +5,11 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputButtonGroup() {
   return (
-    <Field>
-      <FieldLabel htmlFor="input-button-group">Search</FieldLabel>
+    <Field dir="rtl">
+      <FieldLabel htmlFor="input-button-group">جستجو</FieldLabel>
       <ButtonGroup>
-        <Input id="input-button-group" placeholder="Type to search..." />
-        <Button variant="outline">Search</Button>
+        <Input id="input-button-group" placeholder="برای جستجو تایپ کنید..." />
+        <Button variant="outline">جستجو</Button>
       </ButtonGroup>
     </Field>
   )

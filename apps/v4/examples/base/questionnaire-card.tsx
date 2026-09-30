@@ -49,88 +49,90 @@ export function QuestionnaireCard() {
 
     const formData = new FormData(event.currentTarget)
 
-    toast("Agent task created", {
-      description: `Task: ${formData.get("task") ?? "None"} · Handoff: ${formData.get("output") ?? "None"}`,
+    toast("وظیفهٔ عامل ساخته شد", {
+      description: `وظیفه: ${formData.get("task") ?? "هیچ"} · تحویل: ${formData.get("output") ?? "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      defaultItem="task"
-      items={items}
-      shortcuts="numbers"
-      onSubmit={handleSubmit}
-    >
-      <Card>
-        <QuestionnaireItem aria-labelledby={taskTitleId} name="task" required>
-          <CardHeader>
-            <QuestionnaireTitle id={taskTitleId} render={<CardTitle />}>
-              What should the agent work on?
-            </QuestionnaireTitle>
-            <QuestionnaireDescription render={<CardDescription />}>
-              Choose the task that should be handled next.
-            </QuestionnaireDescription>
-            <CardAction>
-              <QuestionnaireProgress />
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice value="fix">
-                Fix the failing tests
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="refactor">
-                Refactor the data layer
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="docs">
-                Update the integration guide
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError />
-          </CardContent>
-        </QuestionnaireItem>
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        defaultItem="task"
+        items={items}
+        shortcuts="numbers"
+        onSubmit={handleSubmit}
+      >
+        <Card>
+          <QuestionnaireItem aria-labelledby={taskTitleId} name="task" required>
+            <CardHeader>
+              <QuestionnaireTitle id={taskTitleId} render={<CardTitle />}>
+                عامل روی چه چیزی کار کند؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription render={<CardDescription />}>
+                وظیفه‌ای را انتخاب کنید که باید بعداً انجام شود.
+              </QuestionnaireDescription>
+              <CardAction>
+                <QuestionnaireProgress />
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice value="fix">
+                  رفع تست‌های ناموفق
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="refactor">
+                  بازآرایی لایهٔ داده
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="docs">
+                  به‌روزرسانی راهنمای یکپارچه‌سازی
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError />
+            </CardContent>
+          </QuestionnaireItem>
 
-        <QuestionnaireItem
-          aria-labelledby={outputTitleId}
-          name="output"
-          required
-        >
-          <CardHeader>
-            <QuestionnaireTitle id={outputTitleId} render={<CardTitle />}>
-              What should the final handoff include?
-            </QuestionnaireTitle>
-            <QuestionnaireDescription render={<CardDescription />}>
-              Pick the level of detail needed for review.
-            </QuestionnaireDescription>
-            <CardAction>
-              <QuestionnaireProgress />
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice value="summary">
-                Summary only
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="files">
-                Summary and changed files
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="review">
-                Full review handoff
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError />
-          </CardContent>
-        </QuestionnaireItem>
+          <QuestionnaireItem
+            aria-labelledby={outputTitleId}
+            name="output"
+            required
+          >
+            <CardHeader>
+              <QuestionnaireTitle id={outputTitleId} render={<CardTitle />}>
+                تحویل نهایی چه چیزهایی داشته باشد؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription render={<CardDescription />}>
+                سطح جزئیات لازم برای بررسی را انتخاب کنید.
+              </QuestionnaireDescription>
+              <CardAction>
+                <QuestionnaireProgress />
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice value="summary">
+                  فقط خلاصه
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="files">
+                  خلاصه و فایل‌های تغییر یافته
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="review">
+                  تحویل کامل بررسی
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError />
+            </CardContent>
+          </QuestionnaireItem>
 
-        <CardFooter>
-          <QuestionnaireActions className="w-full">
-            <QuestionnairePrevious />
-            <QuestionnaireNext>Next</QuestionnaireNext>
-            <QuestionnaireSubmit>Create task</QuestionnaireSubmit>
-          </QuestionnaireActions>
-        </CardFooter>
-      </Card>
-    </Questionnaire>
+          <CardFooter>
+            <QuestionnaireActions className="w-full">
+              <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+              <QuestionnaireNext>بعدی</QuestionnaireNext>
+              <QuestionnaireSubmit>ایجاد وظیفه</QuestionnaireSubmit>
+            </QuestionnaireActions>
+          </CardFooter>
+        </Card>
+      </Questionnaire>
+    </div>
   )
 }

@@ -42,21 +42,21 @@ const initialItems = [
     type: "message",
     sender: "Grace",
     role: "participant",
-    text: "@mary, the astrophage line keeps matching Venus energy output. Can you check my math?",
+    text: "@mary، منحنی آستروفاژ همچنان با خروجی انرژی ونوس جور درمی‌آید. می‌توانی محاسباتم را چک کنی؟",
   },
   {
     id: "group-2",
     type: "message",
     sender: "Mary (Agent)",
     role: "assistant",
-    text: "Yes. Confirmed. The curve points to a microorganism harvesting stellar energy and breeding near carbon dioxide. If @rocky agrees, this is the clue we need.",
+    text: "بله. تأیید شد. منحنی به میکروارگانیسمی اشاره می‌کند که انرژی ستاره‌ای می‌گیرد و نزدیک دی‌اکسید کربن تکثیر می‌شود. اگر @rocky موافق باشد، همین سرنخ است.",
   },
   {
     id: "group-3",
     type: "message",
     sender: "Grace",
     role: "participant",
-    text: "ping @rocky",
+    text: "پینگ @rocky",
     scrollAnchor: true,
   },
 ] satisfies GroupChatItem[]
@@ -64,7 +64,7 @@ const initialItems = [
 const rockyMarker = {
   id: "group-4",
   type: "event",
-  text: "Rocky has joined the chat",
+  text: "راکی به گفتگو پیوست",
   scrollAnchor: true,
 } satisfies GroupChatItem
 
@@ -73,7 +73,7 @@ const rockyMessage = {
   type: "message",
   sender: "Rocky",
   role: "participant",
-  text: "Amaze. Astrophage eats light, makes heat, goes to carbon dioxide. Rocky has fuel model. Grace is smart.",
+  text: "شگفت. آستروفاژ نور می‌خورد، گرما می‌سازد، به دی‌اکسید کربن می‌رود. راکی مدل سوخت دارد. گریس باهوش است.",
 } satisfies GroupChatItem
 
 type GroupChatItem =
@@ -104,18 +104,18 @@ export function MessageScrollerGroupChat() {
         ? [...initialItems, rockyMarker]
         : initialItems
   const buttonLabel =
-    rockyTurn === "idle" ? "Add Rocky" : "Send Message as Rocky"
+    rockyTurn === "idle" ? "افزودن راکی" : "ارسال پیام به‌عنوان راکی"
   const isComplete = rockyTurn === "message"
 
   return (
     <MessageScrollerProvider>
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <Card className="mx-auto h-140 w-full max-w-sm gap-0">
           <CardHeader className="gap-1 border-b">
-            <CardTitle>Group Chat</CardTitle>
+            <CardTitle>گفتگوی گروهی</CardTitle>
             <CardDescription>
-              A group chat with several participants and an assistant. The
-              Marker is marked as a turn.
+              گفتگوی گروهی با چند شرکت‌کننده و یک دستیار. Marker به‌عنوان نوبت
+              علامت‌گذاری شده است.
             </CardDescription>
             <CardAction>
               <Tooltip>
@@ -125,7 +125,7 @@ export function MessageScrollerGroupChat() {
                       type="button"
                       variant="outline"
                       size="icon"
-                      aria-label="Reset conversation"
+                      aria-label="بازنشانی گفتگو"
                       disabled={rockyTurn === "idle"}
                       onClick={() => {
                         setRockyTurn("idle")
@@ -137,7 +137,7 @@ export function MessageScrollerGroupChat() {
                   <RotateCwIcon />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Reset</p>
+                  <p>بازنشانی</p>
                 </TooltipContent>
               </Tooltip>
             </CardAction>
@@ -178,14 +178,14 @@ export function MessageScrollerGroupChat() {
             </Button>
             <p className="text-xs text-muted-foreground">
               {rockyTurn === "idle"
-                ? "This will create a marker and make it the anchor"
-                : "Now send Rocky's reply into the conversation"}
+                ? "این کار یک marker می‌سازد و آن را لنگر می‌کند"
+                : "حالا پاسخ راکی را به گفتگو بفرستید"}
             </p>
           </CardFooter>
         </Card>
         <div className="mx-auto max-w-sm px-0.5 text-center text-xs text-balance text-muted-foreground">
-          When a user joins, a marker is created. scrollAnchor on the marker
-          marks it as the next turn
+          وقتی کاربری می‌پیوندد، یک marker ساخته می‌شود. scrollAnchor روی marker
+          آن را به‌عنوان نوبت بعدی علامت می‌زند
         </div>
       </div>
     </MessageScrollerProvider>

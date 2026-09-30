@@ -2,15 +2,15 @@ import { Marker, MarkerContent } from "@/styles/base-rhea/ui/marker"
 
 export function MarkerVariantsDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker>
-        <MarkerContent>A default marker for inline notes.</MarkerContent>
+        <MarkerContent>نشانگر پیش‌فرض برای یادداشت‌های درخط.</MarkerContent>
       </Marker>
       <Marker variant="separator">
-        <MarkerContent>A separator marker</MarkerContent>
+        <MarkerContent>نشانگر جداکننده</MarkerContent>
       </Marker>
       <Marker variant="border">
-        <MarkerContent>A border marker for row boundaries.</MarkerContent>
+        <MarkerContent>نشانگر حاشیه برای مرز ردیف‌ها.</MarkerContent>
       </Marker>
     </div>
   )

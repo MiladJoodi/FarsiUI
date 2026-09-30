@@ -8,26 +8,28 @@ import {
 
 export function ContextMenuCheckboxes() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
-        <span className="hidden pointer-fine:inline-block">
-          Right click here
-        </span>
-        <span className="hidden pointer-coarse:inline-block">
-          Long press here
-        </span>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuGroup>
-          <ContextMenuCheckboxItem defaultChecked>
-            Show Bookmarks Bar
-          </ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem defaultChecked>
-            Show Developer Tools
-          </ContextMenuCheckboxItem>
-        </ContextMenuGroup>
-      </ContextMenuContent>
-    </ContextMenu>
+    <div dir="rtl">
+      <ContextMenu>
+        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+          <span className="hidden pointer-fine:inline-block">
+            اینجا راست‌کلیک کنید
+          </span>
+          <span className="hidden pointer-coarse:inline-block">
+            اینجا لمس طولانی کنید
+          </span>
+        </ContextMenuTrigger>
+        <ContextMenuContent>
+          <ContextMenuGroup>
+            <ContextMenuCheckboxItem defaultChecked>
+              نمایش نوار نشانک‌ها
+            </ContextMenuCheckboxItem>
+            <ContextMenuCheckboxItem>نمایش آدرس کامل</ContextMenuCheckboxItem>
+            <ContextMenuCheckboxItem defaultChecked>
+              نمایش ابزارهای توسعه‌دهنده
+            </ContextMenuCheckboxItem>
+          </ContextMenuGroup>
+        </ContextMenuContent>
+      </ContextMenu>
+    </div>
   )
 }

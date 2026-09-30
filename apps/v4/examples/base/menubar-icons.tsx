@@ -20,45 +20,47 @@ import {
 
 export function MenubarIcons() {
   return (
-    <Menubar className="w-72">
-      <MenubarMenu>
-        <MenubarTrigger>File</MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>
-            <FileIcon />
-            New File <MenubarShortcut>⌘N</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem>
-            <FolderIcon />
-            Open Folder
-          </MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem>
-            <SaveIcon />
-            Save <MenubarShortcut>⌘S</MenubarShortcut>
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>More</MenubarTrigger>
-        <MenubarContent>
-          <MenubarGroup>
+    <div dir="rtl">
+      <Menubar className="w-80">
+        <MenubarMenu>
+          <MenubarTrigger>فایل</MenubarTrigger>
+          <MenubarContent>
             <MenubarItem>
-              <SettingsIcon />
-              Settings
+              <FileIcon />
+              پروندهٔ جدید <MenubarShortcut>⌘N</MenubarShortcut>
             </MenubarItem>
             <MenubarItem>
-              <HelpCircleIcon />
-              Help
+              <FolderIcon />
+              باز کردن پوشه
             </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem variant="destructive">
-              <TrashIcon />
-              Delete
+            <MenubarItem>
+              <SaveIcon />
+              ذخیره <MenubarShortcut>⌘S</MenubarShortcut>
             </MenubarItem>
-          </MenubarGroup>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>بیشتر</MenubarTrigger>
+          <MenubarContent>
+            <MenubarGroup>
+              <MenubarItem>
+                <SettingsIcon />
+                تنظیمات
+              </MenubarItem>
+              <MenubarItem>
+                <HelpCircleIcon />
+                راهنما
+              </MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem variant="destructive">
+                <TrashIcon />
+                حذف
+              </MenubarItem>
+            </MenubarGroup>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+    </div>
   )
 }

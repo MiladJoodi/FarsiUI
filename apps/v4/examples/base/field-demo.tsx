@@ -21,70 +21,69 @@ import {
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
 const months = [
-  { label: "MM", value: null },
-  { label: "01", value: "01" },
-  { label: "02", value: "02" },
-  { label: "03", value: "03" },
-  { label: "04", value: "04" },
-  { label: "05", value: "05" },
-  { label: "06", value: "06" },
-  { label: "07", value: "07" },
-  { label: "08", value: "08" },
-  { label: "09", value: "09" },
-  { label: "10", value: "10" },
-  { label: "11", value: "11" },
-  { label: "12", value: "12" },
+  { label: "ماه", value: null },
+  { label: "۰۱", value: "01" },
+  { label: "۰۲", value: "02" },
+  { label: "۰۳", value: "03" },
+  { label: "۰۴", value: "04" },
+  { label: "۰۵", value: "05" },
+  { label: "۰۶", value: "06" },
+  { label: "۰۷", value: "07" },
+  { label: "۰۸", value: "08" },
+  { label: "۰۹", value: "09" },
+  { label: "۱۰", value: "10" },
+  { label: "۱۱", value: "11" },
+  { label: "۱۲", value: "12" },
 ]
 
 const years = [
-  { label: "YYYY", value: null },
-  { label: "2024", value: "2024" },
-  { label: "2025", value: "2025" },
-  { label: "2026", value: "2026" },
-  { label: "2027", value: "2027" },
-  { label: "2028", value: "2028" },
-  { label: "2029", value: "2029" },
+  { label: "سال", value: null },
+  { label: "۲۰۲۴", value: "2024" },
+  { label: "۲۰۲۵", value: "2025" },
+  { label: "۲۰۲۶", value: "2026" },
+  { label: "۲۰۲۷", value: "2027" },
+  { label: "۲۰۲۸", value: "2028" },
+  { label: "۲۰۲۹", value: "2029" },
 ]
 
 export default function FieldDemo() {
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full max-w-md" dir="rtl">
       <form>
         <FieldGroup>
           <FieldSet>
-            <FieldLegend>Payment Method</FieldLegend>
+            <FieldLegend>روش پرداخت</FieldLegend>
             <FieldDescription>
-              All transactions are secure and encrypted
+              همهٔ تراکنش‌ها امن و رمزگذاری‌شده‌اند
             </FieldDescription>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-card-name-43j">
-                  Name on Card
+                  نام روی کارت
                 </FieldLabel>
                 <Input
                   id="checkout-7j9-card-name-43j"
-                  placeholder="Evil Rabbit"
+                  placeholder="علی رضایی"
                   required
                 />
               </Field>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-card-number-uw1">
-                  Card Number
+                  شماره کارت
                 </FieldLabel>
                 <Input
                   id="checkout-7j9-card-number-uw1"
+                  dir="ltr"
                   placeholder="1234 5678 9012 3456"
                   required
                 />
                 <FieldDescription>
-                  Enter your 16-digit card number
+                  شماره ۱۶ رقمی کارت را وارد کنید
                 </FieldDescription>
               </Field>
               <div className="grid grid-cols-3 gap-4">
                 <Field>
-                  <FieldLabel htmlFor="checkout-exp-month-ts6">
-                    Month
-                  </FieldLabel>
+                  <FieldLabel htmlFor="checkout-exp-month-ts6">ماه</FieldLabel>
                   <Select items={months}>
                     <SelectTrigger id="checkout-exp-month-ts6">
                       <SelectValue />
@@ -102,7 +101,7 @@ export default function FieldDemo() {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="checkout-7j9-exp-year-f59">
-                    Year
+                    سال
                   </FieldLabel>
                   <Select items={years}>
                     <SelectTrigger id="checkout-7j9-exp-year-f59">
@@ -121,16 +120,21 @@ export default function FieldDemo() {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="checkout-7j9-cvv">CVV</FieldLabel>
-                  <Input id="checkout-7j9-cvv" placeholder="123" required />
+                  <Input
+                    id="checkout-7j9-cvv"
+                    dir="ltr"
+                    placeholder="123"
+                    required
+                  />
                 </Field>
               </div>
             </FieldGroup>
           </FieldSet>
           <FieldSeparator />
           <FieldSet>
-            <FieldLegend>Billing Address</FieldLegend>
+            <FieldLegend>آدرس صورتحساب</FieldLegend>
             <FieldDescription>
-              The billing address associated with your payment method
+              آدرس صورتحساب مرتبط با روش پرداخت شما
             </FieldDescription>
             <FieldGroup>
               <Field orientation="horizontal">
@@ -142,7 +146,7 @@ export default function FieldDemo() {
                   htmlFor="checkout-7j9-same-as-shipping-wgm"
                   className="font-normal"
                 >
-                  Same as shipping address
+                  همان آدرس ارسال
                 </FieldLabel>
               </Field>
             </FieldGroup>
@@ -151,20 +155,20 @@ export default function FieldDemo() {
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="checkout-7j9-optional-comments">
-                  Comments
+                  توضیحات
                 </FieldLabel>
                 <Textarea
                   id="checkout-7j9-optional-comments"
-                  placeholder="Add any additional comments"
+                  placeholder="توضیحات تکمیلی را بنویسید"
                   className="resize-none"
                 />
               </Field>
             </FieldGroup>
           </FieldSet>
           <Field orientation="horizontal">
-            <Button type="submit">Submit</Button>
+            <Button type="submit">ثبت</Button>
             <Button variant="outline" type="button">
-              Cancel
+              انصراف
             </Button>
           </Field>
         </FieldGroup>

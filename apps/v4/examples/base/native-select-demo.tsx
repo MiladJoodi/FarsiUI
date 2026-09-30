@@ -3,14 +3,16 @@ import {
   NativeSelectOption,
 } from "@/styles/base-nova/ui/native-select"
 
-export default function NativeSelectDemo() {
+export function NativeSelectDemo() {
   return (
-    <NativeSelect>
-      <NativeSelectOption value="">Select status</NativeSelectOption>
-      <NativeSelectOption value="todo">Todo</NativeSelectOption>
-      <NativeSelectOption value="in-progress">In Progress</NativeSelectOption>
-      <NativeSelectOption value="done">Done</NativeSelectOption>
-      <NativeSelectOption value="cancelled">Cancelled</NativeSelectOption>
-    </NativeSelect>
+    <div dir="rtl">
+      <NativeSelect>
+        <NativeSelectOption value="">انتخاب وضعیت</NativeSelectOption>
+        <NativeSelectOption value="todo">انجام‌دادنی</NativeSelectOption>
+        <NativeSelectOption value="in-progress">در حال انجام</NativeSelectOption>
+        <NativeSelectOption value="done">انجام‌شده</NativeSelectOption>
+        <NativeSelectOption value="cancelled">لغوشده</NativeSelectOption>
+      </NativeSelect>
+    </div>
   )
 }

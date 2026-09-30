@@ -1,27 +1,40 @@
 ---
-title: Date Picker
-description: A date picker component with range and presets.
+title: انتخابگر تاریخ (Date Picker)
+description: انتخابگر تاریخ با پشتیبانی از بازه و پیش‌فرض‌ها.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="date-picker-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "date-picker-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "date-picker-basic", label: "پایه", sizeable: false },
+    { name: "date-picker-range", label: "بازه", sizeable: false },
+    { name: "date-picker-dob", label: "تاریخ تولد", sizeable: false },
+    { name: "date-picker-input", label: "ورودی", sizeable: false },
+    { name: "date-picker-time", label: "ساعت", sizeable: false },
+    { name: "date-picker-natural-language", label: "زبان طبیعی", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
-The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
+انتخابگر تاریخ از ترکیب `<Popover />` و `<Calendar />` ساخته می‌شود.
 
-See installation instructions for the [Popover](/docs/components/base/popover#installation) and the [Calendar](/docs/components/base/calendar#installation) components.
+دستور نصب [Popover](/docs/components/base/popover) و [Calendar](/docs/components/base/calendar) را ببینید.
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers title="components/example-date-picker.tsx"
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import { format } from "date-fns"
+import { faIR } from "date-fns/locale"
 import { Calendar as CalendarIcon } from "lucide-react"
+import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -35,32 +48,50 @@ export function DatePickerDemo() {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <Popover>
-      <PopoverTrigger
-        render={
-          <Button
-            variant="outline"
-            data-empty={!date}
-            className="justify-start text-left font-normal data-[empty=true]:text-muted-foreground"
+    <div dir="rtl">
+      <Popover>
+        <PopoverTrigger
+          render={
+            <Button
+              variant="outline"
+              data-empty={!date}
+              className="justify-start text-start font-normal data-[empty=true]:text-muted-foreground"
+            />
+          }
+        >
+          <CalendarIcon />
+          {date ? (
+            format(date, "PPP", { locale: faIR })
+          ) : (
+            <span>انتخاب تاریخ</span>
+          )}
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0">
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            locale={faIRDayPicker}
+            dir="rtl"
           />
-        }
-      >
-        <CalendarIcon />
-        {date ? format(date, "PPP") : <span>Pick a date</span>}
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
-        <Calendar mode="single" selected={date} onSelect={setDate} />
-      </PopoverContent>
-    </Popover>
+        </PopoverContent>
+      </Popover>
+    </div>
   )
 }
 ```
 
-See the [React DayPicker](https://react-day-picker.js.org) documentation for more information.
+برای جزئیات بیشتر، مستندات [React DayPicker](https://react-day-picker.js.org) را ببینید.
 
-## Composition
+<div className="hidden">
 
-A date picker is built from `Popover` and `Calendar` (there is no `DatePicker` root component):
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+انتخابگر تاریخ از `Popover` و `Calendar` ساخته می‌شود (کامپوننت ریشهٔ `DatePicker` وجود ندارد):
 
 ```text
 Popover
@@ -69,48 +100,136 @@ Popover
     └── Calendar
 ```
 
-## Basic
+</DocsCollapsible>
 
-A basic date picker component.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="date-picker-basic" />
+## پایه
 
-## Range Picker
+</div>
 
-A date picker component for selecting a range of dates.
+<DocsCollapsible title="پایه">
 
-<ComponentPreview styleName="base-nova" name="date-picker-range" />
+یک انتخابگر تاریخ ساده.
 
-## Date of Birth
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-basic"
+  direction="rtl"
+/>
 
-A date picker component for selecting a date of birth. This component includes a dropdown caption layout for date and month selection.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="date-picker-dob" />
+<div className="hidden">
 
-## Input
+## بازه
 
-A date picker component with an input field for selecting a date.
+</div>
 
-<ComponentPreview styleName="base-nova" name="date-picker-input" />
+<DocsCollapsible title="بازه">
 
-## Time Picker
+انتخابگر برای انتخاب بازهٔ تاریخ.
 
-A date picker component with a time input field for selecting a time.
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-range"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="date-picker-time" />
+</DocsCollapsible>
 
-## Natural Language Picker
+<div className="hidden">
 
-This component uses the `chrono-node` library to parse natural language dates.
+## تاریخ تولد
 
-<ComponentPreview styleName="base-nova" name="date-picker-natural-language" />
+</div>
 
-## RTL
+<DocsCollapsible title="تاریخ تولد">
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+انتخابگر تاریخ تولد با چیدمان caption از نوع dropdown برای ماه و سال.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-dob"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## ورودی
+
+</div>
+
+<DocsCollapsible title="ورودی">
+
+انتخابگر تاریخ همراه با فیلد ورودی.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-input"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## ساعت
+
+</div>
+
+<DocsCollapsible title="ساعت">
+
+انتخابگر تاریخ همراه با ورودی ساعت.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-time"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## زبان طبیعی
+
+</div>
+
+<DocsCollapsible title="زبان طبیعی">
+
+این مثال از کتابخانهٔ `chrono-node` برای پارس تاریخ به زبان طبیعی (انگلیسی) استفاده می‌کند.
+
+```bash
+npm install chrono-node
+```
+
+<ComponentPreview
+  styleName="base-nova"
+  name="date-picker-natural-language"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی ظرف و تقویم `dir="rtl"` بگذارید و برای نمایش تاریخ از locale فارسی (`faIR` در date-fns و react-day-picker) استفاده کنید.
+
+برای تنظیم سراسری RTL، [راهنمای RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="date-picker-rtl"
   direction="rtl"
 />
+
+</DocsCollapsible>

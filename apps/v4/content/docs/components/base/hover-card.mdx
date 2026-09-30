@@ -1,6 +1,6 @@
 ---
-title: Hover Card
-description: For sighted users to preview content available behind a link.
+title: کارت شناور (Hover Card)
+description: پیش‌نمایش محتوا پشت یک لینک برای کاربران بصری.
 base: base
 component: true
 links:
@@ -8,24 +8,27 @@ links:
   api: https://base-ui.com/react/components/hover-card#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="hover-card-demo"
-  previewClassName="h-80"
+  layout="switcher"
+  examples={[
+    { name: "hover-card-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "hover-card-sides", label: "جهت", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add hover-card
+npx farsiui@latest add hover-card
 ```
 
 </TabsContent>
@@ -34,13 +37,13 @@ npx shadcn@latest add hover-card
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="hover-card"
@@ -48,7 +51,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +59,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -68,16 +71,22 @@ import {
 
 ```tsx showLineNumbers
 <HoverCard>
-  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardTrigger>نگه دارید</HoverCardTrigger>
   <HoverCardContent>
-    The React Framework – created and maintained by @vercel.
+    فریم‌ورک ری‌اکت — ساخته و نگهداری‌شده توسط @vercel.
   </HoverCardContent>
 </HoverCard>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `HoverCard`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `HoverCard` از این ترکیب استفاده کنید:
 
 ```text
 HoverCard
@@ -85,52 +94,97 @@ HoverCard
 └── HoverCardContent
 ```
 
-## Trigger Delays
+</DocsCollapsible>
 
-Use `delay` and `closeDelay` on the trigger to control when the card opens and
-closes.
+<div className="hidden">
+
+## تأخیر تریگر
+
+</div>
+
+<DocsCollapsible title="تأخیر تریگر">
+
+با `delay` و `closeDelay` روی تریگر، زمان باز و بسته شدن کارت را کنترل کنید.
 
 ```tsx showLineNumbers
 <HoverCard>
   <HoverCardTrigger delay={100} closeDelay={200}>
-    Hover
+    نگه دارید
   </HoverCardTrigger>
-  <HoverCardContent>Content</HoverCardContent>
+  <HoverCardContent>محتوا</HoverCardContent>
 </HoverCard>
 ```
 
-## Positioning
+</DocsCollapsible>
 
-Use the `side` and `align` props on `HoverCardContent` to control placement.
+<div className="hidden">
+
+## موقعیت‌یابی
+
+</div>
+
+<DocsCollapsible title="موقعیت‌یابی">
+
+با propهای `side` و `align` روی `HoverCardContent` جایگاه کارت را تنظیم کنید.
 
 ```tsx showLineNumbers
 <HoverCard>
-  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardTrigger>نگه دارید</HoverCardTrigger>
   <HoverCardContent side="top" align="start">
-    Content
+    محتوا
   </HoverCardContent>
 </HoverCard>
 ```
 
-## Basic
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پایه
+
+</div>
+
+<DocsCollapsible title="پایه">
+
+کارت شناور ساده با پیش‌نمایش پروفایل.
 
 <ComponentPreview
   styleName="base-nova"
   name="hover-card-demo"
+  direction="rtl"
   previewClassName="h-80"
 />
 
-## Sides
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جهت
+
+</div>
+
+<DocsCollapsible title="جهت">
+
+جایگاه کارت را با prop به نام `side` کنترل کنید.
 
 <ComponentPreview
   styleName="base-nova"
   name="hover-card-sides"
+  direction="rtl"
   previewClassName="h-[22rem]"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -139,6 +193,102 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   previewClassName="h-80"
 />
 
-## API Reference
+با `side="inline-end"` کارت را در سمت منطقی انتها (چپ در RTL) نسبت به تریگر قرار دهید.
 
-See the [Base UI](https://base-ui.com/react/components/hover-card#api-reference) documentation for more information.
+```tsx showLineNumbers
+<HoverCard>
+  <HoverCardTrigger>نگه دارید</HoverCardTrigger>
+  <HoverCardContent side="inline-end">
+    فریم‌ورک ری‌اکت — ساخته و نگهداری‌شده توسط @vercel.
+  </HoverCardContent>
+</HoverCard>
+```
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/hover-card#api-reference) را ببینید.
+
+<DocsApiProps
+  title="HoverCard"
+  description="ظرف ریشهٔ کارت شناور."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "defaultOpen",
+      description: "حالت اولیهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="HoverCardTrigger"
+  description="عنصری که با هاور کردن، کارت را باز می‌کند."
+  props={[
+    {
+      name: "delay",
+      description: "تأخیر باز شدن (میلی‌ثانیه)",
+      values: ["number"],
+    },
+    {
+      name: "closeDelay",
+      description: "تأخیر بسته شدن (میلی‌ثانیه)",
+      values: ["number"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="HoverCardContent"
+  description="محتوای کارت شناور."
+  props={[
+    {
+      name: "side",
+      description: "سمت نمایش نسبت به تریگر",
+      values: ["top", "right", "bottom", "left", "inline-start", "inline-end"],
+      defaultValue: "bottom",
+    },
+    {
+      name: "align",
+      description: "تراز نسبت به تریگر",
+      values: ["start", "center", "end"],
+      defaultValue: "center",
+    },
+    {
+      name: "sideOffset",
+      description: "فاصله از تریگر در محور side",
+      values: ["number"],
+      defaultValue: "4",
+    },
+    {
+      name: "alignOffset",
+      description: "فاصله اضافی در محور align",
+      values: ["number"],
+      defaultValue: "4",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

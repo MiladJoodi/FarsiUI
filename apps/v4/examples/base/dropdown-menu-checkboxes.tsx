@@ -18,34 +18,36 @@ export function DropdownMenuCheckboxes() {
   const [showPanel, setShowPanel] = React.useState(false)
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Open
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem
-            checked={showStatusBar ?? false}
-            onCheckedChange={setShowStatusBar}
-          >
-            Status Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={showActivityBar}
-            onCheckedChange={setShowActivityBar}
-            disabled
-          >
-            Activity Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={showPanel}
-            onCheckedChange={setShowPanel}
-          >
-            Panel
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          باز کردن
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-40">
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>ظاهر</DropdownMenuLabel>
+            <DropdownMenuCheckboxItem
+              checked={showStatusBar ?? false}
+              onCheckedChange={setShowStatusBar}
+            >
+              نوار وضعیت
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={showActivityBar}
+              onCheckedChange={setShowActivityBar}
+              disabled
+            >
+              نوار فعالیت
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={showPanel}
+              onCheckedChange={setShowPanel}
+            >
+              پنل
+            </DropdownMenuCheckboxItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

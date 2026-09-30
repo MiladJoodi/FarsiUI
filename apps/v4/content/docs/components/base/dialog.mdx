@@ -1,6 +1,6 @@
 ---
-title: Dialog
-description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+title: دیالوگ (Dialog)
+description: پنجره‌ای روی پنجرهٔ اصلی یا دیالوگ دیگر که محتوای زیرین را غیرفعال می‌کند.
 featured: true
 base: base
 component: true
@@ -9,24 +9,30 @@ links:
   api: https://base-ui.com/react/components/dialog#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="dialog-demo"
-  description="A dialog for editing profile details."
+  layout="switcher"
+  examples={[
+    { name: "dialog-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "dialog-close-button", label: "دکمه بستن", sizeable: false },
+    { name: "dialog-no-close-button", label: "بدون بستن", sizeable: false },
+    { name: "dialog-sticky-footer", label: "فوتر ثابت", sizeable: false },
+    { name: "dialog-scrollable-content", label: "اسکرول", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add dialog
+npx farsiui@latest add dialog
 ```
 
 </TabsContent>
@@ -35,13 +41,13 @@ npx shadcn@latest add dialog
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="dialog"
@@ -49,7 +55,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -57,7 +63,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -72,22 +78,27 @@ import {
 
 ```tsx showLineNumbers
 <Dialog>
-  <DialogTrigger>Open</DialogTrigger>
+  <DialogTrigger>باز کردن</DialogTrigger>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogTitle>آیا مطمئن هستید؟</DialogTitle>
       <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+        این عمل قابل بازگشت نیست. حساب و داده‌هایتان برای همیشه حذف می‌شود.
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
 </Dialog>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `Dialog`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Dialog` از این ترکیب استفاده کنید:
 
 ```text
 Dialog
@@ -99,36 +110,159 @@ Dialog
     └── DialogFooter
 ```
 
-## Custom Close Button
+</DocsCollapsible>
 
-Replace the default close control with your own button.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="dialog-close-button" />
+## دکمه بستن سفارشی
 
-## No Close Button
+</div>
 
-Use `showCloseButton={false}` to hide the close button.
+<DocsCollapsible title="دکمه بستن سفارشی">
 
-<ComponentPreview styleName="base-nova" name="dialog-no-close-button" />
+کنترل بستن پیش‌فرض را با دکمهٔ خودتان جایگزین کنید.
 
-## Sticky Footer
+<ComponentPreview
+  styleName="base-nova"
+  name="dialog-close-button"
+  direction="rtl"
+/>
 
-Keep actions visible while the content scrolls.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="dialog-sticky-footer" />
+<div className="hidden">
 
-## Scrollable Content
+## بدون دکمه بستن
 
-Long content can scroll while the header stays in view.
+</div>
 
-<ComponentPreview styleName="base-nova" name="dialog-scrollable-content" />
+<DocsCollapsible title="بدون دکمه بستن">
 
-## RTL
+با `showCloseButton={false}` دکمهٔ بستن را مخفی کنید.
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="dialog-no-close-button"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="dialog-rtl" direction="rtl" />
+</DocsCollapsible>
 
-## API Reference
+<div className="hidden">
 
-See the [Base UI](https://base-ui.com/react/components/dialog#api-reference) documentation for more information.
+## فوتر ثابت
+
+</div>
+
+<DocsCollapsible title="فوتر ثابت">
+
+اقدام‌ها را هنگام اسکرول محتوا در دید نگه دارید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dialog-sticky-footer"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## محتوای اسکرول‌شونده
+
+</div>
+
+<DocsCollapsible title="محتوای اسکرول‌شونده">
+
+محتوای طولانی اسکرول می‌شود و هدر در جای خود می‌ماند.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dialog-scrollable-content"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی ظرف دیالوگ `dir="rtl"` بگذارید. برای تنظیم سراسری، [راهنمای RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dialog-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/dialog#api-reference) را ببینید.
+
+<DocsApiProps
+  title="Dialog"
+  description="ظرف ریشهٔ دیالوگ."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "defaultOpen",
+      description: "حالت اولیه در حالت کنترل‌نشده",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="DialogContent"
+  description="پنل محتوا و پوشش دیالوگ."
+  props={[
+    {
+      name: "showCloseButton",
+      description: "نمایش دکمهٔ بستن پیش‌فرض",
+      values: ["boolean"],
+      defaultValue: "true",
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="DialogTrigger"
+  description="دکمه‌ای که دیالوگ را باز می‌کند."
+  props={[
+    {
+      name: "render",
+      description: "عنصر سفارشی برای رندر تریگر",
+      values: ["ReactElement"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

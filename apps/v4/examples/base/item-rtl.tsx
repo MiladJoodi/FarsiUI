@@ -1,13 +1,8 @@
 "use client"
 
-import * as React from "react"
-import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react"
+import { BadgeCheckIcon, ChevronLeftIcon } from "lucide-react"
 
-import {
-  useTranslation,
-  type Translations,
-} from "@/components/language-selector"
-import { Button } from "@/styles/base-nova/ui-rtl/button"
+import { Button } from "@/styles/base-nova/ui/button"
 import {
   Item,
   ItemActions,
@@ -15,63 +10,31 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/styles/base-nova/ui-rtl/item"
-
-const translations: Translations = {
-  en: {
-    dir: "ltr",
-    values: {
-      basicItem: "Basic Item",
-      basicItemDesc: "A simple item with title and description.",
-      action: "Action",
-      verifiedTitle: "Your profile has been verified.",
-    },
-  },
-  ar: {
-    dir: "rtl",
-    values: {
-      basicItem: "عنصر أساسي",
-      basicItemDesc: "عنصر بسيط يحتوي على عنوان ووصف.",
-      action: "إجراء",
-      verifiedTitle: "تم التحقق من ملفك الشخصي.",
-    },
-  },
-  he: {
-    dir: "rtl",
-    values: {
-      basicItem: "פריט בסיסי",
-      basicItemDesc: "פריט פשוט עם כותרת ותיאור.",
-      action: "פעולה",
-      verifiedTitle: "הפרופיל שלך אומת.",
-    },
-  },
-}
+} from "@/styles/base-nova/ui/item"
 
 export function ItemRtl() {
-  const { dir, t } = useTranslation(translations, "ar")
-
   return (
-    <div className="flex w-full max-w-md flex-col gap-6" dir={dir}>
-      <Item variant="outline" dir={dir}>
+    <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
+      <Item variant="outline">
         <ItemContent>
-          <ItemTitle>{t.basicItem}</ItemTitle>
-          <ItemDescription>{t.basicItemDesc}</ItemDescription>
+          <ItemTitle>آیتم پایه</ItemTitle>
+          <ItemDescription>یک آیتم ساده با عنوان و توضیح.</ItemDescription>
         </ItemContent>
         <ItemActions>
           <Button variant="outline" size="sm">
-            {t.action}
+            اقدام
           </Button>
         </ItemActions>
       </Item>
-      <Item variant="outline" size="sm" render={<a href="#" />} dir={dir}>
+      <Item variant="outline" size="sm" render={<a href="#" />}>
         <ItemMedia>
           <BadgeCheckIcon className="size-5" />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>{t.verifiedTitle}</ItemTitle>
+          <ItemTitle>پروفایل شما تأیید شد.</ItemTitle>
         </ItemContent>
         <ItemActions>
-          <ChevronRightIcon className="size-4" />
+          <ChevronLeftIcon className="size-4" />
         </ItemActions>
       </Item>
     </div>

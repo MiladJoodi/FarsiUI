@@ -2,21 +2,21 @@ import { Markdown } from "@/components/markdown"
 import { Bubble, BubbleContent } from "@/styles/base-rhea/ui/bubble"
 import { Message, MessageContent } from "@/styles/base-rhea/ui/message"
 
-const response = `Here's how to render markdown in a message:
+const response = `این‌طور مارک‌داون را در پیام رندر کنید:
 
-1. Render assistant text through **Markdown**.
-2. Keep user messages as plain text.
-3. Use a \`ghost\` bubble so the response is unframed.
+1. متن دستیار را با **Markdown** رندر کنید.
+2. پیام‌های کاربر را متن ساده نگه دارید.
+3. از حباب \`ghost\` استفاده کنید تا پاسخ بدون قاب باشد.
 `
 
 export function MessageMarkdownDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message align="end">
         <MessageContent>
           <Bubble>
             <BubbleContent>
-              How do I render markdown in a message?
+              چطور مارک‌داون را در پیام رندر کنم؟
             </BubbleContent>
           </Bubble>
         </MessageContent>

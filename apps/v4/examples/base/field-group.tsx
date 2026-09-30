@@ -10,44 +10,46 @@ import {
 
 export default function FieldGroupExample() {
   return (
-    <FieldGroup className="w-full max-w-xs">
-      <FieldSet>
-        <FieldLabel>Responses</FieldLabel>
-        <FieldDescription>
-          Get notified when ChatGPT responds to requests that take time, like
-          research or image generation.
-        </FieldDescription>
-        <FieldGroup data-slot="checkbox-group">
-          <Field orientation="horizontal">
-            <Checkbox id="push" defaultChecked disabled />
-            <FieldLabel htmlFor="push" className="font-normal">
-              Push notifications
-            </FieldLabel>
-          </Field>
-        </FieldGroup>
-      </FieldSet>
-      <FieldSeparator />
-      <FieldSet>
-        <FieldLabel>Tasks</FieldLabel>
-        <FieldDescription>
-          Get notified when tasks you&apos;ve created have updates.{" "}
-          <a href="#">Manage tasks</a>
-        </FieldDescription>
-        <FieldGroup data-slot="checkbox-group">
-          <Field orientation="horizontal">
-            <Checkbox id="push-tasks" />
-            <FieldLabel htmlFor="push-tasks" className="font-normal">
-              Push notifications
-            </FieldLabel>
-          </Field>
-          <Field orientation="horizontal">
-            <Checkbox id="email-tasks" />
-            <FieldLabel htmlFor="email-tasks" className="font-normal">
-              Email notifications
-            </FieldLabel>
-          </Field>
-        </FieldGroup>
-      </FieldSet>
-    </FieldGroup>
+    <div dir="rtl">
+      <FieldGroup className="w-full max-w-xs">
+        <FieldSet>
+          <FieldLabel>پاسخ‌ها</FieldLabel>
+          <FieldDescription>
+            وقتی به درخواست‌های زمان‌بر مثل پژوهش یا تولید تصویر پاسخ داده شد،
+            مطلع شوید.
+          </FieldDescription>
+          <FieldGroup data-slot="checkbox-group">
+            <Field orientation="horizontal">
+              <Checkbox id="push" defaultChecked disabled />
+              <FieldLabel htmlFor="push" className="font-normal">
+                اعلان پوش
+              </FieldLabel>
+            </Field>
+          </FieldGroup>
+        </FieldSet>
+        <FieldSeparator />
+        <FieldSet>
+          <FieldLabel>کارها</FieldLabel>
+          <FieldDescription>
+            وقتی کارهای ساخته‌شده به‌روز شدند مطلع شوید.{" "}
+            <a href="#">مدیریت کارها</a>
+          </FieldDescription>
+          <FieldGroup data-slot="checkbox-group">
+            <Field orientation="horizontal">
+              <Checkbox id="push-tasks" />
+              <FieldLabel htmlFor="push-tasks" className="font-normal">
+                اعلان پوش
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <Checkbox id="email-tasks" />
+              <FieldLabel htmlFor="email-tasks" className="font-normal">
+                اعلان ایمیلی
+              </FieldLabel>
+            </Field>
+          </FieldGroup>
+        </FieldSet>
+      </FieldGroup>
+    </div>
   )
 }

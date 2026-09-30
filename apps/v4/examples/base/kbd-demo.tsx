@@ -2,7 +2,7 @@ import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
 
 export default function KbdDemo() {
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div dir="rtl" className="flex flex-col items-center gap-4">
       <KbdGroup>
         <Kbd>⌘</Kbd>
         <Kbd>⇧</Kbd>

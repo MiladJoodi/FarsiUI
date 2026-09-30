@@ -7,12 +7,18 @@ import {
   CarouselPrevious,
 } from "@/styles/base-nova/ui/carousel"
 
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export function CarouselMultiple() {
   return (
     <Carousel
+      dir="rtl"
       className="mx-auto max-w-xs sm:max-w-sm"
       opts={{
         align: "start",
+        direction: "rtl",
       }}
     >
       <CarouselContent>
@@ -21,7 +27,9 @@ export function CarouselMultiple() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
+                  <span className="text-3xl font-semibold">
+                    {toPersianDigits(index + 1)}
+                  </span>
                 </CardContent>
               </Card>
             </div>

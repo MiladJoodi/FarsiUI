@@ -9,22 +9,22 @@ import {
 
 export default function KbdTooltip() {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div dir="rtl" className="flex flex-wrap gap-4">
       <ButtonGroup>
         <Tooltip>
           <TooltipTrigger render={<Button variant="outline" />}>
-            Save
+            ذخیره
           </TooltipTrigger>
           <TooltipContent>
-            Save Changes <Kbd>S</Kbd>
+            ذخیرهٔ تغییرات <Kbd>S</Kbd>
           </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger render={<Button variant="outline" />}>
-            Print
+            چاپ
           </TooltipTrigger>
           <TooltipContent>
-            Print Document{" "}
+            چاپ سند{" "}
             <KbdGroup>
               <Kbd>Ctrl</Kbd>
               <Kbd>P</Kbd>

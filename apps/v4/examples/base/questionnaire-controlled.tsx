@@ -25,9 +25,9 @@ const items = [
 ] as const
 
 const itemLabels: Record<string, string> = {
-  scope: "Change scope",
-  checks: "Verification",
-  output: "Final output",
+  scope: "محدودهٔ تغییر",
+  checks: "تأیید",
+  output: "خروجی نهایی",
 }
 
 export function QuestionnaireControlled() {
@@ -38,18 +38,18 @@ export function QuestionnaireControlled() {
 
     const formData = new FormData(event.currentTarget)
 
-    toast("Agent workflow configured", {
-      description: `Scope: ${formData.get("scope") ?? "None"} · Verification: ${formData.get("checks") ?? "None"} · Output: ${formData.get("output") ?? "None"}`,
+    toast("گردش‌کار عامل پیکربندی شد", {
+      description: `محدوده: ${formData.get("scope") ?? "هیچ"} · تأیید: ${formData.get("checks") ?? "هیچ"} · خروجی: ${formData.get("output") ?? "هیچ"}`,
     })
   }
 
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-md flex-col">
+    <div dir="rtl" className="relative mx-auto flex h-full w-full max-w-md flex-col">
       <p
         className="absolute end-0 top-0 text-sm text-muted-foreground"
         role="status"
       >
-        Current checkpoint: {itemLabels[item]}
+        نقطهٔ بررسی فعلی: {itemLabels[item]}
       </p>
 
       <Questionnaire
@@ -62,19 +62,19 @@ export function QuestionnaireControlled() {
         <QuestionnaireProgress />
 
         <QuestionnaireItem name="scope" required>
-          <QuestionnaireTitle>What may the agent change?</QuestionnaireTitle>
+          <QuestionnaireTitle>عامل مجاز به تغییر چه چیزی است؟</QuestionnaireTitle>
           <QuestionnaireDescription>
-            The host stores the active checkpoint while Questionnaire navigates.
+            میزبان نقطهٔ بررسی فعال را نگه می‌دارد و Questionnaire ناوبری می‌کند.
           </QuestionnaireDescription>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="component">
-              Only the target component
+              فقط کامپوننت هدف
             </QuestionnaireChoice>
             <QuestionnaireChoice value="tests">
-              Component and related tests
+              کامپوننت و تست‌های مرتبط
             </QuestionnaireChoice>
             <QuestionnaireChoice value="feature">
-              The complete feature area
+              کل محدودهٔ ویژگی
             </QuestionnaireChoice>
           </QuestionnaireChoices>
           <QuestionnaireError />
@@ -82,17 +82,17 @@ export function QuestionnaireControlled() {
 
         <QuestionnaireItem name="checks" required>
           <QuestionnaireTitle>
-            Which verification level should it use?
+            کدام سطح تأیید را به‌کار ببرد؟
           </QuestionnaireTitle>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="targeted">
-              Targeted tests
+              تست‌های هدفمند
             </QuestionnaireChoice>
             <QuestionnaireChoice value="package">
-              Package tests and typecheck
+              تست‌های پکیج و بررسی نوع
             </QuestionnaireChoice>
             <QuestionnaireChoice value="full">
-              Full workspace verification
+              راستی‌آزمایی کامل فضای کاری
             </QuestionnaireChoice>
           </QuestionnaireChoices>
           <QuestionnaireError />
@@ -100,26 +100,26 @@ export function QuestionnaireControlled() {
 
         <QuestionnaireItem name="output" required>
           <QuestionnaireTitle>
-            What should the agent return when finished?
+            عامل پس از اتمام چه چیزی برگرداند؟
           </QuestionnaireTitle>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="summary">
-              Concise summary
+              خلاصهٔ کوتاه
             </QuestionnaireChoice>
             <QuestionnaireChoice value="diff">
-              Summary with changed files
+              خلاصه با فایل‌های تغییر یافته
             </QuestionnaireChoice>
             <QuestionnaireChoice value="handoff">
-              Detailed implementation handoff
+              تحویل جزئیات پیاده‌سازی
             </QuestionnaireChoice>
           </QuestionnaireChoices>
           <QuestionnaireError />
         </QuestionnaireItem>
 
         <QuestionnaireActions>
-          <QuestionnairePrevious />
-          <QuestionnaireNext>Next</QuestionnaireNext>
-          <QuestionnaireSubmit>Save workflow</QuestionnaireSubmit>
+          <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+          <QuestionnaireNext>بعدی</QuestionnaireNext>
+          <QuestionnaireSubmit>ذخیرهٔ گردش‌کار</QuestionnaireSubmit>
         </QuestionnaireActions>
       </Questionnaire>
     </div>

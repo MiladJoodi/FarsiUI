@@ -10,12 +10,12 @@ import {
 
 export function CheckboxGroup() {
   return (
-    <FieldSet>
+    <FieldSet dir="rtl">
       <FieldLegend variant="label">
-        Show these items on the desktop:
+        این موارد روی دسکتاپ نمایش داده شوند:
       </FieldLegend>
       <FieldDescription>
-        Select the items you want to show on the desktop.
+        مواردی را که می‌خواهید روی دسکتاپ ببینید انتخاب کنید.
       </FieldDescription>
       <FieldGroup className="gap-3">
         <Field orientation="horizontal">
@@ -28,7 +28,7 @@ export function CheckboxGroup() {
             htmlFor="finder-pref-9k2-hard-disks-ljj-checkbox"
             className="font-normal"
           >
-            Hard disks
+            دیسک‌های سخت
           </FieldLabel>
         </Field>
         <Field orientation="horizontal">
@@ -41,7 +41,7 @@ export function CheckboxGroup() {
             htmlFor="finder-pref-9k2-external-disks-1yg-checkbox"
             className="font-normal"
           >
-            External disks
+            دیسک‌های خارجی
           </FieldLabel>
         </Field>
         <Field orientation="horizontal">
@@ -53,7 +53,7 @@ export function CheckboxGroup() {
             htmlFor="finder-pref-9k2-cds-dvds-fzt-checkbox"
             className="font-normal"
           >
-            CDs, DVDs, and iPods
+            سی‌دی، دی‌وی‌دی و آیپاد
           </FieldLabel>
         </Field>
         <Field orientation="horizontal">
@@ -65,7 +65,7 @@ export function CheckboxGroup() {
             htmlFor="finder-pref-9k2-connected-servers-6l2-checkbox"
             className="font-normal"
           >
-            Connected servers
+            سرورهای متصل
           </FieldLabel>
         </Field>
       </FieldGroup>

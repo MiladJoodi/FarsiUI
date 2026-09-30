@@ -23,8 +23,8 @@ const messages = Array.from({ length: 12 }, (_, index) => ({
   role: index % 2 === 0 ? "user" : "assistant",
   text:
     index % 2 === 0
-      ? `Review scroll checkpoint ${index + 1}.`
-      : `Checkpoint ${index + 1} is synced. The scrollable hook updates as the viewport moves.\n\nWhen the reader is at the first message, the footer should only point them down. Once they move into the middle of the transcript, it should explain that both directions are available.\n\nAt the latest message, the footer should switch again and only point them back up.`,
+      ? `نقطهٔ بررسی اسکرول ${index + 1} را مرور کنید.`
+      : `نقطهٔ بررسی ${index + 1} همگام شد. هوک قابل‌اسکرول با حرکت ویوپورت به‌روز می‌شود.\n\nوقتی خواننده روی اولین پیام است، فوتر فقط باید به پایین اشاره کند. وقتی به میانهٔ رونوشت می‌رود، باید بگوید هر دو جهت در دسترس است.\n\nروی آخرین پیام، فوتر دوباره عوض می‌شود و فقط به بالا اشاره می‌کند.`,
 })) satisfies Array<{
   id: string
   role: "user" | "assistant"
@@ -33,12 +33,12 @@ const messages = Array.from({ length: 12 }, (_, index) => ({
 
 export function MessageScrollerScrollable() {
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-col gap-4">
+    <div dir="rtl" className="mx-auto flex w-full max-w-sm flex-col gap-4">
       <Card className="h-140 w-full gap-0 overflow-hidden">
         <CardHeader className="gap-1 border-b">
-          <CardTitle>Scroll Status</CardTitle>
+          <CardTitle>وضعیت اسکرول</CardTitle>
           <CardDescription>
-            Where the reader can go scroll to based on current scroll position.
+            بر اساس موقعیت فعلی، خواننده به کجا می‌تواند اسکرول کند.
           </CardDescription>
         </CardHeader>
         <MessageScrollerProvider defaultScrollPosition="start">
@@ -56,7 +56,7 @@ export function MessageScrollerScrollable() {
         </MessageScrollerProvider>
       </Card>
       <div className="px-0.5 text-center text-xs text-muted-foreground">
-        Scroll the transcript to see the footer update.
+        رونوشت را اسکرول کنید تا فوتر به‌روز شود.
       </div>
     </div>
   )
@@ -88,16 +88,16 @@ function ScrollStateFooter() {
 
 function getScrollStatus({ start, end }: { start: boolean; end: boolean }) {
   if (start && end) {
-    return "You can scroll both ways."
+    return "می‌توانید به هر دو جهت اسکرول کنید."
   }
 
   if (end) {
-    return "You are at the top. You can only scroll down."
+    return "بالایید. فقط می‌توانید پایین بروید."
   }
 
   if (start) {
-    return "You are at the bottom. You can only scroll up."
+    return "پایینید. فقط می‌توانید بالا بروید."
   }
 
-  return "All messages fit in the viewport."
+  return "همهٔ پیام‌ها در ویوپورت جا می‌شوند."
 }

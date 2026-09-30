@@ -1,28 +1,41 @@
 ---
-title: Field
-description: Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
+title: فیلد (Field)
+description: ترکیب برچسب، کنترل و متن کمکی برای ساخت فیلدهای فرم دسترس‌پذیر.
 base: base
 component: true
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="field-demo"
-  previewClassName="h-[800px] p-6 md:h-[850px]"
+  layout="switcher"
+  examples={[
+    { name: "field-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "field-input", label: "ورودی", sizeable: false },
+    { name: "field-textarea", label: "متن‌بلند", sizeable: false },
+    { name: "field-select", label: "انتخاب", sizeable: false },
+    { name: "field-slider", label: "اسلایدر", sizeable: false },
+    { name: "field-fieldset", label: "Fieldset", sizeable: false },
+    { name: "field-checkbox", label: "چک‌باکس", sizeable: false },
+    { name: "field-radio", label: "رادیو", sizeable: false },
+    { name: "field-switch", label: "سوییچ", sizeable: false },
+    { name: "field-choice-card", label: "کارت انتخاب", sizeable: false },
+    { name: "field-group", label: "گروه", sizeable: false },
+    { name: "field-responsive", label: "ریسپانسیو", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add field
+npx farsiui@latest add field
 ```
 
 </TabsContent>
@@ -31,7 +44,7 @@ npx shadcn@latest add field
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="field"
@@ -39,7 +52,7 @@ npx shadcn@latest add field
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -47,7 +60,7 @@ npx shadcn@latest add field
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -66,32 +79,38 @@ import {
 
 ```tsx showLineNumbers
 <FieldSet>
-  <FieldLegend>Profile</FieldLegend>
-  <FieldDescription>This appears on invoices and emails.</FieldDescription>
+  <FieldLegend>پروفایل</FieldLegend>
+  <FieldDescription>این در فاکتور و ایمیل نمایش داده می‌شود.</FieldDescription>
   <FieldGroup>
     <Field>
-      <FieldLabel htmlFor="name">Full name</FieldLabel>
-      <Input id="name" autoComplete="off" placeholder="Evil Rabbit" />
-      <FieldDescription>This appears on invoices and emails.</FieldDescription>
+      <FieldLabel htmlFor="name">نام کامل</FieldLabel>
+      <Input id="name" autoComplete="off" placeholder="علی رضایی" />
+      <FieldDescription>این در فاکتور و ایمیل نمایش داده می‌شود.</FieldDescription>
     </Field>
     <Field>
-      <FieldLabel htmlFor="username">Username</FieldLabel>
+      <FieldLabel htmlFor="username">نام کاربری</FieldLabel>
       <Input id="username" autoComplete="off" aria-invalid />
-      <FieldError>Choose another username.</FieldError>
+      <FieldError>نام کاربری دیگری انتخاب کنید.</FieldError>
     </Field>
     <Field orientation="horizontal">
       <Switch id="newsletter" />
-      <FieldLabel htmlFor="newsletter">Subscribe to the newsletter</FieldLabel>
+      <FieldLabel htmlFor="newsletter">عضویت در خبرنامه</FieldLabel>
     </Field>
   </FieldGroup>
 </FieldSet>
 ```
 
-## Composition
+<div className="hidden">
+
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
 
 ### Field
 
-A single control with label, helper text, and validation.
+یک کنترل با برچسب، متن کمکی و اعتبارسنجی:
 
 ```text
 Field
@@ -103,7 +122,7 @@ Field
 
 ### FieldGroup
 
-Related fields in one group. Use `FieldSeparator` between sections when needed.
+فیلدهای مرتبط در یک گروه. در صورت نیاز بین بخش‌ها از `FieldSeparator` استفاده کنید:
 
 ```text
 FieldGroup
@@ -120,7 +139,7 @@ FieldGroup
 
 ### FieldSet
 
-Semantic grouping with a legend and description, usually containing a `FieldGroup`.
+گروه‌بندی معنایی با legend و توضیح؛ معمولاً شامل `FieldGroup`:
 
 ```text
 FieldSet
@@ -137,82 +156,220 @@ FieldSet
         └── Input / Textarea / Switch / Select
 ```
 
-## Anatomy
+</DocsCollapsible>
 
-The `Field` family is designed for composing accessible forms. A typical field is structured as follows:
+<div className="hidden">
+
+## آناتومی
+
+</div>
+
+<DocsCollapsible title="آناتومی">
+
+خانوادهٔ `Field` برای ساخت فرم‌های دسترس‌پذیر طراحی شده. ساختار معمول یک فیلد:
 
 ```tsx showLineNumbers
 <Field>
-  <FieldLabel htmlFor="input-id">Label</FieldLabel>
-  {/* Input, Select, Switch, etc. */}
-  <FieldDescription>Optional helper text.</FieldDescription>
-  <FieldError>Validation message.</FieldError>
+  <FieldLabel htmlFor="input-id">برچسب</FieldLabel>
+  {/* Input, Select, Switch و غیره */}
+  <FieldDescription>متن کمکی اختیاری.</FieldDescription>
+  <FieldError>پیام اعتبارسنجی.</FieldError>
 </Field>
 ```
 
-- `Field` is the core wrapper for a single field.
-- `FieldContent` is a flex column that groups label and description. Not required if you have no description.
-- Wrap related fields with `FieldGroup`, and use `FieldSet` with `FieldLegend` for semantic grouping.
+- `Field` پوشش اصلی یک فیلد است.
+- `FieldContent` ستون flex برای گروه‌بندی برچسب و توضیح است؛ اگر توضیح ندارید لازم نیست.
+- فیلدهای مرتبط را با `FieldGroup` بپیچید و برای گروه‌بندی معنایی از `FieldSet` با `FieldLegend` استفاده کنید.
 
-## Form
+</DocsCollapsible>
 
-See the [Form](/docs/forms) documentation for building forms with the `Field` component and [React Hook Form](/docs/forms/react-hook-form), [Tanstack Form](/docs/forms/tanstack-form), or [Formisch](/docs/forms/formisch).
+<div className="hidden">
 
-## Input
+## فرم
 
-<ComponentPreview styleName="base-nova" name="field-input" />
+</div>
 
-## Textarea
+<DocsCollapsible title="فرم">
 
-<ComponentPreview styleName="base-nova" name="field-textarea" />
+برای ساخت فرم با `Field` و [React Hook Form](/docs/forms/react-hook-form)، [TanStack Form](/docs/forms/tanstack-form) یا [Formisch](/docs/forms/formisch)، مستندات [فرم](/docs/forms) را ببینید.
 
-## Select
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="field-select" />
+<div className="hidden">
 
-## Slider
+## ورودی
 
-<ComponentPreview styleName="base-nova" name="field-slider" />
+</div>
+
+<DocsCollapsible title="ورودی">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-input"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## متن‌بلند
+
+</div>
+
+<DocsCollapsible title="متن‌بلند">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-textarea"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## انتخاب
+
+</div>
+
+<DocsCollapsible title="انتخاب">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-select"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## اسلایدر
+
+</div>
+
+<DocsCollapsible title="اسلایدر">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-slider"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## Fieldset
 
-<ComponentPreview styleName="base-nova" name="field-fieldset" />
+</div>
 
-## Checkbox
+<DocsCollapsible title="Fieldset">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-fieldset"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## چک‌باکس
+
+</div>
+
+<DocsCollapsible title="چک‌باکس">
 
 <ComponentPreview
   styleName="base-nova"
   name="field-checkbox"
+  direction="rtl"
   previewClassName="h-[32rem]"
 />
 
-## Radio
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="field-radio" />
+<div className="hidden">
 
-## Switch
+## رادیو
 
-<ComponentPreview styleName="base-nova" name="field-switch" />
+</div>
 
-## Choice Card
+<DocsCollapsible title="رادیو">
 
-Wrap `Field` components inside `FieldLabel` to create selectable field groups. This works with `RadioItem`, `Checkbox` and `Switch` components.
+<ComponentPreview
+  styleName="base-nova"
+  name="field-radio"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="field-choice-card" />
+</DocsCollapsible>
 
-## Field Group
+<div className="hidden">
 
-Stack `Field` components with `FieldGroup`. Add `FieldSeparator` to divide them.
+## سوییچ
+
+</div>
+
+<DocsCollapsible title="سوییچ">
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-switch"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## کارت انتخاب
+
+</div>
+
+<DocsCollapsible title="کارت انتخاب">
+
+`Field` را داخل `FieldLabel` بپیچید تا گروه قابل انتخاب بسازید. با `RadioItem`، `Checkbox` و `Switch` کار می‌کند.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="field-choice-card"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه فیلد
+
+</div>
+
+<DocsCollapsible title="گروه فیلد">
+
+`Field`ها را با `FieldGroup` روی هم بچینید. برای جدا کردن بخش‌ها `FieldSeparator` بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
   name="field-group"
+  direction="rtl"
   previewClassName="h-96"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی ظرف فیلد `dir="rtl"` بگذارید. برای تنظیم سراسری، [راهنمای RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -221,184 +378,215 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   previewClassName="h-auto p-6"
 />
 
-## Responsive Layout
+</DocsCollapsible>
 
-- **Vertical fields:** Default orientation stacks label, control, and helper text—ideal for mobile-first layouts.
-- **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `FieldContent` to keep descriptions aligned.
-- **Responsive fields:** Set `orientation="responsive"` for automatic column layouts inside container-aware parents. Apply `@container/field-group` classes on `FieldGroup` to switch orientations at specific breakpoints.
+<div className="hidden">
+
+## چیدمان ریسپانسیو
+
+</div>
+
+<DocsCollapsible title="چیدمان ریسپانسیو">
+
+- **عمودی:** جهت پیش‌فرض؛ برچسب، کنترل و متن کمکی زیر هم — مناسب موبایل.
+- **افقی:** با `orientation="horizontal"` برچسب و کنترل کنار هم. با `FieldContent` توضیحات هم‌تراز می‌مانند.
+- **ریسپانسیو:** با `orientation="responsive"` چیدمان ستونی خودکار داخل والدین container-aware. روی `FieldGroup` کلاس‌های `@container/field-group` بگذارید تا در breakpointها جهت عوض شود.
 
 <ComponentPreview
   styleName="base-nova"
   name="field-responsive"
+  direction="rtl"
   previewClassName="h-[650px] p-6 md:h-[500px] md:p-10"
 />
 
-## Validation and Errors
+</DocsCollapsible>
 
-- Add `data-invalid` to `Field` to switch the entire block into an error state.
-- Add `aria-invalid` on the input itself for assistive technologies.
-- Render `FieldError` immediately after the control or inside `FieldContent` to keep error messages aligned with the field.
+<div className="hidden">
+
+## اعتبارسنجی و خطا
+
+</div>
+
+<DocsCollapsible title="اعتبارسنجی و خطا">
+
+- روی `Field` مقدار `data-invalid` بگذارید تا کل بلوک حالت خطا بگیرد.
+- روی خود ورودی `aria-invalid` بگذارید تا فناوری‌های کمکی مطلع شوند.
+- `FieldError` را بلافاصله بعد از کنترل یا داخل `FieldContent` رندر کنید تا پیام با فیلد هم‌تراز بماند.
 
 ```tsx showLineNumbers /data-invalid/ /aria-invalid/
 <Field data-invalid>
-  <FieldLabel htmlFor="email">Email</FieldLabel>
+  <FieldLabel htmlFor="email">ایمیل</FieldLabel>
   <Input id="email" type="email" aria-invalid />
-  <FieldError>Enter a valid email address.</FieldError>
+  <FieldError>یک ایمیل معتبر وارد کنید.</FieldError>
 </Field>
 ```
 
-## Accessibility
+</DocsCollapsible>
 
-- `FieldSet` and `FieldLegend` keep related controls grouped for keyboard and assistive tech users.
-- `Field` outputs `role="group"` so nested controls inherit labeling from `FieldLabel` and `FieldLegend` when combined.
-- Apply `FieldSeparator` sparingly to ensure screen readers encounter clear section boundaries.
+<div className="hidden">
 
-## API Reference
+## دسترس‌پذیری
 
-### FieldSet
+</div>
 
-Container that renders a semantic `fieldset` with spacing presets.
+<DocsCollapsible title="دسترس‌پذیری">
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
+- `FieldSet` و `FieldLegend` کنترل‌های مرتبط را برای صفحه‌کلید و فناوری‌های کمکی گروه‌بندی می‌کنند.
+- `Field` با `role="group"` خروجی می‌دهد تا کنترل‌های تو در تو برچسب را از `FieldLabel` و `FieldLegend` بگیرند.
+- `FieldSeparator` را کم به‌کار ببرید تا مرز بخش‌ها برای صفحه‌خوان واضح بماند.
 
-```tsx
-<FieldSet>
-  <FieldLegend>Delivery</FieldLegend>
-  <FieldGroup>{/* Fields */}</FieldGroup>
-</FieldSet>
-```
+</DocsCollapsible>
 
-### FieldLegend
+<div className="hidden">
 
-Legend element for a `FieldSet`. Switch to the `label` variant to align with label sizing.
+## مرجع API
 
-| Prop        | Type                  | Default    |
-| ----------- | --------------------- | ---------- |
-| `variant`   | `"legend" \| "label"` | `"legend"` |
-| `className` | `string`              |            |
+</div>
 
-```tsx
-<FieldLegend variant="label">Notification Preferences</FieldLegend>
-```
+<DocsCollapsible title="مرجع API">
 
-The `FieldLegend` has two variants: `legend` and `label`. The `label` variant applies label sizing and alignment. Handy if you have nested `FieldSet`.
+<DocsApiProps
+  title="FieldSet"
+  description="ظرف معنایی fieldset با فاصله‌گذاری پیش‌فرض."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### FieldGroup
+<DocsApiProps
+  title="FieldLegend"
+  description="عنصر legend برای FieldSet. با variant=label به اندازهٔ برچسب نزدیک می‌شود."
+  props={[
+    {
+      name: "variant",
+      description: "ظاهر legend",
+      values: ['"legend"', '"label"'],
+      defaultValue: '"legend"',
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Layout wrapper that stacks `Field` components and enables container queries for responsive orientations.
+<DocsApiProps
+  title="FieldGroup"
+  description="پوشش چیدمان برای پشتهٔ Field و container query جهت ریسپانسیو."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
+<DocsApiProps
+  title="Field"
+  description="پوشش اصلی یک فیلد؛ کنترل جهت، حالت نامعتبر و فاصله."
+  props={[
+    {
+      name: "orientation",
+      description: "جهت چیدمان",
+      values: ['"vertical"', '"horizontal"', '"responsive"'],
+      defaultValue: '"vertical"',
+    },
+    {
+      name: "data-invalid",
+      description: "فعال‌سازی حالت خطا",
+      values: ["boolean"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-```tsx
-<FieldGroup className="@container/field-group flex flex-col gap-6">
-  <Field>{/* ... */}</Field>
-  <Field>{/* ... */}</Field>
-</FieldGroup>
-```
+<DocsApiProps
+  title="FieldContent"
+  description="ستون flex برای گروه‌بندی کنترل و توضیح وقتی برچسب کنار کنترل است."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### Field
+<DocsApiProps
+  title="FieldLabel"
+  description="برچسب برای ورودی مستقیم یا فرزندان Field."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-The core wrapper for a single field. Provides orientation control, invalid state styling, and spacing.
+<DocsApiProps
+  title="FieldTitle"
+  description="عنوان با استایل برچسب داخل FieldContent."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-| Prop           | Type                                         | Default      |
-| -------------- | -------------------------------------------- | ------------ |
-| `orientation`  | `"vertical" \| "horizontal" \| "responsive"` | `"vertical"` |
-| `className`    | `string`                                     |              |
-| `data-invalid` | `boolean`                                    |              |
+<DocsApiProps
+  title="FieldDescription"
+  description="متن کمکی؛ در چیدمان افقی خطوط بلند را متعادل می‌کند."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-```tsx
-<Field orientation="horizontal">
-  <FieldLabel htmlFor="remember">Remember me</FieldLabel>
-  <Switch id="remember" />
-</Field>
-```
+<DocsApiProps
+  title="FieldSeparator"
+  description="جداکنندهٔ بصری بین بخش‌های FieldGroup؛ محتوای درون‌خطی اختیاری."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-### FieldContent
+<DocsApiProps
+  title="FieldError"
+  description="ظرف خطای دسترس‌پذیر؛ children یا آرایهٔ errors می‌پذیرد."
+  props={[
+    {
+      name: "errors",
+      description: "آرایهٔ پیام‌های خطا (مثلاً از react-hook-form)",
+      values: ["Array<{ message?: string } | undefined>"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های اضافی",
+      values: ["string"],
+    },
+  ]}
+/>
 
-Flex column that groups control and descriptions when the label sits beside the control. Not required if you have no description.
+اگر آرایهٔ `errors` چند پیام داشته باشد، لیست به‌صورت خودکار رندر می‌شود. `FieldError` همچنین issueهای [Standard Schema](https://standardschema.dev/) (مثل Zod، Valibot، ArkType) را می‌پذیرد.
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<Field>
-  <Checkbox id="notifications" />
-  <FieldContent>
-    <FieldLabel htmlFor="notifications">Notifications</FieldLabel>
-    <FieldDescription>Email, SMS, and push options.</FieldDescription>
-  </FieldContent>
-</Field>
-```
-
-### FieldLabel
-
-Label styled for both direct inputs and nested `Field` children.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<FieldLabel htmlFor="email">Email</FieldLabel>
-```
-
-### FieldTitle
-
-Renders a title with label styling inside `FieldContent`.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<FieldContent>
-  <FieldTitle>Enable Touch ID</FieldTitle>
-  <FieldDescription>Unlock your device faster.</FieldDescription>
-</FieldContent>
-```
-
-### FieldDescription
-
-Helper text slot that automatically balances long lines in horizontal layouts.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<FieldDescription>We never share your email with anyone.</FieldDescription>
-```
-
-### FieldSeparator
-
-Visual divider to separate sections inside a `FieldGroup`. Accepts optional inline content.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` |         |
-
-```tsx
-<FieldSeparator>Or continue with</FieldSeparator>
-```
-
-### FieldError
-
-Accessible error container that accepts children or an `errors` array (e.g., from `react-hook-form`).
-
-| Prop        | Type                                       | Default |
-| ----------- | ------------------------------------------ | ------- |
-| `errors`    | `Array<{ message?: string } \| undefined>` |         |
-| `className` | `string`                                   |         |
-
-```tsx
-<FieldError errors={errors.username} />
-```
-
-When the `errors` array contains multiple messages, the component renders a list automatically.
-
-`FieldError` also accepts issues produced by any validator that implements [Standard Schema](https://standardschema.dev/), including Zod, Valibot, and ArkType. Pass the `issues` array from the schema result directly to render a unified error list across libraries.
+</DocsCollapsible>

@@ -9,7 +9,7 @@ import {
 
 export function CheckboxDescription() {
   return (
-    <FieldGroup className="mx-auto w-72">
+    <FieldGroup className="mx-auto w-72" dir="rtl">
       <Field orientation="horizontal">
         <Checkbox
           id="terms-checkbox-desc"
@@ -18,10 +18,10 @@ export function CheckboxDescription() {
         />
         <FieldContent>
           <FieldLabel htmlFor="terms-checkbox-desc">
-            Accept terms and conditions
+            پذیرش شرایط و قوانین
           </FieldLabel>
           <FieldDescription>
-            By clicking this checkbox, you agree to the terms and conditions.
+            با زدن این گزینه، شرایط و قوانین را می‌پذیرید.
           </FieldDescription>
         </FieldContent>
       </Field>

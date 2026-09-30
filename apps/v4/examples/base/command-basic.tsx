@@ -17,19 +17,19 @@ export function CommandBasic() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" dir="rtl">
       <Button onClick={() => setOpen(true)} variant="outline" className="w-fit">
-        Open Menu
+        باز کردن منو
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
-          <CommandInput placeholder="Type a command or search..." />
+          <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>Calendar</CommandItem>
-              <CommandItem>Search Emoji</CommandItem>
-              <CommandItem>Calculator</CommandItem>
+            <CommandEmpty>نتیجه‌ای پیدا نشد.</CommandEmpty>
+            <CommandGroup heading="پیشنهادها">
+              <CommandItem>تقویم</CommandItem>
+              <CommandItem>جستجوی ایموجی</CommandItem>
+              <CommandItem>ماشین‌حساب</CommandItem>
             </CommandGroup>
           </CommandList>
         </Command>

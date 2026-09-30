@@ -24,36 +24,40 @@ import {
 
 export function DropdownMenuAvatar() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        render={<Button variant="ghost" size="icon" className="rounded-full" />}
-      >
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
-          <AvatarFallback>LR</AvatarFallback>
-        </Avatar>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuGroup>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="ghost" size="icon" className="rounded-full" />
+          }
+        >
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" alt="کاربر" />
+            <AvatarFallback>ار</AvatarFallback>
+          </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start">
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <BadgeCheckIcon />
+              حساب کاربری
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <CreditCardIcon />
+              صورتحساب
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <BellIcon />
+              اعلان‌ها
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <BadgeCheckIcon />
-            Account
+            <LogOutIcon />
+            خروج
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCardIcon />
-            Billing
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <BellIcon />
-            Notifications
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOutIcon />
-          Sign Out
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

@@ -15,21 +15,21 @@ import {
 
 export default function InputGroupIcon() {
   return (
-    <div className="grid w-full max-w-sm gap-6">
+    <div dir="rtl" className="grid w-full max-w-sm gap-6">
       <InputGroup>
-        <InputGroupInput placeholder="Search..." />
+        <InputGroupInput placeholder="جستجو..." />
         <InputGroupAddon>
           <SearchIcon />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput type="email" placeholder="Enter your email" />
+        <InputGroupInput type="email" placeholder="ایمیل خود را وارد کنید" />
         <InputGroupAddon>
           <MailIcon />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Card number" />
+        <InputGroupInput placeholder="شماره کارت" />
         <InputGroupAddon>
           <CreditCardIcon />
         </InputGroupAddon>
@@ -38,7 +38,7 @@ export default function InputGroupIcon() {
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput placeholder="Card number" />
+        <InputGroupInput placeholder="شماره کارت" />
         <InputGroupAddon align="inline-end">
           <StarIcon />
           <InfoIcon />

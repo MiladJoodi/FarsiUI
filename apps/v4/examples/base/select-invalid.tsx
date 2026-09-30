@@ -9,16 +9,16 @@ import {
 } from "@/styles/base-nova/ui/select"
 
 const items = [
-  { label: "Select a fruit", value: null },
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Blueberry", value: "blueberry" },
+  { label: "انتخاب میوه", value: null },
+  { label: "سیب", value: "apple" },
+  { label: "موز", value: "banana" },
+  { label: "بلوبری", value: "blueberry" },
 ]
 
 export function SelectInvalid() {
   return (
-    <Field data-invalid className="w-full max-w-48">
-      <FieldLabel>Fruit</FieldLabel>
+    <Field data-invalid className="w-full max-w-48" dir="rtl">
+      <FieldLabel>میوه</FieldLabel>
       <Select items={items}>
         <SelectTrigger aria-invalid>
           <SelectValue />
@@ -33,7 +33,7 @@ export function SelectInvalid() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <FieldError>Please select a fruit.</FieldError>
+      <FieldError>لطفاً یک میوه انتخاب کنید.</FieldError>
     </Field>
   )
 }

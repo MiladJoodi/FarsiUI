@@ -12,20 +12,20 @@ import {
 
 export function ItemIcon() {
   return (
-    <div className="flex w-full max-w-lg flex-col gap-6">
+    <div dir="rtl" className="flex w-full max-w-lg flex-col gap-6">
       <Item variant="outline">
         <ItemMedia variant="icon">
           <ShieldAlertIcon />
         </ItemMedia>
         <ItemContent>
-          <ItemTitle>Security Alert</ItemTitle>
+          <ItemTitle>هشدار امنیتی</ItemTitle>
           <ItemDescription>
-            New login detected from unknown device.
+            ورود جدید از دستگاه ناشناس شناسایی شد.
           </ItemDescription>
         </ItemContent>
         <ItemActions>
           <Button size="sm" variant="outline">
-            Review
+            بررسی
           </Button>
         </ItemActions>
       </Item>

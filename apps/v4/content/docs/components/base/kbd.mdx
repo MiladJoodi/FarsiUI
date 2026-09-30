@@ -1,24 +1,34 @@
 ---
-title: Kbd
-description: Used to display textual user input from keyboard.
+title: کیبورد (Kbd)
+description: نمایش ورودی متنی کاربر از صفحه‌کلید.
 base: base
 component: true
 ---
 
-<ComponentPreview styleName="base-nova" name="kbd-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "kbd-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "kbd-group", label: "گروه", sizeable: false },
+    { name: "kbd-button", label: "دکمه", sizeable: false },
+    { name: "kbd-tooltip", label: "تولتیپ", sizeable: false },
+    { name: "kbd-input-group", label: "گروه ورودی", sizeable: false },
+  ]}
+/>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add kbd
+npx farsiui@latest add kbd
 ```
 
 </TabsContent>
@@ -27,7 +37,7 @@ npx shadcn@latest add kbd
 
 <Steps className="mb-0 pt-2">
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="kbd"
@@ -35,7 +45,7 @@ npx shadcn@latest add kbd
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -43,7 +53,7 @@ npx shadcn@latest add kbd
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Kbd } from "@/components/ui/kbd"
@@ -53,9 +63,15 @@ import { Kbd } from "@/components/ui/kbd"
 <Kbd>Ctrl</Kbd>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build `Kbd` and `KbdGroup`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `Kbd` و `KbdGroup` از این ترکیب استفاده کنید:
 
 ```text
 Kbd
@@ -64,57 +80,133 @@ KbdGroup
 └── Kbd
 ```
 
-## Group
+</DocsCollapsible>
 
-Use the `KbdGroup` component to group keyboard keys together.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="kbd-group" />
+## گروه
 
-## Button
+</div>
 
-Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
+<DocsCollapsible title="گروه">
 
-<ComponentPreview styleName="base-nova" name="kbd-button" />
+با `KbdGroup` کلیدهای صفحه‌کلید را گروه‌بندی کنید.
 
-## Tooltip
+<ComponentPreview
+  styleName="base-nova"
+  name="kbd-group"
+  direction="rtl"
+/>
 
-You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="kbd-tooltip" />
+<div className="hidden">
 
-## Input Group
+## دکمه
 
-You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
+</div>
 
-<ComponentPreview styleName="base-nova" name="kbd-input-group" />
+<DocsCollapsible title="دکمه">
 
-## RTL
+`Kbd` را داخل `Button` بگذارید تا میانبر صفحه‌کلید روی دکمه نمایش داده شود.
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="kbd-button"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="kbd-rtl" direction="rtl" />
+</DocsCollapsible>
 
-## API Reference
+<div className="hidden">
 
-### Kbd
+## تولتیپ
 
-Use the `Kbd` component to display a keyboard key.
+</div>
 
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | ``      |
+<DocsCollapsible title="تولتیپ">
+
+`Kbd` را داخل `Tooltip` بگذارید تا میانبر در تولتیپ نمایش داده شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="kbd-tooltip"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه ورودی
+
+</div>
+
+<DocsCollapsible title="گروه ورودی">
+
+`Kbd` را داخل `InputGroupAddon` بگذارید تا میانبر در گروه ورودی نمایش داده شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="kbd-input-group"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="kbd-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+<DocsApiProps
+  title="Kbd"
+  description="نمایش یک کلید صفحه‌کلید."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <Kbd>Ctrl</Kbd>
 ```
 
-### KbdGroup
-
-Use the `KbdGroup` component to group `Kbd` components together.
-
-| Prop        | Type     | Default |
-| ----------- | -------- | ------- |
-| `className` | `string` | ``      |
+<DocsApiProps
+  title="KbdGroup"
+  description="گروه‌بندی چند `Kbd` کنار هم."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
 
 ```tsx
 <KbdGroup>
@@ -122,3 +214,5 @@ Use the `KbdGroup` component to group `Kbd` components together.
   <Kbd>B</Kbd>
 </KbdGroup>
 ```
+
+</DocsCollapsible>

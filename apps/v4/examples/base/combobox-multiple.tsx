@@ -27,34 +27,36 @@ export function ComboboxMultiple() {
   const anchor = useComboboxAnchor()
 
   return (
-    <Combobox
-      multiple
-      autoHighlight
-      items={frameworks}
-      defaultValue={[frameworks[0]]}
-    >
-      <ComboboxChips ref={anchor} className="w-full max-w-xs">
-        <ComboboxValue>
-          {(values) => (
-            <React.Fragment>
-              {values.map((value: string) => (
-                <ComboboxChip key={value}>{value}</ComboboxChip>
-              ))}
-              <ComboboxChipsInput />
-            </React.Fragment>
-          )}
-        </ComboboxValue>
-      </ComboboxChips>
-      <ComboboxContent anchor={anchor}>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
-        <ComboboxList>
-          {(item) => (
-            <ComboboxItem key={item} value={item}>
-              {item}
-            </ComboboxItem>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div dir="rtl" className="w-full max-w-xs">
+      <Combobox
+        multiple
+        autoHighlight
+        items={frameworks}
+        defaultValue={[frameworks[0]]}
+      >
+        <ComboboxChips ref={anchor} className="w-full">
+          <ComboboxValue>
+            {(values) => (
+              <React.Fragment>
+                {values.map((value: string) => (
+                  <ComboboxChip key={value}>{value}</ComboboxChip>
+                ))}
+                <ComboboxChipsInput placeholder="افزودن فریم‌ورک" />
+              </React.Fragment>
+            )}
+          </ComboboxValue>
+        </ComboboxChips>
+        <ComboboxContent anchor={anchor}>
+          <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   )
 }

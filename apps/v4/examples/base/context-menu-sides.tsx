@@ -8,72 +8,72 @@ import {
 
 export function ContextMenuSides() {
   return (
-    <div className="grid w-full max-w-sm grid-cols-2 gap-4">
+    <div dir="rtl" className="grid w-full max-w-sm grid-cols-2 gap-4">
       <ContextMenu>
         <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
           <span className="hidden pointer-fine:inline-block">
-            Right click (top)
+            راست‌کلیک (بالا)
           </span>
           <span className="hidden pointer-coarse:inline-block">
-            Long press (top)
+            لمس طولانی (بالا)
           </span>
         </ContextMenuTrigger>
         <ContextMenuContent side="top">
           <ContextMenuGroup>
-            <ContextMenuItem>Back</ContextMenuItem>
-            <ContextMenuItem>Forward</ContextMenuItem>
-            <ContextMenuItem>Reload</ContextMenuItem>
+            <ContextMenuItem>بازگشت</ContextMenuItem>
+            <ContextMenuItem>جلو</ContextMenuItem>
+            <ContextMenuItem>بارگذاری مجدد</ContextMenuItem>
           </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
         <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
           <span className="hidden pointer-fine:inline-block">
-            Right click (right)
+            راست‌کلیک (راست)
           </span>
           <span className="hidden pointer-coarse:inline-block">
-            Long press (right)
+            لمس طولانی (راست)
           </span>
         </ContextMenuTrigger>
         <ContextMenuContent side="right">
           <ContextMenuGroup>
-            <ContextMenuItem>Back</ContextMenuItem>
-            <ContextMenuItem>Forward</ContextMenuItem>
-            <ContextMenuItem>Reload</ContextMenuItem>
+            <ContextMenuItem>بازگشت</ContextMenuItem>
+            <ContextMenuItem>جلو</ContextMenuItem>
+            <ContextMenuItem>بارگذاری مجدد</ContextMenuItem>
           </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
         <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
           <span className="hidden pointer-fine:inline-block">
-            Right click (bottom)
+            راست‌کلیک (پایین)
           </span>
           <span className="hidden pointer-coarse:inline-block">
-            Long press (bottom)
+            لمس طولانی (پایین)
           </span>
         </ContextMenuTrigger>
         <ContextMenuContent side="bottom">
           <ContextMenuGroup>
-            <ContextMenuItem>Back</ContextMenuItem>
-            <ContextMenuItem>Forward</ContextMenuItem>
-            <ContextMenuItem>Reload</ContextMenuItem>
+            <ContextMenuItem>بازگشت</ContextMenuItem>
+            <ContextMenuItem>جلو</ContextMenuItem>
+            <ContextMenuItem>بارگذاری مجدد</ContextMenuItem>
           </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
         <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
           <span className="hidden pointer-fine:inline-block">
-            Right click (left)
+            راست‌کلیک (چپ)
           </span>
           <span className="hidden pointer-coarse:inline-block">
-            Long press (left)
+            لمس طولانی (چپ)
           </span>
         </ContextMenuTrigger>
         <ContextMenuContent side="left">
           <ContextMenuGroup>
-            <ContextMenuItem>Back</ContextMenuItem>
-            <ContextMenuItem>Forward</ContextMenuItem>
-            <ContextMenuItem>Reload</ContextMenuItem>
+            <ContextMenuItem>بازگشت</ContextMenuItem>
+            <ContextMenuItem>جلو</ContextMenuItem>
+            <ContextMenuItem>بارگذاری مجدد</ContextMenuItem>
           </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>

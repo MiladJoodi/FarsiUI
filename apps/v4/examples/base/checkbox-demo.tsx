@@ -13,10 +13,10 @@ import { Label } from "@/styles/base-nova/ui/label"
 
 export default function CheckboxDemo() {
   return (
-    <FieldGroup className="max-w-sm">
+    <FieldGroup className="max-w-sm" dir="rtl">
       <Field orientation="horizontal">
         <Checkbox id="terms-checkbox" name="terms-checkbox" />
-        <Label htmlFor="terms-checkbox">Accept terms and conditions</Label>
+        <Label htmlFor="terms-checkbox">پذیرش شرایط و قوانین</Label>
       </Field>
       <Field orientation="horizontal">
         <Checkbox
@@ -26,24 +26,24 @@ export default function CheckboxDemo() {
         />
         <FieldContent>
           <FieldLabel htmlFor="terms-checkbox-2">
-            Accept terms and conditions
+            پذیرش شرایط و قوانین
           </FieldLabel>
           <FieldDescription>
-            By clicking this checkbox, you agree to the terms.
+            با زدن این گزینه، شرایط و قوانین را می‌پذیرید.
           </FieldDescription>
         </FieldContent>
       </Field>
       <Field orientation="horizontal" data-disabled>
         <Checkbox id="toggle-checkbox" name="toggle-checkbox" disabled />
-        <FieldLabel htmlFor="toggle-checkbox">Enable notifications</FieldLabel>
+        <FieldLabel htmlFor="toggle-checkbox">فعال‌سازی اعلان‌ها</FieldLabel>
       </Field>
       <FieldLabel>
         <Field orientation="horizontal">
           <Checkbox id="toggle-checkbox-2" name="toggle-checkbox-2" />
           <FieldContent>
-            <FieldTitle>Enable notifications</FieldTitle>
+            <FieldTitle>فعال‌سازی اعلان‌ها</FieldTitle>
             <FieldDescription>
-              You can enable or disable notifications at any time.
+              هر زمان بخواهید می‌توانید اعلان‌ها را روشن یا خاموش کنید.
             </FieldDescription>
           </FieldContent>
         </Field>

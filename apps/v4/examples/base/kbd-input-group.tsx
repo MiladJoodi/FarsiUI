@@ -9,9 +9,9 @@ import { Kbd } from "@/styles/base-nova/ui/kbd"
 
 export default function KbdInputGroup() {
   return (
-    <div className="flex w-full max-w-xs flex-col gap-6">
+    <div dir="rtl" className="flex w-full max-w-xs flex-col gap-6">
       <InputGroup>
-        <InputGroupInput placeholder="Search..." />
+        <InputGroupInput placeholder="جستجو..." />
         <InputGroupAddon>
           <SearchIcon />
         </InputGroupAddon>

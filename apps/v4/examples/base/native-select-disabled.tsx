@@ -5,11 +5,13 @@ import {
 
 export function NativeSelectDisabled() {
   return (
-    <NativeSelect disabled>
-      <NativeSelectOption value="">Disabled</NativeSelectOption>
-      <NativeSelectOption value="apple">Apple</NativeSelectOption>
-      <NativeSelectOption value="banana">Banana</NativeSelectOption>
-      <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
-    </NativeSelect>
+    <div dir="rtl">
+      <NativeSelect disabled>
+        <NativeSelectOption value="">غیرفعال</NativeSelectOption>
+        <NativeSelectOption value="apple">سیب</NativeSelectOption>
+        <NativeSelectOption value="banana">موز</NativeSelectOption>
+        <NativeSelectOption value="blueberry">بلوبری</NativeSelectOption>
+      </NativeSelect>
+    </div>
   )
 }

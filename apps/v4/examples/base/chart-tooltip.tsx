@@ -5,10 +5,13 @@ import { cn } from "cn"
 
 export function ChartTooltipDemo() {
   return (
-    <div className="grid aspect-video w-full max-w-md justify-center text-foreground md:grid-cols-2 [&>div]:relative [&>div]:flex [&>div]:h-[137px] [&>div]:w-[224px] [&>div]:items-center [&>div]:justify-center [&>div]:p-4">
+    <div
+      dir="rtl"
+      className="grid aspect-video w-full max-w-md justify-center text-foreground md:grid-cols-2 [&>div]:relative [&>div]:flex [&>div]:h-[137px] [&>div]:w-[224px] [&>div]:items-center [&>div]:justify-center [&>div]:p-4"
+    >
       <div>
-        <div className="absolute top-[45px] left-[-35px] z-10 text-sm font-medium">
-          Label
+        <div className="absolute top-[45px] right-[-35px] z-10 text-sm font-medium">
+          برچسب
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +19,7 @@ export function ChartTooltipDemo() {
           width="50"
           height="12"
           fill="none"
-          className="absolute top-[50px] left-[5px] z-10"
+          className="absolute top-[50px] right-[5px] z-10 -scale-x-100"
         >
           <g clipPath="url(#a)">
             <path
@@ -31,17 +34,17 @@ export function ChartTooltipDemo() {
           </defs>
         </svg>
         <TooltipDemo
-          label="Page Views"
+          label="بازدید صفحه"
           payload={[
-            { name: "Desktop", value: 186, fill: "var(--chart-1)" },
-            { name: "Mobile", value: 80, fill: "var(--chart-2)" },
+            { name: "دسکتاپ", value: 186, fill: "var(--chart-1)" },
+            { name: "موبایل", value: 80, fill: "var(--chart-2)" },
           ]}
           className="w-[8rem]"
         />
       </div>
       <div className="items-end">
-        <div className="absolute top-[0px] left-[122px] z-10 text-sm font-medium">
-          Name
+        <div className="absolute top-[0px] right-[122px] z-10 text-sm font-medium">
+          نام
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +52,7 @@ export function ChartTooltipDemo() {
           height="42"
           fill="none"
           viewBox="0 0 122 148"
-          className="absolute top-[10px] left-[85px] z-10 -scale-x-100"
+          className="absolute top-[10px] right-[85px] z-10"
         >
           <g clipPath="url(#ab)">
             <path
@@ -64,11 +67,11 @@ export function ChartTooltipDemo() {
           </defs>
         </svg>
         <TooltipDemo
-          label="Browser"
+          label="مرورگر"
           hideLabel
           payload={[
-            { name: "Chrome", value: 1286, fill: "var(--chart-3)" },
-            { name: "Firefox", value: 1000, fill: "var(--chart-4)" },
+            { name: "کروم", value: 1286, fill: "var(--chart-3)" },
+            { name: "فایرفاکس", value: 1000, fill: "var(--chart-4)" },
           ]}
           indicator="dashed"
           className="w-[8rem]"
@@ -76,20 +79,20 @@ export function ChartTooltipDemo() {
       </div>
       <div className="hidden! md:flex!">
         <TooltipDemo
-          label="Page Views"
-          payload={[{ name: "Desktop", value: 12486, fill: "var(--chart-3)" }]}
+          label="بازدید صفحه"
+          payload={[{ name: "دسکتاپ", value: 12486, fill: "var(--chart-3)" }]}
           className="w-[9rem]"
           indicator="line"
         />
       </div>
       <div className="items-start! justify-start!">
-        <div className="absolute top-[60px] left-[50px] z-10 text-sm font-medium">
-          Indicator
+        <div className="absolute top-[60px] right-[50px] z-10 text-sm font-medium">
+          نشانگر
         </div>
         <TooltipDemo
-          label="Browser"
+          label="مرورگر"
           hideLabel
-          payload={[{ name: "Chrome", value: 1286, fill: "var(--chart-1)" }]}
+          payload={[{ name: "کروم", value: 1286, fill: "var(--chart-1)" }]}
           indicator="dot"
           className="w-[8rem]"
         />
@@ -99,7 +102,7 @@ export function ChartTooltipDemo() {
           height="34"
           fill="none"
           viewBox="0 0 75 175"
-          className="absolute top-[38px] left-[30px] z-10 rotate-[-40deg]"
+          className="absolute top-[38px] right-[30px] z-10 rotate-[40deg] -scale-x-100"
         >
           <g clipPath="url(#abc)">
             <path
@@ -200,7 +203,7 @@ function TooltipDemo({
                     <span className="text-muted-foreground">{item.name}</span>
                   </div>
                   <span className="font-mono font-medium text-foreground tabular-nums">
-                    {item.value.toLocaleString()}
+                    {item.value.toLocaleString("fa-IR")}
                   </span>
                 </div>
               </>

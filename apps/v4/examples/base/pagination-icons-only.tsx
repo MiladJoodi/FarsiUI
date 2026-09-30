@@ -17,9 +17,9 @@ import {
 
 export function PaginationIconsOnly() {
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div dir="rtl" className="flex items-center justify-between gap-4">
       <Field orientation="horizontal" className="w-fit">
-        <FieldLabel htmlFor="select-rows-per-page">Rows per page</FieldLabel>
+        <FieldLabel htmlFor="select-rows-per-page">ردیف در صفحه</FieldLabel>
         <Select defaultValue="25">
           <SelectTrigger className="w-20" id="select-rows-per-page">
             <SelectValue />
@@ -37,10 +37,10 @@ export function PaginationIconsOnly() {
       <Pagination className="mx-0 w-auto">
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPrevious href="#" text="قبلی" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext href="#" text="بعدی" />
           </PaginationItem>
         </PaginationContent>
       </Pagination>

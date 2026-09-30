@@ -3,6 +3,7 @@
 import * as React from "react"
 import { parseDate } from "chrono-node"
 import { CalendarIcon } from "lucide-react"
+import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
 import { Calendar } from "@/styles/base-nova/ui/calendar"
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
@@ -23,8 +24,8 @@ function formatDate(date: Date | undefined) {
     return ""
   }
 
-  return date.toLocaleDateString("en-US", {
-    day: "2-digit",
+  return date.toLocaleDateString("fa-IR", {
+    day: "numeric",
     month: "long",
     year: "numeric",
   })
@@ -38,13 +39,13 @@ export function DatePickerNaturalLanguage() {
   )
 
   return (
-    <Field className="mx-auto max-w-xs">
-      <FieldLabel htmlFor="date-optional">Schedule Date</FieldLabel>
+    <Field className="mx-auto max-w-xs" dir="rtl">
+      <FieldLabel htmlFor="date-optional">تاریخ زمان‌بندی</FieldLabel>
       <InputGroup>
         <InputGroupInput
           id="date-optional"
           value={value}
-          placeholder="Tomorrow or next week"
+          placeholder="Tomorrow یا next week"
           onChange={(e) => {
             setValue(e.target.value)
             const date = parseDate(e.target.value)
@@ -67,12 +68,12 @@ export function DatePickerNaturalLanguage() {
                   id="date-picker"
                   variant="ghost"
                   size="icon-xs"
-                  aria-label="Select date"
+                  aria-label="انتخاب تاریخ"
                 />
               }
             >
               <CalendarIcon />
-              <span className="sr-only">Select date</span>
+              <span className="sr-only">انتخاب تاریخ</span>
             </PopoverTrigger>
             <PopoverContent
               className="w-auto overflow-hidden p-0"
@@ -84,6 +85,8 @@ export function DatePickerNaturalLanguage() {
                 selected={date}
                 captionLayout="dropdown"
                 defaultMonth={date}
+                locale={faIRDayPicker}
+                dir="rtl"
                 onSelect={(date) => {
                   setDate(date)
                   setValue(formatDate(date))
@@ -95,8 +98,8 @@ export function DatePickerNaturalLanguage() {
         </InputGroupAddon>
       </InputGroup>
       <div className="px-1 text-sm text-muted-foreground">
-        Your post will be published on{" "}
-        <span className="font-medium">{formatDate(date)}</span>.
+        پست شما در{" "}
+        <span className="font-medium">{formatDate(date)}</span> منتشر می‌شود.
       </div>
     </Field>
   )

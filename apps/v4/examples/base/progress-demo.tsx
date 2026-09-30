@@ -12,5 +12,9 @@ export default function ProgressDemo() {
     return () => clearTimeout(timer)
   }, [])
 
-  return <Progress value={progress} className="w-[60%]" />
+  return (
+    <div dir="rtl" className="w-[60%]">
+      <Progress value={progress} className="w-full" />
+    </div>
+  )
 }

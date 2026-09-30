@@ -1,6 +1,6 @@
 ---
-title: Dropdown Menu
-description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+title: منوی کشویی (Dropdown Menu)
+description: منویی از اقدام‌ها یا توابع که با دکمه باز می‌شود.
 featured: true
 base: base
 component: true
@@ -9,24 +9,35 @@ links:
   api: https://base-ui.com/react/components/menu#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="dropdown-menu-demo"
-  description="A dropdown menu with icons, shortcuts and sub menu items."
+  layout="switcher"
+  examples={[
+    { name: "dropdown-menu-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "dropdown-menu-basic", label: "پایه", sizeable: false },
+    { name: "dropdown-menu-submenu", label: "زیرمنو", sizeable: false },
+    { name: "dropdown-menu-shortcuts", label: "میانبر", sizeable: false },
+    { name: "dropdown-menu-icons", label: "آیکون", sizeable: false },
+    { name: "dropdown-menu-checkboxes", label: "چک‌باکس", sizeable: false },
+    { name: "dropdown-menu-radio-group", label: "رادیو", sizeable: false },
+    { name: "dropdown-menu-destructive", label: "مخرب", sizeable: false },
+    { name: "dropdown-menu-avatar", label: "آواتار", sizeable: false },
+    { name: "dropdown-menu-complex", label: "پیشرفته", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add dropdown-menu
+npx farsiui@latest add dropdown-menu
 ```
 
 </TabsContent>
@@ -35,13 +46,13 @@ npx shadcn@latest add dropdown-menu
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="dropdown-menu"
@@ -49,7 +60,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -57,7 +68,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import { Button } from "@/components/ui/button"
@@ -75,26 +86,32 @@ import {
 ```tsx showLineNumbers
 <DropdownMenu>
   <DropdownMenuTrigger render={<Button variant="outline" />}>
-    Open
+    باز کردن
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuGroup>
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuItem>Profile</DropdownMenuItem>
-      <DropdownMenuItem>Billing</DropdownMenuItem>
+      <DropdownMenuLabel>حساب من</DropdownMenuLabel>
+      <DropdownMenuItem>پروفایل</DropdownMenuItem>
+      <DropdownMenuItem>صورتحساب</DropdownMenuItem>
     </DropdownMenuGroup>
     <DropdownMenuSeparator />
     <DropdownMenuGroup>
-      <DropdownMenuItem>Team</DropdownMenuItem>
-      <DropdownMenuItem>Subscription</DropdownMenuItem>
+      <DropdownMenuItem>تیم</DropdownMenuItem>
+      <DropdownMenuItem>اشتراک</DropdownMenuItem>
     </DropdownMenuGroup>
   </DropdownMenuContent>
 </DropdownMenu>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `DropdownMenu`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت `DropdownMenu` از این ترکیب استفاده کنید:
 
 ```text
 DropdownMenu
@@ -124,75 +141,215 @@ DropdownMenu
                 └── DropdownMenuItem
 ```
 
-## Basic
+</DocsCollapsible>
 
-A basic dropdown menu with labels and separators.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-basic" />
+## پایه
 
-## Submenu
+</div>
 
-Use `DropdownMenuSub` to nest secondary actions.
+<DocsCollapsible title="پایه">
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-submenu" />
+منوی کشویی ساده با برچسب و جداکننده.
 
-## Shortcuts
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-basic"
+  direction="rtl"
+/>
 
-Add `DropdownMenuShortcut` to show keyboard hints.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-shortcuts" />
+<div className="hidden">
 
-## Icons
+## زیرمنو
 
-Combine icons with labels for quick scanning.
+</div>
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-icons" />
+<DocsCollapsible title="زیرمنو">
 
-## Checkboxes
+با `DropdownMenuSub` اقدام‌های ثانویه را تو در تو کنید.
 
-Use `DropdownMenuCheckboxItem` for toggles.
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-submenu"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-checkboxes" />
+</DocsCollapsible>
 
-## Checkboxes Icons
+<div className="hidden">
 
-Add icons to checkbox items.
+## میانبر
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-checkboxes-icons" />
+</div>
 
-## Radio Group
+<DocsCollapsible title="میانبر">
 
-Use `DropdownMenuRadioGroup` for exclusive choices.
+با `DropdownMenuShortcut` میانبر صفحه‌کلید نشان دهید.
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-radio-group" />
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-shortcuts"
+  direction="rtl"
+/>
 
-## Radio Icons
+</DocsCollapsible>
 
-Show radio options with icons.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-radio-icons" />
+## آیکون
 
-## Destructive
+</div>
 
-Use `variant="destructive"` for irreversible actions.
+<DocsCollapsible title="آیکون">
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-destructive" />
+آیکون را کنار برچسب بگذارید تا اسکن سریع‌تر شود.
 
-## Avatar
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-icons"
+  direction="rtl"
+/>
 
-An account switcher dropdown triggered by an avatar.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-avatar" />
+<div className="hidden">
 
-## Complex
+## چک‌باکس
 
-A richer example combining groups, icons, and submenus.
+</div>
 
-<ComponentPreview styleName="base-nova" name="dropdown-menu-complex" />
+<DocsCollapsible title="چک‌باکس">
 
-## RTL
+برای سوئیچ‌ها از `DropdownMenuCheckboxItem` استفاده کنید.
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-checkboxes"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## چک‌باکس با آیکون
+
+</div>
+
+<DocsCollapsible title="چک‌باکس با آیکون">
+
+به آیتم‌های چک‌باکس آیکون اضافه کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-checkboxes-icons"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## گروه رادیو
+
+</div>
+
+<DocsCollapsible title="گروه رادیو">
+
+برای انتخاب انحصاری از `DropdownMenuRadioGroup` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-radio-group"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## رادیو با آیکون
+
+</div>
+
+<DocsCollapsible title="رادیو با آیکون">
+
+گزینه‌های رادیو را با آیکون نشان دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-radio-icons"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مخرب
+
+</div>
+
+<DocsCollapsible title="مخرب">
+
+برای اقدام‌های برگشت‌ناپذیر از `variant="destructive"` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-destructive"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آواتار
+
+</div>
+
+<DocsCollapsible title="آواتار">
+
+سوئیچر حساب با تریگر آواتار.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-avatar"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پیشرفته
+
+</div>
+
+<DocsCollapsible title="پیشرفته">
+
+نمونهٔ غنی‌تر با گروه، آیکون و زیرمنو.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="dropdown-menu-complex"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+روی ظرف منو `dir="rtl"` بگذارید. برای تنظیم سراسری، [راهنمای RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -200,6 +357,71 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
   direction="rtl"
 />
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI documentation](https://base-ui.com/react/components/menu) for the full API reference.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات کامل، [مستندات Base UI](https://base-ui.com/react/components/menu) را ببینید.
+
+<DocsApiProps
+  title="DropdownMenu"
+  description="ظرف ریشهٔ منوی کشویی."
+  props={[
+    {
+      name: "open",
+      description: "حالت کنترل‌شدهٔ باز بودن",
+      values: ["boolean"],
+    },
+    {
+      name: "onOpenChange",
+      description: "فراخوان هنگام تغییر حالت باز/بسته",
+      values: ["function"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="DropdownMenuContent"
+  description="پنل محتوایی که کنار تریگر باز می‌شود."
+  props={[
+    {
+      name: "align",
+      description: "تراز افقی نسبت به تریگر",
+      values: ['"start"', '"center"', '"end"'],
+      defaultValue: '"center"',
+    },
+    {
+      name: "side",
+      description: "سمت باز شدن نسبت به تریگر",
+      values: ['"top"', '"right"', '"bottom"', '"left"'],
+      defaultValue: '"bottom"',
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="DropdownMenuItem"
+  description="یک آیتم قابل انتخاب در منو."
+  props={[
+    {
+      name: "variant",
+      description: "ظاهر آیتم",
+      values: ['"default"', '"destructive"'],
+      defaultValue: '"default"',
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن آیتم",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+</DocsCollapsible>

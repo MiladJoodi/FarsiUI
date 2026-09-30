@@ -20,121 +20,123 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
+    title: "دیالوگ هشدار",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "دیالوگ مودالی که کاربر را با محتوای مهم قطع می‌کند و منتظر پاسخ است.",
   },
   {
-    title: "Hover Card",
+    title: "کارت شناور",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "برای کاربران بینا تا پیش‌نمایش محتوایی که پشت لینک است را ببینند.",
   },
   {
-    title: "Progress",
+    title: "پیشرفت",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "نشانگری که میزان تکمیل یک کار را نمایش می‌دهد؛ معمولاً به‌صورت نوار پیشرفت.",
   },
   {
-    title: "Scroll-area",
+    title: "ناحیه اسکرول",
     href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    description: "محتوا را به‌صورت بصری یا معنایی جدا می‌کند.",
   },
   {
-    title: "Tabs",
+    title: "زبانه",
     href: "/docs/primitives/tabs",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "مجموعه‌ای از بخش‌های لایه‌ای محتوا — پنل‌های زبانه — که یکی‌یکی نمایش داده می‌شوند.",
   },
   {
-    title: "Tooltip",
+    title: "راهنما",
     href: "/docs/primitives/tooltip",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "پاپ‌آپی که هنگام فوکوس کیبورد یا هاور ماوس، اطلاعات مرتبط با عنصر را نشان می‌دهد.",
   },
 ]
 
-export default function NavigationMenuDemo() {
+export function NavigationMenuDemo() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="w-96">
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built with Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="hidden md:flex">
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
+    <div dir="rtl">
+      <NavigationMenu dir="rtl" align="end">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>شروع کار</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="w-96">
+                <ListItem href="/docs" title="مقدمه">
+                  کامپوننت‌های قابل‌استفادهٔ مجدد ساخته‌شده با Tailwind CSS.
                 </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px]">
-              <li>
-                <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
-                >
-                  <CircleAlertIcon />
-                  Backlog
-                </NavigationMenuLink>
-                <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
-                >
-                  <CircleDashedIcon />
-                  To Do
-                </NavigationMenuLink>
-                <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
-                >
-                  <CircleCheckIcon />
-                  Done
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            render={<Link href="/docs" />}
-            className={navigationMenuTriggerStyle()}
-          >
-            Docs
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+                <ListItem href="/docs/installation" title="نصب">
+                  نحوهٔ نصب وابستگی‌ها و ساختاربندی اپ.
+                </ListItem>
+                <ListItem href="/docs/primitives/typography" title="تایپوگرافی">
+                  استایل برای عنوان، پاراگراف، فهرست و غیره.
+                </ListItem>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem className="hidden md:flex">
+            <NavigationMenuTrigger>کامپوننت‌ها</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {components.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>با آیکون</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[200px]">
+                <li>
+                  <NavigationMenuLink
+                    render={
+                      <Link href="#" className="flex-row items-center gap-2" />
+                    }
+                  >
+                    <CircleAlertIcon />
+                    بک‌لاگ
+                  </NavigationMenuLink>
+                  <NavigationMenuLink
+                    render={
+                      <Link href="#" className="flex-row items-center gap-2" />
+                    }
+                  >
+                    <CircleDashedIcon />
+                    انجام‌دادنی
+                  </NavigationMenuLink>
+                  <NavigationMenuLink
+                    render={
+                      <Link href="#" className="flex-row items-center gap-2" />
+                    }
+                  >
+                    <CircleCheckIcon />
+                    انجام‌شده
+                  </NavigationMenuLink>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              render={<Link href="/docs" />}
+              className={navigationMenuTriggerStyle()}
+            >
+              مستندات
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   )
 }
 

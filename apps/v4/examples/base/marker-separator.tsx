@@ -2,15 +2,15 @@ import { Marker, MarkerContent } from "@/styles/base-rhea/ui/marker"
 
 export function MarkerSeparatorDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+    <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker variant="separator">
-        <MarkerContent>Today</MarkerContent>
+        <MarkerContent>امروز</MarkerContent>
       </Marker>
       <Marker variant="separator">
-        <MarkerContent>Worked for 42s</MarkerContent>
+        <MarkerContent>۴۲ ثانیه کار کرد</MarkerContent>
       </Marker>
       <Marker variant="separator">
-        <MarkerContent>Conversation compacted</MarkerContent>
+        <MarkerContent>گفتگو فشرده شد</MarkerContent>
       </Marker>
     </div>
   )

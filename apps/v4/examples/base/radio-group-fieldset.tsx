@@ -9,31 +9,33 @@ import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
 export function RadioGroupFieldset() {
   return (
-    <FieldSet className="w-full max-w-xs">
-      <FieldLegend variant="label">Subscription Plan</FieldLegend>
-      <FieldDescription>
-        Yearly and lifetime plans offer significant savings.
-      </FieldDescription>
-      <RadioGroup defaultValue="monthly">
-        <Field orientation="horizontal">
-          <RadioGroupItem value="monthly" id="plan-monthly" />
-          <FieldLabel htmlFor="plan-monthly" className="font-normal">
-            Monthly ($9.99/month)
-          </FieldLabel>
-        </Field>
-        <Field orientation="horizontal">
-          <RadioGroupItem value="yearly" id="plan-yearly" />
-          <FieldLabel htmlFor="plan-yearly" className="font-normal">
-            Yearly ($99.99/year)
-          </FieldLabel>
-        </Field>
-        <Field orientation="horizontal">
-          <RadioGroupItem value="lifetime" id="plan-lifetime" />
-          <FieldLabel htmlFor="plan-lifetime" className="font-normal">
-            Lifetime ($299.99)
-          </FieldLabel>
-        </Field>
-      </RadioGroup>
-    </FieldSet>
+    <div dir="rtl">
+      <FieldSet className="w-full max-w-xs">
+        <FieldLegend variant="label">طرح اشتراک</FieldLegend>
+        <FieldDescription>
+          طرح‌های سالانه و مادام‌العمر صرفه‌جویی بیشتری دارند.
+        </FieldDescription>
+        <RadioGroup defaultValue="monthly">
+          <Field orientation="horizontal">
+            <RadioGroupItem value="monthly" id="rg-plan-monthly" />
+            <FieldLabel htmlFor="rg-plan-monthly" className="font-normal">
+              ماهانه (۹۹٬۰۰۰ تومان)
+            </FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <RadioGroupItem value="yearly" id="rg-plan-yearly" />
+            <FieldLabel htmlFor="rg-plan-yearly" className="font-normal">
+              سالانه (۹۹۰٬۰۰۰ تومان)
+            </FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <RadioGroupItem value="lifetime" id="rg-plan-lifetime" />
+            <FieldLabel htmlFor="rg-plan-lifetime" className="font-normal">
+              مادام‌العمر (۲٬۹۹۰٬۰۰۰ تومان)
+            </FieldLabel>
+          </Field>
+        </RadioGroup>
+      </FieldSet>
+    </div>
   )
 }

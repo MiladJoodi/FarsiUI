@@ -1,30 +1,44 @@
 ---
-title: Input OTP
-description: Accessible one-time password component with copy-paste functionality.
+title: رمز یک‌بارمصرف (Input OTP)
+description: کامپوننت دسترس‌پذیر رمز یک‌بارمصرف با پشتیبانی از کپی و جای‌گذاری.
 base: base
 component: true
 links:
   doc: https://input-otp.rodz.dev
 ---
 
-<ComponentPreview styleName="base-nova" name="input-otp-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "input-otp-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "input-otp-pattern", label: "الگو", sizeable: false },
+    { name: "input-otp-separator", label: "جداکننده", sizeable: false },
+    { name: "input-otp-disabled", label: "غیرفعال", sizeable: false },
+    { name: "input-otp-controlled", label: "کنترل‌شده", sizeable: false },
+    { name: "input-otp-invalid", label: "نامعتبر", sizeable: false },
+    { name: "input-otp-four-digits", label: "چهار رقم", sizeable: false },
+    { name: "input-otp-alphanumeric", label: "حرف و رقم", sizeable: false },
+    { name: "input-otp-form", label: "فرم", sizeable: false },
+  ]}
+/>
 
-## About
+## درباره
 
-Input OTP is built on top of [input-otp](https://github.com/guilhermerodz/input-otp) by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
+Input OTP بر پایهٔ [input-otp](https://github.com/guilhermerodz/input-otp) ساختهٔ [@guilherme_rodz](https://twitter.com/guilherme_rodz) است.
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add input-otp
+npx farsiui@latest add input-otp
 ```
 
 </TabsContent>
@@ -33,13 +47,13 @@ npx shadcn@latest add input-otp
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install input-otp
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="input-otp"
@@ -47,7 +61,7 @@ npm install input-otp
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -55,7 +69,7 @@ npm install input-otp
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -82,9 +96,15 @@ import {
 </InputOTP>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build an `InputOTP`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `InputOTP` از این ترکیب استفاده کنید:
 
 ```text
 InputOTP
@@ -103,9 +123,17 @@ InputOTP
     └── InputOTPSlot
 ```
 
-## Pattern
+</DocsCollapsible>
 
-Use the `pattern` prop to define a custom pattern for the OTP input.
+<div className="hidden">
+
+## الگو
+
+</div>
+
+<DocsCollapsible title="الگو">
+
+با prop به نام `pattern` الگوی سفارشی برای ورودی OTP تعریف کنید.
 
 ```tsx showLineNumbers {1,5}
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
@@ -115,58 +143,239 @@ import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
 </InputOTP>
 ```
 
-<ComponentPreview styleName="base-nova" name="input-otp-pattern" />
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-pattern"
+  direction="rtl"
+/>
 
-## Separator
+</DocsCollapsible>
 
-Use the `<InputOTPSeparator />` component to add a separator between input groups.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="input-otp-separator" />
+## جداکننده
 
-## Disabled
+</div>
 
-Use the `disabled` prop to disable the input.
+<DocsCollapsible title="جداکننده">
 
-<ComponentPreview styleName="base-nova" name="input-otp-disabled" />
+با `<InputOTPSeparator />` بین گروه‌های ورودی جداکننده بگذارید.
 
-## Controlled
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-separator"
+  direction="rtl"
+/>
 
-Use the `value` and `onChange` props to control the input value.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="input-otp-controlled" />
+<div className="hidden">
 
-## Invalid
+## غیرفعال
 
-Use `aria-invalid` on the slots to show an error state.
+</div>
 
-<ComponentPreview styleName="base-nova" name="input-otp-invalid" />
+<DocsCollapsible title="غیرفعال">
 
-## Four Digits
+با prop به نام `disabled` ورودی را غیرفعال کنید.
 
-A common pattern for PIN codes. This uses the `pattern={REGEXP_ONLY_DIGITS}` prop.
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-disabled"
+  direction="rtl"
+/>
 
-<ComponentPreview styleName="base-nova" name="input-otp-four-digits" />
+</DocsCollapsible>
 
-## Alphanumeric
+<div className="hidden">
 
-Use `REGEXP_ONLY_DIGITS_AND_CHARS` to accept both letters and numbers.
+## کنترل‌شده
 
-<ComponentPreview styleName="base-nova" name="input-otp-alphanumeric" />
+</div>
 
-## Form
+<DocsCollapsible title="کنترل‌شده">
+
+با propهای `value` و `onChange` مقدار ورودی را کنترل کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-controlled"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## نامعتبر
+
+</div>
+
+<DocsCollapsible title="نامعتبر">
+
+با `aria-invalid` روی اسلات‌ها حالت خطا را نشان دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-invalid"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## چهار رقم
+
+</div>
+
+<DocsCollapsible title="چهار رقم">
+
+الگوی رایج برای پین‌کد. از `pattern={REGEXP_ONLY_DIGITS}` استفاده می‌کند.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-four-digits"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## حرف و رقم
+
+</div>
+
+<DocsCollapsible title="حرف و رقم">
+
+با `REGEXP_ONLY_DIGITS_AND_CHARS` هم حرف و هم رقم پذیرفته می‌شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-alphanumeric"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## فرم
+
+</div>
+
+<DocsCollapsible title="فرم">
 
 <ComponentPreview
   styleName="base-nova"
   name="input-otp-form"
+  direction="rtl"
   previewClassName="h-[30rem]"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="input-otp-rtl" direction="rtl" />
+## پشتیبانی RTL
 
-## API Reference
+</div>
 
-See the [input-otp](https://input-otp.rodz.dev) documentation for more information.
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="input-otp-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات input-otp](https://input-otp.rodz.dev) را ببینید.
+
+<DocsApiProps
+  title="InputOTP"
+  description="ظرف ریشهٔ رمز یک‌بارمصرف."
+  props={[
+    {
+      name: "maxLength",
+      description: "حداکثر تعداد کاراکتر",
+      values: ["number"],
+    },
+    {
+      name: "pattern",
+      description: "الگوی مجاز برای ورودی",
+      values: ["string"],
+    },
+    {
+      name: "value",
+      description: "مقدار کنترل‌شده",
+      values: ["string"],
+    },
+    {
+      name: "onChange",
+      description: "فراخوان هنگام تغییر مقدار",
+      values: ["function"],
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن ورودی",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="InputOTPSlot"
+  description="یک خانهٔ تکی از کد OTP."
+  props={[
+    {
+      name: "index",
+      description: "ایندکس اسلات",
+      values: ["number"],
+    },
+    {
+      name: "aria-invalid",
+      description: "علامت‌گذاری حالت نامعتبر",
+      values: ["boolean"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="InputOTPGroup"
+  description="گروه‌بندی چند اسلات."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="InputOTPSeparator"
+  description="جداکننده بین گروه‌های اسلات."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

@@ -43,82 +43,84 @@ export function QuestionnaireDialog() {
     const formData = new FormData(event.currentTarget)
 
     setOpen(false)
-    toast("Clarification sent", {
-      description: `Scope: ${formData.get("scope") ?? "None"} · Verification: ${formData.get("tests") ?? "None"}`,
+    toast("توضیح ارسال شد", {
+      description: `محدوده: ${formData.get("scope") ?? "هیچ"} · تأیید: ${formData.get("tests") ?? "هیچ"}`,
     })
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button variant="outline" />}>
-        Open clarification
-      </DialogTrigger>
-      <DialogContent>
-        <Questionnaire
-          defaultItem="scope"
-          items={items}
-          onSubmit={handleSubmit}
-        >
-          <QuestionnaireItem name="scope" required>
-            <DialogHeader>
-              <QuestionnaireProgress />
-              <QuestionnaireTitle render={<DialogTitle />}>
-                Which files are in scope?
-              </QuestionnaireTitle>
-              <QuestionnaireDescription render={<DialogDescription />}>
-                Choose how broadly the agent can update the workspace.
-              </QuestionnaireDescription>
-            </DialogHeader>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice value="component">
-                Component only
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="feature">
-                Complete feature directory
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="workspace">
-                Any related workspace file
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError />
-          </QuestionnaireItem>
+    <div dir="rtl">
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger render={<Button variant="outline" />}>
+          باز کردن توضیح
+        </DialogTrigger>
+        <DialogContent>
+          <Questionnaire
+            defaultItem="scope"
+            items={items}
+            onSubmit={handleSubmit}
+          >
+            <QuestionnaireItem name="scope" required>
+              <DialogHeader>
+                <QuestionnaireProgress />
+                <QuestionnaireTitle render={<DialogTitle />}>
+                  کدام فایل‌ها در محدوده هستند؟
+                </QuestionnaireTitle>
+                <QuestionnaireDescription render={<DialogDescription />}>
+                  مشخص کنید عامل تا چه حد می‌تواند فضای کاری را به‌روز کند.
+                </QuestionnaireDescription>
+              </DialogHeader>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice value="component">
+                  فقط کامپوننت
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="feature">
+                  کل پوشهٔ ویژگی
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="workspace">
+                  هر فایل مرتبط فضای کاری
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError />
+            </QuestionnaireItem>
 
-          <QuestionnaireItem name="tests" required>
-            <DialogHeader>
-              <QuestionnaireProgress />
-              <QuestionnaireTitle render={<DialogTitle />}>
-                How much verification is needed?
-              </QuestionnaireTitle>
-              <QuestionnaireDescription render={<DialogDescription />}>
-                Choose the checks the agent should run before handoff.
-              </QuestionnaireDescription>
-            </DialogHeader>
-            <QuestionnaireChoices>
-              <QuestionnaireChoice value="targeted">
-                Targeted tests
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="package">
-                Package tests
-              </QuestionnaireChoice>
-              <QuestionnaireChoice value="full">
-                Full workspace verification
-              </QuestionnaireChoice>
-            </QuestionnaireChoices>
-            <QuestionnaireError />
-          </QuestionnaireItem>
+            <QuestionnaireItem name="tests" required>
+              <DialogHeader>
+                <QuestionnaireProgress />
+                <QuestionnaireTitle render={<DialogTitle />}>
+                  چقدر تأیید لازم است؟
+                </QuestionnaireTitle>
+                <QuestionnaireDescription render={<DialogDescription />}>
+                  بررسی‌هایی را انتخاب کنید که عامل قبل از تحویل اجرا کند.
+                </QuestionnaireDescription>
+              </DialogHeader>
+              <QuestionnaireChoices>
+                <QuestionnaireChoice value="targeted">
+                  تست‌های هدفمند
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="package">
+                  تست‌های پکیج
+                </QuestionnaireChoice>
+                <QuestionnaireChoice value="full">
+                  راستی‌آزمایی کامل فضای کاری
+                </QuestionnaireChoice>
+              </QuestionnaireChoices>
+              <QuestionnaireError />
+            </QuestionnaireItem>
 
-          <DialogFooter>
-            <DialogClose render={<Button type="button" variant="outline" />}>
-              Cancel
-            </DialogClose>
-            <QuestionnaireActions>
-              <QuestionnairePrevious />
-              <QuestionnaireNext>Next</QuestionnaireNext>
-              <QuestionnaireSubmit>Send answer</QuestionnaireSubmit>
-            </QuestionnaireActions>
-          </DialogFooter>
-        </Questionnaire>
-      </DialogContent>
-    </Dialog>
+            <DialogFooter>
+              <DialogClose render={<Button type="button" variant="outline" />}>
+                لغو
+              </DialogClose>
+              <QuestionnaireActions>
+                <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+                <QuestionnaireNext>بعدی</QuestionnaireNext>
+                <QuestionnaireSubmit>ارسال پاسخ</QuestionnaireSubmit>
+              </QuestionnaireActions>
+            </DialogFooter>
+          </Questionnaire>
+        </DialogContent>
+      </Dialog>
+    </div>
   )
 }

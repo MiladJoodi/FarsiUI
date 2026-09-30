@@ -1,4 +1,3 @@
-import * as React from "react"
 import { PlusIcon } from "lucide-react"
 
 import {
@@ -14,7 +13,6 @@ import {
   ItemDescription,
   ItemGroup,
   ItemMedia,
-  ItemSeparator,
   ItemTitle,
 } from "@/styles/base-nova/ui/item"
 
@@ -38,8 +36,8 @@ const people = [
 
 export function ItemGroupExample() {
   return (
-    <ItemGroup className="max-w-sm">
-      {people.map((person, index) => (
+    <ItemGroup dir="rtl" className="max-w-sm">
+      {people.map((person) => (
         <Item key={person.username} variant="outline">
           <ItemMedia>
             <Avatar>

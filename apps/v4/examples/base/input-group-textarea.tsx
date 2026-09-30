@@ -15,17 +15,17 @@ import {
 
 export default function InputGroupTextareaExample() {
   return (
-    <div className="grid w-full max-w-md gap-4">
+    <div dir="rtl" className="grid w-full max-w-md gap-4">
       <InputGroup>
         <InputGroupTextarea
           id="textarea-code-32"
-          placeholder="console.log('Hello, world!');"
+          placeholder="console.log('سلام دنیا!');"
           className="min-h-[200px]"
         />
         <InputGroupAddon align="block-end" className="border-t">
-          <InputGroupText>Line 1, Column 1</InputGroupText>
-          <InputGroupButton size="sm" className="ml-auto" variant="default">
-            Run <IconCornerDownLeft />
+          <InputGroupText>خط ۱، ستون ۱</InputGroupText>
+          <InputGroupButton size="sm" className="ms-auto" variant="default">
+            اجرا <IconCornerDownLeft />
           </InputGroupButton>
         </InputGroupAddon>
         <InputGroupAddon align="block-start" className="border-b">
@@ -33,7 +33,7 @@ export default function InputGroupTextareaExample() {
             <IconBrandJavascript />
             script.js
           </InputGroupText>
-          <InputGroupButton className="ml-auto" size="icon-xs">
+          <InputGroupButton className="ms-auto" size="icon-xs">
             <IconRefresh />
           </InputGroupButton>
           <InputGroupButton variant="ghost" size="icon-xs">

@@ -21,17 +21,17 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const TOP_LEVEL_SECTIONS = [
-  { name: "Introduction", href: "/docs" },
+  { name: "مقدمه", href: "/docs" },
   {
-    name: "Components",
+    name: "کامپوننت‌ها",
     href: "/docs/components",
   },
   {
-    name: "Installation",
+    name: "نصب",
     href: "/docs/installation",
   },
   {
-    name: "Theming",
+    name: "تم‌دهی",
     href: "/docs/theming",
   },
   {
@@ -39,19 +39,19 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/cli",
   },
   {
-    name: "Typeset",
+    name: "تایپ‌ست",
     href: "/docs/typeset",
   },
   {
-    name: "Skills",
+    name: "مهارت‌ها",
     href: "/docs/skills",
   },
   {
-    name: "Registry",
+    name: "رجیستری",
     href: "/docs/registry",
   },
   {
-    name: "Changelog",
+    name: "تغییرات",
     href: "/docs/changelog",
   },
 ]

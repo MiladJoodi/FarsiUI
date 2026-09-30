@@ -1,6 +1,6 @@
 ---
-title: Label
-description: Renders an accessible label associated with controls.
+title: برچسب (Label)
+description: برچسب دسترس‌پذیر مرتبط با کنترل‌ها.
 base: base
 component: true
 links:
@@ -8,25 +8,31 @@ links:
   api: https://base-ui.com/react/components/label#api-reference
 ---
 
-<ComponentPreview styleName="base-nova" name="label-demo" />
+<ComponentVariantPreview
+  styleName="base-nova"
+  layout="switcher"
+  examples={[
+    { name: "label-demo", label: "پیش‌فرض", sizeable: false },
+  ]}
+/>
 
 <Callout>
-  For form fields, use the [Field](/docs/components/base/field) component which
-  includes built-in label, description, and error handling.
+  برای فیلدهای فرم از کامپوننت [فیلد](/docs/components/base/field) استفاده کنید
+  که برچسب، توضیح و مدیریت خطا را از قبل دارد.
 </Callout>
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add label
+npx farsiui@latest add label
 ```
 
 </TabsContent>
@@ -35,13 +41,13 @@ npx shadcn@latest add label
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="label"
@@ -49,7 +55,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -57,24 +63,29 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx
 import { Label } from "@/components/ui/label"
 ```
 
 ```tsx
-<Label htmlFor="email">Your email address</Label>
+<Label htmlFor="email">آدرس ایمیل شما</Label>
 ```
 
-## Label in Field
+<div className="hidden">
 
-For form fields, use the [Field](/docs/components/base/field) component which
-includes built-in `FieldLabel`, `FieldDescription`, and `FieldError` components.
+## برچسب در فیلد
+
+</div>
+
+<DocsCollapsible title="برچسب در فیلد">
+
+برای فیلدهای فرم از کامپوننت [فیلد](/docs/components/base/field) استفاده کنید که `FieldLabel`، `FieldDescription` و `FieldError` را از قبل دارد.
 
 ```tsx
 <Field>
-  <FieldLabel htmlFor="email">Your email address</FieldLabel>
+  <FieldLabel htmlFor="email">آدرس ایمیل شما</FieldLabel>
   <Input id="email" />
 </Field>
 ```
@@ -82,15 +93,55 @@ includes built-in `FieldLabel`, `FieldDescription`, and `FieldError` components.
 <ComponentPreview
   styleName="base-nova"
   name="field-demo"
+  direction="rtl"
   previewClassName="h-[44rem]"
 />
 
-## RTL
+</DocsCollapsible>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="label-rtl" direction="rtl" />
+## پشتیبانی RTL
 
-## API Reference
+</div>
 
-See the [Base UI Label](https://base-ui.com/react/components/label#api-reference) documentation for more information.
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="label-rtl"
+  direction="rtl"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI Label](https://base-ui.com/react/components/label#api-reference) را ببینید.
+
+<DocsApiProps
+  title="Label"
+  description="برچسب دسترس‌پذیر مرتبط با کنترل."
+  props={[
+    {
+      name: "htmlFor",
+      description: "شناسهٔ کنترل مرتبط",
+      values: ["string"],
+    },
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

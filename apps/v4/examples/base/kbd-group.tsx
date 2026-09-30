@@ -2,14 +2,14 @@ import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
 
 export default function KbdGroupExample() {
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div dir="rtl" className="flex flex-col items-center gap-4">
       <p className="text-sm text-muted-foreground">
-        Use{" "}
+        برای باز کردن پالت فرمان از{" "}
         <KbdGroup>
           <Kbd>Ctrl + B</Kbd>
           <Kbd>Ctrl + K</Kbd>
         </KbdGroup>{" "}
-        to open the command palette
+        استفاده کنید
       </p>
     </div>
   )

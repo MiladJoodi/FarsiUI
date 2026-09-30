@@ -1,6 +1,6 @@
 ---
-title: Context Menu
-description: Displays a menu of actions triggered by a right click.
+title: منوی زمینه (Context Menu)
+description: نمایش منوی اقدام‌ها با راست‌کلیک.
 base: base
 component: true
 links:
@@ -8,24 +8,35 @@ links:
   api: https://base-ui.com/react/components/context-menu#api-reference
 ---
 
-<ComponentPreview
+<ComponentVariantPreview
   styleName="base-nova"
-  name="context-menu-demo"
-  description="A context menu with sub menu items."
+  layout="switcher"
+  examples={[
+    { name: "context-menu-demo", label: "پیش‌فرض", sizeable: false },
+    { name: "context-menu-basic", label: "پایه", sizeable: false },
+    { name: "context-menu-submenu", label: "زیرمنو", sizeable: false },
+    { name: "context-menu-shortcuts", label: "میانبر", sizeable: false },
+    { name: "context-menu-groups", label: "گروه", sizeable: false },
+    { name: "context-menu-icons", label: "آیکون", sizeable: false },
+    { name: "context-menu-checkboxes", label: "چک‌باکس", sizeable: false },
+    { name: "context-menu-radio", label: "رادیو", sizeable: false },
+    { name: "context-menu-destructive", label: "مخرب", sizeable: false },
+    { name: "context-menu-sides", label: "جهت", sizeable: false },
+  ]}
 />
 
-## Installation
+## نصب
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">دستور</TabsTrigger>
+  <TabsTrigger value="manual">دستی</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add context-menu
+npx farsiui@latest add context-menu
 ```
 
 </TabsContent>
@@ -34,13 +45,13 @@ npx shadcn@latest add context-menu
 
 <Steps className="mb-0 pt-2">
 
-<Step>Install the following dependencies:</Step>
+<Step>وابستگی‌های زیر را نصب کنید:</Step>
 
 ```bash
 npm install @base-ui/react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>کد زیر را در پروژه خود قرار دهید.</Step>
 
 <ComponentSource
   name="context-menu"
@@ -48,7 +59,7 @@ npm install @base-ui/react
   styleName="base-nova"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>مسیرهای import را متناسب با ساختار پروژه خود تنظیم کنید.</Step>
 
 </Steps>
 
@@ -56,7 +67,7 @@ npm install @base-ui/react
 
 </CodeTabs>
 
-## Usage
+## استفاده
 
 ```tsx showLineNumbers
 import {
@@ -69,19 +80,25 @@ import {
 
 ```tsx showLineNumbers
 <ContextMenu>
-  <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+  <ContextMenuTrigger>اینجا راست‌کلیک کنید</ContextMenuTrigger>
   <ContextMenuContent>
-    <ContextMenuItem>Profile</ContextMenuItem>
-    <ContextMenuItem>Billing</ContextMenuItem>
-    <ContextMenuItem>Team</ContextMenuItem>
-    <ContextMenuItem>Subscription</ContextMenuItem>
+    <ContextMenuItem>پروفایل</ContextMenuItem>
+    <ContextMenuItem>صورتحساب</ContextMenuItem>
+    <ContextMenuItem>تیم</ContextMenuItem>
+    <ContextMenuItem>اشتراک</ContextMenuItem>
   </ContextMenuContent>
 </ContextMenu>
 ```
 
-## Composition
+<div className="hidden">
 
-Use the following composition to build a `ContextMenu`:
+## ترکیب
+
+</div>
+
+<DocsCollapsible title="ترکیب">
+
+برای ساخت یک `ContextMenu`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
 
 ```text
 ContextMenu
@@ -110,84 +127,297 @@ ContextMenu
                 └── ContextMenuItem
 ```
 
-## Basic
+</DocsCollapsible>
 
-A simple context menu with a few actions.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="context-menu-basic" />
+## پایه
 
-## Submenu
+</div>
 
-Use `ContextMenuSub` to nest secondary actions.
+<DocsCollapsible title="پایه">
 
-<ComponentPreview styleName="base-nova" name="context-menu-submenu" />
+منوی زمینهٔ ساده با چند اقدام.
 
-## Shortcuts
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-basic"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-Add `ContextMenuShortcut` to show keyboard hints.
+</DocsCollapsible>
 
-<ComponentPreview styleName="base-nova" name="context-menu-shortcuts" />
+<div className="hidden">
 
-## Groups
+## زیرمنو
 
-Group related actions and separate them with dividers.
+</div>
 
-<ComponentPreview styleName="base-nova" name="context-menu-groups" />
+<DocsCollapsible title="زیرمنو">
 
-## Icons
+با `ContextMenuSub` اقدام‌های ثانویه را تودرتو کنید.
 
-Combine icons with labels for quick scanning.
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-submenu"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-<ComponentPreview styleName="base-nova" name="context-menu-icons" />
+</DocsCollapsible>
 
-## Checkboxes
+<div className="hidden">
 
-Use `ContextMenuCheckboxItem` for toggles.
+## میانبر
 
-<ComponentPreview styleName="base-nova" name="context-menu-checkboxes" />
+</div>
 
-## Radio
+<DocsCollapsible title="میانبر">
 
-Use `ContextMenuRadioItem` for exclusive choices.
+با `ContextMenuShortcut` میانبر صفحه‌کلید را نشان دهید.
 
-<ComponentPreview styleName="base-nova" name="context-menu-radio" />
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-shortcuts"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-## Destructive
+</DocsCollapsible>
 
-Use `variant="destructive"` to style the menu item as destructive.
+<div className="hidden">
 
-<ComponentPreview styleName="base-nova" name="context-menu-destructive" />
+## گروه
 
-## Sides
+</div>
 
-Control submenu placement with side and align props.
+<DocsCollapsible title="گروه">
 
-<ComponentPreview styleName="base-nova" name="context-menu-sides" />
+اقدام‌های مرتبط را گروه‌بندی کنید و با جداکننده از هم جدا کنید.
 
-## RTL
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-groups"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
 
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+</DocsCollapsible>
+
+<div className="hidden">
+
+## آیکون
+
+</div>
+
+<DocsCollapsible title="آیکون">
+
+آیکون را کنار برچسب بگذارید تا سریع‌تر دیده شود.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-icons"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## چک‌باکس
+
+</div>
+
+<DocsCollapsible title="چک‌باکس">
+
+برای گزینه‌های روشن/خاموش از `ContextMenuCheckboxItem` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-checkboxes"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## رادیو
+
+</div>
+
+<DocsCollapsible title="رادیو">
+
+برای انتخاب انحصاری از `ContextMenuRadioItem` استفاده کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-radio"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## مخرب
+
+</div>
+
+<DocsCollapsible title="مخرب">
+
+با `variant="destructive"` آیتم مخرب را استایل دهید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-destructive"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## جهت
+
+</div>
+
+<DocsCollapsible title="جهت">
+
+جایگاه زیرمنو را با propهای `side` و `align` کنترل کنید.
+
+<ComponentPreview
+  styleName="base-nova"
+  name="context-menu-sides"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
+/>
+
+</DocsCollapsible>
+
+<div className="hidden">
+
+## پشتیبانی RTL
+
+</div>
+
+<DocsCollapsible title="پشتیبانی RTL">
+
+برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
 
 <ComponentPreview
   styleName="base-nova"
   name="context-menu-rtl"
   direction="rtl"
+  previewClassName="h-auto! min-h-0 py-6 px-6"
 />
 
-Use `side="inline-end"` to place the menu on the logical right side of the trigger.
+با `side="inline-end"` منو را در سمت منطقی انتها (چپ در RTL) نسبت به تریگر قرار دهید.
 
 ```tsx showLineNumbers
 <ContextMenu>
-  <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+  <ContextMenuTrigger>اینجا راست‌کلیک کنید</ContextMenuTrigger>
   <ContextMenuContent side="inline-end">
-    <ContextMenuItem>Profile</ContextMenuItem>
-    <ContextMenuItem>Billing</ContextMenuItem>
-    <ContextMenuItem>Team</ContextMenuItem>
-    <ContextMenuItem>Subscription</ContextMenuItem>
+    <ContextMenuItem>پروفایل</ContextMenuItem>
+    <ContextMenuItem>صورتحساب</ContextMenuItem>
+    <ContextMenuItem>تیم</ContextMenuItem>
+    <ContextMenuItem>اشتراک</ContextMenuItem>
   </ContextMenuContent>
 </ContextMenu>
 ```
 
-## API Reference
+</DocsCollapsible>
 
-See the [Base UI](https://base-ui.com/react/components/context-menu#api-reference) documentation for more information.
+<div className="hidden">
+
+## مرجع API
+
+</div>
+
+<DocsCollapsible title="مرجع API">
+
+برای جزئیات بیشتر، [مستندات Base UI](https://base-ui.com/react/components/context-menu#api-reference) را ببینید.
+
+<DocsApiProps
+  title="ContextMenu"
+  description="ظرف ریشهٔ منوی زمینه."
+  props={[
+    {
+      name: "className",
+      description: "کلاس‌های سفارشی",
+      values: ["string"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ContextMenuContent"
+  description="محتوای منوی بازشونده."
+  props={[
+    {
+      name: "side",
+      description: "سمت قرارگیری نسبت به تریگر",
+      values: ["top", "right", "bottom", "left", "inline-start", "inline-end"],
+    },
+    {
+      name: "align",
+      description: "تراز افقی محتوا",
+      values: ["start", "center", "end"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ContextMenuItem"
+  description="یک آیتم قابل انتخاب در منو."
+  props={[
+    {
+      name: "variant",
+      description: "ظاهر آیتم",
+      values: ["default", "destructive"],
+      defaultValue: "default",
+    },
+    {
+      name: "disabled",
+      description: "غیرفعال کردن آیتم",
+      values: ["boolean"],
+      defaultValue: "false",
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ContextMenuCheckboxItem"
+  description="آیتم چک‌باکس برای روشن/خاموش کردن."
+  props={[
+    {
+      name: "checked",
+      description: "حالت کنترل‌شده",
+      values: ["boolean"],
+    },
+    {
+      name: "defaultChecked",
+      description: "حالت اولیه در حالت کنترل‌نشده",
+      values: ["boolean"],
+    },
+  ]}
+/>
+
+<DocsApiProps
+  title="ContextMenuRadioItem"
+  description="آیتم رادیو برای انتخاب انحصاری."
+  props={[
+    {
+      name: "value",
+      description: "مقدار آیتم",
+      values: ["string"],
+    },
+  ]}
+/>
+
+</DocsCollapsible>

@@ -44,8 +44,6 @@ import {
   TableRow,
 } from "@/styles/base-nova/ui/table"
 
-// New in v9: declare the features this table uses — anything you don't
-// register is tree-shaken out of the bundle.
 const features = tableFeatures({
   columnFilteringFeature,
   columnVisibilityFeature,
@@ -60,6 +58,19 @@ const features = tableFeatures({
 })
 
 const columnHelper = createColumnHelper<typeof features, Payment>()
+
+const statusLabel: Record<Payment["status"], string> = {
+  success: "موفق",
+  processing: "در حال پردازش",
+  failed: "ناموفق",
+  pending: "در انتظار",
+}
+
+const columnLabel: Record<string, string> = {
+  status: "وضعیت",
+  email: "ایمیل",
+  amount: "مبلغ",
+}
 
 const data: Payment[] = [
   {
@@ -111,23 +122,23 @@ export const columns = columnHelper.columns([
           table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected()
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
+        aria-label="انتخاب همه"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
+        aria-label="انتخاب ردیف"
       />
     ),
     enableSorting: false,
     enableHiding: false,
   }),
   columnHelper.accessor("status", {
-    header: "Status",
+    header: "وضعیت",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
+      <div>{statusLabel[row.getValue("status") as Payment["status"]]}</div>
     ),
   }),
   columnHelper.accessor("email", {
@@ -137,7 +148,7 @@ export const columns = columnHelper.columns([
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          ایمیل
           <ArrowUpDown />
         </Button>
       )
@@ -145,17 +156,15 @@ export const columns = columnHelper.columns([
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   }),
   columnHelper.accessor("amount", {
-    header: () => <div className="text-right">Amount</div>,
+    header: () => <div className="text-end">مبلغ</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"))
-
-      // Format the amount as a dollar amount.
-      const formatted = new Intl.NumberFormat("en-US", {
+      const formatted = new Intl.NumberFormat("fa-IR", {
         style: "currency",
         currency: "USD",
       }).format(amount)
 
-      return <div className="text-right font-medium">{formatted}</div>
+      return <div className="text-end font-medium">{formatted}</div>
     },
   }),
   columnHelper.display({
@@ -169,22 +178,22 @@ export const columns = columnHelper.columns([
           <DropdownMenuTrigger
             render={<Button variant="ghost" size="icon-xs" />}
           >
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">باز کردن منو</span>
             <MoreHorizontal />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-44">
+          <DropdownMenuContent align="start" className="w-44">
             <DropdownMenuGroup>
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>اقدام‌ها</DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() => navigator.clipboard.writeText(payment.id)}
               >
-                Copy payment ID
+                کپی شناسه پرداخت
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
+              <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
+              <DropdownMenuItem>جزئیات پرداخت</DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -219,10 +228,10 @@ export function DataTableDemo() {
   })
 
   return (
-    <div className="w-full">
-      <div className="flex items-center py-4">
+    <div className="w-full" dir="rtl">
+      <div className="flex items-center gap-2 py-4">
         <Input
-          placeholder="Filter emails..."
+          placeholder="فیلتر ایمیل..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
@@ -231,11 +240,11 @@ export function DataTableDemo() {
         />
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={<Button variant="outline" className="ml-auto" />}
+            render={<Button variant="outline" className="ms-auto" />}
           >
-            Columns <ChevronDown />
+            ستون‌ها <ChevronDown />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-44">
+          <DropdownMenuContent align="start" className="w-44">
             <DropdownMenuGroup>
               {table
                 .getAllColumns()
@@ -244,13 +253,12 @@ export function DataTableDemo() {
                   return (
                     <DropdownMenuCheckboxItem
                       key={column.id}
-                      className="capitalize"
                       checked={column.getIsVisible()}
                       onCheckedChange={(value) =>
                         column.toggleVisibility(!!value)
                       }
                     >
-                      {column.id}
+                      {columnLabel[column.id] ?? column.id}
                     </DropdownMenuCheckboxItem>
                   )
                 })}
@@ -295,26 +303,26 @@ export function DataTableDemo() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  نتیجه‌ای پیدا نشد.
                 </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {table.getFilteredSelectedRowModel().rows.length} از{" "}
+          {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
         </div>
-        <div className="space-x-2">
+        <div className="flex gap-2">
           <Button
             variant="outline"
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            قبلی
           </Button>
           <Button
             variant="outline"
@@ -322,7 +330,7 @@ export function DataTableDemo() {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            بعدی
           </Button>
         </div>
       </div>

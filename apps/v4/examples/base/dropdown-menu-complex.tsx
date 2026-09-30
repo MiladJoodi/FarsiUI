@@ -57,233 +57,233 @@ export function DropdownMenuComplex() {
   const [theme, setTheme] = React.useState("light")
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
-        Complex Menu
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-44">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>File</DropdownMenuLabel>
-          <DropdownMenuItem>
-            <FileIcon />
-            New File
-            <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <FolderIcon />
-            New Folder
-            <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <FolderOpenIcon />
-              Open Recent
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel>Recent Projects</DropdownMenuLabel>
-                  <DropdownMenuItem>
-                    <FileCodeIcon />
-                    Project Alpha
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <FileCodeIcon />
-                    Project Beta
-                  </DropdownMenuItem>
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                      <MoreHorizontalIcon />
-                      More Projects
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                      <DropdownMenuSubContent>
-                        <DropdownMenuItem>
-                          <FileCodeIcon />
-                          Project Gamma
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <FileCodeIcon />
-                          Project Delta
-                        </DropdownMenuItem>
-                      </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <FolderSearchIcon />
-                    Browse...
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
+    <div dir="rtl">
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" />}>
+          منوی پیشرفته
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-44">
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>فایل</DropdownMenuLabel>
+            <DropdownMenuItem>
+              <FileIcon />
+              فایل جدید
+              <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <FolderIcon />
+              پوشه جدید
+              <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>
+                <FolderOpenIcon />
+                باز کردن اخیر
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>پروژه‌های اخیر</DropdownMenuLabel>
+                    <DropdownMenuItem>
+                      <FileCodeIcon />
+                      پروژه آلفا
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <FileCodeIcon />
+                      پروژه بتا
+                    </DropdownMenuItem>
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger>
+                        <MoreHorizontalIcon />
+                        پروژه‌های بیشتر
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                          <DropdownMenuItem>
+                            <FileCodeIcon />
+                            پروژه گاما
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <FileCodeIcon />
+                            پروژه دلتا
+                          </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <FolderSearchIcon />
+                      مرور...
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <SaveIcon />
+              ذخیره
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <DownloadIcon />
+              خروجی
+              <DropdownMenuShortcut>⇧⌘E</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <SaveIcon />
-            Save
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <DownloadIcon />
-            Export
-            <DropdownMenuShortcut>⇧⌘E</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>View</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem
-            checked={notifications.email}
-            onCheckedChange={(checked) =>
-              setNotifications({ ...notifications, email: checked === true })
-            }
-          >
-            <EyeIcon />
-            Show Sidebar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={notifications.sms}
-            onCheckedChange={(checked) =>
-              setNotifications({ ...notifications, sms: checked === true })
-            }
-          >
-            <LayoutIcon />
-            Show Status Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <PaletteIcon />
-              Theme
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                  <DropdownMenuRadioGroup
-                    value={theme}
-                    onValueChange={setTheme}
-                  >
-                    <DropdownMenuRadioItem value="light">
-                      <SunIcon />
-                      Light
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="dark">
-                      <MoonIcon />
-                      Dark
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="system">
-                      <MonitorIcon />
-                      System
-                    </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                </DropdownMenuGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Account</DropdownMenuLabel>
-          <DropdownMenuItem>
-            <UserIcon />
-            Profile
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCardIcon />
-            Billing
-          </DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <SettingsIcon />
-              Settings
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel>Preferences</DropdownMenuLabel>
-                  <DropdownMenuItem>
-                    <KeyboardIcon />
-                    Keyboard Shortcuts
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <LanguagesIcon />
-                    Language
-                  </DropdownMenuItem>
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                      <BellIcon />
-                      Notifications
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                      <DropdownMenuSubContent>
-                        <DropdownMenuGroup>
-                          <DropdownMenuLabel>
-                            Notification Types
-                          </DropdownMenuLabel>
-                          <DropdownMenuCheckboxItem
-                            checked={notifications.push}
-                            onCheckedChange={(checked) =>
-                              setNotifications({
-                                ...notifications,
-                                push: checked === true,
-                              })
-                            }
-                          >
-                            <BellIcon />
-                            Push Notifications
-                          </DropdownMenuCheckboxItem>
-                          <DropdownMenuCheckboxItem
-                            checked={notifications.email}
-                            onCheckedChange={(checked) =>
-                              setNotifications({
-                                ...notifications,
-                                email: checked === true,
-                              })
-                            }
-                          >
-                            <MailIcon />
-                            Email Notifications
-                          </DropdownMenuCheckboxItem>
-                        </DropdownMenuGroup>
-                      </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <ShieldIcon />
-                    Privacy & Security
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <HelpCircleIcon />
-            Help & Support
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <FileTextIcon />
-            Documentation
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem variant="destructive">
-            <LogOutIcon />
-            Sign Out
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>نمایش</DropdownMenuLabel>
+            <DropdownMenuCheckboxItem
+              checked={notifications.email}
+              onCheckedChange={(checked) =>
+                setNotifications({ ...notifications, email: checked === true })
+              }
+            >
+              <EyeIcon />
+              نمایش سایدبار
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={notifications.sms}
+              onCheckedChange={(checked) =>
+                setNotifications({ ...notifications, sms: checked === true })
+              }
+            >
+              <LayoutIcon />
+              نمایش نوار وضعیت
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>
+                <PaletteIcon />
+                تم
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>ظاهر</DropdownMenuLabel>
+                    <DropdownMenuRadioGroup
+                      value={theme}
+                      onValueChange={setTheme}
+                    >
+                      <DropdownMenuRadioItem value="light">
+                        <SunIcon />
+                        روشن
+                      </DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="dark">
+                        <MoonIcon />
+                        تیره
+                      </DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="system">
+                        <MonitorIcon />
+                        سیستم
+                      </DropdownMenuRadioItem>
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuGroup>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>حساب</DropdownMenuLabel>
+            <DropdownMenuItem>
+              <UserIcon />
+              پروفایل
+              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <CreditCardIcon />
+              صورتحساب
+            </DropdownMenuItem>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>
+                <SettingsIcon />
+                تنظیمات
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>ترجیحات</DropdownMenuLabel>
+                    <DropdownMenuItem>
+                      <KeyboardIcon />
+                      میانبرهای صفحه‌کلید
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <LanguagesIcon />
+                      زبان
+                    </DropdownMenuItem>
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger>
+                        <BellIcon />
+                        اعلان‌ها
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                          <DropdownMenuGroup>
+                            <DropdownMenuLabel>نوع اعلان</DropdownMenuLabel>
+                            <DropdownMenuCheckboxItem
+                              checked={notifications.push}
+                              onCheckedChange={(checked) =>
+                                setNotifications({
+                                  ...notifications,
+                                  push: checked === true,
+                                })
+                              }
+                            >
+                              <BellIcon />
+                              اعلان پوش
+                            </DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem
+                              checked={notifications.email}
+                              onCheckedChange={(checked) =>
+                                setNotifications({
+                                  ...notifications,
+                                  email: checked === true,
+                                })
+                              }
+                            >
+                              <MailIcon />
+                              اعلان ایمیلی
+                            </DropdownMenuCheckboxItem>
+                          </DropdownMenuGroup>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <ShieldIcon />
+                      حریم خصوصی و امنیت
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <HelpCircleIcon />
+              راهنما و پشتیبانی
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <FileTextIcon />
+              مستندات
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem variant="destructive">
+              <LogOutIcon />
+              خروج
+              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

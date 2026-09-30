@@ -17,17 +17,17 @@ import {
 } from "@/registry/new-york-v4/ui/popover"
 
 const TOP_LEVEL_SECTIONS = [
-  { name: "Introduction", href: "/docs" },
+  { name: "مقدمه", href: "/docs" },
   {
-    name: "Components",
+    name: "کامپوننت‌ها",
     href: "/docs/components",
   },
   {
-    name: "Installation",
+    name: "نصب",
     href: "/docs/installation",
   },
   {
-    name: "Theming",
+    name: "تم‌دهی",
     href: "/docs/theming",
   },
   {
@@ -39,23 +39,23 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/rtl",
   },
   {
-    name: "Skills",
+    name: "مهارت‌ها",
     href: "/docs/skills",
   },
   {
-    name: "MCP Server",
+    name: "سرور MCP",
     href: "/docs/mcp",
   },
   {
-    name: "Registry",
+    name: "رجیستری",
     href: "/docs/registry",
   },
   {
-    name: "Forms",
+    name: "فرم‌ها",
     href: "/docs/forms",
   },
   {
-    name: "Changelog",
+    name: "تغییرات",
     href: "/docs/changelog",
   },
 ]
@@ -98,10 +98,10 @@ export function MobileNav({
                 )}
               />
             </div>
-            <span className="sr-only">Toggle Menu</span>
+            <span className="sr-only">باز و بسته کردن منو</span>
           </div>
           <span className="flex h-8 items-center text-lg leading-none font-medium">
-            Menu
+            منو
           </span>
         </Button>
       </PopoverTrigger>
@@ -115,7 +115,7 @@ export function MobileNav({
         <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
           <div className="flex flex-col gap-4">
             <div className="text-sm font-medium text-muted-foreground">
-              Menu
+              منو
             </div>
             <div className="flex flex-col gap-3">
               {items.map((item, index) => (
@@ -127,7 +127,7 @@ export function MobileNav({
           </div>
           <div className="flex flex-col gap-4">
             <div className="text-sm font-medium text-muted-foreground">
-              Sections
+              بخش‌ها
             </div>
             <div className="flex flex-col gap-3">
               {TOP_LEVEL_SECTIONS.map(({ name, href }) => {

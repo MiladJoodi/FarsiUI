@@ -16,28 +16,29 @@ import { Kbd } from "@/styles/base-nova/ui/kbd"
 
 export default function EmptyInputGroup() {
   return (
-    <Empty>
-      <EmptyHeader>
-        <EmptyTitle>404 - Not Found</EmptyTitle>
-        <EmptyDescription>
-          The page you&apos;re looking for doesn&apos;t exist. Try searching for
-          what you need below.
-        </EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent>
-        <InputGroup className="sm:w-3/4">
-          <InputGroupInput placeholder="Try searching for pages..." />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-          <InputGroupAddon align="inline-end">
-            <Kbd>/</Kbd>
-          </InputGroupAddon>
-        </InputGroup>
-        <EmptyDescription>
-          Need help? <a href="#">Contact support</a>
-        </EmptyDescription>
-      </EmptyContent>
-    </Empty>
+    <div dir="rtl">
+      <Empty>
+        <EmptyHeader>
+          <EmptyTitle>۴۰۴ — پیدا نشد</EmptyTitle>
+          <EmptyDescription>
+            صفحه‌ای که دنبالش هستید وجود ندارد. پایین جستجو کنید.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <InputGroup className="sm:w-3/4">
+            <InputGroupInput placeholder="جستجوی صفحات..." />
+            <InputGroupAddon>
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon align="inline-end">
+              <Kbd>/</Kbd>
+            </InputGroupAddon>
+          </InputGroup>
+          <EmptyDescription>
+            کمک لازم دارید؟ <a href="#">تماس با پشتیبانی</a>
+          </EmptyDescription>
+        </EmptyContent>
+      </Empty>
+    </div>
   )
 }

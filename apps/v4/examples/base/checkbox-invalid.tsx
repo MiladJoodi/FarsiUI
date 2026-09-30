@@ -3,7 +3,7 @@ import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 
 export function CheckboxInvalid() {
   return (
-    <FieldGroup className="mx-auto w-56">
+    <FieldGroup className="mx-auto w-56" dir="rtl">
       <Field orientation="horizontal" data-invalid>
         <Checkbox
           id="terms-checkbox-invalid"
@@ -11,7 +11,7 @@ export function CheckboxInvalid() {
           aria-invalid
         />
         <FieldLabel htmlFor="terms-checkbox-invalid">
-          Accept terms and conditions
+          پذیرش شرایط و قوانین
         </FieldLabel>
       </Field>
     </FieldGroup>

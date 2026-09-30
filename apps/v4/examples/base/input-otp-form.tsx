@@ -23,23 +23,21 @@ import {
 
 export function InputOTPForm() {
   return (
-    <Card className="mx-auto max-w-md">
+    <Card dir="rtl" className="mx-auto max-w-md">
       <CardHeader>
-        <CardTitle>Verify your login</CardTitle>
+        <CardTitle>تأیید ورود</CardTitle>
         <CardDescription>
-          Enter the verification code we sent to your email address:{" "}
+          کد تأیید ارسال‌شده به ایمیل خود را وارد کنید:{" "}
           <span className="font-medium">m@example.com</span>.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Field>
           <div className="flex items-center justify-between">
-            <FieldLabel htmlFor="otp-verification">
-              Verification code
-            </FieldLabel>
+            <FieldLabel htmlFor="otp-verification">کد تأیید</FieldLabel>
             <Button variant="outline" size="xs">
               <RefreshCwIcon />
-              Resend Code
+              ارسال مجدد
             </Button>
           </div>
           <InputOTP maxLength={6} id="otp-verification" required>
@@ -56,22 +54,22 @@ export function InputOTPForm() {
             </InputOTPGroup>
           </InputOTP>
           <FieldDescription>
-            <a href="#">I no longer have access to this email address.</a>
+            <a href="#">دیگر به این ایمیل دسترسی ندارم.</a>
           </FieldDescription>
         </Field>
       </CardContent>
       <CardFooter>
         <Field>
           <Button type="submit" className="w-full">
-            Verify
+            تأیید
           </Button>
           <div className="text-sm text-muted-foreground">
-            Having trouble signing in?{" "}
+            در ورود مشکل دارید؟{" "}
             <a
               href="#"
               className="underline underline-offset-4 transition-colors hover:text-primary"
             >
-              Contact support
+              تماس با پشتیبانی
             </a>
           </div>
         </Field>

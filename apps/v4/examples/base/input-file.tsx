@@ -7,10 +7,10 @@ import { Input } from "@/styles/base-nova/ui/input"
 
 export function InputFile() {
   return (
-    <Field>
-      <FieldLabel htmlFor="picture">Picture</FieldLabel>
+    <Field dir="rtl">
+      <FieldLabel htmlFor="picture">تصویر</FieldLabel>
       <Input id="picture" type="file" />
-      <FieldDescription>Select a picture to upload.</FieldDescription>
+      <FieldDescription>یک تصویر برای آپلود انتخاب کنید.</FieldDescription>
     </Field>
   )
 }

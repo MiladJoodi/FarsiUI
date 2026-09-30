@@ -2,6 +2,8 @@
 
 import * as React from "react"
 import { format } from "date-fns"
+import { faIR } from "date-fns/locale"
+import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import { Calendar } from "@/styles/base-nova/ui/calendar"
@@ -16,8 +18,8 @@ export function DatePickerSimple() {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <Field className="mx-auto w-44">
-      <FieldLabel htmlFor="date-picker-simple">Date</FieldLabel>
+    <Field className="mx-auto w-44" dir="rtl">
+      <FieldLabel htmlFor="date-picker-simple">تاریخ</FieldLabel>
       <Popover>
         <PopoverTrigger
           render={
@@ -28,7 +30,11 @@ export function DatePickerSimple() {
             />
           }
         >
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
+          {date ? (
+            format(date, "PPP", { locale: faIR })
+          ) : (
+            <span>انتخاب تاریخ</span>
+          )}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
@@ -36,6 +42,8 @@ export function DatePickerSimple() {
             selected={date}
             onSelect={setDate}
             defaultMonth={date}
+            locale={faIRDayPicker}
+            dir="rtl"
           />
         </PopoverContent>
       </Popover>

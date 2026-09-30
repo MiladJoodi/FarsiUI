@@ -13,61 +13,34 @@ import {
 } from "@/styles/base-nova/ui/combobox"
 
 const countries = [
-  { code: "", value: "", continent: "", label: "Select country" },
-  {
-    code: "ar",
-    value: "argentina",
-    label: "Argentina",
-    continent: "South America",
-  },
-  { code: "au", value: "australia", label: "Australia", continent: "Oceania" },
-  { code: "br", value: "brazil", label: "Brazil", continent: "South America" },
-  { code: "ca", value: "canada", label: "Canada", continent: "North America" },
-  { code: "cn", value: "china", label: "China", continent: "Asia" },
-  {
-    code: "co",
-    value: "colombia",
-    label: "Colombia",
-    continent: "South America",
-  },
-  { code: "eg", value: "egypt", label: "Egypt", continent: "Africa" },
-  { code: "fr", value: "france", label: "France", continent: "Europe" },
-  { code: "de", value: "germany", label: "Germany", continent: "Europe" },
-  { code: "it", value: "italy", label: "Italy", continent: "Europe" },
-  { code: "jp", value: "japan", label: "Japan", continent: "Asia" },
-  { code: "ke", value: "kenya", label: "Kenya", continent: "Africa" },
-  { code: "mx", value: "mexico", label: "Mexico", continent: "North America" },
-  {
-    code: "nz",
-    value: "new-zealand",
-    label: "New Zealand",
-    continent: "Oceania",
-  },
-  { code: "ng", value: "nigeria", label: "Nigeria", continent: "Africa" },
-  {
-    code: "za",
-    value: "south-africa",
-    label: "South Africa",
-    continent: "Africa",
-  },
-  { code: "kr", value: "south-korea", label: "South Korea", continent: "Asia" },
+  { code: "", value: "", continent: "", label: "انتخاب کشور" },
+  { code: "ir", value: "iran", label: "ایران", continent: "آسیا" },
+  { code: "tr", value: "turkey", label: "ترکیه", continent: "آسیا" },
+  { code: "ae", value: "uae", label: "امارات", continent: "آسیا" },
+  { code: "de", value: "germany", label: "آلمان", continent: "اروپا" },
+  { code: "fr", value: "france", label: "فرانسه", continent: "اروپا" },
   {
     code: "gb",
     value: "united-kingdom",
-    label: "United Kingdom",
-    continent: "Europe",
+    label: "بریتانیا",
+    continent: "اروپا",
   },
   {
     code: "us",
     value: "united-states",
-    label: "United States",
-    continent: "North America",
+    label: "آمریکا",
+    continent: "آمریکای شمالی",
   },
+  { code: "ca", value: "canada", label: "کانادا", continent: "آمریکای شمالی" },
+  { code: "br", value: "brazil", label: "برزیل", continent: "آمریکای جنوبی" },
+  { code: "jp", value: "japan", label: "ژاپن", continent: "آسیا" },
+  { code: "au", value: "australia", label: "استرالیا", continent: "اقیانوسیه" },
+  { code: "eg", value: "egypt", label: "مصر", continent: "آفریقا" },
 ]
 
 export function ComboboxPopup() {
   return (
-    <>
+    <div dir="rtl">
       <Combobox items={countries} defaultValue={countries[0]}>
         <ComboboxTrigger
           render={
@@ -80,17 +53,17 @@ export function ComboboxPopup() {
           <ComboboxValue />
         </ComboboxTrigger>
         <ComboboxContent>
-          <ComboboxInput showTrigger={false} placeholder="Search" />
-          <ComboboxEmpty>No items found.</ComboboxEmpty>
+          <ComboboxInput showTrigger={false} placeholder="جستجو" />
+          <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (
-              <ComboboxItem key={item.code} value={item}>
+              <ComboboxItem key={item.code || "empty"} value={item}>
                 {item.label}
               </ComboboxItem>
             )}
           </ComboboxList>
         </ComboboxContent>
       </Combobox>
-    </>
+    </div>
   )
 }

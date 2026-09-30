@@ -24,53 +24,53 @@ const questionnaireItems = [
   {
     choices: [
       {
-        description: "Show what the agent ran and what came back.",
-        label: "Tool call timeline",
+        description: "نشان دهد عامل چه چیزی اجرا کرد و چه نتیجه‌ای برگشت.",
+        label: "خط زمانی فراخوانی ابزار",
         value: "tool-calls",
       },
       {
-        description: "Ask before sensitive or destructive actions.",
-        label: "Approval checkpoints",
+        description: "قبل از اقدامات حساس یا مخرب بپرسد.",
+        label: "نقاط تأیید",
         value: "approvals",
       },
       {
-        description: "Make delegated work and results easier to follow.",
-        label: "Sub-agent handoffs",
+        description: "کارهای واگذارشده و نتایج را ساده‌تر دنبال کنید.",
+        label: "تحویل به زیرعامل",
         value: "handoffs",
       },
     ],
-    description: "Choose a direction or describe another task.",
+    description: "یک مسیر انتخاب کنید یا کار دیگری توصیف کنید.",
     input: {
-      label: "Another agent feature",
-      placeholder: "Describe another feature…",
+      label: "ویژگی دیگری برای عامل",
+      placeholder: "ویژگی دیگری توصیف کنید…",
     },
     name: "direction",
     required: true,
-    title: "What should the agent build next?",
+    title: "عامل باید بعداً چه چیزی بسازد؟",
   },
   {
     choices: [
-      { label: "Progress", value: "progress" },
-      { label: "Decisions", value: "decisions" },
-      { label: "Risks", value: "risks" },
-      { label: "Next step", value: "next-step" },
+      { label: "پیشرفت", value: "progress" },
+      { label: "تصمیم‌ها", value: "decisions" },
+      { label: "ریسک‌ها", value: "risks" },
+      { label: "گام بعدی", value: "next-step" },
     ],
-    description: "Select all that apply, or skip this question.",
+    description: "همهٔ موارد مرتبط را انتخاب کنید، یا این سؤال را رد کنید.",
     multiple: true,
     name: "signals",
     required: false,
-    title: "What should every progress update include?",
+    title: "هر به‌روزرسانی پیشرفت باید چه چیزهایی داشته باشد؟",
   },
   {
     choices: [
-      { label: "Start now", value: "now" },
-      { label: "Next development cycle", value: "next-cycle" },
-      { label: "Add it to the backlog", value: "backlog" },
+      { label: "همین الان شروع شود", value: "now" },
+      { label: "چرخهٔ توسعهٔ بعدی", value: "next-cycle" },
+      { label: "به بک‌لاگ اضافه شود", value: "backlog" },
     ],
-    description: "Choose when the agent should begin the work.",
+    description: "زمان شروع کار توسط عامل را انتخاب کنید.",
     name: "timing",
     required: true,
-    title: "When should work begin?",
+    title: "کار چه زمانی باید شروع شود؟",
   },
 ] as const
 
@@ -85,58 +85,60 @@ export function QuestionnaireDemo() {
       timing: formData.get("timing"),
     }
 
-    toast("Agent plan saved", {
-      description: `Direction: ${answers.direction ?? "None"} · Progress signals: ${answers.signals.join(", ") || "None"} · Timing: ${answers.timing ?? "None"}`,
+    toast("برنامهٔ عامل ذخیره شد", {
+      description: `مسیر: ${answers.direction ?? "هیچ"} · سیگنال‌های پیشرفت: ${answers.signals.join(", ") || "هیچ"} · زمان‌بندی: ${answers.timing ?? "هیچ"}`,
     })
   }
 
   return (
-    <Questionnaire
-      className="mx-auto max-w-md"
-      defaultItem="direction"
-      items={questionnaireItems}
-      shortcuts="letters"
-      onSubmit={handleSubmit}
-    >
-      <QuestionnaireProgress />
-      {questionnaireItems.map((question) => (
-        <QuestionnaireItem
-          key={question.name}
-          multiple={"multiple" in question && question.multiple}
-          name={question.name}
-          required={question.required}
-        >
-          <QuestionnaireTitle>{question.title}</QuestionnaireTitle>
-          <QuestionnaireDescription>
-            {question.description}
-          </QuestionnaireDescription>
-          <QuestionnaireChoices>
-            {question.choices.map((choice) => (
-              <QuestionnaireChoice key={choice.value} value={choice.value}>
-                <span className="font-medium">{choice.label}</span>
-                {"description" in choice ? (
-                  <span className="text-muted-foreground">
-                    {choice.description}
-                  </span>
-                ) : null}
-              </QuestionnaireChoice>
-            ))}
-            {"input" in question ? (
-              <QuestionnaireInput
-                aria-label={question.input.label}
-                placeholder={question.input.placeholder}
-              />
-            ) : null}
-          </QuestionnaireChoices>
-          <QuestionnaireError />
-        </QuestionnaireItem>
-      ))}
-      <QuestionnaireActions>
-        <QuestionnairePrevious />
-        <QuestionnaireSkip />
-        <QuestionnaireNext>Next</QuestionnaireNext>
-        <QuestionnaireSubmit>Save plan</QuestionnaireSubmit>
-      </QuestionnaireActions>
-    </Questionnaire>
+    <div dir="rtl">
+      <Questionnaire
+        className="mx-auto max-w-md"
+        defaultItem="direction"
+        items={questionnaireItems}
+        shortcuts="letters"
+        onSubmit={handleSubmit}
+      >
+        <QuestionnaireProgress />
+        {questionnaireItems.map((question) => (
+          <QuestionnaireItem
+            key={question.name}
+            multiple={"multiple" in question && question.multiple}
+            name={question.name}
+            required={question.required}
+          >
+            <QuestionnaireTitle>{question.title}</QuestionnaireTitle>
+            <QuestionnaireDescription>
+              {question.description}
+            </QuestionnaireDescription>
+            <QuestionnaireChoices>
+              {question.choices.map((choice) => (
+                <QuestionnaireChoice key={choice.value} value={choice.value}>
+                  <span className="font-medium">{choice.label}</span>
+                  {"description" in choice ? (
+                    <span className="text-muted-foreground">
+                      {choice.description}
+                    </span>
+                  ) : null}
+                </QuestionnaireChoice>
+              ))}
+              {"input" in question ? (
+                <QuestionnaireInput
+                  aria-label={question.input.label}
+                  placeholder={question.input.placeholder}
+                />
+              ) : null}
+            </QuestionnaireChoices>
+            <QuestionnaireError />
+          </QuestionnaireItem>
+        ))}
+        <QuestionnaireActions>
+          <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+          <QuestionnaireSkip>رد کردن</QuestionnaireSkip>
+          <QuestionnaireNext>بعدی</QuestionnaireNext>
+          <QuestionnaireSubmit>ذخیرهٔ برنامه</QuestionnaireSubmit>
+        </QuestionnaireActions>
+      </Questionnaire>
+    </div>
   )
 }

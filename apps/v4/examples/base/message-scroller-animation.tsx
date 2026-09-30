@@ -48,20 +48,22 @@ import {
 } from "@/styles/base-rhea/ui/select"
 
 const chat = createChat()
-  .user("Can user messages pop in like iMessage without breaking anchoring?")
-  .sleep(1000)
-  .assistant(
-    "Yes. Animate the user row with transform and opacity, and let the assistant response stream normally below it.\n\nThat keeps the row measurement predictable while still giving the newly sent bubble a more tactile entrance."
+  .user(
+    "می‌شود پیام‌های کاربر مثل iMessage ظاهر شوند بدون اینکه لنگر خراب شود؟"
   )
-  .user("What makes the animation feel more like iMessage?")
   .sleep(1000)
   .assistant(
-    "Use a quick spring from the trailing edge: a little scale, a small upward move, and no layout animation.\n\nThe bubble feels tactile, but the measured row stays predictable, so anchoring and auto-scroll do not have to fight a changing layout."
+    "بله. ردیف کاربر را با transform و opacity پویانمایی کنید و بگذارید پاسخ دستیار زیر آن عادی استریم شود.\n\nاندازه‌گیری ردیف قابل‌پیش‌بینی می‌ماند و در عین حال حباب تازه‌فرستاده‌شده ورود ملموس‌تری دارد."
   )
-  .user("Can I switch between presets while testing the same thread?")
+  .user("چه چیزی پویانمایی را بیشتر شبیه iMessage می‌کند؟")
   .sleep(1000)
   .assistant(
-    "Yes. Keep the conversation in place while you change the preset, then send the next message to compare the new entrance against the same context.\n\nThat makes it easier to judge the difference between a subtle fade, a snappy pop, and a more dramatic 3D tilt without rebuilding the scenario each time."
+    "از یک اسپرینگ سریع از لبهٔ دنباله‌دار استفاده کنید: کمی مقیاس، حرکت کوتاه به بالا، و بدون پویانمایی layout.\n\nحباب ملموس حس می‌شود، اما ردیف اندازه‌گیری‌شده قابل‌پیش‌بینی می‌ماند؛ پس لنگر و اسکرول خودکار مجبور نیستند با layout در حال تغییر بجنگند."
+  )
+  .user("می‌توانم هنگام تست همان نخ بین presetها جابه‌جا شوم؟")
+  .sleep(1000)
+  .assistant(
+    "بله. گفتگو را سر جایش نگه دارید، preset را عوض کنید، سپس پیام بعدی را بفرستید تا ورود جدید را در همان زمینه مقایسه کنید.\n\nقضاوت تفاوت بین fade ملایم، pop تند و tilt سه‌بعدی پررنگ بدون بازسازی سناریو آسان‌تر می‌شود."
   )
 
 const initialMessages = chat.get(0)
@@ -78,20 +80,19 @@ export function MessageScrollerAnimation() {
   const preset = MESSAGE_ANIMATIONS[presetId as MessageAnimationId]
 
   return (
-    <div className="relative flex flex-col gap-4">
+    <div dir="rtl" className="relative flex flex-col gap-4">
       <Card className="mx-auto h-140 w-full max-w-sm gap-0">
         <CardHeader className="border-b">
-          <CardTitle>Animation</CardTitle>
+          <CardTitle>پویانمایی</CardTitle>
           <CardDescription>
-            Choose how user messages are animated when they are added to the
-            conversation.
+            نحوهٔ پویانمایی پیام‌های کاربر هنگام افزودن به گفتگو را انتخاب کنید.
           </CardDescription>
           <CardAction className="flex items-center gap-2">
             <Button
               type="button"
               variant="outline"
               size="icon"
-              aria-label="Reset animated messages"
+              aria-label="بازنشانی پیام‌های پویا"
               disabled={messages.length === 0 || isBusy}
               onClick={() => setMessages(initialMessages)}
             >
@@ -106,9 +107,9 @@ export function MessageScrollerAnimation() {
                 <EmptyMedia variant="icon">
                   <MessageCircleDashedIcon />
                 </EmptyMedia>
-                <EmptyTitle>No Messages Yet</EmptyTitle>
+                <EmptyTitle>هنوز پیامی نیست</EmptyTitle>
                 <EmptyDescription>
-                  Click the button below to send the first message.
+                  برای ارسال اولین پیام دکمهٔ پایین را بزنید.
                 </EmptyDescription>
               </EmptyHeader>
             </Empty>
@@ -143,7 +144,7 @@ export function MessageScrollerAnimation() {
               setPresetId(value as MessageAnimationId)
             }}
           >
-            <SelectTrigger aria-label="Animation preset">
+            <SelectTrigger aria-label="پیش‌تنظیم پویانمایی">
               <SelectValue>{preset.name}</SelectValue>
             </SelectTrigger>
             <SelectContent align="start" side="top">
@@ -159,7 +160,7 @@ export function MessageScrollerAnimation() {
           <Button
             type="button"
             size="icon"
-            className="ml-auto"
+            className="ms-auto"
             disabled={!nextMessage || isBusy}
             onClick={() => {
               if (!nextMessage || isBusy) {
@@ -170,12 +171,12 @@ export function MessageScrollerAnimation() {
             }}
           >
             <ArrowUpIcon />
-            <span className="sr-only">Send Message</span>
+            <span className="sr-only">ارسال پیام</span>
           </Button>
         </CardFooter>
       </Card>
       <div className="mx-auto max-w-sm px-0.5 text-center text-xs text-balance text-muted-foreground">
-        Select an animation then click send to see it in action.
+        یک پویانمایی انتخاب کنید؛ سپس ارسال را بزنید تا ببینید.
       </div>
     </div>
   )
