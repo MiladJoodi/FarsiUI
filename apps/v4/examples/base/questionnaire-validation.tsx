@@ -8,8 +8,10 @@ import {
   Card,
   CardAction,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/styles/base-nova/ui/card"
 import {
   Questionnaire,
@@ -64,6 +66,8 @@ function ValidationProgress() {
 }
 
 export function QuestionnaireValidation() {
+  const detailTitleId = React.useId()
+  const audienceTitleId = React.useId()
   const [item, setItem] = React.useState("detail")
   const [errors, setErrors] = React.useState<QuestionnaireErrors>({})
 
@@ -124,15 +128,19 @@ export function QuestionnaireValidation() {
       >
         <Card className="w-full">
           <QuestionnaireItem
+            aria-labelledby={detailTitleId}
             invalid={Boolean(errors.detail)}
             name="detail"
             required
           >
             <CardHeader>
-              <QuestionnaireTitle>
+              <QuestionnaireTitle
+                id={detailTitleId}
+                render={<CardTitle />}
+              >
                 پاسخ باید چقدر جزئیات داشته باشد؟
               </QuestionnaireTitle>
-              <QuestionnaireDescription>
+              <QuestionnaireDescription render={<CardDescription />}>
                 عمق پاسخ را انتخاب کنید.
               </QuestionnaireDescription>
               <CardAction>
@@ -159,13 +167,19 @@ export function QuestionnaireValidation() {
           </QuestionnaireItem>
 
           <QuestionnaireItem
+            aria-labelledby={audienceTitleId}
             invalid={Boolean(errors.audience)}
             name="audience"
             required
           >
             <CardHeader>
-              <QuestionnaireTitle>چه کسی پاسخ را می‌خواند؟</QuestionnaireTitle>
-              <QuestionnaireDescription>
+              <QuestionnaireTitle
+                id={audienceTitleId}
+                render={<CardTitle />}
+              >
+                چه کسی پاسخ را می‌خواند؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription render={<CardDescription />}>
                 پاسخ‌های عمومی به زمینهٔ کامل نیاز دارند.
               </QuestionnaireDescription>
               <CardAction>

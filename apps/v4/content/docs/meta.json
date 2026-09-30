@@ -10,7 +10,6 @@
     "installation",
     "dark-mode",
     "rtl",
-    "utils",
-    "registry"
+    "utils"
   ]
 }

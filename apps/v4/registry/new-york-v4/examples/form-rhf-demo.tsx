@@ -33,13 +33,17 @@ import {
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان Bug باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان Bug باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
+
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
 
 export default function BugReportForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,13 +55,13 @@ export default function BugReportForm() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground" dir="ltr">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -68,29 +72,29 @@ export default function BugReportForm() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Bug Report</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>گزارش باگ</CardTitle>
         <CardDescription>
-          Help us improve by reporting bugs you encounter.
+          با گزارش باگ‌هایی که با آن‌ها مواجه می‌شوید، به بهبود پروژه کمک کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="title"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-title">
-                    Bug Title
+                    عنوان باگ
                   </FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-demo-title"
                     aria-invalid={fieldState.invalid}
-                    placeholder="Login button not working on mobile"
+                    placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
                     autoComplete="off"
                   />
                   {fieldState.invalid && (
@@ -105,26 +109,27 @@ export default function BugReportForm() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-description">
-                    Description
+                    توضیحات
                   </FieldLabel>
                   <InputGroup>
                     <InputGroupTextarea
                       {...field}
                       id="form-rhf-demo-description"
-                      placeholder="I'm having an issue with the login button on mobile."
+                      placeholder="با دکمهٔ ورود در موبایل مشکل دارم."
                       rows={6}
                       className="min-h-24 resize-none"
                       aria-invalid={fieldState.invalid}
                     />
                     <InputGroupAddon align="block-end">
                       <InputGroupText className="tabular-nums">
-                        {field.value.length}/100 characters
+                        {toPersianDigits(field.value.length)}/
+                        {toPersianDigits(100)} کاراکتر
                       </InputGroupText>
                     </InputGroupAddon>
                   </InputGroup>
                   <FieldDescription>
-                    Include steps to reproduce, expected behavior, and what
-                    actually happened.
+                    مراحل بازتولید مشکل، رفتار مورد انتظار و اتفاقی که در عمل رخ
+                    داده است را بنویسید.
                   </FieldDescription>
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -135,13 +140,13 @@ export default function BugReportForm() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-demo">
-            Submit
+            ارسال
           </Button>
         </Field>
       </CardFooter>

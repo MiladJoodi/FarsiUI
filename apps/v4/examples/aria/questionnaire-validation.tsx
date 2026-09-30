@@ -8,8 +8,10 @@ import {
   Card,
   CardAction,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/styles/aria-nova/ui/card"
 import {
   Questionnaire,
@@ -64,6 +66,8 @@ function ValidationProgress() {
 }
 
 export function QuestionnaireValidation() {
+  const detailTitleId = React.useId()
+  const audienceTitleId = React.useId()
   const [item, setItem] = React.useState("detail")
   const [errors, setErrors] = React.useState<QuestionnaireErrors>({})
 
@@ -123,15 +127,16 @@ export function QuestionnaireValidation() {
     >
       <Card className="w-full">
         <QuestionnaireItem
+          aria-labelledby={detailTitleId}
           invalid={Boolean(errors.detail)}
           name="detail"
           required
         >
           <CardHeader>
-            <QuestionnaireTitle>
+            <QuestionnaireTitle id={detailTitleId} render={<CardTitle />}>
               How much detail should the answer include?
             </QuestionnaireTitle>
-            <QuestionnaireDescription>
+            <QuestionnaireDescription render={<CardDescription />}>
               Choose the response depth.
             </QuestionnaireDescription>
             <CardAction>
@@ -158,13 +163,16 @@ export function QuestionnaireValidation() {
         </QuestionnaireItem>
 
         <QuestionnaireItem
+          aria-labelledby={audienceTitleId}
           invalid={Boolean(errors.audience)}
           name="audience"
           required
         >
           <CardHeader>
-            <QuestionnaireTitle>Who will read the answer?</QuestionnaireTitle>
-            <QuestionnaireDescription>
+            <QuestionnaireTitle id={audienceTitleId} render={<CardTitle />}>
+              Who will read the answer?
+            </QuestionnaireTitle>
+            <QuestionnaireDescription render={<CardDescription />}>
               Public answers require complete context.
             </QuestionnaireDescription>
             <CardAction>

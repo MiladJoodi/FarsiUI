@@ -44,18 +44,18 @@ import { Switch } from "@/registry/new-york-v4/ui/switch"
 const addons = [
   {
     id: "analytics",
-    title: "Analytics",
-    description: "Advanced analytics and reporting",
+    title: "تحلیل",
+    description: "تحلیل و گزارش‌گیری پیشرفته",
   },
   {
     id: "backup",
-    title: "Backup",
-    description: "Automated daily backups",
+    title: "پشتیبان‌گیری",
+    description: "پشتیبان‌گیری خودکار روزانه",
   },
   {
     id: "support",
-    title: "Priority Support",
-    description: "24/7 premium customer support",
+    title: "پشتیبانی ویژه",
+    description: "پشتیبانی ویژهٔ ۲۴/۷",
   },
 ] as const
 
@@ -115,16 +115,16 @@ export default function FormRhfComplex() {
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader className="border-b">
-        <CardTitle>You&apos;re almost there!</CardTitle>
+    <Card className="w-full max-w-sm gap-4 py-4" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
+        <CardTitle>تقریباً آماده‌اید!</CardTitle>
         <CardDescription>
-          Choose your subscription plan and billing period.
+          پلن اشتراک و دورهٔ پرداخت خود را انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-complex" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="plan"
               control={form.control}
@@ -132,9 +132,9 @@ export default function FormRhfComplex() {
                 const isInvalid = fieldState.invalid
                 return (
                   <FieldSet data-invalid={isInvalid}>
-                    <FieldLegend variant="label">Subscription Plan</FieldLegend>
+                    <FieldLegend variant="label">پلن اشتراک</FieldLegend>
                     <FieldDescription>
-                      Choose your subscription plan.
+                      پلن اشتراک خود را انتخاب کنید.
                     </FieldDescription>
                     <RadioGroup
                       name={field.name}
@@ -145,9 +145,9 @@ export default function FormRhfComplex() {
                       <FieldLabel htmlFor="form-rhf-complex-basic">
                         <Field orientation="horizontal">
                           <FieldContent>
-                            <FieldTitle>Basic</FieldTitle>
+                            <FieldTitle>پایه</FieldTitle>
                             <FieldDescription>
-                              For individuals and small teams
+                              برای افراد و تیم‌های کوچک
                             </FieldDescription>
                           </FieldContent>
                           <RadioGroupItem
@@ -159,9 +159,9 @@ export default function FormRhfComplex() {
                       <FieldLabel htmlFor="form-rhf-complex-pro">
                         <Field orientation="horizontal">
                           <FieldContent>
-                            <FieldTitle>Pro</FieldTitle>
+                            <FieldTitle>حرفه‌ای</FieldTitle>
                             <FieldDescription>
-                              For businesses with higher demands
+                              برای کسب‌وکارهایی با نیاز بیشتر
                             </FieldDescription>
                           </FieldContent>
                           <RadioGroupItem
@@ -183,7 +183,7 @@ export default function FormRhfComplex() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-complex-billingPeriod">
-                    Billing Period
+                    دورهٔ پرداخت
                   </FieldLabel>
                   <Select
                     name={field.name}
@@ -194,15 +194,15 @@ export default function FormRhfComplex() {
                       id="form-rhf-complex-billingPeriod"
                       aria-invalid={fieldState.invalid}
                     >
-                      <SelectValue placeholder="Select" />
+                      <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="monthly">Monthly</SelectItem>
-                      <SelectItem value="yearly">Yearly</SelectItem>
+                      <SelectItem value="monthly">ماهانه</SelectItem>
+                      <SelectItem value="yearly">سالانه</SelectItem>
                     </SelectContent>
                   </Select>
                   <FieldDescription>
-                    Choose how often you want to be billed.
+                    مشخص کنید پرداخت را هر چند وقت یک‌بار انجام می‌دهید.
                   </FieldDescription>
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -216,9 +216,9 @@ export default function FormRhfComplex() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <FieldSet>
-                  <FieldLegend>Add-ons</FieldLegend>
+                  <FieldLegend>افزونه‌ها</FieldLegend>
                   <FieldDescription>
-                    Select additional features you&apos;d like to include.
+                    قابلیت‌های اضافی موردنظر خود را انتخاب کنید.
                   </FieldDescription>
                   <FieldGroup data-slot="checkbox-group">
                     {addons.map((addon) => (
@@ -270,10 +270,10 @@ export default function FormRhfComplex() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-rhf-complex-emailNotifications">
-                      Email Notifications
+                      اعلان‌های ایمیل
                     </FieldLabel>
                     <FieldDescription>
-                      Receive email updates about your subscription
+                      دریافت به‌روزرسانی‌های اشتراک از طریق ایمیل
                     </FieldDescription>
                   </FieldContent>
                   <Switch
@@ -292,13 +292,13 @@ export default function FormRhfComplex() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="border-t">
-        <Field>
-          <Button type="submit" form="form-rhf-complex">
-            Save Preferences
-          </Button>
+      <CardFooter className="border-t px-4 pt-3">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
+          </Button>
+          <Button type="submit" form="form-rhf-complex">
+            ذخیره تنظیمات
           </Button>
         </Field>
       </CardFooter>

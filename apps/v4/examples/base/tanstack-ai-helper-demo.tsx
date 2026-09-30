@@ -60,7 +60,7 @@ import {
 
 const chat = createChat()
   .user(
-    "I'm building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around."
+    "دارم برای اپمون یه چت می‌سازم و رفتار اسکرولش داره دیوونه‌م می‌کنه. هر بار که هوش مصنوعی شروع می‌کنه جواب رو به‌صورت استریم بفرسته، کل صفحه چت بالا و پایین می‌پره."
   )
   .sleep(1000)
   .assistant(({ writer }) => {
@@ -112,11 +112,11 @@ export function TanStackAiHelperDemo() {
 
   return (
     <MessageScrollerProvider>
-      <div className="relative flex flex-col gap-4">
+      <div dir="rtl" className="relative flex flex-col gap-4">
         <Card className="mx-auto h-140 w-full max-w-sm gap-0">
           <CardHeader className="gap-1 border-b">
             <CardTitle>New Chat</CardTitle>
-            <CardDescription>How can I help you today?</CardDescription>
+            <CardDescription>امروز چطور می‌تونم کمکتون کنم؟</CardDescription>
             <CardAction>
               <Tooltip>
                 <TooltipTrigger
@@ -124,7 +124,7 @@ export function TanStackAiHelperDemo() {
                     <Button
                       variant="outline"
                       size="icon"
-                      aria-label="Reset conversation"
+                      aria-label="بازنشانی مکالمه"
                       onClick={() => setMessages(initialMessages)}
                       disabled={isBusy}
                     />
@@ -133,7 +133,7 @@ export function TanStackAiHelperDemo() {
                   <RotateCwIcon />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Reset</p>
+                  <p>بازنشانی</p>
                 </TooltipContent>
               </Tooltip>
             </CardAction>
@@ -145,10 +145,10 @@ export function TanStackAiHelperDemo() {
                   <EmptyMedia variant="icon">
                     <MessageCircleDashedIcon />
                   </EmptyMedia>
-                  <EmptyTitle>Morning, shadcn!</EmptyTitle>
+                  <EmptyTitle>صبح بخیر، FarsiUI!</EmptyTitle>
                   <EmptyDescription>
-                    What are we working on today? Press send to start a new
-                    conversation
+                    امروز روی چی کار می‌کنیم؟ برای شروع یک مکالمهٔ جدید، روی
+                    ارسال بزنید.
                   </EmptyDescription>
                 </EmptyHeader>
               </Empty>
@@ -188,7 +188,7 @@ export function TanStackAiHelperDemo() {
                   aria-label="Next predefined message"
                   className="h-14 min-h-14 overflow-hidden px-3 py-2.5 opacity-60 data-[status=ready]:opacity-100"
                   data-status={status}
-                  placeholder="No messages queued. Reset the conversation."
+                  placeholder="پیامی در صف نیست. مکالمه را بازنشانی کنید."
                   value={nextMessageText ?? ""}
                   readOnly
                 />
@@ -235,10 +235,10 @@ export function TanStackAiHelperDemo() {
                     variant="default"
                     size="icon-sm"
                     disabled={!nextMessage || isBusy}
-                    className="ml-auto"
+                    className="ms-auto"
                   >
                     <ArrowUpIcon />
-                    <span className="sr-only">Send</span>
+                    <span className="sr-only">ارسال</span>
                   </InputGroupButton>
                 </InputGroupAddon>
               </InputGroup>
@@ -246,7 +246,8 @@ export function TanStackAiHelperDemo() {
           </CardFooter>
         </Card>
         <div className="px-0.5 text-center text-xs text-muted-foreground">
-          Demo is read only. Press send to send messages.
+          این Demo فقط برای مشاهده است. برای ارسال پیام، روی{" "}
+          <strong>ارسال</strong> بزنید.
         </div>
       </div>
     </MessageScrollerProvider>

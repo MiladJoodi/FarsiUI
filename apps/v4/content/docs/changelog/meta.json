@@ -1,4 +1,9 @@
 {
-  "title": "Changelog",
-  "pages": []
+  "title": "تغییرات",
+  "pages": [
+    "2026-09-farsiui-docs",
+    "2026-09-install-cli",
+    "2026-09-theming-typeset",
+    "2026-09-components-json"
+  ]
 }

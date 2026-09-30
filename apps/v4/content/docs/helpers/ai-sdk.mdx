@@ -1,17 +1,13 @@
 ---
 title: AI SDK
-description: Create AI SDK messages and stream predefined conversations through useChat without a model, API route, network request, or API key.
+description: ساخت پیام‌های AI SDK و شبیه‌سازی مکالمه‌های از پیش تعریف‌شده با استفاده از useChat، بدون نیاز به مدل، API Route، درخواست شبکه یا API Key.
 ---
 
-`@farsiui/helpers/ai-sdk` lets you write an AI conversation in code and stream it
-through `useChat`, with no model, API route, network request, or API key.
+`@farsiui/helpers/ai-sdk` به شما اجازه می‌دهد یک مکالمهٔ هوش مصنوعی را مستقیماً در کد تعریف کنید و آن را از طریق `useChat` به‌صورت Stream دریافت کنید.
 
-Because the conversation streams through the real `useChat` lifecycle, your
-components behave exactly as they would in production.
+چون مکالمه از چرخهٔ واقعی `useChat` عبور می‌کند، کامپوننت‌های شما همان رفتاری را خواهند داشت که در محیط واقعی دارند.
 
-It supports every part type the AI SDK does: reasoning, tools, data, files,
-sources, and custom parts. Tool calls can also pause for real user input,
-including approvals. See [Human in the Loop](#human-in-the-loop).
+این Helper از تمام انواع Partهای پشتیبانی‌شده توسط AI SDK، از جمله Reasoning، Tool، Data، File، Source و Partهای سفارشی پشتیبانی می‌کند. Tool Callها حتی می‌توانند برای دریافت ورودی واقعی کاربر، از جمله تأییدیه، متوقف شوند. برای این حالت، بخش [Human in the Loop](#human-in-the-loop) را ببینید.
 
 ```ts showLineNumbers
 import { createChat } from "@farsiui/helpers/ai-sdk"
@@ -53,35 +49,36 @@ function Chat() {
 }
 ```
 
-`get(0)` starts with no messages. `sendMessage(nextMessage)` sends the next
-predefined user message; the transport then streams its assistant response.
+`get(0)` مکالمه را بدون پیام شروع می‌کند. `sendMessage(nextMessage)` پیام کاربر بعدی را از مکالمهٔ از پیش تعریف‌شده ارسال می‌کند و Transport پاسخ Assistant را به‌صورت Stream دریافت می‌کند.
 
 ---
 
-## What It's For
+## برای چه کاری است؟
 
-The helper decouples your chat UI from the model and the backend, so you can
-work on the frontend on its own. It runs offline, instantly, and the same way every time.
+این Helper رابط کاربری Chat را از مدل و Backend جدا می‌کند تا بتوانید Frontend را به‌تنهایی توسعه دهید. همه‌چیز به‌صورت آفلاین، سریع و قابل تکرار اجرا می‌شود.
 
-- **Build components.** Develop message bubbles, tool cards, and reasoning
-  panels against realistic streaming output, without wiring up a model first.
-- **Preview and demo.** Ship reproducible previews, screenshots, and videos
-  that never depend on a live model.
-- **Write docs.** Power documentation examples with conversations that render
-  the same way on every load.
-- **Test.** Assert against a deterministic stream in CI, with no network calls,
-  token spend, or flaky model output.
+- **ساخت کامپوننت:** Message Bubble، Tool Card و پنل‌های Reasoning را با خروجی Stream واقعی توسعه دهید، بدون اینکه ابتدا مدل را متصل کنید.
+- **Preview و Demo:** Preview، Screenshot و Videoهای قابل تکرار بسازید که به مدل زنده وابسته نباشند.
+- **مستندسازی:** مثال‌های مستندات را با مکالمه‌هایی بسازید که در هر بار اجرا دقیقاً یکسان رندر می‌شوند.
+- **تست:** در CI خروجی Stream قابل پیش‌بینی را بررسی کنید، بدون درخواست شبکه، مصرف Token یا نتایج متغیر مدل.
 
 ---
 
-## Installation
+## نصب
+
+پکیج Helper را نصب کنید:
 
 ```bash
 npm install @farsiui/helpers
 ```
 
-This helper works alongside your existing AI SDK setup (`ai` and
-`@ai-sdk/react`). Import the helpers from `@farsiui/helpers/ai-sdk`.
+این Helper در کنار تنظیمات موجود AI SDK شما، یعنی `ai` و `@ai-sdk/react` کار می‌کند.
+
+Helperها را از مسیر زیر Import کنید:
+
+```tsx
+import { ... } from "@farsiui/helpers/ai-sdk"
+```
 
 ---
 
@@ -142,14 +139,15 @@ export function Chat() {
 
 ---
 
-## User Messages
+## پیام‌های کاربر
 
-Messages added with this helper use the `user` and `assistant` roles. Use
-`user()` to add a user message. Existing AI SDK messages are preserved when
-you start with `createChat({ messages })`.
+پیام‌هایی که با این Helper ساخته می‌شوند از نقش‌های **`user`** و **`assistant`** استفاده می‌کنند.
 
-```ts
-const chat = createChat().user("What changed in this release?")
+برای اضافه کردن پیام کاربر از **`user()`** استفاده کنید. اگر مکالمه را با **`createChat({ messages })`** شروع کنید، پیام‌های موجود AI SDK نیز حفظ می‌شوند.
+
+```tsx
+const chat = createChat()
+  .user("What changed in this release?")
 
 const [message] = chat.get()
 
@@ -157,9 +155,9 @@ message.role // "user"
 message.parts // [{ type: "text", text: "What changed in this release?" }]
 ```
 
-Pass an `id` or metadata as the second argument when you need them.
+اگر به شناسه یا Metadata نیاز دارید، آن‌ها را به‌عنوان آرگومان دوم ارسال کنید:
 
-```ts
+```tsx
 chat.user("What changed in this release?", {
   id: "user-release-question",
   metadata: {
@@ -168,18 +166,17 @@ chat.user("What changed in this release?", {
 })
 ```
 
-User messages can also include files. See [Files](#files).
+پیام‌های کاربر می‌توانند شامل فایل نیز باشند. بخش [**Files**](#files) را ببینید.
 
 ---
 
-## Assistant Messages
+## پیام‌های Assistant
 
-Use `assistant()` to add an assistant message.
+برای اضافه کردن پیام Assistant از **`assistant()`** استفاده کنید.
 
-```ts
-const chat = createChat().assistant(
-  "The release adds keyboard shortcuts and faster search."
-)
+```tsx
+const chat = createChat()
+  .assistant("The release adds keyboard shortcuts and faster search.")
 
 const [message] = chat.get()
 
@@ -187,46 +184,51 @@ message.role // "assistant"
 message.parts // [{ type: "text", text: "The release adds...", state: "done" }]
 ```
 
-A string creates one text part. You can also pass an array of AI SDK message
-parts.
+یک String یک Text Part ایجاد می‌کند. همچنین می‌توانید آرایه‌ای از Partهای AI SDK را ارسال کنید:
 
-```ts
+```tsx
 chat.assistant([
   { type: "text", text: "The release adds keyboard shortcuts." },
   { type: "text", text: "Search is faster too." },
 ])
 ```
 
-Use the writer callback when the message has more than plain text.
+برای پیام‌هایی که فقط شامل متن نیستند، از Callback مربوط به `writer` استفاده کنید:
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.reasoning("I should summarize the release.")
   writer.text("The release adds keyboard shortcuts and faster search.")
 })
 ```
 
-The writer adds parts in the order you call them.
+Partها به همان ترتیبی که متدهای `writer` را فراخوانی می‌کنید، به پیام اضافه می‌شوند.
 
 ---
 
-## Message Parts
+## Message Partها
 
-An assistant message can contain many part types. Add them with the `writer`
-passed to `assistant()`, in the order you call them:
+یک پیام Assistant می‌تواند شامل انواع مختلفی از Partها باشد. آن‌ها را با **`writer`** که از **`assistant()`** دریافت می‌کنید و به همان ترتیبی که می‌خواهید نمایش داده شوند، اضافه کنید:
 
-- [Text](#text) and [Reasoning](#reasoning)
-- [Tool Calls](#tool-calls)
-- [Data](#data)
-- [Files](#files) and [Sources](#sources)
-- [Step Starts](#step-starts) and [Custom Parts](#custom-parts)
+- **Text** و **Reasoning**
+- **Tool Calls**
+- **Data**
+- **Files** و **Sources**
+- **Step Starts** و **Custom Parts**
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.reasoning("Let me check the weather.")
   writer
-    .tool("getWeather", { input: { city: "San Francisco" } })
-    .output({ city: "San Francisco", temperature: 18, condition: "Breezy" })
+    .tool("getWeather", {
+      input: { city: "San Francisco" },
+    })
+    .output({
+      city: "San Francisco",
+      temperature: 18,
+      condition: "Breezy",
+    })
+
   writer.text("It is 18°C and breezy in San Francisco.")
 })
 ```
@@ -235,29 +237,27 @@ chat.assistant(({ writer }) => {
 
 ## Text
 
-Use `text()` to add a text part.
+برای اضافه کردن یک Text Part از **`text()`** استفاده کنید:
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.text("The release adds keyboard shortcuts.")
   writer.text(" Search is faster too.")
 })
 ```
 
-Each call creates a separate text part. Text streams word by word when the chat
-is used with `chat.transport()`.
+هر بار فراخوانی `text()` یک Text Part جداگانه ایجاد می‌کند. هنگام استفاده از **`chat.transport()`**، متن به‌صورت کلمه‌به‌کلمه Stream می‌شود.
 
-Use `mode: "instant"` to send the whole part at once, or `delayMs` to change the
-delay between its text deltas.
+با **`mode: "instant"`** می‌توانید کل Part را یک‌جا ارسال کنید. همچنین با **`delayMs`** می‌توانید فاصلهٔ بین Text Deltaها را تغییر دهید:
 
-```ts
+```tsx
 writer.text("Done.", { mode: "instant" })
 writer.text("This part streams more slowly.", { delayMs: 100 })
 ```
 
-Pass an `id` when the text part needs a stable identifier.
+اگر Text Part به یک شناسهٔ پایدار نیاز دارد، مقدار **`id`** را مشخص کنید:
 
-```ts
+```tsx
 writer.text("The final answer.", { id: "answer" })
 ```
 
@@ -265,18 +265,18 @@ writer.text("The final answer.", { id: "answer" })
 
 ## Reasoning
 
-Use `reasoning()` to add a reasoning part.
+برای اضافه کردن یک Reasoning Part از **`reasoning()`** استفاده کنید:
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.reasoning("I should check the latest conditions first.")
   writer.text("Let me check the weather.")
 })
 ```
 
-Reasoning uses the same `id`, `delayMs`, and `mode` options as text.
+`reasoning()` همان گزینه‌های **`id`**، **`delayMs`** و **`mode`** را که در `text()` وجود دارد، پشتیبانی می‌کند:
 
-```ts
+```tsx
 writer.reasoning("Checking the forecast.", { mode: "instant" })
 ```
 
@@ -284,10 +284,9 @@ writer.reasoning("Checking the forecast.", { mode: "instant" })
 
 ## Tool Calls
 
-Use `tool()` to add a tool call. It returns a handle that follows the tool from
-input to output.
+برای اضافه کردن یک Tool Call از **`tool()`** استفاده کنید. این متد یک Handle برمی‌گرداند که وضعیت Tool را از Input تا Output دنبال می‌کند.
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer
     .tool("getWeather", {
@@ -305,85 +304,99 @@ chat.assistant(({ writer }) => {
 })
 ```
 
-The tool can finish with `output()`, `error()`, or `denied()`.
+Tool می‌تواند با **`output()`**، **`error()`** یا **`denied()`** به پایان برسد:
 
-```ts
-writer.tool("getWeather", { input: { city: "San Francisco" } }).error()
+```tsx
+writer
+  .tool("getWeather", { input: { city: "San Francisco" } })
+  .error()
 
-writer.tool("getWeather", { input: { city: "San Francisco" } }).denied()
+writer
+  .tool("getWeather", { input: { city: "San Francisco" } })
+  .denied()
 ```
 
-Pass `dynamic: true` to create an AI SDK `dynamic-tool` part instead of a typed
-`tool-<name>` part.
+با تنظیم **`dynamic: true`**، به‌جای یک Part تایپ‌شدهٔ **`tool-<name>`**، یک Part از نوع **`dynamic-tool`** ایجاد می‌شود:
 
-```ts
+```tsx
 writer.tool("getWeather", {
   dynamic: true,
   input: { city: "San Francisco" },
-  output: { city: "San Francisco", temperature: 18, condition: "Breezy" },
+  output: {
+    city: "San Francisco",
+    temperature: 18,
+    condition: "Breezy",
+  },
 })
 ```
 
-Type the tool name, input, and output by passing your message type to
-`createChat`. It takes the same type parameter as `useChat`.
+### Type کردن Tool
 
-```ts
+برای Type کردن نام Tool، Input و Output، Type پیام را به **`createChat`** بدهید. این Type همان پارامتری است که **`useChat`** نیز استفاده می‌کند:
+
+```tsx
 import type { UIMessage } from "ai"
 
 type Tools = {
   getWeather: {
     input: { city: string }
-    output: { city: string; temperature: number; condition: string }
+    output: {
+      city: string
+      temperature: number
+      condition: string
+    }
   }
 }
 
-type ChatMessage = UIMessage<unknown, Record<string, never>, Tools>
+type ChatMessage = UIMessage<
+  unknown,
+  Record<string, never>,
+  Tools
+>
 
 const chat = createChat<ChatMessage>()
 ```
 
-Define the message type once and use it for both `createChat` and `useChat`.
+سپس همین Type را برای `createChat` و `useChat` استفاده کنید:
 
-```ts
+```tsx
 const { messages } = useChat<ChatMessage>({
   messages: chat.get(0),
   transport: chat.transport(),
 })
 ```
 
-A tool call can also wait for the user instead of finishing in the script.
-See [Human in the Loop](#human-in-the-loop).
+یک Tool Call می‌تواند به‌جای پایان یافتن در Script، برای دریافت ورودی کاربر متوقف شود. بخش [**Human in the Loop**](#human-in-the-loop) را ببینید.
 
 ---
 
 ## Human in the Loop
 
-A tool call can pause and hand control to the real user. The helper supports
-both AI SDK human-in-the-loop flows: client-executed tools, where the user
-supplies the output, and approval-gated tools, where the user approves or
-denies before a scripted output streams.
+یک Tool Call می‌تواند متوقف شود و کنترل را به کاربر واقعی واگذار کند. این Helper هر دو نوع جریان Human-in-the-Loop در AI SDK را پشتیبانی می‌کند:
 
-### Pause a Tool Call
+- Toolهایی که اجرای آن‌ها در سمت Client انجام می‌شود و کاربر نتیجه را وارد می‌کند.
+- Toolهایی که قبل از ادامه، نیاز به تأیید یا رد کاربر دارند.
 
-Leave a tool call unresolved to pause the turn. The input streams, the turn
-finishes, and the part stays in the `input-available` state until the client
-supplies its output with `addToolOutput`.
+### توقف یک Tool Call
 
-```ts
+برای متوقف کردن یک Turn، Tool Call را بدون نتیجه باقی بگذارید. Input به‌صورت Stream ارسال می‌شود، Turn پایان پیدا می‌کند و Part در وضعیت **`input-available`** باقی می‌ماند تا Client با **`addToolOutput`** نتیجه را ارسال کند.
+
+```tsx
 chat.assistant(({ writer }) => {
   writer.text("Answer these and I'll tailor the prototype.")
   writer.tool("askQuestions", { input: { questions } })
 })
 ```
 
-### Require Approval
+### نیاز به تأیید
 
-Pass `needsApproval: true` to pause behind the user's decision. `output` then
-means "stream this after approval" instead of "resolve immediately". Denial
-streams `tool-output-denied` automatically, and `errorText` with
-`needsApproval` scripts a tool that fails after approval.
+با قرار دادن **`needsApproval: true`**، Tool را تا تصمیم کاربر متوقف کنید.
 
-```ts
+در این حالت **`output`** به معنی «بعد از تأیید، این خروجی را Stream کن» است، نه اینکه Tool بلافاصله تکمیل شود.
+
+رد کردن کاربر به‌صورت خودکار **`tool-output-denied`** را Stream می‌کند. همچنین می‌توانید با **`errorText`** مشخص کنید که Tool پس از تأیید با خطا پایان پیدا کند.
+
+```tsx
 chat.assistant(({ writer }) => {
   writer.text("That will archive 3 drafts. I need your approval.")
   writer.tool("archiveDrafts", {
@@ -394,17 +407,15 @@ chat.assistant(({ writer }) => {
 })
 ```
 
-Calling `output()`, `error()`, or `denied()` on the handle of a
-`needsApproval` call throws. The user's decision resolves it.
+فراخوانی **`output()`**، **`error()`** یا **`denied()`** روی Handle مربوط به Tool دارای **`needsApproval`** باعث خطا می‌شود. تصمیم کاربر وضعیت Tool را مشخص می‌کند.
 
-### Continuations
+### ادامهٔ مکالمه
 
-A callback turn scripted immediately after a paused turn becomes a
-continuation. It does not materialize when the script is built. It runs when
-the follow-up request arrives, and its context includes `toolCall`: the
-paused call joined with what the user did.
+اگر بلافاصله بعد از یک Turn متوقف‌شده، یک Turn جدید تعریف کنید، آن Turn به‌عنوان **Continuation** شناخته می‌شود.
 
-```ts
+Continuation هنگام ساخت Script اجرا نمی‌شود؛ زمانی اجرا می‌شود که درخواست بعدی از سمت کاربر برسد. Context آن شامل **`toolCall`** است که Tool متوقف‌شده و نتیجهٔ اقدام کاربر را در خود دارد.
+
+```tsx
 chat
   .assistant(({ writer }) => {
     writer.tool("askQuestions", { input: { questions } })
@@ -418,30 +429,28 @@ chat
   })
 ```
 
-For a client-executed tool, `toolCall.output` is the output the user
-submitted. For an approval, `toolCall.approved` and `toolCall.denied` carry
-the decision, and the scripted output streams before the callback's content.
+برای Toolهای Client، مقدار **`toolCall.output`** نتیجه‌ای است که کاربر ارسال کرده است.
 
-| Property     | Description                                                    |
-| ------------ | -------------------------------------------------------------- |
-| `name`       | The tool name. Comparing it narrows `input` and `output`.      |
-| `toolCallId` | The paused call's ID.                                          |
-| `input`      | The tool input.                                                |
-| `output`     | The user-submitted output, or the gated output after approval. |
-| `approved`   | `true` when the user approved. Approval calls only.            |
-| `denied`     | `true` when the user denied. Approval calls only.              |
+برای Approval، مقادیر **`toolCall.approved`** و **`toolCall.denied`** تصمیم کاربر را مشخص می‌کنند و خروجی تعریف‌شدهٔ Tool قبل از محتوای Continuation Stream می‌شود.
 
-Continuation context also includes `messages`, the live transcript, and
-`toolCalls`, every paused call when a turn has more than one.
+| Property         | توضیحات                                                                       |
+| ---------------- | ----------------------------------------------------------------------------- |
+| **`name`**       | نام Tool. مقایسهٔ آن Type مربوط به **`input`** و **`output`** را مشخص می‌کند. |
+| **`toolCallId`** | شناسهٔ Tool Call متوقف‌شده.                                                   |
+| **`input`**      | ورودی Tool.                                                                   |
+| **`output`**     | خروجی ارسال‌شده توسط کاربر یا خروجی تعریف‌شده پس از تأیید.                    |
+| **`approved`**   | در Approval، هنگام تأیید کاربر **`true`** است.                                |
+| **`denied`**     | در Approval، هنگام رد کردن کاربر **`true`** است.                              |
 
-Continuations must stay pure. Regenerating re-resolves them against the
-current transcript, so a changed decision produces the other branch.
+Context مربوط به Continuation شامل **`messages`**، یعنی Transcript زنده، و **`toolCalls`**، یعنی تمام Tool Callهای متوقف‌شده در Turnهایی با بیش از یک Tool Call، نیز می‌شود.
 
-### Client Wiring
+Continuationها باید Pure باقی بمانند. هنگام Regenerate، آن‌ها دوباره بر اساس Transcript فعلی Resolve می‌شوند؛ بنابراین تغییر تصمیم کاربر می‌تواند Branch متفاوتی را ایجاد کند.
 
-The client side uses the AI SDK as-is. Submit a client-executed tool's output
-with `addToolOutput`, answer an approval with `addToolApprovalResponse`, and
-let `sendAutomaticallyWhen` send the follow-up request.
+### اتصال به Client
+
+در سمت Client، از AI SDK به شکل معمول استفاده کنید.
+
+برای ارسال نتیجهٔ Tool از **`addToolOutput`**، برای پاسخ به درخواست تأیید از **`addToolApprovalResponse`** و برای ارسال خودکار درخواست بعدی از **`sendAutomaticallyWhen`** استفاده کنید.
 
 ```tsx
 import {
@@ -449,7 +458,11 @@ import {
   lastAssistantMessageIsCompleteWithToolCalls,
 } from "ai"
 
-const { messages, addToolOutput, addToolApprovalResponse } = useChat({
+const {
+  messages,
+  addToolOutput,
+  addToolApprovalResponse,
+} = useChat({
   messages: chat.get(0),
   transport: chat.transport(),
   sendAutomaticallyWhen: (options) =>
@@ -458,34 +471,38 @@ const { messages, addToolOutput, addToolApprovalResponse } = useChat({
 })
 ```
 
+برای یک Tool در انتظار:
+
 ```tsx
-// In a pending tool part renderer.
 addToolOutput({
   tool: "askQuestions",
   toolCallId: part.toolCallId,
   output: { answers },
 })
-
-// In an approval-requested part renderer.
-addToolApprovalResponse({ id: part.approval.id, approved: true })
 ```
 
-The continuation streams as a new step of the paused assistant message. The
-client merges its parts into that message instead of adding a new one, and
-the helper emits the step boundary and omits the continuation's message id so
-the merge stays in place and the automatic send does not re-trigger.
+برای یک درخواست تأیید:
 
-In development, the helper warns when a `needsApproval` call has no
-continuation turn after it, and when a continuation resolves without a
-pending tool call.
+```tsx
+addToolApprovalResponse({
+  id: part.approval.id,
+  approved: true,
+})
+```
+
+Continuation به‌عنوان Step جدیدی از همان پیام Assistant متوقف‌شده Stream می‌شود. Client Partهای آن را به همان پیام اضافه می‌کند، نه اینکه پیام جدیدی بسازد.
+
+Helper نیز مرز Step را ارسال می‌کند و Message ID مربوط به Continuation را حذف می‌کند تا Merge در همان پیام انجام شود و ارسال خودکار دوباره Trigger نشود.
+
+در محیط Development، اگر یک Tool با **`needsApproval`** فاقد Continuation باشد، یا Continuation بدون Tool Call در انتظار Resolve شود، Helper هشدار می‌دهد.
 
 ---
 
 ## Data
 
-Use `data()` to add a typed `data-*` part.
+با **`data()`** یک Part تایپ‌شده از نوع **`data-*`** اضافه کنید.
 
-```ts
+```tsx
 type DataParts = {
   weather: {
     city: string
@@ -495,21 +512,23 @@ type DataParts = {
   }
 }
 
-const chat = createChat<UIMessage<unknown, DataParts>>().assistant(
-  ({ writer }) => {
-    writer.data({
-      type: "data-weather",
-      id: "weather-sf",
-      data: { city: "San Francisco", status: "loading" },
-    })
-  }
-)
+const chat = createChat<
+  UIMessage<unknown, DataParts>
+>().assistant(({ writer }) => {
+  writer.data({
+    type: "data-weather",
+    id: "weather-sf",
+    data: {
+      city: "San Francisco",
+      status: "loading",
+    },
+  })
+})
 ```
 
-Send the same `type` and `id` again to update the part in place. This is useful
-for states such as loading to success.
+برای به‌روزرسانی یک Part، همان **`type`** و **`id`** را دوباره ارسال کنید. این روش برای وضعیت‌هایی مثل تغییر از Loading به Success کاربرد دارد.
 
-```ts
+```tsx
 writer.data({
   type: "data-weather",
   id: "weather-sf",
@@ -522,13 +541,15 @@ writer.data({
 })
 ```
 
-Set `transient: true` for an update that should stream to the client but should
-not remain in the final message.
+اگر می‌خواهید یک Update فقط به Client Stream شود و در پیام نهایی باقی نماند، **`transient: true`** را تنظیم کنید.
 
-```ts
+```tsx
 writer.data({
   type: "data-weather",
-  data: { city: "San Francisco", status: "loading" },
+  data: {
+    city: "San Francisco",
+    status: "loading",
+  },
   transient: true,
 })
 ```
@@ -537,9 +558,9 @@ writer.data({
 
 ## Files
 
-Add files to a user message with the `files` option.
+برای اضافه کردن فایل به پیام کاربر، از گزینهٔ **`files`** استفاده کنید:
 
-```ts
+```tsx
 chat.user("Summarize this report.", {
   files: [
     {
@@ -551,9 +572,9 @@ chat.user("Summarize this report.", {
 })
 ```
 
-Use `file()` to add a file to an assistant message.
+برای اضافه کردن فایل به پیام Assistant از **`file()`** استفاده کنید:
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.file({
     filename: "summary.md",
@@ -563,9 +584,9 @@ chat.assistant(({ writer }) => {
 })
 ```
 
-Use `reasoningFile()` for a file attached to a reasoning part.
+برای اضافه کردن فایل به یک Reasoning Part از **`reasoningFile()`** استفاده کنید:
 
-```ts
+```tsx
 writer.reasoningFile({
   filename: "notes.txt",
   mediaType: "text/plain",
@@ -577,9 +598,9 @@ writer.reasoningFile({
 
 ## Sources
 
-Use `sourceUrl()` to add a URL source.
+برای اضافه کردن یک Source از نوع URL از **`sourceUrl()`** استفاده کنید:
 
-```ts
+```tsx
 writer.sourceUrl({
   sourceId: "source-1",
   title: "Release notes",
@@ -587,9 +608,9 @@ writer.sourceUrl({
 })
 ```
 
-Use `sourceDocument()` to add a document source.
+برای اضافه کردن یک Source از نوع Document از **`sourceDocument()`** استفاده کنید:
 
-```ts
+```tsx
 writer.sourceDocument({
   sourceId: "source-2",
   title: "Product brief",
@@ -602,9 +623,9 @@ writer.sourceDocument({
 
 ## Step Starts
 
-Use `stepStart()` to add an AI SDK step boundary.
+با **`stepStart()`** می‌توانید یک مرز Step در AI SDK ایجاد کنید.
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.stepStart()
   writer.reasoning("I should search the release notes.")
@@ -617,72 +638,71 @@ chat.assistant(({ writer }) => {
 
 ## Custom Parts
 
-Use `custom()` to add a custom part.
+با **`custom()`** می‌توانید یک Part سفارشی به پیام اضافه کنید.
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.custom("app.approval")
 })
 ```
 
-The message receives a `custom` part with the given `kind`. The AI SDK expects
-kinds in the `{provider}.{provider-type}` format. Calling `custom()` without a
-kind uses `"test.output"`.
+پیام شامل یک Part از نوع **`custom`** با مقدار **`kind`** مشخص‌شده خواهد بود.
+
+AI SDK برای `kind` از قالب **`{provider}.{provider-type}`** استفاده می‌کند. اگر `custom()` را بدون `kind` فراخوانی کنید، مقدار پیش‌فرض **`"test.output"`** استفاده می‌شود.
 
 ---
 
-## Reading Messages
+## خواندن پیام‌ها
 
-Use `get()` to return messages from the start of the conversation.
+با **`get()`** می‌توانید پیام‌ها را از ابتدای مکالمه دریافت کنید:
 
-```ts
-chat.get() // Every message.
-chat.get(2) // The first two messages.
-chat.get(0) // An empty initial conversation.
+```tsx
+chat.get()    // همهٔ پیام‌ها
+chat.get(2)   // دو پیام اول
+chat.get(0)   // مکالمهٔ اولیه بدون پیام
 ```
 
-`get()` returns cloned messages and does not change the chat. It stops before
-the first [continuation turn](#continuations), since a continuation has no
-message without a live transcript, and throws when `count` reaches past one.
+**`get()`** نسخهٔ Cloneشدهٔ پیام‌ها را برمی‌گرداند و تغییری در Chat ایجاد نمی‌کند.
 
-Use `next()` to find the next predefined user message after the messages already
-shown.
+این متد قبل از اولین **Continuation** متوقف می‌شود، چون Continuation بدون Transcript زنده پیام مستقلی ندارد. همچنین اگر `count` از تعداد پیام‌های قابل دسترس بیشتر باشد، خطا ایجاد می‌کند.
 
-```ts
+برای پیدا کردن پیام بعدی کاربر در مکالمهٔ از پیش تعریف‌شده، از **`next()`** استفاده کنید:
+
+```tsx
 const initialMessages = chat.get(2)
 const nextMessage = chat.next(initialMessages)
 ```
 
-`next()` always accepts a message transcript, not an index. It returns the next
-user message or `null` when none remain.
+**`next()`** همیشه یک Transcript از پیام‌ها دریافت می‌کند، نه یک Index. پیام بعدی کاربر را برمی‌گرداند و اگر پیام دیگری باقی نمانده باشد، **`null`** برمی‌گرداند.
 
 ---
 
-## Start from Existing Messages
+## شروع از پیام‌های موجود
 
-Pass `messages` to continue from a saved conversation or fixture.
+برای ادامه دادن یک مکالمهٔ ذخیره‌شده یا Fixture، مقدار **`messages`** را به `createChat` بدهید:
 
-```ts
+```tsx
 import { createChat } from "@farsiui/helpers/ai-sdk"
 import type { UIMessage } from "ai"
 
 declare const savedMessages: UIMessage[]
 
-const chat = createChat({ messages: savedMessages })
+const chat = createChat({
+  messages: savedMessages,
+})
   .user("What should we do next?")
   .assistant("Turn the open questions into a checklist.")
 ```
 
-Existing IDs, metadata, and parts are preserved.
+شناسه‌ها، Metadata و Partهای موجود بدون تغییر حفظ می‌شوند.
 
 ---
 
 ## Transport
 
-`transport()` creates an AI SDK `ChatTransport` that you can pass directly to
-`useChat`.
+متد **`transport()`** یک **`ChatTransport`** از AI SDK ایجاد می‌کند که می‌توانید مستقیماً به **`useChat`** بدهید:
 
-```ts
+```tsx
 const transport = chat.transport()
 
 const { messages, sendMessage } = useChat({
@@ -691,25 +711,22 @@ const { messages, sendMessage } = useChat({
 })
 ```
 
-When `sendMessage()` runs, the transport finds the assistant message that
-follows the current transcript and streams it through the normal AI SDK chat
-lifecycle. It uses message IDs first and falls back to matching the role and
-text of the latest message. Automatic sends after tool results and approval
-responses resolve the next [continuation](#continuations); only a
-regeneration replays a turn by its message ID.
+وقتی **`sendMessage()`** اجرا می‌شود، Transport پیام Assistant مربوط به Transcript فعلی را پیدا می‌کند و آن را از طریق چرخهٔ معمول Chat در AI SDK Stream می‌کند.
+
+ابتدا با Message ID تطبیق می‌دهد و در صورت نیاز، بر اساس Role و متن آخرین پیام تطبیق انجام می‌شود.
+
+ارسال خودکار پس از دریافت Tool Result یا Approval Response، Continuation بعدی را Resolve می‌کند. فقط Regeneration است که یک Turn را بر اساس Message ID دوباره اجرا می‌کند.
 
 ### Options
 
-| Option     | Type                                       | Default | Description                                                                   |
-| ---------- | ------------------------------------------ | ------- | ----------------------------------------------------------------------------- |
-| `delayMs`  | `number`                                   | `50`    | Delay between text and reasoning deltas. Use `0` or `undefined` to remove it. |
-| `fallback` | `string`, `UIMessagePart[]`, or a callback | None    | Response to stream when no predefined assistant response remains.             |
+| Option         | Type                                            | Default  | توضیحات                                                                                         |
+| -------------- | ----------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| **`delayMs`**  | **`number`**                                    | **`50`** | فاصلهٔ بین Deltaهای Text و Reasoning. مقدار **`0`** یا **`undefined`** این تأخیر را حذف می‌کند. |
+| **`fallback`** | **`string`**، **`UIMessagePart[]`** یا Callback | None     | پاسخی که وقتی پاسخ از پیش تعریف‌شدهٔ دیگری وجود ندارد، Stream می‌شود.                           |
 
-The transport-level `delayMs` is the default for every streamed text and
-reasoning part. Override it for one part with `writer.text(..., { delayMs })`
-or `writer.reasoning(..., { delayMs })`.
+**`delayMs`** در سطح Transport مقدار پیش‌فرض تمام Text و Reasoningهای Streamشده است. برای یک Part خاص می‌توانید آن را با **`writer.text(..., { delayMs })`** یا **`writer.reasoning(..., { delayMs })`** تغییر دهید.
 
-```ts
+```tsx
 const transport = chat.transport({
   delayMs: 25,
 })
@@ -717,82 +734,82 @@ const transport = chat.transport({
 
 ### Fallback
 
-Use `fallback` when the conversation has no predefined assistant response
-left. This keeps a demo usable after its predefined replies are exhausted.
+وقتی مکالمه دیگر پاسخ Assistant از پیش تعریف‌شده‌ای ندارد، از **`fallback`** استفاده کنید:
 
-```ts
+```tsx
 const transport = chat.transport({
   fallback: "This demo has no more predefined replies.",
 })
 ```
 
-A fallback can also be an array of AI SDK message parts or a writer callback.
-The callback receives the incoming transcript, so it can create a response from
-the current state.
+`fallback` می‌تواند آرایه‌ای از Partهای AI SDK یا یک Callback نیز باشد. Callback، Transcript ورودی را دریافت می‌کند و می‌تواند بر اساس وضعیت فعلی یک پاسخ بسازد:
 
-```ts
+```tsx
 const transport = chat.transport({
   fallback: ({ writer, messages }) => {
-    writer.text(`This example already has ${messages.length} messages.`, {
-      mode: "instant",
-    })
+    writer.text(
+      `This example already has ${messages.length} messages.`,
+      { mode: "instant" }
+    )
   },
 })
 ```
 
-Fallback responses stream like assistant responses but are not added to the
-predefined conversation. Without one, the transport throws
-`"No assistant response found for this transcript."` when the conversation is
-exhausted.
+Fallbackها مانند پاسخ‌های Assistant Stream می‌شوند، اما به مکالمهٔ از پیش تعریف‌شده اضافه نمی‌شوند.
 
-Calling `stop()` from `useChat` aborts the active transport stream.
-Reconnecting is not supported; `reconnectToStream()` returns `null`.
+اگر Fallback تعریف نشده باشد، پس از تمام شدن مکالمه این خطا ایجاد می‌شود:
+
+**`"No assistant response found for this transcript."`**
+
+فراخوانی **`stop()`** از `useChat`، Stream فعال Transport را متوقف می‌کند. اتصال مجدد پشتیبانی نمی‌شود و **`reconnectToStream()`** مقدار **`null`** برمی‌گرداند.
 
 ---
 
-## Timing
+## زمان‌بندی
 
-Use delays to reproduce the pace of a real response.
+برای شبیه‌سازی سرعت یک پاسخ واقعی، می‌توانید از Delay استفاده کنید:
 
-```ts
+```tsx
 const chat = createChat()
   .user("Give me a project update.")
   .sleep(800)
   .assistant(({ writer }) => {
-    writer.text("The first milestone is complete.", { mode: "instant" })
+    writer.text("The first milestone is complete.", {
+      mode: "instant",
+    })
     writer.sleep(500)
     writer.text(" The next one is ready.")
   })
 
-const transport = chat.transport({ delayMs: 50 })
+const transport = chat.transport({
+  delayMs: 50,
+})
 ```
 
-- `chat.sleep(ms)` waits before the next assistant response starts.
-- `writer.sleep(ms)` waits between parts of an assistant response.
-- `tool.sleep(ms)` waits between a tool's input and its result.
-- `transport({ delayMs })` sets the default delay between text and reasoning
-  deltas.
-- `writer.text(text, { delayMs })` and `writer.reasoning(text, { delayMs })`
-  override that delay for one part.
-- `mode: "instant"` sends a whole text or reasoning part in one delta.
+- **`chat.sleep(ms)`** قبل از شروع پاسخ بعدی Assistant منتظر می‌ماند.
+- **`writer.sleep(ms)`** بین Partهای یک پاسخ Assistant مکث می‌کند.
+- **`tool.sleep(ms)`** بین Input و Result یک Tool مکث می‌کند.
+- **`transport({ delayMs })`** تأخیر پیش‌فرض بین Deltaهای Text و Reasoning را تعیین می‌کند.
+- **`writer.text(text, { delayMs })`** و **`writer.reasoning(text, { delayMs })`** این تأخیر را برای یک Part مشخص تغییر می‌دهند.
+- **`mode: "instant"`** کل Text یا Reasoning را در یک Delta ارسال می‌کند.
 
-For fast tests, use `chat.transport({ delayMs: 0 })` and instant text.
+برای تست‌های سریع، از **`chat.transport({ delayMs: 0 })`** همراه با Textهای `instant` استفاده کنید.
 
 ---
 
-## Errors
+## خطاها
 
-Use `error()` on the chat when the whole assistant response should fail.
+اگر می‌خواهید کل پاسخ Assistant با خطا مواجه شود، از **`error()`** روی Chat استفاده کنید:
 
-```ts
+```tsx
 const chat = createChat()
   .user("Load the report.")
   .error("The report could not be loaded.")
 ```
 
-Use `writer.error()` to fail after other parts have streamed.
+برای ایجاد خطا پس از Stream شدن Partهای قبلی، از **`writer.error()`** استفاده کنید:
 
-```ts
+```tsx
 chat.assistant(({ writer }) => {
   writer.text("I found the report.")
   writer.error("The connection closed before it could be read.")
@@ -801,27 +818,28 @@ chat.assistant(({ writer }) => {
 
 ---
 
-## Metadata and IDs
+## Metadata و ID
 
-Pass metadata on individual messages. Its type is preserved through `get()`,
-`next()`, and the transport.
+می‌توانید برای هر پیام Metadata تعیین کنید. Type آن از طریق **`get()`**، **`next()`** و Transport حفظ می‌شود:
 
-```ts
+```tsx
 type Metadata = {
   model: string
 }
 
 const chat = createChat<UIMessage<Metadata>>()
-  .user("Hello", { metadata: { model: "demo" } })
+  .user("Hello", {
+    metadata: { model: "demo" },
+  })
   .assistant("Hi.", {
     id: "assistant-welcome",
     metadata: { model: "demo" },
   })
 ```
 
-Use chat options when a fixture needs custom prefixes or a fixed clock.
+اگر Fixture به Prefix سفارشی یا زمان ثابت نیاز دارد، از Options مربوط به Chat استفاده کنید:
 
-```ts
+```tsx
 const chat = createChat({
   messageIdPrefix: "demo-message",
   toolCallIdPrefix: "demo-tool",
@@ -830,18 +848,19 @@ const chat = createChat({
 })
 ```
 
+IDهایی که در `messages` وجود دارند رزرو می‌شوند؛ بنابراین IDهای جدید بعد از آن‌ها تولید خواهند شد.
+
 ---
 
-## API Reference
+## مرجع API
 
-The sections above cover the common flows. This reference lists every public
-export and option.
+بخش‌های قبلی جریان‌های اصلی استفاده را پوشش می‌دهند. این بخش تمام Exportها و Options عمومی را فهرست می‌کند.
 
 ### `createChat()`
 
-Creates a typed conversation and returns the fluent chat interface.
+یک مکالمهٔ Typed ایجاد می‌کند و رابط Fluent مربوط به Chat را برمی‌گرداند:
 
-```ts
+```tsx
 function createChat<UI_MESSAGE extends UIMessage = UIMessage>(
   options?: CreateChatOptions<UI_MESSAGE>
 ): AiSdkChat<UI_MESSAGE>
@@ -849,60 +868,59 @@ function createChat<UI_MESSAGE extends UIMessage = UIMessage>(
 
 #### Type Parameters
 
-| Parameter    | Description                                                                                                        |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `UI_MESSAGE` | The `UIMessage` type for the conversation, the same type parameter `useChat` accepts. Define it once and share it. |
+| Parameter        | توضیحات                                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- |
+| **`UI_MESSAGE`** | نوع **`UIMessage`** مکالمه؛ همان Typeی که `useChat` دریافت می‌کند. آن را یک‌بار تعریف و در هر دو استفاده کنید. |
 
-The message type carries the metadata shape, the typed `data-*` parts, and the
-tool definitions.
+این Type ساختار Metadata، Partهای **`data-*`** و تعریف Toolها را مشخص می‌کند:
 
-```ts
+```tsx
 type ChatMessage = UIMessage<Metadata, DataParts, Tools>
 ```
 
 #### Options
 
-| Option             | Type             | Default                      | Description                                             |
-| ------------------ | ---------------- | ---------------------------- | ------------------------------------------------------- |
-| `messages`         | `UIMessage[]`    | `[]`                         | Start from an existing transcript. Messages are cloned. |
-| `messageIdPrefix`  | `string`         | `"msg"`                      | Prefix for generated message IDs.                       |
-| `toolCallIdPrefix` | `string`         | `"call"`                     | Prefix for generated tool call IDs.                     |
-| `sourceIdPrefix`   | `string`         | `"source"`                   | Prefix for generated source IDs.                        |
-| `now`              | `Date \| string` | `"2026-01-01T00:00:00.000Z"` | Fixed time used for generated `createdAt` metadata.     |
+| Option                 | Type                 | Default                          | توضیحات                                             |
+| ---------------------- | -------------------- | -------------------------------- | --------------------------------------------------- |
+| **`messages`**         | **`UIMessage[]`**    | **`[]`**                         | شروع از یک Transcript موجود. پیام‌ها Clone می‌شوند. |
+| **`messageIdPrefix`**  | **`string`**         | **`"msg"`**                      | Prefix مربوط به IDهای تولیدشدهٔ پیام‌ها.            |
+| **`toolCallIdPrefix`** | **`string`**         | **`"call"`**                     | Prefix مربوط به IDهای Tool Call.                    |
+| **`sourceIdPrefix`**   | **`string`**         | **`"source"`**                   | Prefix مربوط به IDهای Source.                       |
+| **`now`**              | **`Date \| string`** | **`"2026-01-01T00:00:00.000Z"`** | زمان ثابت برای Metadata مربوط به **`createdAt`**.   |
 
-IDs found in `messages` are reserved, so newly generated IDs continue after
-the existing transcript.
+IDهای موجود در `messages` رزرو می‌شوند و IDهای جدید پس از Transcript موجود تولید خواهند شد.
 
 ### `AiSdkChat`
 
-Every method that adds content returns the same chat, so calls can be chained.
+هر متدی که محتوا اضافه می‌کند، همان Chat را برمی‌گرداند؛ بنابراین می‌توانید متدها را به‌صورت زنجیره‌ای استفاده کنید.
 
-| Method                        | Returns             | Description                                                      |
-| ----------------------------- | ------------------- | ---------------------------------------------------------------- |
-| `user(text?, options?)`       | `AiSdkChat`         | Add a user message with text and optional files.                 |
-| `assistant(input?, options?)` | `AiSdkChat`         | Add an assistant message from text, parts, or a writer callback. |
-| `sleep(delayMs)`              | `AiSdkChat`         | Wait before the next assistant response starts.                  |
-| `error(errorText?)`           | `AiSdkChat`         | Add an assistant response that emits an error.                   |
-| `get(count?)`                 | `UIMessage[]`       | Return cloned messages from the start of the conversation.       |
-| `next(messages)`              | `UIMessage \| null` | Return the next predefined user message after a transcript.      |
-| `transport(options?)`         | `ChatTransport`     | Create the transport used by `useChat`.                          |
+| Method                            | Returns                 | توضیحات                                                             |
+| --------------------------------- | ----------------------- | ------------------------------------------------------------------- |
+| **`user(text?, options?)`**       | **`AiSdkChat`**         | اضافه کردن پیام کاربر با متن و فایل‌های اختیاری.                    |
+| **`assistant(input?, options?)`** | **`AiSdkChat`**         | اضافه کردن پیام Assistant با متن، Part یا Callback مربوط به Writer. |
+| **`sleep(delayMs)`**              | **`AiSdkChat`**         | مکث قبل از شروع پاسخ بعدی Assistant.                                |
+| **`error(errorText?)`**           | **`AiSdkChat`**         | اضافه کردن پاسخ Assistant که با خطا Stream می‌شود.                  |
+| **`get(count?)`**                 | **`UIMessage[]`**       | دریافت Clone پیام‌ها از ابتدای مکالمه.                              |
+| **`next(messages)`**              | **`UIMessage \| null`** | دریافت پیام بعدی کاربر پس از یک Transcript.                         |
+| **`transport(options?)`**         | **`ChatTransport`**     | ایجاد Transport مورد استفادهٔ `useChat`.                            |
 
-Calling `user()` or `assistant()` without content uses
-`"Summarize the uploaded receipt."`. Calling `error()` without a message uses
-`"An error occurred."`. `get(count)` throws when `count` is negative or not an
-integer.
+فراخوانی **`user()`** یا **`assistant()`** بدون محتوا از مقدار **`"Summarize the uploaded receipt."`** استفاده می‌کند.
 
-#### `user()` Options
+فراخوانی **`error()`** بدون پیام از **`"An error occurred."`** استفاده می‌کند.
 
-| Option     | Type            | Description                                 |
-| ---------- | --------------- | ------------------------------------------- |
-| `id`       | `string`        | Use a specific message ID.                  |
-| `metadata` | `METADATA`      | Set metadata for this message.              |
-| `files`    | `FilePayload[]` | Append file parts after the user text part. |
+**`get(count)`** در صورت منفی بودن `count` یا عدد صحیح نبودن آن، خطا ایجاد می‌کند.
 
-A user file has this shape:
+#### Options مربوط به `user()`
 
-```ts
+| Option         | Type                | توضیحات                                        |
+| -------------- | ------------------- | ---------------------------------------------- |
+| **`id`**       | **`string`**        | تعیین ID مشخص برای پیام.                       |
+| **`metadata`** | **`METADATA`**      | تعیین Metadata پیام.                           |
+| **`files`**    | **`FilePayload[]`** | اضافه کردن Partهای فایل پس از Text پیام کاربر. |
+
+ساختار `FilePayload`:
+
+```tsx
 type FilePayload = {
   type?: "file"
   mediaType: string
@@ -912,88 +930,89 @@ type FilePayload = {
 }
 ```
 
-#### `assistant()` Input
+#### Input مربوط به `assistant()`
 
-| Input                  | Result                                                                                                                                                                                       |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `string`               | One text part that streams word by word.                                                                                                                                                     |
-| `UIMessagePart[]`      | Static AI SDK parts that stream in their existing order.                                                                                                                                     |
-| `({ writer }) => void` | A synchronous callback for scripting parts, tools, errors, and timing. After a paused turn it becomes a [continuation](#continuations) and receives `toolCall`, `toolCalls`, and `messages`. |
+| Input                      | نتیجه                                                                                                                                                                                  |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`string`**               | یک Text Part که به‌صورت کلمه‌به‌کلمه Stream می‌شود.                                                                                                                                    |
+| **`UIMessagePart[]`**      | Partهای ثابت AI SDK که به ترتیب موجود Stream می‌شوند.                                                                                                                                  |
+| **`({ writer }) => void`** | Callback همگام برای تعریف Partها، Toolها، خطاها و زمان‌بندی. پس از یک Turn متوقف‌شده به Continuation تبدیل می‌شود و **`toolCall`**، **`toolCalls`** و **`messages`** را دریافت می‌کند. |
 
-#### `assistant()` Options
+#### Options مربوط به `assistant()`
 
-| Option     | Type       | Description                    |
-| ---------- | ---------- | ------------------------------ |
-| `id`       | `string`   | Use a specific message ID.     |
-| `metadata` | `METADATA` | Set metadata for this message. |
+| Option         | Type           | توضیحات                  |
+| -------------- | -------------- | ------------------------ |
+| **`id`**       | **`string`**   | تعیین ID مشخص برای پیام. |
+| **`metadata`** | **`METADATA`** | تعیین Metadata پیام.     |
 
-#### `transport()` Options
+#### Options مربوط به `transport()`
 
-| Option     | Type                                                          | Default | Description                                                                   |
-| ---------- | ------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------- |
-| `delayMs`  | `number`                                                      | `50`    | Delay between text and reasoning deltas. Use `0` or `undefined` to remove it. |
-| `fallback` | `string \| UIMessagePart[] \| ({ writer, messages }) => void` | None    | Response used when no predefined assistant response remains.                  |
+| Option         | Type                                                              | Default  | توضیحات                                                                                 |
+| -------------- | ----------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------- |
+| **`delayMs`**  | **`number`**                                                      | **`50`** | تأخیر بین Deltaهای Text و Reasoning. مقدار **`0`** یا **`undefined`** آن را حذف می‌کند. |
+| **`fallback`** | **`string \| UIMessagePart[] \| ({ writer, messages }) => void`** | None     | پاسخ مورد استفاده وقتی پاسخ از پیش تعریف‌شدهٔ دیگری باقی نمانده است.                    |
 
-See [Transport](#transport) for matching, fallback, abort, and streaming
-behavior.
+برای جزئیات مربوط به Matching، Fallback، Abort و Streaming، بخش **Transport** را ببینید.
 
 ### Writer
 
-The writer is available inside `assistant(({ writer }) => {})` and fallback
-callbacks.
+`writer` داخل **`assistant(({ writer }) => {})`** و Callbackهای Fallback در دسترس است.
 
-| Method                       | Description                                                       |
-| ---------------------------- | ----------------------------------------------------------------- |
-| `text(text?, options?)`      | Add a text part.                                                  |
-| `reasoning(text?, options?)` | Add a reasoning part.                                             |
-| `tool(name, options?)`       | Add a typed or dynamic tool call and return its lifecycle handle. |
-| `data(part)`                 | Add or update a typed data part.                                  |
-| `file(options?)`             | Add a file part.                                                  |
-| `reasoningFile(options?)`    | Add a reasoning file part.                                        |
-| `sourceUrl(options?)`        | Add a URL source part.                                            |
-| `sourceDocument(options?)`   | Add a document source part.                                       |
-| `stepStart()`                | Add an AI SDK step boundary.                                      |
-| `custom(kind?)`              | Add a custom part with the given `kind`.                          |
-| `sleep(delayMs)`             | Pause before the next writer event.                               |
-| `error(errorText?)`          | Emit an error and end the response without a `finish` chunk.      |
+| Method                           | توضیحات                                                            |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **`text(text?, options?)`**      | اضافه کردن یک Text Part.                                           |
+| **`reasoning(text?, options?)`** | اضافه کردن یک Reasoning Part.                                      |
+| **`tool(name, options?)`**       | اضافه کردن Tool Call تایپ‌شده یا Dynamic و دریافت Handle چرخهٔ آن. |
+| **`data(part)`**                 | اضافه کردن یا به‌روزرسانی یک Data Part تایپ‌شده.                   |
+| **`file(options?)`**             | اضافه کردن File Part.                                              |
+| **`reasoningFile(options?)`**    | اضافه کردن فایل به Reasoning Part.                                 |
+| **`sourceUrl(options?)`**        | اضافه کردن Source از نوع URL.                                      |
+| **`sourceDocument(options?)`**   | اضافه کردن Source از نوع Document.                                 |
+| **`stepStart()`**                | اضافه کردن مرز Step در AI SDK.                                     |
+| **`custom(kind?)`**              | اضافه کردن Custom Part با `kind` مشخص.                             |
+| **`sleep(delayMs)`**             | مکث قبل از رویداد بعدی Writer.                                     |
+| **`error(errorText?)`**          | ایجاد خطا و پایان دادن به پاسخ بدون Chunk مربوط به **`finish`**.   |
 
-Calling `text()` without content uses `"Summarize the uploaded receipt."`.
-Calling `reasoning()` without content uses
-`"I need to inspect the available context before answering."`. Calling
-`error()` without a message uses `"An error occurred."`.
+فراخوانی **`text()`** بدون محتوا از **`"Summarize the uploaded receipt."`** استفاده می‌کند.
 
-#### Text and Reasoning Options
+فراخوانی **`reasoning()`** بدون محتوا از **`"I need to inspect the available context before answering."`** استفاده می‌کند.
 
-| Option    | Type                    | Default    | Description                                             |
-| --------- | ----------------------- | ---------- | ------------------------------------------------------- |
-| `id`      | `string`                | Generated  | Use a stable part ID.                                   |
-| `delayMs` | `number`                | Transport  | Override the transport delay for this part.             |
-| `mode`    | `"stream" \| "instant"` | `"stream"` | Stream word deltas or emit the whole part in one delta. |
+فراخوانی **`error()`** بدون پیام از **`"An error occurred."`** استفاده می‌کند.
 
-#### Tool Options
+#### Options مربوط به Text و Reasoning
 
-| Option             | Type                      | Description                                                                                     |
-| ------------------ | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| `toolCallId`       | `string`                  | Use a specific tool call ID.                                                                    |
-| `title`            | `string`                  | Add a display title to the tool part.                                                           |
-| `toolMetadata`     | `Record<string, unknown>` | Add provider or application metadata.                                                           |
-| `providerExecuted` | `boolean`                 | Mark the call as executed by the provider.                                                      |
-| `input`            | `TOOLS[NAME]["input"]`    | Set the typed tool input.                                                                       |
-| `output`           | `TOOLS[NAME]["output"]`   | Immediately finish with a typed output. With `needsApproval`, stream it after approval instead. |
-| `errorText`        | `string`                  | Immediately finish with an error. With `needsApproval`, stream it after approval instead.       |
-| `dynamic`          | `boolean`                 | Emit a `dynamic-tool` part instead of `tool-<name>`.                                            |
-| `needsApproval`    | `boolean`                 | Pause the turn behind the user's decision. See [Human in the Loop](#human-in-the-loop).         |
-| `approvalId`       | `string`                  | Use a specific approval ID.                                                                     |
+| Option        | Type                        | Default        | توضیحات                                                    |
+| ------------- | --------------------------- | -------------- | ---------------------------------------------------------- |
+| **`id`**      | **`string`**                | Generated      | تعیین ID پایدار برای Part.                                 |
+| **`delayMs`** | **`number`**                | Transport      | تغییر تأخیر Transport برای این Part.                       |
+| **`mode`**    | **`"stream" \| "instant"`** | **`"stream"`** | Stream کردن Deltaهای کلمه‌ای یا ارسال کل Part در یک Delta. |
 
-`tool()` returns a handle with `sleep(delayMs)`, `output(value)`,
-`error(errorText?)`, and `denied()`. Use the handle when the tool lifecycle
-needs events between its input and result. Calling `tool.error()` without a
-message uses `"Tool call failed."`. The resolution methods throw on a
-`needsApproval` call.
+#### Options مربوط به Tool
+
+| Option                 | Type                          | توضیحات                                                                                            |
+| ---------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- |
+| **`toolCallId`**       | **`string`**                  | تعیین ID مشخص برای Tool Call.                                                                      |
+| **`title`**            | **`string`**                  | اضافه کردن عنوان نمایشی به Tool Part.                                                              |
+| **`toolMetadata`**     | **`Record<string, unknown>`** | اضافه کردن Metadata مربوط به Provider یا Application.                                              |
+| **`providerExecuted`** | **`boolean`**                 | مشخص می‌کند Tool توسط Provider اجرا شده است.                                                       |
+| **`input`**            | **`TOOLS[NAME]["input"]`**    | تعیین Input تایپ‌شدهٔ Tool.                                                                        |
+| **`output`**           | **`TOOLS[NAME]["output"]`**   | پایان فوری Tool با Output تایپ‌شده. در حالت **`needsApproval`**، Output پس از تأیید Stream می‌شود. |
+| **`errorText`**        | **`string`**                  | پایان فوری Tool با خطا. در حالت **`needsApproval`**، خطا پس از تأیید Stream می‌شود.                |
+| **`dynamic`**          | **`boolean`**                 | ایجاد Part از نوع **`dynamic-tool`** به‌جای **`tool-<name>`**.                                     |
+| **`needsApproval`**    | **`boolean`**                 | توقف Turn تا تصمیم کاربر.                                                                          |
+| **`approvalId`**       | **`string`**                  | تعیین ID مشخص برای Approval.                                                                       |
+
+**`tool()`** یک Handle با متدهای **`sleep(delayMs)`**، **`output(value)`**، **`error(errorText?)`** و **`denied()`** برمی‌گرداند.
+
+وقتی چرخهٔ Tool بین Input و Result به رویدادهای بیشتری نیاز دارد، از این Handle استفاده کنید.
+
+فراخوانی **`tool.error()`** بدون پیام از **`"Tool call failed."`** استفاده می‌کند.
+
+متدهای Resolution روی یک Tool دارای **`needsApproval`** خطا ایجاد می‌کنند.
 
 #### Data Input
 
-```ts
+```tsx
 writer.data({
   type: "data-name",
   id: "optional-id",
@@ -1002,25 +1021,24 @@ writer.data({
 })
 ```
 
-Repeating the same `type` and `id` replaces the earlier data part. A transient
-part streams to the client but is not included in the final message returned by
-`get()`.
+ارسال دوبارهٔ همان **`type`** و **`id`**، Data Part قبلی را جایگزین می‌کند.
 
-#### File and Source Options
+یک Part با **`transient: true`** برای Client Stream می‌شود، اما در پیام نهایی برگشتی از **`get()`** قرار نمی‌گیرد.
 
-| Method             | Fields                                                                |
-| ------------------ | --------------------------------------------------------------------- |
-| `file()`           | `mediaType?`, `url?`, `filename?`, `providerMetadata?`                |
-| `reasoningFile()`  | `mediaType?`, `url?`, `filename?`, `providerMetadata?`                |
-| `sourceUrl()`      | `sourceId?`, `url?`, `title?`, `providerMetadata?`                    |
-| `sourceDocument()` | `sourceId?`, `mediaType?`, `title?`, `filename?`, `providerMetadata?` |
+#### File و Source Options
 
-These methods provide sample defaults for omitted fields. Pass explicit values
-when the payload matters to the component or test.
+| Method                 | Fields                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| **`file()`**           | **`mediaType?`**، **`url?`**، **`filename?`**، **`providerMetadata?`**                    |
+| **`reasoningFile()`**  | **`mediaType?`**، **`url?`**، **`filename?`**، **`providerMetadata?`**                    |
+| **`sourceUrl()`**      | **`sourceId?`**، **`url?`**، **`title?`**، **`providerMetadata?`**                        |
+| **`sourceDocument()`** | **`sourceId?`**، **`mediaType?`**، **`title?`**، **`filename?`**، **`providerMetadata?`** |
+
+این متدها برای Fieldهای حذف‌شده، مقدارهای پیش‌فرض نمونه ارائه می‌کنند. وقتی مقدار دقیق برای Component یا Test اهمیت دارد، مقدارهای موردنظر خود را صریحاً مشخص کنید.
 
 ### Types
 
-| Export              | Description                                       |
-| ------------------- | ------------------------------------------------- |
-| `AiSdkChat`         | The typed fluent chat returned by `createChat()`. |
-| `CreateChatOptions` | Options accepted by `createChat()`.               |
+| Export                  | توضیحات                                                             |
+| ----------------------- | ------------------------------------------------------------------- |
+| **`AiSdkChat`**         | Chat تایپ‌شده و Fluent که توسط **`createChat()`** برگردانده می‌شود. |
+| **`CreateChatOptions`** | Options قابل استفاده در **`createChat()`**.                         |

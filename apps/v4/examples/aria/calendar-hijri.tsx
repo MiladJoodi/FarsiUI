@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Vazirmatn } from "next/font/google"
 import { CalendarDate } from "@internationalized/date"
 import { cn } from "cn"
 import {
@@ -16,15 +15,13 @@ import { DayPicker } from "react-day-picker/persian"
 import { Calendar } from "@/styles/aria-nova/ui-rtl/calendar"
 import { Button, buttonVariants } from "@/styles/aria-nova/ui/button"
 
-const vazirmatn = Vazirmatn({ subsets: ["arabic"] })
-
 export default function CalendarHijri() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     new CalendarDate(2025, 6, 12)
   )
 
   return (
-    <div className={vazirmatn.className}>
+    <div className="font-sans">
       <I18nProvider locale="fa-AF-u-ca-persian">
         <Calendar
           value={date}

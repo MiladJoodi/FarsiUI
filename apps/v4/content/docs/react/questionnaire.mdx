@@ -1,19 +1,18 @@
 ---
 title: Questionnaire
-description: Build accessible, multi-step questionnaires with single, multiple, freeform, and intentionally skipped answers.
+description: ساخت پرسش‌نامه‌های چندمرحله‌ای و دسترس‌پذیر با پشتیبانی از پاسخ‌های تک‌انتخابی، چندانتخابی، متنی و رد کردن عمدی سؤال.
 ---
 
-`Questionnaire` is an unstyled form primitive for presenting one question at a
-time. It manages answers, progress, validation, and navigation.
+`Questionnaire` یک primitive فرم بدون استایل است که هر بار یک سؤال را نمایش می‌دهد و مدیریت پاسخ‌ها، پیشرفت، اعتبارسنجی و جابه‌جایی بین مراحل را بر عهده دارد.
 
-It works well for agent clarification prompts, onboarding, surveys, intake
-forms, and configuration.
+برای سناریوهایی مثل پرسش‌های تکمیلی Agentها، Onboarding، نظرسنجی، فرم‌های دریافت اطلاعات و تنظیمات چندمرحله‌ای مناسب است.
 
-The unstyled package gives you full control over markup and styles. For the
-styled version and themed examples, see
-[Questionnaire](/docs/components/base/questionnaire).
+نسخهٔ بدون استایل کنترل کاملی روی ساختار HTML و ظاهر در اختیار شما قرار می‌دهد. برای نسخهٔ استایل‌دار و نمونه‌های دارای Theme، صفحهٔ
+[Questionnaire](/docs/components/base/questionnaire) را ببینید.
 
-## Installation
+## نصب
+
+پکیج `@farsiui/react` را نصب کنید:
 
 ```bash
 npm install @farsiui/react
@@ -25,10 +24,9 @@ npm install @farsiui/react
 import { Questionnaire } from "@farsiui/react/questionnaire"
 ```
 
-`Questionnaire` exports its parts from one namespace. Each part accepts the
-native props for its default element.
+`Questionnaire` تمام بخش‌های خود را از طریق یک namespace ارائه می‌کند. هر بخش نیز Props مربوط به Element پیش‌فرض خود را می‌پذیرد.
 
-## Anatomy
+## ساختار
 
 ```tsx
 <Questionnaire.Root>
@@ -53,14 +51,15 @@ native props for its default element.
 </Questionnaire.Root>
 ```
 
-`Root` renders a form. Each `Item` is a fieldset, with `Title` as its legend.
-`ChoiceInput` renders a native radio or checkbox.
+`Root` یک فرم ایجاد می‌کند. هر `Item` یک `fieldset` است و `Title` به‌عنوان `legend` آن استفاده می‌شود.
 
-## Styled version
+`ChoiceInput` نیز از ورودی‌های Native رادیویی و چک‌باکس استفاده می‌کند.
 
-The styled registry component uses flat component names:
+## نسخهٔ استایل‌دار
 
-| Styled component                                                                         | Unstyled part                                                                                |
+کامپوننت استایل‌دار از نام‌های تخت استفاده می‌کند:
+
+| کامپوننت استایل‌دار                                                                      | بخش بدون استایل                                                                              |
 | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `Questionnaire`                                                                          | `Questionnaire.Root`                                                                         |
 | `QuestionnaireProgress`                                                                  | `Questionnaire.Progress`                                                                     |
@@ -68,19 +67,19 @@ The styled registry component uses flat component names:
 | `QuestionnaireTitle`                                                                     | `Questionnaire.Title`                                                                        |
 | `QuestionnaireDescription`                                                               | `Questionnaire.Description`                                                                  |
 | `QuestionnaireChoices`                                                                   | `Questionnaire.Choices`                                                                      |
-| `QuestionnaireChoice`                                                                    | `Questionnaire.Choice` with `ChoiceInput`, `ChoiceLabel`, and `ChoiceShortcut`               |
+| `QuestionnaireChoice`                                                                    | `Questionnaire.Choice` + `ChoiceInput` + `ChoiceLabel` + `ChoiceShortcut`                    |
 | `QuestionnaireInput`                                                                     | `Questionnaire.Input`                                                                        |
 | `QuestionnaireError`                                                                     | `Questionnaire.Error`                                                                        |
-| `QuestionnaireActions`                                                                   | None. Layout only; use your own container.                                                   |
-| `QuestionnairePrevious`, `QuestionnaireSkip`, `QuestionnaireNext`, `QuestionnaireSubmit` | `Questionnaire.Previous`, `Questionnaire.Skip`, `Questionnaire.Next`, `Questionnaire.Submit` |
+| `QuestionnaireActions`                                                                   | ندارد؛ فقط برای Layout است و می‌توانید Container دلخواه خود را استفاده کنید.                 |
+| `QuestionnairePrevious`، `QuestionnaireSkip`، `QuestionnaireNext`، `QuestionnaireSubmit` | `Questionnaire.Previous`، `Questionnaire.Skip`، `Questionnaire.Next`، `Questionnaire.Submit` |
 
-The styled `QuestionnaireChoice` composes the input, label, shortcut, and visual
-indicator for you. With the unstyled package, compose those parts yourself.
+در نسخهٔ استایل‌دار، `QuestionnaireChoice` ورودی، Label، میانبر و نشانگر بصری را برای شما ترکیب می‌کند. در نسخهٔ بدون استایل باید این بخش‌ها را خودتان کنار هم قرار دهید.
 
-## Basic usage
+## استفادهٔ پایه
 
-Each `Item` is one step. Its `name` identifies the step and becomes the form
-field name for its answers. `Choice.value` is the submitted answer.
+هر `Item` یک مرحله از پرسش‌نامه است. مقدار `name` مرحله را مشخص می‌کند و به‌عنوان نام فیلد فرم برای پاسخ‌های آن مرحله استفاده می‌شود.
+
+مقدار `Choice.value` نیز پاسخی است که هنگام ارسال فرم ثبت می‌شود.
 
 <ComponentPreview
   align="end"
@@ -188,15 +187,15 @@ export function ProjectQuestionnaire() {
 }
 ```
 
-Pass the same `items` collection to `Root` that you render as `Item` and
-`Choice` parts. This makes item order, progress, action visibility, and answer
-shortcuts available in the server-rendered HTML.
+همان مجموعهٔ `items` را به `Root` بدهید که در بخش‌های `Item` و `Choice` رندر می‌کنید. با این کار ترتیب مراحل، وضعیت پیشرفت، نمایش دکمه‌های کنترلی و میانبرهای پاسخ در HTML رندرشده از سمت سرور در دسترس خواهند بود.
 
-## Multiple selection
+## انتخاب چندگانه
 
-`multiple` turns an item's fixed choices into native checkboxes. Read the answers with
-`FormData.getAll()`. Keep `multiple` in your application data and pass it to
-the rendered `Item`.
+با فعال کردن `multiple`، گزینه‌های ثابت هر مرحله به Checkboxهای Native تبدیل می‌شوند.
+
+برای خواندن پاسخ‌ها از `FormData.getAll()` استفاده کنید.
+
+مقدار `multiple` را در داده‌های اصلی برنامه نگه دارید و هنگام رندر به `Item` منتقل کنید.
 
 <ComponentPreview
   align="end"
@@ -253,9 +252,9 @@ items.map((question) => (
 const signals = new FormData(form).getAll("signals").map(String)
 ```
 
-## Freeform answers
+## پاسخ متنی
 
-`Input` adds a freeform answer and renders a native text input.
+`Input` امکان وارد کردن پاسخ آزاد را فراهم می‌کند و یک ورودی متنی Native رندر می‌کند.
 
 <ComponentPreview
   align="end"
@@ -309,11 +308,11 @@ items.map((question) => (
 ))
 ```
 
-## Explicit skip
+## رد کردن سؤال
 
-`Skip` records that an optional item was intentionally left unanswered. Use
-`onStatusChange` when your application needs to distinguish a skipped answer
-from a missing one.
+`Skip` ثبت می‌کند که یک سؤال اختیاری عمداً بدون پاسخ گذاشته شده است.
+
+اگر برنامه باید بین سؤال ردشده و سؤالی که هنوز پاسخی برای آن ثبت نشده تفاوت بگذارد، از `onStatusChange` استفاده کنید.
 
 <ComponentPreview
   align="end"
@@ -381,11 +380,13 @@ export function PlanningQuestionnaire() {
 }
 ```
 
-## Answer shortcuts
+## میانبرهای پاسخ
 
-Use `shortcuts="letters"` or `shortcuts="numbers"` to assign a key to each
-enabled fixed choice, following the `items` order when it is provided. Compose
-`ChoiceShortcut` wherever its hint should appear.
+با استفاده از `shortcuts="letters"` یا `shortcuts="numbers"` می‌توانید برای هر گزینهٔ فعال یک کلید میانبر تعیین کنید.
+
+ترتیب میانبرها در صورت استفاده از `items`، بر اساس ترتیب همان مجموعه تعیین می‌شود.
+
+هرجا می‌خواهید کلید میانبر نمایش داده شود، از `ChoiceShortcut` استفاده کنید.
 
 <ComponentPreview
   align="end"
@@ -415,24 +416,21 @@ enabled fixed choice, following the `items` order when it is provided. Compose
 </Questionnaire.Root>
 ```
 
-`"letters"` assigns `A` through `Z`; `"numbers"` assigns `1` through `9`.
-Disabled choices are skipped. Selecting an answer by shortcut does not advance
-to the next item.
+`"letters"` میانبرهای `A` تا `Z` را اختصاص می‌دهد و `"numbers"` میانبرهای `1` تا `9` را. گزینه‌های غیرفعال در این ترتیب در نظر گرفته نمی‌شوند.
 
-## Validation
+انتخاب پاسخ با میانبر، کاربر را به مرحلهٔ بعد منتقل نمی‌کند.
 
-Questionnaire validates the active item before moving forward and validates all
-enabled items when the form submits.
+## اعتبارسنجی
 
-- A required item is valid after it has an answer.
-- An optional item is valid after it has an answer or is explicitly skipped.
-- Disabled items and answers are ignored.
+`Questionnaire` قبل از رفتن به مرحلهٔ بعد، مرحلهٔ فعلی را اعتبارسنجی می‌کند و هنگام ارسال فرم، تمام مراحل فعال را بررسی می‌کند.
 
-`required` does not add visible “Required” text. Say it in the `Title` or
-`Description`.
+- یک مرحلهٔ الزامی زمانی معتبر است که پاسخ داشته باشد.
+- یک مرحلهٔ اختیاری زمانی معتبر است که پاسخ داشته باشد یا صراحتاً رد شده باشد.
+- مراحل و پاسخ‌های غیرفعال نادیده گرفته می‌شوند.
 
-When validation fails, Questionnaire keeps or opens the invalid item and
-focuses an answer. Add `Error` to show a message.
+استفاده از `required` متن قابل مشاهدهٔ «الزامی» به فرم اضافه نمی‌کند. در صورت نیاز، این موضوع را در `Title` یا `Description` مشخص کنید.
+
+اگر اعتبارسنجی ناموفق باشد، `Questionnaire` همان مرحله را نگه می‌دارد یا دوباره باز می‌کند و فوکوس را روی یکی از گزینه‌های پاسخ قرار می‌دهد. برای نمایش پیام خطا، `Error` را اضافه کنید.
 
 ```tsx
 <Questionnaire.Item name="scope" required>
@@ -444,18 +442,15 @@ focuses an answer. Add `Error` to show a message.
 </Questionnaire.Item>
 ```
 
-`Error` remains hidden until the item is invalid. Pass children to replace its
-default message.
+`Error` تا زمانی که مرحله نامعتبر نباشد نمایش داده نمی‌شود. برای جایگزین کردن پیام پیش‌فرض، متن دلخواه خود را داخل آن قرار دهید.
 
 ```tsx
 <Questionnaire.Error>Please choose a project scope.</Questionnaire.Error>
 ```
 
-Validation still works without `Error`. When rendered, the message is announced
-to screen readers.
+اعتبارسنجی حتی بدون `Error` نیز انجام می‌شود. در صورت رندر شدن پیام خطا، متن آن برای Screen Readerها نیز اعلام می‌شود.
 
-For Zod or another external validator, set `Item.invalid`, render the message in
-`Error`, and move `Root.item` to the first invalid item.
+اگر از Zod یا Validator خارجی دیگری استفاده می‌کنید، مقدار `Item.invalid` را تنظیم کنید، پیام را داخل `Error` نمایش دهید و `Root.item` را روی اولین مرحلهٔ نامعتبر قرار دهید.
 
 <ComponentPreview
   align="end"
@@ -475,9 +470,9 @@ For Zod or another external validator, set `Item.invalid`, render the message in
 </Questionnaire.Root>
 ```
 
-## Controlled navigation
+## کنترل جابه‌جایی بین مراحل
 
-Pass `item` and `onItemChange` to control the active item.
+برای کنترل مرحلهٔ فعال، مقدار `item` و تابع `onItemChange` را به `Questionnaire` بدهید.
 
 <ComponentPreview
   align="end"
@@ -503,9 +498,9 @@ const [item, setItem] = React.useState("scope")
 </Questionnaire.Root>
 ```
 
-## Resume with defaults
+## ادامه از پاسخ‌های قبلی
 
-Restore a saved draft with `defaultItem`, `defaultChecked`, and `defaultValue`.
+برای بازیابی یک پیش‌نویس ذخیره‌شده، از `defaultItem`، `defaultChecked` و `defaultValue` استفاده کنید.
 
 <ComponentPreview
   align="end"
@@ -537,10 +532,11 @@ Restore a saved draft with `defaultItem`, `defaultChecked`, and `defaultValue`.
 </Questionnaire.Root>
 ```
 
-## Conditional items
+## مراحل شرطی
 
-Set `disabled` to remove an item from the current flow. Disabled items are
-excluded from progress, navigation, validation, and submission.
+با تنظیم `disabled` می‌توانید یک مرحله را از جریان فعلی پرسش‌نامه خارج کنید.
+
+مراحل غیرفعال در پیشرفت، جابه‌جایی بین مراحل، اعتبارسنجی و ارسال فرم در نظر گرفته نمی‌شوند.
 
 <ComponentPreview
   align="end"
@@ -583,11 +579,11 @@ const [runtime, setRuntime] = React.useState("local")
 </Questionnaire.Root>
 ```
 
-## Navigation state
+## وضعیت جابه‌جایی
 
-Navigation actions stay enabled by default so activating Next or Submit can
-show a validation error. Use the render state when you want to disable an
-action yourself.
+دکمه‌های جابه‌جایی به‌صورت پیش‌فرض فعال هستند تا با انتخاب `Next` یا `Submit`، در صورت وجود خطا پیام اعتبارسنجی نمایش داده شود.
+
+اگر می‌خواهید خودتان یک دکمه را غیرفعال کنید، از وضعیت رندر کامپوننت استفاده کنید.
 
 <ComponentPreview
   align="end"
@@ -607,8 +603,7 @@ action yourself.
 </Questionnaire.Next>
 ```
 
-The render state contains `visible`, `disabled`, `shortcut`, and the active
-item's `status`. To change only the appearance, target `data-status` instead:
+وضعیت رندر شامل `visible`، `disabled`، `shortcut` و `status` مرحلهٔ فعال است. اگر فقط ظاهر را تغییر می‌دهید، به‌جای آن `data-status` را هدف بگیرید:
 
 ```tsx
 <Questionnaire.Next data-navigation-action>Next</Questionnaire.Next>
@@ -620,10 +615,11 @@ item's `status`. To change only the appearance, target `data-status` instead:
 }
 ```
 
-## Custom progress
+## نمایش پیشرفت سفارشی
 
-`Progress` renders `Question {current} of {total}` by default. Use `render` to
-change its element or format.
+`Progress` به‌صورت پیش‌فرض عبارت `Question {current} of {total}` را نمایش می‌دهد.
+
+برای تغییر Element یا قالب نمایش آن، از `render` استفاده کنید.
 
 <ComponentPreview
   align="end"
@@ -644,12 +640,11 @@ change its element or format.
 />
 ```
 
-The render state contains `current`, `total`, `first`, and `last`. Pass a
-localized `aria-label` when needed.
+وضعیت رندر شامل `current`، `total`، `first` و `last` است. در صورت نیاز، یک `aria-label` بومی‌سازی‌شده به آن اضافه کنید.
 
-## Animated items
+## آیتم‌های متحرک
 
-Animate the active item while keeping progress and navigation stationary.
+می‌توانید مرحلهٔ فعال را متحرک کنید، بدون اینکه بخش پیشرفت یا کنترل‌های جابه‌جایی حرکت کنند.
 
 <ComponentPreview
   align="end"
@@ -672,13 +667,11 @@ const itemClassName =
 </Questionnaire.Item>
 ```
 
-Inactive items hide immediately, so animate the entry only.
+آیتم‌های غیرفعال بلافاصله پنهان می‌شوند؛ بنابراین فقط ورود را متحرک کنید.
 
-## Card composition
+## ترکیب با Card
 
-Place the root around a card and render `Title` and `Description` into the
-card header. Give the title an `id` and connect it with the item's
-`aria-labelledby` since it replaces the default legend.
+`Root` را دور یک Card قرار دهید و `Title` و `Description` را داخل هدر کارت رندر کنید. چون عنوان جایگزین `legend` پیش‌فرض می‌شود، به عنوان یک `id` بدهید و آن را با `aria-labelledby` مرحله وصل کنید.
 
 <ComponentPreview
   align="end"
@@ -718,10 +711,9 @@ const titleId = React.useId()
 </Questionnaire.Root>
 ```
 
-## Dialog composition
+## ترکیب با Dialog
 
-Keep dialog dismissal separate from `Skip`: closing cancels the flow, while
-skipping records an intentional unanswered item.
+بستن Dialog را از `Skip` جدا نگه دارید: بستن جریان را لغو می‌کند، در حالی که رد کردن یک سؤال بدون‌پاسخِ عمدی را ثبت می‌کند.
 
 <ComponentPreview
   align="end"
@@ -761,83 +753,69 @@ const titleId = React.useId()
 </Dialog>
 ```
 
-## Custom render targets
+## رندر سفارشی
 
-Use `render` to replace a part's default element. Pass an element, or use a
-function when you need its state.
+با `render` می‌توانید Element پیش‌فرض هر بخش را جایگزین کنید. یک Element بدهید، یا وقتی به وضعیت آن نیاز دارید از یک تابع استفاده کنید.
 
 ```tsx
 <Questionnaire.Next render={<Button />}>Next</Questionnaire.Next>
 ```
 
-`Root` and `Item` always render a `form` and `fieldset`. If `Title` no longer
-renders a `legend`, give it an `id` and pass that ID to `Item` with
-`aria-labelledby`.
+`Root` و `Item` همیشه به‌ترتیب یک `form` و یک `fieldset` رندر می‌کنند. اگر `Title` دیگر `legend` رندر نکند، به آن `id` بدهید و همان شناسه را با `aria-labelledby` به `Item` پاس دهید.
 
-The primitive does not emit `data-slot`. Styled wrappers own slots and visual
-indicators.
+این primitive مقدار `data-slot` منتشر نمی‌کند. Wrapperهای استایل‌دار مالک slotها و نشانگرهای بصری هستند.
 
-## Native forms
+## فرم‌های Native
 
-`Root` always renders a native form and supports `onSubmit`, `onReset`, `action`,
-and the other form props. Do not nest a Questionnaire inside another form.
+`Root` همیشه یک فرم Native رندر می‌کند و از `onSubmit`، `onReset`، `action` و سایر props فرم پشتیبانی می‌کند. Questionnaire را داخل فرم دیگری قرار ندهید.
 
-Answers serialize through native controls:
+پاسخ‌ها از طریق کنترل‌های Native سریالایز می‌شوند:
 
-- `FormData.get(itemName)` reads a single answer.
-- `FormData.getAll(itemName)` reads multiple answers.
-- Skipped items are absent from `FormData`.
-- Use `Item.onStatusChange` to distinguish a skip from a missing answer.
+- `FormData.get(itemName)` یک پاسخ تکی را می‌خواند.
+- `FormData.getAll(itemName)` چند پاسخ را می‌خواند.
+- مراحل ردشده در `FormData` حضور ندارند.
+- برای تمایز رد کردن از پاسخِ مفقود، از `Item.onStatusChange` استفاده کنید.
 
-`Root` sets `noValidate` by default so validation uses `Questionnaire.Error`
-instead of the browser's constraint validation UI.
+`Root` به‌صورت پیش‌فرض `noValidate` را تنظیم می‌کند تا اعتبارسنجی از `Questionnaire.Error` استفاده کند، نه از UI اعتبارسنجی مرورگر.
 
-`form.reset()` restores the initial item, default answers, skip state, and
-validation state.
+`form.reset()` مرحلهٔ اولیه، پاسخ‌های پیش‌فرض، وضعیت رد کردن و وضعیت اعتبارسنجی را بازیابی می‌کند.
 
-## Keyboard navigation
+## ناوبری با صفحه‌کلید
 
-Questionnaire builds on native radio, checkbox, input, and button behavior.
+Questionnaire روی رفتار Native رادیو، چک‌باکس، ورودی و دکمه بنا شده است.
 
-| Key                      | Behavior                                                                                                                        |
+| کلید                     | رفتار                                                                                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `Tab`                    | Moves focus between answer controls and visible actions.                                                                        |
-| `Shift` + `Tab`          | Moves focus to the previous control or action.                                                                                  |
-| `ArrowUp`                | Moves to the previous answer from the item, a fixed answer, or an empty text-like freeform input. Native radios also select it. |
-| `ArrowDown`              | Moves to the next answer from the item, a fixed answer, or an empty text-like freeform input. Native radios also select it.     |
-| `ArrowLeft`              | Moves to the previous item when focus is outside a radio or text entry control.                                                 |
-| `ArrowRight`             | Moves to the next item when the active item is answered or skipped and focus is outside a radio or text entry control.          |
-| `Space`                  | Selects a radio, toggles a checkbox, or activates a focused action.                                                             |
-| `Enter`                  | Continues from a selected choice or selected, filled input; activates a focused action.                                         |
-| `Command/Ctrl` + `Enter` | Validates and continues from anywhere inside the questionnaire, or submits the final item.                                      |
+| `Tab`                    | فوکوس را بین کنترل‌های پاسخ و اکشن‌های قابل‌مشاهده جابه‌جا می‌کند.                                                              |
+| `Shift` + `Tab`          | فوکوس را به کنترل یا اکشن قبلی می‌برد.                                                                                          |
+| `ArrowUp`                | به پاسخ قبلی از مرحله، پاسخ ثابت، یا ورودی متنی خالی می‌رود. رادیوهای Native آن را انتخاب هم می‌کنند.                          |
+| `ArrowDown`              | به پاسخ بعدی از مرحله، پاسخ ثابت، یا ورودی متنی خالی می‌رود. رادیوهای Native آن را انتخاب هم می‌کنند.                          |
+| `ArrowLeft`              | وقتی فوکوس بیرون از کنترل رادیو یا ورود متن است، به مرحلهٔ قبلی می‌رود.                                                         |
+| `ArrowRight`             | وقتی مرحلهٔ فعال پاسخ داده یا رد شده و فوکوس بیرون از کنترل رادیو یا ورود متن است، به مرحلهٔ بعد می‌رود.                         |
+| `Space`                  | رادیو را انتخاب، چک‌باکس را toggle، یا اکشن فوکوس‌شده را فعال می‌کند.                                                           |
+| `Enter`                  | از گزینهٔ انتخاب‌شده یا ورودی پرشدهٔ انتخاب‌شده ادامه می‌دهد؛ اکشن فوکوس‌شده را فعال می‌کند.                                   |
+| `Command/Ctrl` + `Enter` | از هر جای پرسش‌نامه اعتبارسنجی و ادامه می‌دهد، یا مرحلهٔ آخر را ارسال می‌کند.                                                  |
 
-Shortcuts and arrow navigation pause while you type in a text field.
-Preventing the root `onKeyDown` event turns off questionnaire key handling.
+میانبرها و ناوبری با کلیدهای جهت‌دار هنگام تایپ در فیلد متنی متوقف می‌شوند.
+جلوگیری از رویداد `onKeyDown` ریشه، مدیریت کلیدهای پرسش‌نامه را خاموش می‌کند.
 
-Navigation actions stay enabled by default so an attempted action can reveal
-validation feedback. See [Navigation state](#navigation-state) to disable or
-restyle an unanswered action.
+دکمه‌های جابه‌جایی به‌صورت پیش‌فرض فعال می‌مانند تا اقدام نافرجام بتواند بازخورد اعتبارسنجی را نشان دهد. برای غیرفعال یا تغییر ظاهر اکشنِ بدون‌پاسخ، [وضعیت جابه‌جایی](#وضعیت-جابه‌جایی) را ببینید.
 
-## Accessibility
+## دسترسی‌پذیری
 
-- `Item` renders a `fieldset`.
-- `Title` renders the fieldset `legend` by default. If it uses a custom render
-  target, connect its `id` to the item with `aria-labelledby`.
-- `Description` and the active `Error` are connected with
-  `aria-describedby`.
-- Invalid items and answer controls expose `aria-invalid`.
-- `Progress` renders a named progressbar with current, minimum, maximum, and
-  text values.
-- Fixed choices use native radios and checkboxes.
-- Assigned shortcut keys and available navigation are exposed with
-  `aria-keyshortcuts`.
-- Inactive items and actions are hidden and inert.
-- Navigation focuses the newly active fieldset.
-- Validation focuses the first available answer control.
-- Disabled items are omitted from progress and navigation.
+- `Item` یک `fieldset` رندر می‌کند.
+- `Title` به‌صورت پیش‌فرض `legend` همان fieldset را رندر می‌کند. اگر هدف رندر سفارشی داشته باشد، `id` آن را با `aria-labelledby` به مرحله وصل کنید.
+- `Description` و `Error` فعال با `aria-describedby` متصل می‌شوند.
+- مراحل و کنترل‌های پاسخِ نامعتبر `aria-invalid` دارند.
+- `Progress` یک progressbar نام‌دار با مقادیر جاری، حداقل، حداکثر و متن رندر می‌کند.
+- گزینه‌های ثابت از رادیو و چک‌باکس Native استفاده می‌کنند.
+- کلیدهای میانبر اختصاص‌یافته و ناوبری در دسترس با `aria-keyshortcuts` اعلام می‌شوند.
+- مراحل و اکشن‌های غیرفعال پنهان و inert هستند.
+- جابه‌جایی، fieldset تازه‌فعال را فوکوس می‌کند.
+- اعتبارسنجی اولین کنترل پاسخ در دسترس را فوکوس می‌کند.
+- مراحل غیرفعال از پیشرفت و جابه‌جایی حذف می‌شوند.
 
-Always give `Input` an accessible name. Use an explicit `id` with a visible
-label:
+همیشه به `Input` یک نام دسترس‌پذیر بدهید. از `id` صریح همراه با برچسب قابل‌مشاهده استفاده کنید:
 
 ```tsx
 <Label htmlFor="other-answer">Other answer</Label>
@@ -847,7 +825,7 @@ label:
 />
 ```
 
-When the design has no visible label, use `aria-label` or `aria-labelledby`:
+وقتی طراحی برچسب قابل‌مشاهده ندارد، از `aria-label` یا `aria-labelledby` استفاده کنید:
 
 ```tsx
 <Questionnaire.Input
@@ -856,101 +834,97 @@ When the design has no visible label, use `aria-label` or `aria-labelledby`:
 />
 ```
 
-A placeholder is not a label.
+Placeholder یک برچسب نیست.
 
-## Data attributes
+## ویژگی‌های Data
 
-Use these attributes for styling. Boolean attributes are present when true and
-absent when false.
+از این attributeها برای استایل‌دهی استفاده کنید. attributeهای Boolean وقتی true باشند حاضرند و وقتی false باشند غایب‌اند.
 
-### Root and Progress
+### Root و Progress
 
-| Data attribute   | Value                                            |
+| ویژگی Data       | مقدار                                            |
 | ---------------- | ------------------------------------------------ |
-| `data-current`   | One-based active item position.                  |
-| `data-total`     | Number of enabled items.                         |
-| `data-first`     | Present on the first item.                       |
-| `data-last`      | Present on the last item.                        |
-| `data-shortcuts` | `"letters"` \| `"numbers"` on Root when enabled. |
+| `data-current`   | موقعیت یک‌مبنایی مرحلهٔ فعال.                     |
+| `data-total`     | تعداد مراحل فعال.                                |
+| `data-first`     | روی اولین مرحله حاضر است.                        |
+| `data-last`      | روی آخرین مرحله حاضر است.                        |
+| `data-shortcuts` | `"letters"` \| `"numbers"` روی Root وقتی فعال باشد. |
 
 ### Item
 
-| Data attribute  | Value                                         |
+| ویژگی Data      | مقدار                                         |
 | --------------- | --------------------------------------------- |
-| `data-active`   | Present when active.                          |
+| `data-active`   | وقتی فعال باشد حاضر است.                      |
 | `data-status`   | `"unanswered"` \| `"answered"` \| `"skipped"` |
-| `data-required` | Present when required.                        |
-| `data-multiple` | Present when multiple.                        |
-| `data-disabled` | Present when disabled.                        |
-| `data-invalid`  | Present after failed validation.              |
+| `data-required` | وقتی الزامی باشد حاضر است.                    |
+| `data-multiple` | وقتی چندانتخابی باشد حاضر است.                |
+| `data-disabled` | وقتی غیرفعال باشد حاضر است.                   |
+| `data-invalid`  | پس از اعتبارسنجی ناموفق حاضر است.             |
 
 ### Choice
 
-| Data attribute   | Value                             |
+| ویژگی Data       | مقدار                             |
 | ---------------- | --------------------------------- |
 | `data-type`      | `"radio"` \| `"checkbox"`         |
-| `data-checked`   | Present when selected.            |
-| `data-unchecked` | Present when not selected.        |
-| `data-disabled`  | Present when disabled.            |
-| `data-invalid`   | Present when its item is invalid. |
-| `data-shortcut`  | Assigned letter or number.        |
+| `data-checked`   | وقتی انتخاب شده باشد حاضر است.    |
+| `data-unchecked` | وقتی انتخاب نشده باشد حاضر است.   |
+| `data-disabled`  | وقتی غیرفعال باشد حاضر است.       |
+| `data-invalid`   | وقتی مرحله‌اش نامعتبر باشد حاضر است. |
+| `data-shortcut`  | حرف یا عدد اختصاص‌یافته.          |
 
 ### Choices
 
-| Data attribute   | Value                                    |
+| ویژگی Data       | مقدار                                    |
 | ---------------- | ---------------------------------------- |
-| `data-shortcuts` | `"letters"` \| `"numbers"` when enabled. |
+| `data-shortcuts` | `"letters"` \| `"numbers"` وقتی فعال باشد. |
 
 ### Input
 
-| Data attribute  | Value                                      |
+| ویژگی Data      | مقدار                                      |
 | --------------- | ------------------------------------------ |
-| `data-filled`   | Present when the input has non-empty text. |
-| `data-empty`    | Present when the input has no answer text. |
-| `data-disabled` | Present when disabled.                     |
-| `data-invalid`  | Present when its item is invalid.          |
+| `data-filled`   | وقتی ورودی متن غیرخالی دارد حاضر است.      |
+| `data-empty`    | وقتی ورودی متن پاسخ ندارد حاضر است.        |
+| `data-disabled` | وقتی غیرفعال باشد حاضر است.                |
+| `data-invalid`  | وقتی مرحله‌اش نامعتبر باشد حاضر است.       |
 
 ### Error
 
-| Data attribute | Value                              |
+| ویژگی Data     | مقدار                              |
 | -------------- | ---------------------------------- |
-| `data-invalid` | Present while the error is active. |
+| `data-invalid` | تا وقتی خطا فعال است حاضر است.     |
 
-### Previous, Skip, Next, and Submit
+### Previous، Skip، Next و Submit
 
-| Data attribute  | Value                                                      |
+| ویژگی Data      | مقدار                                                      |
 | --------------- | ---------------------------------------------------------- |
-| `data-visible`  | Present when the action applies to the active item.        |
-| `data-hidden`   | Present when the action does not apply.                    |
-| `data-disabled` | Present when disabled.                                     |
-| `data-shortcut` | `"Enter"` on an enabled, visible Next or Submit.           |
-| `data-status`   | Active item: `"unanswered"`, `"answered"`, or `"skipped"`. |
+| `data-visible`  | وقتی اکشن به مرحلهٔ فعال مربوط باشد حاضر است.              |
+| `data-hidden`   | وقتی اکشن اعمال نشود حاضر است.                             |
+| `data-disabled` | وقتی غیرفعال باشد حاضر است.                                |
+| `data-shortcut` | `"Enter"` روی Next یا Submit فعال و قابل‌مشاهده.           |
+| `data-status`   | مرحلهٔ فعال: `"unanswered"`، `"answered"` یا `"skipped"`. |
 
-`Title` and `Description` have no state attributes. The headless parts do not
-emit `data-slot`.
+`Title` و `Description` ویژگی وضعیت ندارند. بخش‌های headless مقدار `data-slot` منتشر نمی‌کنند.
 
-## API Reference
+## مرجع API
 
-### Questionnaire.Root
+### `Questionnaire.Root`
 
-The form and coordination root.
+ریشهٔ فرم و مسئول هماهنگی مراحل پرسش‌نامه.
 
-| Prop           | Type                                     | Default            | Description                                                              |
-| -------------- | ---------------------------------------- | ------------------ | ------------------------------------------------------------------------ |
-| `item`         | `string`                                 | -                  | Controlled active item name.                                             |
-| `defaultItem`  | `string`                                 | first enabled item | Initially active item name.                                              |
-| `items`        | `readonly QuestionnaireItemDefinition[]` | -                  | Optional item data for server rendering and item order.                  |
-| `onItemChange` | `(item: string) => void`                 | -                  | Called when navigation requests a different item.                        |
-| `shortcuts`    | `"letters" \| "numbers"`                 | -                  | Assigns scoped answer shortcuts in definition or rendered DOM order.     |
-| `noValidate`   | `boolean`                                | `true`             | Disables native constraint UI while preserving questionnaire validation. |
-| `onSubmit`     | `FormEventHandler<HTMLFormElement>`      | -                  | Native form submission handler after every item validates.               |
-| `onReset`      | `FormEventHandler<HTMLFormElement>`      | -                  | Native reset handler. Prevent default to stop questionnaire reset.       |
+| Prop               | Type                                         | Default           | توضیحات                                                                                     |
+| ------------------ | -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------- |
+| `item`         | `string`                                 | -                 | نام مرحلهٔ فعال در حالت Controlled.                                                         |
+| `defaultItem`  | `string`                                 | اولین مرحلهٔ فعال | نام مرحله‌ای که در ابتدا فعال است.                                                          |
+| `items`        | `readonly QuestionnaireItemDefinition[]` | -                 | دادهٔ اختیاری مراحل برای رندر سمت سرور و تعیین ترتیب مراحل.                                 |
+| `onItemChange` | `(item: string) => void`                 | -                 | هنگام درخواست جابه‌جایی به مرحلهٔ دیگر اجرا می‌شود.                                         |
+| `shortcuts`    | `"letters" \| "numbers"`                 | -                 | میانبرهای پاسخ را بر اساس ترتیب تعریف یا DOM اختصاص می‌دهد.                                 |
+| `noValidate`   | `boolean`                                | `true`        | رابط اعتبارسنجی Native مرورگر را غیرفعال می‌کند و اعتبارسنجی `Questionnaire` را حفظ می‌کند. |
+| `onSubmit`     | `FormEventHandler<HTMLFormElement>`      | -                 | Handler ارسال Native فرم، پس از اعتبارسنجی همهٔ مراحل.                                      |
+| `onReset`      | `FormEventHandler<HTMLFormElement>`      | -                 | Handler بازنشانی Native فرم. برای جلوگیری از Reset شدن پرسش‌نامه، `preventDefault` کنید.    |
 
-Root exposes `current`, `total`, `first`, `last`, and `shortcuts` through data
-attributes.
+`Root` مقادیر `current`، `total`، `first`، `last` و `shortcuts` را از طریق Data Attributeها در اختیار می‌گذارد.
 
-The optional collection types are exported from
-`@farsiui/react/questionnaire`:
+Typeهای مربوط به مجموعه‌ها از `@farsiui/react/questionnaire` قابل Import هستند:
 
 ```ts
 type QuestionnaireChoiceDefinition = {
@@ -966,142 +940,139 @@ type QuestionnaireItemDefinition = {
 }
 ```
 
-### Questionnaire.Progress
+### `Questionnaire.Progress`
 
-Position within the enabled item collection.
+موقعیت فعلی در میان مراحل فعال پرسش‌نامه.
 
-| Prop         | Type                                             | Default                         | Description                               |
-| ------------ | ------------------------------------------------ | ------------------------------- | ----------------------------------------- |
-| `children`   | `React.ReactNode`                                | `Question {current} of {total}` | Custom progress content.                  |
-| `aria-label` | `string`                                         | `Questionnaire progress`        | Accessible progressbar name.              |
-| `render`     | `ReactElement \| (props, state) => ReactElement` | `<div>`                         | Custom render target with progress state. |
+| Prop             | Type                                                 | Default                             | توضیحات                               |
+| ---------------- | ---------------------------------------------------- | ----------------------------------- | ------------------------------------- |
+| `children`   | `React.ReactNode`                                | `Question {current} of {total}` | محتوای سفارشی برای نمایش پیشرفت.      |
+| `aria-label` | `string`                                         | `Questionnaire progress`        | نام قابل دسترس برای progressbar.      |
+| `render`     | `ReactElement \| (props, state) => ReactElement` | `<div>`                         | Element سفارشی همراه با وضعیت پیشرفت. |
 
-The render state contains `current`, `total`, `first`, and `last`.
+وضعیت `render` شامل `current`، `total`، `first` و `last` است.
 
-### Questionnaire.Item
+### `Questionnaire.Item`
 
-One questionnaire step.
+یک مرحله از پرسش‌نامه.
 
-| Prop             | Type                                        | Default  | Description                                                     |
-| ---------------- | ------------------------------------------- | -------- | --------------------------------------------------------------- |
-| `name`           | `string`                                    | required | Unique item identifier and native form field name.              |
-| `invalid`        | `boolean`                                   | `false`  | Marks the item invalid from an external validator.              |
-| `required`       | `boolean`                                   | `false`  | Requires an answer and prevents Skip.                           |
-| `multiple`       | `boolean`                                   | `false`  | Renders fixed choices as checkboxes.                            |
-| `disabled`       | `boolean`                                   | `false`  | Omits the item from progress and navigation.                    |
-| `onStatusChange` | `(status: QuestionnaireItemStatus) => void` | -        | Observes `"unanswered"`, `"answered"`, and `"skipped"` changes. |
+| Prop                 | Type                                            | Default     | توضیحات                                                                                  |
+| -------------------- | ----------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| `name`           | `string`                                    | الزامی      | شناسهٔ یکتای مرحله و نام فیلد Native فرم.                                                |
+| `invalid`        | `boolean`                                   | `false` | مرحله را از طریق Validator خارجی نامعتبر اعلام می‌کند.                                   |
+| `required`       | `boolean`                                   | `false` | پاسخ را الزامی می‌کند و اجازهٔ `Skip` نمی‌دهد.                                           |
+| `multiple`       | `boolean`                                   | `false` | گزینه‌های ثابت را به Checkbox تبدیل می‌کند.                                              |
+| `disabled`       | `boolean`                                   | `false` | مرحله را از پیشرفت و جابه‌جایی حذف می‌کند.                                               |
+| `onStatusChange` | `(status: QuestionnaireItemStatus) => void` | -           | تغییر وضعیت بین `"unanswered"`، `"answered"` و `"skipped"` را دریافت می‌کند. |
 
-Item exposes `active`, `disabled`, `invalid`, `multiple`, `required`, and
-`status` through data attributes.
+`Item` وضعیت‌های `active`، `disabled`، `invalid`، `multiple`، `required` و `status` را از طریق Data Attributeها ارائه می‌کند.
 
-Item names must be unique within a Root. The name belongs to the answer
-controls, not the fieldset.
+نام مراحل باید در یک `Root` یکتا باشد. `name` متعلق به کنترل‌های پاسخ است، نه `fieldset`.
 
-### Questionnaire.Title
+### `Questionnaire.Title`
 
-The item title. Renders a semantic `legend` by default.
+عنوان مرحله. به‌صورت پیش‌فرض یک `legend` معنایی رندر می‌کند.
 
-| Prop     | Type                              | Default    | Description                                                            |
-| -------- | --------------------------------- | ---------- | ---------------------------------------------------------------------- |
-| `render` | `ReactElement \| render function` | `<legend>` | Custom render target. Pair its `id` with the item’s `aria-labelledby`. |
+| Prop         | Type                                  | Default        | توضیحات                                                           |
+| ------------ | ------------------------------------- | -------------- | ----------------------------------------------------------------- |
+| `render` | `ReactElement \| render function` | `<legend>` | Element سفارشی. `id` آن را با `aria-labelledby` مرحله مرتبط کنید. |
 
-### Questionnaire.Description
+### `Questionnaire.Description`
 
-Supporting text connected to the item with `aria-describedby`.
+متن توضیحی که از طریق `aria-describedby` به مرحله متصل می‌شود.
 
-| Prop     | Type                              | Default | Description           |
-| -------- | --------------------------------- | ------- | --------------------- |
-| `render` | `ReactElement \| render function` | `<p>`   | Custom render target. |
+| Prop         | Type                                  | Default   | توضیحات         |
+| ------------ | ------------------------------------- | --------- | --------------- |
+| `render` | `ReactElement \| render function` | `<p>` | Element سفارشی. |
 
-### Questionnaire.Choices
+### `Questionnaire.Choices`
 
-A layout container for fixed and freeform answers.
+Container چیدمان برای پاسخ‌های ثابت و متنی.
 
-| Prop     | Type                              | Default | Description           |
-| -------- | --------------------------------- | ------- | --------------------- |
-| `render` | `ReactElement \| render function` | `<div>` | Custom render target. |
+| Prop         | Type                                  | Default     | توضیحات         |
+| ------------ | ------------------------------------- | ----------- | --------------- |
+| `render` | `ReactElement \| render function` | `<div>` | Element سفارشی. |
 
-The render state contains `shortcuts`.
+وضعیت `render` شامل `shortcuts` است.
 
-### Questionnaire.Choice
+### `Questionnaire.Choice`
 
-A fixed-answer container. Compose one `ChoiceInput`, one `ChoiceLabel`, and an
-optional `ChoiceShortcut` inside it. The default `<label>` keeps the whole row
-associated with its native control.
+Container یک پاسخ ثابت. داخل آن یک `ChoiceInput`، یک `ChoiceLabel` و در صورت نیاز یک `ChoiceShortcut` قرار دهید.
 
-| Prop             | Type                                             | Default   | Description                             |
-| ---------------- | ------------------------------------------------ | --------- | --------------------------------------- |
-| `value`          | `string`                                         | required  | Native answer value.                    |
-| `checked`        | `boolean`                                        | -         | Controlled checked state.               |
-| `defaultChecked` | `boolean`                                        | `false`   | Initial checked state.                  |
-| `disabled`       | `boolean`                                        | `false`   | Disables the native answer control.     |
-| `onChange`       | `ChangeEventHandler<HTMLInputElement>`           | -         | Native input change handler.            |
-| `render`         | `ReactElement \| (props, state) => ReactElement` | `<label>` | Custom render target with choice state. |
+`<label>` پیش‌فرض باعث می‌شود کل ردیف به کنترل Native مربوط متصل باشد.
 
-The render state contains `checked`, `disabled`, `invalid`, `shortcut`, and
-`type`.
+| Prop                 | Type                                                 | Default       | توضیحات                               |
+| -------------------- | ---------------------------------------------------- | ------------- | ------------------------------------- |
+| `value`          | `string`                                         | الزامی        | مقدار پاسخ Native.                    |
+| `checked`        | `boolean`                                        | -             | وضعیت انتخاب در حالت Controlled.      |
+| `defaultChecked` | `boolean`                                        | `false`   | وضعیت انتخاب اولیه.                   |
+| `disabled`       | `boolean`                                        | `false`   | کنترل پاسخ Native را غیرفعال می‌کند.  |
+| `onChange`       | `ChangeEventHandler<HTMLInputElement>`           | -             | Handler تغییر Native input.           |
+| `render`         | `ReactElement \| (props, state) => ReactElement` | `<label>` | Element سفارشی همراه با وضعیت Choice. |
 
-### Questionnaire.ChoiceInput
+وضعیت `render` شامل `checked`، `disabled`، `invalid`، `shortcut` و `type` است.
 
-The native radio or checkbox for its containing `Choice`. Questionnaire supplies
-the props needed for selection, form submission, validation, and keyboard
-interaction. It also accepts `className`, `id`, `ref`, `render`, and other
-non-conflicting native input props.
+### `Questionnaire.ChoiceInput`
 
-`ChoiceInput` must be used inside `Choice`. Its render state matches `Choice`.
+رادیو یا چک‌باکس Native مربوط به `Choice` والد.
 
-### Questionnaire.ChoiceLabel
+`Questionnaire` Props لازم برای انتخاب، ارسال فرم، اعتبارسنجی و تعامل با کیبورد را مدیریت می‌کند. این بخش همچنین `className`، `id`، `ref`، `render` و سایر Props غیرمتعارض Native input را می‌پذیرد.
 
-The visible label content for a fixed choice. It renders a `<span>` inside the
-`Choice` label and accepts native span props and `render`.
+`ChoiceInput` باید داخل `Choice` استفاده شود. وضعیت `render` آن با `Choice` یکسان است.
 
-### Questionnaire.ChoiceShortcut
+### `Questionnaire.ChoiceLabel`
 
-The visible shortcut for a fixed choice. It renders a `<span>` containing the
-assigned letter or number and remains hidden when the choice has no shortcut.
-It accepts native span props and `render`; its render state contains `shortcut`.
+محتوای Label قابل مشاهده برای یک پاسخ ثابت.
 
-### Questionnaire.Input
+این بخش یک `<span>` داخل Label مربوط به `Choice` رندر می‌کند و Props مربوط به `span` و `render` را می‌پذیرد.
 
-A freeform answer. Its native `name` is managed by the containing item.
+### `Questionnaire.ChoiceShortcut`
 
-| Prop           | Type                                             | Default   | Description                                                   |
-| -------------- | ------------------------------------------------ | --------- | ------------------------------------------------------------- |
-| `value`        | `string \| number \| readonly string[]`          | -         | Controlled native input value.                                |
-| `defaultValue` | `string \| number \| readonly string[]`          | -         | Initial native input value.                                   |
-| `disabled`     | `boolean`                                        | `false`   | Disables the input.                                           |
-| `onChange`     | `ChangeEventHandler<HTMLInputElement>`           | -         | Native input change handler.                                  |
-| `type`         | `QuestionnaireInputType`                         | `"text"`  | A text-entry type such as `"email"`, `"number"`, or `"date"`. |
-| `render`       | `ReactElement \| (props, state) => ReactElement` | `<input>` | Custom render target with input state.                        |
+میانبر قابل مشاهدهٔ یک پاسخ ثابت.
 
-The render state contains `disabled`, `filled`, and `invalid`.
+یک `<span>` شامل حرف یا عدد اختصاص‌یافته رندر می‌کند و اگر میانبری برای Choice وجود نداشته باشد، مخفی می‌ماند.
 
-### Questionnaire.Error
+Props مربوط به `span` و `render` را می‌پذیرد و وضعیت `render` شامل `shortcut` است.
 
-The validation message. It is hidden until its item fails validation.
+### `Questionnaire.Input`
 
-| Prop       | Type                                             | Default            | Description                              |
-| ---------- | ------------------------------------------------ | ------------------ | ---------------------------------------- |
-| `children` | `React.ReactNode`                                | contextual message | Custom validation message.               |
-| `render`   | `ReactElement \| (props, state) => ReactElement` | `<p>`              | Custom render target with invalid state. |
+پاسخ متنی آزاد. مقدار Native `name` آن توسط `Item` والد مدیریت می‌شود.
 
-### Navigation actions
+| Prop               | Type                                                 | Default       | توضیحات                                                              |
+| ------------------ | ---------------------------------------------------- | ------------- | -------------------------------------------------------------------- |
+| `value`        | `string \| number \| readonly string[]`          | -             | مقدار Controlled برای Native input.                                  |
+| `defaultValue` | `string \| number \| readonly string[]`          | -             | مقدار اولیهٔ Native input.                                           |
+| `disabled`     | `boolean`                                        | `false`   | ورودی را غیرفعال می‌کند.                                             |
+| `onChange`     | `ChangeEventHandler<HTMLInputElement>`           | -             | Handler تغییر Native input.                                          |
+| `type`         | `QuestionnaireInputType`                         | `"text"`  | نوع ورودی متنی، مانند `"email"`، `"number"` یا `"date"`. |
+| `render`       | `ReactElement \| (props, state) => ReactElement` | `<input>` | Element سفارشی همراه با وضعیت Input.                                 |
 
-`Previous`, `Skip`, `Next`, and `Submit` render native buttons and stay mounted
-while their visibility changes.
+وضعیت `render` شامل `disabled`، `filled` و `invalid` است.
 
-| Part       | Default type | Visible when             | Disabled when             |
-| ---------- | ------------ | ------------------------ | ------------------------- |
-| `Previous` | `"button"`   | Not on the first item.   | Consumer sets `disabled`. |
-| `Skip`     | `"button"`   | Active item is optional. | Consumer sets `disabled`. |
-| `Next`     | `"button"`   | Not on the last item.    | Consumer sets `disabled`. |
-| `Submit`   | `"submit"`   | On the last item.        | Consumer sets `disabled`. |
+### `Questionnaire.Error`
 
-Each accepts native button props and:
+پیام اعتبارسنجی که تا زمانی که مرحله نامعتبر نشود، مخفی است.
 
-| Prop     | Type                                             | Description                                 |
-| -------- | ------------------------------------------------ | ------------------------------------------- |
-| `render` | `ReactElement \| (props, state) => ReactElement` | Custom render target with navigation state. |
+| Prop           | Type                                                 | Default              | توضیحات                                     |
+| -------------- | ---------------------------------------------------- | -------------------- | ------------------------------------------- |
+| `children` | `React.ReactNode`                                | پیام متناسب با وضعیت | پیام اعتبارسنجی سفارشی.                     |
+| `render`   | `ReactElement \| (props, state) => ReactElement` | `<p>`            | Element سفارشی همراه با وضعیت نامعتبر بودن. |
 
-The render state contains `visible`, `disabled`, `shortcut`, and the active
-item's `status`.
+### اقدامات جابه‌جایی
+
+`Previous`، `Skip`، `Next` و `Submit` دکمه‌های Native رندر می‌کنند و با تغییر وضعیت نمایش، همچنان در DOM باقی می‌مانند.
+
+| Part           | نوع پیش‌فرض    | زمان نمایش               | زمان غیرفعال بودن                          |
+| -------------- | -------------- | ------------------------ | ------------------------------------------ |
+| `Previous` | `"button"` | در اولین مرحله نیستیم.   | وقتی `disabled` توسط مصرف‌کننده تنظیم شود. |
+| `Skip`     | `"button"` | مرحلهٔ فعال اختیاری است. | وقتی `disabled` توسط مصرف‌کننده تنظیم شود. |
+| `Next`     | `"button"` | در آخرین مرحله نیستیم.   | وقتی `disabled` توسط مصرف‌کننده تنظیم شود. |
+| `Submit`   | `"submit"` | در آخرین مرحله هستیم.    | وقتی `disabled` توسط مصرف‌کننده تنظیم شود. |
+
+هرکدام از این بخش‌ها Props مربوط به دکمه‌های Native را می‌پذیرند و شامل Prop زیر هستند:
+
+| Prop         | Type                                                 | توضیحات                                  |
+| ------------ | ---------------------------------------------------- | ---------------------------------------- |
+| `render` | `ReactElement \| (props, state) => ReactElement` | Element سفارشی همراه با وضعیت جابه‌جایی. |
+
+وضعیت `render` شامل `visible`، `disabled`، `shortcut` و `status` مرحلهٔ فعال است.

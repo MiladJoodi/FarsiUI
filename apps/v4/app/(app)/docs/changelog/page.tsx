@@ -14,19 +14,19 @@ const NUMBER_OF_LATEST_PAGES = 5
 
 export function generateMetadata() {
   return {
-    title: "Changelog",
-    description: "Latest updates and announcements.",
+    title: "تغییرات",
+    description: "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.",
     openGraph: {
-      title: "Changelog",
-      description: "Latest updates and announcements.",
+      title: "تغییرات",
+      description: "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.",
       type: "article",
       url: absoluteUrl("/docs/changelog"),
       images: [
         {
           url: `/og?title=${encodeURIComponent(
-            "Changelog"
+            "تغییرات"
           )}&description=${encodeURIComponent(
-            "Latest updates and announcements."
+            "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI."
           )}`,
         },
       ],
@@ -42,6 +42,8 @@ export default function ChangelogPage() {
   return (
     <div
       data-slot="docs"
+      dir="rtl"
+      lang="fa"
       className="flex scroll-mt-24 items-stretch pb-8 text-[1.05rem] sm:text-[15px] xl:w-full"
     >
       <div className="flex min-w-0 flex-1 flex-col">
@@ -50,7 +52,7 @@ export default function ChangelogPage() {
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <h1 className="scroll-m-24 text-4xl font-semibold tracking-tight sm:text-3xl">
-                Changelog
+                تغییرات
               </h1>
               <Button variant="secondary" size="sm" asChild>
                 <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
@@ -60,7 +62,7 @@ export default function ChangelogPage() {
               </Button>
             </div>
             <p className="text-[1.05rem] text-muted-foreground sm:text-base sm:text-balance md:max-w-[80%]">
-              Latest updates and announcements.
+              آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.
             </p>
           </div>
           <div className="w-full flex-1 pb-16 sm:pb-0">
@@ -82,22 +84,28 @@ export default function ChangelogPage() {
             {olderPages.length > 0 && (
               <div id="more-updates" className="mb-24 scroll-mt-24">
                 <h2 className="mb-6 font-heading text-xl font-semibold tracking-tight">
-                  More Updates
+                  به‌روزرسانی‌های بیشتر
                 </h2>
                 <div className="grid auto-rows-fr gap-3 sm:grid-cols-2">
                   {olderPages.map((page) => {
                     const data = page.data as ChangelogPageData
-                    const [date, ...titleParts] = data.title.split(" - ")
-                    const title = titleParts.join(" - ")
+                    const parts = data.title.includes(" — ")
+                      ? data.title.split(" — ")
+                      : data.title.split(" - ")
+                    const date = parts.length > 1 ? parts[0] : null
+                    const title =
+                      parts.length > 1 ? parts.slice(1).join(" — ") : data.title
                     return (
                       <Link
                         key={page.url}
                         href={page.url}
                         className="flex w-full flex-col rounded-2xl bg-surface px-4 py-3 text-surface-foreground transition-colors hover:bg-surface/80"
                       >
-                        <span className="text-xs text-muted-foreground">
-                          {date}
-                        </span>
+                        {date ? (
+                          <span className="text-xs text-muted-foreground">
+                            {date}
+                          </span>
+                        ) : null}
                         <span className="text-sm font-medium">{title}</span>
                       </Link>
                     )
@@ -113,7 +121,7 @@ export default function ChangelogPage() {
         <div className="no-scrollbar flex flex-col gap-8 overflow-y-auto px-8">
           <div className="flex flex-col gap-2 p-4 pt-0 text-sm">
             <p className="sticky top-0 h-6 bg-background text-xs font-medium text-muted-foreground">
-              On This Page
+              در این صفحه
             </p>
             {latestPages.map((page) => {
               const data = page.data as ChangelogPageData
@@ -132,7 +140,7 @@ export default function ChangelogPage() {
                 href="#more-updates"
                 className="text-[0.8rem] text-muted-foreground no-underline transition-colors hover:text-foreground"
               >
-                More Updates
+                به‌روزرسانی‌های بیشتر
               </a>
             )}
           </div>

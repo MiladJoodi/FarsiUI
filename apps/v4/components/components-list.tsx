@@ -44,7 +44,7 @@ function ComponentLink({
         "focus-visible:ring-2 focus-visible:ring-ring/40"
       )}
     >
-      <span className="flex items-center gap-2 truncate text-sm font-medium text-foreground">
+      <span className="flex items-center gap-2 text-sm font-medium text-foreground">
         {fa}
         {isNew ? (
           <>
@@ -60,7 +60,7 @@ function ComponentLink({
         <span
           dir="ltr"
           lang="en"
-          className="truncate font-mono text-[0.7rem] text-muted-foreground/70"
+          className="self-start font-mono text-[0.7rem] text-muted-foreground/70"
         >
           {en}
         </span>

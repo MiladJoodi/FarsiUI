@@ -60,35 +60,36 @@ export default function FormRhfInput() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Profile Settings</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>تنظیمات پروفایل</CardTitle>
         <CardDescription>
-          Update your profile information below.
+          اطلاعات پروفایل خود را به‌روزرسانی کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-input" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="username"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-input-username">
-                    Username
+                    نام کاربری
                   </FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-input-username"
                     aria-invalid={fieldState.invalid}
-                    placeholder="shadcn"
+                    placeholder="نام‌کاربری"
                     autoComplete="username"
+                    dir="ltr"
                   />
                   <FieldDescription>
-                    This is your public display name. Must be between 3 and 10
-                    characters. Must only contain letters, numbers, and
-                    underscores.
+                    این نام به‌صورت عمومی در پروفایل شما نمایش داده می‌شود. نام
+                    باید بین ۳ تا ۱۰ کاراکتر باشد و فقط شامل حروف، اعداد و
+                    Underscore باشد.
                   </FieldDescription>
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -99,13 +100,13 @@ export default function FormRhfInput() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-input">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

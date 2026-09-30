@@ -43,10 +43,6 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/mcp",
   },
   {
-    name: "رجیستری",
-    href: "/docs/registry",
-  },
-  {
     name: "فرم‌ها",
     href: "/docs/forms",
   },

@@ -124,30 +124,30 @@ export default function FormRhfPassword() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader className="border-b">
-        <CardTitle>Create Password</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
+        <CardTitle>ایجاد رمز عبور</CardTitle>
         <CardDescription>
-          Choose a strong password to secure your account.
+          یک رمز عبور قوی برای امنیت حساب خود انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-password" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="password"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-password-input">
-                    Password
+                    رمز عبور
                   </FieldLabel>
                   <InputGroup>
                     <InputGroupInput
                       {...field}
                       id="form-rhf-password-input"
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder="رمز عبور خود را وارد کنید"
                       aria-invalid={fieldState.invalid}
                       autoComplete="new-password"
                     />
@@ -209,13 +209,13 @@ export default function FormRhfPassword() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="border-t">
-        <Field>
-          <Button type="submit" form="form-rhf-password">
-            Create Password
-          </Button>
+      <CardFooter className="border-t px-4 pt-3">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
+          </Button>
+          <Button type="submit" form="form-rhf-password">
+            ایجاد رمز عبور
           </Button>
         </Field>
       </CardFooter>

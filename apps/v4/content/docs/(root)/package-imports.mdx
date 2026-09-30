@@ -1,20 +1,15 @@
 ---
-title: Package Imports
-description: Configure shadcn/ui with package.json imports.
+title: وارد کردن پکیج
+description: CLI مربوط به FarsiUI از Package Imports در package.json برای نصب کامپوننت‌ها، بازنویسی importها و مدیریت مسیرهای import پشتیبانی می‌کند.
 ---
 
-The `shadcn` CLI supports [package imports](https://nodejs.org/api/packages.html#imports)
-for installing components, rewriting imports, and resolving third-party
-registries.
+Package Imports به شما اجازه می‌دهد به‌جای استفاده از `compilerOptions.paths` در `tsconfig.json`، aliasهای خصوصی `#...` را مستقیماً در `package.json` تعریف کنید.
 
-Package imports let you use private `#...` import aliases from your
-`package.json` instead of `compilerOptions.paths` in `tsconfig.json`.
+## مثال
 
-## Example
+در `package.json`، بخش `imports` را تعریف کنید:
 
-You configure `imports` in your `package.json`:
-
-```json title="package.json" showLineNumbers
+```json
 {
   "imports": {
     "#components/*": "./src/components/*.tsx",
@@ -24,30 +19,33 @@ You configure `imports` in your `package.json`:
 }
 ```
 
-Then import generated components using `#...` specifiers:
+حالا می‌توانید کامپوننت‌ها و فایل‌های تولیدشده را با aliasهای `#...` وارد کنید:
 
 ```tsx
 import { Button } from "#components/ui/button"
 import { cn } from "#lib/utils"
 ```
 
-<Callout className="mt-6">
-  Package import specifiers must start with `#`. Use TypeScript 5 or later with
-  `moduleResolution: "bundler"` and `resolvePackageJsonImports: true`.
-</Callout>
+مسیرهای Package Imports باید با `#` شروع شوند.
 
-## App
+برای استفاده از این قابلیت، از **TypeScript 5 یا بالاتر** استفاده کنید و در `tsconfig.json` این تنظیمات را فعال کنید:
 
-For Next.js, Vite, and TanStack Start apps that install
-components into the same workspace.
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "resolvePackageJsonImports": true
+  }
+}
+```
 
-<Steps>
+## پروژه‌های معمولی
 
-### Configure `package.json`
+برای پروژه‌هایی که کامپوننت‌ها را در همان workspace نصب می‌کنند، می‌توانید مسیرهای Package Imports را در `package.json` تعریف کنید.
 
-Add imports for the shadcn/ui install targets.
+### تنظیم `package.json`
 
-```json title="package.json" showLineNumbers
+```json
 {
   "imports": {
     "#components/*": "./src/components/*.tsx",
@@ -57,10 +55,9 @@ Add imports for the shadcn/ui install targets.
 }
 ```
 
-If your app does not use a `src` directory, remove `src/` from the targets. For
-example:
+اگر پروژه شما پوشه `src` ندارد، آن را از مسیرها حذف کنید:
 
-```json title="package.json" showLineNumbers
+```json
 {
   "imports": {
     "#components/*": "./components/*.tsx",
@@ -70,11 +67,11 @@ example:
 }
 ```
 
-### Configure TypeScript
+### تنظیم TypeScript
 
-Enable package import resolution.
+در `tsconfig.json` امکان resolve کردن Package Imports را فعال کنید:
 
-```json title="tsconfig.json" showLineNumbers
+```json
 {
   "compilerOptions": {
     "moduleResolution": "bundler",
@@ -83,13 +80,13 @@ Enable package import resolution.
 }
 ```
 
-You do not need `compilerOptions.paths` for these aliases.
+برای این aliasها نیازی به `compilerOptions.paths` ندارید.
 
-### Configure `components.json`
+### تنظیم `components.json`
 
-Use the same `#...` roots in `components.json`.
+همان aliasهای `#...` را در `components.json` نیز استفاده کنید:
 
-```json title="components.json" showLineNumbers
+```json
 {
   "aliases": {
     "components": "#components",
@@ -101,22 +98,19 @@ Use the same `#...` roots in `components.json`.
 }
 ```
 
-The `ui` alias uses `#components/ui`. It is still covered by the
-`#components/*` import in `package.json`.
+alias مربوط به `ui` از `#components/ui` استفاده می‌کند و توسط الگوی `#components/*` در `package.json` پوشش داده می‌شود.
 
-The `utils` alias uses `#lib/utils`. It is covered by `#lib/*`, so you do not
-need a separate `#utils` import.
-
-</Steps>
+همچنین `utils` از `#lib/utils` استفاده می‌کند و توسط `#lib/*` پوشش داده می‌شود؛ بنابراین نیازی به تعریف `#utils` جداگانه نیست.
 
 ## Monorepo
 
-In a monorepo, use package imports for files inside each package and package
-exports for files shared across workspaces.
+در پروژه‌های Monorepo، برای فایل‌های داخل هر package از **Package Imports** و برای فایل‌هایی که بین workspaceها به اشتراک گذاشته می‌شوند از **Package Exports** استفاده کنید.
 
-For an app workspace:
+### workspace اپلیکیشن
 
-```json title="apps/web/package.json" showLineNumbers
+برای مثال، `apps/web/package.json`:
+
+```json
 {
   "name": "web",
   "private": true,
@@ -131,7 +125,9 @@ For an app workspace:
 }
 ```
 
-```json title="apps/web/components.json" showLineNumbers
+و `apps/web/components.json`:
+
+```json
 {
   "aliases": {
     "components": "#components",
@@ -143,9 +139,11 @@ For an app workspace:
 }
 ```
 
-For the shared UI package:
+### package رابط کاربری مشترک
 
-```json title="packages/ui/package.json" showLineNumbers
+برای `packages/ui/package.json`:
+
+```json
 {
   "name": "@workspace/ui",
   "private": true,
@@ -163,7 +161,9 @@ For the shared UI package:
 }
 ```
 
-```json title="packages/ui/components.json" showLineNumbers
+و `packages/ui/components.json`:
+
+```json
 {
   "aliases": {
     "components": "#components",
@@ -175,20 +175,20 @@ For the shared UI package:
 }
 ```
 
-When you run `add` from `apps/web`, app-local files use `#...` imports and
-shared UI files are imported from `@workspace/ui`.
+وقتی دستور `add` را از `apps/web` اجرا می‌کنید، فایل‌های محلی با importهای `#...` و فایل‌های مشترک UI از طریق `@workspace/ui` وارد می‌شوند:
 
 ```tsx
 import { Button } from "@workspace/ui/components/button"
 import { LoginForm } from "#components/login-form"
 ```
 
-## File extensions
+## پسوند فایل‌ها
 
-The target pattern in `package.json#imports` controls whether generated imports
-include file extensions.
+الگوی مسیر در `package.json#imports` مشخص می‌کند importهای تولیدشده پسوند فایل داشته باشند یا نه.
 
-```json title="package.json" showLineNumbers
+اگر مسیر شامل پسوند باشد:
+
+```json
 {
   "imports": {
     "#components/*": "./src/components/*.tsx"
@@ -196,15 +196,15 @@ include file extensions.
 }
 ```
 
-This generates imports without extensions:
+`import` بدون پسوند تولید می‌شود:
 
 ```tsx
 import { Button } from "#components/ui/button"
 ```
 
-If you use a target without the extension:
+اگر مسیر بدون پسوند باشد:
 
-```json title="package.json" showLineNumbers
+```json
 {
   "imports": {
     "#components/*": "./src/components/*"
@@ -212,23 +212,22 @@ If you use a target without the extension:
 }
 ```
 
-The generated import keeps the source extension:
+پسوند فایل اصلی در import باقی می‌ماند:
 
 ```tsx
 import { Button } from "#components/ui/button.tsx"
 ```
 
-For most apps, use the extension in the target pattern.
+برای بیشتر پروژه‌ها، استفاده از پسوند در الگوی target پیشنهاد می‌شود.
 
-## Troubleshooting
+## رفع خطا
 
-If TypeScript cannot resolve a `#...` import, check that:
+اگر TypeScript نمی‌تواند یک import با `#...` را پیدا کند، موارد زیر را بررسی کنید:
 
-- the specifier starts with `#`
-- the `imports` entry is in the nearest `package.json`
-- `moduleResolution` is set to `bundler`
-- `resolvePackageJsonImports` is enabled
-- the matching target exists after components are added
+- مسیر import با `#` شروع شود.
+- بخش `imports` در نزدیک‌ترین `package.json` تعریف شده باشد.
+- مقدار `moduleResolution` روی `bundler` باشد.
+- گزینه `resolvePackageJsonImports` فعال باشد.
+- مسیر مقصد بعد از اضافه شدن کامپوننت واقعاً وجود داشته باشد.
 
-If a component is installed but imports still point to `@/...`, check that
-`components.json` uses the same `#...` aliases as your package imports.
+اگر کامپوننت نصب شده اما importها همچنان با `@/...` ایجاد می‌شوند، بررسی کنید aliasهای `components.json` با مسیرهای Package Imports در `package.json` یکسان باشند.

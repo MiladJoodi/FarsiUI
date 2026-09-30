@@ -214,6 +214,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/docs/dark-mode",
+        destination: "/docs/dark-mode/next",
+        permanent: false,
+      },
+      {
         source: "/cli",
         destination: "/docs/cli",
         permanent: true,

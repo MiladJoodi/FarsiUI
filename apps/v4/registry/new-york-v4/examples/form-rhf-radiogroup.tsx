@@ -79,24 +79,25 @@ export default function FormRhfRadioGroup() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Subscription Plan</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>پلن اشتراک</CardTitle>
         <CardDescription>
-          See pricing and features for each plan.
+          قیمت و امکانات هر پلن را بررسی کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-radiogroup" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="plan"
               control={form.control}
               render={({ field, fieldState }) => (
                 <FieldSet data-invalid={fieldState.invalid}>
-                  <FieldLegend>Plan</FieldLegend>
+                  <FieldLegend>پلن</FieldLegend>
                   <FieldDescription>
-                    You can upgrade or downgrade your plan at any time.
+                    هر زمان بخواهید می‌توانید پلن خود را ارتقا دهید یا به پلن
+                    پایین‌تر برگردید.
                   </FieldDescription>
                   <RadioGroup
                     name={field.name}
@@ -137,13 +138,13 @@ export default function FormRhfRadioGroup() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-radiogroup">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

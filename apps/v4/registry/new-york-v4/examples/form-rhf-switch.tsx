@@ -57,16 +57,16 @@ export default function FormRhfSwitch() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Security Settings</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>تنظیمات امنیتی</CardTitle>
         <CardDescription>
-          Manage your account security preferences.
+          تنظیمات امنیتی حساب خود را مدیریت کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-switch" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="twoFactor"
               control={form.control}
@@ -77,10 +77,10 @@ export default function FormRhfSwitch() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-rhf-switch-twoFactor">
-                      Multi-factor authentication
+                      احراز هویت چندمرحله‌ای
                     </FieldLabel>
                     <FieldDescription>
-                      Enable multi-factor authentication to secure your account.
+                      برای محافظت از حساب، احراز هویت چندمرحله‌ای را فعال کنید.
                     </FieldDescription>
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -99,13 +99,13 @@ export default function FormRhfSwitch() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-switch">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

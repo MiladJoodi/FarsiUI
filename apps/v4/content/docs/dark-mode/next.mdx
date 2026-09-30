@@ -1,19 +1,23 @@
 ---
 title: Next.js
-description: Adding dark mode to your Next.js app.
+description: اضافه کردن حالت تاریک به پروژه Next.js
 ---
+
+در این راهنما نحوه اضافه کردن حالت تاریک به یک پروژه Next.js را می‌بینید.
 
 <Steps>
 
-## Install next-themes
+## نصب `next-themes`
 
-Start by installing `next-themes`:
+برای مدیریت تم روشن و تاریک، ابتدا `next-themes` را نصب کنید:
 
 ```bash
 npm install next-themes
 ```
 
-## Create a theme provider
+## ساخت Theme Provider
+
+یک فایل برای `ThemeProvider` ایجاد کنید:
 
 ```tsx title="components/theme-provider.tsx" showLineNumbers
 "use client"
@@ -29,17 +33,23 @@ export function ThemeProvider({
 }
 ```
 
-## Wrap your root layout
+این Provider امکان مدیریت تم و تغییر بین حالت روشن و تاریک را در کل برنامه فراهم می‌کند.
 
-Add the `ThemeProvider` to your root layout and add the `suppressHydrationWarning` prop to the `html` tag.
+## اضافه کردن Provider به Layout
+
+حالا `ThemeProvider` را به Layout اصلی برنامه اضافه کنید.
+
+همچنین برای جلوگیری از هشدارهای مربوط به Hydration، ویژگی `suppressHydrationWarning` را روی تگ `html` قرار دهید.
 
 ```tsx {1,6,9-14,16} title="app/layout.tsx" showLineNumbers
 import { ThemeProvider } from "@/components/theme-provider"
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="fa" suppressHydrationWarning>
         <head />
         <body>
           <ThemeProvider
@@ -57,9 +67,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
 }
 ```
 
-## Add a mode toggle
+با این تنظیمات، تم اولیه بر اساس تنظیمات سیستم کاربر انتخاب می‌شود و کاربر می‌تواند بین حالت روشن و تاریک جابه‌جا شود.
 
-Place a mode toggle on your site to toggle between light and dark mode.
+## اضافه کردن تغییر‌دهنده تم
+
+برای اینکه کاربر بتواند تم را تغییر دهد، یک دکمه یا کامپوننت تغییر تم به رابط کاربری اضافه کنید.
+
+این کامپوننت معمولاً با `useTheme` از `next-themes` ساخته می‌شود و امکان تغییر بین حالت‌های روشن، تاریک و سیستم را فراهم می‌کند.
+
+پس از اضافه کردن آن، کاربر می‌تواند مستقیماً از داخل برنامه حالت نمایش موردنظرش را انتخاب کند.
 
 <ComponentPreview
   styleName="new-york-v4"

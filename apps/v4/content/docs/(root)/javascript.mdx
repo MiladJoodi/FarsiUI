@@ -1,26 +1,26 @@
 ---
 title: JavaScript
-description: How to use shadcn/ui with JavaScript
+description: استفاده از FarsiUI در پروژه‌های JavaScript.
 ---
 
-This project and the components are written in TypeScript. We recommend using TypeScript for your project as well.
+FarsiUI و کامپوننت‌های آن با TypeScript نوشته شده‌اند و اگر امکانش را دارید، پیشنهاد می‌کنیم پروژه خود را هم با TypeScript توسعه دهید.
 
-However we provide a JavaScript version of the components as well. The JavaScript version is available via the [cli](/docs/cli).
+با این حال، اگر پروژه شما JavaScript است، می‌توانید نسخه JavaScript کامپوننت‌ها را با استفاده از CLI دریافت کنید.
 
-To opt-out of TypeScript, you can use the `tsx` flag in your `components.json` file.
+## استفاده از JavaScript
+
+برای استفاده از نسخه JavaScript، مقدار `tsx` را در فایل `components.json` روی `false` قرار دهید.
 
 ```json {4} title="components.json" showLineNumbers
 {
-  "style": "new-york",
-  "rsc": false,
+  "style": "default",
+  "rsc": true,
   "tsx": false,
   "tailwind": {
     "config": "",
     "css": "src/app/globals.css",
-    "baseColor": "zinc",
     "cssVariables": true
   },
-  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -31,7 +31,11 @@ To opt-out of TypeScript, you can use the `tsx` flag in your `components.json` f
 }
 ```
 
-To configure import aliases, you can use the following `jsconfig.json`:
+بعد از این تغییر، CLI فایل‌های کامپوننت را با پسوند JavaScript تولید می‌کند.
+
+## تنظیم aliasها
+
+اگر در پروژه JavaScript خود از import alias استفاده می‌کنید، می‌توانید مسیرها را در `jsconfig.json` مشخص کنید.
 
 ```json {4} title="jsconfig.json" showLineNumbers
 {
@@ -42,3 +46,10 @@ To configure import aliases, you can use the following `jsconfig.json`:
   }
 }
 ```
+
+با این تنظیم، می‌توانید به‌جای مسیرهای نسبی طولانی از aliasهایی مانند `@/components` و `@/lib` استفاده کنید.
+
+<Callout>
+  استفاده از JavaScript نیازی به تغییر ساختار کامپوننت‌ها ندارد. تنها کافی است
+  `tsx` را در `components.json` غیرفعال کنید.
+</Callout>

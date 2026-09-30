@@ -78,16 +78,16 @@ export default function FormRhfSelect() {
   }
 
   return (
-    <Card className="w-full sm:max-w-lg">
-      <CardHeader>
-        <CardTitle>Language Preferences</CardTitle>
+    <Card className="w-full sm:max-w-lg gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>تنظیمات زبان</CardTitle>
         <CardDescription>
-          Select your preferred spoken language.
+          زبان گفتاری موردنظر خود را انتخاب کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-select" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="language"
               control={form.control}
@@ -98,10 +98,11 @@ export default function FormRhfSelect() {
                 >
                   <FieldContent>
                     <FieldLabel htmlFor="form-rhf-select-language">
-                      Spoken Language
+                      زبان گفتاری
                     </FieldLabel>
                     <FieldDescription>
-                      For best results, select the language you speak.
+                      برای دریافت نتیجهٔ بهتر، زبانی را انتخاب کنید که به آن
+                      صحبت می‌کنید.
                     </FieldDescription>
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -117,10 +118,10 @@ export default function FormRhfSelect() {
                       aria-invalid={fieldState.invalid}
                       className="min-w-[120px]"
                     >
-                      <SelectValue placeholder="Select" />
+                      <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent position="item-aligned">
-                      <SelectItem value="auto">Auto</SelectItem>
+                      <SelectItem value="auto">خودکار</SelectItem>
                       <SelectSeparator />
                       {spokenLanguages.map((language) => (
                         <SelectItem key={language.value} value={language.value}>
@@ -135,13 +136,13 @@ export default function FormRhfSelect() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-select">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

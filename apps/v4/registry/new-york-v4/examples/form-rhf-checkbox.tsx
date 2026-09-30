@@ -30,11 +30,11 @@ import {
 const tasks = [
   {
     id: "push",
-    label: "Push notifications",
+    label: "اعلان Push",
   },
   {
     id: "email",
-    label: "Email notifications",
+    label: "اعلان ایمیل",
   },
 ] as const
 
@@ -78,24 +78,24 @@ export default function FormRhfCheckbox() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>Manage your notification preferences.</CardDescription>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>اعلان‌ها</CardTitle>
+        <CardDescription>تنظیمات اعلان‌های خود را مدیریت کنید.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-checkbox" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="responses"
               control={form.control}
               render={({ field, fieldState }) => (
                 <div>
                   <FieldSet data-invalid={fieldState.invalid}>
-                    <FieldLegend variant="label">Responses</FieldLegend>
+                    <FieldLegend variant="label">پاسخ‌ها</FieldLegend>
                     <FieldDescription>
-                      Get notified for requests that take time, like research or
-                      image generation.
+                      برای درخواست‌هایی که زمان می‌برند، مثل Research یا تولید
+                      تصویر، اعلان دریافت کنید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       <Field orientation="horizontal">
@@ -110,7 +110,7 @@ export default function FormRhfCheckbox() {
                           htmlFor="form-rhf-checkbox-responses"
                           className="font-normal"
                         >
-                          Push notifications
+                          اعلان Push
                         </FieldLabel>
                       </Field>
                     </FieldGroup>
@@ -126,11 +126,12 @@ export default function FormRhfCheckbox() {
               name="tasks"
               control={form.control}
               render={({ field, fieldState }) => (
-                <FieldGroup>
+                <FieldGroup className="gap-4">
                   <FieldSet data-invalid={fieldState.invalid}>
-                    <FieldLegend variant="label">Tasks</FieldLegend>
+                    <FieldLegend variant="label">وظایف</FieldLegend>
                     <FieldDescription>
-                      Get notified when tasks you&apos;ve created have updates.
+                      وقتی در Taskهایی که ساخته‌اید به‌روزرسانی ایجاد می‌شود،
+                      مطلع شوید.
                     </FieldDescription>
                     <FieldGroup data-slot="checkbox-group">
                       {tasks.map((task) => (
@@ -172,13 +173,13 @@ export default function FormRhfCheckbox() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-checkbox">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

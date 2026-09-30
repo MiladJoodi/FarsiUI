@@ -1,131 +1,136 @@
 ---
 title: Monorepo
-description: Using shadcn/ui components and CLI in a monorepo.
+description: استفاده از کامپوننت‌ها و CLI در پروژه‌های Monorepo.
 ---
 
-Until now, using shadcn/ui in a monorepo was a bit of a pain. You could add
-components using the CLI, but you had to manage where the components
-were installed and manually fix import paths.
+FarsiUI برای استفاده در پروژه‌های Monorepo طراحی شده و CLI می‌تواند ساختار workspaceها، مسیر کامپوننت‌ها، وابستگی‌ها و importها را در نظر بگیرد.
 
-With the new monorepo support in the CLI, we've made it a lot easier to use
-shadcn/ui in a monorepo.
-
-The CLI now understands the monorepo structure and will install the components,
-dependencies and registry dependencies to the correct paths and handle imports
-for you.
-
-## Getting started
+## شروع کار
 
 <Steps>
 
-### Create a new monorepo project
+### ساخت یک پروژه جدید
 
-To create a new monorepo project, run the `init` command with the `--monorepo` flag.
-
-```bash
-npx shadcn@latest init --monorepo
-```
-
-Then select the template you want to use.
+برای ساخت یک پروژه Monorepo می‌توانید دستور `init` را با گزینه `--monorepo` اجرا کنید:
 
 ```bash
-? Select a template ›
-❯   Next.js
-    Vite
-    TanStack Start
-    React Router
-    Astro
+npx farsiui@latest init --monorepo
 ```
 
-This will create a new monorepo project with two workspaces: `web` and `ui`,
-and [Turborepo](https://turbo.build/repo/docs) as the build system.
+سپس قالب موردنظر را انتخاب کنید:
 
-Everything is set up for you, so you can start adding components to your project.
+```text
+? Select a template
+❯ Next.js
+  Vite
+  TanStack Start
+  React Router
+  Astro
+```
 
-### Add components to your project
+ساختار پروژه شامل workspace مربوط به اپلیکیشن و workspace مربوط به کامپوننت‌های مشترک خواهد بود.
 
-To add components to your project, run the `add` command **in the path of your app**.
+برای مثال:
+
+```text
+apps/
+└── web/
+
+packages/
+└── ui/
+```
+
+همه تنظیمات اولیه لازم برای شروع کار با FarsiUI در ساختار Monorepo انجام می‌شود.
+
+### اضافه کردن کامپوننت‌ها
+
+برای اضافه کردن کامپوننت، ابتدا وارد مسیر اپلیکیشن موردنظر شوید:
 
 ```bash
 cd apps/web
 ```
 
+سپس کامپوننت را اضافه کنید:
+
 ```bash
-npx shadcn@latest add [COMPONENT]
+npx farsiui@latest add button
 ```
 
-The CLI will figure out what type of component you are adding and install the
-correct files to the correct path.
+CLI ساختار Monorepo را بررسی می‌کند و فایل‌های موردنیاز را در مسیر مناسب قرار می‌دهد.
 
-For example, if you run `npx shadcn@latest add button`, the CLI will install the button component under `packages/ui` and update the import path for components in `apps/web`.
+برای مثال، ممکن است کامپوننت `button` در `packages/ui` قرار بگیرد و import آن در `apps/web` به شکل مناسب تنظیم شود.
 
-If you run `npx shadcn@latest add login-01`, the CLI will install the `button`, `label`, `input` and `card` components under `packages/ui` and the `login-form` component under `apps/web/components`.
+</Steps>
 
-### Importing components
+## Import کردن کامپوننت‌ها
 
-You can import components from the `@workspace/ui` package as follows:
+بعد از اضافه کردن کامپوننت‌ها، می‌توانید آن‌ها را از پکیج UI وارد کنید:
 
 ```tsx
 import { Button } from "@workspace/ui/components/button"
 ```
 
-You can also import hooks and utilities from the `@workspace/ui` package.
+همین ساختار برای hookها و utilityها هم قابل استفاده است:
 
 ```tsx
 import { useTheme } from "@workspace/ui/hooks/use-theme"
 import { cn } from "@workspace/ui/lib/utils"
 ```
 
-</Steps>
+## ساختار فایل‌ها
 
-## File Structure
+یک ساختار معمول برای پروژه Monorepo می‌تواند به این شکل باشد:
 
-When you create a new monorepo project, the CLI will create the following file structure:
-
-```txt
-apps
-└── web         # Your app goes here.
-    ├── app
+```text
+apps/
+└── web/
+    ├── app/
     │   └── page.tsx
-    ├── components
+    ├── components/
     │   └── login-form.tsx
     ├── components.json
     └── package.json
-packages
-└── ui          # Your components and dependencies are installed here.
-    ├── src
-    │   ├── components
+
+packages/
+└── ui/
+    ├── src/
+    │   ├── components/
     │   │   └── button.tsx
-    │   ├── hooks
-    │   ├── lib
+    │   ├── hooks/
+    │   ├── lib/
     │   │   └── utils.ts
-    │   └── styles
+    │   └── styles/
     │       └── globals.css
     ├── components.json
     └── package.json
+
 package.json
 turbo.json
 ```
 
-## Requirements
+در این ساختار:
 
-1. Every workspace must have a `components.json` file. A `package.json` file tells npm how to install the dependencies. A `components.json` file tells the CLI how and where to install components.
+- `apps/web` اپلیکیشن اصلی است.
+- `packages/ui` کامپوننت‌ها و کدهای قابل استفاده مجدد را نگه می‌دارد.
+- هر workspace تنظیمات مربوط به خودش را در `components.json` دارد.
 
-2. The `components.json` file must properly define aliases for the workspace. This tells the CLI how to import components, hooks, utilities, etc.
+## تنظیم `components.json`
 
-```json showLineNumbers title="apps/web/components.json"
+هر workspace باید `components.json` متناسب با ساختار خودش داشته باشد.
+
+برای اپلیکیشن:
+
+```json title="apps/web/components.json" showLineNumbers
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "base-nova",
+  "$schema": "https://farsiui.ir/schema.json",
+  "style": "default",
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "",
     "css": "../../packages/ui/src/styles/globals.css",
-    "baseColor": "neutral",
     "cssVariables": true
   },
-  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "hooks": "@/hooks",
@@ -136,19 +141,19 @@ turbo.json
 }
 ```
 
-```json showLineNumbers title="packages/ui/components.json"
+و برای پکیج UI:
+
+```json title="packages/ui/components.json" showLineNumbers
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "base-nova",
+  "$schema": "https://farsiui.ir/schema.json",
+  "style": "default",
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "",
     "css": "src/styles/globals.css",
-    "baseColor": "neutral",
     "cssVariables": true
   },
-  "iconLibrary": "lucide",
   "aliases": {
     "components": "@workspace/ui/components",
     "utils": "@workspace/ui/lib/utils",
@@ -159,31 +164,24 @@ turbo.json
 }
 ```
 
-3. Ensure you have the same `style`, `iconLibrary` and `baseColor` in both `components.json` files.
+### نکات مهم
 
-4. **For Tailwind CSS v4, leave the `tailwind` config empty in the `components.json` file.**
+برای اینکه CLI بتواند فایل‌ها را در مسیر درست قرار دهد:
 
-By following these requirements, the CLI will be able to install ui components, blocks, libs and hooks to the correct paths and handle imports for you.
+1. هر workspace باید `components.json` خودش را داشته باشد.
+2. aliasها باید مسیر واقعی کامپوننت‌ها، hookها و utilityها را مشخص کنند.
+3. تنظیمات `style`، `tsx` و سایر گزینه‌ها باید بین workspaceها با ساختار پروژه هماهنگ باشند.
+4. در Tailwind CSS v4، مقدار `tailwind.config` باید خالی باشد.
 
-<Callout className="mt-6">
-  `package.json#imports` works well for package-local aliases inside a
-  workspace, for example inside `packages/ui`. For shared workspace imports such
-  as `@workspace/ui/components`, keep explicit aliases in `components.json`. The
-  CLI uses those aliases to route files across workspace boundaries.
-</Callout>
+با تنظیم درست این موارد، CLI می‌تواند کامپوننت‌ها و وابستگی‌های آن‌ها را در workspace مناسب قرار دهد و importهای لازم را مدیریت کند.
 
-## Using `package.json#imports`
+## استفاده از `package.json#imports`
 
-For a monorepo that uses package imports and does not rely on
-`tsconfig.json` `paths`, use:
+در یک Monorepo می‌توانید برای مسیرهای داخلی هر workspace از `package.json#imports` استفاده کنید.
 
-- local `#...` aliases for files inside each workspace
-- workspace package `exports` for shared imports such as
-  `@workspace/ui/components`
+برای مثال:
 
-For example, an app workspace can use local package imports:
-
-```json showLineNumbers title="apps/web/package.json"
+```json title="apps/web/package.json" showLineNumbers
 {
   "name": "web",
   "private": true,
@@ -199,7 +197,9 @@ For example, an app workspace can use local package imports:
 }
 ```
 
-```json showLineNumbers title="apps/web/components.json"
+در این حالت می‌توانید aliasهای محلی را در `components.json` تعریف کنید:
+
+```json title="apps/web/components.json" showLineNumbers
 {
   "aliases": {
     "components": "#components",
@@ -211,9 +211,11 @@ For example, an app workspace can use local package imports:
 }
 ```
 
-And the shared UI package can expose its install targets with `exports`:
+برای importهای بین workspaceها، پکیج مقصد باید مسیرهای موردنیاز را در `exports` در اختیار workspaceهای دیگر قرار دهد.
 
-```json showLineNumbers title="packages/ui/package.json"
+برای مثال:
+
+```json title="packages/ui/package.json" showLineNumbers
 {
   "name": "@workspace/ui",
   "private": true,
@@ -232,7 +234,9 @@ And the shared UI package can expose its install targets with `exports`:
 }
 ```
 
-```json showLineNumbers title="packages/ui/components.json"
+و تنظیمات `components.json` می‌تواند از aliasهای محلی استفاده کند:
+
+```json title="packages/ui/components.json" showLineNumbers
 {
   "aliases": {
     "components": "#components",
@@ -244,11 +248,10 @@ And the shared UI package can expose its install targets with `exports`:
 }
 ```
 
-In this setup:
+در این ساختار:
 
-- files added from the app to the shared UI package are routed through
-  `@workspace/ui/...`
-- files added inside `packages/ui` use the package-local `#...` aliases
-- the shared package must export any path referenced by another workspace
+- فایل‌هایی که از اپلیکیشن به پکیج UI اضافه می‌شوند، از مسیر `@workspace/ui/...` در دسترس هستند.
+- فایل‌های داخل `packages/ui` می‌توانند از aliasهای محلی `#...` استفاده کنند.
+- هر مسیری که workspace دیگری به آن دسترسی دارد باید از طریق `exports` پکیج مقصد در دسترس باشد.
 
-For framework-specific package import setup, see the [package imports guide](/docs/package-imports).
+برای جزئیات بیشتر درباره `package.json#imports`، راهنمای [Package Imports](/docs/package-imports) را ببینید.

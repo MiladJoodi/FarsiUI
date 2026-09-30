@@ -1,44 +1,44 @@
 ---
 title: React Hook Form
-description: Build forms in React using React Hook Form and Zod.
+description: ساخت فرم در React با استفاده از React Hook Form و Zod.
 links:
   doc: https://react-hook-form.com
 ---
 
 import { InfoIcon } from "lucide-react"
 
-In this guide, we will take a look at building forms with React Hook Form. We'll cover building forms with the `<Field />` component, adding schema validation using Zod, error handling, accessibility, and more.
+در این راهنما ساخت فرم با React Hook Form را بررسی می‌کنیم؛ از ساخت فرم با کامپوننت **`<Field />`** گرفته تا اعتبارسنجی Schema با Zod، مدیریت خطا، دسترس‌پذیری و موارد دیگر.
 
 ## Demo
 
-We are going to build the following form. It has a simple text input and a textarea. On submit, we'll validate the form data and display any errors.
+در این Demo یک فرم ساده با یک ورودی متنی و یک Textarea می‌سازیم. هنگام ارسال فرم، داده‌ها اعتبارسنجی می‌شوند و خطاهای احتمالی نمایش داده خواهند شد.
 
 <Callout icon={<InfoIcon />}>
-  **Note:** For the purpose of this demo, we have intentionally disabled browser
-  validation to show how schema validation and form errors work in React Hook
-  Form. It is recommended to add basic browser validation in your production
-  code.
+  **نکته:** برای این Demo، اعتبارسنجی پیش‌فرض مرورگر را عمداً غیرفعال کرده‌ایم تا
+  نحوهٔ کار Schema Validation و مدیریت خطا در React Hook Form مشخص باشد. در
+  پروژهٔ واقعی بهتر است اعتبارسنجی پایهٔ مرورگر را نیز فعال نگه دارید.
 </Callout>
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-demo"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
-## Approach
+## رویکرد
 
-This form leverages React Hook Form for performant, flexible form handling. We'll build our form using the `<Field />` component, which gives you **complete flexibility over the markup and styling**.
+این فرم برای مدیریت سریع و انعطاف‌پذیر وضعیت فرم از React Hook Form استفاده می‌کند. فرم را با کامپوننت **`<Field />`** می‌سازیم تا کنترل کاملی روی Markup و Styling داشته باشیم.
 
-- Uses React Hook Form's `useForm` hook for form state management.
-- `<Controller />` component for controlled inputs.
-- `<Field />` components for building accessible forms.
-- Client-side validation using Zod with `zodResolver`.
+- استفاده از Hook **`useForm`** در React Hook Form برای مدیریت وضعیت فرم.
+- استفاده از کامپوننت **`<Controller />`** برای ورودی‌های Controlled.
+- استفاده از کامپوننت‌های **`<Field />`** برای ساخت فرم‌های دسترس‌پذیر.
+- اعتبارسنجی سمت Client با Zod و **`zodResolver`**.
 
-## Anatomy
+## ساختار
 
-Here's a basic example of a form using the `<Controller />` component from React Hook Form and the `<Field />` component.
+در مثال پایه، از **`<Controller />`** در React Hook Form و **`<Field />`** برای ساخت فرم استفاده می‌کنیم:
 
 ```tsx showLineNumbers {5-18}
 <Controller
@@ -57,22 +57,24 @@ Here's a basic example of a form using the `<Controller />` component from React
       <FieldDescription>
         Provide a concise title for your bug report.
       </FieldDescription>
-      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+      {fieldState.invalid && (
+        <FieldError errors={[fieldState.error]} />
+      )}
     </Field>
   )}
 />
 ```
 
-## Form
+## فرم
 
-### Create a form schema
+### ساخت Schema فرم
 
-We'll start by defining the shape of our form using a Zod schema.
+ابتدا ساختار فرم را با یک Schema از Zod تعریف می‌کنیم.
 
 <Callout icon={<InfoIcon />}>
-  **Note:** This example uses `zod v3` for schema validation, but you can
-  replace it with any other Standard Schema validation library supported by
-  React Hook Form.
+  **نکته:** این مثال از **`zod v3`** برای اعتبارسنجی Schema استفاده می‌کند، اما
+  می‌توانید از هر کتابخانهٔ اعتبارسنجی Standard Schema که React Hook Form از آن
+  پشتیبانی می‌کند نیز استفاده کنید.
 </Callout>
 
 ```tsx showLineNumbers title="form.tsx"
@@ -90,9 +92,9 @@ const formSchema = z.object({
 })
 ```
 
-### Set up the form
+### راه‌اندازی فرم
 
-Next, we'll use the `useForm` hook from React Hook Form to create our form instance. We'll also add the Zod resolver to validate the form data.
+سپس با استفاده از Hook **`useForm`** در React Hook Form، Instance فرم را ایجاد می‌کنیم و Resolver مربوط به Zod را برای اعتبارسنجی داده‌ها اضافه می‌کنیم.
 
 ```tsx showLineNumbers title="form.tsx" {17-23}
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -134,26 +136,26 @@ export function BugReportForm() {
 }
 ```
 
-### Build the form
+### ساخت فرم
 
-We can now build the form using the `<Controller />` component from React Hook Form and the `<Field />` component.
+حالا می‌توانیم فرم را با استفاده از کامپوننت **`<Controller />`** در React Hook Form و کامپوننت **`<Field />`** بسازیم.
 
 <ComponentSource
   src="/registry/new-york-v4/examples/form-rhf-demo.tsx"
   title="form.tsx"
 />
 
-### Done
+### تمام شد
 
-That's it. You now have a fully accessible form with client-side validation.
+همین! حالا یک فرم کاملاً دسترس‌پذیر با اعتبارسنجی سمت Client دارید.
 
-When you submit the form, the `onSubmit` function will be called with the validated form data. If the form data is invalid, React Hook Form will display the errors next to each field.
+هنگام ارسال فرم، تابع **`onSubmit`** با داده‌های اعتبارسنجی‌شدهٔ فرم اجرا می‌شود. اگر داده‌ها معتبر نباشند، React Hook Form خطاها را در کنار فیلدهای مربوطه نمایش می‌دهد.
 
-## Validation
+## اعتبارسنجی
 
-### Client-side Validation
+### اعتبارسنجی سمت Client
 
-React Hook Form validates your form data using the Zod schema. Define a schema and pass it to the `resolver` option of the `useForm` hook.
+React Hook Form داده‌های فرم را با استفاده از Schema مربوط به Zod اعتبارسنجی می‌کند. Schema را تعریف کنید و آن را به Option مربوط به **`resolver`** در Hook **`useForm`** بدهید.
 
 ```tsx showLineNumbers title="example-form.tsx" {5-8,12}
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -176,9 +178,9 @@ export function ExampleForm() {
 }
 ```
 
-### Validation Modes
+### حالت‌های اعتبارسنجی
 
-React Hook Form supports different validation modes.
+React Hook Form از حالت‌های مختلفی برای اعتبارسنجی پشتیبانی می‌کند.
 
 ```tsx showLineNumbers title="form.tsx" {3}
 const form = useForm<z.infer<typeof formSchema>>({
@@ -187,20 +189,22 @@ const form = useForm<z.infer<typeof formSchema>>({
 })
 ```
 
-| Mode          | Description                                              |
-| ------------- | -------------------------------------------------------- |
-| `"onChange"`  | Validation triggers on every change.                     |
-| `"onBlur"`    | Validation triggers on blur.                             |
-| `"onSubmit"`  | Validation triggers on submit (default).                 |
-| `"onTouched"` | Validation triggers on first blur, then on every change. |
-| `"all"`       | Validation triggers on blur and change.                  |
+| Mode              | توضیحات                                                          |
+| ----------------- | ---------------------------------------------------------------- |
+| **`"onChange"`**  | اعتبارسنجی با هر تغییر انجام می‌شود.                             |
+| **`"onBlur"`**    | اعتبارسنجی هنگام خارج شدن Focus از فیلد انجام می‌شود.            |
+| **`"onSubmit"`**  | اعتبارسنجی هنگام ارسال فرم انجام می‌شود. حالت پیش‌فرض.           |
+| **`"onTouched"`** | ابتدا هنگام Blur و پس از آن با هر تغییر اعتبارسنجی انجام می‌شود. |
+| **`"all"`**       | اعتبارسنجی هنگام Blur و Change انجام می‌شود.                     |
 
-## Displaying Errors
+## نمایش خطاها
 
-Display errors next to the field using `<FieldError />`. For styling and accessibility:
+برای نمایش خطا در کنار فیلد از **`<FieldError />`** استفاده کنید.
 
-- Add the `data-invalid` prop to the `<Field />` component.
-- Add the `aria-invalid` prop to the form control such as `<Input />`, `<SelectTrigger />`, `<Checkbox />`, etc.
+برای Styling و دسترس‌پذیری:
+
+- Prop **`data-invalid`** را به کامپوننت **`<Field />`** اضافه کنید.
+- Prop **`aria-invalid`** را به کنترل فرم، مانند **`<Input />`**، **`<SelectTrigger />`**، **`<Checkbox />`** و موارد مشابه اضافه کنید.
 
 ```tsx showLineNumbers title="form.tsx" {5,11,13}
 <Controller
@@ -221,21 +225,22 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 />
 ```
 
-## Working with Different Field Types
+## کار با انواع مختلف فیلد
 
 ### Input
 
-- For input fields, spread the `field` object onto the `<Input />` component.
-- To show errors, add the `aria-invalid` prop to the `<Input />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای ورودی، Object مربوط به **`field`** را روی کامپوننت **`<Input />`** Spread کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Input />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-input"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
-For simple text inputs, spread the `field` object onto the input.
+برای ورودی‌های متنی ساده، Object مربوط به **`field`** را مستقیماً روی Input Spread کنید.
 
 ```tsx showLineNumbers title="form.tsx" {5,7,8}
 <Controller
@@ -253,17 +258,18 @@ For simple text inputs, spread the `field` object onto the input.
 
 ### Textarea
 
-- For textarea fields, spread the `field` object onto the `<Textarea />` component.
-- To show errors, add the `aria-invalid` prop to the `<Textarea />` component and the `data-invalid` prop to the `<Field />` component.
+- برای فیلدهای Textarea، Object مربوط به **`field`** را روی کامپوننت **`<Textarea />`** Spread کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Textarea />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-textarea"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
-For textarea fields, spread the `field` object onto the textarea.
+برای فیلدهای Textarea، Object مربوط به **`field`** را روی **`<Textarea />`** Spread کنید.
 
 ```tsx showLineNumbers title="form.tsx" {5,10,18}
 <Controller
@@ -291,14 +297,15 @@ For textarea fields, spread the `field` object onto the textarea.
 
 ### Select
 
-- For select components, use `field.value` and `field.onChange` on the `<Select />` component.
-- To show errors, add the `aria-invalid` prop to the `<SelectTrigger />` component and the `data-invalid` prop to the `<Field />` component.
+- برای کامپوننت‌های Select، از **`field.value`** و **`field.onChange`** روی کامپوننت **`<Select />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<SelectTrigger />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-select"
-  className="sm:[&_.preview]:h-[500px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {5,13,22}
@@ -340,15 +347,16 @@ For textarea fields, spread the `field` object onto the textarea.
 
 ### Checkbox
 
-- For checkbox arrays, use `field.value` and `field.onChange` with array manipulation.
-- To show errors, add the `aria-invalid` prop to the `<Checkbox />` component and the `data-invalid` prop to the `<Field />` component.
-- Remember to add `data-slot="checkbox-group"` to the `<FieldGroup />` component for proper styling and spacing.
+- برای آرایه‌ای از Checkboxها، از **`field.value`** و **`field.onChange`** همراه با مدیریت آرایه استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Checkbox />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
+- برای اعمال صحیح Styling و فاصله‌گذاری، حتماً **`data-slot="checkbox-group"`** را به **`<FieldGroup />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-checkbox"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {10,15,20-22,38}
@@ -397,14 +405,15 @@ For textarea fields, spread the `field` object onto the textarea.
 
 ### Radio Group
 
-- For radio groups, use `field.value` and `field.onChange` on the `<RadioGroup />` component.
-- To show errors, add the `aria-invalid` prop to the `<RadioGroupItem />` component and the `data-invalid` prop to the `<Field />` component.
+- برای Radio Groupها، از **`field.value`** و **`field.onChange`** روی کامپوننت **`<RadioGroup />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<RadioGroupItem />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-radiogroup"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {12-13,17,25,31}
@@ -446,14 +455,15 @@ For textarea fields, spread the `field` object onto the textarea.
 
 ### Switch
 
-- For switches, use `field.value` and `field.onChange` on the `<Switch />` component.
-- To show errors, add the `aria-invalid` prop to the `<Switch />` component and the `data-invalid` prop to the `<Field />` component.
+- برای Switchها، از **`field.value`** و **`field.onChange`** روی کامپوننت **`<Switch />`** استفاده کنید.
+- برای نمایش خطا، Prop **`aria-invalid`** را به **`<Switch />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-switch"
-  className="sm:[&_.preview]:h-[500px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {5,13,18-19}
@@ -483,20 +493,21 @@ For textarea fields, spread the `field` object onto the textarea.
 />
 ```
 
-### Complex Forms
+### فرم‌های پیچیده
 
-Here is an example of a more complex form with multiple fields and validation.
+در اینجا نمونه‌ای از یک فرم پیچیده‌تر با چندین فیلد و اعتبارسنجی را می‌بینید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-complex"
-  className="sm:[&_.preview]:h-[1300px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
-## Resetting the Form
+## بازنشانی فرم
 
-Use `form.reset()` to reset the form to its default values.
+برای بازگرداندن فرم به مقادیر پیش‌فرض، از **`form.reset()`** استفاده کنید.
 
 ```tsx showLineNumbers
 <Button type="button" variant="outline" onClick={() => form.reset()}>
@@ -504,20 +515,21 @@ Use `form.reset()` to reset the form to its default values.
 </Button>
 ```
 
-## Array Fields
+## فیلدهای آرایه‌ای
 
-React Hook Form provides a `useFieldArray` hook for managing dynamic array fields. This is useful when you need to add or remove fields dynamically.
+React Hook Form برای مدیریت فیلدهای آرایه‌ای پویا، Hook **`useFieldArray`** را ارائه می‌دهد. زمانی که نیاز دارید فیلدها را به‌صورت پویا اضافه یا حذف کنید، می‌توانید از آن استفاده کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-array"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
   chromeLessOnMobile
+  align="start"
 />
 
-### Using useFieldArray
+### استفاده از `useFieldArray`
 
-Use the `useFieldArray` hook to manage array fields. It provides `fields`, `append`, and `remove` methods.
+برای مدیریت فیلدهای آرایه‌ای از Hook **`useFieldArray`** استفاده کنید. این Hook متدهای **`fields`**، **`append`** و **`remove`** را در اختیار شما قرار می‌دهد.
 
 ```tsx showLineNumbers title="form.tsx" {8-11}
 import { useFieldArray, useForm } from "react-hook-form"
@@ -534,9 +546,9 @@ export function ExampleForm() {
 }
 ```
 
-### Array Field Structure
+### ساختار فیلدهای آرایه‌ای
 
-Wrap your array fields in a `<FieldSet />` with a `<FieldLegend />` and `<FieldDescription />`.
+فیلدهای آرایه‌ای را داخل **`<FieldSet />`** قرار دهید و برای آن عنوان و توضیحات را با **`<FieldLegend />`** و **`<FieldDescription />`** مشخص کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 <FieldSet className="gap-4">
@@ -548,9 +560,9 @@ Wrap your array fields in a `<FieldSet />` with a `<FieldLegend />` and `<FieldD
 </FieldSet>
 ```
 
-### Controller Pattern for Array Items
+### الگوی `Controller` برای آیتم‌های آرایه
 
-Map over the `fields` array and use `<Controller />` for each item. **Make sure to use `field.id` as the key**.
+روی آرایهٔ **`fields`** پیمایش کنید و برای هر آیتم از **`<Controller />`** استفاده کنید. حتماً **`field.id`** را به‌عنوان `key` قرار دهید.
 
 ```tsx showLineNumbers title="form.tsx"
 {
@@ -582,9 +594,9 @@ Map over the `fields` array and use `<Controller />` for each item. **Make sure 
 }
 ```
 
-### Adding Items
+### افزودن آیتم
 
-Use the `append` method to add new items to the array.
+برای اضافه کردن آیتم جدید به آرایه از متد **`append`** استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 <Button
@@ -598,9 +610,9 @@ Use the `append` method to add new items to the array.
 </Button>
 ```
 
-### Removing Items
+### حذف آیتم
 
-Use the `remove` method to remove items from the array. Add the remove button conditionally.
+برای حذف آیتم از آرایه از متد **`remove`** استفاده کنید. دکمهٔ حذف را نیز می‌توانید به‌صورت شرطی نمایش دهید.
 
 ```tsx showLineNumbers title="form.tsx"
 {
@@ -620,9 +632,9 @@ Use the `remove` method to remove items from the array. Add the remove button co
 }
 ```
 
-### Array Validation
+### اعتبارسنجی آرایه
 
-Use Zod's `array` method to validate array fields.
+برای اعتبارسنجی فیلدهای آرایه‌ای از متد **`array`** در Zod استفاده کنید.
 
 ```tsx showLineNumbers title="form.tsx"
 const formSchema = z.object({

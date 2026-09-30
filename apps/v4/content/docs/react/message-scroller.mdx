@@ -1,37 +1,36 @@
 ---
 title: Message Scroller
-description: Use the MessageScroller behavior directly from the @farsiui/react package with your own markup and styles.
+description: کامپوننت MessageScroller برای ساخت رابط‌های پیام‌رسان، چت و خروجی‌های Streaming.
 ---
 
-`MessageScroller` ships as a headless primitive in the `@farsiui/react` package.
-The package owns all of the scroll behavior, anchoring turns, following streamed
-output, preserving the reader's place as history loads, and tracking visibility,
-and renders no styles of its own.
+کامپوننت `MessageScroller` برای ساخت رابط‌های پیام‌رسان، چت و خروجی‌های Streaming طراحی شده است.
 
-The `message-scroller.tsx` component in the registry is a thin wrapper that adds
-Tailwind classes on top. Use the package directly when you want full control over
-the markup and styles, or when you are not using the registry.
+`MessageScroller` در پکیج `@farsiui/react` به‌صورت یک primitive بدون استایل ارائه می‌شود. این primitive مدیریت اسکرول، حفظ موقعیت کاربر هنگام اضافه شدن پیام‌های قدیمی، دنبال کردن خروجی در حال Streaming، لنگر کردن پیام‌ها و تشخیص پیام‌های قابل مشاهده را بر عهده دارد.
 
-For the behavior guide and live examples, see the
-[Message Scroller](/docs/components/base/message-scroller) component.
+ظاهر و استایل کامپوننت را می‌توانید کاملاً مطابق نیاز پروژه خود پیاده‌سازی کنید.
 
-## Installation
+برای راهنمای رفتار و مثال‌های زنده، صفحهٔ [Message Scroller](/docs/components/base/message-scroller) را ببینید.
+
+## نصب
+
+پکیج `@farsiui/react` را نصب کنید:
 
 ```bash
-npm install @farsiui/react
+pnpm add @farsiui/react
 ```
 
-## Usage
+## استفاده
 
 ```tsx
 import {
   MessageScroller,
   useMessageScroller,
+  useMessageScrollerScrollable,
+  useMessageScrollerVisibility,
 } from "@farsiui/react/message-scroller"
 ```
 
-The package exports a namespace object instead of flat components. The parts and
-behavior are the same as the styled component, just unstyled.
+`MessageScroller` به‌صورت یک namespace ارائه می‌شود و بخش‌های مختلف آن از طریق همین namespace در دسترس هستند.
 
 ```tsx
 <MessageScroller.Provider>
@@ -44,22 +43,22 @@ behavior are the same as the styled component, just unstyled.
             messageId={message.id}
             scrollAnchor={message.role === "user"}
           >
-            {/* your message UI */}
+            {/* رابط کاربری پیام */}
           </MessageScroller.Item>
         ))}
       </MessageScroller.Content>
     </MessageScroller.Viewport>
+
     <MessageScroller.Button />
   </MessageScroller.Root>
 </MessageScroller.Provider>
 ```
 
-## Parts
+## بخش‌ها
 
-If you are coming from the styled component, the flat parts map to the namespace
-object like this.
+اگر قبلاً از نسخهٔ استایل‌دار استفاده کرده‌اید، معادل بخش‌های آن در نسخهٔ بدون استایل به شکل زیر است:
 
-| Styled component          | Unstyled part              |
+| کامپوننت                  | بخش بدون استایل            |
 | ------------------------- | -------------------------- |
 | `MessageScrollerProvider` | `MessageScroller.Provider` |
 | `MessageScroller`         | `MessageScroller.Root`     |
@@ -68,8 +67,7 @@ object like this.
 | `MessageScrollerItem`     | `MessageScroller.Item`     |
 | `MessageScrollerButton`   | `MessageScroller.Button`   |
 
-The hooks are imported the same way and behave identically, since they read from
-`MessageScroller.Provider`.
+Hookها نیز از همان Provider استفاده می‌کنند:
 
 ```tsx
 import {
@@ -79,23 +77,24 @@ import {
 } from "@farsiui/react/message-scroller"
 ```
 
-## Example
+## مثال
 
-Here is a complete example that brings its own styles and wires the scroller to
-the AI SDK.
+در این مثال، `MessageScroller` همراه با AI SDK استفاده شده است:
 
 ```tsx showLineNumbers
 "use client"
 
 import { useChat } from "@ai-sdk/react"
-import { MessageScroller } from "@farsiui/react/message-scroller"
 import { DefaultChatTransport } from "ai"
+import { MessageScroller } from "@farsiui/react/message-scroller"
 
 import { ChatInput } from "@/components/chat-input"
 
 export function Chat() {
   const { messages, sendMessage, status } = useChat({
-    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    transport: new DefaultChatTransport({
+      api: "/api/chat",
+    }),
   })
 
   return (
@@ -121,27 +120,29 @@ export function Chat() {
               ))}
             </MessageScroller.Content>
           </MessageScroller.Viewport>
+
           <MessageScroller.Button className="absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-full border bg-background px-3 py-1 text-sm font-medium inert:opacity-0">
-            Jump to latest
+            رفتن به آخرین پیام
           </MessageScroller.Button>
         </MessageScroller.Root>
       </MessageScroller.Provider>
-      <ChatInput onSend={sendMessage} disabled={status !== "ready"} />
+
+      <ChatInput
+        onSend={sendMessage}
+        disabled={status !== "ready"}
+      />
     </div>
   )
 }
 ```
 
-## Avoiding a Flash on Reload
+## جلوگیری از پرش هنگام بارگذاری مجدد
 
-A scroll container always opens at the top. HTML has no way to set `scrollTop`,
-so a server-rendered transcript shows the oldest messages first. After
-JavaScript runs, `defaultScrollPosition` moves the view, and you see a jump.
+یک container اسکرول‌شونده در اولین رندر به ابتدای محتوا می‌رود. بنابراین اگر Transcript از سمت سرور رندر شده باشد، ابتدا پیام‌های قدیمی نمایش داده می‌شوند و بعد از اجرای JavaScript، موقعیت اسکرول تغییر می‌کند.
 
-When `defaultScrollPosition` is `"end"` or `"last-anchor"`, the viewport has
-`data-pending-scroll` until that position is applied. Give the viewport an `id`
-and hide it while the attribute is present. Scope the rule to that id so you do
-not hide the root.
+اگر مقدار `defaultScrollPosition` برابر `"end"` یا `"last-anchor"` باشد، Viewport تا زمان اعمال موقعیت اولیه دارای ویژگی `data-pending-scroll` است.
+
+برای جلوگیری از نمایش این پرش، Viewport را تا زمان آماده شدن موقعیت مخفی کنید:
 
 ```css
 #messages[data-pending-scroll] {
@@ -149,180 +150,196 @@ not hide the root.
 }
 ```
 
-If you want `"end"` visible on first paint, add an inline script right after the
-viewport. Using the same `id`, scroll it to the bottom and remove
-`data-pending-scroll`.
+شناسه را روی Viewport قرار دهید:
 
 ```tsx
-const scrollToEndScript = `(function () {
-  var viewport = document.getElementById("messages")
-  if (!viewport) {
-    return
-  }
-  viewport.scrollTop = viewport.scrollHeight
-  viewport.removeAttribute("data-pending-scroll")
-})()`
+<MessageScroller.Viewport id="messages">
+  <MessageScroller.Content>
+    {/* پیام‌ها */}
+  </MessageScroller.Content>
+</MessageScroller.Viewport>
+```
+
+اگر می‌خواهید موقعیت `"end"` از همان اولین Paint قابل مشاهده باشد، می‌توانید یک اسکریپت کوچک بعد از Viewport اجرا کنید:
+
+```tsx
+const scrollToEndScript = `
+  (function () {
+    var viewport = document.getElementById("messages")
+
+    if (!viewport) {
+      return
+    }
+
+    viewport.scrollTop = viewport.scrollHeight
+    viewport.removeAttribute("data-pending-scroll")
+  })()
+`
 
 <MessageScroller.Root>
-  <MessageScroller.Viewport id="messages" suppressHydrationWarning>
-    <MessageScroller.Content>{/* transcript */}</MessageScroller.Content>
+  <MessageScroller.Viewport
+    id="messages"
+    suppressHydrationWarning
+  >
+    <MessageScroller.Content>
+      {/* transcript */}
+    </MessageScroller.Content>
   </MessageScroller.Viewport>
-  <script dangerouslySetInnerHTML={{ __html: scrollToEndScript }} />
+
+  <script
+    dangerouslySetInnerHTML={{
+      __html: scrollToEndScript,
+    }}
+  />
+
   <MessageScroller.Button />
 </MessageScroller.Root>
 ```
 
-Put the script in your page, not in the primitive. It only works for `"end"`, and
-only when the messages are already in the HTML. Add `suppressHydrationWarning` on
-the viewport. If you use a Content Security Policy, pass a `nonce`.
+این روش فقط برای `"end"` مناسب است و زمانی کاربرد دارد که پیام‌ها از ابتدا در HTML وجود داشته باشند.
 
-Do not use this script with `"last-anchor"`. Skip it when messages load on the
-client.
+برای `"last-anchor"` از این اسکریپت استفاده نکنید. همچنین اگر پیام‌ها در سمت کلاینت بارگذاری می‌شوند، نیازی به این روش نیست.
 
-## API Reference
+اگر پروژه شما Content Security Policy دارد، برای اسکریپت `nonce` در نظر بگیرید.
+
+## API
 
 ### MessageScroller.Provider
 
-The headless root. It owns scroll state and the behavior props, and provides
-them to the parts and the hooks. It renders no DOM of its own.
+ریشهٔ بدون استایل `MessageScroller` است. وضعیت اسکرول و تنظیمات رفتاری را مدیریت می‌کند و آن‌ها را در اختیار سایر بخش‌ها و Hookها قرار می‌دهد.
 
-| Prop                     | Type                                | Default | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------ | ----------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `autoScroll`             | `boolean`                           | `false` | Follow new content only while the reader is already at the live edge. Wheel, touch, keyboard scroll, and explicit jumps release it.                                                                                                                                                                                                                        |
-| `defaultScrollPosition`  | `"start" \| "end" \| "last-anchor"` | `"end"` | Opening position on the first non-empty render, applied once. `"last-anchor"` opens at the last `scrollAnchor` row and falls back to `"end"` when the turn fits or no anchor exists. For `"end"` and `"last-anchor"`, the viewport has `data-pending-scroll` until the position is applied. See [Avoiding a Flash on Reload](#avoiding-a-flash-on-reload). |
-| `scrollEdgeThreshold`    | `number`                            | `8`     | Distance from either edge that still counts as being at the start or end. Controls state attributes and scroll button visibility.                                                                                                                                                                                                                          |
-| `scrollMargin`           | `number`                            | `0`     | Margin applied to the aligned edge for `scrollToMessage`, visibility, and programmatic targets.                                                                                                                                                                                                                                                            |
-| `scrollPreviousItemPeek` | `number`                            | `64`    | Extra margin added to `scrollMargin` when a newly appended `scrollAnchor` item is positioned so part of the previous item stays visible.                                                                                                                                                                                                                   |
+خود Provider هیچ DOMای رندر نمی‌کند.
+
+| ویژگی                    | نوع                                 | مقدار پیش‌فرض | توضیح                                                                           |
+| ------------------------ | ----------------------------------- | ------------- | ------------------------------------------------------------------------------- |
+| `autoScroll`             | `boolean`                           | `false`       | محتوای جدید را فقط زمانی دنبال می‌کند که کاربر در انتهای زندهٔ Transcript باشد. |
+| `defaultScrollPosition`  | `"start" \| "end" \| "last-anchor"` | `"end"`       | موقعیت اولیهٔ اسکرول را مشخص می‌کند.                                            |
+| `scrollEdgeThreshold`    | `number`                            | `8`           | فاصله‌ای که همچنان به‌عنوان رسیدن به ابتدا یا انتها در نظر گرفته می‌شود.        |
+| `scrollMargin`           | `number`                            | `0`           | فاصلهٔ اعمال‌شده هنگام هم‌تراز کردن پیام‌ها و اهداف اسکرول.                     |
+| `scrollPreviousItemPeek` | `number`                            | `64`          | مقدار فضای اضافه برای نمایش بخشی از پیام قبلی هنگام قرار دادن Anchor جدید.      |
+
+#### `defaultScrollPosition`
+
+مقدار `"last-anchor"` Viewport را روی آخرین پیام دارای `scrollAnchor` قرار می‌دهد و در صورت نبود Anchor یا مناسب بودن اندازهٔ محتوا، به `"end"` برمی‌گردد.
+
+برای `"end"` و `"last-anchor"`، ویژگی `data-pending-scroll` تا زمان اعمال موقعیت اولیه روی Viewport باقی می‌ماند. جزئیات بیشتر در [جلوگیری از پرش هنگام بارگذاری مجدد](#جلوگیری-از-پرش-هنگام-بارگذاری-مجدد).
 
 ### MessageScroller.Root
 
-The frame and layout container. It fills its parent, so use it inside a
-height-constrained layout, within a `MessageScroller.Provider`.
+قاب و container اصلی layout است. فضای والد خود را پر می‌کند؛ بنابراین آن را داخل یک layout با ارتفاع مشخص و درون `MessageScroller.Provider` قرار دهید.
 
-| Prop       | Type                          | Default | Description                        |
-| ---------- | ----------------------------- | ------- | ---------------------------------- |
-| `...props` | `React.ComponentProps<"div">` | -       | Props spread to the frame element. |
+| ویژگی      | نوع                           | مقدار پیش‌فرض | توضیح                               |
+| ---------- | ----------------------------- | ------------- | ----------------------------------- |
+| `...props` | `React.ComponentProps<"div">` | -             | به عنصر قاب منتقل می‌شود.           |
 
-The root mirrors the scroll-state attributes below (the viewport carries them
-too), so you can style the container by scroll state, such as edge fades on the
-frame. Headless usage should hide the viewport while `data-pending-scroll` is
-present, using `visibility: hidden` so layout still exists for the opening
-scroll.
+Root نیز attributeهای وضعیت اسکرول زیر را منعکس می‌کند (Viewport هم آن‌ها را دارد)، تا بتوانید container را بر اساس وضعیت اسکرول استایل دهید؛ مثلاً fade لبه‌ها روی قاب. در استفادهٔ headless، Viewport را تا زمان وجود `data-pending-scroll` با `visibility: hidden` مخفی کنید تا layout برای اسکرول اولیه حفظ شود.
 
-| Data attribute        | Value                                             | Description                                                                                                                                                                                                          |
-| --------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data-scrollable`     | `"start"` \| `"end"` \| `"start end"` \| _absent_ | Edges the viewport can scroll toward. Query one with `[data-scrollable~="end"]`; absent means it fits.                                                                                                               |
-| `data-autoscrolling`  | present                                           | Present while the viewport is programmatically scrolling to the latest message.                                                                                                                                      |
-| `data-pending-scroll` | present                                           | Present until `defaultScrollPosition` (`"end"` or `"last-anchor"`) is applied, or skipped for an empty transcript. Hide the viewport while it is set. See [Avoiding a Flash on Reload](#avoiding-a-flash-on-reload). |
+| ویژگی داده            | مقدار                                             | توضیح                                                                                                                                                         |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data-scrollable`     | `"start"` \| `"end"` \| `"start end"` \| _absent_ | لبه‌هایی که Viewport می‌تواند به سمت آن‌ها اسکرول کند. برای یک لبه از `[data-scrollable~="end"]` استفاده کنید؛ نبود مقدار یعنی محتوا در viewport جا می‌شود. |
+| `data-autoscrolling`  | present                                           | هنگام اسکرول برنامه‌ای به آخرین پیام.                                                                                                                         |
+| `data-pending-scroll` | present                                           | تا اعمال `defaultScrollPosition` با مقدار `"end"` یا `"last-anchor"`؛ برای Transcript خالی اعمال نمی‌شود.                                                     |
 
 ### MessageScroller.Viewport
 
-The scrollable viewport.
+Viewport اسکرول‌شونده.
 
-| Prop                      | Type                          | Default      | Description                                                               |
-| ------------------------- | ----------------------------- | ------------ | ------------------------------------------------------------------------- |
-| `preserveScrollOnPrepend` | `boolean`                     | `true`       | Keep the first visible message item stable when older rows are prepended. |
-| `role`                    | `string`                      | `"region"`   | Landmark role for the labelled scrollable transcript viewport.            |
-| `aria-label`              | `string`                      | `"Messages"` | Accessible name for the scrollable chat transcript.                       |
-| `tabIndex`                | `number`                      | `0`          | Makes the transcript viewport keyboard-scrollable.                        |
-| `...props`                | `React.ComponentProps<"div">` | -            | Props spread to the viewport element.                                     |
+| ویژگی                     | نوع                           | مقدار پیش‌فرض | توضیح                                                              |
+| ------------------------- | ----------------------------- | ------------- | ------------------------------------------------------------------ |
+| `preserveScrollOnPrepend` | `boolean`                     | `true`        | هنگام اضافه شدن پیام‌های قدیمی، اولین آیتم قابل مشاهده را ثابت نگه می‌دارد. |
+| `role`                    | `string`                      | `"region"`    | نقش landmark برای Viewport برچسب‌دار Transcript.                   |
+| `aria-label`              | `string`                      | `"Messages"`  | نام دسترس‌پذیر برای Transcript چت.                                 |
+| `tabIndex`                | `number`                      | `0`           | امکان اسکرول با کیبورد.                                            |
+| `...props`                | `React.ComponentProps<"div">` | -             | به عنصر Viewport منتقل می‌شود.                                     |
 
-| Data attribute        | Value                                             | Description                                                                                                                                                                                                          |
-| --------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data-scrollable`     | `"start"` \| `"end"` \| `"start end"` \| _absent_ | Edges the viewport can scroll toward. Query one with `[data-scrollable~="end"]`; absent means it fits.                                                                                                               |
-| `data-autoscrolling`  | present                                           | Present while the viewport is programmatically scrolling to the latest message.                                                                                                                                      |
-| `data-pending-scroll` | present                                           | Present until `defaultScrollPosition` (`"end"` or `"last-anchor"`) is applied, or skipped for an empty transcript. Hide the viewport while it is set. See [Avoiding a Flash on Reload](#avoiding-a-flash-on-reload). |
+| ویژگی داده            | مقدار                                             | توضیح                                                                                                                                                         |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data-scrollable`     | `"start"` \| `"end"` \| `"start end"` \| _absent_ | لبه‌هایی که Viewport می‌تواند به سمت آن‌ها اسکرول کند. برای یک لبه از `[data-scrollable~="end"]` استفاده کنید؛ نبود مقدار یعنی محتوا در viewport جا می‌شود. |
+| `data-autoscrolling`  | present                                           | هنگام اسکرول برنامه‌ای به آخرین پیام.                                                                                                                         |
+| `data-pending-scroll` | present                                           | تا اعمال `defaultScrollPosition` با مقدار `"end"` یا `"last-anchor"`؛ برای Transcript خالی اعمال نمی‌شود.                                                     |
 
 ### MessageScroller.Content
 
-The transcript content element. Every direct child should be a
-`MessageScroller.Item`.
+عنصر محتوای Transcript. هر فرزند مستقیم باید یک `MessageScroller.Item` باشد.
 
-| Prop              | Type                          | Default       | Description                                                             |
-| ----------------- | ----------------------------- | ------------- | ----------------------------------------------------------------------- |
-| `role`            | `string`                      | `"log"`       | ARIA role applied to the message list for live announcements.           |
-| `aria-relevant`   | `string`                      | `"additions"` | Live-region updates to announce. Defaults to new transcript rows only.  |
-| `aria-busy`       | `boolean`                     | -             | Marks the live region busy while a turn streams, if needed.             |
-| `spacerClassName` | `string`                      | -             | Class name for the internal spacer used to make room for anchored rows. |
-| `...props`        | `React.ComponentProps<"div">` | -             | Props spread to the content element.                                    |
+| ویژگی             | نوع                           | مقدار پیش‌فرض | توضیح                                                              |
+| ----------------- | ----------------------------- | ------------- | ------------------------------------------------------------------ |
+| `role`            | `string`                      | `"log"`       | نقش ARIA برای اعلام زندهٔ لیست پیام‌ها.                            |
+| `aria-relevant`   | `string`                      | `"additions"` | به‌روزرسانی‌های live region؛ پیش‌فرض فقط ردیف‌های جدید.            |
+| `aria-busy`       | `boolean`                     | -             | در صورت نیاز، هنگام Streaming یک turn، منطقه را busy علامت می‌زند. |
+| `spacerClassName` | `string`                      | -             | کلاس spacer داخلی برای فضای ردیف‌های Anchor‌شده.                   |
+| `...props`        | `React.ComponentProps<"div">` | -             | به عنصر محتوا منتقل می‌شود.                                        |
 
 ### MessageScroller.Item
 
-One transcript row: a message, marker, typing row, separator, or load-more row.
+یک ردیف Transcript: پیام، marker، ردیف تایپ، جداکننده یا ردیف بارگذاری بیشتر.
 
-| Prop           | Type                          | Default | Description                                                                    |
-| -------------- | ----------------------------- | ------- | ------------------------------------------------------------------------------ |
-| `messageId`    | `string`                      | -       | Stable row id used by `scrollToMessage`, visibility, and prepend preservation. |
-| `scrollAnchor` | `boolean`                     | `false` | Marks this row as a turn boundary that can anchor newly appended turns.        |
-| `...props`     | `React.ComponentProps<"div">` | -       | Props spread to the item element.                                              |
+| ویژگی          | نوع                           | مقدار پیش‌فرض | توضیح                                                                           |
+| -------------- | ----------------------------- | ------------- | ------------------------------------------------------------------------------- |
+| `messageId`    | `string`                      | -             | شناسهٔ پایدار برای `scrollToMessage`، visibility و حفظ موقعیت هنگام prepend.    |
+| `scrollAnchor` | `boolean`                     | `false`       | این ردیف را به‌عنوان مرز turn علامت می‌زند تا turnهای جدید بتوانند به آن لنگر شوند. |
+| `...props`     | `React.ComponentProps<"div">` | -             | به عنصر Item منتقل می‌شود.                                                      |
 
-| Data attribute       | Value                 | Description                        |
-| -------------------- | --------------------- | ---------------------------------- |
-| `data-message-id`    | `string`              | Mirrors `messageId` when provided. |
-| `data-scroll-anchor` | `"true"` \| `"false"` | Mirrors `scrollAnchor`.            |
+| ویژگی داده           | مقدار                 | توضیح                          |
+| -------------------- | --------------------- | ------------------------------ |
+| `data-message-id`    | `string`              | معادل `messageId` در صورت وجود. |
+| `data-scroll-anchor` | `"true"` \| `"false"` | معادل `scrollAnchor`.          |
 
 ### MessageScroller.Button
 
-A button that scrolls to the start or end of the transcript. It is inert and
-removed from the tab order when there is nothing to scroll toward.
+دکمه‌ای که به ابتدا یا انتهای Transcript اسکرول می‌کند. وقتی مقصدی برای اسکرول نباشد، inert می‌شود و از ترتیب تب خارج می‌گردد.
 
-| Prop        | Type                                    | Default    | Description                                                              |
-| ----------- | --------------------------------------- | ---------- | ------------------------------------------------------------------------ |
-| `behavior`  | `ScrollBehavior`                        | `"smooth"` | Native scroll behavior used when the button scrolls to its target edge.  |
-| `direction` | `"start" \| "end"`                      | `"end"`    | Transcript edge the button scrolls toward.                               |
-| `children`  | `React.ReactNode`                       | -          | Custom button content. Defaults to the scroll icon and accessible label. |
-| `render`    | `React.ReactElement \| render function` | -          | Custom render target.                                                    |
-| `...props`  | `React.ComponentProps<"button">`        | -          | Props spread to the button.                                              |
+| ویژگی       | نوع                                     | مقدار پیش‌فرض | توضیح                                                              |
+| ----------- | --------------------------------------- | ------------- | ------------------------------------------------------------------ |
+| `behavior`  | `ScrollBehavior`                        | `"smooth"`    | رفتار اسکرول بومی هنگام رفتن به لبهٔ هدف.                          |
+| `direction` | `"start" \| "end"`                      | `"end"`       | لبه‌ای که دکمه به سمت آن اسکرول می‌کند.                            |
+| `children`  | `React.ReactNode`                       | -             | محتوای سفارشی دکمه. در غیر این صورت آیکون و برچسب دسترس‌پذیر پیش‌فرض. |
+| `render`    | `React.ReactElement \| render function` | -             | هدف رندر سفارشی.                                                   |
+| `...props`  | `React.ComponentProps<"button">`        | -             | به دکمه منتقل می‌شود.                                              |
 
-| Data attribute   | Value                 | Description                               |
-| ---------------- | --------------------- | ----------------------------------------- |
-| `data-direction` | `"start"` \| `"end"`  | Mirrors `direction`.                      |
-| `data-active`    | `"true"` \| `"false"` | Whether this button can currently scroll. |
+| ویژگی داده       | مقدار                 | توضیح                          |
+| ---------------- | --------------------- | ------------------------------ |
+| `data-direction` | `"start"` \| `"end"`  | معادل `direction`.             |
+| `data-active`    | `"true"` \| `"false"` | آیا دکمه در حال حاضر می‌تواند اسکرول کند. |
 
 ### useMessageScroller
 
-Imperative transcript controls.
+کنترل‌های دستوری Transcript.
 
-| Method            | Type                                       | Description                     |
-| ----------------- | ------------------------------------------ | ------------------------------- |
-| `scrollToMessage` | `(messageId: string, options?) => boolean` | Scroll to a mounted message id. |
-| `scrollToEnd`     | `(options?) => boolean`                    | Scroll to the latest message.   |
-| `scrollToStart`   | `(options?) => boolean`                    | Scroll to the top.              |
+| متد               | نوع                                        | توضیح                      |
+| ----------------- | ------------------------------------------ | -------------------------- |
+| `scrollToMessage` | `(messageId: string, options?) => boolean` | اسکرول به یک `messageId` نصب‌شده. |
+| `scrollToEnd`     | `(options?) => boolean`                    | اسکرول به آخرین پیام.      |
+| `scrollToStart`   | `(options?) => boolean`                    | اسکرول به ابتدا.           |
 
-All commands return `false` when the command could not be applied.
-`scrollToStart` and `scrollToEnd` return `false` only when the viewport is not
-mounted yet. `scrollToMessage` returns `false` when the target is not mounted and
-cannot be queued.
+همهٔ دستورها در صورت عدم امکان اجرا `false` برمی‌گردانند.
+`scrollToStart` و `scrollToEnd` فقط وقتی Viewport هنوز mount نشده `false` می‌دهند.
+`scrollToMessage` وقتی هدف mount نشده و قابل صف‌بندی نیست `false` برمی‌گرداند.
 
-Command options:
+گزینه‌های دستور:
 
-| Option         | Type                                              | Default                 | Description                                          |
-| -------------- | ------------------------------------------------- | ----------------------- | ---------------------------------------------------- |
-| `align`        | `"start"` \| `"center"` \| `"end"` \| `"nearest"` | `"start"`               | How a message target aligns in the viewport.         |
-| `behavior`     | `ScrollBehavior`                                  | `"auto"`                | Native scroll behavior for the command.              |
-| `scrollMargin` | `number`                                          | provider `scrollMargin` | Margin applied to the aligned edge for this command. |
+| گزینه          | نوع                                               | مقدار پیش‌فرض           | توضیح                                          |
+| -------------- | ------------------------------------------------- | ----------------------- | ---------------------------------------------- |
+| `align`        | `"start"` \| `"center"` \| `"end"` \| `"nearest"` | `"start"`               | نحوهٔ هم‌ترازی پیام هدف در Viewport.           |
+| `behavior`     | `ScrollBehavior`                                  | `"auto"`                | رفتار اسکرول بومی برای دستور.                  |
+| `scrollMargin` | `number`                                          | `scrollMargin` مربوط به Provider | فاصلهٔ اعمال‌شده روی لبهٔ هم‌تراز برای این دستور. |
 
 ### useMessageScrollerScrollable
 
-Which edges the viewport can scroll toward, for sibling UI that needs the values
-in JavaScript. Prefer the `data-scrollable` attribute for styling the scroller
-itself.
+لبه‌هایی که Viewport می‌تواند به سمت آن‌ها اسکرول کند؛ برای UIهای هم‌جوار که به این مقادیر در JavaScript نیاز دارند. برای استایل خود scroller، attribute `data-scrollable` را ترجیح دهید.
 
-| Value   | Type      | Description                                                                                                                                                                     |
-| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `start` | `boolean` | Whether the viewport can scroll toward the start. Content is hidden above (`!start` means at the top).                                                                          |
-| `end`   | `boolean` | Whether the viewport can scroll toward the end. Content is hidden below (`!end` means at the bottom). Stays `false` while follow-output is keeping the reader at the live edge. |
+| مقدار   | نوع       | توضیح                                                                                                                                      |
+| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `start` | `boolean` | آیا می‌توان به سمت ابتدا اسکرول کرد. محتوا بالای viewport پنهان است (`!start` یعنی در بالای لیست هستید).                                    |
+| `end`   | `boolean` | آیا می‌توان به سمت انتها اسکرول کرد. محتوا پایین viewport پنهان است (`!end` یعنی در پایین هستید). هنگام follow-output در لبهٔ زنده `false` می‌ماند. |
 
 ### useMessageScrollerVisibility
 
-Visibility state for outline, search, and active-turn UI. It subscribes
-separately from `useMessageScrollerScrollable`, so visibility work is only paid for
-when a consumer needs it.
+وضعیت visibility برای outline، جستجو و UI مربوط به turn فعال. جدا از `useMessageScrollerScrollable` مشترک می‌شود تا هزینهٔ visibility فقط وقتی پرداخت شود که مصرف‌کننده به آن نیاز دارد.
 
-| Value               | Type             | Description                                                                                    |
-| ------------------- | ---------------- | ---------------------------------------------------------------------------------------------- |
-| `currentAnchorId`   | `string \| null` | The current anchored turn, based on the last `scrollAnchor` item at or above the reading line. |
-| `visibleMessageIds` | `string[]`       | Message ids intersecting the viewport, in document order.                                      |
+| مقدار               | نوع              | توضیح                                                                                         |
+| ------------------- | ---------------- | --------------------------------------------------------------------------------------------- |
+| `currentAnchorId`   | `string \| null` | turn فعلی Anchor‌شده، بر اساس آخرین آیتم `scrollAnchor` در یا بالای خط خواندن.                |
+| `visibleMessageIds` | `string[]`       | شناسهٔ پیام‌هایی که با Viewport تقاطع دارند، به ترتیب سند.                                    |
 
-Filter `visibleMessageIds` in your app when you need a narrower outline, such as
-user messages, anchored turns, or search hits.
+در صورت نیاز به outline محدودتر (مثلاً فقط پیام‌های کاربر، turnهای Anchor‌شده یا نتایج جستجو)، `visibleMessageIds` را در اپلیکیشن فیلتر کنید.

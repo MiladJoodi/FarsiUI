@@ -74,17 +74,20 @@ export default function FormRhfArray() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader className="border-b">
-        <CardTitle>Contact Emails</CardTitle>
-        <CardDescription>Manage your contact email addresses.</CardDescription>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
+        <CardTitle>ایمیل‌های تماس</CardTitle>
+        <CardDescription>
+          آدرس‌های ایمیل تماس خود را مدیریت کنید.
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-array" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldSet className="gap-4">
-            <FieldLegend variant="label">Email Addresses</FieldLegend>
+            <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
             <FieldDescription>
-              Add up to 5 email addresses where we can contact you.
+              حداکثر ۵ آدرس ایمیل وارد کنید تا بتوانیم از طریق آن‌ها با شما در
+              تماس باشیم.
             </FieldDescription>
             <FieldGroup className="gap-4">
               {fields.map((field, index) => (
@@ -106,6 +109,8 @@ export default function FormRhfArray() {
                             placeholder="name@example.com"
                             type="email"
                             autoComplete="email"
+                            dir="ltr"
+                            className="placeholder:text-start"
                           />
                           {fields.length > 1 && (
                             <InputGroupAddon align="inline-end">
@@ -136,7 +141,7 @@ export default function FormRhfArray() {
                 onClick={() => append({ address: "" })}
                 disabled={fields.length >= 5}
               >
-                Add Email Address
+                افزودن آدرس ایمیل
               </Button>
             </FieldGroup>
             {form.formState.errors.emails?.root && (
@@ -145,13 +150,13 @@ export default function FormRhfArray() {
           </FieldSet>
         </form>
       </CardContent>
-      <CardFooter className="border-t">
-        <Field orientation="horizontal">
+      <CardFooter className="border-t px-4 pt-3">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-array">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>

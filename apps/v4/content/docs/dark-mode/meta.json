@@ -1,4 +1,4 @@
 {
-  "title": "Dark mode",
-  "pages": ["index", "next", "vite", "astro", "remix", "tanstack-start"]
+  "title": "حالت تاریک",
+  "pages": ["next", "vite", "astro", "remix", "tanstack-start"]
 }

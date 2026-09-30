@@ -49,78 +49,76 @@ export function QuestionnaireDialog() {
   }
 
   return (
-    <div dir="rtl">
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger render={<Button variant="outline" />}>
-          باز کردن توضیح
-        </DialogTrigger>
-        <DialogContent>
-          <Questionnaire
-            defaultItem="scope"
-            items={items}
-            onSubmit={handleSubmit}
-          >
-            <QuestionnaireItem name="scope" required>
-              <DialogHeader>
-                <QuestionnaireProgress />
-                <QuestionnaireTitle render={<DialogTitle />}>
-                  کدام فایل‌ها در محدوده هستند؟
-                </QuestionnaireTitle>
-                <QuestionnaireDescription render={<DialogDescription />}>
-                  مشخص کنید عامل تا چه حد می‌تواند فضای کاری را به‌روز کند.
-                </QuestionnaireDescription>
-              </DialogHeader>
-              <QuestionnaireChoices>
-                <QuestionnaireChoice value="component">
-                  فقط کامپوننت
-                </QuestionnaireChoice>
-                <QuestionnaireChoice value="feature">
-                  کل پوشهٔ ویژگی
-                </QuestionnaireChoice>
-                <QuestionnaireChoice value="workspace">
-                  هر فایل مرتبط فضای کاری
-                </QuestionnaireChoice>
-              </QuestionnaireChoices>
-              <QuestionnaireError />
-            </QuestionnaireItem>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger render={<Button variant="outline" />}>
+        باز کردن توضیح
+      </DialogTrigger>
+      <DialogContent dir="rtl">
+        <Questionnaire
+          defaultItem="scope"
+          items={items}
+          onSubmit={handleSubmit}
+        >
+          <QuestionnaireItem name="scope" required>
+            <DialogHeader>
+              <QuestionnaireProgress />
+              <QuestionnaireTitle render={<DialogTitle />}>
+                کدام فایل‌ها در محدوده هستند؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription render={<DialogDescription />}>
+                مشخص کنید عامل تا چه حد می‌تواند فضای کاری را به‌روز کند.
+              </QuestionnaireDescription>
+            </DialogHeader>
+            <QuestionnaireChoices>
+              <QuestionnaireChoice value="component">
+                فقط کامپوننت
+              </QuestionnaireChoice>
+              <QuestionnaireChoice value="feature">
+                کل پوشهٔ ویژگی
+              </QuestionnaireChoice>
+              <QuestionnaireChoice value="workspace">
+                هر فایل مرتبط فضای کاری
+              </QuestionnaireChoice>
+            </QuestionnaireChoices>
+            <QuestionnaireError />
+          </QuestionnaireItem>
 
-            <QuestionnaireItem name="tests" required>
-              <DialogHeader>
-                <QuestionnaireProgress />
-                <QuestionnaireTitle render={<DialogTitle />}>
-                  چقدر تأیید لازم است؟
-                </QuestionnaireTitle>
-                <QuestionnaireDescription render={<DialogDescription />}>
-                  بررسی‌هایی را انتخاب کنید که عامل قبل از تحویل اجرا کند.
-                </QuestionnaireDescription>
-              </DialogHeader>
-              <QuestionnaireChoices>
-                <QuestionnaireChoice value="targeted">
-                  تست‌های هدفمند
-                </QuestionnaireChoice>
-                <QuestionnaireChoice value="package">
-                  تست‌های پکیج
-                </QuestionnaireChoice>
-                <QuestionnaireChoice value="full">
-                  راستی‌آزمایی کامل فضای کاری
-                </QuestionnaireChoice>
-              </QuestionnaireChoices>
-              <QuestionnaireError />
-            </QuestionnaireItem>
+          <QuestionnaireItem name="tests" required>
+            <DialogHeader>
+              <QuestionnaireProgress />
+              <QuestionnaireTitle render={<DialogTitle />}>
+                چقدر تأیید لازم است؟
+              </QuestionnaireTitle>
+              <QuestionnaireDescription render={<DialogDescription />}>
+                بررسی‌هایی را انتخاب کنید که عامل قبل از تحویل اجرا کند.
+              </QuestionnaireDescription>
+            </DialogHeader>
+            <QuestionnaireChoices>
+              <QuestionnaireChoice value="targeted">
+                تست‌های هدفمند
+              </QuestionnaireChoice>
+              <QuestionnaireChoice value="package">
+                تست‌های پکیج
+              </QuestionnaireChoice>
+              <QuestionnaireChoice value="full">
+                راستی‌آزمایی کامل فضای کاری
+              </QuestionnaireChoice>
+            </QuestionnaireChoices>
+            <QuestionnaireError />
+          </QuestionnaireItem>
 
-            <DialogFooter>
-              <DialogClose render={<Button type="button" variant="outline" />}>
-                لغو
-              </DialogClose>
-              <QuestionnaireActions>
-                <QuestionnairePrevious>قبلی</QuestionnairePrevious>
-                <QuestionnaireNext>بعدی</QuestionnaireNext>
-                <QuestionnaireSubmit>ارسال پاسخ</QuestionnaireSubmit>
-              </QuestionnaireActions>
-            </DialogFooter>
-          </Questionnaire>
-        </DialogContent>
-      </Dialog>
-    </div>
+          <DialogFooter>
+            <DialogClose render={<Button type="button" variant="outline" />}>
+              لغو
+            </DialogClose>
+            <QuestionnaireActions>
+              <QuestionnairePrevious>قبلی</QuestionnairePrevious>
+              <QuestionnaireNext>بعدی</QuestionnaireNext>
+              <QuestionnaireSubmit>ارسال پاسخ</QuestionnaireSubmit>
+            </QuestionnaireActions>
+          </DialogFooter>
+        </Questionnaire>
+      </DialogContent>
+    </Dialog>
   )
 }

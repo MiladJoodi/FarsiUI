@@ -1,10 +1,5 @@
 import type { CSSProperties } from "react"
-import {
-  Estedad,
-  Geist_Mono as FontMono,
-  Noto_Sans_Hebrew as FontNotoSansHebrew,
-  Vazirmatn,
-} from "next/font/google"
+import localFont from "next/font/local"
 import { cn } from "cn"
 
 /**
@@ -14,30 +9,29 @@ import { cn } from "cn"
 export type UiFontName = "estedad" | "vazirmatn"
 export const ACTIVE_UI_FONT: UiFontName = "estedad"
 
-const fontEstedad = Estedad({
-  subsets: ["arabic", "latin"],
+// Self-hosted: next/font/google cannot reach fonts.googleapis.com on many networks.
+const fontEstedad = localFont({
+  src: "../app/fonts/estedad-wght.woff2",
   variable: "--font-estedad",
-  // Next has no size-adjust metrics for Estedad (Arabic); skip fallback generation.
+  weight: "100 900",
+  display: "swap",
   adjustFontFallback: false,
 })
 
-const fontVazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
+const fontVazirmatn = localFont({
+  src: "../app/fonts/vazirmatn-wght.woff2",
   variable: "--font-vazirmatn",
+  weight: "100 900",
+  display: "swap",
   adjustFontFallback: false,
 })
 
-const fontMono = FontMono({
-  subsets: ["latin"],
+const fontMono = localFont({
+  src: "../app/fonts/geist-mono-400.woff2",
   variable: "--font-geist-mono",
-  weight: ["400"],
-  // Avoid Next's size-adjusted fallback claiming Arabic glyphs and blocking Persian fonts.
+  weight: "400",
+  display: "swap",
   adjustFontFallback: false,
-})
-
-const fontNotoSansHebrew = FontNotoSansHebrew({
-  subsets: ["latin"],
-  variable: "--font-he",
 })
 
 const uiFontVariable: Record<UiFontName, string> = {
@@ -54,11 +48,12 @@ export const activeUiFontStyle = {
   "--font-ar": `var(${activeFontVar})`,
   // Latin/code → Geist Mono (Persian in code is wrapped with .code-fa → --font-sans).
   "--font-mono": `var(--font-geist-mono)`,
+  // Keep --font-he defined for any Hebrew surfaces without Google Fonts.
+  "--font-he": `var(${activeFontVar})`,
 } as CSSProperties
 
 export const fontVariables = cn(
   fontEstedad.variable,
   fontVazirmatn.variable,
-  fontMono.variable,
-  fontNotoSansHebrew.variable
+  fontMono.variable
 )

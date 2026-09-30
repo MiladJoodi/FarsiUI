@@ -27,8 +27,8 @@ import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 const formSchema = z.object({
   about: z
     .string()
-    .min(10, "Please provide at least 10 characters.")
-    .max(200, "Please keep it under 200 characters."),
+    .min(10, "حداقل ۱۰ کاراکتر وارد کنید.")
+    .max(200, "حداکثر ۲۰۰ کاراکتر مجاز است."),
 })
 
 export default function FormRhfTextarea() {
@@ -40,13 +40,13 @@ export default function FormRhfTextarea() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
+        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground" dir="ltr">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -57,34 +57,35 @@ export default function FormRhfTextarea() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Personalization</CardTitle>
+    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+      <CardHeader className="px-4 pb-0">
+        <CardTitle>شخصی‌سازی</CardTitle>
         <CardDescription>
-          Customize your experience by telling us more about yourself.
+          با وارد کردن اطلاعات بیشتر دربارهٔ خودتان، تجربهٔ کاربری را شخصی‌سازی
+          کنید.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form id="form-rhf-textarea" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
+          <FieldGroup className="gap-4">
             <Controller
               name="about"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-textarea-about">
-                    More about you
+                    دربارهٔ شما
                   </FieldLabel>
                   <Textarea
                     {...field}
                     id="form-rhf-textarea-about"
                     aria-invalid={fieldState.invalid}
-                    placeholder="I'm a software engineer..."
-                    className="min-h-[120px]"
+                    placeholder="من مهندس نرم‌افزار هستم..."
+                    className="min-h-24"
                   />
                   <FieldDescription>
-                    Tell us more about yourself. This will be used to help us
-                    personalize your experience.
+                    اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای
+                    شخصی‌سازی تجربهٔ شما استفاده خواهد شد.
                   </FieldDescription>
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -95,13 +96,13 @@ export default function FormRhfTextarea() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
+      <CardFooter className="px-4">
+        <Field orientation="horizontal" className="justify-end">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
           <Button type="submit" form="form-rhf-textarea">
-            Save
+            ذخیره
           </Button>
         </Field>
       </CardFooter>
