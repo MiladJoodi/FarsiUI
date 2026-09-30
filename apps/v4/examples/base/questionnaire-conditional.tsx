@@ -44,9 +44,9 @@ export function QuestionnaireConditional() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         defaultItem="runtime"
         items={items}
         onSubmit={handleSubmit}

@@ -65,13 +65,13 @@ export default function FormFormischArray() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -82,12 +82,12 @@ export default function FormFormischArray() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader className="border-b">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
         <CardTitle>Contact Emails</CardTitle>
         <CardDescription>Manage your contact email addresses.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <Form of={form} id="form-formisch-array" onSubmit={handleSubmit}>
           <FieldArray of={form} path={["emails"]}>
             {(fieldArray) => (
@@ -115,7 +115,7 @@ export default function FormFormischArray() {
                                 id={`form-formisch-array-email-${index}`}
                                 value={field.input ?? ""}
                                 aria-invalid={field.errors !== null}
-                                placeholder="name@example.com"
+                                placeholder="ali@example.com"
                                 type="email"
                                 autoComplete="email"
                               />
@@ -175,14 +175,12 @@ export default function FormFormischArray() {
           </FieldArray>
         </Form>
       </CardContent>
-      <CardFooter className="border-t">
+      <CardFooter className="border-t px-4 pt-3">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-array">
-            Save
-          </Button>
+          <Button type="submit" form="form-formisch-array">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

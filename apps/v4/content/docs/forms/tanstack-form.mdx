@@ -23,7 +23,7 @@ We'll start by building the following form. It has a simple text input and a tex
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-demo"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -64,7 +64,7 @@ Here's a basic example of a form using TanStack Form with the `<Field />` compon
               onBlur={field.handleBlur}
               onChange={(e) => field.handleChange(e.target.value)}
               aria-invalid={isInvalid}
-              placeholder="Login button not working on mobile"
+              placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
               autoComplete="off"
             />
             <FieldDescription>
@@ -261,7 +261,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-input"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -280,7 +280,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
           onBlur={field.handleBlur}
           onChange={(e) => field.handleChange(e.target.value)}
           aria-invalid={isInvalid}
-          placeholder="shadcn"
+          placeholder="نام‌کاربری"
           autoComplete="username"
         />
         <FieldDescription>
@@ -302,7 +302,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-textarea"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -323,8 +323,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
           onBlur={field.handleBlur}
           onChange={(e) => field.handleChange(e.target.value)}
           aria-invalid={isInvalid}
-          placeholder="I'm a software engineer..."
-          className="min-h-[120px]"
+          placeholder="من مهندس نرم‌افزار هستم..."
+          className="min-h-16"
         />
         <FieldDescription>
           Tell us more about yourself. This will be used to help us personalize
@@ -345,7 +345,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-select"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -375,7 +375,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
             aria-invalid={isInvalid}
             className="min-w-[120px]"
           >
-            <SelectValue placeholder="Select" />
+            <SelectValue placeholder="انتخاب کنید" />
           </SelectTrigger>
           <SelectContent position="item-aligned">
             <SelectItem value="auto">Auto</SelectItem>
@@ -398,7 +398,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-checkbox"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -461,7 +461,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-radiogroup"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -515,7 +515,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-switch"
-  className="sm:[&_.preview]:h-[500px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -555,7 +555,7 @@ Here is an example of a more complex form with multiple fields and validation.
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-complex"
-  className="sm:[&_.preview]:h-[1100px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -576,7 +576,7 @@ TanStack Form provides powerful array field management with `mode="array"`. This
 <ComponentPreview
   styleName="new-york-v4"
   name="form-tanstack-array"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -629,7 +629,7 @@ Access individual array items using bracket notation: `fieldName[index].property
               onBlur={subField.handleBlur}
               onChange={(e) => subField.handleChange(e.target.value)}
               aria-invalid={isSubFieldInvalid}
-              placeholder="name@example.com"
+              placeholder="ali@example.com"
               type="email"
             />
             {field.state.value.length > 1 && (

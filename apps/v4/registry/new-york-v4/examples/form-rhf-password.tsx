@@ -107,13 +107,13 @@ export default function FormRhfPassword() {
     metRequirements.length === passwordRequirements.length
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -124,7 +124,7 @@ export default function FormRhfPassword() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="border-b px-4 pb-3">
         <CardTitle>ایجاد رمز عبور</CardTitle>
         <CardDescription>
@@ -133,7 +133,7 @@ export default function FormRhfPassword() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-password" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="password"
               control={form.control}

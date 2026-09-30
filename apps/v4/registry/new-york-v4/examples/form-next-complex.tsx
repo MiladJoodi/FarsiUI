@@ -111,10 +111,10 @@ export default function FormNextComplex() {
                 disabled={pending}
                 aria-invalid={!!formState.errors?.billingPeriod?.length}
               >
-                <SelectTrigger id="billingPeriod">
-                  <SelectValue placeholder="Select" />
+                <SelectTrigger id="billingPeriod" dir="rtl">
+                  <SelectValue placeholder="انتخاب کنید" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent dir="rtl">
                   <SelectItem value="monthly">Monthly</SelectItem>
                   <SelectItem value="yearly">Yearly</SelectItem>
                 </SelectContent>
@@ -185,7 +185,7 @@ export default function FormNextComplex() {
         <Field orientation="horizontal" className="justify-end">
           <Button type="submit" disabled={pending} form="subscription-form">
             {pending && <Spinner />}
-            Save Preferences
+            ذخیره تنظیمات
           </Button>
         </Field>
       </CardFooter>

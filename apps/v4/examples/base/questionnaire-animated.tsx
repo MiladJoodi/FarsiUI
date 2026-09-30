@@ -39,9 +39,9 @@ export function QuestionnaireAnimated() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         defaultItem="task"
         items={items}
         onSubmit={handleSubmit}

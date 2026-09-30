@@ -55,21 +55,21 @@ export function QuestionnaireCard() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         defaultItem="task"
         items={items}
         shortcuts="numbers"
         onSubmit={handleSubmit}
       >
-        <Card>
+        <Card className="w-full">
           <QuestionnaireItem aria-labelledby={taskTitleId} name="task" required>
             <CardHeader>
-              <QuestionnaireTitle id={taskTitleId} render={<CardTitle />}>
+              <QuestionnaireTitle id={taskTitleId} render={<CardTitle className="text-balance" />}>
                 عامل روی چه چیزی کار کند؟
               </QuestionnaireTitle>
-              <QuestionnaireDescription render={<CardDescription />}>
+              <QuestionnaireDescription render={<CardDescription className="text-pretty" />}>
                 وظیفه‌ای را انتخاب کنید که باید بعداً انجام شود.
               </QuestionnaireDescription>
               <CardAction>

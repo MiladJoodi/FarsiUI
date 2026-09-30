@@ -91,13 +91,13 @@ export default function FormTanstackComplex() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
+      toast("مقادیر زیر ارسال شد:", {
         description: (
           <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
-        position: "bottom-right",
+        position: "bottom-left",
         classNames: {
           content: "flex flex-col gap-2",
         },
@@ -194,10 +194,10 @@ export default function FormTanstackComplex() {
                       onValueChange={field.handleChange}
                       aria-invalid={isInvalid}
                     >
-                      <SelectTrigger id={field.name}>
-                        <SelectValue placeholder="Select" />
+                      <SelectTrigger id={field.name} dir="rtl">
+                        <SelectValue placeholder="انتخاب کنید" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent dir="rtl">
                         <SelectItem value="monthly">Monthly</SelectItem>
                         <SelectItem value="yearly">Yearly</SelectItem>
                       </SelectContent>
@@ -304,7 +304,7 @@ export default function FormTanstackComplex() {
       <CardFooter>
         <Field orientation="horizontal" className="justify-end">
           <Button type="submit" form="subscription-form">
-            Save Preferences
+            ذخیره تنظیمات
           </Button>
         </Field>
       </CardFooter>

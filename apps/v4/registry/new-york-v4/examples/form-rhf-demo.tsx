@@ -72,7 +72,7 @@ export default function BugReportForm() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
         <CardTitle>گزارش باگ</CardTitle>
         <CardDescription>
@@ -81,7 +81,7 @@ export default function BugReportForm() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="title"
               control={form.control}
@@ -121,9 +121,11 @@ export default function BugReportForm() {
                       aria-invalid={fieldState.invalid}
                     />
                     <InputGroupAddon align="block-end">
-                      <InputGroupText className="tabular-nums">
-                        {toPersianDigits(field.value.length)}/
-                        {toPersianDigits(100)} کاراکتر
+                      <InputGroupText className="gap-1">
+                        <span dir="ltr">
+                          {`${toPersianDigits(field.value.length)}/${toPersianDigits(100)}`}
+                        </span>
+                        <span>کاراکتر</span>
                       </InputGroupText>
                     </InputGroupAddon>
                   </InputGroup>

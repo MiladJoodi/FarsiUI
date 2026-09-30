@@ -43,10 +43,10 @@ export function QuestionnaireShortcuts() {
   }
 
   return (
-    <div dir="rtl" className="relative mx-auto flex h-full w-full max-w-md flex-col">
+    <div dir="rtl" className="relative mx-auto flex w-full max-w-md flex-col gap-3">
       <NativeSelect
         aria-label="سبک میانبر"
-        className="absolute end-0 top-0"
+        className="ms-auto w-fit"
         value={shortcuts ?? "none"}
         onChange={(event) => {
           const value = event.target.value
@@ -61,7 +61,6 @@ export function QuestionnaireShortcuts() {
       </NativeSelect>
 
       <Questionnaire
-        className="mt-auto"
         items={items}
         shortcuts={shortcuts}
         onSubmit={handleSubmit}

@@ -51,9 +51,9 @@ export function QuestionnaireNavigationState() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         item={item}
         items={items}
         onItemChange={(nextItem) => setItem(nextItem as ItemName)}

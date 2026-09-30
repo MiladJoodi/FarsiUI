@@ -14,7 +14,8 @@ We are going to build the following form with a simple text input and a textarea
 <ComponentPreview
   styleName="new-york-v4"
   name="form-next-demo"
-  className="[&_.preview]:h-[700px] [&_pre]:h-[700px]!"
+  previewClassName="h-auto! min-h-0 justify-center p-3!" 
+  chromeLessOnMobile
 />
 
 <Callout icon={<InfoIcon />}>
@@ -48,7 +49,7 @@ Here's a basic example of a form using the `<Field />` component.
         defaultValue={formState.values.title}
         disabled={pending}
         aria-invalid={!!formState.errors?.title?.length}
-        placeholder="Login button not working on mobile"
+        placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
         autoComplete="off"
       />
       <FieldDescription>
@@ -373,7 +374,8 @@ Here is an example of a more complex form with multiple fields and validation.
 <ComponentPreview
   styleName="new-york-v4"
   name="form-next-complex"
-  className="[&_.preview]:h-[1100px] [&_pre]:h-[1100px]!"
+  previewClassName="h-auto! min-h-0 justify-center p-3!" 
+  chromeLessOnMobile
   hideCode
 />
 

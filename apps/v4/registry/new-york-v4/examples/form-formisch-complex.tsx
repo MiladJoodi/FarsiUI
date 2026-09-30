@@ -96,13 +96,13 @@ export default function FormFormischComplex() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -186,10 +186,10 @@ export default function FormFormischComplex() {
                     <SelectTrigger
                       id="form-formisch-complex-billingPeriod"
                       aria-invalid={field.errors !== null}
-                    >
-                      <SelectValue placeholder="Select" />
+                     dir="rtl">
+                      <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent dir="rtl">
                       <SelectItem value="monthly">Monthly</SelectItem>
                       <SelectItem value="yearly">Yearly</SelectItem>
                     </SelectContent>
@@ -293,10 +293,10 @@ export default function FormFormischComplex() {
       <CardFooter className="border-t">
         <Field>
           <Button type="submit" form="form-formisch-complex">
-            Save Preferences
+            ذخیره تنظیمات
           </Button>
           <Button type="button" variant="outline" onClick={() => reset(form)}>
-            Reset
+            بازنشانی
           </Button>
         </Field>
       </CardFooter>

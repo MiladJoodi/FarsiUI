@@ -60,13 +60,13 @@ export default function FormTanstackCheckbox() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
+      toast("مقادیر زیر ارسال شد:", {
         description: (
           <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
-        position: "bottom-right",
+        position: "bottom-left",
         classNames: {
           content: "flex flex-col gap-2",
         },
@@ -78,12 +78,12 @@ export default function FormTanstackCheckbox() {
   })
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
         <CardTitle>Notifications</CardTitle>
         <CardDescription>Manage your notification preferences.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form
           id="form-tanstack-checkbox"
           onSubmit={(e) => {
@@ -91,7 +91,7 @@ export default function FormTanstackCheckbox() {
             form.handleSubmit()
           }}
         >
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <form.Field
               name="responses"
               children={(field) => {
@@ -143,7 +143,7 @@ export default function FormTanstackCheckbox() {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid
                 return (
-                  <FieldGroup>
+                  <FieldGroup className="gap-3">
                     <FieldSet data-invalid={isInvalid}>
                       <FieldLegend variant="label">Tasks</FieldLegend>
                       <FieldDescription>
@@ -195,14 +195,12 @@ export default function FormTanstackCheckbox() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="px-4">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-checkbox">
-            Save
-          </Button>
+          <Button type="submit" form="form-tanstack-checkbox">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

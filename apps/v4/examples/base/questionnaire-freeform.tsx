@@ -40,9 +40,9 @@ export function QuestionnaireFreeform() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         items={items}
         shortcuts="letters"
         onSubmit={handleSubmit}

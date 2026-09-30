@@ -69,6 +69,10 @@ function QuestionnaireRoot({
   )
 }
 
+function toPersianDigits(value: number) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 function QuestionnaireProgress({
   children,
   render,
@@ -77,13 +81,15 @@ function QuestionnaireProgress({
   const { current, first, last, total } = useQuestionnaireContext(
     "Questionnaire.Progress"
   )
-  const label = total ? `Question ${current} of ${total}` : undefined
+  const label = total
+    ? `سؤال ${toPersianDigits(current)} از ${toPersianDigits(total)}`
+    : undefined
 
   return useRender({
     defaultTagName: "div",
     props: mergeProps<"div">(
       {
-        "aria-label": "Questionnaire progress",
+        "aria-label": "پیشرفت پرسشنامه",
         "aria-live": "polite",
         "aria-valuemax": total || undefined,
         "aria-valuemin": total ? 1 : undefined,
@@ -336,8 +342,8 @@ function QuestionnaireError({
         children:
           children ??
           (required
-            ? "Choose an answer to continue."
-            : "Choose an answer or skip this question."),
+            ? "برای ادامه یک پاسخ انتخاب کنید."
+            : "یک پاسخ انتخاب کنید یا این سؤال را رد کنید."),
         hidden: !invalid,
         id: errorId,
         role: invalid ? "alert" : undefined,
@@ -370,7 +376,7 @@ function QuestionnairePrevious({
   }
 
   return useRenderNavigationButton({
-    children: children ?? "Previous",
+    children: children ?? "قبلی",
     disabled: disabledProp,
     onClick: handleClick,
     props,
@@ -403,7 +409,7 @@ function QuestionnaireSkip({
   }
 
   return useRenderNavigationButton({
-    children: children ?? "Skip",
+    children: children ?? "رد کردن",
     disabled: disabledProp,
     onClick: handleClick,
     props,
@@ -436,7 +442,7 @@ function QuestionnaireNext({
   }
 
   return useRenderNavigationButton({
-    children: children ?? "Next",
+    children: children ?? "بعدی",
     disabled: disabledProp,
     onClick: handleClick,
     props,
@@ -461,7 +467,7 @@ function QuestionnaireSubmit({
   const visible = context.total > 0 && context.last
 
   return useRenderNavigationButton({
-    children: children ?? "Submit",
+    children: children ?? "ارسال",
     disabled: disabledProp,
     props,
     render,

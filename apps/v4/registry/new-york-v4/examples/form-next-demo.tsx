@@ -77,7 +77,7 @@ export default function FormNextDemo() {
                 defaultValue={formState.values.title}
                 disabled={pending}
                 aria-invalid={!!formState.errors?.title?.length}
-                placeholder="Login button not working on mobile"
+                placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
                 autoComplete="off"
               />
               {formState.errors?.title && (
@@ -91,7 +91,7 @@ export default function FormNextDemo() {
                   id="description"
                   name="description"
                   defaultValue={formState.values.description}
-                  placeholder="I'm having an issue with the login button on mobile."
+                  placeholder="با دکمهٔ ورود در موبایل مشکل دارم."
                   rows={6}
                   className="min-h-24 resize-none"
                   disabled={pending}
@@ -119,7 +119,7 @@ export default function FormNextDemo() {
         <Field orientation="horizontal">
           <Button type="submit" disabled={pending} form="bug-report-form">
             {pending && <Spinner />}
-            Submit
+            ارسال
           </Button>
         </Field>
       </CardFooter>

@@ -53,13 +53,13 @@ export default function BugReportForm() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -70,16 +70,16 @@ export default function BugReportForm() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
         <CardTitle>Bug Report</CardTitle>
         <CardDescription>
           Help us improve by reporting bugs you encounter.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <Form of={form} id="form-formisch-demo" onSubmit={handleSubmit}>
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <FormischField of={form} path={["title"]}>
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
@@ -91,7 +91,7 @@ export default function BugReportForm() {
                     id="form-formisch-demo-title"
                     value={field.input ?? ""}
                     aria-invalid={field.errors !== null}
-                    placeholder="Login button not working on mobile"
+                    placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
                     autoComplete="off"
                   />
                   {field.errors && (
@@ -113,7 +113,7 @@ export default function BugReportForm() {
                       {...field.props}
                       id="form-formisch-demo-description"
                       value={field.input ?? ""}
-                      placeholder="I'm having an issue with the login button on mobile."
+                      placeholder="با دکمهٔ ورود در موبایل مشکل دارم."
                       rows={6}
                       className="min-h-24 resize-none"
                       aria-invalid={field.errors !== null}
@@ -139,14 +139,12 @@ export default function BugReportForm() {
           </FieldGroup>
         </Form>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="px-4">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-demo">
-            Submit
-          </Button>
+          <Button type="submit" form="form-formisch-demo">ارسال</Button>
         </Field>
       </CardFooter>
     </Card>

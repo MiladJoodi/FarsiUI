@@ -7,6 +7,10 @@ import { cn } from "cn"
 import { buttonVariants, type Button } from "@/registry/bases/base/ui/button"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
+function toPersianDigits(value: number) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 function Questionnaire({
   className,
   ...props
@@ -22,6 +26,8 @@ function Questionnaire({
 
 function QuestionnaireProgress({
   className,
+  children,
+  render,
   ...props
 }: React.ComponentProps<typeof QuestionnairePrimitive.Progress>) {
   return (
@@ -31,6 +37,23 @@ function QuestionnaireProgress({
         "cn-questionnaire-progress min-h-[1lh] w-fit min-w-[14ch] font-medium text-muted-foreground tabular-nums",
         className
       )}
+      render={
+        render ??
+        ((htmlProps, state) => {
+          const label = state.total
+            ? `سؤال ${toPersianDigits(state.current)} از ${toPersianDigits(state.total)}`
+            : undefined
+          return (
+            <div
+              {...htmlProps}
+              aria-label="پیشرفت پرسشنامه"
+              aria-valuetext={label}
+            >
+              {children ?? label}
+            </div>
+          )
+        })
+      }
       {...props}
     />
   )
@@ -188,6 +211,7 @@ function QuestionnaireInput({
 }
 
 function QuestionnaireError({
+  children,
   className,
   ...props
 }: React.ComponentProps<typeof QuestionnairePrimitive.Error>) {
@@ -196,7 +220,9 @@ function QuestionnaireError({
       data-slot="questionnaire-error"
       className={cn("cn-questionnaire-error text-destructive", className)}
       {...props}
-    />
+    >
+      {children ?? "برای ادامه یک پاسخ انتخاب کنید."}
+    </QuestionnairePrimitive.Error>
   )
 }
 

@@ -52,13 +52,20 @@ const questionnaireSchema = z
 type QuestionnaireItemName = keyof z.infer<typeof questionnaireSchema>
 type QuestionnaireErrors = Partial<Record<QuestionnaireItemName, string>>
 
+function toPersianDigits(value: number) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 function ValidationProgress() {
   return (
     <QuestionnaireProgress
       className="min-w-0"
       render={(props, state) => (
-        <div {...props}>
-          {state.current} / {state.total}
+        <div
+          {...props}
+          aria-valuetext={`سؤال ${toPersianDigits(state.current)} از ${toPersianDigits(state.total)}`}
+        >
+          {`${toPersianDigits(state.current)} / ${toPersianDigits(state.total)}`}
         </div>
       )}
     />
@@ -118,9 +125,9 @@ export function QuestionnaireValidation() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         item={item}
         items={items}
         onItemChange={setItem}

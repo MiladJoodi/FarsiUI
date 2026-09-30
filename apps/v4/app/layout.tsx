@@ -113,7 +113,7 @@ export default function RootLayout({
               <BaseTooltipProvider delay={0}>
                 <RadixTooltipProvider delayDuration={0}>
                   {children}
-                  <Toaster position="top-center" />
+                  <Toaster position="top-center" dir="rtl" />
                   <BaseToaster />
                 </RadixTooltipProvider>
               </BaseTooltipProvider>

@@ -63,7 +63,7 @@ describe("Questionnaire server rendering", () => {
     expect(form().dataset.current).toBe("1")
     expect(form().dataset.total).toBe("2")
     expect(form().hasAttribute("data-first")).toBe(true)
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
     expect(progress().getAttribute("aria-valuenow")).toBe("1")
     expect(progress().getAttribute("aria-valuemax")).toBe("2")
     expect(item("scope").hasAttribute("data-active")).toBe(true)
@@ -89,7 +89,7 @@ describe("Questionnaire server rendering", () => {
 
     expect(form().dataset.current).toBe("2")
     expect(form().hasAttribute("data-last")).toBe(true)
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
     expect(item("scope").hidden).toBe(true)
     expect(item("detail").hasAttribute("data-active")).toBe(true)
     expect(action("previous").hidden).toBe(false)
@@ -101,7 +101,7 @@ describe("Questionnaire server rendering", () => {
   it("renders a controlled item from the collection", () => {
     renderMarkup(<TestQuestionnaire item="detail" />)
 
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
     expect(item("scope").hidden).toBe(true)
     expect(item("detail").hasAttribute("data-active")).toBe(true)
   })
@@ -111,7 +111,7 @@ describe("Questionnaire server rendering", () => {
     (defaultItem) => {
       renderServerQuestionnaire({ defaultItem })
 
-      expect(progress().textContent).toBe("Question 1 of 2")
+      expect(progress().textContent).toBe("سؤال ۱ از ۲")
       expect(item("scope").hasAttribute("data-active")).toBe(true)
       expect(item("detail").hidden).toBe(true)
     }
@@ -154,7 +154,7 @@ describe("Questionnaire server rendering", () => {
       </Questionnaire.Root>
     )
 
-    expect(progress().textContent).toBe("Question 1 of 1")
+    expect(progress().textContent).toBe("سؤال ۱ از ۱")
     expect(item("input").hasAttribute("data-active")).toBe(true)
     expect(query<HTMLInputElement>("input-control").type).toBe("text")
     expect(action("submit").hidden).toBe(false)
@@ -185,7 +185,7 @@ describe("Questionnaire server rendering", () => {
       </Questionnaire.Root>
     )
 
-    expect(progress().textContent).toBe("Question 2 of 3")
+    expect(progress().textContent).toBe("سؤال ۲ از ۳")
     expect(action("previous").hidden).toBe(false)
     expect(action("next").hidden).toBe(false)
     expect(action("submit").hidden).toBe(true)
@@ -241,7 +241,7 @@ describe("Questionnaire hydration", () => {
       root = hydrateRoot(container, questionnaire)
     })
 
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
     expect(consoleWarn).toHaveBeenCalledWith(
       expect.stringContaining(
         'defaultItem "missing" does not identify an enabled item'
@@ -266,7 +266,7 @@ describe("Questionnaire hydration", () => {
       action("next").click()
     })
 
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
     expect(item("scope").hidden).toBe(true)
     expect(item("detail").hasAttribute("data-active")).toBe(true)
   })
@@ -457,7 +457,7 @@ describe("Questionnaire hydration", () => {
       root = hydrateRoot(container, questionnaire)
     })
 
-    expect(progress().textContent).toBe("Question 2 of 3")
+    expect(progress().textContent).toBe("سؤال ۲ از ۳")
 
     const reorderedItems = [
       { name: "second" },
@@ -469,7 +469,7 @@ describe("Questionnaire hydration", () => {
       root?.render(<DynamicQuestionnaire definitions={reorderedItems} />)
     })
 
-    expect(progress().textContent).toBe("Question 1 of 3")
+    expect(progress().textContent).toBe("سؤال ۱ از ۳")
     expect(action("previous").hidden).toBe(true)
 
     const disabledItems = [
@@ -482,7 +482,7 @@ describe("Questionnaire hydration", () => {
       root?.render(<DynamicQuestionnaire definitions={disabledItems} />)
     })
 
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
     expect(item("first").hasAttribute("data-active")).toBe(true)
     expect(onItemChange).toHaveBeenLastCalledWith("first")
     expect(consoleWarn).toHaveBeenCalledTimes(1)
@@ -502,7 +502,7 @@ describe("Questionnaire hydration", () => {
       root?.render(<DynamicQuestionnaire definitions={expandedItems} />)
     })
 
-    expect(progress().textContent).toBe("Question 1 of 3")
+    expect(progress().textContent).toBe("سؤال ۱ از ۳")
     expect(action("next").hidden).toBe(false)
     expect(item("fourth").hidden).toBe(true)
   })
@@ -538,7 +538,7 @@ describe("Questionnaire hydration", () => {
       root?.render(<ControlledQuestionnaire item="detail" />)
     })
 
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
     expect(item("scope").hidden).toBe(true)
     expect(item("detail").hasAttribute("data-active")).toBe(true)
   })

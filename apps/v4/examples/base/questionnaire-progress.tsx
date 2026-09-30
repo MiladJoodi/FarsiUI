@@ -24,6 +24,10 @@ const items = [
   { name: "delivery", required: true },
 ] as const
 
+function toPersianDigits(value: number) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export function QuestionnaireProgressExample() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -36,9 +40,9 @@ export function QuestionnaireProgressExample() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         defaultItem="scope"
         items={items}
         onSubmit={handleSubmit}
@@ -46,7 +50,10 @@ export function QuestionnaireProgressExample() {
         <QuestionnaireProgress
           className="w-full"
           render={(props, state) => (
-            <div {...props}>
+            <div
+              {...props}
+              aria-valuetext={`سؤال ${toPersianDigits(state.current)} از ${toPersianDigits(state.total)}`}
+            >
               <div className="mb-2 flex gap-1.5" aria-hidden="true">
                 {Array.from({ length: state.total }, (_, index) => (
                   <span
@@ -60,7 +67,7 @@ export function QuestionnaireProgressExample() {
                 ))}
               </div>
               <span>
-                نقطهٔ بررسی {state.current} از {state.total}
+                {`نقطهٔ بررسی ${toPersianDigits(state.current)} از ${toPersianDigits(state.total)}`}
               </span>
             </div>
           )}

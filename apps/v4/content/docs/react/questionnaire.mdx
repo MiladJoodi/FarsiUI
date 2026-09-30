@@ -82,11 +82,12 @@ import { Questionnaire } from "@farsiui/react/questionnaire"
 مقدار `Choice.value` نیز پاسخی است که هنگام ارسال فرم ثبت می‌شود.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-demo"
   hideCode
-  previewClassName="min-h-[560px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -94,31 +95,31 @@ const items = [
   {
     name: "prototype",
     required: true,
-    prompt: "What should we prototype next?",
-    description: "Choose a direction or write your own.",
+    prompt: "بعداً چه چیزی را نمونه‌سازی کنیم؟",
+    description: "یک مسیر انتخاب کنید یا خودتان بنویسید.",
     choices: [
       {
         value: "delegation",
-        label: "Delegation",
-        description: "Show how work moves to a specialist.",
+        label: "واگذاری",
+        description: "نشان دهد کار چگونه به متخصص منتقل می‌شود.",
       },
       {
         value: "questions",
-        label: "Question prompts",
-        description: "Show choices while the interface waits.",
+        label: "پرسش‌های راهنما",
+        description: "در زمان انتظار، گزینه‌ها را نشان دهد.",
       },
-      { value: "both", label: "Both together" },
+      { value: "both", label: "هر دو با هم" },
     ],
-    input: { label: "Another answer", placeholder: "Type another answer…" },
+    input: { label: "پاسخ دیگر", placeholder: "پاسخ دیگری بنویسید…" },
   },
   {
     name: "detail",
     required: false,
-    prompt: "How much detail should it include?",
-    description: "Skip this if you are not sure yet.",
+    prompt: "چقدر جزئیات لازم است؟",
+    description: "اگر مطمئن نیستید، این سؤال را رد کنید.",
     choices: [
-      { value: "focused", label: "Focused" },
-      { value: "complete", label: "Complete flow" },
+      { value: "focused", label: "متمرکز" },
+      { value: "complete", label: "جریان کامل" },
     ],
   },
 ] as const
@@ -198,11 +199,12 @@ export function ProjectQuestionnaire() {
 مقدار `multiple` را در داده‌های اصلی برنامه نگه دارید و هنگام رندر به `Item` منتقل کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-multiple"
   hideCode
-  previewClassName="min-h-[420px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -211,11 +213,11 @@ const items = [
     name: "signals",
     required: true,
     multiple: true,
-    prompt: "What should every update include?",
-    description: "Select all that apply.",
+    prompt: "هر به‌روزرسانی چه چیزهایی داشته باشد؟",
+    description: "همهٔ موارد مرتبط را انتخاب کنید.",
     choices: [
       { value: "progress", label: "Progress" },
-      { value: "decisions", label: "Decisions" },
+      { value: "decisions", label: "تصمیم‌ها" },
       { value: "risks", label: "Risks" },
     ],
   },
@@ -257,11 +259,12 @@ const signals = new FormData(form).getAll("signals").map(String)
 `Input` امکان وارد کردن پاسخ آزاد را فراهم می‌کند و یک ورودی متنی Native رندر می‌کند.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-freeform"
   hideCode
-  previewClassName="min-h-[420px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -269,14 +272,14 @@ const items = [
   {
     name: "prototype",
     required: true,
-    prompt: "What should we prototype next?",
+    prompt: "بعداً چه چیزی را نمونه‌سازی کنیم؟",
     choices: [
-      { value: "delegation", label: "Delegation" },
-      { value: "questions", label: "Question prompts" },
+      { value: "delegation", label: "واگذاری" },
+      { value: "questions", label: "پرسش‌های راهنما" },
     ],
     input: {
-      label: "Another prototype direction",
-      placeholder: "Type another direction…",
+      label: "مسیر نمونه‌سازی دیگر",
+      placeholder: "مسیر دیگری بنویسید…",
     },
   },
 ] as const
@@ -315,11 +318,12 @@ items.map((question) => (
 اگر برنامه باید بین سؤال ردشده و سؤالی که هنوز پاسخی برای آن ثبت نشده تفاوت بگذارد، از `onStatusChange` استفاده کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-skip"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx showLineNumbers
@@ -355,20 +359,20 @@ export function PlanningQuestionnaire() {
     <Questionnaire.Root defaultItem="timing" onSubmit={handleSubmit}>
       <Questionnaire.Item name="timing" onStatusChange={setTimingStatus}>
         <Questionnaire.Title>
-          When should this be revisited?
+          این موضوع چه زمانی باید دوباره بررسی شود؟
         </Questionnaire.Title>
         <Questionnaire.Description>
-          Skip this if timing has not been decided.
+          اگر زمان‌بندی مشخص نیست، این سؤال را رد کنید.
         </Questionnaire.Description>
         <Questionnaire.Choices>
           <Questionnaire.Choice value="week">
             <Questionnaire.ChoiceInput />
-            <Questionnaire.ChoiceLabel>This week</Questionnaire.ChoiceLabel>
+            <Questionnaire.ChoiceLabel>همین هفته</Questionnaire.ChoiceLabel>
             <Questionnaire.ChoiceShortcut />
           </Questionnaire.Choice>
           <Questionnaire.Choice value="cycle">
             <Questionnaire.ChoiceInput />
-            <Questionnaire.ChoiceLabel>Next cycle</Questionnaire.ChoiceLabel>
+            <Questionnaire.ChoiceLabel>چرخهٔ بعدی</Questionnaire.ChoiceLabel>
             <Questionnaire.ChoiceShortcut />
           </Questionnaire.Choice>
         </Questionnaire.Choices>
@@ -389,26 +393,27 @@ export function PlanningQuestionnaire() {
 هرجا می‌خواهید کلید میانبر نمایش داده شود، از `ChoiceShortcut` استفاده کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-shortcuts"
   hideCode
-  previewClassName="min-h-[480px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
 <Questionnaire.Root shortcuts="letters">
   <Questionnaire.Item name="review" required>
-    <Questionnaire.Title>What should the agent review?</Questionnaire.Title>
+    <Questionnaire.Title>عامل چه چیزی را بررسی کند؟</Questionnaire.Title>
     <Questionnaire.Choices>
       <Questionnaire.Choice value="api">
         <Questionnaire.ChoiceInput />
-        <Questionnaire.ChoiceLabel>Public API</Questionnaire.ChoiceLabel>
+        <Questionnaire.ChoiceLabel>API عمومی</Questionnaire.ChoiceLabel>
         <Questionnaire.ChoiceShortcut />
       </Questionnaire.Choice>
       <Questionnaire.Choice value="tests">
         <Questionnaire.ChoiceInput />
-        <Questionnaire.ChoiceLabel>Test coverage</Questionnaire.ChoiceLabel>
+        <Questionnaire.ChoiceLabel>پوشش تست</Questionnaire.ChoiceLabel>
         <Questionnaire.ChoiceShortcut />
       </Questionnaire.Choice>
     </Questionnaire.Choices>
@@ -435,7 +440,7 @@ export function PlanningQuestionnaire() {
 ```tsx
 <Questionnaire.Item name="scope" required>
   <Questionnaire.Title>
-    What should the project include? (Required)
+    پروژه باید چه چیزهایی داشته باشد؟ (الزامی)
   </Questionnaire.Title>
   <Questionnaire.Choices>{/* choices */}</Questionnaire.Choices>
   <Questionnaire.Error />
@@ -445,7 +450,7 @@ export function PlanningQuestionnaire() {
 `Error` تا زمانی که مرحله نامعتبر نباشد نمایش داده نمی‌شود. برای جایگزین کردن پیام پیش‌فرض، متن دلخواه خود را داخل آن قرار دهید.
 
 ```tsx
-<Questionnaire.Error>Please choose a project scope.</Questionnaire.Error>
+<Questionnaire.Error>لطفاً محدودهٔ پروژه را انتخاب کنید.</Questionnaire.Error>
 ```
 
 اعتبارسنجی حتی بدون `Error` نیز انجام می‌شود. در صورت رندر شدن پیام خطا، متن آن برای Screen Readerها نیز اعلام می‌شود.
@@ -453,17 +458,18 @@ export function PlanningQuestionnaire() {
 اگر از Zod یا Validator خارجی دیگری استفاده می‌کنید، مقدار `Item.invalid` را تنظیم کنید، پیام را داخل `Error` نمایش دهید و `Root.item` را روی اولین مرحلهٔ نامعتبر قرار دهید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-validation"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
 <Questionnaire.Root item={item} onItemChange={setItem} onSubmit={handleSubmit}>
   <Questionnaire.Item invalid={Boolean(errors.detail)} name="detail" required>
-    <Questionnaire.Title>How much detail?</Questionnaire.Title>
+    <Questionnaire.Title>پاسخ باید چقدر جزئیات داشته باشد؟</Questionnaire.Title>
     <Questionnaire.Choices>{/* choices */}</Questionnaire.Choices>
     <Questionnaire.Error>{errors.detail}</Questionnaire.Error>
   </Questionnaire.Item>
@@ -475,11 +481,12 @@ export function PlanningQuestionnaire() {
 برای کنترل مرحلهٔ فعال، مقدار `item` و تابع `onItemChange` را به `Questionnaire` بدهید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-controlled"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -493,8 +500,8 @@ const [item, setItem] = React.useState("scope")
     {/* question and answers */}
   </Questionnaire.Item>
   <Questionnaire.Previous />
-  <Questionnaire.Next>Next</Questionnaire.Next>
-  <Questionnaire.Submit>Submit</Questionnaire.Submit>
+  <Questionnaire.Next>بعدی</Questionnaire.Next>
+  <Questionnaire.Submit>ارسال</Questionnaire.Submit>
 </Questionnaire.Root>
 ```
 
@@ -503,11 +510,12 @@ const [item, setItem] = React.useState("scope")
 برای بازیابی یک پیش‌نویس ذخیره‌شده، از `defaultItem`، `defaultChecked` و `defaultValue` استفاده کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-resume"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -539,11 +547,12 @@ const [item, setItem] = React.useState("scope")
 مراحل غیرفعال در پیشرفت، جابه‌جایی بین مراحل، اعتبارسنجی و ارسال فرم در نظر گرفته نمی‌شوند.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-conditional"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -586,11 +595,12 @@ const [runtime, setRuntime] = React.useState("local")
 اگر می‌خواهید خودتان یک دکمه را غیرفعال کنید، از وضعیت رندر کامپوننت استفاده کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-navigation-state"
   hideCode
-  previewClassName="min-h-[480px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -606,7 +616,7 @@ const [runtime, setRuntime] = React.useState("local")
 وضعیت رندر شامل `visible`، `disabled`، `shortcut` و `status` مرحلهٔ فعال است. اگر فقط ظاهر را تغییر می‌دهید، به‌جای آن `data-status` را هدف بگیرید:
 
 ```tsx
-<Questionnaire.Next data-navigation-action>Next</Questionnaire.Next>
+<Questionnaire.Next data-navigation-action>بعدی</Questionnaire.Next>
 ```
 
 ```css
@@ -617,16 +627,17 @@ const [runtime, setRuntime] = React.useState("local")
 
 ## نمایش پیشرفت سفارشی
 
-`Progress` به‌صورت پیش‌فرض عبارت `Question {current} of {total}` را نمایش می‌دهد.
+`Progress` به‌صورت پیش‌فرض عبارت `سؤال {current} از {total}` را نمایش می‌دهد.
 
 برای تغییر Element یا قالب نمایش آن، از `render` استفاده کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-progress"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -647,11 +658,12 @@ const [runtime, setRuntime] = React.useState("local")
 می‌توانید مرحلهٔ فعال را متحرک کنید، بدون اینکه بخش پیشرفت یا کنترل‌های جابه‌جایی حرکت کنند.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-animated"
   hideCode
-  previewClassName="min-h-[520px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -674,11 +686,12 @@ const itemClassName =
 `Root` را دور یک Card قرار دهید و `Title` و `Description` را داخل هدر کارت رندر کنید. چون عنوان جایگزین `legend` پیش‌فرض می‌شود، به عنوان یک `id` بدهید و آن را با `aria-labelledby` مرحله وصل کنید.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-card"
   hideCode
-  previewClassName="min-h-[560px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
@@ -689,10 +702,10 @@ const titleId = React.useId()
     <Questionnaire.Item aria-labelledby={titleId} name="task" required>
       <CardHeader>
         <Questionnaire.Title id={titleId} render={<CardTitle />}>
-          What should the agent work on?
+          عامل روی چه چیزی کار کند؟
         </Questionnaire.Title>
         <Questionnaire.Description render={<CardDescription />}>
-          Choose the task that should be handled next.
+          وظیفه‌ای را انتخاب کنید که باید بعداً انجام شود.
         </Questionnaire.Description>
         <CardAction>
           <Questionnaire.Progress />
@@ -704,8 +717,8 @@ const titleId = React.useId()
       </CardContent>
     </Questionnaire.Item>
     <CardFooter>
-      <Questionnaire.Next>Next</Questionnaire.Next>
-      <Questionnaire.Submit>Submit</Questionnaire.Submit>
+      <Questionnaire.Next>بعدی</Questionnaire.Next>
+      <Questionnaire.Submit>ارسال</Questionnaire.Submit>
     </CardFooter>
   </Card>
 </Questionnaire.Root>
@@ -716,37 +729,38 @@ const titleId = React.useId()
 بستن Dialog را از `Skip` جدا نگه دارید: بستن جریان را لغو می‌کند، در حالی که رد کردن یک سؤال بدون‌پاسخِ عمدی را ثبت می‌کند.
 
 <ComponentPreview
-  align="end"
   styleName="base-nova"
   name="questionnaire-dialog"
   hideCode
-  previewClassName="min-h-[320px] p-4 sm:p-8"
+  className="mt-4 mb-6!"
+  previewClassName="h-auto! min-h-0 items-start! justify-center p-2!"
+  chromeLessOnMobile
 />
 
 ```tsx
 const titleId = React.useId()
 
 <Dialog>
-  <DialogTrigger>Open clarification</DialogTrigger>
+  <DialogTrigger>باز کردن شفاف‌سازی</DialogTrigger>
   <DialogContent>
     <Questionnaire.Root onSubmit={handleSubmit}>
       <Questionnaire.Item aria-labelledby={titleId} name="scope" required>
         <DialogHeader>
           <Questionnaire.Progress />
           <Questionnaire.Title id={titleId} render={<DialogTitle />}>
-            Which files are in scope?
+            کدام فایل‌ها در محدوده هستند؟
           </Questionnaire.Title>
           <Questionnaire.Description render={<DialogDescription />}>
-            Choose how broadly the agent can update the workspace.
+            مشخص کنید عامل تا چه حد می‌تواند workspace را به‌روزرسانی کند.
           </Questionnaire.Description>
         </DialogHeader>
         <Questionnaire.Choices>{/* choices */}</Questionnaire.Choices>
         <Questionnaire.Error />
       </Questionnaire.Item>
       <DialogFooter>
-        <DialogClose>Cancel</DialogClose>
-        <Questionnaire.Next>Next</Questionnaire.Next>
-        <Questionnaire.Submit>Send answer</Questionnaire.Submit>
+        <DialogClose>لغو</DialogClose>
+        <Questionnaire.Next>بعدی</Questionnaire.Next>
+        <Questionnaire.Submit>ارسال پاسخ</Questionnaire.Submit>
       </DialogFooter>
     </Questionnaire.Root>
   </DialogContent>
@@ -758,7 +772,7 @@ const titleId = React.useId()
 با `render` می‌توانید Element پیش‌فرض هر بخش را جایگزین کنید. یک Element بدهید، یا وقتی به وضعیت آن نیاز دارید از یک تابع استفاده کنید.
 
 ```tsx
-<Questionnaire.Next render={<Button />}>Next</Questionnaire.Next>
+<Questionnaire.Next render={<Button />}>بعدی</Questionnaire.Next>
 ```
 
 `Root` و `Item` همیشه به‌ترتیب یک `form` و یک `fieldset` رندر می‌کنند. اگر `Title` دیگر `legend` رندر نکند، به آن `id` بدهید و همان شناسه را با `aria-labelledby` به `Item` پاس دهید.
@@ -818,10 +832,10 @@ Questionnaire روی رفتار Native رادیو، چک‌باکس، ورودی
 همیشه به `Input` یک نام دسترس‌پذیر بدهید. از `id` صریح همراه با برچسب قابل‌مشاهده استفاده کنید:
 
 ```tsx
-<Label htmlFor="other-answer">Other answer</Label>
+<Label htmlFor="other-answer">پاسخ دیگر</Label>
 <Questionnaire.Input
   id="other-answer"
-  placeholder="Type another answer…"
+  placeholder="پاسخ دیگری بنویسید…"
 />
 ```
 
@@ -829,8 +843,8 @@ Questionnaire روی رفتار Native رادیو، چک‌باکس، ورودی
 
 ```tsx
 <Questionnaire.Input
-  aria-label="Other answer"
-  placeholder="Type another answer…"
+  aria-label="پاسخ دیگر"
+  placeholder="پاسخ دیگری بنویسید…"
 />
 ```
 
@@ -946,8 +960,8 @@ type QuestionnaireItemDefinition = {
 
 | Prop             | Type                                                 | Default                             | توضیحات                               |
 | ---------------- | ---------------------------------------------------- | ----------------------------------- | ------------------------------------- |
-| `children`   | `React.ReactNode`                                | `Question {current} of {total}` | محتوای سفارشی برای نمایش پیشرفت.      |
-| `aria-label` | `string`                                         | `Questionnaire progress`        | نام قابل دسترس برای progressbar.      |
+| `children`   | `React.ReactNode`                                | `سؤال {current} از {total}` | محتوای سفارشی برای نمایش پیشرفت.      |
+| `aria-label` | `string`                                         | `پیشرفت پرسشنامه`        | نام قابل دسترس برای progressbar.      |
 | `render`     | `ReactElement \| (props, state) => ReactElement` | `<div>`                         | Element سفارشی همراه با وضعیت پیشرفت. |
 
 وضعیت `render` شامل `current`، `total`، `first` و `last` است.

@@ -62,13 +62,13 @@ export default function FormFormischSelect() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -116,10 +116,10 @@ export default function FormFormischSelect() {
                       id="form-formisch-select-language"
                       aria-invalid={field.errors !== null}
                       className="min-w-[120px]"
-                    >
-                      <SelectValue placeholder="Select" />
+                     dir="rtl">
+                      <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
-                    <SelectContent position="item-aligned">
+                    <SelectContent position="item-aligned" dir="rtl">
                       <SelectItem value="auto">Auto</SelectItem>
                       <SelectSeparator />
                       {spokenLanguages.map((language) => (
@@ -138,11 +138,9 @@ export default function FormFormischSelect() {
       <CardFooter>
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-select">
-            Save
-          </Button>
+          <Button type="submit" form="form-formisch-select">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

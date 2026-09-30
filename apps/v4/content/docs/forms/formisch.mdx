@@ -22,7 +22,7 @@ We'll build the following form. It has a simple text input and a textarea. On su
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-demo"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -75,7 +75,7 @@ Here's a basic example of a form using the `<Field />` component from Formisch a
             id="form-title"
             value={field.input}
             aria-invalid={field.errors !== null}
-            placeholder="Login button not working on mobile"
+            placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
             autoComplete="off"
           />
           <FieldDescription>
@@ -273,7 +273,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-input"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -304,7 +304,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-textarea"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -318,8 +318,8 @@ Formisch exposes two ways to bind a field to an element:
         id="form-about"
         value={field.input}
         aria-invalid={field.errors !== null}
-        placeholder="I'm a software engineer..."
-        className="min-h-[120px]"
+        placeholder="من مهندس نرم‌افزار هستم..."
+        className="min-h-16"
       />
       <FieldDescription>
         Tell us more about yourself. This will be used to help us personalize
@@ -341,7 +341,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-select"
-  className="sm:[&_.preview]:h-[500px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -364,7 +364,7 @@ Formisch exposes two ways to bind a field to an element:
           aria-invalid={field.errors !== null}
           className="min-w-[120px]"
         >
-          <SelectValue placeholder="Select" />
+          <SelectValue placeholder="انتخاب کنید" />
         </SelectTrigger>
         <SelectContent position="item-aligned">
           <SelectItem value="auto">Auto</SelectItem>
@@ -385,7 +385,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-checkbox"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -442,7 +442,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-radiogroup"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -490,7 +490,7 @@ Formisch exposes two ways to bind a field to an element:
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-switch"
-  className="sm:[&_.preview]:h-[500px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -527,7 +527,7 @@ Here is an example of a more complex form with multiple fields and validation.
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-complex"
-  className="sm:[&_.preview]:h-[1300px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 
@@ -558,7 +558,7 @@ Formisch provides a `<FieldArray />` component and a set of helper functions for
 <ComponentPreview
   styleName="new-york-v4"
   name="form-formisch-array"
-  className="sm:[&_.preview]:h-[700px]"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
 />
 

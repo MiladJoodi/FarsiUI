@@ -60,13 +60,13 @@ export default function FormTanstackSelect() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
+      toast("مقادیر زیر ارسال شد:", {
         description: (
           <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
-        position: "bottom-right",
+        position: "bottom-left",
         classNames: {
           content: "flex flex-col gap-2",
         },
@@ -121,10 +121,10 @@ export default function FormTanstackSelect() {
                         id="form-tanstack-select-language"
                         aria-invalid={isInvalid}
                         className="min-w-[120px]"
-                      >
-                        <SelectValue placeholder="Select" />
+                       dir="rtl">
+                        <SelectValue placeholder="انتخاب کنید" />
                       </SelectTrigger>
-                      <SelectContent position="item-aligned">
+                      <SelectContent position="item-aligned" dir="rtl">
                         <SelectItem value="auto">Auto</SelectItem>
                         <SelectSeparator />
                         {spokenLanguages.map((language) => (
@@ -147,11 +147,9 @@ export default function FormTanstackSelect() {
       <CardFooter>
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-select">
-            Save
-          </Button>
+          <Button type="submit" form="form-tanstack-select">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

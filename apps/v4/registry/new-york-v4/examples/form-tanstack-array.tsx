@@ -52,13 +52,13 @@ export default function FormTanstackArray() {
       onBlur: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
+      toast("مقادیر زیر ارسال شد:", {
         description: (
           <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
-        position: "bottom-right",
+        position: "bottom-left",
         classNames: {
           content: "flex flex-col gap-2",
         },
@@ -70,12 +70,12 @@ export default function FormTanstackArray() {
   })
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader className="border-b">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="border-b px-4 pb-3">
         <CardTitle>Contact Emails</CardTitle>
         <CardDescription>Manage your contact email addresses.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form
           id="form-tanstack-array"
           onSubmit={(e) => {
@@ -118,7 +118,7 @@ export default function FormTanstackArray() {
                                       subField.handleChange(e.target.value)
                                     }
                                     aria-invalid={isSubFieldInvalid}
-                                    placeholder="name@example.com"
+                                    placeholder="ali@example.com"
                                     type="email"
                                     autoComplete="email"
                                   />
@@ -164,14 +164,12 @@ export default function FormTanstackArray() {
           </form.Field>
         </form>
       </CardContent>
-      <CardFooter className="border-t">
+      <CardFooter className="border-t px-4 pt-3">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-tanstack-array">
-            Save
-          </Button>
+          <Button type="submit" form="form-tanstack-array">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

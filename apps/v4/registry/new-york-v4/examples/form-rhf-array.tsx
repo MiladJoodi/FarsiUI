@@ -57,13 +57,13 @@ export default function FormRhfArray() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -74,7 +74,7 @@ export default function FormRhfArray() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="border-b px-4 pb-3">
         <CardTitle>ایمیل‌های تماس</CardTitle>
         <CardDescription>
@@ -83,13 +83,13 @@ export default function FormRhfArray() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-array" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldSet className="gap-4">
+          <FieldSet className="gap-3">
             <FieldLegend variant="label">آدرس‌های ایمیل</FieldLegend>
             <FieldDescription>
               حداکثر ۵ آدرس ایمیل وارد کنید تا بتوانیم از طریق آن‌ها با شما در
               تماس باشیم.
             </FieldDescription>
-            <FieldGroup className="gap-4">
+            <FieldGroup className="gap-3">
               {fields.map((field, index) => (
                 <Controller
                   key={field.id}
@@ -106,7 +106,7 @@ export default function FormRhfArray() {
                             {...controllerField}
                             id={`form-rhf-array-email-${index}`}
                             aria-invalid={fieldState.invalid}
-                            placeholder="name@example.com"
+                            placeholder="ali@example.com"
                             type="email"
                             autoComplete="email"
                             dir="ltr"

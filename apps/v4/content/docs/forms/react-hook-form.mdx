@@ -22,9 +22,8 @@ import { InfoIcon } from "lucide-react"
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-demo"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ## رویکرد
@@ -46,16 +45,16 @@ import { InfoIcon } from "lucide-react"
   control={form.control}
   render={({ field, fieldState }) => (
     <Field data-invalid={fieldState.invalid}>
-      <FieldLabel htmlFor={field.name}>Bug Title</FieldLabel>
+      <FieldLabel htmlFor={field.name}>عنوان باگ</FieldLabel>
       <Input
         {...field}
         id={field.name}
         aria-invalid={fieldState.invalid}
-        placeholder="Login button not working on mobile"
+        placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
         autoComplete="off"
       />
       <FieldDescription>
-        Provide a concise title for your bug report.
+        یک عنوان کوتاه برای گزارش باگ بنویسید.
       </FieldDescription>
       {fieldState.invalid && (
         <FieldError errors={[fieldState.error]} />
@@ -229,18 +228,17 @@ const form = useForm<z.infer<typeof formSchema>>({
 
 ### Input
 
-- برای فیلدهای ورودی، Object مربوط به **`field`** را روی کامپوننت **`<Input />`** Spread کنید.
+- برای فیلدهای ورودی، آبجکت **`field`** را با **`{...field}`** روی **`<Input />`** اعمال کنید.
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<Input />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-input"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
-برای ورودی‌های متنی ساده، Object مربوط به **`field`** را مستقیماً روی Input Spread کنید.
+برای ورودی‌های متنی ساده، آبجکت **`field`** را مستقیماً با **`{...field}`** روی **`<Input />`** اعمال کنید.
 
 ```tsx showLineNumbers title="form.tsx" {5,7,8}
 <Controller
@@ -258,18 +256,17 @@ const form = useForm<z.infer<typeof formSchema>>({
 
 ### Textarea
 
-- برای فیلدهای Textarea، Object مربوط به **`field`** را روی کامپوننت **`<Textarea />`** Spread کنید.
+- برای فیلدهای چندخطی، آبجکت **`field`** را با **`{...field}`** روی **`<Textarea />`** اعمال کنید.
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<Textarea />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-textarea"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
-برای فیلدهای Textarea، Object مربوط به **`field`** را روی **`<Textarea />`** Spread کنید.
+برای فیلدهای چندخطی، آبجکت **`field`** را با **`{...field}`** روی **`<Textarea />`** اعمال کنید.
 
 ```tsx showLineNumbers title="form.tsx" {5,10,18}
 <Controller
@@ -277,17 +274,17 @@ const form = useForm<z.infer<typeof formSchema>>({
   control={form.control}
   render={({ field, fieldState }) => (
     <Field data-invalid={fieldState.invalid}>
-      <FieldLabel htmlFor="form-rhf-textarea-about">More about you</FieldLabel>
+      <FieldLabel htmlFor="form-rhf-textarea-about">دربارهٔ شما</FieldLabel>
       <Textarea
         {...field}
         id="form-rhf-textarea-about"
         aria-invalid={fieldState.invalid}
-        placeholder="I'm a software engineer..."
-        className="min-h-[120px]"
+        placeholder="من مهندس نرم‌افزار هستم..."
+        className="min-h-16"
       />
       <FieldDescription>
-        Tell us more about yourself. This will be used to help us personalize
-        your experience.
+        اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای شخصی‌سازی
+        تجربهٔ شما استفاده خواهد شد.
       </FieldDescription>
       {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
     </Field>
@@ -303,9 +300,8 @@ const form = useForm<z.infer<typeof formSchema>>({
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-select"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {5,13,22}
@@ -316,10 +312,10 @@ const form = useForm<z.infer<typeof formSchema>>({
     <Field orientation="responsive" data-invalid={fieldState.invalid}>
       <FieldContent>
         <FieldLabel htmlFor="form-rhf-select-language">
-          Spoken Language
+          زبان گفتاری
         </FieldLabel>
         <FieldDescription>
-          For best results, select the language you speak.
+          برای نتیجهٔ بهتر، زبانی را که صحبت می‌کنید انتخاب کنید.
         </FieldDescription>
         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
       </FieldContent>
@@ -333,11 +329,11 @@ const form = useForm<z.infer<typeof formSchema>>({
           aria-invalid={fieldState.invalid}
           className="min-w-[120px]"
         >
-          <SelectValue placeholder="Select" />
+          <SelectValue placeholder="انتخاب کنید" />
         </SelectTrigger>
         <SelectContent position="item-aligned">
-          <SelectItem value="auto">Auto</SelectItem>
-          <SelectItem value="en">English</SelectItem>
+          <SelectItem value="auto">خودکار</SelectItem>
+          <SelectItem value="fa">فارسی</SelectItem>
         </SelectContent>
       </Select>
     </Field>
@@ -354,9 +350,8 @@ const form = useForm<z.infer<typeof formSchema>>({
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-checkbox"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {10,15,20-22,38}
@@ -411,9 +406,8 @@ const form = useForm<z.infer<typeof formSchema>>({
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-radiogroup"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {12-13,17,25,31}
@@ -422,9 +416,10 @@ const form = useForm<z.infer<typeof formSchema>>({
   control={form.control}
   render={({ field, fieldState }) => (
     <FieldSet>
-      <FieldLegend>Plan</FieldLegend>
+      <FieldLegend>پلن</FieldLegend>
       <FieldDescription>
-        You can upgrade or downgrade your plan at any time.
+        هر زمان بخواهید می‌توانید پلن خود را ارتقا دهید یا به پلن پایین‌تر
+        برگردید.
       </FieldDescription>
       <RadioGroup
         name={field.name}
@@ -461,9 +456,8 @@ const form = useForm<z.infer<typeof formSchema>>({
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-switch"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ```tsx showLineNumbers title="form.tsx" {5,13,18-19}
@@ -500,9 +494,8 @@ const form = useForm<z.infer<typeof formSchema>>({
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-complex"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ## بازنشانی فرم
@@ -511,7 +504,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 
 ```tsx showLineNumbers
 <Button type="button" variant="outline" onClick={() => form.reset()}>
-  Reset
+  بازنشانی
 </Button>
 ```
 
@@ -522,9 +515,8 @@ React Hook Form برای مدیریت فیلدهای آرایه‌ای پویا�
 <ComponentPreview
   styleName="new-york-v4"
   name="form-rhf-array"
-  previewClassName="h-auto! min-h-0 items-start! justify-start! py-4 px-4"
+  previewClassName="h-auto! min-h-0 justify-center p-3!"
   chromeLessOnMobile
-  align="start"
 />
 
 ### استفاده از `useFieldArray`
@@ -579,7 +571,7 @@ export function ExampleForm() {
                 {...controllerField}
                 id={`form-rhf-array-email-${index}`}
                 aria-invalid={fieldState.invalid}
-                placeholder="name@example.com"
+                placeholder="ali@example.com"
                 type="email"
                 autoComplete="email"
               />

@@ -41,13 +41,13 @@ export default function FormFormischTextarea() {
   })
 
   const handleSubmit: SubmitHandler<typeof FormSchema> = (output) => {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(output, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -58,16 +58,16 @@ export default function FormFormischTextarea() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
         <CardTitle>Personalization</CardTitle>
         <CardDescription>
           Customize your experience by telling us more about yourself.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <Form of={form} id="form-formisch-textarea" onSubmit={handleSubmit}>
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <FormischField of={form} path={["about"]}>
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
@@ -79,8 +79,8 @@ export default function FormFormischTextarea() {
                     id="form-formisch-textarea-about"
                     value={field.input ?? ""}
                     aria-invalid={field.errors !== null}
-                    placeholder="I'm a software engineer..."
-                    className="min-h-[120px]"
+                    placeholder="من مهندس نرم‌افزار هستم..."
+                    className="min-h-16"
                   />
                   <FieldDescription>
                     Tell us more about yourself. This will be used to help us
@@ -97,14 +97,12 @@ export default function FormFormischTextarea() {
           </FieldGroup>
         </Form>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="px-4">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => reset(form)}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="form-formisch-textarea">
-            Save
-          </Button>
+          <Button type="submit" form="form-formisch-textarea">ذخیره</Button>
         </Field>
       </CardFooter>
     </Card>

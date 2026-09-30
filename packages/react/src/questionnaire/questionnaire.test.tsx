@@ -34,7 +34,7 @@ describe("Questionnaire", () => {
   it("owns its ordered items, progress, and navigation", async () => {
     await renderQuestionnaire()
 
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
     expect(form().dataset.current).toBe("1")
     expect(form().hasAttribute("data-first")).toBe(true)
     expect(item("scope").hasAttribute("data-active")).toBe(true)
@@ -61,7 +61,7 @@ describe("Questionnaire", () => {
     expect(next().dataset.status).toBe("answered")
     await click(next())
 
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
     expect(form().hasAttribute("data-last")).toBe(true)
     expect(item("scope").hidden).toBe(true)
     expect(item("detail").hasAttribute("data-active")).toBe(true)
@@ -556,8 +556,8 @@ describe("Questionnaire", () => {
 
     expect(item("first").hasAttribute("data-active")).toBe(true)
     expect(item("disabled").hidden).toBe(true)
-    expect(progress().textContent).toBe("Question 1 of 2")
-    expect(progress().getAttribute("aria-label")).toBe("Questionnaire progress")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
+    expect(progress().getAttribute("aria-label")).toBe("پیشرفت پرسشنامه")
     expect(onItemChange).not.toHaveBeenCalled()
     expect(document.activeElement).toBe(document.body)
   })
@@ -1263,14 +1263,14 @@ describe("Questionnaire", () => {
       )
     })
 
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
 
     await choose("first-choice")
     await click(next())
 
     expect(item("last").hasAttribute("data-active")).toBe(true)
     expect(item("disabled").hidden).toBe(true)
-    expect(progress().textContent).toBe("Question 2 of 2")
+    expect(progress().textContent).toBe("سؤال ۲ از ۲")
   })
 
   it("reconciles inserted and removed items in DOM order", async () => {
@@ -1285,7 +1285,7 @@ describe("Questionnaire", () => {
       )
     })
 
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
 
     await act(async () => {
       root.render(
@@ -1293,7 +1293,7 @@ describe("Questionnaire", () => {
       )
     })
 
-    expect(progress().textContent).toBe("Question 1 of 3")
+    expect(progress().textContent).toBe("سؤال ۱ از ۳")
 
     await choose("first-choice")
     await click(next())
@@ -1310,7 +1310,7 @@ describe("Questionnaire", () => {
     })
 
     expect(item("first").hasAttribute("data-active")).toBe(true)
-    expect(progress().textContent).toBe("Question 1 of 2")
+    expect(progress().textContent).toBe("سؤال ۱ از ۲")
     expect(onItemChange.mock.calls).toEqual([["middle"], ["first"]])
   })
 

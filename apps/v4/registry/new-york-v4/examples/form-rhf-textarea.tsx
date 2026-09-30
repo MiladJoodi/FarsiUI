@@ -57,7 +57,7 @@ export default function FormRhfTextarea() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
         <CardTitle>شخصی‌سازی</CardTitle>
         <CardDescription>
@@ -67,7 +67,7 @@ export default function FormRhfTextarea() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-textarea" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="about"
               control={form.control}
@@ -81,7 +81,7 @@ export default function FormRhfTextarea() {
                     id="form-rhf-textarea-about"
                     aria-invalid={fieldState.invalid}
                     placeholder="من مهندس نرم‌افزار هستم..."
-                    className="min-h-24"
+                    className="min-h-16"
                   />
                   <FieldDescription>
                     اطلاعات بیشتری دربارهٔ خودتان بنویسید. از این اطلاعات برای

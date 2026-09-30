@@ -34,23 +34,23 @@ import {
 const plans = [
   {
     id: "starter",
-    title: "Starter (100K tokens/month)",
-    description: "For everyday use with basic features.",
+    title: "استارتر (۱۰۰ هزار توکن در ماه)",
+    description: "برای استفادهٔ روزمره با امکانات پایه.",
   },
   {
     id: "pro",
-    title: "Pro (1M tokens/month)",
-    description: "For advanced AI usage with more features.",
+    title: "حرفه‌ای (۱ میلیون توکن در ماه)",
+    description: "برای استفادهٔ پیشرفته از هوش مصنوعی با امکانات بیشتر.",
   },
   {
     id: "enterprise",
-    title: "Enterprise (Unlimited tokens)",
-    description: "For large teams and heavy usage.",
+    title: "سازمانی (توکن نامحدود)",
+    description: "برای تیم‌های بزرگ و استفادهٔ سنگین.",
   },
 ] as const
 
 const formSchema = z.object({
-  plan: z.string().min(1, "You must select a subscription plan to continue."),
+  plan: z.string().min(1, "برای ادامه باید یک پلن اشتراک انتخاب کنید."),
 })
 
 export default function FormRhfRadioGroup() {
@@ -62,13 +62,13 @@ export default function FormRhfRadioGroup() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -79,7 +79,7 @@ export default function FormRhfRadioGroup() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
         <CardTitle>پلن اشتراک</CardTitle>
         <CardDescription>
@@ -88,7 +88,7 @@ export default function FormRhfRadioGroup() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-radiogroup" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="plan"
               control={form.control}
@@ -104,6 +104,7 @@ export default function FormRhfRadioGroup() {
                     value={field.value}
                     onValueChange={field.onChange}
                     aria-invalid={fieldState.invalid}
+                    dir="rtl"
                   >
                     {plans.map((plan) => (
                       <FieldLabel
@@ -114,17 +115,17 @@ export default function FormRhfRadioGroup() {
                           orientation="horizontal"
                           data-invalid={fieldState.invalid}
                         >
+                          <RadioGroupItem
+                            value={plan.id}
+                            id={`form-rhf-radiogroup-${plan.id}`}
+                            aria-invalid={fieldState.invalid}
+                          />
                           <FieldContent>
                             <FieldTitle>{plan.title}</FieldTitle>
                             <FieldDescription>
                               {plan.description}
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
-                            value={plan.id}
-                            id={`form-rhf-radiogroup-${plan.id}`}
-                            aria-invalid={fieldState.invalid}
-                          />
                         </Field>
                       </FieldLabel>
                     ))}

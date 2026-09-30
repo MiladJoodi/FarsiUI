@@ -51,13 +51,13 @@ export default function BugReportForm() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
+      toast("مقادیر زیر ارسال شد:", {
         description: (
           <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
             <code>{JSON.stringify(value, null, 2)}</code>
           </pre>
         ),
-        position: "bottom-right",
+        position: "bottom-left",
         classNames: {
           content: "flex flex-col gap-2",
         },
@@ -69,14 +69,14 @@ export default function BugReportForm() {
   })
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
+      <CardHeader className="px-4 pb-0">
         <CardTitle>Bug Report</CardTitle>
         <CardDescription>
           Help us improve by reporting bugs you encounter.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4">
         <form
           id="bug-report-form"
           onSubmit={(e) => {
@@ -84,7 +84,7 @@ export default function BugReportForm() {
             form.handleSubmit()
           }}
         >
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <form.Field
               name="title"
               children={(field) => {
@@ -100,7 +100,7 @@ export default function BugReportForm() {
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
                       aria-invalid={isInvalid}
-                      placeholder="Login button not working on mobile"
+                      placeholder="دکمهٔ ورود در موبایل کار نمی‌کند"
                       autoComplete="off"
                     />
                     {isInvalid && (
@@ -125,7 +125,7 @@ export default function BugReportForm() {
                         value={field.state.value}
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder="I'm having an issue with the login button on mobile."
+                        placeholder="با دکمهٔ ورود در موبایل مشکل دارم."
                         rows={6}
                         className="min-h-24 resize-none"
                         aria-invalid={isInvalid}
@@ -150,14 +150,12 @@ export default function BugReportForm() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="px-4">
         <Field orientation="horizontal">
           <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
+            بازنشانی
           </Button>
-          <Button type="submit" form="bug-report-form">
-            Submit
-          </Button>
+          <Button type="submit" form="bug-report-form">ارسال</Button>
         </Field>
       </CardFooter>
     </Card>

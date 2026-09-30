@@ -27,7 +27,7 @@ import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const formSchema = z.object({
   twoFactor: z.boolean().refine((val) => val === true, {
-    message: "It is highly recommended to enable two-factor authentication.",
+    message: "فعال‌سازی احراز هویت چندمرحله‌ای قویاً توصیه می‌شود.",
   }),
 })
 
@@ -40,13 +40,13 @@ export default function FormRhfSwitch() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -57,7 +57,7 @@ export default function FormRhfSwitch() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md gap-4 py-4" dir="rtl">
+    <Card className="w-full sm:max-w-md gap-3 py-3" dir="rtl">
       <CardHeader className="px-4 pb-0">
         <CardTitle>تنظیمات امنیتی</CardTitle>
         <CardDescription>
@@ -66,7 +66,7 @@ export default function FormRhfSwitch() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-switch" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="twoFactor"
               control={form.control}
@@ -92,6 +92,7 @@ export default function FormRhfSwitch() {
                     checked={field.value}
                     onCheckedChange={field.onChange}
                     aria-invalid={fieldState.invalid}
+                    dir="ltr"
                   />
                 </Field>
               )}

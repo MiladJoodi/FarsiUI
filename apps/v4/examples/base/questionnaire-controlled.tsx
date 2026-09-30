@@ -44,16 +44,12 @@ export function QuestionnaireControlled() {
   }
 
   return (
-    <div dir="rtl" className="relative mx-auto flex h-full w-full max-w-md flex-col">
-      <p
-        className="absolute end-0 top-0 text-sm text-muted-foreground"
-        role="status"
-      >
+    <div dir="rtl" className="relative mx-auto flex w-full max-w-md flex-col gap-3">
+      <p className="text-sm text-muted-foreground" role="status">
         نقطهٔ بررسی فعلی: {itemLabels[item]}
       </p>
 
       <Questionnaire
-        className="mt-auto"
         item={item}
         items={items}
         onItemChange={setItem}

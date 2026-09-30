@@ -91,9 +91,9 @@ export function QuestionnaireDemo() {
   }
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="mx-auto w-full max-w-md">
       <Questionnaire
-        className="mx-auto max-w-md"
+        className="w-full"
         defaultItem="direction"
         items={questionnaireItems}
         shortcuts="letters"

@@ -98,13 +98,13 @@ export default function FormRhfComplex() {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
+    toast("مقادیر زیر ارسال شد:", {
       description: (
         <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-      position: "bottom-right",
+      position: "bottom-left",
       classNames: {
         content: "flex flex-col gap-2",
       },
@@ -115,7 +115,7 @@ export default function FormRhfComplex() {
   }
 
   return (
-    <Card className="w-full max-w-sm gap-4 py-4" dir="rtl">
+    <Card className="w-full max-w-sm gap-3 py-3" dir="rtl">
       <CardHeader className="border-b px-4 pb-3">
         <CardTitle>تقریباً آماده‌اید!</CardTitle>
         <CardDescription>
@@ -124,7 +124,7 @@ export default function FormRhfComplex() {
       </CardHeader>
       <CardContent className="px-4">
         <form id="form-rhf-complex" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup className="gap-4">
+          <FieldGroup className="gap-3">
             <Controller
               name="plan"
               control={form.control}
@@ -141,33 +141,34 @@ export default function FormRhfComplex() {
                       value={field.value}
                       onValueChange={field.onChange}
                       aria-invalid={isInvalid}
+                      dir="rtl"
                     >
                       <FieldLabel htmlFor="form-rhf-complex-basic">
                         <Field orientation="horizontal">
+                          <RadioGroupItem
+                            value="basic"
+                            id="form-rhf-complex-basic"
+                          />
                           <FieldContent>
                             <FieldTitle>پایه</FieldTitle>
                             <FieldDescription>
                               برای افراد و تیم‌های کوچک
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
-                            value="basic"
-                            id="form-rhf-complex-basic"
-                          />
                         </Field>
                       </FieldLabel>
                       <FieldLabel htmlFor="form-rhf-complex-pro">
                         <Field orientation="horizontal">
+                          <RadioGroupItem
+                            value="pro"
+                            id="form-rhf-complex-pro"
+                          />
                           <FieldContent>
                             <FieldTitle>حرفه‌ای</FieldTitle>
                             <FieldDescription>
                               برای کسب‌وکارهایی با نیاز بیشتر
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
-                            value="pro"
-                            id="form-rhf-complex-pro"
-                          />
                         </Field>
                       </FieldLabel>
                     </RadioGroup>
@@ -193,10 +194,12 @@ export default function FormRhfComplex() {
                     <SelectTrigger
                       id="form-rhf-complex-billingPeriod"
                       aria-invalid={fieldState.invalid}
+                      className="w-full"
+                      dir="rtl"
                     >
                       <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent dir="rtl" position="popper" align="start">
                       <SelectItem value="monthly">ماهانه</SelectItem>
                       <SelectItem value="yearly">سالانه</SelectItem>
                     </SelectContent>
@@ -282,6 +285,7 @@ export default function FormRhfComplex() {
                     checked={field.value}
                     onCheckedChange={field.onChange}
                     aria-invalid={fieldState.invalid}
+                    dir="ltr"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
