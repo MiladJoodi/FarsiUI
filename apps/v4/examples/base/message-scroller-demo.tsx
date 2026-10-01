@@ -58,7 +58,7 @@ import {
 
 const chat = createChat()
   .user(
-    "دارم برای اپ‌مان چت می‌سازم و رفتار اسکرول دیوانه‌ام کرده. هر بار که AI جواب را استریم می‌کند، کل نخ می‌پرد."
+    "امروز دارم روی صفحه اصلی کار می‌کنم، ولی هنوز چندتا چیز هست که باید درستشون کنم."
   )
   .sleep(1000)
   .assistant(
@@ -129,9 +129,9 @@ export function MessageScrollerDemo() {
                   <EmptyMedia variant="icon">
                     <MessageCircleDashedIcon />
                   </EmptyMedia>
-                  <EmptyTitle>صبح بخیر، shadcn!</EmptyTitle>
+                  <EmptyTitle>صبح بخیر</EmptyTitle>
                   <EmptyDescription>
-                    امروز روی چه چیزی کار می‌کنیم؟ برای شروع گفتگو ارسال را بزنید
+                    امروز روی چی کار کنیم؟ برای شروع، پیامتون رو ارسال کنید.
                   </EmptyDescription>
                 </EmptyHeader>
               </Empty>

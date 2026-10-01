@@ -15,7 +15,7 @@ const processingFee = 37.46
 const totalClaimable = netRoyalties - processingFee
 
 const formatCurrency = (amount: number) =>
-  amount.toLocaleString("en-US", {
+  amount.toLocaleString("fa-IR", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
@@ -24,13 +24,13 @@ export function ClaimableBalance() {
   return (
     <Card>
       <CardHeader>
-        <CardDescription>Claimable Balance</CardDescription>
-        <CardTitle className="text-4xl tabular-nums">
-          ${formatCurrency(totalClaimable)}
+        <CardDescription>موجودی قابل برداشت</CardDescription>
+        <CardTitle className="text-3xl tracking-normal whitespace-nowrap">
+          {formatCurrency(totalClaimable)} تومان
         </CardTitle>
         <Badge variant="outline">
           <span className="size-2 rounded-full bg-yellow-500" />
-          Pending Setup
+          در انتظار راه‌اندازی
         </Badge>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col justify-end">
@@ -38,27 +38,25 @@ export function ClaimableBalance() {
           <ItemContent className="gap-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">
-                Net Royalties
+                خالص حق‌الامتیاز
               </span>
-              <span className="text-sm font-medium tabular-nums">
-                ${formatCurrency(netRoyalties)}
+              <span className="text-sm font-medium tracking-normal">
+                {formatCurrency(netRoyalties)} تومان
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">
-                Processing Fee
-              </span>
-              <span className="text-sm font-medium tabular-nums">
-                -${formatCurrency(processingFee)}
+              <span className="text-sm text-muted-foreground">کارمزد پردازش</span>
+              <span className="text-sm font-medium tracking-normal">
+                −{formatCurrency(processingFee)} تومان
               </span>
             </div>
             <Separator />
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">
-                Total Ready to Claim
+                مجموع آمادهٔ برداشت
               </span>
-              <span className="text-sm font-semibold tabular-nums">
-                ${formatCurrency(totalClaimable)} USD
+              <span className="text-sm font-semibold tracking-normal">
+                {formatCurrency(totalClaimable)} تومان
               </span>
             </div>
           </ItemContent>
@@ -66,8 +64,8 @@ export function ClaimableBalance() {
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Once your bank is connected, balances over $10.00 are automatically
-          eligible for monthly distribution on the 15th of each month.
+          پس از اتصال حساب بانکی، موجودی‌های بالای ۱۰٬۰۰۰ تومان در پانزدهم هر ماه
+          به‌صورت خودکار برای واریز ماهانه واجد شرایط می‌شوند.
         </CardDescription>
       </CardFooter>
     </Card>

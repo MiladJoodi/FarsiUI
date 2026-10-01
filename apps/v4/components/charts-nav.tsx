@@ -45,7 +45,7 @@ export function ChartsNav({
 
   return (
     <div className="relative overflow-hidden">
-      <ScrollArea className="max-w-[600px] lg:max-w-none">
+      <ScrollArea className="max-w-[600px] lg:max-w-none" dir="rtl">
         <div className={cn("flex items-center", className)} {...props}>
           {links.map((link) => (
             <Link

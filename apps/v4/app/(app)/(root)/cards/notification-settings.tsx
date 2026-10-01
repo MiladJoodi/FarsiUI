@@ -19,26 +19,26 @@ import {
 const NOTIFICATIONS = [
   {
     id: "transactions",
-    label: "Transaction alerts",
-    description: "Deposits, withdrawals, and transfers.",
+    label: "هشدار تراکنش‌ها",
+    description: "واریز، برداشت و انتقال‌ها.",
     defaultChecked: true,
   },
   {
     id: "security",
-    label: "Security alerts",
-    description: "Login attempts and account changes.",
+    label: "هشدار امنیتی",
+    description: "تلاش‌های ورود و تغییرات حساب.",
     defaultChecked: true,
   },
   {
     id: "goals",
-    label: "Goal milestones",
-    description: "Updates at 25%, 50%, 75%, and 100%.",
+    label: "نقاط عطف هدف",
+    description: "به‌روزرسانی در ۲۵٪، ۵۰٪، ۷۵٪ و ۱۰۰٪.",
     defaultChecked: false,
   },
   {
     id: "market",
-    label: "Market updates",
-    description: "Daily portfolio summary and price alerts.",
+    label: "به‌روزرسانی بازار",
+    description: "خلاصهٔ روزانهٔ پرتفوی و هشدار قیمت.",
     defaultChecked: false,
   },
 ]
@@ -47,9 +47,9 @@ export function NotificationSettings() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Notifications</CardTitle>
+        <CardTitle>اعلان‌ها</CardTitle>
         <CardDescription>
-          Choose which email and push alerts you want to receive.
+          انتخاب کنید کدام اعلان‌ها را از طریق ایمیل یا گوشی دریافت کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -60,7 +60,7 @@ export function NotificationSettings() {
                 id={`notify-${n.id}`}
                 defaultChecked={n.defaultChecked}
               />
-              <FieldContent>
+              <FieldContent className="text-right">
                 <FieldLabel htmlFor={`notify-${n.id}`}>{n.label}</FieldLabel>
                 <FieldDescription>{n.description}</FieldDescription>
               </FieldContent>
@@ -69,7 +69,7 @@ export function NotificationSettings() {
         </FieldGroup>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Save Preferences</Button>
+        <Button className="w-full">ذخیرهٔ ترجیحات</Button>
       </CardFooter>
     </Card>
   )

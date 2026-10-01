@@ -39,7 +39,7 @@ export function QrConnect() {
             viewBox="0 0 21 21"
             className="size-40 text-black"
             role="img"
-            aria-label="Connect device QR code"
+            aria-label="کد QR اتصال دستگاه"
             shapeRendering="crispEdges"
           >
             <rect width="21" height="21" fill="white" />
@@ -54,9 +54,9 @@ export function QrConnect() {
         </div>
       </CardContent>
       <CardHeader className="text-center">
-        <CardTitle>Scan to connect your mobile device</CardTitle>
+        <CardTitle>برای اتصال موبایل اسکن کنید</CardTitle>
         <CardDescription className="text-balance">
-          Open the Ledger mobile app and scan this code to link your device.
+          اپ موبایل را باز کنید و این کد را اسکن کنید تا دستگاهتان متصل شود.
         </CardDescription>
       </CardHeader>
     </Card>

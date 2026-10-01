@@ -29,26 +29,26 @@ import {
 import { Textarea } from "@/styles/base-rhea/ui/textarea"
 
 const CURRENCIES = [
-  { label: "USD — United States Dollar", value: "usd" },
-  { label: "EUR — Euro", value: "eur" },
-  { label: "GBP — British Pound", value: "gbp" },
-  { label: "JPY — Japanese Yen", value: "jpy" },
+  { label: "تومان — ایران", value: "irr" },
+  { label: "USD — دلار آمریکا", value: "usd" },
+  { label: "EUR — یورو", value: "eur" },
+  { label: "GBP — پوند انگلیس", value: "gbp" },
 ]
 
 export function PayoutThreshold() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Payout Threshold</CardTitle>
+        <CardTitle>آستانهٔ پرداخت</CardTitle>
         <CardDescription>
-          Set the minimum balance required before a payout is triggered.
+          حداقل موجودی لازم قبل از شروع پرداخت را تعیین کنید.
         </CardDescription>
         <CardAction>
           <Button
             variant="ghost"
             size="icon-sm"
             className="bg-muted"
-            aria-label="Dismiss payout threshold"
+            aria-label="بستن آستانهٔ پرداخت"
           >
             <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
           </Button>
@@ -57,14 +57,16 @@ export function PayoutThreshold() {
       <CardContent>
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="preferred-currency">
-              Preferred Currency
-            </FieldLabel>
-            <Select items={CURRENCIES} defaultValue="usd">
-              <SelectTrigger id="preferred-currency" className="w-full">
+            <FieldLabel htmlFor="preferred-currency">ارز ترجیحی</FieldLabel>
+            <Select items={CURRENCIES} defaultValue="irr">
+              <SelectTrigger
+                id="preferred-currency"
+                className="w-full"
+                dir="rtl"
+              >
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent dir="rtl">
                 <SelectGroup>
                   {CURRENCIES.map((item) => (
                     <SelectItem key={item.value} value={item.value}>
@@ -77,35 +79,33 @@ export function PayoutThreshold() {
           </Field>
           <Field>
             <div className="flex items-baseline justify-between">
-              <FieldLabel id="min-payout-label">
-                Minimum Payout Amount
-              </FieldLabel>
-              <span className="text-2xl font-semibold tabular-nums">
-                $2500.00
+              <FieldLabel id="min-payout-label">حداقل مبلغ پرداخت</FieldLabel>
+              <span className="text-2xl font-semibold tracking-normal whitespace-nowrap">
+                ۲٬۵۰۰٬۰۰۰ تومان
               </span>
             </div>
             <Progress
               value={25}
               aria-labelledby="min-payout-label"
-              aria-valuetext="$2,500 of $10,000"
+              aria-valuetext="۲٬۵۰۰٬۰۰۰ از ۱۰٬۰۰۰٬۰۰۰ تومان"
             />
             <div className="flex items-center justify-between">
-              <FieldDescription>$50 (MIN)</FieldDescription>
-              <FieldDescription>$10,000 (MAX)</FieldDescription>
+              <FieldDescription>۵۰٬۰۰۰ تومان (حداقل)</FieldDescription>
+              <FieldDescription>۱۰٬۰۰۰٬۰۰۰ تومان (حداکثر)</FieldDescription>
             </div>
           </Field>
           <Field>
-            <FieldLabel htmlFor="payout-notes">Notes</FieldLabel>
+            <FieldLabel htmlFor="payout-notes">یادداشت‌ها</FieldLabel>
             <Textarea
               id="payout-notes"
-              placeholder="Add any notes for this payout configuration..."
+              placeholder="هر نکته‌ای دربارهٔ این تنظیم پرداخت بنویسید…"
               className="min-h-[100px]"
             />
           </Field>
         </FieldGroup>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Save Threshold</Button>
+        <Button className="w-full">ذخیرهٔ آستانه</Button>
       </CardFooter>
     </Card>
   )

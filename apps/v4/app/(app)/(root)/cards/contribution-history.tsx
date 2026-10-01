@@ -1,8 +1,6 @@
-import { Badge } from "@/styles/base-rhea/ui/badge"
 import { Button } from "@/styles/base-rhea/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -12,11 +10,11 @@ import {
 import { Item, ItemContent, ItemDescription } from "@/styles/base-rhea/ui/item"
 
 const chartData = [
-  { month: "Dec", amount: 800 },
-  { month: "Jan", amount: 1100 },
-  { month: "Feb", amount: 900 },
-  { month: "Mar", amount: 1300 },
-  { month: "Apr", amount: 750 },
+  { month: "دی", amount: 800 },
+  { month: "بهمن", amount: 1100 },
+  { month: "اسفند", amount: 900 },
+  { month: "فروردین", amount: 1300 },
+  { month: "اردیبهشت", amount: 750 },
 ]
 
 export function ContributionHistory() {
@@ -25,14 +23,14 @@ export function ContributionHistory() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Contribution History</CardTitle>
-        <CardDescription>Last 6 months of activity</CardDescription>
+        <CardTitle>تاریخچهٔ واریزها</CardTitle>
+        <CardDescription>فعالیت ۶ ماه گذشته</CardDescription>
       </CardHeader>
       <CardContent>
         <div
           className="flex h-[200px] w-full items-end gap-3"
           role="img"
-          aria-label="Last 6 months of contribution activity"
+          aria-label="فعالیت واریز ۶ ماه گذشته"
         >
           {chartData.map((item, index) => (
             <div
@@ -54,34 +52,34 @@ export function ContributionHistory() {
       <CardContent>
         <div className="grid w-full grid-cols-1 gap-3 xl:grid-cols-2">
           <Item variant="muted" className="flex-col items-stretch">
-            <ItemContent className="gap-1">
-              <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                Upcoming
+            <ItemContent className="gap-1 text-right">
+              <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground">
+                پیش‌رو
               </ItemDescription>
               <span className="cn-font-heading text-base font-semibold">
-                May 2024
+                خرداد ۱۴۰۳
               </span>
-              <span className="text-sm text-muted-foreground">Scheduled</span>
+              <span className="text-sm text-muted-foreground">زمان‌بندی‌شده</span>
             </ItemContent>
           </Item>
           <Item
             variant="muted"
             className="hidden flex-col items-stretch xl:flex"
           >
-            <ItemContent className="gap-1">
-              <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                Savings Plan
+            <ItemContent className="gap-1 text-right">
+              <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground">
+                طرح پس‌انداز
               </ItemDescription>
               <span className="cn-font-heading text-base font-semibold">
-                Accelerated
+                شتاب‌دار
               </span>
-              <span className="text-sm text-muted-foreground">Recurring</span>
+              <span className="text-sm text-muted-foreground">دوره‌ای</span>
             </ItemContent>
           </Item>
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">View Full Report</Button>
+        <Button className="w-full">مشاهدهٔ گزارش کامل</Button>
       </CardFooter>
     </Card>
   )

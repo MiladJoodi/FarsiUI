@@ -40,7 +40,7 @@ export function Payments() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">Home</BreadcrumbLink>
+              <BreadcrumbLink href="#">خانه</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -50,7 +50,7 @@ export function Payments() {
                     <Button
                       size="icon-sm"
                       variant="ghost"
-                      aria-label="Account options"
+                      aria-label="گزینه‌های حساب"
                     />
                   }
                 >
@@ -58,20 +58,20 @@ export function Payments() {
                     icon={MoreHorizontalCircle01Icon}
                     strokeWidth={2}
                   />
-                  <span className="sr-only">Account options</span>
+                  <span className="sr-only">گزینه‌های حساب</span>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
+                <DropdownMenuContent align="start" dir="rtl">
                   <DropdownMenuGroup>
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Statements</DropdownMenuItem>
-                    <DropdownMenuItem>Documents</DropdownMenuItem>
+                    <DropdownMenuItem>پروفایل</DropdownMenuItem>
+                    <DropdownMenuItem>صورتحساب‌ها</DropdownMenuItem>
+                    <DropdownMenuItem>اسناد</DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Payments</BreadcrumbPage>
+              <BreadcrumbPage>پرداخت‌ها</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -84,14 +84,14 @@ export function Payments() {
                 <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Change transfer limit</ItemTitle>
+                <ItemTitle>تغییر سقف انتقال</ItemTitle>
                 <ItemDescription>
-                  Adjust how much you can send from your balance.
+                  میزان قابل ارسال از موجودی را تنظیم کنید.
                 </ItemDescription>
               </ItemContent>
               <HugeiconsIcon
                 icon={ArrowRight01Icon}
-                className="size-4 shrink-0 text-muted-foreground"
+                className="size-4 shrink-0 text-muted-foreground rtl:rotate-180"
                 strokeWidth={2}
               />
             </Item>
@@ -102,14 +102,14 @@ export function Payments() {
                 <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Scheduled transfers</ItemTitle>
+                <ItemTitle>انتقال‌های زمان‌بندی‌شده</ItemTitle>
                 <ItemDescription>
-                  Set up a transfer to send at a later date.
+                  انتقالی برای ارسال در تاریخ بعد تنظیم کنید.
                 </ItemDescription>
               </ItemContent>
               <HugeiconsIcon
                 icon={ArrowRight01Icon}
-                className="size-4 shrink-0 text-muted-foreground"
+                className="size-4 shrink-0 text-muted-foreground rtl:rotate-180"
                 strokeWidth={2}
               />
             </Item>
@@ -120,14 +120,14 @@ export function Payments() {
                 <HugeiconsIcon icon={RefreshIcon} strokeWidth={2} />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Recurring card payments</ItemTitle>
+                <ItemTitle>پرداخت‌های تکراری کارت</ItemTitle>
                 <ItemDescription>
-                  Manage your repeated card transactions.
+                  تراکنش‌های تکراری کارت را مدیریت کنید.
                 </ItemDescription>
               </ItemContent>
               <HugeiconsIcon
                 icon={ArrowRight01Icon}
-                className="size-4 shrink-0 text-muted-foreground"
+                className="size-4 shrink-0 text-muted-foreground rtl:rotate-180"
                 strokeWidth={2}
               />
             </Item>

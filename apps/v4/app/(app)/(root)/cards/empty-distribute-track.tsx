@@ -21,14 +21,13 @@ export function EmptyDistributeTrack() {
             <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
           </EmptyMedia>
           <EmptyHeader>
-            <EmptyTitle>Distribute Track</EmptyTitle>
+            <EmptyTitle>افزودن</EmptyTitle>
             <EmptyDescription>
-              Upload your first master to start reaching listeners on Spotify,
-              Apple Music, and more.
+              فایل‌هاتون رو اینجا آپلود کنید تا سریع‌تر بهشون دسترسی داشته باشید.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>
-            <Button>Create Release</Button>
+            <Button>ایجاد انتشار</Button>
           </EmptyContent>
         </Empty>
       </CardContent>

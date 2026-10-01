@@ -15,13 +15,13 @@ export function AnalyticsCard() {
   return (
     <Card className="mx-auto w-full max-w-sm data-[size=sm]:pb-0" size="sm">
       <CardHeader>
-        <CardTitle>Analytics</CardTitle>
+        <CardTitle>تحلیل‌ها</CardTitle>
         <CardDescription>
-          418.2K Visitors <Badge>+10%</Badge>
+          ۴۱۸٫۲ هزار بازدیدکننده <Badge>+٪۱۰</Badge>
         </CardDescription>
         <CardAction>
           <Button variant="outline" size="sm">
-            View Analytics
+            مشاهدهٔ تحلیل‌ها
           </Button>
         </CardAction>
       </CardHeader>
@@ -30,7 +30,7 @@ export function AnalyticsCard() {
         preserveAspectRatio="none"
         className="aspect-[1/0.35] w-full text-chart-1"
         role="img"
-        aria-label="Visitor trend"
+        aria-label="روند بازدیدکنندگان"
       >
         <path d={areaPath} fill="currentColor" opacity="0.28" />
         <path

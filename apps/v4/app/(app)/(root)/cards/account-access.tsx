@@ -28,31 +28,31 @@ export function AccountAccess() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Account Access</CardTitle>
+        <CardTitle>دسترسی حساب</CardTitle>
         <CardDescription>
-          Update your credentials or re-authenticate.
+          اطلاعات ورود را به‌روز کنید یا دوباره احراز هویت کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="email-address">Email Address</FieldLabel>
+            <FieldLabel htmlFor="email-address">آدرس ایمیل</FieldLabel>
             <Input
               id="email-address"
               type="email"
-              placeholder="artist@studio.inc"
+              placeholder="artist@studio.ir"
+              dir="ltr"
+              className="text-left"
             />
           </Field>
           <Field>
             <div className="flex items-center justify-between">
-              <FieldLabel htmlFor="current-password">
-                Current Password
-              </FieldLabel>
+              <FieldLabel htmlFor="current-password">رمز عبور فعلی</FieldLabel>
               <a
                 href="#"
                 className="text-xs font-medium tracking-wider text-muted-foreground uppercase hover:text-foreground"
               >
-                Forgot?
+                فراموش کردید؟
               </a>
             </div>
             <Input
@@ -66,7 +66,7 @@ export function AccountAccess() {
       <CardFooter className="flex-col gap-4">
         <Button className="w-full">
           <HugeiconsIcon icon={SquareLock02Icon} strokeWidth={2} />
-          Update Security
+          به‌روزرسانی امنیت
         </Button>
         <Item variant="muted" render={<a href="#" />}>
           <ItemMedia variant="icon">
@@ -77,14 +77,14 @@ export function AccountAccess() {
             />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle>Danger Zone</ItemTitle>
+            <ItemTitle>منطقهٔ خطر</ItemTitle>
             <ItemDescription className="line-clamp-1">
-              Archive account and remove catalog
+              بایگانی حساب و حذف کاتالوگ
             </ItemDescription>
           </ItemContent>
           <HugeiconsIcon
             icon={ArrowRight01Icon}
-            className="size-4"
+            className="size-4 rtl:rotate-180"
             strokeWidth={2}
           />
         </Item>

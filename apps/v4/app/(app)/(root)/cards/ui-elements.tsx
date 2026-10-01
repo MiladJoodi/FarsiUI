@@ -41,12 +41,6 @@ import {
 } from "@/styles/base-rhea/ui/input-group"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-rhea/ui/radio-group"
 import { Switch } from "@/styles/base-rhea/ui/switch"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/styles/base-rhea/ui/tabs"
 import { Textarea } from "@/styles/base-rhea/ui/textarea"
 
 export function UIElements() {
@@ -55,20 +49,21 @@ export function UIElements() {
       <CardContent className="flex flex-col gap-6">
         <div className="flex gap-2">
           <Button>
-            Button{" "}
+            دکمه{" "}
             <HugeiconsIcon
               icon={ArrowRight02Icon}
               strokeWidth={2}
               data-icon="inline-end"
+              className="rtl:rotate-180"
             />
           </Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
+          <Button variant="secondary">ثانویه</Button>
+          <Button variant="outline">حاشیه‌دار</Button>
         </div>
         <FieldGroup>
           <Field>
             <InputGroup>
-              <InputGroupInput placeholder="Name" />
+              <InputGroupInput placeholder="نام" />
               <InputGroupAddon align="inline-end">
                 <InputGroupText>
                   <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
@@ -77,64 +72,66 @@ export function UIElements() {
             </InputGroup>
           </Field>
           <Field className="flex-1">
-            <Textarea placeholder="Message" className="resize-none" />
+            <Textarea placeholder="پیام" className="resize-none" />
           </Field>
         </FieldGroup>
         <div className="flex items-center gap-2">
           <div className="flex gap-2">
-            <Badge>Badge</Badge>
-            <Badge variant="secondary">Secondary</Badge>
+            <Badge>نشان</Badge>
+            <Badge variant="secondary">ثانویه</Badge>
             <Badge variant="outline" className="hidden 4xl:flex">
-              Outline
+              حاشیه‌دار
             </Badge>
           </div>
           <RadioGroup
             defaultValue="apple"
-            className="ml-auto flex w-fit gap-3"
-            aria-label="Fruit preference"
+            className="ms-auto flex w-fit gap-3"
+            aria-label="ترجیح میوه"
           >
-            <RadioGroupItem value="apple" aria-label="Apple" />
-            <RadioGroupItem value="banana" aria-label="Banana" />
+            <RadioGroupItem value="apple" aria-label="سیب" />
+            <RadioGroupItem value="banana" aria-label="موز" />
           </RadioGroup>
           <div className="flex gap-3">
-            <Checkbox defaultChecked aria-label="Enable email alerts" />
+            <Checkbox defaultChecked aria-label="فعال‌سازی هشدار ایمیل" />
             <Checkbox
               className="hidden 4xl:flex"
-              aria-label="Enable push alerts"
+              aria-label="فعال‌سازی هشدار پوش"
             />
           </div>
           <Switch
             defaultChecked
             className="flex 4xl:hidden"
-            aria-label="Enable compact notifications"
+            aria-label="فعال‌سازی اعلان فشرده"
           />
         </div>
         <div className="flex items-center gap-4">
           <AlertDialog>
             <AlertDialogTrigger render={<Button variant="outline" />}>
               <span className="hidden md:flex style-sera:md:hidden">
-                Alert Dialog
+                دیالوگ هشدار
               </span>
-              <span className="flex md:hidden style-sera:md:flex">Dialog</span>
+              <span className="flex md:hidden style-sera:md:flex">دیالوگ</span>
             </AlertDialogTrigger>
-            <AlertDialogContent size="sm" className="theme-neutral">
-              <AlertDialogHeader>
-                <AlertDialogTitle>Allow accessory to connect?</AlertDialogTitle>
+            <AlertDialogContent size="sm" className="theme-neutral" dir="rtl">
+              <AlertDialogHeader className="text-right sm:text-right">
+                <AlertDialogTitle>
+                  اجازهٔ اتصال لوازم جانبی داده شود؟
+                </AlertDialogTitle>
                 <AlertDialogDescription>
-                  Do you want to allow the USB accessory to connect to this
-                  device and your data?
+                  می‌خواهید لوازم جانبی USB به این دستگاه و داده‌هایتان متصل
+                  شود؟
                 </AlertDialogDescription>
               </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Don&apos;t allow</AlertDialogCancel>
-                <AlertDialogAction>Allow</AlertDialogAction>
+              <AlertDialogFooter className="sm:flex-row-reverse">
+                <AlertDialogCancel>اجازه نده</AlertDialogCancel>
+                <AlertDialogAction>اجازه بده</AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-          <ButtonGroup className="ml-auto">
+          <ButtonGroup className="ms-auto">
             <Button variant="outline">
-              <span className="style-sera:hidden">Button Group</span>
-              <span className="hidden style-sera:block">Group</span>
+              <span className="style-sera:hidden">گروه دکمه</span>
+              <span className="hidden style-sera:block">گروه</span>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger
@@ -142,23 +139,28 @@ export function UIElements() {
                   <Button
                     variant="outline"
                     size="icon"
-                    aria-label="Open quick actions"
+                    aria-label="باز کردن اقدامات سریع"
                   />
                 }
               >
                 <HugeiconsIcon icon={ArrowUp01Icon} strokeWidth={2} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" side="top" className="w-40">
+              <DropdownMenuContent
+                align="end"
+                side="top"
+                className="min-w-52"
+                dir="rtl"
+              >
                 <DropdownMenuGroup>
-                  <DropdownMenuLabel>Quick Actions</DropdownMenuLabel>
-                  <DropdownMenuItem>Mute Conversation</DropdownMenuItem>
-                  <DropdownMenuItem>Mark as Read</DropdownMenuItem>
-                  <DropdownMenuItem>Block User</DropdownMenuItem>
+                  <DropdownMenuLabel>اقدامات سریع</DropdownMenuLabel>
+                  <DropdownMenuItem>بی‌صدا کردن گفتگو</DropdownMenuItem>
+                  <DropdownMenuItem>علامت به‌عنوان خوانده‌شده</DropdownMenuItem>
+                  <DropdownMenuItem>مسدود کردن کاربر</DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem variant="destructive">
-                    Delete Conversation
+                    حذف گفتگو
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
@@ -167,7 +169,7 @@ export function UIElements() {
           <Switch
             defaultChecked
             className="hidden 4xl:flex"
-            aria-label="Enable advanced setting"
+            aria-label="فعال‌سازی تنظیم پیشرفته"
           />
         </div>
       </CardContent>

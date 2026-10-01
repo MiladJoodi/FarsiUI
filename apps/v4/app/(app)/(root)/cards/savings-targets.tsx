@@ -19,10 +19,10 @@ export function SavingsTargets() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Savings Targets</CardTitle>
+        <CardTitle>اهداف پس‌انداز</CardTitle>
         <CardDescription>
-          Active milestones for 2024 across your portfolio. Monitor how close
-          you are to each savings goal.
+          هدف‌های مالی فعال شما در سال ۱۴۰۵. ببینید برای رسیدن به هر هدف چقدر
+          فاصله دارید.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -34,18 +34,20 @@ export function SavingsTargets() {
           >
             <ItemContent className="gap-3">
               <ItemDescription className="cn-font-heading text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                Retirement
+                بازنشستگی
               </ItemDescription>
-              <span className="text-3xl font-semibold tabular-nums">
-                $420,000
+              <span className="text-3xl font-semibold tracking-normal whitespace-nowrap">
+                ۴۲۰٬۰۰۰٬۰۰۰ تومان
               </span>
-              <Progress value={65} aria-label="Retirement savings progress" />
+              <Progress value={65} aria-label="پیشرفت پس‌انداز بازنشستگی" />
             </ItemContent>
             <ItemFooter>
               <span className="text-sm text-muted-foreground">
-                65% achieved
+                ۶۵٪ محقق شده
               </span>
-              <span className="text-sm font-medium tabular-nums">$273,000</span>
+              <span className="text-sm font-medium tracking-normal">
+                ۲۷۳٬۰۰۰٬۰۰۰ تومان
+              </span>
             </ItemFooter>
           </Item>
           <Item
@@ -55,25 +57,27 @@ export function SavingsTargets() {
           >
             <ItemContent className="gap-3">
               <ItemDescription className="cn-font-heading text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                Real Estate
+                املاک
               </ItemDescription>
-              <span className="text-3xl font-semibold tabular-nums">
-                $85,000
+              <span className="text-3xl font-semibold tracking-normal whitespace-nowrap">
+                ۸۵٬۰۰۰٬۰۰۰ تومان
               </span>
-              <Progress value={32} aria-label="Real estate savings progress" />
+              <Progress value={32} aria-label="پیشرفت پس‌انداز املاک" />
             </ItemContent>
             <ItemFooter>
               <span className="text-sm text-muted-foreground">
-                32% achieved
+                ۳۲٪ محقق شده
               </span>
-              <span className="text-sm font-medium tabular-nums">$27,200</span>
+              <span className="text-sm font-medium tracking-normal">
+                ۲۷٬۲۰۰٬۰۰۰ تومان
+              </span>
             </ItemFooter>
           </Item>
         </ItemGroup>
       </CardContent>
       <CardFooter>
         <CardDescription className="text-center">
-          You have not met your targets for this year.
+          هنوز به اهداف امسال نرسیده‌اید.
         </CardDescription>
       </CardFooter>
     </Card>

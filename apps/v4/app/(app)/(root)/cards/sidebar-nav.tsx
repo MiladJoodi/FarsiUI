@@ -48,8 +48,8 @@ function SidebarSection({
 }) {
   return (
     <Card className={cn("w-full overflow-hidden rounded-3xl py-0", className)}>
-      <SidebarProvider className="min-h-0">
-        <Sidebar collapsible="none" className="w-full bg-transparent">
+      <SidebarProvider className="min-h-0" dir="rtl">
+        <Sidebar collapsible="none" className="w-full bg-transparent" side="right">
           <SidebarContent className="gap-0 overflow-hidden">
             <SidebarGroup>
               <SidebarGroupLabel>{label}</SidebarGroupLabel>
@@ -68,13 +68,13 @@ export function SidebarNav() {
   return (
     <div className="grid w-full grid-cols-2 gap-4 xl:gap-6">
       <SidebarSection
-        label="Overview"
+        label="نمای کلی"
         className="xl:col-start-1 xl:row-start-2"
       >
         <SidebarMenuItem>
           <SidebarMenuButton isActive>
             <HugeiconsIcon icon={Analytics01Icon} strokeWidth={2} />
-            Analytics
+            تحلیل‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
@@ -83,133 +83,133 @@ export function SidebarNav() {
               icon={ArrowDataTransferHorizontalIcon}
               strokeWidth={2}
             />
-            Transactions
+            تراکنش‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />
-            Investments
+            سرمایه‌گذاری‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={BankIcon} strokeWidth={2} />
-            Accounts
+            حساب‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={PieChartIcon} strokeWidth={2} />
-            Spending
+            هزینه‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarSection>
 
       <SidebarSection
-        label="Planning"
+        label="برنامه‌ریزی"
         className="xl:col-start-1 xl:row-start-1"
       >
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={File02Icon} strokeWidth={2} />
-            Documents
+            اسناد
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Wallet01Icon} strokeWidth={2} />
-            Budget
+            بودجه
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={ChartBarLineIcon} strokeWidth={2} />
-            Reports
+            گزارش‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Target02Icon} strokeWidth={2} />
-            Goals
+            اهداف
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
-            Calendar
+            تقویم
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarSection>
 
       <SidebarSection
-        label="Support"
+        label="پشتیبانی"
         className="flex xl:col-start-2 xl:row-start-1"
       >
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />
-            Help Center
+            مرکز کمک
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={BookOpen02Icon} strokeWidth={2} />
-            Docs
+            مستندات
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Message01Icon} strokeWidth={2} />
-            Contact Us
+            تماس با ما
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={ActivityIcon} strokeWidth={2} />
-            Status
+            وضعیت
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} />
-            Community
+            انجمن
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarSection>
 
       <SidebarSection
-        label="Account"
+        label="حساب کاربری"
         className="flex xl:col-start-2 xl:row-start-2"
       >
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={UserIcon} strokeWidth={2} />
-            Profile
+            پروفایل
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton isActive>
             <HugeiconsIcon icon={CreditCardIcon} strokeWidth={2} />
-            Billing
+            صورت‌حساب
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={Notification03Icon} strokeWidth={2} />
-            Notifications
+            اعلان‌ها
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={ShieldIcon} strokeWidth={2} />
-            Security
+            امنیت
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton>
             <HugeiconsIcon icon={PaintBoardIcon} strokeWidth={2} />
-            Appearance
+            ظاهر
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarSection>

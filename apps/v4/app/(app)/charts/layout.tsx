@@ -58,7 +58,7 @@ export default function ChartsLayout({
           </Button>
         </PageActions>
       </PageHeader>
-      <PageNav id="charts">
+      <PageNav id="charts" dir="rtl" lang="fa">
         <ChartsNav />
       </PageNav>
       <div className="container-wrapper flex-1">

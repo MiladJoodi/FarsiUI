@@ -14,37 +14,36 @@ export function NewMilestone() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Set a new milestone</CardTitle>
+        <CardTitle>تعیین نقطهٔ عطف جدید</CardTitle>
         <CardDescription>
-          Define your financial target and we&apos;ll help you pace your
-          savings.
+          هدف مالی‌تان را مشخص کنید تا در زمان‌بندی پس‌انداز کمکتان کنیم.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="goal-name">Goal Name</FieldLabel>
+            <FieldLabel htmlFor="goal-name">نام هدف</FieldLabel>
             <Input
               id="goal-name"
-              placeholder="e.g. New Car, Home Downpayment"
+              placeholder="مثلاً خودرو، پیش‌پرداخت مسکن"
             />
           </Field>
           <div className="grid grid-cols-2 gap-3">
             <Field>
-              <FieldLabel htmlFor="target-amount">Target Amount</FieldLabel>
-              <Input id="target-amount" defaultValue="$15,000" />
+              <FieldLabel htmlFor="target-amount">مبلغ هدف</FieldLabel>
+              <Input id="target-amount" defaultValue="۱۵٬۰۰۰٬۰۰۰ تومان" />
             </Field>
             <Field>
-              <FieldLabel htmlFor="target-date">Target Date</FieldLabel>
-              <Input id="target-date" defaultValue="Dec 2025" />
+              <FieldLabel htmlFor="target-date">تاریخ هدف</FieldLabel>
+              <Input id="target-date" defaultValue="آذر ۱۴۰۴" />
             </Field>
           </div>
         </FieldGroup>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button className="w-full">Create Goal</Button>
+        <Button className="w-full">ایجاد هدف</Button>
         <Button variant="outline" className="w-full">
-          Cancel
+          انصراف
         </Button>
       </CardFooter>
     </Card>

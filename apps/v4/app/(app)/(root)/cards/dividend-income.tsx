@@ -20,9 +20,9 @@ import {
 
 const HOLDINGS = [
   {
-    name: "Vanguard",
-    shares: "450 Shares",
-    amount: "$1,842.10",
+    name: "ونگارد",
+    shares: "۴۵۰ سهم",
+    amount: "۱٬۸۴۲٬۱۰۰ تومان",
     data: [
       { q: "Q1", value: 380 },
       { q: "Q2", value: 420 },
@@ -32,8 +32,8 @@ const HOLDINGS = [
   },
   {
     name: "S&P 500 VOO",
-    shares: "112 Shares",
-    amount: "$928.40",
+    shares: "۱۱۲ سهم",
+    amount: "۹۲۸٬۴۰۰ تومان",
     data: [
       { q: "Q1", value: 180 },
       { q: "Q2", value: 210 },
@@ -42,9 +42,9 @@ const HOLDINGS = [
     ],
   },
   {
-    name: "Apple AAPL",
-    shares: "85 Shares",
-    amount: "$340.00",
+    name: "اپل AAPL",
+    shares: "۸۵ سهم",
+    amount: "۳۴۰٬۰۰۰ تومان",
     data: [
       { q: "Q1", value: 60 },
       { q: "Q2", value: 70 },
@@ -53,9 +53,9 @@ const HOLDINGS = [
     ],
   },
   {
-    name: "Realty Income",
-    shares: "320 Shares",
-    amount: "$1,139.50",
+    name: "ریالتی اینکام",
+    shares: "۳۲۰ سهم",
+    amount: "۱٬۱۳۹٬۵۰۰ تومان",
     data: [
       { q: "Q1", value: 240 },
       { q: "Q2", value: 260 },
@@ -69,16 +69,16 @@ export function DividendIncome() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Q2 Dividend Income</CardTitle>
+        <CardTitle>سود سهام فصل دوم</CardTitle>
         <CardDescription>
-          Quarterly dividend payouts across your portfolio holdings.
+          پرداخت‌های فصلی سود سهام در دارایی‌های پرتفوی شما.
         </CardDescription>
         <CardAction>
           <Button
             variant="ghost"
             size="icon-sm"
             className="bg-muted"
-            aria-label="Dismiss dividend income"
+            aria-label="بستن سود سهام"
           >
             <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
           </Button>
@@ -95,7 +95,7 @@ export function DividendIncome() {
               <div
                 className="hidden h-8 w-24 items-end gap-1 md:flex"
                 role="img"
-                aria-label={`${holding.name} quarterly dividends`}
+                aria-label={`سود فصلی ${holding.name}`}
               >
                 {holding.data.map((item) => (
                   <div
