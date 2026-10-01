@@ -9,7 +9,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { PrimaryColorPalette } from "@/components/primary-color-palette"
 import { Button } from "@/styles/radix-luma/ui/button"
 
 import { CardsDemo } from "./cards"
@@ -71,7 +70,7 @@ export const metadata: Metadata = {
 
 export default function IndexPage() {
   return (
-    <div className="theme-container flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -93,7 +92,6 @@ export default function IndexPage() {
             <Link href="/docs/components">مشاهده کامپوننت‌ها</Link>
           </Button>
         </PageActions>
-        <PrimaryColorPalette className="pt-4" />
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
         <div className="container overflow-hidden md:px-0 lg:max-w-none">

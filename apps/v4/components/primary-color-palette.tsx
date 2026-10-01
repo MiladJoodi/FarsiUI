@@ -20,7 +20,8 @@ const THEME_LABELS: Record<string, string> = {
 
 export function PrimaryColorPalette({
   className,
-}: React.ComponentProps<"div">) {
+  compact = false,
+}: React.ComponentProps<"div"> & { compact?: boolean }) {
   const { activeTheme, setActiveTheme } = useThemeConfig()
   const current = activeTheme === "default" ? "neutral" : activeTheme
 
@@ -29,7 +30,11 @@ export function PrimaryColorPalette({
       dir="rtl"
       role="radiogroup"
       aria-label="رنگ اصلی"
-      className={cn("flex flex-wrap items-center justify-center gap-2", className)}
+      className={cn(
+        "flex flex-wrap items-center gap-1.5",
+        compact ? "justify-end" : "justify-center gap-2",
+        className
+      )}
     >
       {THEMES.map((theme) => {
         const isActive = current === theme.name
@@ -47,7 +52,8 @@ export function PrimaryColorPalette({
             title={label}
             data-active={isActive}
             className={cn(
-              "size-8 rounded-full border-2 p-0 shadow-none",
+              "rounded-full border-2 p-0 shadow-none",
+              compact ? "size-6" : "size-8",
               isActive
                 ? "border-foreground"
                 : "border-transparent hover:border-foreground/30"
@@ -55,7 +61,10 @@ export function PrimaryColorPalette({
             onClick={() => setActiveTheme(theme.name)}
           >
             <span
-              className="flex size-5 items-center justify-center rounded-full"
+              className={cn(
+                "flex items-center justify-center rounded-full",
+                compact ? "size-3.5" : "size-5"
+              )}
               style={
                 {
                   backgroundColor: `hsl(${theme.activeColor.light})`,
@@ -65,7 +74,7 @@ export function PrimaryColorPalette({
               {isActive ? (
                 <CheckIcon
                   className={cn(
-                    "size-3.5",
+                    compact ? "size-2.5" : "size-3.5",
                     theme.name === "neutral" || theme.name === "yellow"
                       ? "text-black"
                       : "text-white"

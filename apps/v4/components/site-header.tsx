@@ -11,6 +11,7 @@ import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
+import { PrimaryColorPalette } from "@/components/primary-color-palette"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Button } from "@/styles/radix-nova/ui/button"
 
@@ -42,11 +43,20 @@ export function SiteHeader() {
             />
             <GitHubLink />
             <Separator orientation="vertical" />
+            <PrimaryColorPalette
+              compact
+              className="hidden sm:flex"
+            />
+            <Separator orientation="vertical" className="hidden sm:block" />
             <ModeSwitcher />
             <DesignerActions />
             <div className="flex items-center gap-2 group-has-data-[slot=designer]/layout:hidden">
               <Separator orientation="vertical" />
-              <Button asChild size="sm" className="h-[31px] rounded-lg">
+              <Button
+                asChild
+                size="sm"
+                className="h-[31px] rounded-lg bg-neutral-900 text-neutral-50 hover:bg-neutral-900/90 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90"
+              >
                 <Link href="/create">
                   <HugeiconsIcon icon={PlusSignIcon} />
                   جدید

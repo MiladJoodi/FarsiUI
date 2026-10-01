@@ -11,7 +11,10 @@ import { ContributionHistory } from "./contribution-history"
 import { DividendIncome } from "./dividend-income"
 import { DropdownDrawerHover } from "./dropdown-drawer-hover"
 import { EmptyDistributeTrack } from "./empty-distribute-track"
+import { FaqCard } from "./faq-card"
+import { InviteTeamCard } from "./invite-team-card"
 import { MarkerAvatarAlert } from "./marker-avatar-alert"
+import { MenubarCard } from "./menubar-card"
 import { NavigationMenuCard } from "./navigation-menu-card"
 import { NewMilestone } from "./new-milestone"
 import { NotificationSettings } from "./notification-settings"
@@ -20,7 +23,10 @@ import { PayoutThreshold } from "./payout-threshold"
 import { PopoverSliderToastToggle } from "./popover-slider-toast-toggle"
 import { PowerUsage } from "./power-usage"
 import { SavingsTargets } from "./savings-targets"
+import { ShortcutsCard } from "./shortcuts-card"
 import { SidebarNav } from "./sidebar-nav"
+import { SocialLinksCard } from "./social-links-card"
+import { SyncingStateCard } from "./syncing-state-card"
 import { TabsCard } from "./tabs-card"
 import { AccountAccess as SkeletonAccountAccess } from "./skeleton/account-access"
 import { AnalyticsCard as SkeletonAnalyticsCard } from "./skeleton/analytics-card"
@@ -108,6 +114,8 @@ export function CardsDemo() {
           <UIElements />
           <CalendarCard />
           <SidebarNav />
+          <MenubarCard />
+          <SyncingStateCard />
           <PayoutThreshold />
           <FadeTail>
             <PayoutThreshold />
@@ -119,6 +127,7 @@ export function CardsDemo() {
           <ClaimableBalance />
           <DividendIncome />
           <TabsCard />
+          <FaqCard />
           <FadeTail>
             <ClaimableBalance />
           </FadeTail>
@@ -130,6 +139,7 @@ export function CardsDemo() {
           <AccountAccess />
           <NavigationMenuCard />
           <DropdownDrawerHover />
+          <ShortcutsCard />
           <FadeTail>
             <AccountAccess />
           </FadeTail>
@@ -143,6 +153,7 @@ export function CardsDemo() {
           <PopoverSliderToastToggle />
           <ContextMenuCard />
           <AttachmentCard />
+          <InviteTeamCard />
           <FadeTail>
             <Payments />
           </FadeTail>
@@ -154,6 +165,7 @@ export function CardsDemo() {
           <NotificationSettings />
           <PowerUsage />
           <MarkerAvatarAlert />
+          <SocialLinksCard />
           <FadeTail>
             <NotificationSettings />
           </FadeTail>

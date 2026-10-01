@@ -115,8 +115,8 @@ export function CopyCodeButton({
   className,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  let { activeTheme: activeThemeName = "neutral" } = useThemeConfig()
-  activeThemeName = activeThemeName === "default" ? "neutral" : activeThemeName
+  // Site preview palette must not affect copied CSS — always ship default/neutral.
+  const activeThemeName = "neutral"
 
   return (
     <>
