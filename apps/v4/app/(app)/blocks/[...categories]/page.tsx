@@ -3,7 +3,7 @@ import { type Metadata } from "next"
 import { getAllBlockIds } from "@/lib/blocks"
 import { registryCategories } from "@/lib/categories"
 import { getRegistryItem } from "@/lib/registry"
-import { BlockDisplay } from "@/components/block-display"
+import { BlockCardDisplay } from "@/components/block-card-display"
 import { getActiveStyle } from "@/registry/_legacy-styles"
 
 export const revalidate = false
@@ -69,9 +69,13 @@ export default async function BlocksPage({
   }
 
   return (
-    <div className="flex flex-col gap-12 md:gap-24">
+    <div className="flex flex-col gap-4 pb-8">
       {blocks.map((name) => (
-        <BlockDisplay name={name} key={name} styleName={activeStyle.name} />
+        <BlockCardDisplay
+          name={name}
+          key={name}
+          styleName={activeStyle.name}
+        />
       ))}
     </div>
   )
