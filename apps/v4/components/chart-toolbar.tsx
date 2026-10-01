@@ -25,10 +25,10 @@ export function ChartToolbar({
 } & React.ComponentProps<"div">) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <div className="flex items-center gap-1.5 pl-1 text-[13px] text-muted-foreground [&>svg]:h-[0.9rem] [&>svg]:w-[0.9rem]">
+      <div className="flex items-center gap-1.5 pe-1 text-[13px] text-muted-foreground [&>svg]:h-[0.9rem] [&>svg]:w-[0.9rem]">
         <ChartTitle chart={chart} />
       </div>
-      <div className="ml-auto flex items-center gap-2 [&>form]:flex">
+      <div className="ms-auto flex items-center gap-2 [&>form]:flex">
         <ChartCopyButton
           event="copy_chart_code"
           name={chart.name}
@@ -49,7 +49,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-line")) {
     return (
       <>
-        <LineChartIcon /> Line Chart
+        <LineChartIcon /> نمودار خطی
       </>
     )
   }
@@ -57,7 +57,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-bar")) {
     return (
       <>
-        <BarChartBigIcon /> Bar Chart
+        <BarChartBigIcon /> نمودار میله‌ای
       </>
     )
   }
@@ -65,7 +65,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-pie")) {
     return (
       <>
-        <PieChartIcon /> Pie Chart
+        <PieChartIcon /> نمودار دایره‌ای
       </>
     )
   }
@@ -73,7 +73,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-area")) {
     return (
       <>
-        <AreaChartIcon /> Area Chart
+        <AreaChartIcon /> نمودار ناحیه‌ای
       </>
     )
   }
@@ -81,7 +81,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-radar")) {
     return (
       <>
-        <HexagonIcon /> Radar Chart
+        <HexagonIcon /> نمودار راداری
       </>
     )
   }
@@ -89,7 +89,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
   if (chart.name.includes("chart-radial")) {
     return (
       <>
-        <RadarIcon /> Radial Chart
+        <RadarIcon /> نمودار شعاعی
       </>
     )
   }
@@ -98,7 +98,7 @@ function ChartTitle({ chart }: { chart: Chart }) {
     return (
       <>
         <MousePointer2Icon />
-        Tooltip
+        راهنما
       </>
     )
   }

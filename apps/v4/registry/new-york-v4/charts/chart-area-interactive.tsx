@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
+import { FA_CHART, formatJalaliDate } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -26,7 +27,7 @@ import {
   SelectValue,
 } from "@/registry/new-york-v4/ui/select"
 
-export const description = "An interactive area chart"
+export const description = "یک نمودار ناحیه‌ای تعاملی"
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -124,14 +125,14 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: FA_CHART.visitors,
   },
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -154,30 +155,28 @@ export function ChartAreaInteractive() {
   })
 
   return (
-    <Card className="pt-0">
+    <Card dir="rtl" className="pt-0">
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
-        <div className="grid flex-1 gap-1">
-          <CardTitle>Area Chart - Interactive</CardTitle>
-          <CardDescription>
-            Showing total visitors for the last 3 months
-          </CardDescription>
+        <div className="grid flex-1 gap-1 text-right">
+          <CardTitle>نمودار ناحیه‌ای — تعاملی</CardTitle>
+          <CardDescription>{FA_CHART.visitorsLast3Months}</CardDescription>
         </div>
-        <Select value={timeRange} onValueChange={setTimeRange}>
+        <Select dir="rtl" value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger
-            className="hidden w-[160px] rounded-lg sm:ml-auto sm:flex"
-            aria-label="Select a value"
+            className="hidden w-[11.5rem] rounded-lg sm:ms-auto sm:flex"
+            aria-label={FA_CHART.selectRange}
           >
-            <SelectValue placeholder="Last 3 months" />
+            <SelectValue placeholder={FA_CHART.last3Months} />
           </SelectTrigger>
-          <SelectContent className="rounded-xl">
-            <SelectItem value="90d" className="rounded-lg">
-              Last 3 months
+          <SelectContent dir="rtl" className="rounded-xl" align="end">
+            <SelectItem value="90d" className="rounded-lg text-right">
+              {FA_CHART.last3Months}
             </SelectItem>
-            <SelectItem value="30d" className="rounded-lg">
-              Last 30 days
+            <SelectItem value="30d" className="rounded-lg text-right">
+              {FA_CHART.last30Days}
             </SelectItem>
-            <SelectItem value="7d" className="rounded-lg">
-              Last 7 days
+            <SelectItem value="7d" className="rounded-lg text-right">
+              {FA_CHART.last7Days}
             </SelectItem>
           </SelectContent>
         </Select>
@@ -221,22 +220,19 @@ export function ChartAreaInteractive() {
               axisLine={false}
               tickMargin={8}
               minTickGap={32}
-              tickFormatter={(value) => {
-                const date = new Date(value)
-                return date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })
-              }}
+              tickFormatter={(value) => formatJalaliDate(value)}
             />
             <ChartTooltip
               cursor={false}
               content={
                 <ChartTooltipContent
-                  labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      month: "short",
+                  labelFormatter={(_value, payload) => {
+                    const rawDate = payload?.[0]?.payload?.date
+                    if (!rawDate) return null
+                    return formatJalaliDate(rawDate, {
+                      month: "long",
                       day: "numeric",
+                      year: "numeric",
                     })
                   }}
                   indicator="dot"

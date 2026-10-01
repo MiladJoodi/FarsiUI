@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://ui.shadcn.com",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
-    "Composable, accessible components with thoughtful defaults. Build your own component library with code you can customize, extend, and make your own.",
+    "کامپوننت‌های مدرن و قابل شخصی‌سازی برای ساخت محصولات فارسی",
   links: {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/MiladJoodi/FarsiUI",

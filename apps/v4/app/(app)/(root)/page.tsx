@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/lib/config"
-import { Announcement } from "@/components/announcement"
 import {
   PageActions,
   PageHeader,
@@ -14,7 +13,7 @@ import { Button } from "@/styles/radix-luma/ui/button"
 
 import { CardsDemo } from "./cards"
 
-const title = "The Foundation for your Design System"
+const title = "برای فارسی، از پایه درست"
 const metadataTitle = `${siteConfig.name} - ${title}`
 const description = siteConfig.description
 
@@ -26,7 +25,7 @@ const websiteJsonLd = {
   name: siteConfig.name,
   alternateName: ["shadcn", "ui.shadcn.com"],
   description: siteConfig.description,
-  inLanguage: "en-US",
+  inLanguage: "fa-IR",
   sameAs: [siteConfig.links.github, siteConfig.links.twitter],
 }
 
@@ -78,16 +77,19 @@ export default function IndexPage() {
           __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <PageHeader className="md:**:[.container]:pb-8 lg:**:[.container]:pb-12">
-        <Announcement />
+      <PageHeader
+        dir="rtl"
+        lang="fa"
+        className="md:**:[.container]:pb-8 lg:**:[.container]:pb-12"
+      >
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
           <Button asChild className="h-[35px]">
-            <Link href="/docs/installation">Get Started</Link>
+            <Link href="/docs/installation">شروع کنید</Link>
           </Button>
           <Button asChild variant="secondary">
-            <Link href="/docs/components">View Components</Link>
+            <Link href="/docs/components">مشاهده کامپوننت‌ها</Link>
           </Button>
         </PageActions>
       </PageHeader>

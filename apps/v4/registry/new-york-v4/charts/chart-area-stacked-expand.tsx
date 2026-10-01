@@ -4,6 +4,11 @@ import { TrendingUp } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
+  abbreviatePersianMonth,
+  FA_CHART,
+  FA_MONTHS,
+} from "@/lib/chart-locale"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -18,40 +23,38 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A stacked area chart with expand stacking"
+export const description = "یک نمودار ناحیه‌ای انباشتهٔ کامل"
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80, other: 45 },
-  { month: "February", desktop: 305, mobile: 200, other: 100 },
-  { month: "March", desktop: 237, mobile: 120, other: 150 },
-  { month: "April", desktop: 73, mobile: 190, other: 50 },
-  { month: "May", desktop: 209, mobile: 130, other: 100 },
-  { month: "June", desktop: 214, mobile: 140, other: 160 },
+  { month: FA_MONTHS[0], desktop: 186, mobile: 80, other: 45 },
+  { month: FA_MONTHS[1], desktop: 305, mobile: 200, other: 100 },
+  { month: FA_MONTHS[2], desktop: 237, mobile: 120, other: 150 },
+  { month: FA_MONTHS[3], desktop: 73, mobile: 190, other: 50 },
+  { month: FA_MONTHS[4], desktop: 209, mobile: 130, other: 100 },
+  { month: FA_MONTHS[5], desktop: 214, mobile: 140, other: 160 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
     color: "var(--chart-2)",
   },
   other: {
-    label: "Other",
+    label: FA_CHART.other,
     color: "var(--chart-3)",
   },
 } satisfies ChartConfig
 
 export function ChartAreaStackedExpand() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Area Chart - Stacked Expanded</CardTitle>
-        <CardDescription>
-          Showing total visitors for the last 6months
-        </CardDescription>
+        <CardTitle>نمودار ناحیه‌ای — انباشتهٔ کامل</CardTitle>
+        <CardDescription>{FA_CHART.visitorsLast6Months}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -71,7 +74,7 @@ export function ChartAreaStackedExpand() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tickFormatter={abbreviatePersianMonth}
             />
             <ChartTooltip
               cursor={false}
@@ -108,10 +111,10 @@ export function ChartAreaStackedExpand() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
+              {FA_CHART.rangeFarvardinShahrivar}
             </div>
           </div>
         </div>

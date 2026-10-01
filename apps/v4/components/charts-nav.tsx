@@ -8,31 +8,31 @@ import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 
 const links = [
   {
-    name: "Area Charts",
+    name: "ناحیه‌ای",
     href: "/charts/area#charts",
   },
   {
-    name: "Bar Charts",
+    name: "میله‌ای",
     href: "/charts/bar#charts",
   },
   {
-    name: "Line Charts",
+    name: "خطی",
     href: "/charts/line#charts",
   },
   {
-    name: "Pie Charts",
+    name: "دایره‌ای",
     href: "/charts/pie#charts",
   },
   {
-    name: "Radar Charts",
+    name: "راداری",
     href: "/charts/radar#charts",
   },
   {
-    name: "Radial Charts",
+    name: "شعاعی",
     href: "/charts/radial#charts",
   },
   {
-    name: "Tooltips",
+    name: "راهنما",
     href: "/charts/tooltip#charts",
   },
 ]

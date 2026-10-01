@@ -1,7 +1,6 @@
 import { type Metadata } from "next"
 import Link from "next/link"
 
-import { Announcement } from "@/components/announcement"
 import { ChartsNav } from "@/components/charts-nav"
 import {
   PageActions,
@@ -10,12 +9,11 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { PageNav } from "@/components/page-nav"
-import { ThemeSelector } from "@/components/theme-selector"
 import { Button } from "@/styles/radix-luma/ui/button"
 
-const title = "Beautiful Charts & Graphs"
+const title = "نمودارهای زیبا و کاربردی"
 const description =
-  "A collection of ready-to-use chart components built with Recharts. From basic charts to rich data displays, copy and paste into your apps."
+  "مجموعه‌ای از نمودارهای آماده برای نمایش داده‌ها، ساخته‌شده با Recharts و قابل استفاده در پروژه‌های شما."
 
 export const metadata: Metadata = {
   title,
@@ -48,16 +46,15 @@ export default function ChartsLayout({
 }) {
   return (
     <>
-      <PageHeader>
-        <Announcement />
+      <PageHeader dir="rtl" lang="fa">
         <PageHeaderHeading>{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
           <Button asChild className="h-[35px]">
-            <a href="#charts">Browse Charts</a>
+            <a href="#charts">مرور نمودارها</a>
           </Button>
           <Button asChild variant="secondary">
-            <Link href="/docs/components/chart">Documentation</Link>
+            <Link href="/docs/components/chart">مستندات</Link>
           </Button>
         </PageActions>
       </PageHeader>

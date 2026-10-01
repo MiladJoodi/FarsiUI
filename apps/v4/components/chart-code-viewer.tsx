@@ -39,7 +39,7 @@ export function ChartCodeViewer({
       variant="outline"
       className="h-6 rounded-[6px] border bg-transparent px-2 text-xs text-foreground shadow-none hover:bg-muted dark:text-foreground"
     >
-      View Code
+      مشاهده کد
     </Button>
   )
 
