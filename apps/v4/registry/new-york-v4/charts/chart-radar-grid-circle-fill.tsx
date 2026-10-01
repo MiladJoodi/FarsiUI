@@ -4,6 +4,11 @@ import { TrendingUp } from "lucide-react"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
+  abbreviatePersianMonth,
+  FA_CHART,
+  FA_MONTHS,
+} from "@/lib/chart-locale"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -18,32 +23,30 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A radar chart with a grid and circle fill"
+export const description = "یک نمودار راداری با پر شدن شبکه دایره‌ای"
 
 const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 285 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 203 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 264 },
+  { month: FA_MONTHS[0], desktop: 186 },
+  { month: FA_MONTHS[1], desktop: 285 },
+  { month: FA_MONTHS[2], desktop: 237 },
+  { month: FA_MONTHS[3], desktop: 203 },
+  { month: FA_MONTHS[4], desktop: 209 },
+  { month: FA_MONTHS[5], desktop: 264 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
 
 export function ChartRadarGridCircleFill() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader className="items-center pb-4">
-        <CardTitle>Radar Chart - Grid Circle Filled</CardTitle>
-        <CardDescription>
-          Showing total visitors for the last 6 months
-        </CardDescription>
+        <CardTitle>نمودار راداری — پر شدن شبکه دایره‌ای</CardTitle>
+        <CardDescription>{FA_CHART.visitorsLast6Months}</CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -56,7 +59,10 @@ export function ChartRadarGridCircleFill() {
               className="fill-(--color-desktop) opacity-20"
               gridType="circle"
             />
-            <PolarAngleAxis dataKey="month" />
+            <PolarAngleAxis
+              dataKey="month"
+              tickFormatter={abbreviatePersianMonth}
+            />
             <Radar
               dataKey="desktop"
               fill="var(--color-desktop)"
@@ -67,10 +73,10 @@ export function ChartRadarGridCircleFill() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-foreground">
-          January - June 2024
+          {FA_CHART.rangeFarvardinShahrivar}
         </div>
       </CardFooter>
     </Card>

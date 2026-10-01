@@ -3,6 +3,7 @@
 import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Dot, Line, LineChart } from "recharts"
 
+import { FA_CHART } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -18,7 +19,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A line chart with dots and colors"
+export const description = "یک نمودار خطی با رنگ نقاط"
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
@@ -30,37 +31,37 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: FA_CHART.visitors,
     color: "var(--chart-2)",
   },
   chrome: {
-    label: "Chrome",
+    label: FA_CHART.chrome,
     color: "var(--chart-1)",
   },
   safari: {
-    label: "Safari",
+    label: FA_CHART.safari,
     color: "var(--chart-2)",
   },
   firefox: {
-    label: "Firefox",
+    label: FA_CHART.firefox,
     color: "var(--chart-3)",
   },
   edge: {
-    label: "Edge",
+    label: FA_CHART.edge,
     color: "var(--chart-4)",
   },
   other: {
-    label: "Other",
+    label: FA_CHART.other,
     color: "var(--chart-5)",
   },
 } satisfies ChartConfig
 
 export function ChartLineDotsColors() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Line Chart - Dots Colors</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>نمودار خطی — رنگ نقاط</CardTitle>
+        <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -107,10 +108,10 @@ export function ChartLineDotsColors() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          {FA_CHART.visitorsLast6Months}
         </div>
       </CardFooter>
     </Card>

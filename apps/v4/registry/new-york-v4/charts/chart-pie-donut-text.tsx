@@ -4,6 +4,7 @@ import * as React from "react"
 import { TrendingUp } from "lucide-react"
 import { Label, Pie, PieChart } from "recharts"
 
+import { FA_CHART, formatPersianNumber } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -19,7 +20,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A donut chart with text"
+export const description = "یک نمودار دونات با متن"
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
@@ -31,26 +32,26 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: FA_CHART.visitors,
   },
   chrome: {
-    label: "Chrome",
+    label: FA_CHART.chrome,
     color: "var(--chart-1)",
   },
   safari: {
-    label: "Safari",
+    label: FA_CHART.safari,
     color: "var(--chart-2)",
   },
   firefox: {
-    label: "Firefox",
+    label: FA_CHART.firefox,
     color: "var(--chart-3)",
   },
   edge: {
-    label: "Edge",
+    label: FA_CHART.edge,
     color: "var(--chart-4)",
   },
   other: {
-    label: "Other",
+    label: FA_CHART.other,
     color: "var(--chart-5)",
   },
 } satisfies ChartConfig
@@ -61,10 +62,10 @@ export function ChartPieDonutText() {
   }, [])
 
   return (
-    <Card className="flex flex-col">
+    <Card dir="rtl" className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Donut with Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>نمودار دایره‌ای — دونات با متن</CardTitle>
+        <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -98,14 +99,14 @@ export function ChartPieDonutText() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {totalVisitors.toLocaleString()}
+                          {formatPersianNumber(totalVisitors)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          {FA_CHART.visitors}
                         </tspan>
                       </text>
                     )
@@ -118,10 +119,10 @@ export function ChartPieDonutText() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          {FA_CHART.visitorsLast6Months}
         </div>
       </CardFooter>
     </Card>

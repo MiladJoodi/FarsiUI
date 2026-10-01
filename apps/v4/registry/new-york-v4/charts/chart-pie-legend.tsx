@@ -2,6 +2,7 @@
 
 import { Pie, PieChart } from "recharts"
 
+import { FA_CHART } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -16,7 +17,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A pie chart with a legend"
+export const description = "یک نمودار دایره‌ای با راهنما"
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
@@ -28,36 +29,36 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: FA_CHART.visitors,
   },
   chrome: {
-    label: "Chrome",
+    label: FA_CHART.chrome,
     color: "var(--chart-1)",
   },
   safari: {
-    label: "Safari",
+    label: FA_CHART.safari,
     color: "var(--chart-2)",
   },
   firefox: {
-    label: "Firefox",
+    label: FA_CHART.firefox,
     color: "var(--chart-3)",
   },
   edge: {
-    label: "Edge",
+    label: FA_CHART.edge,
     color: "var(--chart-4)",
   },
   other: {
-    label: "Other",
+    label: FA_CHART.other,
     color: "var(--chart-5)",
   },
 } satisfies ChartConfig
 
 export function ChartPieLegend() {
   return (
-    <Card className="flex flex-col">
+    <Card dir="rtl" className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Legend</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>نمودار دایره‌ای — راهنما</CardTitle>
+        <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer

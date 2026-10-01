@@ -7,6 +7,7 @@ import type {
   PieSectorShapeProps,
 } from "recharts/types/polar/Pie"
 
+import { FA_CHART, FA_MONTHS, formatPersianNumber } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -29,7 +30,7 @@ import {
   SelectValue,
 } from "@/registry/new-york-v4/ui/select"
 
-export const description = "An interactive pie chart"
+export const description = "یک نمودار دایره‌ای تعاملی"
 
 const desktopData = [
   { month: "january", desktop: 186, fill: "var(--color-january)" },
@@ -41,32 +42,32 @@ const desktopData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: FA_CHART.visitors,
   },
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
   },
   january: {
-    label: "January",
+    label: FA_MONTHS[0],
     color: "var(--chart-1)",
   },
   february: {
-    label: "February",
+    label: FA_MONTHS[1],
     color: "var(--chart-2)",
   },
   march: {
-    label: "March",
+    label: FA_MONTHS[2],
     color: "var(--chart-3)",
   },
   april: {
-    label: "April",
+    label: FA_MONTHS[3],
     color: "var(--chart-4)",
   },
   may: {
-    label: "May",
+    label: FA_MONTHS[4],
     color: "var(--chart-5)",
   },
 } satisfies ChartConfig
@@ -102,21 +103,21 @@ export function ChartPieInteractive() {
   )
 
   return (
-    <Card data-chart={id} className="flex flex-col">
+    <Card dir="rtl" data-chart={id} className="flex flex-col">
       <ChartStyle id={id} config={chartConfig} />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
-          <CardTitle>Pie Chart - Interactive</CardTitle>
-          <CardDescription>January - June 2024</CardDescription>
+          <CardTitle>نمودار دایره‌ای — تعاملی</CardTitle>
+          <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
         </div>
-        <Select value={activeMonth} onValueChange={setActiveMonth}>
+        <Select dir="rtl" value={activeMonth} onValueChange={setActiveMonth}>
           <SelectTrigger
-            className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
-            aria-label="Select a value"
+            className="ms-auto h-7 w-[130px] rounded-lg pe-2.5"
+            aria-label={FA_CHART.selectRange}
           >
-            <SelectValue placeholder="Select month" />
+            <SelectValue placeholder="انتخاب ماه" />
           </SelectTrigger>
-          <SelectContent align="end" className="rounded-xl">
+          <SelectContent dir="rtl" align="end" className="rounded-xl">
             {months.map((key) => {
               const config = chartConfig[key as keyof typeof chartConfig]
 
@@ -128,7 +129,7 @@ export function ChartPieInteractive() {
                 <SelectItem
                   key={key}
                   value={key}
-                  className="rounded-lg [&_span]:flex"
+                  className="rounded-lg text-right [&_span]:flex"
                 >
                   <div className="flex items-center gap-2 text-xs">
                     <span
@@ -179,14 +180,14 @@ export function ChartPieInteractive() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {desktopData[activeIndex].desktop.toLocaleString()}
+                          {formatPersianNumber(desktopData[activeIndex].desktop)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          {FA_CHART.visitors}
                         </tspan>
                       </text>
                     )

@@ -9,6 +9,7 @@ import {
   RadialBarChart,
 } from "recharts"
 
+import { FA_CHART, formatPersianNumber } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -24,17 +25,17 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A radial chart with stacked sections"
+export const description = "یک نمودار شعاعی با بخش‌های انباشته"
 
 const chartData = [{ month: "january", mobile: 570, desktop: 1260 }]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -43,10 +44,10 @@ export function ChartRadialStacked() {
   const totalVisitors = chartData[0].desktop + chartData[0].mobile
 
   return (
-    <Card className="flex flex-col">
+    <Card dir="rtl" className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Radial Chart - Stacked</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>نمودار شعاعی — انباشته</CardTitle>
+        <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 items-center pb-0">
         <ChartContainer
@@ -88,14 +89,14 @@ export function ChartRadialStacked() {
                           y={(viewBox.cy || 0) - 16}
                           className="fill-foreground text-2xl font-bold"
                         >
-                          {totalVisitors.toLocaleString()}
+                          {formatPersianNumber(totalVisitors)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 4}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          {FA_CHART.visitors}
                         </tspan>
                       </text>
                     )
@@ -108,10 +109,10 @@ export function ChartRadialStacked() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          {FA_CHART.visitorsLast6Months}
         </div>
       </CardFooter>
     </Card>

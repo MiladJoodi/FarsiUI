@@ -4,6 +4,11 @@ import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
+  abbreviatePersianMonth,
+  FA_CHART,
+  FA_MONTHS,
+} from "@/lib/chart-locale"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -18,34 +23,34 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A multiple line chart"
+export const description = "یک نمودار خطی چندگانه"
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: FA_MONTHS[0], desktop: 186, mobile: 80 },
+  { month: FA_MONTHS[1], desktop: 305, mobile: 200 },
+  { month: FA_MONTHS[2], desktop: 237, mobile: 120 },
+  { month: FA_MONTHS[3], desktop: 73, mobile: 190 },
+  { month: FA_MONTHS[4], desktop: 209, mobile: 130 },
+  { month: FA_MONTHS[5], desktop: 214, mobile: 140 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
 export function ChartLineMultiple() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Line Chart - Multiple</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>نمودار خطی — چندگانه</CardTitle>
+        <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -63,7 +68,7 @@ export function ChartLineMultiple() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tickFormatter={abbreviatePersianMonth}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
@@ -87,10 +92,10 @@ export function ChartLineMultiple() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              Showing total visitors for the last 6 months
+              {FA_CHART.visitorsLast6Months}
             </div>
           </div>
         </div>

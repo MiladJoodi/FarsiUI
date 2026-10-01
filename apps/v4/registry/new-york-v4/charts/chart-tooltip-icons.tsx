@@ -3,6 +3,7 @@
 import { Footprints, Waves } from "lucide-react"
 import { Bar, BarChart, XAxis } from "recharts"
 
+import { FA_CHART, formatJalaliDate } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A stacked bar chart with a legend"
+export const description = "نمودار میله‌ای انباشته با آیکون در راهنما"
 
 const chartData = [
   { date: "2024-07-15", running: 450, swimming: 300 },
@@ -30,12 +31,12 @@ const chartData = [
 
 const chartConfig = {
   running: {
-    label: "Running",
+    label: FA_CHART.running,
     color: "var(--chart-1)",
     icon: Footprints,
   },
   swimming: {
-    label: "Swimming",
+    label: FA_CHART.swimming,
     color: "var(--chart-2)",
     icon: Waves,
   },
@@ -43,10 +44,10 @@ const chartConfig = {
 
 export function ChartTooltipIcons() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Tooltip - Icons</CardTitle>
-        <CardDescription>Tooltip with icons.</CardDescription>
+        <CardTitle>راهنما — آیکون‌ها</CardTitle>
+        <CardDescription>راهنما با آیکون‌های سری داده.</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -56,11 +57,9 @@ export function ChartTooltipIcons() {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tickFormatter={(value) => {
-                return new Date(value).toLocaleDateString("en-US", {
-                  weekday: "short",
-                })
-              }}
+              tickFormatter={(value) =>
+                formatJalaliDate(value, { weekday: "short" })
+              }
             />
             <Bar
               dataKey="running"

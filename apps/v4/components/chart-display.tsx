@@ -30,7 +30,7 @@ export function ChartDisplay({
     >
       <ChartToolbar
         chart={chart}
-        className="relative z-20 flex justify-end px-3 py-2.5"
+        className="relative z-20 flex items-center px-3 py-2.5"
       />
       <div className="relative z-10 overflow-hidden rounded-xl bg-background">
         <ChartIframe

@@ -34,10 +34,19 @@ export const FA_CHART = {
   mobile: "موبایل",
   other: "سایر",
   visitors: "بازدیدکنندگان",
+  pageViews: "بازدید صفحات",
   last3Months: "۳ ماه گذشته",
   last30Days: "۳۰ روز گذشته",
   last7Days: "۷ روز گذشته",
   selectRange: "انتخاب بازه",
+  chrome: "کروم",
+  safari: "سافاری",
+  firefox: "فایرفاکس",
+  edge: "اِج",
+  running: "دویدن",
+  swimming: "شنا",
+  activities: "فعالیت‌ها",
+  calendarDays: "شنبه — پنج‌شنبه",
 } as const
 
 export const FA_MONTHS = [
@@ -47,4 +56,13 @@ export const FA_MONTHS = [
   "تیر",
   "مرداد",
   "شهریور",
+] as const
+
+export const FA_WEEKDAYS = [
+  "شنبه",
+  "یکشنبه",
+  "دوشنبه",
+  "سه‌شنبه",
+  "چهارشنبه",
+  "پنج‌شنبه",
 ] as const

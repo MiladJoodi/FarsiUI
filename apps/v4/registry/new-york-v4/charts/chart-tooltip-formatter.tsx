@@ -3,6 +3,11 @@
 import { Bar, BarChart, XAxis } from "recharts"
 
 import {
+  FA_CHART,
+  formatJalaliDate,
+  formatPersianNumber,
+} from "@/lib/chart-locale"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -16,7 +21,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A stacked bar chart with a legend"
+export const description = "نمودار میله‌ای انباشته با قالب‌بند سفارشی راهنما"
 
 const chartData = [
   { date: "2024-07-15", running: 450, swimming: 300 },
@@ -29,21 +34,21 @@ const chartData = [
 
 const chartConfig = {
   running: {
-    label: "Running",
+    label: FA_CHART.running,
     color: "var(--chart-1)",
   },
   swimming: {
-    label: "Swimming",
+    label: FA_CHART.swimming,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
 export function ChartTooltipFormatter() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Tooltip - Formatter</CardTitle>
-        <CardDescription>Tooltip with custom formatter .</CardDescription>
+        <CardTitle>راهنما — قالب‌بند</CardTitle>
+        <CardDescription>راهنما با قالب‌بند سفارشی مقدار.</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -53,11 +58,9 @@ export function ChartTooltipFormatter() {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tickFormatter={(value) => {
-                return new Date(value).toLocaleDateString("en-US", {
-                  weekday: "short",
-                })
-              }}
+              tickFormatter={(value) =>
+                formatJalaliDate(value, { weekday: "short" })
+              }
             />
             <Bar
               dataKey="running"
@@ -79,10 +82,10 @@ export function ChartTooltipFormatter() {
                     <div className="flex min-w-[130px] items-center text-xs text-muted-foreground">
                       {chartConfig[name as keyof typeof chartConfig]?.label ||
                         name}
-                      <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium text-foreground tabular-nums">
-                        {value}
+                      <div className="ms-auto flex items-baseline gap-0.5 font-medium tracking-normal text-foreground">
+                        {formatPersianNumber(Number(value))}
                         <span className="font-normal text-muted-foreground">
-                          kcal
+                          کیلوکالری
                         </span>
                       </div>
                     </div>

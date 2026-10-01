@@ -2,6 +2,7 @@
 
 import { Bar, BarChart, XAxis } from "recharts"
 
+import { FA_CHART, formatJalaliDate } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -16,7 +17,7 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A stacked bar chart with a legend"
+export const description = "نمودار میله‌ای انباشته با راهنمای بدون نشانگر"
 
 const chartData = [
   { date: "2024-07-15", running: 450, swimming: 300 },
@@ -29,21 +30,21 @@ const chartData = [
 
 const chartConfig = {
   running: {
-    label: "Running",
+    label: FA_CHART.running,
     color: "var(--chart-1)",
   },
   swimming: {
-    label: "Swimming",
+    label: FA_CHART.swimming,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
 export function ChartTooltipIndicatorNone() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Tooltip - No Indicator</CardTitle>
-        <CardDescription>Tooltip with no indicator.</CardDescription>
+        <CardTitle>راهنما — بدون نشانگر</CardTitle>
+        <CardDescription>راهنما بدون نشانگر رنگی.</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -53,11 +54,9 @@ export function ChartTooltipIndicatorNone() {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tickFormatter={(value) => {
-                return new Date(value).toLocaleDateString("en-US", {
-                  weekday: "short",
-                })
-              }}
+              tickFormatter={(value) =>
+                formatJalaliDate(value, { weekday: "short" })
+              }
             />
             <Bar
               dataKey="running"

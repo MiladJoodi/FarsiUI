@@ -4,6 +4,11 @@ import { ArrowDownFromLine, ArrowUpFromLine, TrendingUp } from "lucide-react"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
+  abbreviatePersianMonth,
+  FA_CHART,
+  FA_MONTHS,
+} from "@/lib/chart-locale"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -20,25 +25,25 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "A radar chart with icons"
+export const description = "یک نمودار راداری با آیکون‌ها"
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: FA_MONTHS[0], desktop: 186, mobile: 80 },
+  { month: FA_MONTHS[1], desktop: 305, mobile: 200 },
+  { month: FA_MONTHS[2], desktop: 237, mobile: 120 },
+  { month: FA_MONTHS[3], desktop: 73, mobile: 190 },
+  { month: FA_MONTHS[4], desktop: 209, mobile: 130 },
+  { month: FA_MONTHS[5], desktop: 214, mobile: 140 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: FA_CHART.desktop,
     color: "var(--chart-1)",
     icon: ArrowDownFromLine,
   },
   mobile: {
-    label: "Mobile",
+    label: FA_CHART.mobile,
     color: "var(--chart-2)",
     icon: ArrowUpFromLine,
   },
@@ -46,12 +51,10 @@ const chartConfig = {
 
 export function ChartRadarIcons() {
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader className="items-center pb-4">
-        <CardTitle>Radar Chart - Icons</CardTitle>
-        <CardDescription>
-          Showing total visitors for the last 6 months
-        </CardDescription>
+        <CardTitle>نمودار راداری — آیکون‌ها</CardTitle>
+        <CardDescription>{FA_CHART.visitorsLast6Months}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -71,7 +74,10 @@ export function ChartRadarIcons() {
               cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
-            <PolarAngleAxis dataKey="month" />
+            <PolarAngleAxis
+              dataKey="month"
+              tickFormatter={abbreviatePersianMonth}
+            />
             <PolarGrid />
             <Radar
               dataKey="desktop"
@@ -85,10 +91,10 @@ export function ChartRadarIcons() {
       </CardContent>
       <CardFooter className="flex-col gap-2 pt-4 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-foreground">
-          January - June 2024
+          {FA_CHART.rangeFarvardinShahrivar}
         </div>
       </CardFooter>
     </Card>
