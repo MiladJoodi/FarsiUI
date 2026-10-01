@@ -63,21 +63,23 @@ export function ChartBarMixed() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} dir="ltr">
           <BarChart
             accessibilityLayer
             data={chartData}
             layout="vertical"
             margin={{
-              left: 0,
+              left: 12,
+              right: 12,
             }}
           >
             <YAxis
               dataKey="browser"
               type="category"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={12}
               axisLine={false}
+              width={80}
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }

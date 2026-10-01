@@ -14,7 +14,7 @@ export function NewMilestone() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>تعیین نقطهٔ عطف جدید</CardTitle>
+        <CardTitle>تعیین نقطه عطف جدید</CardTitle>
         <CardDescription>
           هدف مالی‌تان را مشخص کنید تا در زمان‌بندی پس‌انداز کمکتان کنیم.
         </CardDescription>

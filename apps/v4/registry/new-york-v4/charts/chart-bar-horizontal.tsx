@@ -49,13 +49,14 @@ export function ChartBarHorizontal() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} dir="ltr">
           <BarChart
             accessibilityLayer
             data={chartData}
             layout="vertical"
             margin={{
-              left: -20,
+              left: 8,
+              right: 8,
             }}
           >
             <XAxis type="number" dataKey="desktop" hide />
@@ -65,6 +66,7 @@ export function ChartBarHorizontal() {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
+              width={48}
               tickFormatter={abbreviatePersianMonth}
             />
             <ChartTooltip
