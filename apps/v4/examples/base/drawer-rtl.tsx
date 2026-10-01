@@ -88,7 +88,7 @@ export function DrawerRtl() {
         <DrawerTrigger render={<Button variant="secondary" />}>
           باز کردن کشو
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader>
             <DrawerTitle>انتخاب زمان تحویل</DrawerTitle>
             <DrawerDescription>

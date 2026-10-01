@@ -48,8 +48,8 @@ export default function SeraPage() {
         </PageHeaderDescription>
         <PageActions className="**:[.container]:justify-start">
           <Button asChild size="sm">
-            <Link href="/create?preset=b4xFeBLg4O">
-              Open in shadcn/create
+            <Link href="/docs/theming">
+              مشاهده مستندات تم
               <ArrowRightIcon data-icon="inline-end" />
             </Link>
           </Button>

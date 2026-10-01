@@ -7,7 +7,6 @@ import { cn } from "cn"
 import { useDocsSearch } from "fumadocs-core/search/client"
 import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react"
 import { Dialog as DialogPrimitive } from "radix-ui"
-import { encodePreset } from "farsiui/preset"
 
 import { type Color, type ColorPalette } from "@/lib/colors"
 import { trackEvent } from "@/lib/events"
@@ -226,17 +225,13 @@ export function CommandMenu({
               setCopyPayload("")
             }}
             onSelect={() => {
-              runCommand(() =>
-                router.push(
-                  `/create?preset=${encodePreset({ style: style.name })}`
-                )
-              )
+              runCommand(() => router.push("/docs/theming"))
             }}
           >
             {style.icon}
             {style.title}
             <span className="ml-auto text-xs font-normal text-muted-foreground">
-              Open style in shadcn/create
+              مشاهده تم
             </span>
           </CommandMenuItem>
         ))}
@@ -485,7 +480,7 @@ export function CommandMenu({
               ? "Go to Page"
               : null}
             {selectedType === "color" ? "Copy OKLCH" : null}
-            {selectedType === "style" ? "Open in shadcn/create" : null}
+            {selectedType === "style" ? "مشاهده تم" : null}
           </div>
           {copyPayload && (
             <>

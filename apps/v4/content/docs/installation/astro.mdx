@@ -5,16 +5,7 @@ description: Install and configure shadcn/ui for Astro.
 
 Choose the setup that matches your starting point.
 
-<div className="mt-6 grid gap-4 sm:grid-cols-3 sm:gap-6">
-  <LinkedCard
-    href="#scaffold-with-create"
-    className="items-start gap-1 p-6 text-sm md:p-6"
-  >
-    <div className="font-medium">Use shadcn/create</div>
-    <div className="leading-relaxed text-muted-foreground">
-      Build your preset and generate an Astro project command.
-    </div>
-  </LinkedCard>
+<div className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-6">
   <LinkedCard
     href="#scaffold-with-cli"
     className="items-start gap-1 p-6 text-sm md:p-6"
@@ -35,86 +26,8 @@ Choose the setup that matches your starting point.
   </LinkedCard>
 </div>
 
-<div id="scaffold-with-create" className="scroll-mt-24" />
-## Use shadcn/create
 
-<Steps>
 
-### Build Your Preset
-
-Open [shadcn/create](/create?template=astro) and build your preset visually. Choose your style, colors, fonts, icons, and more.
-
-<Button asChild size="sm">
-  <Link
-    href="/create?template=astro"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-6 no-underline!"
-  >
-    Open shadcn/create
-  </Link>
-</Button>
-
-### Create Project
-
-Click `Create Project`, choose your package manager, and copy the generated command.
-
-The generated command will look similar to this:
-
-```bash
-npx shadcn@latest init --preset [CODE] --template astro
-```
-
-The exact command will include your selected options such as `--base`, `--monorepo`, or `--rtl`.
-
-### Add Components
-
-Add the `Card` component to your project:
-
-```bash
-npx shadcn@latest add card
-```
-
-If you created a monorepo, run the command from `apps/web` or specify the workspace from the repo root:
-
-```bash
-npx shadcn@latest add card -c apps/web
-```
-
-The command above will add the `Card` component to your project. You can then import it like this:
-
-```astro title="src/pages/index.astro" showLineNumbers
----
-import Layout from "@/layouts/main.astro"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
----
-
-<Layout>
-  <Card className="max-w-sm">
-    <CardHeader>
-      <CardTitle>Project Overview</CardTitle>
-      <CardDescription>
-        Track progress and recent activity for your Astro app.
-      </CardDescription>
-    </CardHeader>
-    <CardContent>
-      Your design system is ready. Start building your next component.
-    </CardContent>
-  </Card>
-</Layout>
-```
-
-If you created a monorepo, update `apps/web/src/pages/index.astro` and import from `@workspace/ui/components/card` instead. The monorepo layout at `apps/web/src/layouts/main.astro` already imports `@workspace/ui/globals.css` for you.
-
-</Steps>
-
-<div id="scaffold-with-cli" className="scroll-mt-24" />
 ## Use the CLI
 
 <Steps>

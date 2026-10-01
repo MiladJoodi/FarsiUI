@@ -171,7 +171,7 @@ function DocsSidebarSearch({
   }, [])
 
   return (
-    <InputGroup className="group/sidebar-search h-8 border-border/70 bg-background/80 shadow-none dark:bg-input/20">
+    <InputGroup className="group/sidebar-search h-8 border-border/70 bg-background/80 shadow-none transition-colors focus-within:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:ring-0 dark:bg-input/20 dark:focus-within:border-foreground/45 dark:has-[[data-slot=input-group-control]:focus-visible]:border-foreground/45">
       <InputGroupAddon>
         <SearchIcon className="size-3.5 opacity-60" />
       </InputGroupAddon>
@@ -359,7 +359,7 @@ export function DocsSidebar({
       >
         {!hasResults ? (
           <div className="px-2 py-6 text-center text-[0.8rem] text-muted-foreground">
-            نتیجه‌ای پیدا نشد.
+            جستجو خالی
           </div>
         ) : null}
         {filteredSections.length > 0 ? (

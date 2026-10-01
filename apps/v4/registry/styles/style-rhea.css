@@ -762,11 +762,11 @@
   }
 
   .cn-drawer-header {
-    @apply gap-0.5 p-4 md:gap-1.5 md:text-left;
+    @apply gap-0.5 p-4 md:gap-1.5 md:text-start;
   }
 
   .cn-drawer-header-base {
-    @apply gap-0.5 p-4 pb-0 md:gap-1.5 md:text-left;
+    @apply gap-0.5 p-4 pb-0 md:gap-1.5 md:text-start;
   }
 
   .cn-drawer-title {

@@ -6,7 +6,7 @@ import { source } from "@/lib/source"
 
 const chartTypes = ["area", "bar", "line", "pie", "radar", "radial", "tooltip"]
 
-const staticRoutes = ["/", "/blocks", "/colors", "/create", "/sera", "/typeset"]
+const staticRoutes = ["/", "/blocks", "/colors", "/sera", "/typeset"]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const urls = [

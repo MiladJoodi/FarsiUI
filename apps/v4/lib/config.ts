@@ -29,10 +29,6 @@ export const siteConfig = {
       href: "/charts/area",
       label: "نمودارها",
     },
-    {
-      href: "/create",
-      label: "ساخت",
-    },
   ],
 }
 
