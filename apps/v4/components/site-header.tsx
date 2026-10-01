@@ -5,8 +5,8 @@ import { CommandMenu } from "@/components/command-menu"
 import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
+import { HeaderPrimaryColors } from "@/components/header-primary-colors"
 import { ModeSwitcher } from "@/components/mode-switcher"
-import { PrimaryColorPalette } from "@/components/primary-color-palette"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 export function SiteHeader() {
@@ -37,8 +37,7 @@ export function SiteHeader() {
             />
             <GitHubLink />
             <Separator orientation="vertical" />
-            <PrimaryColorPalette compact className="hidden sm:flex" />
-            <Separator orientation="vertical" className="hidden sm:block" />
+            <HeaderPrimaryColors />
             <ModeSwitcher />
           </div>
         </div>

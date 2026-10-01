@@ -114,10 +114,13 @@ export default async function BlockPage({
   }
 
   return (
-    <div className="style-nova relative bg-background">
-      <Component />
-      {base.name === "base" && <BaseToaster />}
-      <TailwindIndicator forceMount />
-    </div>
+    <>
+      <style>{`html,body{height:100%;margin:0}.min-h-svh{min-height:100%!important}`}</style>
+      <div className="style-nova relative min-h-full bg-background">
+        <Component />
+        {base.name === "base" && <BaseToaster />}
+        <TailwindIndicator forceMount />
+      </div>
+    </>
   )
 }

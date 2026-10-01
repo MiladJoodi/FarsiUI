@@ -9,6 +9,7 @@ import {
   findBlocksNavMatch,
   getVisibleBlocksNav,
 } from "@/lib/blocks-nav"
+import { showcaseCategories } from "@/lib/showcase"
 import { PAGES_NEW } from "@/lib/docs"
 import { showMcpDocs } from "@/lib/flags"
 import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
@@ -65,6 +66,8 @@ export function MobileNav({
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
   const isBlocks = pathname === "/blocks" || pathname.startsWith("/blocks/")
+  const isShowcase =
+    pathname === "/showcase" || pathname.startsWith("/showcase/")
   const blocksCategories = React.useMemo(() => getVisibleBlocksNav(), [])
   const blocksMatch = React.useMemo(
     () => findBlocksNavMatch(pathname),
@@ -159,6 +162,27 @@ export function MobileNav({
                   </div>
                 </div>
               ))}
+            </div>
+          ) : isShowcase ? (
+            <div className="flex flex-col gap-4">
+              <div className="text-sm font-medium text-muted-foreground">
+                نمونه‌ها
+              </div>
+              <div className="flex flex-col gap-3">
+                {showcaseCategories.map((category) => {
+                  const href =
+                    category.href ?? `/showcase/${category.slug}`
+                  return (
+                    <MobileLink
+                      key={category.slug}
+                      href={href}
+                      onOpenChange={setOpen}
+                    >
+                      {category.title}
+                    </MobileLink>
+                  )
+                })}
+              </div>
             </div>
           ) : (
             <>

@@ -100,6 +100,20 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var activeTheme = localStorage.getItem('active-theme') || 'neutral';
+                var applyTheme = function () {
+                  document.body.classList.add('theme-' + activeTheme);
+                };
+                if (document.body) applyTheme();
+                else document.addEventListener('DOMContentLoaded', applyTheme);
+              } catch (_) {}
+            `,
+          }}
+        />
         <meta name="theme-color" content={META_THEME_COLORS.light} />
       </head>
       <body
@@ -108,16 +122,6 @@ export default function RootLayout({
           "group/body overscroll-none antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
         )}
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                var activeTheme = localStorage.getItem('active-theme') || 'neutral';
-                document.body.classList.add('theme-' + activeTheme);
-              } catch (_) {}
-            `,
-          }}
-        />
         <ThemeProvider>
           <ActiveThemeProvider>
             <NuqsAdapter>

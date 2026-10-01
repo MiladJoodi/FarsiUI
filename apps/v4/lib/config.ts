@@ -26,6 +26,10 @@ export const siteConfig = {
       label: "بلوک‌ها",
     },
     {
+      href: "/showcase",
+      label: "نمونه‌ها",
+    },
+    {
       href: "/charts/area",
       label: "نمودارها",
     },

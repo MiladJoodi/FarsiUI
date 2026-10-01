@@ -303,9 +303,10 @@ function BlockViewerIframe({
       loading="lazy"
       title={item.name}
       className={cn(
-        "relative z-20 no-scrollbar w-full bg-background",
+        "relative z-20 no-scrollbar h-full w-full bg-background",
         className
       )}
+      style={{ height: "100%" }}
     />
   )
 }
@@ -317,7 +318,7 @@ function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
     <div className="hidden group-data-[view=code]/block-view-wrapper:hidden md:h-(--height) lg:flex">
       <div
         className={cn(
-          "relative flex w-full justify-center overflow-hidden rounded-xl border border-border/80",
+          "relative flex h-full w-full justify-center overflow-hidden rounded-xl border border-border/80",
           "bg-muted/50 [background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_18%,transparent)_1px,transparent_1px)] [background-size:16px_16px]",
           "dark:bg-muted/30 dark:[background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_28%,transparent)_1px,transparent_1px)]"
         )}
@@ -326,7 +327,10 @@ function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
           className="relative h-full overflow-hidden rounded-lg border bg-background shadow-sm transition-[width] duration-200 ease-out"
           style={{ width: viewport }}
         >
-          <BlockViewerIframe styleName={styleName} />
+          <BlockViewerIframe
+            styleName={styleName}
+            className="h-full min-h-0"
+          />
         </div>
       </div>
     </div>

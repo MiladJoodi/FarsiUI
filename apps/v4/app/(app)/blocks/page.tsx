@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 }
 
 const FEATURED_BLOCKS = [
-  "dashboard-01",
   "sidebar-07",
   "sidebar-03",
   "login-03",
@@ -33,7 +32,7 @@ export default async function BlocksPage() {
       <div className="container-wrapper">
         <div className="container flex justify-center py-6">
           <Button asChild variant="outline">
-            <Link href="/blocks/sidebar">Browse more blocks</Link>
+            <Link href="/blocks/sidebar">مشاهده بلاک‌های بیشتر</Link>
           </Button>
         </div>
       </div>
