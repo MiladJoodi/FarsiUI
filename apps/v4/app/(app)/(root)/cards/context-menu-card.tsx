@@ -24,7 +24,7 @@ export function ContextMenuCard() {
               اینجا لمس طولانی کنید
             </span>
           </ContextMenuTrigger>
-          <ContextMenuContent className="w-48" dir="rtl">
+          <ContextMenuContent className="w-48 text-start" dir="rtl">
             <ContextMenuGroup>
               <ContextMenuItem>
                 بازگشت

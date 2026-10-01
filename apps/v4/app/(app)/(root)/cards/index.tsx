@@ -1,20 +1,17 @@
+import type { ReactNode } from "react"
 import { MessageScrollerDemo } from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
 import { AnalyticsCard } from "./analytics-card"
 import { AttachmentCard } from "./attachment-card"
 import { ClaimableBalance } from "./claimable-balance"
-import {
-  CalendarCard,
-  ComboboxCard,
-} from "./combobox-date-picker"
+import { CalendarCard } from "./combobox-date-picker"
 import { ContextMenuCard } from "./context-menu-card"
 import { ContributionHistory } from "./contribution-history"
 import { DividendIncome } from "./dividend-income"
 import { DropdownDrawerHover } from "./dropdown-drawer-hover"
 import { EmptyDistributeTrack } from "./empty-distribute-track"
 import { MarkerAvatarAlert } from "./marker-avatar-alert"
-import { MenubarCard } from "./menubar-card"
 import { NavigationMenuCard } from "./navigation-menu-card"
 import { NewMilestone } from "./new-milestone"
 import { NotificationSettings } from "./notification-settings"
@@ -27,6 +24,7 @@ import { QrConnect } from "./qr-connect"
 import { SavingsTargets } from "./savings-targets"
 import { SidebarNav } from "./sidebar-nav"
 import { TabsCard } from "./tabs-card"
+import { TransferFunds } from "./transfer-funds"
 import { AccountAccess as SkeletonAccountAccess } from "./skeleton/account-access"
 import { AnalyticsCard as SkeletonAnalyticsCard } from "./skeleton/analytics-card"
 import { ClaimableBalance as SkeletonClaimableBalance } from "./skeleton/claimable-balance"
@@ -42,8 +40,22 @@ import { QrConnect as SkeletonQrConnect } from "./skeleton/qr-connect"
 import { SavingsTargets as SkeletonSavingsTargets } from "./skeleton/savings-targets"
 import { TransferFunds as SkeletonTransferFunds } from "./skeleton/transfer-funds"
 import { UIElements as SkeletonUIElements } from "./skeleton/ui-elements"
-import { TransferFunds } from "./transfer-funds"
 import { UIElements } from "./ui-elements"
+
+/**
+ * Decorative strip pinned to the bottom fade only.
+ * Height matches the fade overlay so duplicates never form a full extra row.
+ */
+function FadeTail({ children }: { children: ReactNode }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none mt-auto h-64 shrink-0 overflow-hidden lg:h-80"
+    >
+      <div className="flex flex-col gap-(--gap)">{children}</div>
+    </div>
+  )
+}
 
 function CardsSkeletonRails() {
   return (
@@ -101,53 +113,66 @@ export function CardsDemo() {
       <CardsSkeletonRails />
       <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">
         {/* Col 1 — always */}
-        <div className="flex h-full flex-col gap-(--gap) *:last:mt-auto">
+        <div className="flex h-full flex-col gap-(--gap)">
           <UIElements />
           <CalendarCard />
           <SidebarNav />
-          <SavingsTargets />
+          <PayoutThreshold />
+          <FadeTail>
+            <PayoutThreshold />
+          </FadeTail>
         </div>
         {/* Col 2 — lg+ */}
-        <div className="hidden h-full flex-col gap-(--gap) *:last:mt-auto lg:flex">
+        <div className="hidden h-full flex-col gap-(--gap) lg:flex">
           <ContributionHistory />
           <ClaimableBalance />
           <DividendIncome />
-          <DropdownDrawerHover />
-          <MenubarCard />
-          <PopoverSliderToastToggle />
+          <TabsCard />
+          <PaginationCard />
+          <FadeTail>
+            <ClaimableBalance />
+          </FadeTail>
         </div>
-        {/* Col 3 — 1400+ */}
-        <div className="hidden h-full flex-col gap-(--gap) *:last:mt-auto min-[1400px]:flex">
+        {/* Col 3 — 1400+ — menu-related grouped */}
+        <div className="hidden h-full flex-col gap-(--gap) min-[1400px]:flex">
           <NewMilestone />
-          <PayoutThreshold />
+          <SavingsTargets />
           <AccountAccess />
           <NavigationMenuCard />
-          <ContextMenuCard />
-          <ComboboxCard />
+          <DropdownDrawerHover />
+          <AttachmentCard />
+          <FadeTail>
+            <AccountAccess />
+          </FadeTail>
         </div>
         {/* Col 4 — md+ */}
-        <div className="hidden h-full flex-col gap-(--gap) *:last:mt-auto md:flex">
+        <div className="hidden h-full flex-col gap-(--gap) md:flex">
           <QrConnect />
           <div className="**:[.text-center.text-xs]:hidden">
             <MessageScrollerDemo />
           </div>
-          {/* <TransferFunds /> */}
           <Payments />
-          <TabsCard />
-          <AttachmentCard />
+          <PopoverSliderToastToggle />
+          <ContextMenuCard />
+          <FadeTail>
+            <Payments />
+          </FadeTail>
         </div>
         {/* Col 5 — 1900+ */}
-        <div className="hidden h-full flex-col gap-(--gap) *:last:mt-auto min-[1900px]:flex">
+        <div className="hidden h-full flex-col gap-(--gap) min-[1900px]:flex">
           <EmptyDistributeTrack />
           <AnalyticsCard />
           <NotificationSettings />
           <PowerUsage />
           <MarkerAvatarAlert />
-          <PaginationCard />
+          <TransferFunds />
+          <FadeTail>
+            <NotificationSettings />
+          </FadeTail>
         </div>
       </div>
       <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
-      <div className="absolute inset-x-0 bottom-0 z-20 h-48 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 xl:h-64 dark:via-background/80" />
+      <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 dark:via-background/80" />
     </div>
   )
 }

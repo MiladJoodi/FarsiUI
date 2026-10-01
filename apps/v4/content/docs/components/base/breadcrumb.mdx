@@ -1,5 +1,5 @@
 ---
-title: مسیر (Breadcrumb)
+title: مسیر
 description: نمایش مسیر صفحه فعلی با استفاده از لینک‌های سلسله‌مراتبی.
 featured: true
 base: base
@@ -125,7 +125,7 @@ Breadcrumb
 
 <DocsCollapsible title="جداکننده">
 
-با قرار دادن `children` داخل `<BreadcrumbSeparator />` می‌توانید جداکننده سفارشی بسازید.
+با قرار دادن `children` داخل `<BreadcrumbSeparator />` می‌توانید جداکننده را سفارشی کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -143,7 +143,7 @@ Breadcrumb
 
 <DocsCollapsible title="منو">
 
-می‌توانید `<BreadcrumbItem />` را با `<DropdownMenu />` ترکیب کنید تا یک منوی کشویی در مسیر قرار دهید.
+می‌توانید `BreadcrumbItem` را با `DropdownMenu` ترکیب کنید تا یک منوی کشویی داخل مسیر داشته باشید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -161,7 +161,7 @@ Breadcrumb
 
 <DocsCollapsible title="کوتاه‌شده">
 
-وقتی مسیر طولانی است، با `<BreadcrumbEllipsis />` می‌توانید بخش‌های میانی مسیر را کوتاه کنید.
+برای مسیرهای طولانی، با `<BreadcrumbEllipsis />` می‌توانید بخش‌های میانی مسیر را مخفی و مسیر را کوتاه‌تر نمایش دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -179,7 +179,7 @@ Breadcrumb
 
 <DocsCollapsible title="لینک">
 
-برای استفاده از لینک اختصاصی روتر، prop به نام `render` را روی `<BreadcrumbLink />` تنظیم کنید.
+برای استفاده از لینک روتر، prop به نام `render` را روی `<BreadcrumbLink />` تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -199,7 +199,7 @@ Breadcrumb
 
 <DocsApiProps
   title="Breadcrumb"
-  description="عنصر ریشهٔ ناوبری که همهٔ بخش‌های مسیر را در بر می‌گیرد."
+  description="عنصر اصلی مسیر که همه بخش‌های آن را در بر می‌گیرد."
   props={[
     {
       name: "className",
@@ -211,7 +211,7 @@ Breadcrumb
 
 <DocsApiProps
   title="BreadcrumbList"
-  description="لیست مرتب آیتم‌های مسیر."
+  description="لیست آیتم‌های مسیر."
   props={[
     {
       name: "className",
@@ -239,7 +239,7 @@ Breadcrumb
   props={[
     {
       name: "render",
-      description: "عنصر سفارشی برای رندر لینک (مثل Link روتر)",
+      description: "عنصر سفارشی برای رندر لینک، مثل `Link` روتر",
       values: ["ReactElement"],
     },
     {
@@ -252,7 +252,7 @@ Breadcrumb
 
 <DocsApiProps
   title="BreadcrumbPage"
-  description="صفحهٔ جاری در مسیر (غیرقابل کلیک)."
+  description="صفحه فعلی در مسیر که قابل کلیک نیست."
   props={[
     {
       name: "className",
@@ -264,11 +264,11 @@ Breadcrumb
 
 <DocsApiProps
   title="BreadcrumbSeparator"
-  description="جداکننده بین آیتم‌ها. با children می‌توانید آیکون پیش‌فرض را عوض کنید."
+  description="جداکننده بین آیتم‌های مسیر. با `children` می‌توانید جداکننده پیش‌فرض را تغییر دهید."
   props={[
     {
       name: "children",
-      description: "جداکنندهٔ سفارشی",
+      description: "جداکننده سفارشی",
       values: ["ReactNode"],
     },
     {
@@ -281,7 +281,7 @@ Breadcrumb
 
 <DocsApiProps
   title="BreadcrumbEllipsis"
-  description="نشانگر کوتاه‌شدن مسیر برای آیتم‌های مخفی."
+  description="نشانگر بخش‌های مخفی‌شده در مسیرهای طولانی."
   props={[
     {
       name: "className",

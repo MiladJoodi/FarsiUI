@@ -3,7 +3,7 @@
 import { TrendingUp } from "lucide-react"
 import { Pie, PieChart } from "recharts"
 
-import { FA_CHART } from "@/lib/chart-locale"
+import { FA_CHART, formatPersianNumber } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -69,7 +69,12 @@ export function ChartPieLabel() {
         >
           <PieChart>
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-            <Pie data={chartData} dataKey="visitors" label nameKey="browser" />
+            <Pie
+              data={chartData}
+              dataKey="visitors"
+              nameKey="browser"
+              label={({ value }) => formatPersianNumber(Number(value))}
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>

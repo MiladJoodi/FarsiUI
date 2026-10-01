@@ -39,6 +39,7 @@ import {
   HoverCardTrigger,
 } from "@/styles/base-rhea/ui/hover-card"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-rhea/ui/radio-group"
+import { Avatar, AvatarFallback, AvatarImage } from "@/styles/base-rhea/ui/avatar"
 
 const deliveryTimes = [
   {
@@ -152,11 +153,24 @@ export function DropdownDrawerHover() {
           >
             کارت شناور
           </HoverCardTrigger>
-          <HoverCardContent className="flex w-64 flex-col gap-0.5" dir="rtl">
-            <div className="font-semibold">@farsiui</div>
-            <div>کامپوننت‌های فارسی برای ری‌اکت و Tailwind.</div>
-            <div className="mt-1 text-xs text-muted-foreground">
-              عضویت از فروردین ۱۴۰۳
+          <HoverCardContent className="w-72" dir="rtl">
+            <div className="flex gap-3">
+              <Avatar className="size-10">
+                <AvatarImage
+                  src="https://github.com/shadcn.png"
+                  alt="سارا محمدی"
+                />
+                <AvatarFallback>سم</AvatarFallback>
+              </Avatar>
+              <div className="flex min-w-0 flex-1 flex-col gap-1 text-start">
+                <div className="text-sm font-semibold">سارا محمدی</div>
+                <div className="text-sm text-muted-foreground">
+                  طراح محصول · تهران
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  ۱۲۸ دنبال‌کننده · ۴۲ پروژهٔ عمومی
+                </div>
+              </div>
             </div>
           </HoverCardContent>
         </HoverCard>

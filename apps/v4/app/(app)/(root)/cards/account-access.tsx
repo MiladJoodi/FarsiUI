@@ -48,12 +48,12 @@ export function AccountAccess() {
           <Field>
             <div className="flex items-center justify-between">
               <FieldLabel htmlFor="current-password">رمز عبور فعلی</FieldLabel>
-              <a
-                href="#"
-                className="text-xs font-medium tracking-wider text-muted-foreground uppercase hover:text-foreground"
+              <button
+                type="button"
+                className="text-xs font-medium text-muted-foreground hover:text-foreground"
               >
                 فراموش کردید؟
-              </a>
+              </button>
             </div>
             <Input
               id="current-password"
@@ -68,7 +68,10 @@ export function AccountAccess() {
           <HugeiconsIcon icon={SquareLock02Icon} strokeWidth={2} />
           به‌روزرسانی امنیت
         </Button>
-        <Item variant="muted" render={<a href="#" />}>
+        <Item
+          variant="muted"
+          render={<button type="button" className="w-full text-start" />}
+        >
           <ItemMedia variant="icon">
             <HugeiconsIcon
               icon={AlertCircleIcon}

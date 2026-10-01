@@ -39,7 +39,7 @@ export function MarkerAvatarAlert() {
             <div className="text-muted-foreground">آنلاین</div>
           </div>
         </div>
-        <Alert>
+        <Alert dir="rtl">
           <CheckCircle2Icon />
           <AlertTitle>حساب با موفقیت به‌روزرسانی شد</AlertTitle>
           <AlertDescription>

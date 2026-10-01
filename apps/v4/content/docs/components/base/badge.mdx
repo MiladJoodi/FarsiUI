@@ -1,6 +1,6 @@
 ---
-title: نشان (Badge)
-description: برچسب کوچک برای وضعیت و دسته‌بندی
+title: نشان
+description: برچسب کوچکی برای نمایش وضعیت، دسته‌بندی یا اطلاعات کوتاه.
 featured: true
 base: base
 component: true
@@ -92,7 +92,7 @@ import { Badge } from "@/components/ui/badge"
 
 <DocsCollapsible title="آیکون">
 
-می‌توانید داخل نشان آیکون بگذارید. با `data-icon="inline-start"` آیکون در ابتدا و با `data-icon="inline-end"` در انتها قرار می‌گیرد.
+می‌توانید داخل نشان آیکون قرار دهید. با `data-icon="inline-start"` آیکون در ابتدا و با `data-icon="inline-end"` در انتها قرار می‌گیرد.
 
 <ComponentPreview
   styleName="base-nova"
@@ -110,7 +110,7 @@ import { Badge } from "@/components/ui/badge"
 
 <DocsCollapsible title="بارگذاری">
 
-می‌توانید داخل نشان اسپینر بگذارید. حتماً `data-icon="inline-start"` یا `data-icon="inline-end"` را روی اسپینر تنظیم کنید.
+می‌توانید یک اسپینر را داخل نشان قرار دهید. برای تعیین جایگاه اسپینر، `data-icon="inline-start"` یا `data-icon="inline-end"` را روی آن تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -128,7 +128,7 @@ import { Badge } from "@/components/ui/badge"
 
 <DocsCollapsible title="لینک">
 
-با prop به نام `render` می‌توانید نشان را به‌صورت لینک رندر کنید.
+با prop به نام `render` می‌توانید نشان را به‌صورت لینک نمایش دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -146,7 +146,7 @@ import { Badge } from "@/components/ui/badge"
 
 <DocsCollapsible title="رنگ">
 
-با کلاس‌های Tailwind روی `Badge` (مثل `bg-green-50 dark:bg-green-800`) رنگ سفارشی بدهید.
+با استفاده از کلاس‌های Tailwind روی `Badge` می‌توانید رنگ نشان را سفارشی کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -166,7 +166,7 @@ import { Badge } from "@/components/ui/badge"
 
 <DocsApiProps
   title="Badge"
-  description="برچسب کوچک برای وضعیت و دسته‌بندی."
+  description="برچسب کوچکی برای نمایش وضعیت، دسته‌بندی یا اطلاعات کوتاه."
   props={[
     {
       name: "variant",

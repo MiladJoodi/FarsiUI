@@ -71,7 +71,18 @@ export function ChartTooltipIndicatorNone() {
               radius={[4, 4, 0, 0]}
             />
             <ChartTooltip
-              content={<ChartTooltipContent hideIndicator />}
+              content={
+                <ChartTooltipContent
+                  hideIndicator
+                  labelFormatter={(value) =>
+                    formatJalaliDate(value, {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })
+                  }
+                />
+              }
               cursor={false}
               defaultIndex={1}
             />

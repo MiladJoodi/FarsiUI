@@ -1,6 +1,6 @@
 ---
-title: آواتار (Avatar)
-description: تصویر کاربر با متن جایگزین در صورت خطا
+title: آواتار
+description: تصویر کاربر که در صورت بارگذاری نشدن، متن جایگزین نمایش داده می‌شود.
 featured: true
 base: base
 component: true
@@ -88,7 +88,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 <DocsCollapsible title="ترکیب">
 
-برای ساخت یک `Avatar`، بخش‌های مختلف را به این شکل کنار هم قرار دهید:
+برای ساخت یک آواتار، می‌توانید بخش‌های مختلف آن را به این شکل ترکیب کنید:
 
 <div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
@@ -99,7 +99,7 @@ Avatar
 └── AvatarBadge
 ```
 
-برای نمایش چند آواتار در کنار هم، آن‌ها را داخل `AvatarGroup` قرار دهید:
+برای نمایش چند آواتار کنار هم، آن‌ها را داخل `AvatarGroup` قرار دهید:
 
 ```text
 AvatarGroup
@@ -123,15 +123,15 @@ AvatarGroup
 
 <DocsCollapsible title="وضعیت">
 
-با `AvatarBadge` یک وضعیت (مثلاً آنلاین بودن) روی آواتار بگذارید.
+با `AvatarBadge` می‌توانید یک وضعیت، مثل آنلاین بودن کاربر، روی آواتار نمایش دهید.
+
+با استفاده از `className` می‌توانید رنگ و اندازه وضعیت را تغییر دهید.
 
 <ComponentPreview
   styleName="base-nova"
   name="avatar-badge"
   previewClassName="h-auto! min-h-0 py-6 px-6"
 />
-
-با `className` رنگ یا اندازهٔ وضعیت را عوض کنید:
 
 ```tsx showLineNumbers
 <Avatar>
@@ -151,7 +151,7 @@ AvatarGroup
 
 <DocsCollapsible title="وضعیت آیکونی">
 
-داخل `AvatarBadge` می‌توانید آیکون بگذارید.
+می‌توانید داخل `AvatarBadge` به‌جای نشان ساده، یک آیکون قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -169,7 +169,7 @@ AvatarGroup
 
 <DocsCollapsible title="گروه">
 
-چند آواتار را با `AvatarGroup` کنار هم بچینید.
+برای نمایش چند آواتار کنار هم، از `AvatarGroup` استفاده کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -187,7 +187,7 @@ AvatarGroup
 
 <DocsCollapsible title="تعداد">
 
-با `AvatarGroupCount` تعداد اعضای بیشتر را نشان دهید.
+با `AvatarGroupCount` می‌توانید تعداد اعضای بیشتری را که در گروه نمایش داده نمی‌شوند، نشان دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -205,7 +205,7 @@ AvatarGroup
 
 <DocsCollapsible title="تعداد آیکونی">
 
-داخل `AvatarGroupCount` هم می‌توانید آیکون بگذارید.
+می‌توانید داخل `AvatarGroupCount` به‌جای عدد، یک آیکون قرار دهید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -223,7 +223,7 @@ AvatarGroup
 
 <DocsCollapsible title="اندازه">
 
-با استفاده از `size` می‌توانید اندازه آواتار را بین `sm`، `default` و `lg` تغییر دهید.
+با ویژگی `size` می‌توانید اندازه آواتار را روی `sm`، `default` یا `lg` تنظیم کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -241,7 +241,7 @@ AvatarGroup
 
 <DocsCollapsible title="منو">
 
-آواتار را به‌عنوان تریگر منوی کشویی استفاده کنید.
+می‌توانید از آواتار به‌عنوان دکمه باز کردن منوی کشویی استفاده کنید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -261,17 +261,15 @@ AvatarGroup
 
 <DocsApiProps
   title="Avatar"
-  description="ظرف اصلی تصویر و جایگزین."
+  description="عنصر اصلی آواتار و محتوای آن."
   props={[
     {
       name: "size",
       defaultValue: "default",
       description: "اندازه آواتار",
-      values: ["default", "sm", "lg"],
+      values: ["sm", "default", "lg"],
     },
   ]}
 />
-
-برای جزئیات بیشتر به مستندات [Base UI](https://base-ui.com/react/components/avatar#api-reference) مراجعه کنید.
 
 </DocsCollapsible>

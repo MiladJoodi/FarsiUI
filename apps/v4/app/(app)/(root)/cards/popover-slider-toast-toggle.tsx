@@ -1,10 +1,20 @@
 "use client"
 
+import * as React from "react"
+import { DirectionProvider } from "@base-ui/react/direction-provider"
 import { BookmarkIcon } from "lucide-react"
 import { toast } from "sonner"
 
 import { Button } from "@/styles/base-rhea/ui/button"
 import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/styles/base-rhea/ui/combobox"
 import {
   Popover,
   PopoverContent,
@@ -16,7 +26,19 @@ import {
 import { Slider } from "@/styles/base-rhea/ui/slider"
 import { Toggle } from "@/styles/base-rhea/ui/toggle"
 
+const cities = [
+  "تهران",
+  "اصفهان",
+  "شیراز",
+  "مشهد",
+  "تبریز",
+  "اهواز",
+] as const
+
 export function PopoverSliderToastToggle() {
+  const [sliderValue, setSliderValue] = React.useState([75])
+  const percent = sliderValue[0] ?? 0
+
   return (
     <Card className="w-full" dir="rtl">
       <CardContent className="flex flex-col gap-4">
@@ -25,7 +47,7 @@ export function PopoverSliderToastToggle() {
             <PopoverTrigger render={<Button variant="outline" />}>
               پاپ‌اور
             </PopoverTrigger>
-            <PopoverContent align="start" dir="rtl">
+            <PopoverContent align="start" dir="rtl" className="text-start">
               <PopoverHeader>
                 <PopoverTitle>ابعاد</PopoverTitle>
                 <PopoverDescription>
@@ -42,15 +64,44 @@ export function PopoverSliderToastToggle() {
               })
             }
           >
-            نمایش توست
+            نمایش اعلان
           </Button>
           <Toggle aria-label="نشانه‌گذاری" size="sm" variant="outline">
             <BookmarkIcon className="group-aria-pressed/toggle:fill-foreground" />
             نشانه‌گذاری
           </Toggle>
         </div>
-        {/* dir only on parent Card — duplicate dir on Slider causes wrong fill/thumb */}
-        <Slider defaultValue={[75]} max={100} step={1} />
+        <Combobox items={cities}>
+          <ComboboxInput placeholder="انتخاب شهر..." />
+          <ComboboxContent dir="rtl" className="text-start">
+            <ComboboxEmpty className="text-start">موردی پیدا نشد.</ComboboxEmpty>
+            <ComboboxList>
+              {(item) => (
+                <ComboboxItem key={item} value={item} className="text-start">
+                  {item}
+                </ComboboxItem>
+              )}
+            </ComboboxList>
+          </ComboboxContent>
+        </Combobox>
+        <div className="flex items-center gap-3">
+          <span
+            aria-hidden
+            className="w-11 shrink-0 text-sm tabular-nums text-muted-foreground"
+          >
+            {percent.toLocaleString("fa-IR")}٪
+          </span>
+          <DirectionProvider direction="rtl">
+            <Slider
+              className="min-w-0 flex-1"
+              value={sliderValue}
+              onValueChange={(value) => setSliderValue(value as number[])}
+              max={100}
+              step={1}
+              aria-label="درصد"
+            />
+          </DirectionProvider>
+        </div>
       </CardContent>
     </Card>
   )
