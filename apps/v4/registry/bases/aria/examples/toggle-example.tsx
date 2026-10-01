@@ -4,7 +4,7 @@ import {
 } from "@/registry/bases/aria/components/example"
 import { Button } from "@/registry/bases/aria/ui/button"
 import { Toggle } from "@/registry/bases/aria/ui/toggle"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ToggleExample() {
   return (

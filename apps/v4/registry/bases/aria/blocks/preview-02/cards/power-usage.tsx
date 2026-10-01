@@ -18,7 +18,7 @@ import {
 } from "@/registry/bases/aria/ui/chart"
 import { Progress } from "@/registry/bases/aria/ui/progress"
 import { Separator } from "@/registry/bases/aria/ui/separator"
-import { useDesignSystemSearchParams } from "@/app/(app)/create/lib/search-params"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
 const chartData = [
   { hour: "6a", usage: 1.2 },

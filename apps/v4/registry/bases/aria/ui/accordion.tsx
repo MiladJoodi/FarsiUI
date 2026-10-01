@@ -14,7 +14,7 @@ import {
   type DisclosureProps,
 } from "react-aria-components"
 
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Accordion({ className, ...props }: DisclosureGroupProps) {
   return (

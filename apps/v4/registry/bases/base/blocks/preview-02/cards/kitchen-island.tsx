@@ -24,7 +24,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/registry/bases/base/ui/toggle-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const SCENES = {
   cooking: { brightness: [90], colorTemp: [70], volume: [30], fade: [0] },

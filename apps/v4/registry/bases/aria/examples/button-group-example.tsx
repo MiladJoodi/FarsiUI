@@ -35,7 +35,7 @@ import {
   SelectValue,
 } from "@/registry/bases/aria/ui/select"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ButtonGroupExample() {
   return (

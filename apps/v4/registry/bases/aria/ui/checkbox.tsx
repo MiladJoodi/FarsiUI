@@ -7,7 +7,7 @@ import {
   type CheckboxProps,
 } from "react-aria-components"
 
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Checkbox({ className, children, ...props }: CheckboxProps) {
   return (

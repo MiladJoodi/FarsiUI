@@ -28,7 +28,7 @@ import {
   ComboboxList,
 } from "@/registry/bases/aria/ui/combobox"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 // Users available for assignment.
 const users = [

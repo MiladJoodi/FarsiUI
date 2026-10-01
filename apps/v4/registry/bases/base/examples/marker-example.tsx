@@ -29,7 +29,7 @@ import {
   MarkerIcon,
 } from "@/registry/bases/base/ui/marker"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function MarkerExamples() {
   return (

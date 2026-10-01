@@ -18,7 +18,7 @@ import {
   useSidebar,
 } from "@/registry/bases/radix/ui/sidebar"
 import { Switch } from "@/registry/bases/radix/ui/switch"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 // This is sample data
 const data = {

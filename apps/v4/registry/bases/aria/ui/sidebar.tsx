@@ -22,7 +22,7 @@ import {
 } from "@/registry/bases/aria/ui/sheet"
 import { Skeleton } from "@/registry/bases/aria/ui/skeleton"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

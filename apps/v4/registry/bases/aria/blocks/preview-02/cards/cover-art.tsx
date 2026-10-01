@@ -7,7 +7,7 @@ import {
 } from "@/registry/bases/aria/ui/card"
 import { Item } from "@/registry/bases/aria/ui/item"
 import { Label } from "@/registry/bases/aria/ui/label"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function CoverArt() {
   return (

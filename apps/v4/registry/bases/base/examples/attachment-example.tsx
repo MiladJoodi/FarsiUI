@@ -27,7 +27,7 @@ import {
   DialogTrigger,
 } from "@/registry/bases/base/ui/dialog"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function AttachmentExample() {
   return (

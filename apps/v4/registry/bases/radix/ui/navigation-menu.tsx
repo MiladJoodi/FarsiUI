@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "cn"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function NavigationMenu({
   className,

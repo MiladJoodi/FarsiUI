@@ -24,7 +24,7 @@ import {
   InputGroupInput,
 } from "@/registry/bases/aria/ui/input-group"
 import { Popover, PopoverTrigger } from "@/registry/bases/aria/ui/popover"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function CalendarExample() {
   return (

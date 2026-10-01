@@ -18,7 +18,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/registry/bases/radix/ui/item"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function AccountAccess() {
   return (

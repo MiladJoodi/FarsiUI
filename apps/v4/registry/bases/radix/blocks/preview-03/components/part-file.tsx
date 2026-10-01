@@ -15,7 +15,7 @@ import {
   AttachmentTrigger,
 } from "@/registry/bases/radix/ui/attachment"
 import { Badge } from "@/registry/bases/radix/ui/badge"
-import { IconPlaceholder } from "@/app/(app)/create/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function getFilename(part: FileUIPart) {
   if (part.filename) {

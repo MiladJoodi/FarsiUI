@@ -7,7 +7,7 @@ import {
 } from "@/registry/bases/radix/ui/card"
 import { Item } from "@/registry/bases/radix/ui/item"
 import { Label } from "@/registry/bases/radix/ui/label"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function CoverArt() {
   return (

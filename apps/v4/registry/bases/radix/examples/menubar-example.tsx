@@ -32,7 +32,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/registry/bases/radix/ui/menubar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function MenubarExample() {
   return (

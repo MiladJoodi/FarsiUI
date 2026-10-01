@@ -19,7 +19,7 @@ import {
   InputGroupInput,
 } from "@/registry/bases/aria/ui/input-group"
 import { Spinner } from "@/registry/bases/aria/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function SpinnerExample() {
   return (

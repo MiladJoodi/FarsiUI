@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import { cn } from "cn"
@@ -32,7 +32,7 @@ import {
   InputGroup,
   InputGroupAddon,
 } from "@/registry/bases/aria/ui/input-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Command({
   className,

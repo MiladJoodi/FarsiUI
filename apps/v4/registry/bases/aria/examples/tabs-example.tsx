@@ -16,7 +16,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/bases/aria/ui/tabs"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function TabsExample() {
   return (

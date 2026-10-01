@@ -51,7 +51,7 @@ import {
 import { Spinner } from "@/registry/bases/aria/ui/spinner"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function InputGroupExample() {
   const [country, setCountry] = useState("+1")

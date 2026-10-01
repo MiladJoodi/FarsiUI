@@ -20,7 +20,7 @@ import {
   ProgressValue,
 } from "@/registry/bases/aria/ui/progress"
 import { Slider } from "@/registry/bases/aria/ui/slider"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ProgressExample() {
   return (

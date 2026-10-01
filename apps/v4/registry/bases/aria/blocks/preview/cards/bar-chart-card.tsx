@@ -19,7 +19,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/registry/bases/aria/ui/chart"
-import { useDesignSystemSearchParams } from "@/app/(app)/create/lib/search-params"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
 const barChartData = [
   { month: "January", desktop: 186, mobile: 80 },

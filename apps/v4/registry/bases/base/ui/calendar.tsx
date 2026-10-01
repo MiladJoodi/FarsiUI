@@ -10,7 +10,7 @@ import {
 import { DayPicker } from "react-day-picker/persian"
 
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Calendar({
   className,

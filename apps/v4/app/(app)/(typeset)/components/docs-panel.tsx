@@ -26,7 +26,7 @@ import {
 import {
   TEMPLATES,
   type TemplateValue,
-} from "@/app/(app)/(create)/lib/templates"
+} from "@/lib/templates"
 import { findFont, findFontDefinition } from "@/app/(app)/(typeset)/lib/fonts"
 import {
   TYPESET_MEASURES,

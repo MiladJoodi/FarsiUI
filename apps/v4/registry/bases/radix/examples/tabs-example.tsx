@@ -17,7 +17,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/bases/radix/ui/tabs"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function TabsExample() {
   return (

@@ -11,7 +11,7 @@ import {
 import { Button } from "@/registry/bases/aria/ui/button"
 import { Separator } from "@/registry/bases/aria/ui/separator"
 import { useSidebar } from "@/registry/bases/aria/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar()

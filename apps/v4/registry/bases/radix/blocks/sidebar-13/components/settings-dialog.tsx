@@ -28,7 +28,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/registry/bases/radix/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const data = {
   nav: [

@@ -22,7 +22,7 @@ import {
   ItemContent,
   ItemDescription,
 } from "@/registry/bases/aria/ui/item"
-import { useDesignSystemSearchParams } from "@/app/(app)/create/lib/search-params"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
 const chartData = [
   { month: "Dec", amount: 800 },

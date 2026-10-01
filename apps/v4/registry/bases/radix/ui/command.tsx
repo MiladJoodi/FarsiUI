@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import { Command as CommandPrimitive } from "cmdk"
@@ -15,7 +15,7 @@ import {
   InputGroup,
   InputGroupAddon,
 } from "@/registry/bases/radix/ui/input-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Command({
   className,

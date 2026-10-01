@@ -5,7 +5,7 @@ import {
   ExampleWrapper,
 } from "@/registry/bases/base/components/example"
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ButtonExample() {
   return (

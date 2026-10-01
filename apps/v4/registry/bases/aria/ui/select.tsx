@@ -26,7 +26,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/registry/bases/aria/ui/input-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Select<T extends object, M extends "single" | "multiple" = "single">({
   className,

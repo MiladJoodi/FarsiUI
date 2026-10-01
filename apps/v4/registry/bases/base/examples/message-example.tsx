@@ -42,7 +42,7 @@ import {
   MessageHeader,
 } from "@/registry/bases/base/ui/message"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 type MessagePartsData = {
   deployment: {

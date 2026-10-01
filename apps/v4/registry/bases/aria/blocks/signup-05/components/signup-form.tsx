@@ -11,7 +11,7 @@ import {
   FieldSeparator,
 } from "@/registry/bases/aria/ui/field"
 import { Input } from "@/registry/bases/aria/ui/input"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function SignupForm({
   className,

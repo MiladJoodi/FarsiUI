@@ -22,7 +22,7 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui/field"
 import { Input } from "@/registry/bases/aria/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/aria/ui/tabs"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function CollapsibleExample() {
   return (

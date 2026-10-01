@@ -26,7 +26,7 @@ import {
   DialogTrigger,
 } from "@/registry/bases/aria/ui/dialog"
 import { Spinner } from "@/registry/bases/aria/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function AttachmentExample() {
   return (

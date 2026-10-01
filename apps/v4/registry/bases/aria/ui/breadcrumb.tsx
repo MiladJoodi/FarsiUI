@@ -12,7 +12,7 @@ import {
   type LinkProps,
 } from "react-aria-components"
 
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (

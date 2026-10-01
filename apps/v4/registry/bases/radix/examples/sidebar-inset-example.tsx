@@ -25,7 +25,7 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/registry/bases/radix/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function SidebarInsetExample() {
   const data = {

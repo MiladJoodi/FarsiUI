@@ -16,7 +16,7 @@ import {
 import { Button } from "@/registry/bases/aria/ui/button"
 import { Collapsible } from "@/registry/bases/aria/ui/collapsible"
 import { Marker, MarkerContent } from "@/registry/bases/aria/ui/marker"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function BubbleExample() {
   return (

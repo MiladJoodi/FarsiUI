@@ -24,8 +24,8 @@ import {
   ItemGroup,
   ItemTitle,
 } from "@/registry/bases/aria/ui/item"
-import { useDesignSystemSearchParams } from "@/app/(app)/create/lib/search-params"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const HOLDINGS = [
   {

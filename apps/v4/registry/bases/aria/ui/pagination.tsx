@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "cn"
 
 import { LinkButton } from "@/registry/bases/aria/ui/button"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (

@@ -25,8 +25,8 @@ import {
   SelectValue,
 } from "@/registry/bases/radix/ui/select"
 import { Textarea } from "@/registry/bases/radix/ui/textarea"
-import { FONTS } from "@/app/(create)/lib/fonts"
-import { useDesignSystemSearchParams } from "@/app/(create)/lib/search-params"
+import { FONTS } from "@/lib/font-options"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
 export function TypographySpecimen() {
   const [params] = useDesignSystemSearchParams()

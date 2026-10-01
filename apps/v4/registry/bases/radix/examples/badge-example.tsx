@@ -4,7 +4,7 @@ import {
 } from "@/registry/bases/radix/components/example"
 import { Badge } from "@/registry/bases/radix/ui/badge"
 import { Spinner } from "@/registry/bases/radix/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function BadgeExample() {
   return (

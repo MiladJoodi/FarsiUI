@@ -5,7 +5,7 @@ import { type ReasoningUIPart } from "ai"
 import { cn } from "cn"
 
 import { Markdown } from "@/components/markdown"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const REASONING_LEVEL_LABELS = [
   "Understanding",

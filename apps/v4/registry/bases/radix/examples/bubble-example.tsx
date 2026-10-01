@@ -19,7 +19,7 @@ import {
   CollapsibleTrigger,
 } from "@/registry/bases/radix/ui/collapsible"
 import { Marker, MarkerContent } from "@/registry/bases/radix/ui/marker"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function BubbleExample() {
   return (

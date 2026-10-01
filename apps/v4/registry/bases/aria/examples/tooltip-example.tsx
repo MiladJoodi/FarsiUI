@@ -9,7 +9,7 @@ import {
 import { Button } from "@/registry/bases/aria/ui/button"
 import { Kbd } from "@/registry/bases/aria/ui/kbd"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function TooltipExample() {
   return (

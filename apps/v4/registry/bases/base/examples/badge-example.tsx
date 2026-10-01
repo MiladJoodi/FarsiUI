@@ -4,7 +4,7 @@ import {
 } from "@/registry/bases/base/components/example"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function BadgeExample() {
   return (

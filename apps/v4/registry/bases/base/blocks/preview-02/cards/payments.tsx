@@ -25,7 +25,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/registry/bases/base/ui/item"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function Payments() {
   return (

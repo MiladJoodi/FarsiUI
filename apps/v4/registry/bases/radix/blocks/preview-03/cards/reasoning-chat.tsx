@@ -36,7 +36,7 @@ import {
   MessageScrollerViewport,
 } from "@/registry/bases/radix/ui/message-scroller"
 import { Spinner } from "@/registry/bases/radix/ui/spinner"
-import { IconPlaceholder } from "@/app/(app)/create/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const chat = createChat()
   .user("Explain why the dashboard feels slow even though the API is fast.")

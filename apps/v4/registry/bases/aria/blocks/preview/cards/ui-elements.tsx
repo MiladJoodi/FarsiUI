@@ -46,7 +46,7 @@ import {
 import { Slider } from "@/registry/bases/aria/ui/slider"
 import { Switch } from "@/registry/bases/aria/ui/switch"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function UIElements() {
   const [sliderValue, setSliderValue] = React.useState<number[]>([500])

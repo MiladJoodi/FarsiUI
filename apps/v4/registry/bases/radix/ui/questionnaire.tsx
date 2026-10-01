@@ -5,7 +5,7 @@ import { Questionnaire as QuestionnairePrimitive } from "@farsiui/react/question
 import { cn } from "cn"
 
 import { buttonVariants, type Button } from "@/registry/bases/radix/ui/button"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function toPersianDigits(value: number) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)

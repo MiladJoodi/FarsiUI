@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/aria/ui/alert"
 import { Badge } from "@/registry/bases/aria/ui/badge"
 import { Button } from "@/registry/bases/aria/ui/button"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function AlertExample() {
   return (

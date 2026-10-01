@@ -17,7 +17,7 @@ import {
   InputGroupInput,
 } from "@/registry/bases/aria/ui/input-group"
 import { Kbd } from "@/registry/bases/aria/ui/kbd"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function EmptyExample() {
   return (

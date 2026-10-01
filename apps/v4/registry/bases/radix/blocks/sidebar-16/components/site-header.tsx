@@ -12,7 +12,7 @@ import {
 import { Button } from "@/registry/bases/radix/ui/button"
 import { Separator } from "@/registry/bases/radix/ui/separator"
 import { useSidebar } from "@/registry/bases/radix/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar()

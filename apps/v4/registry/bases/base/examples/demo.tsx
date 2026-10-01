@@ -54,7 +54,7 @@ import {
 import { Slider } from "@/registry/bases/base/ui/slider"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function Demo() {
   const [sliderValue, setSliderValue] = React.useState<number[]>([500])

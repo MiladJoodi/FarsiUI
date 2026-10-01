@@ -36,7 +36,7 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/registry/bases/aria/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function SidebarFloatingExample() {
   const data = {

@@ -3,18 +3,11 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { siteConfig } from "@/lib/config"
+import { getBaseComponent, getBaseItem } from "@/lib/registry-api"
 import { absoluteUrl } from "@/lib/utils"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { Toaster as BaseToaster } from "@/registry/bases/base/ui/toast"
 import { BASES, type Base } from "@/registry/config"
-import { ActionMenuScript } from "@/app/(app)/(create)/components/action-menu"
-import { DesignSystemProvider } from "@/app/(app)/(create)/components/design-system-provider"
-import { HistoryScript } from "@/app/(app)/(create)/components/history-buttons"
-import { DarkModeScript } from "@/app/(app)/(create)/components/mode-switcher"
-import { OpenPresetScript } from "@/app/(app)/(create)/components/open-preset"
-import { PreviewStyle } from "@/app/(app)/(create)/components/preview-style"
-import { RandomizeScript } from "@/app/(app)/(create)/components/random-button"
-import { getBaseComponent, getBaseItem } from "@/app/(app)/(create)/lib/api"
 
 import "@/app/style-registry.css"
 import "streamdown/styles.css"
@@ -24,16 +17,6 @@ export const dynamic = "force-static"
 export const dynamicParams = true
 
 const STATIC_PREVIEW_ITEMS = ["preview", "preview-02"] as const
-
-function PreventScrollOnFocusScript() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `(function(){var f=HTMLElement.prototype.focus;HTMLElement.prototype.focus=function(o){f.call(this,Object.assign({},o,{preventScroll:true}))};})();`,
-      }}
-    />
-  )
-}
 
 const getCacheRegistryItem = React.cache(
   async (name: string, base: Base["name"]) => {
@@ -132,16 +115,7 @@ export default async function BlockPage({
 
   return (
     <div className="relative bg-background">
-      <PreventScrollOnFocusScript />
-      <PreviewStyle />
-      <ActionMenuScript />
-      <OpenPresetScript />
-      <RandomizeScript />
-      <HistoryScript />
-      <DarkModeScript />
-      <DesignSystemProvider>
-        <Component />
-      </DesignSystemProvider>
+      <Component />
       {base.name === "base" && <BaseToaster />}
       <TailwindIndicator forceMount />
     </div>

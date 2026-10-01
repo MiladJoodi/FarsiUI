@@ -38,7 +38,7 @@ import {
   MessageScrollerViewport,
 } from "@/registry/bases/base/ui/message-scroller"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function MessageScrollerExample() {
   return (

@@ -1,12 +1,11 @@
-import "server-only"
+﻿import "server-only"
 
 import { registryItemSchema } from "farsiui/schema"
 
 import { BASES, getThemesForBaseColor, type BaseName } from "@/registry/config"
-import {
-  ALLOWED_ITEM_TYPES,
-  EXCLUDED_ITEMS,
-} from "@/app/(app)/(create)/lib/constants"
+
+const ALLOWED_ITEM_TYPES = ["registry:block", "registry:example"]
+const EXCLUDED_ITEMS = ["component-example"]
 
 export async function getItemsForBase(base: BaseName) {
   const { Index } = await import("@/registry/bases/__index__")
@@ -69,5 +68,4 @@ export async function getAllItems() {
   return Object.fromEntries(entries)
 }
 
-// Re-export for server-side use.
 export { getThemesForBaseColor }

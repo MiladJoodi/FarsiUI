@@ -20,7 +20,7 @@ import {
   ProgressValue,
 } from "@/registry/bases/base/ui/progress"
 import { Slider } from "@/registry/bases/base/ui/slider"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ProgressExample() {
   return (

@@ -95,7 +95,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 // New in v9: declare the features this table uses — anything you don't
 // register is tree-shaken out of the bundle.

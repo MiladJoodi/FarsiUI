@@ -62,7 +62,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/registry/bases/base/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function DialogExample() {
   return (

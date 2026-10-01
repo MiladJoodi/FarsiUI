@@ -30,7 +30,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/registry/bases/aria/ui/table"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const invoices = [
   {

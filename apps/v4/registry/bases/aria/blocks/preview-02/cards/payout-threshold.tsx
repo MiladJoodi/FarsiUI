@@ -28,7 +28,7 @@ import {
 } from "@/registry/bases/aria/ui/select"
 import { Slider } from "@/registry/bases/aria/ui/slider"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const CURRENCIES = [
   { label: "USD — United States Dollar", value: "usd" },

@@ -1,4 +1,4 @@
-export const TEMPLATES = [
+﻿export const TEMPLATES = [
   {
     value: "next",
     title: "Next.js",

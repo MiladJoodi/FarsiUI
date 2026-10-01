@@ -5,7 +5,7 @@ import { cn } from "cn"
 
 import { Badge } from "@/registry/bases/radix/ui/badge"
 import { Separator } from "@/registry/bases/radix/ui/separator"
-import { IconPlaceholder } from "@/app/(app)/create/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 type ToolPart = {
   type: `tool-${string}` | "dynamic-tool"

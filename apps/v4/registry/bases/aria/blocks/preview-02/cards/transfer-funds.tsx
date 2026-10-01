@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "@/registry/bases/aria/ui/select"
 import { Separator } from "@/registry/bases/aria/ui/separator"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const FROM_ACCOUNTS = [
   { label: "Main Checking (··8402) — $12,450.00", value: "checking" },

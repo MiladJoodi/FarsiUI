@@ -19,7 +19,7 @@ import {
   CollapsibleTrigger,
 } from "@/registry/bases/base/ui/collapsible"
 import { Marker, MarkerContent } from "@/registry/bases/base/ui/marker"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function BubbleExample() {
   return (

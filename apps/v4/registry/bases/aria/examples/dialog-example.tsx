@@ -57,7 +57,7 @@ import {
 } from "@/registry/bases/aria/ui/tabs"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function DialogExample() {
   return (

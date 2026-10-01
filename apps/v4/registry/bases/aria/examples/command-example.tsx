@@ -19,7 +19,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/registry/bases/aria/ui/command"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function CommandExample() {
   return (

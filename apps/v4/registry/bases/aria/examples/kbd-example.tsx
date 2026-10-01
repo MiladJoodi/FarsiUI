@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/aria/ui/input-group"
 import { Kbd, KbdGroup } from "@/registry/bases/aria/ui/kbd"
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function KbdExample() {
   return (

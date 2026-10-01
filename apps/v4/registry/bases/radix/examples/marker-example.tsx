@@ -29,7 +29,7 @@ import {
   MarkerIcon,
 } from "@/registry/bases/radix/ui/marker"
 import { Spinner } from "@/registry/bases/radix/ui/spinner"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function MarkerExamples() {
   return (

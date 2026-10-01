@@ -4,8 +4,8 @@ import * as React from "react"
 
 import { Card, CardContent } from "@/registry/bases/radix/ui/card"
 import { STYLES } from "@/registry/styles"
-import { FONTS } from "@/app/(create)/lib/fonts"
-import { useDesignSystemSearchParams } from "@/app/(create)/lib/search-params"
+import { FONTS } from "@/lib/font-options"
+import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
 export function StyleOverview() {
   const [params] = useDesignSystemSearchParams()

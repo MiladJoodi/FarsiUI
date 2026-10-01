@@ -17,7 +17,7 @@ import {
 } from "@/registry/bases/radix/ui/item"
 import { Progress } from "@/registry/bases/radix/ui/progress"
 import { Slider } from "@/registry/bases/radix/ui/slider"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function ProgressExample() {
   return (
