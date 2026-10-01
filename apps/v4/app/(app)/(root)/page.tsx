@@ -13,7 +13,7 @@ import { Button } from "@/styles/radix-luma/ui/button"
 
 import { CardsDemo } from "./cards"
 
-const title = "برای فارسی، از پایه درست"
+const title = "چند قدم جلوتر شروع کنید"
 const metadataTitle = `${siteConfig.name} - ${title}`
 const description = siteConfig.description
 

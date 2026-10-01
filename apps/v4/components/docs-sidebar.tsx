@@ -3,13 +3,18 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { SearchIcon, XIcon } from "lucide-react"
+import { ChevronDownIcon, SearchIcon, XIcon } from "lucide-react"
 
 import { PAGES_NEW, splitDocTitle } from "@/lib/docs"
 import { DOCS_SIDEBAR_SCROLL_STORAGE_KEY } from "@/lib/docs-sidebar-scroll"
 import { showMcpDocs } from "@/lib/flags"
 import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
 import type { source } from "@/lib/source"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/new-york-v4/ui/collapsible"
 import {
   InputGroup,
   InputGroupAddon,
@@ -30,10 +35,6 @@ import {
 
 const TOP_LEVEL_SECTIONS = [
   { name: "مقدمه", href: "/docs" },
-  {
-    name: "کامپوننت‌ها",
-    href: "/docs/components",
-  },
   {
     name: "نصب",
     href: "/docs/installation",
@@ -284,9 +285,29 @@ export function DocsSidebar({
         return []
       }
 
-      return [{ id: item.$id ?? String(item.name), name: item.name, pages }]
+      return [
+        {
+          id: item.$id ?? String(item.name),
+          name: item.name,
+          pages,
+          isComponents:
+            item.$id === "components" || String(item.name) === "کامپوننت‌ها",
+        },
+      ]
     })
   }, [tree.children, currentBase, debouncedQuery])
+
+  const componentGroup = filteredGroups.find((group) => group.isComponents)
+  const otherGroups = filteredGroups.filter((group) => !group.isComponents)
+
+  const isComponentsPath = pathname.startsWith("/docs/components")
+  const [componentsOpen, setComponentsOpen] = React.useState(true)
+
+  React.useEffect(() => {
+    if (isComponentsPath) {
+      setComponentsOpen(true)
+    }
+  }, [isComponentsPath])
 
   const hasResults =
     filteredSections.length > 0 || filteredGroups.length > 0
@@ -397,7 +418,73 @@ export function DocsSidebar({
             </SidebarGroupContent>
           </SidebarGroup>
         ) : null}
-        {filteredGroups.map((group) => (
+
+        {componentGroup ? (
+          <SidebarGroup>
+            <Collapsible
+              open={componentsOpen}
+              onOpenChange={setComponentsOpen}
+              className="group/components-root"
+            >
+              <CollapsibleTrigger className="flex h-8 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground">
+                <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/components-root:rotate-90" />
+                <span>کامپوننت‌ها</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <SidebarGroupContent>
+                  <SidebarMenu className="gap-0.5">
+                    {componentGroup.pages.map((page) => {
+                      const { fa, en } = splitDocTitle(String(page.name))
+                      const isNew = PAGES_NEW.includes(page.url)
+
+                      return (
+                        <SidebarMenuItem key={page.url}>
+                          <SidebarMenuButton
+                            asChild
+                            isActive={page.url === pathname}
+                            className="relative h-[30px] w-full overflow-visible border border-transparent pe-0 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                          >
+                            <Link
+                              href={page.url}
+                              className="flex w-full min-w-0 items-center gap-2"
+                            >
+                              <span className="flex min-w-0 shrink items-center gap-1.5">
+                                <span className="truncate">{fa}</span>
+                                {isNew ? (
+                                  <span
+                                    className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                    title="New"
+                                  />
+                                ) : null}
+                              </span>
+                              {en ? (
+                                <>
+                                  <span
+                                    aria-hidden
+                                    className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                                  />
+                                  <span
+                                    dir="ltr"
+                                    lang="en"
+                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                  >
+                                    {en}
+                                  </span>
+                                </>
+                              ) : null}
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      )
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </CollapsibleContent>
+            </Collapsible>
+          </SidebarGroup>
+        ) : null}
+
+        {otherGroups.map((group) => (
           <SidebarGroup key={group.id}>
             <SidebarGroupLabel className="font-medium text-muted-foreground">
               {group.name}

@@ -5,7 +5,7 @@ import { BlockDisplay } from "@/components/block-display"
 import { getActiveStyle } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
-export const dynamic = "force-static"
+export const dynamic = "force-dynamic"
 export const revalidate = false
 
 export const metadata: Metadata = {

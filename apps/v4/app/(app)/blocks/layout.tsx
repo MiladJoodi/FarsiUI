@@ -1,20 +1,10 @@
 import { type Metadata } from "next"
-import Link from "next/link"
 
-import { Announcement } from "@/components/announcement"
-import { BlocksNav } from "@/components/blocks-nav"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { PageNav } from "@/components/page-nav"
-import { Button } from "@/styles/radix-luma/ui/button"
+import { BlocksSidebar } from "@/components/blocks-sidebar"
+import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
 
-const title = "Building Blocks for the Web"
-const description =
-  "Clean, modern building blocks. Copy and paste into your apps. Works with all React frameworks. Open Source. Free forever."
+const title = "بلاک‌ها"
+const description = "بلوک‌های آمادهٔ UI برای کپی در پروژه‌های فارسی و راست‌چین."
 
 export const metadata: Metadata = {
   title,
@@ -46,34 +36,25 @@ export default function BlocksLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <PageHeader>
-        <Announcement />
-        <PageHeaderHeading>{title}</PageHeaderHeading>
-        <PageHeaderDescription>{description}</PageHeaderDescription>
-        <PageActions>
-          <Button asChild className="h-[35px]">
-            <a href="#blocks">Browse Blocks</a>
-          </Button>
-          <Button asChild variant="secondary">
-            <Link href="/docs/components">View Components</Link>
-          </Button>
-        </PageActions>
-      </PageHeader>
-      <PageNav id="blocks">
-        <BlocksNav />
-        <Button
-          asChild
-          variant="secondary"
-          size="sm"
-          className="mr-7 hidden shadow-none lg:flex"
-        >
-          <Link href="/blocks/sidebar">Browse all blocks</Link>
-        </Button>
-      </PageNav>
-      <div className="container-wrapper flex-1 section-soft md:py-12">
-        <div className="container">{children}</div>
-      </div>
-    </>
+    <div
+      className="container-wrapper flex flex-1 flex-col px-2"
+      dir="rtl"
+      lang="fa"
+      id="blocks"
+    >
+      <SidebarProvider
+        className="min-h-min flex-1 items-start px-0 [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--top-spacing:calc(var(--spacing)*4)] 3xl:fixed:container 3xl:fixed:px-3"
+        style={
+          {
+            "--sidebar-width": "calc(var(--spacing) * 72)",
+          } as React.CSSProperties
+        }
+      >
+        <BlocksSidebar />
+        <div className="h-full w-full min-w-0 section-soft ps-1 pe-2 pt-2 md:ps-2 md:pe-4 md:py-6">
+          {children}
+        </div>
+      </SidebarProvider>
+    </div>
   )
 }

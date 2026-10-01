@@ -7,7 +7,7 @@ import { cn } from "cn"
 import {
   Check,
   ChevronRight,
-  Clipboard,
+  Copy,
   File,
   Folder,
   Fullscreen,
@@ -15,9 +15,7 @@ import {
   RotateCw,
   Smartphone,
   Tablet,
-  Terminal,
 } from "lucide-react"
-import { type PanelImperativeHandle } from "react-resizable-panels"
 import {
   type registryItemFileSchema,
   type registryItemSchema,
@@ -38,11 +36,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/registry/new-york-v4/ui/collapsible"
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/registry/new-york-v4/ui/resizable"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   Sidebar,
@@ -67,7 +60,6 @@ type BlockViewerContext = {
   setView: (view: "code" | "preview") => void
   activeFile: string | null
   setActiveFile: (file: string) => void
-  resizablePanelRef: React.RefObject<PanelImperativeHandle | null> | null
   tree: ReturnType<typeof createFileTreeForRegistryItemFiles> | null
   highlightedFiles:
     | (z.infer<typeof registryItemFileSchema> & {
@@ -76,6 +68,8 @@ type BlockViewerContext = {
     | null
   iframeKey?: number
   setIframeKey?: React.Dispatch<React.SetStateAction<number>>
+  viewport: "100%" | "60%" | "30%"
+  setViewport: (value: "100%" | "60%" | "30%") => void
 }
 
 const BlockViewerContext = React.createContext<BlockViewerContext | null>(null)
@@ -100,8 +94,9 @@ function BlockViewerProvider({
   const [activeFile, setActiveFile] = React.useState<
     BlockViewerContext["activeFile"]
   >(highlightedFiles?.[0].target ?? null)
-  const resizablePanelRef = React.useRef<PanelImperativeHandle>(null)
   const [iframeKey, setIframeKey] = React.useState(0)
+  const [viewport, setViewport] =
+    React.useState<BlockViewerContext["viewport"]>("100%")
 
   return (
     <BlockViewerContext.Provider
@@ -109,19 +104,20 @@ function BlockViewerProvider({
         item,
         view,
         setView,
-        resizablePanelRef,
         activeFile,
         setActiveFile,
         tree,
         highlightedFiles,
         iframeKey,
         setIframeKey,
+        viewport,
+        setViewport,
       }}
     >
       <div
         id={item.name}
         data-view={view}
-        className="group/block-view-wrapper flex min-w-0 scroll-mt-24 flex-col-reverse items-stretch gap-4 overflow-hidden md:flex-col"
+        className="group/block-view-wrapper flex min-w-0 scroll-mt-24 flex-col items-stretch gap-4 overflow-hidden"
         style={
           {
             "--height": item.meta?.iframeHeight ?? "930px",
@@ -143,48 +139,52 @@ type BlockViewerProps = Pick<
 }
 
 function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
-  const { setView, view, item, resizablePanelRef, setIframeKey } =
+  const { setView, view, item, setIframeKey, viewport, setViewport } =
     useBlockViewer()
   const { copyToClipboard, isCopied } = useCopyToClipboard()
+  const installCommand = `npx shadcn@latest add ${item.name}`
 
   return (
-    <div className="hidden w-full items-center gap-2 pl-2 md:pr-6 lg:flex">
+    <div
+      dir="rtl"
+      lang="fa"
+      className="hidden w-full items-center gap-2 ps-2 md:pe-6 lg:flex"
+    >
       <Tabs
         value={view}
         onValueChange={(value) => setView(value as "preview" | "code")}
       >
         <TabsList className="grid h-8! grid-cols-2 items-center rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-xs">
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
+          <TabsTrigger value="preview">پیش‌نمایش</TabsTrigger>
+          <TabsTrigger value="code">کد</TabsTrigger>
         </TabsList>
       </Tabs>
       <Separator orientation="vertical" className="mx-2 h-4!" />
       <a
         href={`#${item.name}`}
-        className="flex-1 text-center text-sm font-medium underline-offset-2 hover:underline md:flex-auto md:text-left"
+        className="flex-1 text-center text-sm font-medium underline-offset-2 hover:underline md:flex-auto md:text-start"
       >
         {item.description?.replace(/\.$/, "")}
       </a>
-      <div className="ml-auto flex items-center gap-2">
-        <div className="h-8 items-center gap-1.5 rounded-md border p-[3px] shadow-none">
+      <div className="ms-auto flex items-center gap-2">
+        <div className="flex h-8 items-center gap-1.5 rounded-md border p-[3px] shadow-none">
           <ToggleGroup
             type="single"
-            defaultValue="100%"
+            value={viewport}
             onValueChange={(value) => {
+              if (!value) return
+              setViewport(value as "100%" | "60%" | "30%")
               setView("preview")
-              if (resizablePanelRef?.current) {
-                resizablePanelRef.current.resize(value)
-              }
             }}
             className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:rounded-sm!"
           >
-            <ToggleGroupItem value="100%" title="Desktop">
+            <ToggleGroupItem value="100%" title="دسکتاپ">
               <Monitor />
             </ToggleGroupItem>
-            <ToggleGroupItem value="60%" title="Tablet">
+            <ToggleGroupItem value="60%" title="تبلت">
               <Tablet />
             </ToggleGroupItem>
-            <ToggleGroupItem value="30%" title="Mobile">
+            <ToggleGroupItem value="30%" title="موبایل">
               <Smartphone />
             </ToggleGroupItem>
             <Separator orientation="vertical" className="h-4!" />
@@ -193,10 +193,10 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
               variant="ghost"
               className="size-6 rounded-sm p-0"
               asChild
-              title="Open in New Tab"
+              title="باز کردن در تب جدید"
             >
               <Link href={`/view/${styleName}/${item.name}`} target="_blank">
-                <span className="sr-only">Open in New Tab</span>
+                <span className="sr-only">باز کردن در تب جدید</span>
                 <Fullscreen />
               </Link>
             </Button>
@@ -205,29 +205,30 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
               size="icon"
               variant="ghost"
               className="size-6 rounded-sm p-0"
-              title="Refresh Preview"
+              title="تازه‌سازی پیش‌نمایش"
               onClick={() => {
-                if (setIframeKey) {
-                  setIframeKey((k) => k + 1)
-                }
+                setIframeKey?.((k) => k + 1)
               }}
             >
               <RotateCw />
-              <span className="sr-only">Refresh Preview</span>
+              <span className="sr-only">تازه‌سازی پیش‌نمایش</span>
             </Button>
           </ToggleGroup>
         </div>
         <Separator orientation="vertical" className="mx-1 h-4!" />
         <Button
-          variant="outline"
-          className="w-fit gap-1 px-2 shadow-none"
+          variant="ghost"
+          className="h-8 w-fit max-w-[min(100%,22rem)] gap-1.5 px-2 shadow-none"
           size="sm"
+          title="کپی دستور نصب"
           onClick={() => {
-            copyToClipboard(`npx shadcn@latest add ${item.name}`)
+            copyToClipboard(installCommand)
           }}
         >
-          {isCopied ? <Check /> : <Terminal />}
-          <span>npx shadcn add {item.name}</span>
+          {isCopied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+          <span dir="ltr" lang="en" className="truncate font-mono text-xs">
+            {installCommand}
+          </span>
         </Button>
       </div>
     </div>
@@ -242,13 +243,65 @@ function BlockViewerIframe({
   styleName: Style["name"]
 }) {
   const { item, iframeKey } = useBlockViewer()
+  const iframeRef = React.useRef<HTMLIFrameElement>(null)
+
+  React.useEffect(() => {
+    const iframe = iframeRef.current
+    if (!iframe) return
+
+    let detach: (() => void) | undefined
+
+    const attachWheelPassthrough = () => {
+      detach?.()
+      const win = iframe.contentWindow
+      const doc = iframe.contentDocument
+      if (!win || !doc) return
+
+      const onWheel = (event: WheelEvent) => {
+        const scrollingElement =
+          (doc.scrollingElement as HTMLElement | null) ?? doc.documentElement
+        const canScrollY = scrollingElement.scrollHeight > scrollingElement.clientHeight + 1
+        const atTop = scrollingElement.scrollTop <= 0
+        const atBottom =
+          scrollingElement.scrollTop + scrollingElement.clientHeight >=
+          scrollingElement.scrollHeight - 1
+
+        const goingDown = event.deltaY > 0
+        const goingUp = event.deltaY < 0
+        const shouldPassToParent =
+          !canScrollY || (goingDown && atBottom) || (goingUp && atTop)
+
+        if (!shouldPassToParent) return
+
+        event.preventDefault()
+        window.scrollBy({ top: event.deltaY, left: event.deltaX })
+      }
+
+      doc.addEventListener("wheel", onWheel, { passive: false })
+      detach = () => doc.removeEventListener("wheel", onWheel)
+    }
+
+    const onLoad = () => attachWheelPassthrough()
+    iframe.addEventListener("load", onLoad)
+    // Already loaded (cached) — try immediately.
+    if (iframe.contentDocument?.readyState === "complete") {
+      attachWheelPassthrough()
+    }
+
+    return () => {
+      iframe.removeEventListener("load", onLoad)
+      detach?.()
+    }
+  }, [iframeKey, item.name, styleName])
 
   return (
     <iframe
+      ref={iframeRef}
       key={iframeKey}
       src={`/view/${styleName}/${item.name}`}
       height={item.meta?.iframeHeight ?? 930}
       loading="lazy"
+      title={item.name}
       className={cn(
         "relative z-20 no-scrollbar w-full bg-background",
         className
@@ -258,27 +311,23 @@ function BlockViewerIframe({
 }
 
 function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
-  const { resizablePanelRef } = useBlockViewer()
+  const { viewport } = useBlockViewer()
 
   return (
     <div className="hidden group-data-[view=code]/block-view-wrapper:hidden md:h-(--height) lg:flex">
-      <div className="relative grid w-full gap-4">
-        <div className="absolute inset-0 right-4 [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:20px_20px] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"></div>
-        <ResizablePanelGroup
-          orientation="horizontal"
-          className="relative z-10 after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-xl after:bg-surface/50"
+      <div
+        className={cn(
+          "relative flex w-full justify-center overflow-hidden rounded-xl border border-border/80",
+          "bg-muted/50 [background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_18%,transparent)_1px,transparent_1px)] [background-size:16px_16px]",
+          "dark:bg-muted/30 dark:[background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_28%,transparent)_1px,transparent_1px)]"
+        )}
+      >
+        <div
+          className="relative h-full overflow-hidden rounded-lg border bg-background shadow-sm transition-[width] duration-200 ease-out"
+          style={{ width: viewport }}
         >
-          <ResizablePanel
-            panelRef={resizablePanelRef}
-            className="relative aspect-[4/2.5] overflow-hidden rounded-lg border bg-background md:aspect-auto md:rounded-xl"
-            defaultSize="100%"
-            minSize="30%"
-          >
-            <BlockViewerIframe styleName={styleName} />
-          </ResizablePanel>
-          <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-8 after:w-[6px] after:translate-x-[-1px] after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
-          <ResizablePanel defaultSize="0%" minSize="0%" />
-        </ResizablePanelGroup>
+          <BlockViewerIframe styleName={styleName} />
+        </div>
       </div>
     </div>
   )
@@ -288,12 +337,16 @@ function BlockViewerMobile({ children }: { children: React.ReactNode }) {
   const { item } = useBlockViewer()
 
   return (
-    <div className="flex flex-col gap-2 lg:hidden">
+    <div dir="rtl" lang="fa" className="flex flex-col gap-2 lg:hidden">
       <div className="flex items-center gap-2 px-2">
         <div className="line-clamp-1 text-sm font-medium">
           {item.description}
         </div>
-        <div className="ml-auto shrink-0 font-mono text-xs text-muted-foreground">
+        <div
+          dir="ltr"
+          lang="en"
+          className="ms-auto shrink-0 font-mono text-xs text-muted-foreground"
+        >
           {item.name}
         </div>
       </div>
@@ -337,8 +390,12 @@ function BlockViewerCode() {
   const language = file.path.split(".").pop() ?? "tsx"
 
   return (
-    <div className="mr-[14px] flex overflow-hidden rounded-xl border bg-code text-code-foreground group-data-[view=preview]/block-view-wrapper:hidden md:h-(--height)">
-      <div className="w-72">
+    <div
+      dir="ltr"
+      lang="en"
+      className="me-[14px] flex overflow-hidden rounded-xl border bg-code text-code-foreground group-data-[view=preview]/block-view-wrapper:hidden md:h-(--height)"
+    >
+      <div className="w-72 shrink-0 border-e">
         <BlockViewerFileTree />
       </div>
       <figure
@@ -350,15 +407,15 @@ function BlockViewerCode() {
           data-language={language}
         >
           {getIconForLanguageExtension(language)}
-          {file.target}
-          <div className="ml-auto flex items-center gap-2">
+          <span className="truncate font-mono text-sm">{file.target}</span>
+          <div className="ms-auto flex items-center gap-2">
             <BlockCopyCodeButton />
           </div>
         </figcaption>
         <div
           key={file?.path}
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
-          className="no-scrollbar overflow-y-auto"
+          className="no-scrollbar overflow-y-auto text-start"
         />
       </figure>
     </div>
@@ -373,10 +430,13 @@ export function BlockViewerFileTree() {
   }
 
   return (
-    <SidebarProvider className="flex min-h-full! flex-col border-r">
+    <SidebarProvider
+      dir="ltr"
+      className="flex min-h-full! flex-col border-none"
+    >
       <Sidebar collapsible="none" className="w-full flex-1">
         <SidebarGroupLabel className="h-12 rounded-none border-b px-4 text-sm">
-          Files
+          فایل‌ها
         </SidebarGroupLabel>
         <SidebarGroup className="p-0">
           <SidebarGroupContent>
@@ -479,7 +539,7 @@ function BlockCopyCodeButton() {
         })
       }}
     >
-      {isCopied ? <Check /> : <Clipboard />}
+      {isCopied ? <Check /> : <Copy />}
     </Button>
   )
 }

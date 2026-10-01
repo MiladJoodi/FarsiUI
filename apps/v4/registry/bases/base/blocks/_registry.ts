@@ -1,6 +1,9 @@
 import { type Registry } from "farsiui/schema"
 
+import { faBlocks } from "./_registry-fa-generated"
+
 export const blocks: Registry["items"] = [
+  ...faBlocks,
   {
     name: "preview",
     title: "Preview",

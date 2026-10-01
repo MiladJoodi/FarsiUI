@@ -1,27 +1,11 @@
-export const registryCategories = [
-  {
-    name: "Sidebar",
-    slug: "sidebar",
-    hidden: false,
-  },
-  {
-    name: "Dashboard",
-    slug: "dashboard",
-    hidden: true,
-  },
-  {
-    name: "Authentication",
-    slug: "authentication",
-    hidden: true,
-  },
-  {
-    name: "Login",
-    slug: "login",
-    hidden: false,
-  },
-  {
-    name: "Signup",
-    slug: "signup",
-    hidden: false,
-  },
-]
+import { getBlocksCategorySlugs } from "@/lib/blocks-nav"
+
+/** Category chips / static params for /blocks/[slug] */
+export const registryCategories = getBlocksCategorySlugs().map((slug) => ({
+  name: slug
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" "),
+  slug,
+  hidden: false,
+}))

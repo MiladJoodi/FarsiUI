@@ -21,45 +21,52 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      dir="rtl"
+      lang="fa"
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>ورود به حساب</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            ایمیل و رمز عبور خود را وارد کنید
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel htmlFor="email">ایمیل</FieldLabel>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="name@example.com"
+                  dir="ltr"
+                  className="text-start"
                   required
                 />
               </Field>
               <Field>
                 <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">رمز عبور</FieldLabel>
                   <a
                     href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    className="ms-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                    فراموشی رمز؟
                   </a>
                 </div>
                 <Input id="password" type="password" required />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
+                <Button type="submit">ورود</Button>
                 <Button variant="outline" type="button">
-                  Login with Google
+                  ورود با گوگل
                 </Button>
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="#">Sign up</a>
+                  حساب ندارید؟ <a href="#">ثبت‌نام</a>
                 </FieldDescription>
               </Field>
             </FieldGroup>

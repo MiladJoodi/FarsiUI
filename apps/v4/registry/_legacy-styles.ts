@@ -20,8 +20,8 @@ export const legacyStyles = [
 export type Style = (typeof legacyStyles)[number]
 
 export async function getActiveStyle() {
-  // In the future, this can read from cookies, session, etc.
-  return legacyStyles[0]
+  // Default to FarsiUI base design system (not legacy new-york).
+  return legacyStyles.find((style) => style.name === "base-nova") ?? legacyStyles[0]
 }
 
 export function getStyle(name: string) {

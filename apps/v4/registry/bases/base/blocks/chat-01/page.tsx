@@ -1,0 +1,50 @@
+import { cn } from "cn"
+import { Button } from "@/registry/bases/base/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/bases/base/ui/card"
+import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/bases/base/ui/avatar"
+
+export default function Page({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      dir="rtl"
+      lang="fa"
+      className={cn("bg-background text-foreground min-h-[480px] p-4", className)}
+      {...props}
+    >
+      <Card className="mx-auto flex h-[440px] max-w-lg flex-col">
+        <CardHeader className="border-b py-3">
+          <CardTitle className="text-base">گفتگو</CardTitle>
+        </CardHeader>
+        <CardContent className="flex-1 space-y-3 overflow-auto py-4">
+          {[
+            ["سارا", "سلام، سفارش من کی می‌رسه؟"],
+            ["پشتیبانی", "سلام! تا فردا ارسال می‌شود."],
+          ].map(([who, text], i) => (
+            <div key={i} className={"flex gap-2 " + (i % 2 ? "flex-row-reverse" : "")}>
+              <Avatar className="size-8">
+                <AvatarFallback>{who[0]}</AvatarFallback>
+              </Avatar>
+              <div className="rounded-2xl bg-muted px-3 py-2 text-sm">{text}</div>
+            </div>
+          ))}
+        </CardContent>
+        <div className="flex gap-2 border-t p-3">
+          <Input placeholder="پیام بنویسید…" dir="rtl" className="text-start" />
+          <Button>ارسال</Button>
+        </div>
+      </Card>
+    </div>
+  )
+}

@@ -18,7 +18,7 @@ export function SignupForm({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div dir="rtl" lang="fa" className={cn("flex flex-col gap-6", className)} {...props}>
       <form>
         <FieldGroup>
           <div className="flex flex-col items-center gap-2 text-center">
@@ -38,24 +38,24 @@ export function SignupForm({
               </div>
               <span className="sr-only">Acme Inc.</span>
             </a>
-            <h1 className="text-xl font-bold">Welcome to Acme Inc.</h1>
+            <h1 className="text-xl font-bold">به آکمه خوش آمدید</h1>
             <FieldDescription>
-              Already have an account? <a href="#">Sign in</a>
+              حساب دارید؟ <a href="#">ورود</a>
             </FieldDescription>
           </div>
           <Field>
-            <FieldLabel htmlFor="email">Email</FieldLabel>
+            <FieldLabel htmlFor="email">ایمیل</FieldLabel>
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="name@example.com" dir="ltr" className="text-start"
               required
             />
           </Field>
           <Field>
-            <Button type="submit">Create Account</Button>
+            <Button type="submit">ساخت حساب</Button>
           </Field>
-          <FieldSeparator>Or</FieldSeparator>
+          <FieldSeparator>یا</FieldSeparator>
           <Field className="grid gap-4 sm:grid-cols-2">
             <Button variant="outline" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ export function SignupForm({
                   fill="currentColor"
                 />
               </svg>
-              Continue with Apple
+              ادامه با اپل
             </Button>
             <Button variant="outline" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -73,14 +73,14 @@ export function SignupForm({
                   fill="currentColor"
                 />
               </svg>
-              Continue with Google
+              ادامه با گوگل
             </Button>
           </Field>
         </FieldGroup>
       </form>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        با ادامه، <a href="#">شرایط استفاده</a>{" "}
+        و <a href="#">حریم خصوصی</a> را می‌پذیرید.
       </FieldDescription>
     </div>
   )

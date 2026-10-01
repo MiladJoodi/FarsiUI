@@ -17,8 +17,8 @@ import "@/app/legacy-themes.css"
 import { ComponentPreview } from "./component-preview"
 
 export const revalidate = false
-export const dynamic = "force-static"
-export const dynamicParams = false
+export const dynamic = "force-dynamic"
+export const dynamicParams = true
 
 const getCachedRegistryItem = React.cache(
   async (name: string, styleName: Style["name"]) => {
@@ -83,18 +83,16 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
+  // Keep this light: heavy BasesIndex × style fan-out crashes Turbopack in
+  // dev. dynamicParams=true still serves base blocks on demand.
   const { Index } = await import("@/registry/__index__")
-  // const { Index: BasesIndex } = await import("@/registry/bases/__index__")
   const { ExamplesIndex } = await import("@/examples/__index__")
   const params: Array<{ style: string; name: string }> = []
 
   for (const style of legacyStyles) {
-    // Check if this is a base-prefixed style (e.g., base-nova, radix-nova).
     const baseMatch = style.name.match(/^(base|radix|aria)-/)
     if (baseMatch) {
       const baseName = baseMatch[1]
-
-      // Add examples from ExamplesIndex.
       const examples = ExamplesIndex[baseName]
       if (examples) {
         for (const exampleName of Object.keys(examples)) {
@@ -106,32 +104,9 @@ export async function generateStaticParams() {
           }
         }
       }
-
-      // // Add UI components from BasesIndex.
-      // const baseIndex = BasesIndex[baseName]
-      // if (baseIndex) {
-      //   for (const itemName in baseIndex) {
-      //     const item = baseIndex[itemName]
-      //     if (
-      //       [
-      //         "registry:block",
-      //         "registry:component",
-      //         "registry:example",
-      //         "registry:internal",
-      //       ].includes(item.type)
-      //     ) {
-      //       params.push({
-      //         style: style.name,
-      //         name: item.name,
-      //       })
-      //     }
-      //   }
-      // }
-
       continue
     }
 
-    // Handle legacy styles (e.g., new-york-v4).
     if (!Index[style.name]) {
       continue
     }

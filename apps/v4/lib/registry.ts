@@ -167,19 +167,29 @@ export async function getRegistryItem(name: string, styleName: string) {
     return null
   }
 
-  // Read all files in parallel.
-  let files: typeof result.data.files = await Promise.all(
-    item.files.map(async (file: z.infer<typeof registryItemFileSchema>) => {
-      const content = await getFileContent(file)
-      const relativePath = path.relative(process.cwd(), file.path)
+  // Read all files in parallel. Missing files must not 500 the view route.
+  let files: typeof result.data.files
+  try {
+    files = await Promise.all(
+      item.files.map(async (file: z.infer<typeof registryItemFileSchema>) => {
+        const content = await getFileContent(file)
+        const absolutePath = path.isAbsolute(file.path)
+          ? file.path
+          : path.join(process.cwd(), file.path)
+        const relativePath = path.relative(process.cwd(), absolutePath)
 
-      return {
-        ...file,
-        path: relativePath,
-        content,
-      }
-    })
-  )
+        return {
+          ...file,
+          path: relativePath,
+          content,
+        }
+      })
+    )
+  } catch (error) {
+    console.error(`Failed to read files for ${styleName}:${name}`, error)
+    registryCache.set(cacheKey, null)
+    return null
+  }
 
   // Fix file paths.
   files = fixFilePaths(files)
@@ -202,7 +212,10 @@ export async function getRegistryItem(name: string, styleName: string) {
 }
 
 async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
-  let code = await fs.readFile(file.path, "utf-8")
+  const absolutePath = path.isAbsolute(file.path)
+    ? file.path
+    : path.join(process.cwd(), file.path)
+  let code = await fs.readFile(absolutePath, "utf-8")
 
   // Some registry items uses default export.
   // We want to use named export instead.

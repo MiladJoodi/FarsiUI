@@ -15,30 +15,30 @@ export function SignupForm({
   ...props
 }: React.ComponentProps<"form">) {
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form dir="rtl" lang="fa" className={cn("flex flex-col gap-6", className)} {...props}>
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Create your account</h1>
+          <h1 className="text-2xl font-bold">ساخت حساب کاربری</h1>
           <p className="text-sm text-balance text-muted-foreground">
-            Fill in the form below to create your account
+            فرم زیر را پر کنید تا حساب بسازید
           </p>
         </div>
         <Field>
-          <FieldLabel htmlFor="name">Full Name</FieldLabel>
+          <FieldLabel htmlFor="name">نام کامل</FieldLabel>
           <Input
             id="name"
             type="text"
-            placeholder="John Doe"
+            placeholder="سارا محمدی"
             required
             className="bg-background"
           />
         </Field>
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
+          <FieldLabel htmlFor="email">ایمیل</FieldLabel>
           <Input
             id="email"
             type="email"
-            placeholder="m@example.com"
+            placeholder="name@example.com" dir="ltr" className="text-start"
             required
             className="bg-background"
           />
@@ -48,7 +48,7 @@ export function SignupForm({
           </FieldDescription>
         </Field>
         <Field>
-          <FieldLabel htmlFor="password">Password</FieldLabel>
+          <FieldLabel htmlFor="password">رمز عبور</FieldLabel>
           <Input
             id="password"
             type="password"
@@ -56,23 +56,23 @@ export function SignupForm({
             className="bg-background"
           />
           <FieldDescription>
-            Must be at least 8 characters long.
+            حداقل ۸ کاراکتر باشد.
           </FieldDescription>
         </Field>
         <Field>
-          <FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
+          <FieldLabel htmlFor="confirm-password">تکرار رمز عبور</FieldLabel>
           <Input
             id="confirm-password"
             type="password"
             required
             className="bg-background"
           />
-          <FieldDescription>Please confirm your password.</FieldDescription>
+          <FieldDescription>رمز عبور را دوباره وارد کنید.</FieldDescription>
         </Field>
         <Field>
-          <Button type="submit">Create Account</Button>
+          <Button type="submit">ساخت حساب</Button>
         </Field>
-        <FieldSeparator>Or continue with</FieldSeparator>
+        <FieldSeparator>یا ادامه با</FieldSeparator>
         <Field>
           <Button variant="outline" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -81,10 +81,10 @@ export function SignupForm({
                 fill="currentColor"
               />
             </svg>
-            Sign up with GitHub
+            ثبت‌نام با گیت‌هاب
           </Button>
           <FieldDescription className="px-6 text-center">
-            Already have an account? <a href="#">Sign in</a>
+            حساب دارید؟ <a href="#">ورود</a>
           </FieldDescription>
         </Field>
       </FieldGroup>
