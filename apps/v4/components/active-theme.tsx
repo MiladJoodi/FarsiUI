@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react"
 
-const DEFAULT_THEME = "default"
+const DEFAULT_THEME = "neutral"
 
 type ThemeContextType = {
   activeTheme: string

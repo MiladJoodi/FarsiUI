@@ -1,17 +1,4 @@
-"use client"
-
-import * as React from "react"
-
 import { Card, CardContent } from "@/styles/base-rhea/ui/card"
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/styles/base-rhea/ui/pagination"
 import {
   Tabs,
   TabsContent,
@@ -20,8 +7,6 @@ import {
 } from "@/styles/base-rhea/ui/tabs"
 
 export function TabsCard() {
-  const [page, setPage] = React.useState(2)
-
   return (
     <Card className="w-full" dir="rtl">
       <CardContent className="flex flex-col gap-4">
@@ -42,7 +27,7 @@ export function TabsCard() {
           </TabsContent>
           <TabsContent value="analytics" className="mt-4 space-y-3">
             <div className="rounded-xl border bg-muted/40 p-3">
-              <div className="text-2xl font-semibold tracking-tight text-emerald-600 dark:text-emerald-400">
+              <div className="text-2xl font-semibold tracking-tight text-primary">
                 ٪۲۵+
               </div>
               <div className="text-sm text-muted-foreground">
@@ -65,48 +50,6 @@ export function TabsCard() {
             </p>
           </TabsContent>
         </Tabs>
-
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                href="#"
-                text="قبلی"
-                onClick={(event) => {
-                  event.preventDefault()
-                  setPage((p) => Math.max(1, p - 1))
-                }}
-              />
-            </PaginationItem>
-            {[1, 2, 3].map((n) => (
-              <PaginationItem key={n}>
-                <PaginationLink
-                  href="#"
-                  isActive={page === n}
-                  onClick={(event) => {
-                    event.preventDefault()
-                    setPage(n)
-                  }}
-                >
-                  {n}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext
-                href="#"
-                text="بعدی"
-                onClick={(event) => {
-                  event.preventDefault()
-                  setPage((p) => Math.min(3, p + 1))
-                }}
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
       </CardContent>
     </Card>
   )

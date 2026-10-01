@@ -15,16 +15,13 @@ import { MarkerAvatarAlert } from "./marker-avatar-alert"
 import { NavigationMenuCard } from "./navigation-menu-card"
 import { NewMilestone } from "./new-milestone"
 import { NotificationSettings } from "./notification-settings"
-import { PaginationCard } from "./pagination-card"
 import { Payments } from "./payments"
 import { PayoutThreshold } from "./payout-threshold"
 import { PopoverSliderToastToggle } from "./popover-slider-toast-toggle"
 import { PowerUsage } from "./power-usage"
-import { QrConnect } from "./qr-connect"
 import { SavingsTargets } from "./savings-targets"
 import { SidebarNav } from "./sidebar-nav"
 import { TabsCard } from "./tabs-card"
-import { TransferFunds } from "./transfer-funds"
 import { AccountAccess as SkeletonAccountAccess } from "./skeleton/account-access"
 import { AnalyticsCard as SkeletonAnalyticsCard } from "./skeleton/analytics-card"
 import { ClaimableBalance as SkeletonClaimableBalance } from "./skeleton/claimable-balance"
@@ -36,9 +33,7 @@ import { NotificationSettings as SkeletonNotificationSettings } from "./skeleton
 import { Payments as SkeletonPayments } from "./skeleton/payments"
 import { PayoutThreshold as SkeletonPayoutThreshold } from "./skeleton/payout-threshold"
 import { PowerUsage as SkeletonPowerUsage } from "./skeleton/power-usage"
-import { QrConnect as SkeletonQrConnect } from "./skeleton/qr-connect"
 import { SavingsTargets as SkeletonSavingsTargets } from "./skeleton/savings-targets"
-import { TransferFunds as SkeletonTransferFunds } from "./skeleton/transfer-funds"
 import { UIElements as SkeletonUIElements } from "./skeleton/ui-elements"
 import { UIElements } from "./ui-elements"
 
@@ -83,14 +78,10 @@ function CardsSkeletonRails() {
           <SkeletonNewMilestone />
           <SkeletonPayoutThreshold />
           <SkeletonAccountAccess />
-          <SkeletonQrConnect />
-          <SkeletonTransferFunds />
           <SkeletonPayments />
           <SkeletonEmptyDistributeTrack />
         </div>
         <div className="flex flex-col gap-(--gap)">
-          <SkeletonQrConnect />
-          <SkeletonTransferFunds />
           <SkeletonPayments />
           <SkeletonEmptyDistributeTrack />
           <SkeletonAnalyticsCard />
@@ -108,7 +99,7 @@ export function CardsDemo() {
       data-slot="demo"
       dir="rtl"
       lang="fa"
-      className="theme-neutral relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
       <CardsSkeletonRails />
       <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">
@@ -128,7 +119,6 @@ export function CardsDemo() {
           <ClaimableBalance />
           <DividendIncome />
           <TabsCard />
-          <PaginationCard />
           <FadeTail>
             <ClaimableBalance />
           </FadeTail>
@@ -140,20 +130,19 @@ export function CardsDemo() {
           <AccountAccess />
           <NavigationMenuCard />
           <DropdownDrawerHover />
-          <AttachmentCard />
           <FadeTail>
             <AccountAccess />
           </FadeTail>
         </div>
         {/* Col 4 — md+ */}
         <div className="hidden h-full flex-col gap-(--gap) md:flex">
-          <QrConnect />
           <div className="**:[.text-center.text-xs]:hidden">
             <MessageScrollerDemo />
           </div>
           <Payments />
           <PopoverSliderToastToggle />
           <ContextMenuCard />
+          <AttachmentCard />
           <FadeTail>
             <Payments />
           </FadeTail>
@@ -165,7 +154,6 @@ export function CardsDemo() {
           <NotificationSettings />
           <PowerUsage />
           <MarkerAvatarAlert />
-          <TransferFunds />
           <FadeTail>
             <NotificationSettings />
           </FadeTail>

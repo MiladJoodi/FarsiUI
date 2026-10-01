@@ -38,6 +38,15 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/styles/base-rhea/ui/hover-card"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/styles/base-rhea/ui/pagination"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-rhea/ui/radio-group"
 import { Avatar, AvatarFallback, AvatarImage } from "@/styles/base-rhea/ui/avatar"
 
@@ -79,101 +88,128 @@ export function DropdownDrawerHover() {
 
   return (
     <Card className="w-full" dir="rtl">
-      <CardContent className="flex flex-wrap items-center gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" />}>
-            منوی بازشو
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-48" align="start" dir="rtl">
-            <DropdownMenuGroup>
-              <DropdownMenuLabel>حساب</DropdownMenuLabel>
-              <DropdownMenuItem>پروفایل</DropdownMenuItem>
-              <DropdownMenuItem>صورتحساب</DropdownMenuItem>
-              <DropdownMenuItem>تنظیمات</DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>خروج</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger render={<Button variant="outline" />}>
+              منوی بازشو
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-48" align="start" dir="rtl">
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>حساب</DropdownMenuLabel>
+                <DropdownMenuItem>پروفایل</DropdownMenuItem>
+                <DropdownMenuItem>صورتحساب</DropdownMenuItem>
+                <DropdownMenuItem>تنظیمات</DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>خروج</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-        <Drawer
-          open={open}
-          onOpenChange={setOpen}
-          showSwipeHandle={isMobile}
-          swipeDirection={isMobile ? "down" : "right"}
-        >
-          <DrawerTrigger render={<Button variant="secondary" />}>
-            کشو
-          </DrawerTrigger>
-          <DrawerContent dir="rtl">
-            <DrawerHeader>
-              <DrawerTitle>انتخاب زمان تحویل</DrawerTitle>
-              <DrawerDescription>
-                سفارش را در سریع‌ترین زمان ممکن آماده می‌کنیم.
-              </DrawerDescription>
-            </DrawerHeader>
-            <div className="flex-1 overflow-y-auto p-4">
-              <RadioGroup
-                value={deliveryTime}
-                onValueChange={setDeliveryTime}
-                className="gap-2"
-              >
-                {deliveryTimes.map((time) => (
-                  <FieldLabel key={time.value} htmlFor={time.id}>
-                    <Field orientation="horizontal">
-                      <FieldContent>
-                        <FieldTitle className="flex items-center gap-2">
-                          {time.label}
-                          {time.badge ? (
-                            <Badge variant="secondary">{time.badge}</Badge>
-                          ) : null}
-                        </FieldTitle>
-                        <FieldDescription>{time.description}</FieldDescription>
-                      </FieldContent>
-                      <RadioGroupItem value={time.value} id={time.id} />
-                    </Field>
-                  </FieldLabel>
-                ))}
-              </RadioGroup>
-            </div>
-            <DrawerFooter>
-              <Button onClick={handleConfirm}>تأیید زمان تحویل</Button>
-              <DrawerClose render={<Button variant="outline" />}>
-                انصراف
-              </DrawerClose>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-
-        <HoverCard>
-          <HoverCardTrigger
-            delay={10}
-            closeDelay={100}
-            render={<Button variant="link" />}
+          <Drawer
+            open={open}
+            onOpenChange={setOpen}
+            showSwipeHandle={isMobile}
+            swipeDirection={isMobile ? "down" : "right"}
           >
-            کارت شناور
-          </HoverCardTrigger>
-          <HoverCardContent className="w-72" dir="rtl">
-            <div className="flex gap-3">
-              <Avatar className="size-10">
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="سارا محمدی"
-                />
-                <AvatarFallback>سم</AvatarFallback>
-              </Avatar>
-              <div className="flex min-w-0 flex-1 flex-col gap-1 text-start">
-                <div className="text-sm font-semibold">سارا محمدی</div>
-                <div className="text-sm text-muted-foreground">
-                  طراح محصول · تهران
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground">
-                  ۱۲۸ دنبال‌کننده · ۴۲ پروژهٔ عمومی
+            <DrawerTrigger render={<Button variant="secondary" />}>
+              کشو
+            </DrawerTrigger>
+            <DrawerContent dir="rtl">
+              <DrawerHeader>
+                <DrawerTitle>انتخاب زمان تحویل</DrawerTitle>
+                <DrawerDescription>
+                  سفارش را در سریع‌ترین زمان ممکن آماده می‌کنیم.
+                </DrawerDescription>
+              </DrawerHeader>
+              <div className="flex-1 overflow-y-auto p-4">
+                <RadioGroup
+                  value={deliveryTime}
+                  onValueChange={setDeliveryTime}
+                  className="gap-2"
+                >
+                  {deliveryTimes.map((time) => (
+                    <FieldLabel key={time.value} htmlFor={time.id}>
+                      <Field orientation="horizontal">
+                        <FieldContent>
+                          <FieldTitle className="flex items-center gap-2">
+                            {time.label}
+                            {time.badge ? (
+                              <Badge variant="secondary">{time.badge}</Badge>
+                            ) : null}
+                          </FieldTitle>
+                          <FieldDescription>{time.description}</FieldDescription>
+                        </FieldContent>
+                        <RadioGroupItem value={time.value} id={time.id} />
+                      </Field>
+                    </FieldLabel>
+                  ))}
+                </RadioGroup>
+              </div>
+              <DrawerFooter>
+                <Button onClick={handleConfirm}>تأیید زمان تحویل</Button>
+                <DrawerClose render={<Button variant="outline" />}>
+                  انصراف
+                </DrawerClose>
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
+
+          <HoverCard>
+            <HoverCardTrigger
+              delay={10}
+              closeDelay={100}
+              render={<Button variant="link" />}
+            >
+              کارت شناور
+            </HoverCardTrigger>
+            <HoverCardContent className="w-72" dir="rtl">
+              <div className="flex gap-3">
+                <Avatar className="size-10">
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="سارا محمدی"
+                  />
+                  <AvatarFallback>سم</AvatarFallback>
+                </Avatar>
+                <div className="flex min-w-0 flex-1 flex-col gap-1 text-start">
+                  <div className="text-sm font-semibold">سارا محمدی</div>
+                  <div className="text-sm text-muted-foreground">
+                    طراح محصول · تهران
+                  </div>
+                  <div className="mt-1 text-xs text-muted-foreground">
+                    ۱۲۸ دنبال‌کننده · ۴۲ پروژهٔ عمومی
+                  </div>
                 </div>
               </div>
-            </div>
-          </HoverCardContent>
-        </HoverCard>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
+
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious href="#" text="قبلی" />
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#">۱</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#" isActive>
+                ۲
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#">۳</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationNext href="#" text="بعدی" />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
       </CardContent>
     </Card>
   )

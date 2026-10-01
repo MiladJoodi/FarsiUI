@@ -64,12 +64,11 @@ function BreadcrumbItem({
               className={cn("cn-breadcrumb-separator", separatorClassName)}
             >
               <IconPlaceholder
-                lucide="ChevronRightIcon"
-                tabler="IconChevronRight"
-                hugeicons="ArrowRight01Icon"
-                phosphor="CaretRightIcon"
-                remixicon="RiArrowRightSLine"
-                className="cn-rtl-flip"
+                lucide="ChevronLeftIcon"
+                tabler="IconChevronLeft"
+                hugeicons="ArrowLeft01Icon"
+                phosphor="CaretLeftIcon"
+                remixicon="RiArrowLeftSLine"
               />
             </span>
           )}

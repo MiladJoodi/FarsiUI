@@ -112,7 +112,7 @@ export function UIElements() {
               </span>
               <span className="flex md:hidden style-sera:md:flex">دیالوگ</span>
             </AlertDialogTrigger>
-            <AlertDialogContent size="sm" className="theme-neutral" dir="rtl">
+            <AlertDialogContent size="sm" className="theme-container" dir="rtl">
               <AlertDialogHeader className="text-right sm:text-right">
                 <AlertDialogTitle>
                   اجازهٔ اتصال لوازم جانبی داده شود؟

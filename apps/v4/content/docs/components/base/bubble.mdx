@@ -1,6 +1,6 @@
 ---
-title: حباب (Bubble)
-description: نمایش محتوای گفتگو در قالب حباب پیام. از واریانت، تراز، گروه‌بندی، واکنش‌ها و محتوای جمع‌شونده پشتیبانی می‌کند.
+title: حباب
+description: نمایش محتوای گفتگو در قالب حباب پیام، با پشتیبانی از ظاهرهای مختلف، تراز، گروه‌بندی، واکنش و محتوای جمع‌شونده.
 featured: true
 base: base
 component: true
@@ -75,9 +75,9 @@ import { Bubble, BubbleContent, BubbleReactions } from "@/components/ui/bubble"
 </Bubble>
 ```
 
-کامپوننت `Bubble` محتوای گفتگو را داخل یک قاب نمایش می‌دهد و برای متن چت، خروجی‌های کوتاه و ساختاریافته، نقل‌قول، پیشنهاد و واکنش مناسب است.
+کامپوننت `Bubble` محتوای گفتگو را داخل یک حباب نمایش می‌دهد و برای پیام‌های کوتاه، خروجی‌های ساختاریافته، نقل‌قول‌ها، پیشنهادها و واکنش‌ها مناسب است.
 
-برای رابط‌های کامل چت، از کامپوننت [`پیام`](/docs/components/message) استفاده کنید. `Bubble` فقط خود حباب پیام را نمایش می‌دهد؛ آواتار، نام، زمان، متادیتا و اکشن‌های پیام را داخل [`پیام`](/docs/components/message) قرار دهید.
+برای ساخت رابط‌های کامل چت، از کامپوننت [`پیام`](/docs/components/message) استفاده کنید. `Bubble` فقط خود حباب را نمایش می‌دهد؛ اطلاعاتی مثل آواتار، نام، زمان و اکشن‌های پیام را می‌توانید در `Message` قرار دهید.
 
 <div className="hidden">
 
@@ -97,7 +97,7 @@ Bubble
 └── BubbleReactions
 ```
 
-با `BubbleGroup` می‌توانید حباب‌های پشت‌سرهم یک فرستنده را گروه‌بندی کنید:
+برای گروه‌بندی حباب‌های پشت‌سرهم یک فرستنده، از `BubbleGroup` استفاده کنید:
 
 ```text
 BubbleGroup
@@ -119,7 +119,7 @@ BubbleGroup
 
 <DocsCollapsible title="ظاهر">
 
-با prop به نام `variant` می‌توانید ظاهر حباب را تغییر دهید.
+با `variant` می‌توانید ظاهر حباب را تغییر دهید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -136,7 +136,7 @@ BubbleGroup
       default
     </code>
     <span className="text-muted-foreground">
-      حباب اصلی و پررنگ؛ معمولاً برای کاربر جاری.
+      حباب اصلی و پررنگ؛ معمولاً برای پیام‌های کاربر.
     </span>
   </div>
   <div className="flex gap-4 px-4 py-3">
@@ -152,7 +152,7 @@ BubbleGroup
       muted
     </code>
     <span className="text-muted-foreground">
-      حباب کم‌رنگ‌تر برای محتوای پشتیبان.
+      حباب کم‌رنگ‌تر برای محتوای فرعی.
     </span>
   </div>
   <div className="flex gap-4 px-4 py-3">
@@ -176,7 +176,7 @@ BubbleGroup
       ghost
     </code>
     <span className="text-muted-foreground">
-      بدون قاب؛ مناسب متن دستیار یا محتوای غنی.
+      بدون قاب؛ مناسب متن دستیار و محتوای غنی مثل Markdown.
     </span>
   </div>
   <div className="flex gap-4 px-4 py-3">
@@ -184,12 +184,12 @@ BubbleGroup
       destructive
     </code>
     <span className="text-muted-foreground">
-      حباب خطرناک برای خطا یا عملیات ناموفق.
+      حباب مخصوص خطا یا عملیات ناموفق.
     </span>
   </div>
 </div>
 
-حباب حداکثر تا ۸۰٪ عرض ظرف را می‌گیرد و به اندازه محتوا کش می‌آید. واریانت `ghost` این محدودیت را ندارد و می‌تواند تمام عرض ردیف را بگیرد.
+حباب حداکثر ۸۰٪ عرض ظرف را می‌گیرد و متناسب با محتوا تغییر اندازه می‌دهد. `ghost` از این محدودیت مستثنی است و می‌تواند تمام عرض ردیف را بگیرد.
 
 </DocsCollapsible>
 
@@ -201,7 +201,7 @@ BubbleGroup
 
 <DocsCollapsible title="تراز">
 
-با prop به نام `align` روی `Bubble` می‌توانید حباب را به ابتدا یا انتهای گفتگو تراز کنید.
+با `align` روی `Bubble` می‌توانید حباب را در ابتدا یا انتهای گفتگو قرار دهید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -217,17 +217,19 @@ BubbleGroup
     <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
       start
     </code>
-    <span className="text-muted-foreground">تراز به ابتدای گفتگو.</span>
+    <span className="text-muted-foreground">تراز در ابتدای گفتگو.</span>
   </div>
   <div className="flex gap-4 px-4 py-3">
     <code className="w-28 shrink-0 font-mono text-[0.8125rem] font-semibold">
       end
     </code>
-    <span className="text-muted-foreground">تراز به انتهای گفتگو.</span>
+    <span className="text-muted-foreground">
+      تراز در انتهای گفتگو؛ مناسب پیام‌های کاربر.
+    </span>
   </div>
 </div>
 
-**نکته:** در رابط چت معمولاً تراز را روی خود `Message` تنظیم کنید، نه روی `Bubble`. با prop به نام `role` روی `Message` می‌توانید تراز را خودکار کنید.
+**نکته:** در رابط‌های چت معمولاً بهتر است تراز را روی `Message` تنظیم کنید، نه `Bubble`. با `role` روی `Message` می‌توانید تراز را به‌صورت خودکار تعیین کنید.
 
 </DocsCollapsible>
 
@@ -239,7 +241,7 @@ BubbleGroup
 
 <DocsCollapsible title="گروه">
 
-با `BubbleGroup` حباب‌های پشت‌سرهم یک فرستنده را گروه‌بندی کنید. prop به نام `align` را روی خود `Bubble` بگذارید، نه روی `BubbleGroup`.
+با `BubbleGroup` حباب‌های پشت‌سرهم یک فرستنده را کنار هم قرار دهید. `align` را روی خود `Bubble` تنظیم کنید، نه روی `BubbleGroup`.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -257,7 +259,7 @@ BubbleGroup
 
 <DocsCollapsible title="لینک و دکمه">
 
-با prop به نام `render` روی `BubbleContent` می‌توانید حباب را به لینک یا دکمه تبدیل کنید.
+با `render` روی `BubbleContent` می‌توانید حباب را به یک لینک یا دکمه تبدیل کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -287,7 +289,9 @@ export function BubbleLinkDemo() {
 
 <DocsCollapsible title="واکنش‌ها">
 
-برای نمایش واکنش یا دکمه‌های سریع از `BubbleReactions` استفاده کنید. با `side` و `align` می‌توانید موقعیت ردیف را تنظیم کنید؛ `side="top"` آن را به لبه بالایی می‌چسباند. واکنش‌ها روی لبه حباب قرار می‌گیرند، بنابراین بین ردیف‌ها فاصلهٔ عمودی ایجاد کنید.
+برای نمایش واکنش‌ها یا دکمه‌های سریع از `BubbleReactions` استفاده کنید. با `side` و `align` می‌توانید محل قرارگیری آن‌ها را تنظیم کنید.
+
+واکنش‌ها روی لبه حباب قرار می‌گیرند؛ بنابراین بین ردیف‌های گفتگو فاصله کافی ایجاد کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -305,7 +309,9 @@ export function BubbleLinkDemo() {
 
 <DocsCollapsible title="جمع‌شونده">
 
-برای محتوای طولانی می‌توانید آن را با [`Collapsible`](/docs/components/collapsible) ترکیب کنید تا امکان «نمایش بیشتر / کمتر» را فراهم کنید. برای باز و بسته کردن محتوا از `CollapsibleTrigger` استفاده کنید.
+برای محتوای طولانی می‌توانید `Bubble` را با [`Collapsible`](/docs/components/collapsible) ترکیب کنید تا امکان نمایش یا مخفی‌کردن محتوا فراهم شود.
+
+برای کنترل باز و بسته‌شدن محتوا از `CollapsibleTrigger` استفاده کنید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -323,7 +329,7 @@ export function BubbleLinkDemo() {
 
 <DocsCollapsible title="راهنما">
 
-حباب را داخل [`Tooltip`](/docs/components/tooltip) بگذارید تا با هاور متادیتا نشان داده شود؛ مثلاً زمان خوانده‌شدن پیام.
+با قرار دادن حباب داخل [`Tooltip`](/docs/components/tooltip) می‌توانید اطلاعاتی مثل زمان خوانده‌شدن پیام را هنگام هاور نمایش دهید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -341,7 +347,7 @@ export function BubbleLinkDemo() {
 
 <DocsCollapsible title="پاپ‌اور">
 
-حباب را با [`Popover`](/docs/components/popover) ترکیب کنید تا جزئیات بیشتر، مثل متن کامل خطا، در دسترس باشد.
+با ترکیب `Bubble` و [`Popover`](/docs/components/popover) می‌توانید جزئیات بیشتری مثل متن کامل خطا را نمایش دهید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -359,11 +365,11 @@ export function BubbleLinkDemo() {
 
 <DocsCollapsible title="دسترس‌پذیری">
 
-`Bubble` سطح بصری پیام را رندر می‌کند. معناشناسی سطح گفتگو را روی ظرف اطراف نگه دارید و راهنمای زیر را رعایت کنید.
+`Bubble` ظاهر پیام را رندر می‌کند. معنا و ساختار کلی گفتگو باید در ظرف والد مدیریت شود.
 
 ### برچسب‌گذاری واکنش‌ها
 
-واکنش‌ها به‌صورت ردیفی از ایموجی نمایش داده می‌شوند. صفحه‌خوان هر نماد را بدون زمینه می‌خواند و شمارنده‌هایی مثل `+۸` را «به‌علاوه هشت» اعلام می‌کند. ردیف را با `role="img"` و یک `aria-label` توصیفی گروه‌بندی کنید تا یک‌بار اعلام شود.
+اگر واکنش‌ها فقط برای نمایش هستند، آن‌ها را با `role="img"` و یک `aria-label` توصیفی گروه‌بندی کنید تا صفحه‌خوان آن‌ها را به‌صورت یک واحد اعلام کند.
 
 <div className="flex flex-col gap-3 [&_p]:my-0! [&_[data-rehype-pretty-code-figure]]:my-0!">
 
@@ -375,7 +381,7 @@ export function BubbleLinkDemo() {
 </BubbleReactions>
 ```
 
-اگر واکنش‌ها تعاملی‌اند، به‌جای آن دکمه بگذارید و برای دکمه‌های فقط‌آیکون `aria-label` تنظیم کنید.
+اگر واکنش‌ها تعاملی هستند، از دکمه استفاده کنید و برای دکمه‌های فقط‌آیکون `aria-label` قرار دهید.
 
 ```tsx showLineNumbers
 <BubbleReactions>
@@ -388,7 +394,7 @@ export function BubbleLinkDemo() {
 </div>
 ### حباب‌های تعاملی
 
-وقتی حباب قابل کلیک است، با prop به نام `render` آن را به‌صورت `<button>` یا `<a>` واقعی رندر کنید تا فوکوس‌پذیر باشد و نقش درست داشته باشد. نام دسترس‌پذیر از متن حباب گرفته می‌شود.
+برای حباب‌های قابل کلیک، با `render` آن را به یک `<button>` یا `<a>` واقعی تبدیل کنید تا فوکوس‌پذیر باشد و نقش معنایی مناسبی داشته باشد.
 
 ```tsx showLineNumbers
 <Bubble variant="muted" align="end">
@@ -400,7 +406,7 @@ export function BubbleLinkDemo() {
 
 ### معنا فراتر از رنگ
 
-واریانت‌ها نقش و لحن را با رنگ نشان می‌دهند. آن‌ها را با متن، تراز یا آیکون همراه کنید تا معنا فقط با رنگ منتقل نشود. برای حباب `destructive`، زمینه خطا را در متن پیام نگه دارید.
+واریانت‌ها نباید تنها راه انتقال معنا باشند. برای پیام‌های مهم، در کنار رنگ از متن، تراز یا آیکون مناسب هم استفاده کنید.
 
 </DocsCollapsible>
 
@@ -441,7 +447,7 @@ export function BubbleLinkDemo() {
 
 <DocsApiProps
   title="BubbleContent"
-  description="ظرف محتوای داخل حباب."
+  description="ظرف محتوای حباب."
   props={[
     {
       name: "render",

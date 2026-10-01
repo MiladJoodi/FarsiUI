@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cn } from "cn"
-import { ChevronRight, MoreHorizontal } from "lucide-react"
+import { ChevronLeft, MoreHorizontal } from "lucide-react"
 import { Slot } from "radix-ui"
 
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
@@ -74,7 +74,7 @@ function BreadcrumbSeparator({
       className={cn("[&>svg]:size-3.5", className)}
       {...props}
     >
-      {children ?? <ChevronRight />}
+      {children ?? <ChevronLeft />}
     </li>
   )
 }
