@@ -114,7 +114,7 @@ export default async function BlockPage({
   }
 
   return (
-    <div className="relative bg-background">
+    <div className="style-nova relative bg-background">
       <Component />
       {base.name === "base" && <BaseToaster />}
       <TailwindIndicator forceMount />

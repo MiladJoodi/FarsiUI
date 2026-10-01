@@ -13,8 +13,14 @@ import { absoluteUrl } from "@/lib/utils"
 import { getStyle, legacyStyles, type Style } from "@/registry/_legacy-styles"
 
 import "@/app/legacy-themes.css"
+import "@/app/style-registry.css"
 
 import { ComponentPreview } from "./component-preview"
+
+function getVisualStyleClass(styleName: string) {
+  const match = styleName.match(/^(?:base|radix|aria)-(.+)$/)
+  return match ? `style-${match[1]}` : null
+}
 
 export const revalidate = false
 export const dynamic = "force-dynamic"
@@ -155,9 +161,13 @@ export default async function BlockPage({
     return notFound()
   }
 
+  const visualStyleClass = getVisualStyleClass(style.name)
+
   return (
     <ComponentPreview>
-      <Component />
+      <div className={visualStyleClass ?? undefined}>
+        <Component />
+      </div>
     </ComponentPreview>
   )
 }

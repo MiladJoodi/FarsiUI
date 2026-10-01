@@ -103,7 +103,7 @@ export const blocks: Registry["items"] = [
   {
     name: "login-01",
     title: "Login 01",
-    description: "A simple login form.",
+    description: "فرم ورود ساده.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label", "field"],
     files: [
@@ -122,7 +122,7 @@ export const blocks: Registry["items"] = [
   {
     name: "login-02",
     title: "Login 02",
-    description: "A two column login page with a cover image.",
+    description: "صفحه ورود دو ستونه با تصویر کاور.",
     type: "registry:block",
     registryDependencies: ["button", "input", "label", "field"],
     files: [
@@ -141,7 +141,7 @@ export const blocks: Registry["items"] = [
   {
     name: "login-03",
     title: "Login 03",
-    description: "A login page with a muted background color.",
+    description: "صفحه ورود با پس‌زمینه ملایم.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label", "field"],
     files: [
@@ -160,7 +160,7 @@ export const blocks: Registry["items"] = [
   {
     name: "login-04",
     title: "Login 04",
-    description: "A login page with form and image.",
+    description: "صفحه ورود با فرم و تصویر.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label", "field"],
     files: [
@@ -179,7 +179,7 @@ export const blocks: Registry["items"] = [
   {
     name: "login-05",
     title: "Login 05",
-    description: "A simple email-only login page.",
+    description: "صفحه ورود فقط با ایمیل.",
     type: "registry:block",
     registryDependencies: ["button", "input", "label", "field"],
     files: [
@@ -198,7 +198,7 @@ export const blocks: Registry["items"] = [
   {
     name: "signup-01",
     title: "Signup 01",
-    description: "A simple signup form.",
+    description: "فرم ثبت‌نام ساده.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label"],
     files: [
@@ -217,7 +217,7 @@ export const blocks: Registry["items"] = [
   {
     name: "signup-02",
     title: "Signup 02",
-    description: "A two column signup page with a cover image.",
+    description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
     type: "registry:block",
     registryDependencies: ["button", "input", "label", "field"],
     files: [
@@ -236,7 +236,7 @@ export const blocks: Registry["items"] = [
   {
     name: "signup-03",
     title: "Signup 03",
-    description: "A signup page with a muted background color.",
+    description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label", "field"],
     files: [
@@ -255,7 +255,7 @@ export const blocks: Registry["items"] = [
   {
     name: "signup-04",
     title: "Signup 04",
-    description: "A signup page with form and image.",
+    description: "صفحه ثبت‌نام با فرم و تصویر.",
     type: "registry:block",
     registryDependencies: ["button", "card", "input", "label", "field"],
     files: [
@@ -274,7 +274,7 @@ export const blocks: Registry["items"] = [
   {
     name: "signup-05",
     title: "Signup 05",
-    description: "A simple signup form with social providers.",
+    description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
     type: "registry:block",
     registryDependencies: ["button", "input", "label"],
     files: [
