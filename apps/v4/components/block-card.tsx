@@ -35,6 +35,25 @@ function resolveCardIframeHeight(metaHeight?: string) {
   return `${Math.min(value, 520)}px`
 }
 
+function getInstallPath(file: HighlightedFile) {
+  const raw = (file.target || file.path || "").replace(/\\/g, "/")
+  // Never show registry source paths as install targets.
+  if (raw.includes("registry/") || raw.includes("blocks/")) {
+    const fileName = raw.split("/").pop() ?? "file.tsx"
+    if (file.type === "registry:page") return `app/${fileName}`
+    return `components/${fileName}`
+  }
+  return raw
+}
+
+function describeInstallPath(installPath: string) {
+  const fileName = installPath.split("/").pop() ?? installPath
+  const dir = installPath.includes("/")
+    ? installPath.slice(0, installPath.lastIndexOf("/"))
+    : "."
+  return { fileName, dir, installPath }
+}
+
 export function BlockCard({
   item,
   highlightedFiles,
@@ -54,7 +73,7 @@ export function BlockCard({
   }, [highlightedFiles])
 
   const [activePath, setActivePath] = React.useState(
-    () => files[0]?.target ?? files[0]?.path ?? ""
+    () => (files[0] ? getInstallPath(files[0]) : "")
   )
   const [viewport, setViewport] = React.useState<Viewport>("100%")
   const [tab, setTab] = React.useState<"preview" | "code">("preview")
@@ -63,10 +82,13 @@ export function BlockCard({
   const { activeTheme } = useThemeConfig()
 
   const activeFile =
-    files.find((file) => (file.target ?? file.path) === activePath) ?? files[0]
+    files.find((file) => getInstallPath(file) === activePath) ?? files[0]
 
-  const language = activeFile?.path.split(".").pop() ?? "tsx"
+  const language = (activeFile?.path ?? "").replace(/\\/g, "/").split(".").pop() ?? "tsx"
   const iframeHeight = resolveCardIframeHeight(item.meta?.iframeHeight)
+  const installInfo = activeFile
+    ? describeInstallPath(getInstallPath(activeFile))
+    : null
 
   const syncIframeTheme = React.useCallback(() => {
     const body = iframeRef.current?.contentDocument?.body
@@ -115,18 +137,18 @@ export function BlockCard({
   }, [styleName, item.name, syncIframeTheme])
 
   const flatFiles = React.useMemo(() => {
-    return files.map((file) => ({
-      name:
-        file.target?.split("/").pop() ??
-        file.path.split("/").pop() ??
-        file.path,
-      path: file.target ?? file.path,
-    }))
+    return files.map((file) => {
+      const installPath = getInstallPath(file)
+      return {
+        name: installPath.split("/").pop() ?? installPath,
+        path: installPath,
+      }
+    })
   }, [files])
 
   React.useEffect(() => {
-    const next = files[0]?.target ?? files[0]?.path ?? ""
-    if (next && !files.some((file) => (file.target ?? file.path) === activePath)) {
+    const next = files[0] ? getInstallPath(files[0]) : ""
+    if (next && !files.some((file) => getInstallPath(file) === activePath)) {
       setActivePath(next)
     }
   }, [files, activePath])
@@ -144,7 +166,7 @@ export function BlockCard({
         onValueChange={(value) => setTab(value as "preview" | "code")}
         className="w-full gap-2"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <TabsList className="h-8 w-fit grid grid-cols-2 rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2.5 *:data-[slot=tabs-trigger]:text-xs">
             <TabsTrigger value="preview">مشاهده</TabsTrigger>
             <TabsTrigger value="code">کد</TabsTrigger>
@@ -159,7 +181,7 @@ export function BlockCard({
                 setViewport(value as Viewport)
                 setTab("preview")
               }}
-              className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:rounded-sm!"
+              className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:cursor-pointer! *:data-[slot=toggle-group-item]:rounded-sm!"
             >
               <ToggleGroupItem value="100%" title="دسکتاپ">
                 <Monitor className="size-3.5" />
@@ -215,18 +237,13 @@ export function BlockCard({
                       onClick={() => setActivePath(file.path)}
                       className={cn(
                         "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
-                        (activeFile?.target ?? activeFile?.path) === file.path &&
-                          "bg-muted text-foreground"
+                        activePath === file.path && "bg-muted text-foreground"
                       )}
                     >
                       {file.name}
                     </button>
                   ))
-                : (
-                    <span className="px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground">
-                      {flatFiles[0]?.name}
-                    </span>
-                  )}
+                : null}
               <Button
                 variant="ghost"
                 size="icon"
@@ -239,7 +256,7 @@ export function BlockCard({
                     name: "copy_block_code",
                     properties: {
                       name: item.name,
-                      file: activeFile.path,
+                      file: installInfo?.installPath ?? activeFile.path,
                     },
                   })
                 }}
@@ -261,9 +278,11 @@ export function BlockCard({
                 data-language={language}
               >
                 {getIconForLanguageExtension(language)}
-                <span className="truncate font-mono">
-                  {activeFile?.target ?? activeFile?.path}
-                </span>
+                {installInfo ? (
+                  <span dir="ltr" lang="en" className="truncate font-mono">
+                    {installInfo.fileName}
+                  </span>
+                ) : null}
               </figcaption>
               <div
                 key={activeFile?.path}

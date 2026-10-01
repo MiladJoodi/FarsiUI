@@ -233,7 +233,7 @@ function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
   let target = file.target
 
   if (!target || target === "") {
-    const fileName = file.path.split("/").pop()
+    const fileName = path.basename(file.path.replace(/\\/g, "/"))
     if (
       file.type === "registry:block" ||
       file.type === "registry:component" ||
@@ -255,7 +255,7 @@ function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
     }
   }
 
-  return target ?? ""
+  return (target ?? "").replace(/\\/g, "/")
 }
 
 function fixFilePaths(files: z.infer<typeof registryItemSchema>["files"]) {
