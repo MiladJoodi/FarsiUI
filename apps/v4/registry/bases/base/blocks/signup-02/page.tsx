@@ -19,7 +19,7 @@ export default function SignupPage() {
                 className="size-4"
               />
             </div>
-            Acme Inc.
+            FarsiUI
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">

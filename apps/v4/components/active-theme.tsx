@@ -19,16 +19,32 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-function applyThemeClass(theme: string) {
-  Array.from(document.body.classList)
+function applyThemeToBody(body: HTMLElement, theme: string) {
+  Array.from(body.classList)
     .filter((className) => className.startsWith("theme-"))
     .forEach((className) => {
-      document.body.classList.remove(className)
+      body.classList.remove(className)
     })
-  document.body.classList.add(`theme-${theme}`)
+  body.classList.add(`theme-${theme}`)
   if (theme.endsWith("-scaled")) {
-    document.body.classList.add("theme-scaled")
+    body.classList.add("theme-scaled")
   }
+}
+
+function applyThemeClass(theme: string) {
+  applyThemeToBody(document.body, theme)
+
+  // Keep same-origin preview iframes in sync (e.g. /blocks/*/view).
+  document.querySelectorAll("iframe").forEach((iframe) => {
+    try {
+      const body = iframe.contentDocument?.body
+      if (body) {
+        applyThemeToBody(body, theme)
+      }
+    } catch {
+      // Ignore cross-origin frames.
+    }
+  })
 }
 
 export function ActiveThemeProvider({

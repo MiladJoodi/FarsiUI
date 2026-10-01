@@ -18,7 +18,7 @@ export default function SignupPage() {
               className="size-4"
             />
           </div>
-          Acme Inc.
+          FarsiUI
         </a>
         <SignupForm />
       </div>

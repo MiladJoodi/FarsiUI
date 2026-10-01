@@ -18,7 +18,7 @@ export default function LoginPage() {
               className="size-4"
             />
           </div>
-          Acme Inc.
+          FarsiUI
         </a>
         <LoginForm />
       </div>

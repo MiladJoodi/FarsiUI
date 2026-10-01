@@ -12,6 +12,7 @@ import { type z } from "zod"
 import { trackEvent } from "@/lib/events"
 import { type FileTree } from "@/lib/registry"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useThemeConfig } from "@/components/active-theme"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -36,29 +37,49 @@ function resolveCardIframeHeight(metaHeight?: string) {
 
 export function BlockCard({
   item,
-  tree,
   highlightedFiles,
   styleName,
 }: {
   item: z.infer<typeof registryItemSchema>
-  tree: FileTree[] | null
+  tree?: FileTree[] | null
   highlightedFiles: HighlightedFile[]
   styleName: Style["name"]
 }) {
-  const files = highlightedFiles
+  // تب کد: فقط فایل کامپوننت (نه page) تا یک فایل برای کپی باشد
+  const files = React.useMemo(() => {
+    const components = highlightedFiles.filter(
+      (file) => file.type === "registry:component"
+    )
+    return components.length > 0 ? components : highlightedFiles
+  }, [highlightedFiles])
+
   const [activePath, setActivePath] = React.useState(
-    files[0]?.target ?? files[0]?.path ?? ""
+    () => files[0]?.target ?? files[0]?.path ?? ""
   )
   const [viewport, setViewport] = React.useState<Viewport>("100%")
   const [tab, setTab] = React.useState<"preview" | "code">("preview")
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
+  const { activeTheme } = useThemeConfig()
 
   const activeFile =
     files.find((file) => (file.target ?? file.path) === activePath) ?? files[0]
 
   const language = activeFile?.path.split(".").pop() ?? "tsx"
   const iframeHeight = resolveCardIframeHeight(item.meta?.iframeHeight)
+
+  const syncIframeTheme = React.useCallback(() => {
+    const body = iframeRef.current?.contentDocument?.body
+    if (!body) return
+    Array.from(body.classList)
+      .filter((className) => className.startsWith("theme-"))
+      .forEach((className) => body.classList.remove(className))
+    body.classList.add(`theme-${activeTheme}`)
+  }, [activeTheme])
+
+  React.useEffect(() => {
+    syncIframeTheme()
+  }, [syncIframeTheme])
 
   React.useEffect(() => {
     const iframe = iframeRef.current
@@ -78,6 +99,7 @@ export function BlockCard({
 
       doc.addEventListener("wheel", onWheel, { passive: false })
       detach = () => doc.removeEventListener("wheel", onWheel)
+      syncIframeTheme()
     }
 
     const onLoad = () => attachWheelPassthrough()
@@ -90,28 +112,24 @@ export function BlockCard({
       iframe.removeEventListener("load", onLoad)
       detach?.()
     }
-  }, [styleName, item.name, viewport])
+  }, [styleName, item.name, syncIframeTheme])
 
   const flatFiles = React.useMemo(() => {
-    if (!tree?.length) {
-      return files.map((file) => ({
-        name:
-          file.target?.split("/").pop() ??
-          file.path.split("/").pop() ??
-          file.path,
-        path: file.target ?? file.path,
-      }))
+    return files.map((file) => ({
+      name:
+        file.target?.split("/").pop() ??
+        file.path.split("/").pop() ??
+        file.path,
+      path: file.target ?? file.path,
+    }))
+  }, [files])
+
+  React.useEffect(() => {
+    const next = files[0]?.target ?? files[0]?.path ?? ""
+    if (next && !files.some((file) => (file.target ?? file.path) === activePath)) {
+      setActivePath(next)
     }
-    const out: Array<{ name: string; path: string }> = []
-    const walk = (nodes: FileTree[]) => {
-      for (const node of nodes) {
-        if (node.children) walk(node.children)
-        else if (node.path) out.push({ name: node.name, path: node.path })
-      }
-    }
-    walk(tree)
-    return out
-  }, [tree, files])
+  }, [files, activePath])
 
   return (
     <article
@@ -176,6 +194,7 @@ export function BlockCard({
                 height={iframeHeight}
                 loading="lazy"
                 className="no-scrollbar h-full w-full bg-background"
+                onLoad={syncIframeTheme}
               />
             </div>
           </div>
@@ -188,20 +207,26 @@ export function BlockCard({
             className="flex h-(--height) w-full flex-col overflow-hidden rounded-xl border bg-code text-code-foreground"
           >
             <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b px-2 py-1.5">
-              {flatFiles.map((file) => (
-                <button
-                  key={file.path}
-                  type="button"
-                  onClick={() => setActivePath(file.path)}
-                  className={cn(
-                    "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
-                    (activeFile?.target ?? activeFile?.path) === file.path &&
-                      "bg-muted text-foreground"
+              {flatFiles.length > 1
+                ? flatFiles.map((file) => (
+                    <button
+                      key={file.path}
+                      type="button"
+                      onClick={() => setActivePath(file.path)}
+                      className={cn(
+                        "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
+                        (activeFile?.target ?? activeFile?.path) === file.path &&
+                          "bg-muted text-foreground"
+                      )}
+                    >
+                      {file.name}
+                    </button>
+                  ))
+                : (
+                    <span className="px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground">
+                      {flatFiles[0]?.name}
+                    </span>
                   )}
-                >
-                  {file.name}
-                </button>
-              ))}
               <Button
                 variant="ghost"
                 size="icon"

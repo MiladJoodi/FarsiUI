@@ -36,9 +36,9 @@ export function LoginForm({
                   className="size-6"
                 />
               </div>
-              <span className="sr-only">Acme Inc.</span>
+              <span className="sr-only">FarsiUI</span>
             </a>
-            <h1 className="text-xl font-bold">به آکمه خوش آمدید</h1>
+            <h1 className="text-xl font-bold">به FarsiUI خوش آمدید</h1>
             <FieldDescription>
               حساب ندارید؟ <a href="#">ثبت‌نام</a>
             </FieldDescription>

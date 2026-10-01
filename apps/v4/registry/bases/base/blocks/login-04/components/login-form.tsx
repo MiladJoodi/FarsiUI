@@ -24,7 +24,7 @@ export function LoginForm({
               <div className="flex flex-col items-center gap-2 text-center">
                 <h1 className="text-2xl font-bold">خوش آمدید</h1>
                 <p className="text-balance text-muted-foreground">
-                  ورود به حساب آکمه
+                  ورود به حساب FarsiUI
                 </p>
               </div>
               <Field>
