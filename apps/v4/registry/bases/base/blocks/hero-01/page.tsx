@@ -7,7 +7,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground relative flex min-h-[480px] flex-col justify-end overflow-hidden bg-gradient-to-b from-muted/40 to-background p-8 md:p-12", className)}
+      className={cn("bg-muted text-foreground relative flex min-h-[480px] flex-col justify-end overflow-hidden bg-gradient-to-b from-muted/40 to-background p-8 md:p-12", className)}
       {...props}
     >
       <Badge className="mb-3 w-fit">جدید</Badge>

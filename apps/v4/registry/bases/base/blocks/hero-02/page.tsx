@@ -7,7 +7,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground flex min-h-[480px] flex-col items-center justify-center gap-6 bg-[radial-gradient(ellipse_at_top,_var(--muted)_0%,_transparent_55%)] p-8 text-center", className)}
+      className={cn("bg-muted text-foreground flex min-h-[480px] flex-col items-center justify-center gap-6 bg-[radial-gradient(ellipse_at_top,_var(--muted)_0%,_transparent_55%)] p-8 text-center", className)}
       {...props}
     >
       <Badge variant="secondary">Hero</Badge>

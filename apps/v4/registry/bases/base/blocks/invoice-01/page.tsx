@@ -18,7 +18,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground min-h-[480px] p-6", className)}
+      className={cn("bg-muted text-foreground min-h-[480px] p-6", className)}
       {...props}
     >
       <div className={cn("mx-auto grid max-w-4xl gap-6", "md:grid-cols-[1.2fr_0.8fr]")}>

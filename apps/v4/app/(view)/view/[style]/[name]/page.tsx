@@ -2,6 +2,7 @@
 import * as React from "react"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
+import { cn } from "cn"
 
 import { siteConfig } from "@/lib/config"
 import {
@@ -141,14 +142,20 @@ export async function generateStaticParams() {
 
 export default async function BlockPage({
   params,
+  searchParams,
 }: {
   params: Promise<{
     style: string
     name: string
   }>
+  searchParams: Promise<{ embed?: string }>
 }) {
-  const { style: styleName, name } = await params
+  const [{ style: styleName, name }, query] = await Promise.all([
+    params,
+    searchParams,
+  ])
   const style = getStyle(styleName)
+  const embed = query.embed === "1"
 
   if (!style) {
     return notFound()
@@ -164,8 +171,8 @@ export default async function BlockPage({
   const visualStyleClass = getVisualStyleClass(style.name)
 
   return (
-    <ComponentPreview>
-      <div className={visualStyleClass ?? undefined}>
+    <ComponentPreview embed={embed} styleClass={visualStyleClass}>
+      <div className={cn(embed ? "h-full min-h-full" : "min-h-svh")}>
         <Component />
       </div>
     </ComponentPreview>

@@ -15,7 +15,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground min-h-[520px] space-y-6 p-6 md:p-10", className)}
+      className={cn("bg-muted text-foreground min-h-[520px] space-y-6 p-6 md:p-10", className)}
       {...props}
     >
       <div className="flex items-end justify-between gap-4">

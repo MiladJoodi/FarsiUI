@@ -1087,11 +1087,11 @@
   }
 
   .cn-sheet-close {
-    @apply absolute top-3 right-3;
+    @apply absolute top-3 end-3;
   }
 
   .cn-sheet-header {
-    @apply gap-0.5 p-4;
+    @apply gap-0.5 p-4 pe-12;
   }
 
   .cn-sheet-footer {

@@ -1,8 +1,9 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { cn } from "cn"
-import { Check, Copy, Monitor, Smartphone, Tablet } from "lucide-react"
+import { Check, Copy, Fullscreen, Monitor, Smartphone, Tablet } from "lucide-react"
 import {
   type registryItemFileSchema,
   type registryItemSchema,
@@ -16,6 +17,7 @@ import { useThemeConfig } from "@/components/active-theme"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
+import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 import {
   ToggleGroup,
@@ -54,6 +56,22 @@ function describeInstallPath(installPath: string) {
   return { fileName, dir, installPath }
 }
 
+function BlockPreviewSkeleton() {
+  return (
+    <div className="flex size-full items-center justify-center p-6 md:p-10">
+      <div className="flex w-full max-w-sm flex-col items-center gap-3">
+        <Skeleton className="size-8 rounded-md" />
+        <Skeleton className="h-5 w-40" />
+        <Skeleton className="h-3 w-28" />
+        <Skeleton className="mt-2 h-3 w-16 self-start" />
+        <Skeleton className="h-9 w-full rounded-md" />
+        <Skeleton className="h-9 w-full rounded-md" />
+        <Skeleton className="h-9 w-full rounded-md" />
+      </div>
+    </div>
+  )
+}
+
 export function BlockCard({
   item,
   highlightedFiles,
@@ -77,6 +95,7 @@ export function BlockCard({
   )
   const [viewport, setViewport] = React.useState<Viewport>("100%")
   const [tab, setTab] = React.useState<"preview" | "code">("preview")
+  const [previewLoaded, setPreviewLoaded] = React.useState(false)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
   const { activeTheme } = useThemeConfig()
@@ -90,6 +109,10 @@ export function BlockCard({
     ? describeInstallPath(getInstallPath(activeFile))
     : null
 
+  React.useEffect(() => {
+    setPreviewLoaded(false)
+  }, [styleName, item.name])
+
   const syncIframeTheme = React.useCallback(() => {
     const body = iframeRef.current?.contentDocument?.body
     if (!body) return
@@ -98,6 +121,11 @@ export function BlockCard({
       .forEach((className) => body.classList.remove(className))
     body.classList.add(`theme-${activeTheme}`)
   }, [activeTheme])
+
+  const handleIframeLoad = React.useCallback(() => {
+    setPreviewLoaded(true)
+    syncIframeTheme()
+  }, [syncIframeTheme])
 
   React.useEffect(() => {
     syncIframeTheme()
@@ -124,10 +152,13 @@ export function BlockCard({
       syncIframeTheme()
     }
 
-    const onLoad = () => attachWheelPassthrough()
+    const onLoad = () => {
+      setPreviewLoaded(true)
+      attachWheelPassthrough()
+    }
     iframe.addEventListener("load", onLoad)
     if (iframe.contentDocument?.readyState === "complete") {
-      attachWheelPassthrough()
+      onLoad()
     }
 
     return () => {
@@ -177,7 +208,7 @@ export function BlockCard({
               type="single"
               value={viewport}
               onValueChange={(value) => {
-                if (!value) return
+                if (!value || value === viewport) return
                 setViewport(value as Viewport)
                 setTab("preview")
               }}
@@ -193,107 +224,147 @@ export function BlockCard({
                 <Smartphone className="size-3.5" />
               </ToggleGroupItem>
             </ToggleGroup>
+            <Button
+              asChild
+              size="icon"
+              variant="ghost"
+              className="size-6 cursor-pointer rounded-sm"
+              title="باز کردن در تب جدید"
+            >
+              <Link
+                href={`/view/${styleName}/${item.name}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Fullscreen className="size-3.5" />
+                <span className="sr-only">باز کردن در تب جدید</span>
+              </Link>
+            </Button>
           </div>
         </div>
 
-        <TabsContent value="preview" className="mt-0 w-full">
-          <div
-            className={cn(
-              "flex w-full justify-center overflow-hidden rounded-xl border border-border/80",
-              "bg-muted/50 [background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_18%,transparent)_1px,transparent_1px)] [background-size:16px_16px]",
-              "dark:bg-muted/30 dark:[background-image:radial-gradient(color-mix(in_oklab,var(--color-foreground)_28%,transparent)_1px,transparent_1px)]"
-            )}
-            style={{ height: iframeHeight }}
+        <div className="relative w-full" style={{ height: iframeHeight }}>
+          <TabsContent
+            value="preview"
+            forceMount
+            className="absolute inset-0 mt-0 data-[state=inactive]:pointer-events-none data-[state=inactive]:invisible"
           >
             <div
-              className="h-full overflow-hidden rounded-lg border bg-background shadow-sm transition-[width] duration-200 ease-out"
-              style={{ width: viewport }}
+              className={cn(
+                "flex size-full justify-center overflow-hidden rounded-xl border border-border/80",
+                viewport === "100%"
+                  ? "bg-muted"
+                  : cn(
+                      "bg-[#fafafa] dark:bg-[#1a1a1a]",
+                      "[background-image:linear-gradient(45deg,#e5e5e5_25%,transparent_25%),linear-gradient(-45deg,#e5e5e5_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e5e5e5_75%),linear-gradient(-45deg,transparent_75%,#e5e5e5_75%)]",
+                      "dark:[background-image:linear-gradient(45deg,#2a2a2a_25%,transparent_25%),linear-gradient(-45deg,#2a2a2a_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#2a2a2a_75%),linear-gradient(-45deg,transparent_75%,#2a2a2a_75%)]",
+                      "[background-size:16px_16px]",
+                      "[background-position:0_0,0_8px,8px_-8px,-8px_0]"
+                    )
+              )}
             >
-              <iframe
-                ref={iframeRef}
-                src={`/view/${styleName}/${item.name}`}
-                title={item.name}
-                height={iframeHeight}
-                loading="lazy"
-                className="no-scrollbar h-full w-full bg-background"
-                onLoad={syncIframeTheme}
-              />
-            </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="code" className="mt-0 w-full">
-          <div
-            dir="ltr"
-            lang="en"
-            className="flex h-(--height) w-full flex-col overflow-hidden rounded-xl border bg-code text-code-foreground"
-          >
-            <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b px-2 py-1.5">
-              {flatFiles.length > 1
-                ? flatFiles.map((file) => (
-                    <button
-                      key={file.path}
-                      type="button"
-                      onClick={() => setActivePath(file.path)}
-                      className={cn(
-                        "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
-                        activePath === file.path && "bg-muted text-foreground"
-                      )}
-                    >
-                      {file.name}
-                    </button>
-                  ))
-                : null}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="ms-auto size-7 shrink-0"
-                disabled={!activeFile?.content}
-                onClick={() => {
-                  if (!activeFile?.content) return
-                  fileCopy.copyToClipboard(activeFile.content)
-                  trackEvent({
-                    name: "copy_block_code",
-                    properties: {
-                      name: item.name,
-                      file: installInfo?.installPath ?? activeFile.path,
-                    },
-                  })
-                }}
-              >
-                {fileCopy.isCopied ? (
-                  <Check className="size-3.5" />
-                ) : (
-                  <Copy className="size-3.5" />
-                )}
-              </Button>
-            </div>
-
-            <figure
-              data-rehype-pretty-code-figure=""
-              className="m-0! flex min-h-0 flex-1 flex-col"
-            >
-              <figcaption
-                className="flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs [&_svg]:size-3.5 [&_svg]:opacity-70"
-                data-language={language}
-              >
-                {getIconForLanguageExtension(language)}
-                {installInfo ? (
-                  <span dir="ltr" lang="en" className="truncate font-mono">
-                    {installInfo.fileName}
-                  </span>
-                ) : null}
-              </figcaption>
               <div
-                key={activeFile?.path}
-                dangerouslySetInnerHTML={{
-                  __html: activeFile?.highlightedContent ?? "",
-                }}
-                className="no-scrollbar min-h-0 flex-1 overflow-auto text-start text-[0.8125rem]"
-              />
-            </figure>
-          </div>
-        </TabsContent>
+                className="relative h-full overflow-hidden rounded-lg border bg-background shadow-sm transition-[width] duration-200 ease-out"
+                style={{ width: viewport }}
+              >
+                {!previewLoaded ? (
+                  <div className="absolute inset-0 z-10">
+                    <BlockPreviewSkeleton />
+                  </div>
+                ) : null}
+                <iframe
+                  ref={iframeRef}
+                  src={`/view/${styleName}/${item.name}?embed=1`}
+                  title={item.name}
+                  height={iframeHeight}
+                  loading="lazy"
+                  className={cn(
+                    "no-scrollbar h-full w-full bg-background transition-opacity duration-200",
+                    previewLoaded ? "opacity-100" : "opacity-0"
+                  )}
+                  onLoad={handleIframeLoad}
+                />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent
+            value="code"
+            forceMount
+            className="absolute inset-0 mt-0 data-[state=inactive]:pointer-events-none data-[state=inactive]:invisible"
+          >
+            <div
+              dir="ltr"
+              lang="en"
+              className="flex size-full flex-col overflow-hidden rounded-xl border bg-code text-code-foreground"
+            >
+              <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b px-2 py-1.5">
+                {flatFiles.length > 1
+                  ? flatFiles.map((file) => (
+                      <button
+                        key={file.path}
+                        type="button"
+                        onClick={() => setActivePath(file.path)}
+                        className={cn(
+                          "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
+                          activePath === file.path && "bg-muted text-foreground"
+                        )}
+                      >
+                        {file.name}
+                      </button>
+                    ))
+                  : null}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="ms-auto size-7 shrink-0"
+                  disabled={!activeFile?.content}
+                  onClick={() => {
+                    if (!activeFile?.content) return
+                    fileCopy.copyToClipboard(activeFile.content)
+                    trackEvent({
+                      name: "copy_block_code",
+                      properties: {
+                        name: item.name,
+                        file: installInfo?.installPath ?? activeFile.path,
+                      },
+                    })
+                  }}
+                >
+                  {fileCopy.isCopied ? (
+                    <Check className="size-3.5" />
+                  ) : (
+                    <Copy className="size-3.5" />
+                  )}
+                </Button>
+              </div>
+
+              <figure
+                data-rehype-pretty-code-figure=""
+                className="m-0! flex min-h-0 flex-1 flex-col"
+              >
+                <figcaption
+                  className="flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs [&_svg]:size-3.5 [&_svg]:opacity-70"
+                  data-language={language}
+                >
+                  {getIconForLanguageExtension(language)}
+                  {installInfo ? (
+                    <span dir="ltr" lang="en" className="truncate font-mono">
+                      {installInfo.fileName}
+                    </span>
+                  ) : null}
+                </figcaption>
+                <div
+                  key={activeFile?.path}
+                  dangerouslySetInnerHTML={{
+                    __html: activeFile?.highlightedContent ?? "",
+                  }}
+                  className="no-scrollbar min-h-0 flex-1 overflow-auto text-start text-[0.8125rem]"
+                />
+              </figure>
+            </div>
+          </TabsContent>
+        </div>
       </Tabs>
     </article>
   )

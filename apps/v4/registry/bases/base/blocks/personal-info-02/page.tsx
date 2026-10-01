@@ -1,17 +1,10 @@
 import { cn } from "cn"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -20,38 +13,51 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
+export default function Page({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground flex min-h-[420px] flex-col items-center justify-center gap-4 p-6", className)}
+      className={cn(
+        "bg-muted text-foreground flex min-h-[420px] flex-col items-center justify-center gap-4 p-6",
+        className
+      )}
       {...props}
     >
-      <p className="max-w-sm text-center text-sm text-muted-foreground">
-        نسخهٔ دوم: باز شدن فرم داخل شیت از سمت راست
-      </p>
       <Sheet>
-        <SheetTrigger asChild>
-          <Button>اطلاعات شخصی</Button>
-        </SheetTrigger>
+        <SheetTrigger render={<Button />}>اطلاعات شخصی</SheetTrigger>
         <SheetContent side="right" className="w-full sm:max-w-md" dir="rtl" lang="fa">
           <SheetHeader>
             <SheetTitle>اطلاعات شخصی</SheetTitle>
-            <SheetDescription>جزئیات مربوط به اطلاعات شخصی را تکمیل کنید</SheetDescription>
+            <SheetDescription>اطلاعات تماس خود را تکمیل کنید</SheetDescription>
           </SheetHeader>
-          <div className="grid gap-4 py-4">
+          <div className="grid flex-1 auto-rows-min gap-4 px-4">
             <div className="grid gap-2">
-              <Label htmlFor="s-a">نام</Label>
-              <Input id="s-a" placeholder="مثلاً سارا" dir="rtl" className="text-start" />
+              <Label htmlFor="personal-name">نام و نام خانوادگی</Label>
+              <Input
+                id="personal-name"
+                placeholder="مثلاً سارا محمدی"
+                dir="rtl"
+                className="text-start"
+              />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="s-b">توضیح</Label>
-              <Input id="s-b" placeholder="اختیاری" dir="rtl" className="text-start" />
+              <Label htmlFor="personal-phone">شماره موبایل</Label>
+              <Input
+                id="personal-phone"
+                type="tel"
+                inputMode="tel"
+                placeholder="۰۹۱۲۱۲۳۴۵۶۷"
+                dir="ltr"
+                className="text-start"
+              />
             </div>
           </div>
           <SheetFooter>
-            <Button type="submit" className="w-full">ثبت</Button>
+            <SheetClose render={<Button className="w-full" />}>ذخیره</SheetClose>
           </SheetFooter>
         </SheetContent>
       </Sheet>

@@ -23,7 +23,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground min-h-[480px] p-6", className)}
+      className={cn("bg-muted text-foreground min-h-[480px] p-6", className)}
       {...props}
     >
       <Tabs defaultValue="general" className="mx-auto max-w-xl" dir="rtl">

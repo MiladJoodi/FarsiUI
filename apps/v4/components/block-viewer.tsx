@@ -298,7 +298,7 @@ function BlockViewerIframe({
     <iframe
       ref={iframeRef}
       key={iframeKey}
-      src={`/view/${styleName}/${item.name}`}
+      src={`/view/${styleName}/${item.name}?embed=1`}
       height={item.meta?.iframeHeight ?? 930}
       loading="lazy"
       title={item.name}

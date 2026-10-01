@@ -5,7 +5,7 @@ export default function Page() {
     <div
       dir="rtl"
       lang="fa"
-      className="flex min-h-svh w-full items-center justify-center p-6 md:p-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-sm">
         <LoginForm />

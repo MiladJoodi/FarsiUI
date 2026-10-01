@@ -11,7 +11,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground mx-auto min-h-[420px] max-w-2xl p-6", className)}
+      className={cn("bg-muted text-foreground mx-auto min-h-[420px] max-w-2xl p-6", className)}
       {...props}
     >
       <h2 className="mb-6 text-center text-2xl font-bold">پرسش‌های متداول</h2>

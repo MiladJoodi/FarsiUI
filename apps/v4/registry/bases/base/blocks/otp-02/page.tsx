@@ -30,7 +30,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground flex min-h-[420px] flex-col items-center justify-center gap-4 p-6", className)}
+      className={cn("bg-muted text-foreground flex min-h-[420px] flex-col items-center justify-center gap-4 p-6", className)}
       {...props}
     >
       <Drawer>

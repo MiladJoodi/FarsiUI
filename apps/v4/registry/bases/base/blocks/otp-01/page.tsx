@@ -21,7 +21,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground flex min-h-[520px] items-center justify-center p-6", className)}
+      className={cn("bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6", className)}
       {...props}
     >
       <Card className="w-full max-w-sm">

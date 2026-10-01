@@ -6,7 +6,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground min-h-[240px] p-0", className)}
+      className={cn("bg-muted text-foreground min-h-[240px] p-0", className)}
       {...props}
     >
       <div className="flex-1 p-8 text-sm text-muted-foreground">محتوای اصلی</div>

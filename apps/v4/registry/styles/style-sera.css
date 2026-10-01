@@ -460,7 +460,7 @@
   }
 
   .cn-dialog-close {
-    @apply absolute top-5 right-5 bg-secondary;
+    @apply absolute top-5 end-5 bg-secondary;
   }
 
   .cn-dialog-header {
@@ -1078,11 +1078,11 @@
   }
 
   .cn-sheet-close {
-    @apply absolute top-4 right-4 bg-secondary;
+    @apply absolute top-4 end-4 bg-secondary;
   }
 
   .cn-sheet-header {
-    @apply gap-1.5 p-8;
+    @apply gap-1.5 p-8 pe-12;
   }
 
   .cn-sheet-footer {

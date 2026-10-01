@@ -36,8 +36,8 @@ export function SignupForm({
                   required
                 />
                 <FieldDescription>
-                  We&apos;ll use this to contact you. We will not share your
-                  email with anyone else.
+                  برای ارتباط با شما استفاده می‌شود و با دیگران به اشتراک گذاشته
+                  نمی‌شود.
                 </FieldDescription>
               </Field>
               <Field>
@@ -99,9 +99,9 @@ export function SignupForm({
           </form>
           <div className="relative hidden bg-muted md:block">
             <img
-              src="/placeholder.svg"
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              src="/iran/parsian.jpg"
+              alt="Parsian"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
         </CardContent>

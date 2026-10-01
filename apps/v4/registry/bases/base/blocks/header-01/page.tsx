@@ -7,7 +7,7 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-background text-foreground min-h-[200px] p-0", className)}
+      className={cn("bg-muted text-foreground min-h-[200px] p-0", className)}
       {...props}
     >
       <header className="flex items-center justify-between border-b px-4 py-3">
