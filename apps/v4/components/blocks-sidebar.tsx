@@ -68,7 +68,7 @@ export function BlocksSidebar({
                 <SidebarMenuButton
                   asChild
                   isActive={pathname === "/blocks"}
-                  className="relative h-[30px] w-full overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                  className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                 >
                   <Link href="/blocks">ویژه</Link>
                 </SidebarMenuButton>
@@ -97,7 +97,7 @@ export function BlocksSidebar({
                         <span className="truncate">{category.title}</span>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        <SidebarMenu className="ms-3 gap-0.5 border-none pe-0 ps-0">
+                        <SidebarMenu className="ms-3 gap-0.5 border-none pe-1 ps-0">
                           {category.items.map((item) => (
                             <SidebarMenuItem key={item.href}>
                               <SidebarMenuButton
@@ -106,7 +106,7 @@ export function BlocksSidebar({
                                   pathname === item.href ||
                                   pathname.startsWith(`${item.href}/`)
                                 }
-                                className="relative h-[30px] w-full overflow-visible border border-transparent pe-0 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                                className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                               >
                                 <Link
                                   href={item.href}

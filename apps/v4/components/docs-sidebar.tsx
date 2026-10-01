@@ -442,7 +442,7 @@ export function DocsSidebar({
                           <SidebarMenuButton
                             asChild
                             isActive={page.url === pathname}
-                            className="relative h-[30px] w-full overflow-visible border border-transparent pe-0 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                            className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                           >
                             <Link
                               href={page.url}
@@ -500,7 +500,7 @@ export function DocsSidebar({
                       <SidebarMenuButton
                         asChild
                         isActive={page.url === pathname}
-                        className="relative h-[30px] w-full overflow-visible border border-transparent pe-0 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                        className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
                       >
                         <Link
                           href={page.url}
