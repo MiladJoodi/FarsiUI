@@ -1881,118 +1881,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["otp"],
       meta: undefined,
     },
-    "profile-form-01": {
-      name: "profile-form-01",
-      title: "Profile Form 01",
-      description: "فرم پروفایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/profile-form-01/page.tsx",
-        type: "registry:page",
-        target: "app/profile-form/page.tsx"
-      }],
-      categories: ["profile-form"],
-      meta: undefined,
-    },
-    "profile-form-02": {
-      name: "profile-form-02",
-      title: "Profile Form 02",
-      description: "فرم پروفایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/profile-form-02/page.tsx",
-        type: "registry:page",
-        target: "app/profile-form/page.tsx"
-      }],
-      categories: ["profile-form"],
-      meta: undefined,
-    },
-    "settings-form-01": {
-      name: "settings-form-01",
-      title: "Settings Form 01",
-      description: "فرم تنظیمات — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/settings-form-01/page.tsx",
-        type: "registry:page",
-        target: "app/settings-form/page.tsx"
-      }],
-      categories: ["settings-form"],
-      meta: undefined,
-    },
-    "settings-form-02": {
-      name: "settings-form-02",
-      title: "Settings Form 02",
-      description: "فرم تنظیمات — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/settings-form-02/page.tsx",
-        type: "registry:page",
-        target: "app/settings-form/page.tsx"
-      }],
-      categories: ["settings-form"],
-      meta: undefined,
-    },
-    "contact-form-01": {
-      name: "contact-form-01",
-      title: "Contact Form 01",
-      description: "فرم تماس — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/contact-form-01/page.tsx",
-        type: "registry:page",
-        target: "app/contact-form/page.tsx"
-      }],
-      categories: ["contact-form"],
-      meta: undefined,
-    },
-    "contact-form-02": {
-      name: "contact-form-02",
-      title: "Contact Form 02",
-      description: "فرم تماس — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/contact-form-02/page.tsx",
-        type: "registry:page",
-        target: "app/contact-form/page.tsx"
-      }],
-      categories: ["contact-form"],
-      meta: undefined,
-    },
-    "newsletter-form-01": {
-      name: "newsletter-form-01",
-      title: "Newsletter Form 01",
-      description: "فرم عضویت در خبرنامه — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/newsletter-form-01/page.tsx",
-        type: "registry:page",
-        target: "app/newsletter-form/page.tsx"
-      }],
-      categories: ["newsletter-form"],
-      meta: undefined,
-    },
-    "newsletter-form-02": {
-      name: "newsletter-form-02",
-      title: "Newsletter Form 02",
-      description: "فرم عضویت در خبرنامه — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/newsletter-form-02/page.tsx",
-        type: "registry:page",
-        target: "app/newsletter-form/page.tsx"
-      }],
-      categories: ["newsletter-form"],
-      meta: undefined,
-    },
     "hero-01": {
       name: "hero-01",
       title: "Hero 01",
@@ -4833,6 +4721,294 @@ export const Index: Record<string, Record<string, any>> = {
         target: ""
       }],
       categories: ["document-verification"],
+      meta: undefined,
+    },
+    "profile-form-01": {
+      name: "profile-form-01",
+      title: "Profile Form 01",
+      description: "ویرایش پروفایل با نام نمایشی و بیو.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-01/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["profile-form"],
+      meta: undefined,
+    },
+    "profile-form-02": {
+      name: "profile-form-02",
+      title: "Profile Form 02",
+      description: "پروفایل عمومی با آواتار و اطلاعات تماس.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-02/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["profile-form"],
+      meta: undefined,
+    },
+    "profile-form-03": {
+      name: "profile-form-03",
+      title: "Profile Form 03",
+      description: "لینک‌های اجتماعی و سوئیچ‌های حریم خصوصی RTL.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-03/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["profile-form"],
+      meta: undefined,
+    },
+    "profile-form-04": {
+      name: "profile-form-04",
+      title: "Profile Form 04",
+      description: "تکمیل پروفایل دو ستونه با تصویر کاور.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-04/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["profile-form"],
+      meta: undefined,
+    },
+    "settings-form-01": {
+      name: "settings-form-01",
+      title: "Settings Form 01",
+      description: "تنظیمات اعلان با سوئیچ‌های راست‌چین.",
+      type: "registry:block",
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-01/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-02": {
+      name: "settings-form-02",
+      title: "Settings Form 02",
+      description: "تنظیمات حساب با تب حساب، امنیت و اعلان.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-02/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-03": {
+      name: "settings-form-03",
+      title: "Settings Form 03",
+      description: "تغییر رمز عبور و منطقه خطر حذف حساب.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-03/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-04": {
+      name: "settings-form-04",
+      title: "Settings Form 04",
+      description: "ظاهر، زبان و سوئیچ‌های نمایش RTL.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-04/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "contact-form-01": {
+      name: "contact-form-01",
+      title: "Contact Form 01",
+      description: "فرم تماس ساده با وضعیت ارسال.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-01/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["contact-form"],
+      meta: undefined,
+    },
+    "contact-form-02": {
+      name: "contact-form-02",
+      title: "Contact Form 02",
+      description: "درخواست پشتیبانی با انتخاب موضوع.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-02/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["contact-form"],
+      meta: undefined,
+    },
+    "contact-form-03": {
+      name: "contact-form-03",
+      title: "Contact Form 03",
+      description: "فرم تماس دو ستونه با اطلاعات پشتیبانی.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-03/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["contact-form"],
+      meta: undefined,
+    },
+    "contact-form-04": {
+      name: "contact-form-04",
+      title: "Contact Form 04",
+      description: "همکاری تجاری با سوئیچ درخواست تماس.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-04/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["contact-form"],
+      meta: undefined,
+    },
+    "newsletter-form-01": {
+      name: "newsletter-form-01",
+      title: "Newsletter Form 01",
+      description: "عضویت خبرنامه با تأیید ایمیل.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-01/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter-form"],
+      meta: undefined,
+    },
+    "newsletter-form-02": {
+      name: "newsletter-form-02",
+      title: "Newsletter Form 02",
+      description: "فرم عضویت فشردهٔ درون‌خطی.",
+      type: "registry:block",
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-02/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter-form"],
+      meta: undefined,
+    },
+    "newsletter-form-03": {
+      name: "newsletter-form-03",
+      title: "Newsletter Form 03",
+      description: "خبرنامه موضوعی با سوئیچ‌های RTL.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-03/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter-form"],
+      meta: undefined,
+    },
+    "newsletter-form-04": {
+      name: "newsletter-form-04",
+      title: "Newsletter Form 04",
+      description: "عضویت متمرکز با برند و وضعیت تأیید.",
+      type: "registry:block",
+      registryDependencies: ["button","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-04/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter-form"],
       meta: undefined,
     },
     "personal-info-01": {

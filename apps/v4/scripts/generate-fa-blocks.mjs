@@ -23,6 +23,10 @@ const SKIP_SLUGS = new Set([
   "license-plate",
   "identity-check",
   "document-verification",
+  "profile-form",
+  "settings-form",
+  "contact-form",
+  "newsletter-form",
 ])
 
 const ITEMS = [

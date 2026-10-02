@@ -1,4 +1,4 @@
-import { SettingsNotifications } from "@/registry/bases/base/blocks/settings-form-01/components/settings-form"
+import { SettingsAppearance } from "@/registry/bases/base/blocks/settings-form-04/components/settings-form"
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-lg">
-        <SettingsNotifications />
+        <SettingsAppearance />
       </div>
     </div>
   )

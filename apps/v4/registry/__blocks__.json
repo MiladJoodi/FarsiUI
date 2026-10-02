@@ -309,14 +309,28 @@
   },
   {
     "name": "contact-form-01",
-    "description": "فرم تماس — نمونهٔ راست‌چین فارسی",
+    "description": "فرم تماس ساده با وضعیت ارسال.",
     "categories": [
       "contact-form"
     ]
   },
   {
     "name": "contact-form-02",
-    "description": "فرم تماس — نمونهٔ راست‌چین فارسی",
+    "description": "درخواست پشتیبانی با انتخاب موضوع.",
+    "categories": [
+      "contact-form"
+    ]
+  },
+  {
+    "name": "contact-form-03",
+    "description": "فرم تماس دو ستونه با اطلاعات پشتیبانی.",
+    "categories": [
+      "contact-form"
+    ]
+  },
+  {
+    "name": "contact-form-04",
+    "description": "همکاری تجاری با سوئیچ درخواست تماس.",
     "categories": [
       "contact-form"
     ]
@@ -993,14 +1007,28 @@
   },
   {
     "name": "newsletter-form-01",
-    "description": "فرم عضویت در خبرنامه — نمونهٔ راست‌چین فارسی",
+    "description": "عضویت خبرنامه با تأیید ایمیل.",
     "categories": [
       "newsletter-form"
     ]
   },
   {
     "name": "newsletter-form-02",
-    "description": "فرم عضویت در خبرنامه — نمونهٔ راست‌چین فارسی",
+    "description": "فرم عضویت فشردهٔ درون‌خطی.",
+    "categories": [
+      "newsletter-form"
+    ]
+  },
+  {
+    "name": "newsletter-form-03",
+    "description": "خبرنامه موضوعی با سوئیچ‌های RTL.",
+    "categories": [
+      "newsletter-form"
+    ]
+  },
+  {
+    "name": "newsletter-form-04",
+    "description": "عضویت متمرکز با برند و وضعیت تأیید.",
     "categories": [
       "newsletter-form"
     ]
@@ -1219,14 +1247,28 @@
   },
   {
     "name": "profile-form-01",
-    "description": "فرم پروفایل — نمونهٔ راست‌چین فارسی",
+    "description": "ویرایش پروفایل با نام نمایشی و بیو.",
     "categories": [
       "profile-form"
     ]
   },
   {
     "name": "profile-form-02",
-    "description": "فرم پروفایل — نمونهٔ راست‌چین فارسی",
+    "description": "پروفایل عمومی با آواتار و اطلاعات تماس.",
+    "categories": [
+      "profile-form"
+    ]
+  },
+  {
+    "name": "profile-form-03",
+    "description": "لینک‌های اجتماعی و سوئیچ‌های حریم خصوصی RTL.",
+    "categories": [
+      "profile-form"
+    ]
+  },
+  {
+    "name": "profile-form-04",
+    "description": "تکمیل پروفایل دو ستونه با تصویر کاور.",
     "categories": [
       "profile-form"
     ]
@@ -1331,14 +1373,28 @@
   },
   {
     "name": "settings-form-01",
-    "description": "فرم تنظیمات — نمونهٔ راست‌چین فارسی",
+    "description": "تنظیمات اعلان با سوئیچ‌های راست‌چین.",
     "categories": [
       "settings-form"
     ]
   },
   {
     "name": "settings-form-02",
-    "description": "فرم تنظیمات — نمونهٔ راست‌چین فارسی",
+    "description": "تنظیمات حساب با تب حساب، امنیت و اعلان.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-03",
+    "description": "تغییر رمز عبور و منطقه خطر حذف حساب.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-04",
+    "description": "ظاهر، زبان و سوئیچ‌های نمایش RTL.",
     "categories": [
       "settings-form"
     ]

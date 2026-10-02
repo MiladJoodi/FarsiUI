@@ -1,4 +1,4 @@
-import { SettingsNotifications } from "@/registry/bases/base/blocks/settings-form-01/components/settings-form"
+import { ProfileFormSplit } from "@/registry/bases/base/blocks/profile-form-04/components/profile-form"
 
 export default function Page() {
   return (
@@ -7,8 +7,8 @@ export default function Page() {
       lang="fa"
       className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="w-full max-w-lg">
-        <SettingsNotifications />
+      <div className="w-full max-w-sm md:max-w-4xl">
+        <ProfileFormSplit />
       </div>
     </div>
   )

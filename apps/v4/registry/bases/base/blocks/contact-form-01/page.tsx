@@ -1,39 +1,14 @@
-import { cn } from "cn"
-import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
-import { Input } from "@/registry/bases/base/ui/input"
-import { Label } from "@/registry/bases/base/ui/label"
+import { ContactFormSimple } from "@/registry/bases/base/blocks/contact-form-01/components/contact-form"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
+export default function Page() {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6", className)}
-      {...props}
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-md">
-        <Card>
-          <CardHeader>
-            <CardTitle>فرم تماس</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="field-a">ایمیل</Label>
-              <Input id="field-a" type="email" placeholder="name@example.com" dir="ltr" className="text-start" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="field-b">جزئیات</Label>
-              <Input id="field-b" placeholder="اینجا بنویسید…" dir="rtl" className="text-start" />
-            </div>
-            <Button className="w-full">ادامه</Button>
-          </CardContent>
-        </Card>
+        <ContactFormSimple />
       </div>
     </div>
   )

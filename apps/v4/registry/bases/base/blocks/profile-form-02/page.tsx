@@ -1,65 +1,15 @@
-import { cn } from "cn"
-import { Button } from "@/registry/bases/base/ui/button"
-import { Input } from "@/registry/bases/base/ui/input"
-import { Label } from "@/registry/bases/base/ui/label"
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/registry/bases/base/ui/sheet"
+import { ProfileFormAvatar } from "@/registry/bases/base/blocks/profile-form-02/components/profile-form"
 
-export default function Page({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export default function Page() {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn(
-        "bg-muted text-foreground flex min-h-[420px] flex-col items-center justify-center gap-4 p-6",
-        className
-      )}
-      {...props}
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <Sheet>
-        <SheetTrigger render={<Button />}>ویرایش پروفایل</SheetTrigger>
-        <SheetContent side="right" className="w-full sm:max-w-md" dir="rtl" lang="fa">
-          <SheetHeader>
-            <SheetTitle>فرم پروفایل</SheetTitle>
-            <SheetDescription>اطلاعات پروفایل خود را به‌روز کنید</SheetDescription>
-          </SheetHeader>
-          <div className="grid flex-1 auto-rows-min gap-4 px-4">
-            <div className="grid gap-2">
-              <Label htmlFor="profile-name">نام نمایشی</Label>
-              <Input
-                id="profile-name"
-                placeholder="مثلاً سارا"
-                dir="rtl"
-                className="text-start"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="profile-email">ایمیل</Label>
-              <Input
-                id="profile-email"
-                type="email"
-                placeholder="name@example.com"
-                dir="ltr"
-                className="text-start"
-              />
-            </div>
-          </div>
-          <SheetFooter>
-            <SheetClose render={<Button className="w-full" />}>ذخیره</SheetClose>
-          </SheetFooter>
-        </SheetContent>
-      </Sheet>
+      <div className="w-full max-w-lg">
+        <ProfileFormAvatar />
+      </div>
     </div>
   )
 }
