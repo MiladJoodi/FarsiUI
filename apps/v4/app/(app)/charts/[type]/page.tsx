@@ -8,8 +8,10 @@ import {
   getCachedRegistryItem,
   getChartHighlightedCode,
 } from "@/components/chart-display"
-import { getActiveStyle } from "@/registry/_legacy-styles"
 import { charts } from "@/app/(app)/charts/charts"
+
+/** Chart demos live in the legacy new-york-v4 registry shard. */
+const CHARTS_STYLE = "new-york-v4" as const
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -74,12 +76,11 @@ export default async function ChartPage({ params }: ChartPageProps) {
 
   const chartType = type as ChartType
   const chartList = charts[chartType]
-  const activeStyle = await getActiveStyle()
 
   // Prefetch all chart data in parallel for better performance.
   // Charts are rendered via iframes, so we only need the metadata and highlighted code.
   const chartDataPromises = chartList.map(async (chart) => {
-    const registryItem = await getCachedRegistryItem(chart.id, activeStyle.name)
+    const registryItem = await getCachedRegistryItem(chart.id, CHARTS_STYLE)
     if (!registryItem) return null
 
     const highlightedCode = await getChartHighlightedCode(
@@ -94,28 +95,22 @@ export default async function ChartPage({ params }: ChartPageProps) {
     }
   })
 
-  const prefetchedCharts = await Promise.all(chartDataPromises)
+  const prefetchedCharts = (await Promise.all(chartDataPromises)).filter(
+    (chart): chart is NonNullable<typeof chart> => chart != null
+  )
 
   return (
     <div className="grid flex-1 gap-12 lg:gap-24">
       <h2 className="sr-only">{chartTypeTitles[chartType]}</h2>
       <div className="grid flex-1 scroll-mt-20 items-stretch gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10">
-        {Array.from({ length: 12 }).map((_, index) => {
-          const chart = prefetchedCharts[index]
-          return chart ? (
-            <ChartDisplay
-              key={chart.name}
-              chart={chart}
-              styleName={activeStyle.name}
-              className={cn(chart.fullWidth && "md:col-span-2 lg:col-span-3")}
-            />
-          ) : (
-            <div
-              key={`empty-${index}`}
-              className="hidden aspect-square w-full rounded-lg border border-dashed xl:block"
-            />
-          )
-        })}
+        {prefetchedCharts.map((chart) => (
+          <ChartDisplay
+            key={chart.name}
+            chart={chart}
+            styleName={CHARTS_STYLE}
+            className={cn(chart.fullWidth && "md:col-span-2 lg:col-span-3")}
+          />
+        ))}
       </div>
     </div>
   )
