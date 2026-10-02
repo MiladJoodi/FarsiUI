@@ -1,27 +1,28 @@
 "use client"
 
+import * as React from "react"
+
 import { IconPlaceholder } from "@/components/icon-placeholder"
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
+import { Avatar, AvatarFallback } from "@/registry/bases/base/ui/avatar"
 import { Button } from "@/registry/bases/base/ui/button"
 
-const AVATARS = [
-  { src: "/avatars/01.png", fallback: "مر" },
-  { src: "/avatars/02.png", fallback: "عل" },
-  { src: "/avatars/03.png", fallback: "سارا" },
-  { src: "/avatars/04.png", fallback: "نپ" },
-] as const
+const AVATARS = ["مر", "عل", "سا", "نپ"] as const
 
-const LINKS = [
-  { label: "مستندات", href: "#" },
-  { label: "بلاک‌ها", href: "#" },
-  { label: "قیمت‌ها", href: "#" },
-] as const
+const LINKS = ["مستندات", "بلاک‌ها", "قیمت‌ها"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function HeroProductProof() {
   return (
     <div dir="rtl" lang="fa" className="min-h-svh bg-background">
       <header className="flex items-center justify-between gap-4 border-b px-6 py-4 md:px-10">
-        <a href="#" className="flex items-center gap-2 font-medium">
+        <a
+          href="#"
+          onClick={demoNavClick}
+          className="flex items-center gap-2 font-medium"
+        >
           <span className="flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <IconPlaceholder
               lucide="GalleryVerticalEndIcon"
@@ -35,21 +36,24 @@ export function HeroProductProof() {
           FarsiUI
         </a>
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          {LINKS.map((link) => (
+          {LINKS.map((label) => (
             <a
-              key={link.label}
-              href={link.href}
+              key={label}
+              href="#"
+              onClick={demoNavClick}
               className="transition-colors hover:text-foreground"
             >
-              {link.label}
+              {label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+          <Button variant="ghost" size="sm" type="button" className="hidden sm:inline-flex">
             ورود
           </Button>
-          <Button size="sm">شروع کنید</Button>
+          <Button size="sm" type="button">
+            شروع کنید
+          </Button>
         </div>
       </header>
 
@@ -63,20 +67,21 @@ export function HeroProductProof() {
             راست‌چین کامل بسازید.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg">شروع رایگان</Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" type="button">
+              شروع رایگان
+            </Button>
+            <Button size="lg" variant="outline" type="button">
               مشاهدهٔ نمونه‌ها
             </Button>
           </div>
           <div className="mt-10 flex items-center gap-3">
             <div className="flex -space-x-2 space-x-reverse">
-              {AVATARS.map((avatar) => (
+              {AVATARS.map((fallback) => (
                 <Avatar
-                  key={avatar.src}
+                  key={fallback}
                   className="size-9 border-2 border-background"
                 >
-                  <AvatarImage src={avatar.src} alt="" />
-                  <AvatarFallback>{avatar.fallback}</AvatarFallback>
+                  <AvatarFallback>{fallback}</AvatarFallback>
                 </Avatar>
               ))}
             </div>
@@ -93,11 +98,17 @@ export function HeroProductProof() {
             aria-hidden
             className="absolute -inset-4 rounded-3xl bg-muted/60 blur-2xl md:-inset-6"
           />
-          <img
-            src="/farsiui/dashboard.png"
-            alt="نمایی از داشبورد FarsiUI"
-            className="relative z-10 aspect-[4/3] w-full rounded-2xl border object-cover shadow-lg"
-          />
+          <div className="relative z-10 aspect-[4/3] w-full overflow-hidden rounded-2xl border bg-muted shadow-lg">
+            <div className="flex h-full flex-col gap-3 p-5">
+              <div className="h-3 w-24 rounded-full bg-foreground/15" />
+              <div className="grid flex-1 grid-cols-3 gap-3">
+                <div className="rounded-xl bg-background/80" />
+                <div className="col-span-2 rounded-xl bg-background/60" />
+                <div className="col-span-2 rounded-xl bg-background/70" />
+                <div className="rounded-xl bg-background/50" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

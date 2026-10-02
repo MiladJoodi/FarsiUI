@@ -133,6 +133,7 @@ export function SkillDetail({
                     id={target.id}
                     name={target.name}
                     paths={target.paths}
+                    note={target.note}
                   />
                 ))}
             </div>
@@ -144,6 +145,10 @@ export function SkillDetail({
 }
 
 function SkillSamplePreview({ skill }: { skill: Skill }) {
+  const isCodeSample =
+    /className|<html|og:locale|<\/?[A-Za-z]/.test(skill.sample.without) ||
+    /className|<html|og:locale|<\/?[A-Za-z]/.test(skill.sample.with)
+
   return (
     <div className="space-y-4" dir="rtl" lang="fa">
       <p className="text-sm text-muted-foreground">
@@ -155,7 +160,15 @@ function SkillSamplePreview({ skill }: { skill: Skill }) {
           <figcaption className="text-xs font-medium text-muted-foreground">
             خروجی قبل از مهارت
           </figcaption>
-          <blockquote className="rounded-lg border bg-muted/25 px-3 py-3 text-sm leading-7 text-muted-foreground">
+          <blockquote
+            dir={isCodeSample ? "ltr" : "rtl"}
+            lang={isCodeSample ? "en" : "fa"}
+            className={
+              isCodeSample
+                ? "overflow-x-auto rounded-lg border bg-muted/25 px-3 py-3 text-start font-mono text-[12px] leading-5 whitespace-pre text-muted-foreground"
+                : "rounded-lg border bg-muted/25 px-3 py-3 text-sm leading-7 text-muted-foreground"
+            }
+          >
             {skill.sample.without}
           </blockquote>
         </figure>
@@ -163,7 +176,15 @@ function SkillSamplePreview({ skill }: { skill: Skill }) {
           <figcaption className="text-xs font-medium">
             خروجی با مهارت
           </figcaption>
-          <blockquote className="rounded-lg border border-foreground/12 bg-background px-3 py-3 text-sm leading-7">
+          <blockquote
+            dir={isCodeSample ? "ltr" : "rtl"}
+            lang={isCodeSample ? "en" : "fa"}
+            className={
+              isCodeSample
+                ? "overflow-x-auto rounded-lg border border-foreground/12 bg-background px-3 py-3 text-start font-mono text-[12px] leading-5 whitespace-pre"
+                : "rounded-lg border border-foreground/12 bg-background px-3 py-3 text-sm leading-7"
+            }
+          >
             {skill.sample.with}
           </blockquote>
         </figure>

@@ -245,23 +245,35 @@ function BlockViewerIframe({
 }) {
   const { item, iframeKey } = useBlockViewer()
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
-
-  useIframeScrollPassthrough(iframeRef, [iframeKey, item.name, styleName])
+  const { scrollShield, dismissShield } = useIframeScrollPassthrough(
+    iframeRef,
+    [iframeKey, item.name, styleName]
+  )
 
   return (
-    <iframe
-      ref={iframeRef}
-      key={iframeKey}
-      src={`/view/${styleName}/${item.name}?embed=1`}
-      height={item.meta?.iframeHeight ?? 930}
-      loading="lazy"
-      title={item.name}
-      className={cn(
-        "relative z-20 no-scrollbar h-full w-full bg-background",
-        className
-      )}
-      style={{ height: "100%" }}
-    />
+    <div className="relative size-full min-h-0">
+      <iframe
+        ref={iframeRef}
+        key={iframeKey}
+        src={`/view/${styleName}/${item.name}?embed=1`}
+        height={item.meta?.iframeHeight ?? 930}
+        loading="lazy"
+        title={item.name}
+        className={cn(
+          "relative z-20 no-scrollbar h-full w-full bg-background",
+          scrollShield && "pointer-events-none",
+          className
+        )}
+        style={{ height: "100%" }}
+      />
+      {scrollShield ? (
+        <div
+          aria-hidden
+          className="absolute inset-0 z-30 cursor-default"
+          onClick={dismissShield}
+        />
+      ) : null}
+    </div>
   )
 }
 

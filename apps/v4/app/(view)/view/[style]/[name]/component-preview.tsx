@@ -23,11 +23,27 @@ export function ComponentPreview({
     }
   }, [styleClass])
 
+  // Demo blocks use href="#" placeholders — stop hash jumps / iframe reloads in previews.
+  React.useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const target = event.target
+      if (!(target instanceof Element)) return
+      const anchor = target.closest("a")
+      if (!anchor) return
+      const href = anchor.getAttribute("href")
+      if (href === "#" || href === "") {
+        event.preventDefault()
+      }
+    }
+    document.addEventListener("click", onClick, true)
+    return () => document.removeEventListener("click", onClick, true)
+  }, [])
+
   return (
     <>
       <style>
         {embed
-          ? `html,body{height:100%;margin:0;background:var(--muted);overscroll-behavior:none}.min-h-svh{min-height:100%!important}`
+          ? `html,body{height:100%;margin:0;background:var(--muted);overscroll-behavior-y:contain}.min-h-svh{min-height:100%!important}`
           : `html,body{margin:0;min-height:100%;background:var(--muted)}`}
       </style>
       <div

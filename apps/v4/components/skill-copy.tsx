@@ -207,6 +207,7 @@ export function SkillAgentPathRow({
   name,
   path,
   paths,
+  note,
 }: {
   id: string
   name: string
@@ -226,34 +227,45 @@ export function SkillAgentPathRow({
   if (!value) return null
 
   return (
-    <div
-      dir="ltr"
-      lang="en"
-      className="grid grid-cols-[1.5rem_7.5rem_minmax(0,1fr)_1.75rem] items-center gap-x-3"
-    >
-      <SkillToolIcon id={id} name={name} />
-      <span className="truncate text-sm font-medium">{name}</span>
-      <code className="min-w-0 truncate font-mono text-[12px] text-muted-foreground">
-        {value}
-      </code>
-      <Button
-        type="button"
-        size="icon"
-        variant="ghost"
-        data-slot="copy-button"
-        className="size-7 cursor-pointer"
-        aria-label="کپی مسیر"
-        onClick={async () => {
-          const ok = await copyToClipboardWithMeta(value)
-          if (ok) setCopied(true)
-        }}
+    <div className="space-y-1">
+      <div
+        dir="ltr"
+        lang="en"
+        className="grid grid-cols-[1.5rem_7.5rem_minmax(0,1fr)_1.75rem] items-center gap-x-3"
       >
-        {copied ? (
-          <IconCheck className="size-3.5" />
-        ) : (
-          <IconCopy className="size-3.5" />
-        )}
-      </Button>
+        <SkillToolIcon id={id} name={name} />
+        <span className="truncate text-sm font-medium">{name}</span>
+        <code className="min-w-0 truncate font-mono text-[12px] text-muted-foreground">
+          {value}
+        </code>
+        <Button
+          type="button"
+          size="icon"
+          variant="ghost"
+          data-slot="copy-button"
+          className="size-7 cursor-pointer"
+          aria-label="کپی مسیر"
+          onClick={async () => {
+            const ok = await copyToClipboardWithMeta(value)
+            if (ok) setCopied(true)
+          }}
+        >
+          {copied ? (
+            <IconCheck className="size-3.5" />
+          ) : (
+            <IconCopy className="size-3.5" />
+          )}
+        </Button>
+      </div>
+      {note ? (
+        <p
+          dir="rtl"
+          lang="fa"
+          className="ps-[calc(1.5rem+7.5rem+0.75rem)] text-xs leading-6 text-muted-foreground"
+        >
+          {note}
+        </p>
+      ) : null}
     </div>
   )
 }

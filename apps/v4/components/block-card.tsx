@@ -146,7 +146,10 @@ export function BlockCard({
     syncIframeTheme()
   }, [syncIframeTheme])
 
-  useIframeScrollPassthrough(iframeRef, [styleName, item.name, syncIframeTheme])
+  const { scrollShield, dismissShield } = useIframeScrollPassthrough(
+    iframeRef,
+    [styleName, item.name, syncIframeTheme]
+  )
 
   React.useEffect(() => {
     const iframe = iframeRef.current
@@ -283,10 +286,18 @@ export function BlockCard({
                   loading="lazy"
                   className={cn(
                     "no-scrollbar h-full w-full bg-background transition-opacity duration-200",
+                    scrollShield && "pointer-events-none",
                     previewLoaded ? "opacity-100" : "opacity-0"
                   )}
                   onLoad={handleIframeLoad}
                 />
+                {scrollShield ? (
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 z-20 cursor-default"
+                    onClick={dismissShield}
+                  />
+                ) : null}
               </div>
             </div>
           </TabsContent>
