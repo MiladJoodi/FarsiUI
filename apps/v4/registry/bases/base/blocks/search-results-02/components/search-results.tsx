@@ -17,13 +17,13 @@ const RESULTS = [
     title: "کامپوننت دکمه",
     path: "components/button",
     type: "کامپوننت",
-    snippet: "دکمه‌های راست‌چین با انواع primary، outline و ghost",
+    snippet: "دکمه‌های راست‌چین با انواع اصلی، خطی و شبح",
   },
   {
     title: "فرم ورود",
     path: "blocks/login",
     type: "بلاک",
-    snippet: "ورود با ایمیل LTR و برچسب‌های فارسی",
+    snippet: "ورود با ایمیل چپ‌چین و برچسب‌های فارسی",
   },
   {
     title: "جدول داده",
@@ -32,12 +32,16 @@ const RESULTS = [
     snippet: "جدول با مرتب‌سازی و انتخاب ردیف",
   },
   {
-    title: "راهنمای RTL",
+    title: "راهنمای راست‌چین",
     path: "docs/rtl",
     type: "مستند",
     snippet: "نحوهٔ پیاده‌سازی جهت راست‌چین",
   },
 ] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function SearchResultsCards() {
   return (
@@ -46,11 +50,11 @@ export function SearchResultsCards() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>نتایج جستجو</CardTitle>
-          <CardDescription>
-            <bdi dir="ltr">{RESULTS.length}</bdi> نتیجه برای «دکمه و فرم»
+          <CardDescription className="tracking-normal">
+            {toFa(RESULTS.length)} نتیجه برای «دکمه و فرم»
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -70,10 +74,14 @@ export function SearchResultsCards() {
                 <div className="px-4 py-3">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-sm font-medium">{r.title}</p>
-                    <Badge variant="outline">{r.type}</Badge>
+                    <Badge variant="outline" className="border">
+                      {r.type}
+                    </Badge>
                   </div>
-                  <p className="mt-0.5 text-xs text-muted-foreground">
-                    <bdi dir="ltr">{r.path}</bdi>
+                  <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
+                    <span dir="ltr" className="inline-block text-left">
+                      {r.path}
+                    </span>
                   </p>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {r.snippet}
@@ -82,7 +90,7 @@ export function SearchResultsCards() {
               </div>
             ))}
           </div>
-          <Button variant="outline" className="w-full">
+          <Button type="button" variant="outline" className="w-full">
             نتایج بیشتر
           </Button>
         </CardContent>

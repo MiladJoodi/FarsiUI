@@ -53,6 +53,11 @@ const INITIAL: CartItem[] = [
   },
 ]
 
+const SHIPPING_ITEMS = [
+  { value: "عادی", label: "عادی · رایگان" },
+  { value: "پیشتاز", label: "پیشتاز · ۲۵۰٬۰۰۰ تومان" },
+] as const
+
 function formatFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
@@ -61,10 +66,10 @@ export function ShoppingCartCoupon() {
   const [items, setItems] = React.useState(INITIAL)
   const [coupon, setCoupon] = React.useState("")
   const [applied, setApplied] = React.useState(false)
-  const [shipping, setShipping] = React.useState("standard")
+  const [shipping, setShipping] = React.useState("عادی")
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0)
-  const shippingCost = shipping === "express" ? 250000 : 0
+  const shippingCost = shipping === "پیشتاز" ? 250000 : 0
   const discount = applied ? Math.round(subtotal * 0.1) : 0
   const total = subtotal - discount + shippingCost
 
@@ -91,7 +96,7 @@ export function ShoppingCartCoupon() {
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-4">
-          <div className="divide-y rounded-xl border">
+          <div className="divide-y overflow-hidden rounded-xl border bg-card">
             {items.map((item) => (
               <div key={item.id} className="flex gap-4 p-4">
                 <div className="size-20 shrink-0 overflow-hidden rounded-lg border bg-muted">
@@ -105,11 +110,8 @@ export function ShoppingCartCoupon() {
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <p className="font-medium">{item.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        <bdi dir="ltr" className="tabular-nums">
-                          {item.priceLabel}
-                        </bdi>{" "}
-                        تومان
+                      <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                        {item.priceLabel} تومان
                       </p>
                     </div>
                     <Button
@@ -134,8 +136,8 @@ export function ShoppingCartCoupon() {
                     >
                       <MinusIcon className="size-3.5" />
                     </Button>
-                    <span className="w-8 text-center text-sm">
-                      <bdi dir="ltr">{item.qty}</bdi>
+                    <span className="w-8 text-center text-sm tracking-normal">
+                      {formatFa(item.qty)}
                     </span>
                     <Button
                       type="button"
@@ -152,7 +154,7 @@ export function ShoppingCartCoupon() {
             ))}
           </div>
 
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-3">
               <CardTitle className="text-base">کد تخفیف</CardTitle>
             </CardHeader>
@@ -179,7 +181,7 @@ export function ShoppingCartCoupon() {
                 </Button>
               </form>
               {applied && (
-                <Badge variant="secondary" className="mt-3">
+                <Badge variant="outline" className="mt-3 border">
                   ۱۰٪ تخفیف اعمال شد
                 </Badge>
               )}
@@ -187,7 +189,7 @@ export function ShoppingCartCoupon() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">پرداخت</CardTitle>
           </CardHeader>
@@ -195,62 +197,49 @@ export function ShoppingCartCoupon() {
             <div className="space-y-2">
               <Label>روش ارسال</Label>
               <Select
+                items={[...SHIPPING_ITEMS]}
                 value={shipping}
-                onValueChange={(value) =>
-                  setShipping((value as string) ?? "standard")
-                }
+                onValueChange={(value) => {
+                  if (SHIPPING_ITEMS.some((item) => item.value === value)) {
+                    setShipping(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
-                  <SelectValue placeholder="روش ارسال" />
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="standard">عادی — رایگان</SelectItem>
-                  <SelectItem value="express">پیشتاز — ۲۵۰٬۰۰۰ تومان</SelectItem>
+                  {SHIPPING_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
             <Separator />
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 tracking-normal">
               <span className="text-muted-foreground">جمع جزء</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(subtotal)}
-                </bdi>
-              </span>
+              <span>{formatFa(subtotal)}</span>
             </div>
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 tracking-normal">
               <span className="text-muted-foreground">تخفیف</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(discount)}
-                </bdi>
-              </span>
+              <span>{formatFa(discount)}</span>
             </div>
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 tracking-normal">
               <span className="text-muted-foreground">ارسال</span>
               <span>
-                {shippingCost === 0 ? (
-                  "رایگان"
-                ) : (
-                  <bdi dir="ltr" className="tabular-nums">
-                    {formatFa(shippingCost)}
-                  </bdi>
-                )}
+                {shippingCost === 0 ? "رایگان" : formatFa(shippingCost)}
               </span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-4 font-semibold">
+            <div className="flex justify-between gap-4 font-semibold tracking-normal">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(total)}
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>{formatFa(total)} تومان</span>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full" size="lg">
+            <Button type="button" className="w-full" size="lg">
               ادامه به تسویه
             </Button>
           </CardFooter>

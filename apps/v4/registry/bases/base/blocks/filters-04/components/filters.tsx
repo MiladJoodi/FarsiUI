@@ -12,17 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -40,13 +35,29 @@ const PRODUCTS = [
   { name: "لامپ رومیزی مینیمال", meta: "خانه · موجود" },
 ] as const
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+] as const
+
 export function FiltersChips() {
   const [chips, setChips] = React.useState<Chip[]>([
     { id: "cat", label: "صوتی" },
     { id: "stock", label: "موجود" },
     { id: "city", label: "تهران" },
   ])
-  const [sort, setSort] = React.useState("newest")
+  const [category, setCategory] = React.useState("صوتی")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function removeChip(id: string) {
     setChips((prev) => prev.filter((c) => c.id !== id))
@@ -58,7 +69,7 @@ export function FiltersChips() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
           <div>
             <CardTitle className="flex items-center gap-2">
@@ -66,25 +77,46 @@ export function FiltersChips() {
               فیلترها
             </CardTitle>
             <CardDescription>
-              چیپ فعال و منوی مرتب‌سازی RTL
+              چیپ فعال و منوی مرتب‌سازی راست‌چین
             </CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" className="shrink-0" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setChips([])}>
+              عملیات
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن همه
-              </DropdownMenuItem>
-              <DropdownMenuItem>ذخیره فیلتر</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                ذخیره فیلتر
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -93,42 +125,46 @@ export function FiltersChips() {
               dir="rtl"
               className="flex-1"
             />
-            <Select defaultValue="audio">
+            <Select
+              items={[...CATEGORY_ITEMS]}
+              value={category}
+              onValueChange={(value) => {
+                if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                  setCategory(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="دسته" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="audio">صوتی</SelectItem>
-                <SelectItem value="wearable">پوشیدنی</SelectItem>
-                <SelectItem value="home">خانه</SelectItem>
+                {CATEGORY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" className="w-full sm:w-auto" />}
-              >
-                مرتب‌سازی
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-44">
-                <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup
-                  value={sort}
-                  onValueChange={(v) => setSort(v ?? "newest")}
-                >
-                  <DropdownMenuRadioItem value="newest">
-                    جدیدترین
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="price-asc">
-                    ارزان‌ترین
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="price-desc">
-                    گران‌ترین
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Select
+              items={[...SORT_ITEMS]}
+              value={sort}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full sm:w-36" dir="rtl">
+                <SelectValue placeholder="مرتب‌سازی" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {chips.length > 0 ? (
@@ -170,18 +206,50 @@ export function FiltersChips() {
                     <p className="text-sm font-medium">{p.name}</p>
                     <p className="text-xs text-muted-foreground">{p.meta}</p>
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === p.name}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? p.name : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="shrink-0"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
-                      <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                      <DropdownMenuItem>افزودن به علاقه‌مندی</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      عملیات
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-44 space-y-1 p-2"
+                    >
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        مشاهده
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        افزودن به علاقه‌مندی
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </li>
             ))}

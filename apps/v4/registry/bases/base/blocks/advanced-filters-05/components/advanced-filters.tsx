@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   FilterIcon,
   MoreHorizontalIcon,
@@ -13,22 +12,17 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -47,6 +41,7 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const PRODUCTS = [
   {
@@ -80,19 +75,42 @@ const PRODUCTS = [
 ] as const
 
 const CATEGORIES = ["صوتی", "پوشیدنی", "خانه", "اکسسوری"] as const
+
 const PRESETS = [
-  { id: "near", label: "نزدیک من" },
-  { id: "deal", label: "پیشنهاد ویژه" },
-  { id: "fast", label: "ارسال سریع" },
+  { id: "نزدیک من", label: "نزدیک من" },
+  { id: "پیشنهاد ویژه", label: "پیشنهاد ویژه" },
+  { id: "ارسال سریع", label: "ارسال سریع" },
 ] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+] as const
+
+const RANGE_ITEMS = [
+  { value: "هم‌شهر", label: "هم‌شهر" },
+  { value: "استان", label: "استان" },
+  { value: "سراسر کشور", label: "سراسر کشور" },
+] as const
+
+const sheetPanelClass =
+  "flex w-[min(100%-1.5rem,24rem)] flex-col gap-0 overflow-x-hidden p-4 sm:inset-y-3 sm:end-3 sm:h-[calc(100%-1.5rem)] sm:max-w-md sm:rounded-xl"
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function AdvancedFiltersHub() {
   const [open, setOpen] = React.useState(false)
   const [cats, setCats] = React.useState<string[]>(["صوتی"])
   const [stockOnly, setStockOnly] = React.useState(true)
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
   const [query, setQuery] = React.useState("")
-  const [preset, setPreset] = React.useState("near")
+  const [preset, setPreset] = React.useState("نزدیک من")
+  const [range, setRange] = React.useState("هم‌شهر")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = PRODUCTS.filter((p) => {
     if (stockOnly && !p.stock) return false
@@ -111,62 +129,60 @@ export function AdvancedFiltersHub() {
     setCats([])
     setStockOnly(false)
     setQuery("")
-    setPreset("near")
+    setPreset("نزدیک من")
+    setMoreOpen(false)
   }
 
   return (
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-4xl flex-col justify-center px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-4xl flex-col justify-center overflow-x-hidden px-6 py-16 md:px-10"
     >
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
-        <div>
+        <div className="min-w-0">
           <Badge variant="secondary" className="mb-3">
             پنل پیشرفته
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">
             فیلترهای پیشرفته
           </h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> نتیجه · پیش‌فرض و facets
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(rows.length)} نتیجه · پیش‌فرض و دسته‌ها
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "newest")}
-              >
-                <DropdownMenuRadioItem value="newest">
-                  جدیدترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-asc">
-                  ارزان‌ترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-desc">
-                  گران‌ترین
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as string)
+              }
+            }}
+          >
+            <SelectTrigger className="w-36" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              render={<Button size="sm" className="gap-2" />}
+              render={<Button type="button" size="sm" className="gap-2" />}
             >
               <FilterIcon className="size-4" />
               فیلترهای پیشرفته
             </SheetTrigger>
             <SheetContent
-              side="left"
-              className="flex w-[min(100%,24rem)] flex-col"
+              side="right"
+              className={sheetPanelClass}
               dir="rtl"
               lang="fa"
             >
@@ -177,7 +193,7 @@ export function AdvancedFiltersHub() {
                 </SheetDescription>
               </SheetHeader>
 
-              <div className="mt-4 flex-1 space-y-5 overflow-y-auto pe-1">
+              <div className="mt-4 min-w-0 flex-1 space-y-5 overflow-y-auto overflow-x-hidden">
                 <div>
                   <p className="mb-2 text-sm font-medium">پیش‌فرض‌ها</p>
                   <div className="flex flex-wrap gap-2">
@@ -232,8 +248,8 @@ export function AdvancedFiltersHub() {
                       id="af5-min"
                       inputMode="numeric"
                       placeholder="۱٬۰۰۰٬۰۰۰"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                   <Field>
@@ -242,8 +258,8 @@ export function AdvancedFiltersHub() {
                       id="af5-max"
                       inputMode="numeric"
                       placeholder="۱۰٬۰۰۰٬۰۰۰"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                 </div>
@@ -255,21 +271,31 @@ export function AdvancedFiltersHub() {
                     type="email"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>اختیاری</FieldDescription>
                 </Field>
 
                 <Field>
                   <FieldLabel>محدوده ارسال</FieldLabel>
-                  <Select defaultValue="city">
+                  <Select
+                    items={[...RANGE_ITEMS]}
+                    value={range}
+                    onValueChange={(value) => {
+                      if (RANGE_ITEMS.some((item) => item.value === value)) {
+                        setRange(value as string)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue placeholder="محدوده" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="city">هم‌شهر</SelectItem>
-                      <SelectItem value="province">استان</SelectItem>
-                      <SelectItem value="country">سراسر کشور</SelectItem>
+                      {RANGE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -284,11 +310,16 @@ export function AdvancedFiltersHub() {
                 </div>
               </div>
 
-              <SheetFooter className="mt-4 gap-2 sm:flex-col">
-                <Button className="w-full" onClick={() => setOpen(false)}>
+              <SheetFooter className="mt-4 gap-3 border-t pt-4 sm:flex-col">
+                <Button
+                  type="button"
+                  className="w-full"
+                  onClick={() => setOpen(false)}
+                >
                   اعمال فیلترها
                 </Button>
                 <Button
+                  type="button"
                   variant="outline"
                   className="w-full"
                   onClick={() => {
@@ -302,25 +333,45 @@ export function AdvancedFiltersHub() {
             </SheetContent>
           </Sheet>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" />}>
+          <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" />
+              }
+            >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={clearAll}>پاک کردن همه</DropdownMenuItem>
-              <DropdownMenuItem>ذخیره به‌عنوان پیش‌فرض</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              بیشتر
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-52 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={clearAll}
+              >
+                پاک کردن همه
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                ذخیره به‌عنوان پیش‌فرض
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
       <div className="mb-4 flex flex-wrap gap-2">
-        {PRESETS.find((p) => p.id === preset) ? (
-          <Badge variant="secondary">{PRESETS.find((p) => p.id === preset)!.label}</Badge>
-        ) : null}
+        <Badge variant="secondary">{preset}</Badge>
         {cats.map((c) => (
           <Badge key={c} variant="secondary" className="gap-1 pe-1">
             {c}
@@ -367,28 +418,69 @@ export function AdvancedFiltersHub() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-sm font-medium">{p.name}</p>
-                    <Badge variant="outline">{p.category}</Badge>
+                    <Badge variant="outline" className="border">
+                      {p.category}
+                    </Badge>
                     {!p.stock ? (
                       <Badge variant="destructive">ناموجود</Badge>
                     ) : null}
                   </div>
-                  <p className="mt-1 text-sm tabular-nums text-muted-foreground">
-                    <bdi dir="ltr">{p.price}</bdi> تومان
+                  <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                    {p.price} تومان
                   </p>
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
+                <Popover
+                  open={openId === p.id}
+                  onOpenChange={(next) =>
+                    setOpenId(next ? p.id : null)
+                  }
+                >
+                  <PopoverTrigger
+                    render={
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="shrink-0"
+                      />
+                    }
                   >
                     <MoreHorizontalIcon className="size-4" />
-                    <span className="sr-only">عملیات</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                    <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                    <DropdownMenuItem>مقایسه</DropdownMenuItem>
-                    <DropdownMenuItem>علاقه‌مندی</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    عملیات
+                  </PopoverTrigger>
+                  <PopoverContent
+                    dir="rtl"
+                    lang="fa"
+                    align="start"
+                    className="w-40 space-y-1 p-2"
+                  >
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      مشاهده
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      مقایسه
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      علاقه‌مندی
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           ))

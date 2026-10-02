@@ -1,11 +1,6 @@
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/registry/bases/base/ui/card"
+import { Card } from "@/registry/bases/base/ui/card"
 
 const PRODUCTS = [
   {
@@ -67,7 +62,10 @@ export function ProductGridCards() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {PRODUCTS.map((product) => (
-          <Card key={product.name} className="overflow-hidden py-0">
+          <Card
+            key={product.name}
+            className="gap-0 overflow-hidden border bg-card py-0 shadow-none"
+          >
             <div className="relative aspect-square overflow-hidden bg-muted">
               <img
                 src={product.image}
@@ -75,40 +73,33 @@ export function ProductGridCards() {
                 className="size-full object-cover"
               />
               {product.badge ? (
-                <Badge className="absolute start-3 top-3">{product.badge}</Badge>
+                <Badge variant="outline" className="absolute start-3 top-3 border bg-card">
+                  {product.badge}
+                </Badge>
               ) : null}
             </div>
-            <CardHeader className="gap-1 px-4 pt-4 pb-0 text-start">
-              <h3 className="line-clamp-1 text-sm font-medium">{product.name}</h3>
-              <p className="text-xs text-muted-foreground">
-                امتیاز{" "}
-                <bdi dir="ltr" className="tabular-nums">
-                  {product.rating}
-                </bdi>
-              </p>
-            </CardHeader>
-            <CardContent className="px-4 pt-2">
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="font-semibold">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {product.price}
-                  </bdi>
-                </span>
+            <div className="flex flex-1 flex-col gap-3 bg-card p-4">
+              <div className="space-y-1 text-start">
+                <h3 className="line-clamp-1 text-sm font-medium">
+                  {product.name}
+                </h3>
+                <p className="text-xs tracking-normal text-muted-foreground">
+                  امتیاز {product.rating}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-baseline gap-2 tracking-normal">
+                <span className="font-semibold">{product.price}</span>
                 <span className="text-xs text-muted-foreground">تومان</span>
                 {product.oldPrice ? (
                   <span className="text-xs text-muted-foreground line-through">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {product.oldPrice}
-                    </bdi>
+                    {product.oldPrice}
                   </span>
                 ) : null}
               </div>
-            </CardContent>
-            <CardFooter className="px-4 pt-0 pb-4">
-              <Button className="w-full" size="sm">
+              <Button type="button" className="mt-auto w-full" size="sm">
                 افزودن به سبد
               </Button>
-            </CardFooter>
+            </div>
           </Card>
         ))}
       </div>

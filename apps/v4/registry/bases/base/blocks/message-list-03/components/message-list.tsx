@@ -29,7 +29,7 @@ const MESSAGES = [
     email: "sara@example.com",
     preview: "سلام، وضعیت سفارش چطوره؟",
     time: "۱۰:۲۴",
-    folder: "inbox",
+    folder: "صندوق",
     unread: true,
     initials: "س‌م",
     avatar:
@@ -41,7 +41,7 @@ const MESSAGES = [
     email: "ali@example.com",
     preview: "فاکتور را فرستادم",
     time: "دیروز",
-    folder: "inbox",
+    folder: "صندوق",
     unread: false,
     initials: "ع‌ر",
   },
@@ -51,7 +51,7 @@ const MESSAGES = [
     email: "mina@example.com",
     preview: "فردا جلسه داریم؟",
     time: "دوشنبه",
-    folder: "starred",
+    folder: "ستاره‌دار",
     unread: true,
     initials: "م‌ک",
   },
@@ -61,19 +61,27 @@ const MESSAGES = [
     email: "support@example.com",
     preview: "تیکت شما بسته شد",
     time: "هفتهٔ پیش",
-    folder: "archive",
+    folder: "بایگانی",
     unread: false,
     initials: "پ‌ش",
   },
 ] as const
 
+const FOLDER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "صندوق", label: "صندوق" },
+  { value: "ستاره‌دار", label: "ستاره‌دار" },
+  { value: "بایگانی", label: "بایگانی" },
+] as const
+
 export function MessageListFilter() {
   const [query, setQuery] = React.useState("")
-  const [folder, setFolder] = React.useState("all")
+  const [folder, setFolder] = React.useState("همه")
 
   const rows = MESSAGES.filter((m) => {
-    if (folder === "unread" && !m.unread) return false
-    if (folder !== "all" && folder !== "unread" && m.folder !== folder) {
+    if (folder === "خوانده‌نشده" && !m.unread) return false
+    if (folder !== "همه" && folder !== "خوانده‌نشده" && m.folder !== folder) {
       return false
     }
     if (
@@ -91,11 +99,11 @@ export function MessageListFilter() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>فهرست پیام‌ها</CardTitle>
           <CardDescription>
-            جستجوی فارسی RTL · ایمیل انگلیسی LTR
+            جستجوی فارسی راست‌چین؛ ایمیل انگلیسی چپ‌چین
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -111,18 +119,23 @@ export function MessageListFilter() {
               />
             </div>
             <Select
+              items={[...FOLDER_ITEMS]}
               value={folder}
-              onValueChange={(v) => setFolder((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FOLDER_ITEMS.some((item) => item.value === value)) {
+                  setFolder(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="پوشه" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="inbox">صندوق</SelectItem>
-                <SelectItem value="starred">ستاره‌دار</SelectItem>
-                <SelectItem value="archive">بایگانی</SelectItem>
+                {FOLDER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -152,19 +165,21 @@ export function MessageListFilter() {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-2">
                         <p className="truncate text-sm font-medium">{m.name}</p>
-                        <span className="shrink-0 text-xs text-muted-foreground">
-                          <bdi dir="ltr">{m.time}</bdi>
+                        <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
+                          {m.time}
                         </span>
                       </div>
-                      <p className="truncate text-xs text-muted-foreground">
-                        <bdi dir="ltr">{m.email}</bdi>
+                      <p className="truncate text-xs tracking-normal text-muted-foreground">
+                        <span dir="ltr" className="inline-block text-left">
+                          {m.email}
+                        </span>
                       </p>
                       <div className="mt-0.5 flex items-center gap-2">
                         <p className="truncate text-sm text-muted-foreground">
                           {m.preview}
                         </p>
                         {m.unread ? (
-                          <Badge variant="secondary" className="shrink-0">
+                          <Badge variant="outline" className="shrink-0 border">
                             جدید
                           </Badge>
                         ) : null}

@@ -26,6 +26,28 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const CHANNEL_ITEMS = [
+  { value: "ایمیل", label: "ایمیل" },
+  { value: "پیامک", label: "پیامک" },
+  { value: "اعلان مرورگر", label: "اعلان مرورگر" },
+] as const
+
+const FREQ_ITEMS = [
+  { value: "آنی", label: "آنی" },
+  { value: "روزانه", label: "روزانه" },
+  { value: "هفتگی", label: "هفتگی" },
+  { value: "خاموش", label: "خاموش" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۲۲:۰۰", label: "۲۲:۰۰" },
+  { value: "۲۳:۰۰", label: "۲۳:۰۰" },
+  { value: "۰۰:۰۰", label: "۰۰:۰۰" },
+  { value: "۰۶:۰۰", label: "۰۶:۰۰" },
+  { value: "۰۷:۰۰", label: "۰۷:۰۰" },
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+] as const
+
 export function AccountNotificationsSchedule() {
   return (
     <section
@@ -33,7 +55,7 @@ export function AccountNotificationsSchedule() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>زمان‌بندی اعلان‌ها</CardTitle>
           <CardDescription>
@@ -44,28 +66,31 @@ export function AccountNotificationsSchedule() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="an3-channel">کانال اصلی</FieldLabel>
-              <Select defaultValue="email">
+              <Select items={[...CHANNEL_ITEMS]} defaultValue="ایمیل">
                 <SelectTrigger id="an3-channel" className="w-full" dir="rtl">
                   <SelectValue placeholder="کانال را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="email">ایمیل</SelectItem>
-                  <SelectItem value="sms">پیامک</SelectItem>
-                  <SelectItem value="push">اعلان مرورگر</SelectItem>
+                  {CHANNEL_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="an3-freq">تواتر خلاصه</FieldLabel>
-              <Select defaultValue="weekly">
+              <Select items={[...FREQ_ITEMS]} defaultValue="هفتگی">
                 <SelectTrigger id="an3-freq" className="w-full" dir="rtl">
                   <SelectValue placeholder="تواتر" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="realtime">آنی</SelectItem>
-                  <SelectItem value="daily">روزانه</SelectItem>
-                  <SelectItem value="weekly">هفتگی</SelectItem>
-                  <SelectItem value="off">خاموش</SelectItem>
+                  {FREQ_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -77,7 +102,7 @@ export function AccountNotificationsSchedule() {
                 defaultValue="sara@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>
                 خلاصه‌ها به این آدرس ارسال می‌شوند
@@ -86,23 +111,33 @@ export function AccountNotificationsSchedule() {
             <div className="grid gap-4 sm:grid-cols-2">
               <Field>
                 <FieldLabel htmlFor="an3-from">شروع سکوت</FieldLabel>
-                <Input
-                  id="an3-from"
-                  type="time"
-                  defaultValue="22:00"
-                  dir="ltr"
-                  className="text-start"
-                />
+                <Select items={[...TIME_ITEMS]} defaultValue="۲۲:۰۰">
+                  <SelectTrigger id="an3-from" className="w-full" dir="rtl">
+                    <SelectValue placeholder="ساعت" />
+                  </SelectTrigger>
+                  <SelectContent dir="rtl" lang="fa">
+                    {TIME_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </Field>
               <Field>
                 <FieldLabel htmlFor="an3-to">پایان سکوت</FieldLabel>
-                <Input
-                  id="an3-to"
-                  type="time"
-                  defaultValue="07:00"
-                  dir="ltr"
-                  className="text-start"
-                />
+                <Select items={[...TIME_ITEMS]} defaultValue="۰۷:۰۰">
+                  <SelectTrigger id="an3-to" className="w-full" dir="rtl">
+                    <SelectValue placeholder="ساعت" />
+                  </SelectTrigger>
+                  <SelectContent dir="rtl" lang="fa">
+                    {TIME_ITEMS.map((item) => (
+                      <SelectItem key={`to-${item.value}`} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </Field>
             </div>
             <Field>
@@ -138,7 +173,9 @@ export function AccountNotificationsSchedule() {
             </div>
           </div>
 
-          <Button className="w-full">اعمال زمان‌بندی</Button>
+          <Button type="button" className="w-full">
+            اعمال زمان‌بندی
+          </Button>
         </CardContent>
       </Card>
     </section>

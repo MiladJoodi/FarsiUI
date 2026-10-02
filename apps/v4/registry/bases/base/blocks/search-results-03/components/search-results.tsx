@@ -47,25 +47,41 @@ const RESULTS = [
     snippet: "جدول با مرتب‌سازی و صفحه‌بندی",
   },
   {
-    title: "راهنمای RTL",
+    title: "راهنمای راست‌چین",
     path: "docs/rtl",
     type: "مستند",
     snippet: "پیاده‌سازی جهت راست‌چین",
   },
 ] as const
 
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "کامپوننت", label: "کامپوننت" },
+  { value: "بلاک", label: "بلاک" },
+  { value: "مستند", label: "مستند" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "مرتبط‌ترین", label: "مرتبط‌ترین" },
+  { value: "الفبایی", label: "الفبایی" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function SearchResultsSort() {
-  const [sort, setSort] = React.useState("relevance")
-  const [type, setType] = React.useState("all")
+  const [sort, setSort] = React.useState("مرتبط‌ترین")
+  const [type, setType] = React.useState("همه")
   const [query, setQuery] = React.useState("دکمه")
 
   const rows = RESULTS.filter((r) => {
-    if (type !== "all" && r.type !== type) return false
+    if (type !== "همه" && r.type !== type) return false
     if (query && !`${r.title}${r.snippet}`.includes(query)) return false
     return true
   }).slice()
 
-  if (sort === "az") {
+  if (sort === "الفبایی") {
     rows.sort((a, b) => a.title.localeCompare(b.title, "fa"))
   }
 
@@ -75,11 +91,11 @@ export function SearchResultsSort() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>نتایج جستجو</CardTitle>
           <CardDescription>
-            مرتب‌سازی و فیلتر با Select راست‌چین
+            مرتب‌سازی و فیلتر با انتخابگر راست‌چین
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -98,32 +114,46 @@ export function SearchResultsSort() {
             <Field>
               <FieldLabel>نوع</FieldLabel>
               <Select
+                items={[...TYPE_ITEMS]}
                 value={type}
-                onValueChange={(v) => setType((v as string) ?? "all")}
+                onValueChange={(value) => {
+                  if (TYPE_ITEMS.some((item) => item.value === value)) {
+                    setType(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="نوع" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="all">همه</SelectItem>
-                  <SelectItem value="کامپوننت">کامپوننت</SelectItem>
-                  <SelectItem value="بلاک">بلاک</SelectItem>
-                  <SelectItem value="مستند">مستند</SelectItem>
+                  {TYPE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel>مرتب‌سازی</FieldLabel>
               <Select
+                items={[...SORT_ITEMS]}
                 value={sort}
-                onValueChange={(v) => setSort((v as string) ?? "relevance")}
+                onValueChange={(value) => {
+                  if (SORT_ITEMS.some((item) => item.value === value)) {
+                    setSort(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="مرتب‌سازی" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="relevance">مرتبط‌ترین</SelectItem>
-                  <SelectItem value="az">الفبایی</SelectItem>
+                  {SORT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -136,13 +166,13 @@ export function SearchResultsSort() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>اختیاری · چپ‌چین</FieldDescription>
           </Field>
 
-          <p className="text-sm text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> نتیجه
+          <p className="text-sm tracking-normal text-muted-foreground">
+            {toFa(rows.length)} نتیجه
           </p>
 
           <div className="space-y-0 overflow-hidden rounded-lg border">
@@ -157,10 +187,14 @@ export function SearchResultsSort() {
                   <div className="px-4 py-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="text-sm font-medium">{r.title}</p>
-                      <Badge variant="outline">{r.type}</Badge>
+                      <Badge variant="outline" className="border">
+                        {r.type}
+                      </Badge>
                     </div>
-                    <p className="mt-0.5 text-xs text-muted-foreground">
-                      <bdi dir="ltr">{r.path}</bdi>
+                    <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
+                      <span dir="ltr" className="inline-block text-left">
+                        {r.path}
+                      </span>
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {r.snippet}
@@ -171,7 +205,9 @@ export function SearchResultsSort() {
             )}
           </div>
 
-          <Button className="w-full">اعمال فیلتر</Button>
+          <Button type="button" className="w-full">
+            اعمال فیلتر
+          </Button>
         </CardContent>
       </Card>
     </section>

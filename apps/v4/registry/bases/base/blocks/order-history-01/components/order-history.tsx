@@ -41,7 +41,7 @@ export function OrderHistorySimple() {
         <p className="mt-1 text-sm text-muted-foreground">جدول ساده بدون فیلتر</p>
       </div>
 
-      <div className="overflow-hidden rounded-xl border">
+      <div className="overflow-hidden rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -54,20 +54,14 @@ export function OrderHistorySimple() {
           <TableBody>
             {ORDERS.map((order) => (
               <TableRow key={order.id}>
+                <TableCell className="tracking-normal">{order.id}</TableCell>
+                <TableCell className="tracking-normal">{order.date}</TableCell>
                 <TableCell>
-                  <bdi dir="ltr" className="font-mono text-xs">
-                    {order.id}
-                  </bdi>
+                  <Badge variant="outline" className="border">
+                    {order.status}
+                  </Badge>
                 </TableCell>
-                <TableCell>{order.date}</TableCell>
-                <TableCell>
-                  <Badge variant="secondary">{order.status}</Badge>
-                </TableCell>
-                <TableCell>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {order.total}
-                  </bdi>
-                </TableCell>
+                <TableCell className="tracking-normal">{order.total}</TableCell>
               </TableRow>
             ))}
           </TableBody>

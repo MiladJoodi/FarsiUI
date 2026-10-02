@@ -1,3 +1,5 @@
+"use client"
+
 import { SearchIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -17,7 +19,7 @@ export function SearchSimple() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>جستجو</CardTitle>
           <CardDescription>عبارت فارسی را جستجو کنید</CardDescription>

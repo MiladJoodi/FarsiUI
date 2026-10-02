@@ -7,7 +7,6 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
-  CardContent,
   CardFooter,
   CardHeader,
 } from "@/registry/bases/base/ui/card"
@@ -53,6 +52,10 @@ const INITIAL: Item[] = [
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function WishlistCards() {
   const [items, setItems] = React.useState(INITIAL)
 
@@ -69,19 +72,22 @@ export function WishlistCards() {
             افزودن به سبد یا حذف از علاقه‌مندی
           </p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          <bdi dir="ltr">{items.length}</bdi> کالا
+        <p className="text-sm tracking-normal text-muted-foreground">
+          {toFa(items.length)} کالا
         </p>
       </div>
 
       {items.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           هنوز چیزی به علاقه‌مندی‌ها اضافه نکرده‌اید.
         </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <Card key={item.id} className="overflow-hidden py-0">
+            <Card
+              key={item.id}
+              className="gap-0 overflow-hidden bg-card py-0"
+            >
               <div className="relative aspect-square overflow-hidden bg-muted">
                 <img
                   src={item.image}
@@ -89,7 +95,12 @@ export function WishlistCards() {
                   className="size-full object-cover"
                 />
                 {item.badge ? (
-                  <Badge className="absolute start-3 top-3">{item.badge}</Badge>
+                  <Badge
+                    variant="outline"
+                    className="absolute start-3 top-3 border bg-background"
+                  >
+                    {item.badge}
+                  </Badge>
                 ) : null}
                 <Button
                   type="button"
@@ -104,18 +115,14 @@ export function WishlistCards() {
                   <Trash2Icon className="size-4" />
                 </Button>
               </div>
-              <CardHeader className="gap-1 px-4 pt-4 pb-0 text-start">
+              <CardHeader className="gap-1 px-4 pt-4 pb-3 text-start">
                 <h3 className="line-clamp-1 text-sm font-medium">{item.name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.price}
-                  </bdi>{" "}
-                  تومان
+                <p className="text-sm tracking-normal text-muted-foreground">
+                  {item.price} تومان
                 </p>
               </CardHeader>
-              <CardContent className="px-4 pt-2" />
               <CardFooter className="px-4 pt-0 pb-4">
-                <Button className="w-full" size="sm">
+                <Button type="button" className="w-full" size="sm">
                   افزودن به سبد
                 </Button>
               </CardFooter>
@@ -126,7 +133,7 @@ export function WishlistCards() {
 
       {items.length > 0 && (
         <div className="mt-6 flex justify-center">
-          <Button variant="outline">
+          <Button type="button" variant="outline">
             <HeartIcon className="size-4 fill-primary text-primary" />
             افزودن همه به سبد
           </Button>

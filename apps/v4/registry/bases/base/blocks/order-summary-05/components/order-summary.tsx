@@ -1,7 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon, MoreHorizontalIcon, PackageIcon, TruckIcon } from "lucide-react"
+import {
+  CheckIcon,
+  MoreHorizontalIcon,
+  PackageIcon,
+  TruckIcon,
+} from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -12,15 +17,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -54,7 +56,14 @@ const TIMELINE = [
   { label: "تحویل به پست", done: false, time: "—" },
 ] as const
 
+const SHIPPING_ITEMS = [
+  { value: "پیشتاز", label: "پیشتاز" },
+  { value: "عادی", label: "عادی" },
+] as const
+
 export function OrderSummaryHub() {
+  const [menuOpen, setMenuOpen] = React.useState(false)
+
   return (
     <section
       dir="rtl"
@@ -69,31 +78,54 @@ export function OrderSummaryHub() {
           <h2 className="text-3xl font-bold tracking-tight">
             سفارش شما ثبت شد
           </h2>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 tracking-normal text-muted-foreground">
             شماره سفارش{" "}
-            <bdi dir="ltr" className="font-medium text-foreground">
-              #۱۴۰۵۰۷۲۳۰۹
-            </bdi>
+            <span className="font-medium text-foreground">#۱۴۰۵۰۷۲۳۰۹</span>
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" />}>
+        <Popover open={menuOpen} onOpenChange={setMenuOpen}>
+          <PopoverTrigger render={<Button type="button" variant="outline" />}>
             <MoreHorizontalIcon className="size-4" />
             عملیات
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-            <DropdownMenuLabel>رسید</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>دانلود PDF</DropdownMenuItem>
-            <DropdownMenuItem>چاپ</DropdownMenuItem>
-            <DropdownMenuItem>پیگیری مرسوله</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="end"
+            className="w-44 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">رسید</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMenuOpen(false)}
+            >
+              دانلود PDF
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMenuOpen(false)}
+            >
+              چاپ
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMenuOpen(false)}
+            >
+              پیگیری مرسوله
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">اقلام سفارش</CardTitle>
             </CardHeader>
@@ -109,45 +141,34 @@ export function OrderSummaryHub() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-medium">{item.name}</p>
-                    <p className="text-xs text-muted-foreground">
-                      تعداد <bdi dir="ltr">{item.qty}</bdi>
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      تعداد {item.qty}
                     </p>
                   </div>
-                  <p className="text-sm font-medium">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {item.price}
-                    </bdi>
+                  <p className="text-sm font-medium tracking-normal">
+                    {item.price}
                   </p>
                 </div>
               ))}
               <Separator />
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm tracking-normal">
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">جمع جزء</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    ۷٬۴۴۰٬۰۰۰
-                  </bdi>
+                  <span>۷٬۴۴۰٬۰۰۰</span>
                 </div>
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">ارسال پیشتاز</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    ۲۵۰٬۰۰۰
-                  </bdi>
+                  <span>۲۵۰٬۰۰۰</span>
                 </div>
                 <div className="flex justify-between gap-3 font-semibold">
                   <span>پرداخت‌شده</span>
-                  <span>
-                    <bdi dir="ltr" className="tabular-nums">
-                      ۷٬۶۹۰٬۰۰۰
-                    </bdi>{" "}
-                    تومان
-                  </span>
+                  <span>۷٬۶۹۰٬۰۰۰ تومان</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">وضعیت ارسال</CardTitle>
             </CardHeader>
@@ -173,9 +194,9 @@ export function OrderSummaryHub() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-2">
                         <p className="text-sm font-medium">{step.label}</p>
-                        <bdi dir="ltr" className="text-xs text-muted-foreground">
+                        <span className="text-xs tracking-normal text-muted-foreground">
                           {step.time}
-                        </bdi>
+                        </span>
                       </div>
                     </div>
                   </li>
@@ -186,7 +207,7 @@ export function OrderSummaryHub() {
         </div>
 
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">تحویل</CardTitle>
             </CardHeader>
@@ -201,26 +222,29 @@ export function OrderSummaryHub() {
               </div>
               <div>
                 <p className="text-muted-foreground">ایمیل رسید</p>
-                <p dir="ltr" className="text-start">
+                <p dir="ltr" className="text-end tracking-normal">
                   sara@example.com
                 </p>
               </div>
               <div className="space-y-2">
                 <p className="text-muted-foreground">روش ارسال</p>
-                <Select defaultValue="express">
+                <Select items={[...SHIPPING_ITEMS]} defaultValue="پیشتاز">
                   <SelectTrigger className="w-full" dir="rtl">
                     <SelectValue placeholder="روش ارسال" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="express">پیشتاز</SelectItem>
-                    <SelectItem value="standard">عادی</SelectItem>
+                    {SHIPPING_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
             </CardContent>
           </Card>
 
-          <Card dir="rtl" lang="fa">
+          <Card dir="rtl" lang="fa" className="bg-card">
             <CardHeader className="text-start">
               <CardTitle className="text-base">ارسال رسید به ایمیل دیگر</CardTitle>
               <CardDescription>
@@ -238,7 +262,7 @@ export function OrderSummaryHub() {
                   required
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <Button type="submit" className="w-full" variant="outline">
                   ارسال رسید
@@ -247,7 +271,7 @@ export function OrderSummaryHub() {
             </CardContent>
           </Card>
 
-          <Button className="w-full" size="lg">
+          <Button type="button" className="w-full" size="lg">
             بازگشت به فروشگاه
           </Button>
         </div>

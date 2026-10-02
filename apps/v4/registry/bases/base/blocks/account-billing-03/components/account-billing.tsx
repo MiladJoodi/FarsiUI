@@ -16,6 +16,7 @@ import {
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
+import { Label } from "@/registry/bases/base/ui/label"
 import {
   Select,
   SelectContent,
@@ -25,7 +26,16 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
-import { Label } from "@/registry/bases/base/ui/label"
+
+const CYCLE_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه" },
+] as const
+
+const CURRENCY_ITEMS = [
+  { value: "تومان", label: "تومان" },
+  { value: "دلار", label: "دلار" },
+] as const
 
 export function AccountBillingInvoices() {
   return (
@@ -34,7 +44,7 @@ export function AccountBillingInvoices() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>فاکتور و تمدید</CardTitle>
           <CardDescription>
@@ -45,25 +55,31 @@ export function AccountBillingInvoices() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="ab3-cycle">دوره صورت‌حساب</FieldLabel>
-              <Select defaultValue="monthly">
+              <Select items={[...CYCLE_ITEMS]} defaultValue="ماهانه">
                 <SelectTrigger id="ab3-cycle" className="w-full" dir="rtl">
                   <SelectValue placeholder="دوره را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="monthly">ماهانه</SelectItem>
-                  <SelectItem value="yearly">سالانه</SelectItem>
+                  {CYCLE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="ab3-currency">ارز نمایش</FieldLabel>
-              <Select defaultValue="irr">
+              <Select items={[...CURRENCY_ITEMS]} defaultValue="تومان">
                 <SelectTrigger id="ab3-currency" className="w-full" dir="rtl">
                   <SelectValue placeholder="ارز" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="irr">تومان</SelectItem>
-                  <SelectItem value="usd">دلار</SelectItem>
+                  {CURRENCY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -84,7 +100,7 @@ export function AccountBillingInvoices() {
                 defaultValue="billing@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>
                 PDF فاکتور به این آدرس ارسال می‌شود
@@ -95,8 +111,8 @@ export function AccountBillingInvoices() {
               <Input
                 id="ab3-tax"
                 placeholder="مثلاً ۱۲۳۴۵۶۷۸۹۰۱"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </FieldGroup>
@@ -116,15 +132,18 @@ export function AccountBillingInvoices() {
           <div className="rounded-lg border p-3 text-sm">
             <div className="flex items-center justify-between">
               <span>فاکتور اخیر</span>
-              <Badge variant="secondary">پرداخت‌شده</Badge>
+              <Badge variant="outline" className="border">
+                پرداخت‌شده
+              </Badge>
             </div>
-            <p className="mt-2 tabular-nums text-muted-foreground">
-              <bdi dir="ltr">INV-1405-07-12</bdi> ·{" "}
-              <bdi dir="ltr">۱٬۳۲۰٬۰۰۰</bdi> تومان
+            <p className="mt-2 tracking-normal text-muted-foreground">
+              فاکتور-۱۴۰۵-۰۷-۱۲ · ۱٬۳۲۰٬۰۰۰ تومان
             </p>
           </div>
 
-          <Button className="w-full">ذخیره تنظیمات</Button>
+          <Button type="button" className="w-full">
+            ذخیره تنظیمات
+          </Button>
         </CardContent>
       </Card>
     </section>

@@ -95,13 +95,11 @@ export function ChatThread() {
                 <p
                   className={
                     m.me
-                      ? "text-start text-[10px] text-muted-foreground"
-                      : "text-end text-[10px] text-muted-foreground"
+                      ? "text-start text-[10px] tracking-normal text-muted-foreground"
+                      : "text-end text-[10px] tracking-normal text-muted-foreground"
                   }
                 >
-                  <bdi dir="ltr" className="tabular-nums">
-                    {m.time}
-                  </bdi>
+                  {m.time}
                 </p>
               </div>
             </div>

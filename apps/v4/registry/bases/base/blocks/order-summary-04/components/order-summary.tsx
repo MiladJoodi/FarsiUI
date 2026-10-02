@@ -12,13 +12,10 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const ITEMS = [
@@ -40,6 +37,7 @@ const ITEMS = [
 
 export function OrderSummaryActions() {
   const [status, setStatus] = React.useState("آماده ارسال")
+  const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (
     <section
@@ -47,36 +45,78 @@ export function OrderSummaryActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex flex-row items-start justify-between gap-3 space-y-0">
           <div>
-            <CardTitle className="text-base">سفارش #۱۴۰۵۰۷۲۲۱۸</CardTitle>
+            <CardTitle className="text-base tracking-normal">
+              سفارش #۱۴۰۵۰۷۲۲۱۸
+            </CardTitle>
             <p className="mt-1 text-xs text-muted-foreground">
               مشتری: علی رضایی
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="secondary">{status}</Badge>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="ghost" size="icon" className="size-8" />}
+            <Badge variant="outline" className="border">
+              {status}
+            </Badge>
+            <Popover open={menuOpen} onOpenChange={setMenuOpen}>
+              <PopoverTrigger
+                render={
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="size-8"
+                  />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">منوی سفارش</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-                <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>چاپ رسید</DropdownMenuItem>
-                <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setStatus("ارسال‌شده")}>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="end"
+                className="w-44 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  چاپ رسید
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  ارسال ایمیل
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => {
+                    setStatus("ارسال‌شده")
+                    setMenuOpen(false)
+                  }}
+                >
                   علامت ارسال‌شده
-                </DropdownMenuItem>
-                <DropdownMenuItem variant="destructive">
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setMenuOpen(false)}
+                >
                   لغو سفارش
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -92,15 +132,11 @@ export function OrderSummaryActions() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">{item.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    تعداد <bdi dir="ltr">{item.qty}</bdi>
+                  <p className="text-xs tracking-normal text-muted-foreground">
+                    تعداد {item.qty}
                   </p>
                 </div>
-                <p className="text-sm">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.price}
-                  </bdi>
-                </p>
+                <p className="text-sm tracking-normal">{item.price}</p>
               </div>
             ))}
           </div>
@@ -112,22 +148,17 @@ export function OrderSummaryActions() {
             <p className="mt-1 text-muted-foreground">
               تهران، ونک، خیابان گاندی، پلاک ۸
             </p>
-            <p className="mt-2 text-muted-foreground">
+            <p className="mt-2 tracking-normal text-muted-foreground">
               موبایل:{" "}
-              <span dir="ltr" className="inline-block text-start">
-                0912•••••••
+              <span dir="ltr" className="inline-block text-end">
+                ۰۹۱۲•••••••
               </span>
             </p>
           </div>
 
-          <div className="flex justify-between gap-3 text-sm font-semibold">
+          <div className="flex justify-between gap-3 text-sm font-semibold tracking-normal">
             <span>جمع پرداختی</span>
-            <span>
-              <bdi dir="ltr" className="tabular-nums">
-                ۶٬۳۶۰٬۰۰۰
-              </bdi>{" "}
-              تومان
-            </span>
+            <span>۶٬۳۶۰٬۰۰۰ تومان</span>
           </div>
         </CardContent>
       </Card>

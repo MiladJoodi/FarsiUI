@@ -35,8 +35,11 @@ export function WishlistSimple() {
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {ITEMS.map((item) => (
-          <article key={item.name} className="group flex flex-col gap-3">
-            <div className="relative aspect-square overflow-hidden rounded-xl border bg-muted">
+          <article
+            key={item.name}
+            className="group flex flex-col gap-3 rounded-xl border bg-card p-3"
+          >
+            <div className="relative aspect-square overflow-hidden rounded-lg border bg-muted">
               <img
                 src={item.image}
                 alt={item.name}
@@ -48,11 +51,8 @@ export function WishlistSimple() {
             </div>
             <div>
               <h3 className="font-medium">{item.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                <bdi dir="ltr" className="tabular-nums">
-                  {item.price}
-                </bdi>{" "}
-                تومان
+              <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                {item.price} تومان
               </p>
             </div>
           </article>

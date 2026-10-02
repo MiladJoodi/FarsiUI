@@ -18,16 +18,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -65,10 +62,29 @@ const RELATED = [
   },
 ] as const
 
+const SIZE_ITEMS = [
+  { value: "۴۰", label: "۴۰" },
+  { value: "۴۱", label: "۴۱" },
+  { value: "۴۲", label: "۴۲" },
+  { value: "۴۳", label: "۴۳" },
+  { value: "۴۴", label: "۴۴" },
+] as const
+
+const COLOR_ITEMS = [
+  { value: "قرمز آتشی", label: "قرمز آتشی" },
+  { value: "مشکی", label: "مشکی" },
+  { value: "سفید", label: "سفید" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function ProductDetailsHub() {
   const [active, setActive] = React.useState(0)
   const [qty, setQty] = React.useState(1)
   const [liked, setLiked] = React.useState(false)
+  const [shareOpen, setShareOpen] = React.useState(false)
 
   return (
     <section
@@ -91,7 +107,7 @@ export function ProductDetailsHub() {
                 key={src}
                 type="button"
                 onClick={() => setActive(index)}
-                className={`aspect-square overflow-hidden rounded-lg border ${
+                className={`aspect-square overflow-hidden rounded-lg border bg-muted ${
                   active === index ? "ring-2 ring-primary ring-offset-2" : ""
                 }`}
               >
@@ -104,19 +120,21 @@ export function ProductDetailsHub() {
         <div className="space-y-6">
           <div className="space-y-2">
             <div className="flex flex-wrap gap-2">
-              <Badge>پرفروش</Badge>
-              <Badge variant="outline">پوشیدنی</Badge>
+              <Badge variant="outline" className="border">
+                پرفروش
+              </Badge>
+              <Badge variant="outline" className="border">
+                پوشیدنی
+              </Badge>
             </div>
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               کفش دویدن سبک
             </h1>
-            <p className="text-xl">
-              <bdi dir="ltr" className="tabular-nums font-semibold">
-                ۵٬۴۰۰٬۰۰۰
-              </bdi>{" "}
+            <p className="text-xl tracking-normal">
+              <span className="font-semibold">۵٬۴۰۰٬۰۰۰</span>{" "}
               <span className="text-base text-muted-foreground">تومان</span>
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="leading-relaxed text-muted-foreground">
               رویهٔ تنفس‌پذیر، کفی ضربه‌گیر و طراحی سبک برای دویدن شهری و تمرین
               روزانه.
             </p>
@@ -125,29 +143,31 @@ export function ProductDetailsHub() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label>سایز</Label>
-              <Select defaultValue="42">
+              <Select items={[...SIZE_ITEMS]} defaultValue="۴۲">
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="سایز را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="40">۴۰</SelectItem>
-                  <SelectItem value="41">۴۱</SelectItem>
-                  <SelectItem value="42">۴۲</SelectItem>
-                  <SelectItem value="43">۴۳</SelectItem>
-                  <SelectItem value="44">۴۴</SelectItem>
+                  {SIZE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
               <Label>رنگ</Label>
-              <Select defaultValue="red">
+              <Select items={[...COLOR_ITEMS]} defaultValue="قرمز آتشی">
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="رنگ" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="red">قرمز آتشی</SelectItem>
-                  <SelectItem value="black">مشکی</SelectItem>
-                  <SelectItem value="white">سفید</SelectItem>
+                  {COLOR_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -165,8 +185,8 @@ export function ProductDetailsHub() {
               >
                 <MinusIcon className="size-4" />
               </Button>
-              <span className="w-10 text-center">
-                <bdi dir="ltr">{qty}</bdi>
+              <span className="w-10 text-center tracking-normal">
+                {toFa(qty)}
               </span>
               <Button
                 type="button"
@@ -181,7 +201,7 @@ export function ProductDetailsHub() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <Button size="lg" className="flex-1">
+            <Button type="button" size="lg" className="flex-1">
               افزودن به سبد
             </Button>
             <Button
@@ -195,25 +215,58 @@ export function ProductDetailsHub() {
                 className={`size-4 ${liked ? "fill-primary text-primary" : ""}`}
               />
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button size="lg" variant="outline" />}
+            <Popover open={shareOpen} onOpenChange={setShareOpen}>
+              <PopoverTrigger
+                render={<Button type="button" size="lg" variant="outline" />}
               >
                 <Share2Icon className="size-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-                <DropdownMenuLabel>اشتراک</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-                <DropdownMenuItem>تلگرام</DropdownMenuItem>
-                <DropdownMenuItem>ایمیل</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="end"
+                className="w-40 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">اشتراک</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  کپی لینک
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  تلگرام
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  ایمیل
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
 
-          <Accordion type="single" collapsible dir="rtl" lang="fa" className="w-full">
+          <Accordion
+            type="single"
+            collapsible
+            dir="rtl"
+            lang="fa"
+            className="w-full"
+          >
             <AccordionItem value="ship">
-              <AccordionTrigger className="text-start">ارسال و مرجوعی</AccordionTrigger>
+              <AccordionTrigger className="text-start">
+                ارسال و مرجوعی
+              </AccordionTrigger>
               <AccordionContent>
                 ارسال رایگان بالای ۲ میلیون تومان؛ مرجوعی تا ۷ روز در صورت سلامت
                 بسته‌بندی.
@@ -226,7 +279,9 @@ export function ProductDetailsHub() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="size">
-              <AccordionTrigger className="text-start">راهنمای سایز</AccordionTrigger>
+              <AccordionTrigger className="text-start">
+                راهنمای سایز
+              </AccordionTrigger>
               <AccordionContent>
                 اگر بین دو سایز هستید، سایز بزرگ‌تر را انتخاب کنید. جدول پا را در
                 صفحهٔ راهنما ببینید.
@@ -257,11 +312,8 @@ export function ProductDetailsHub() {
               </div>
               <div>
                 <h3 className="font-medium">{item.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.price}
-                  </bdi>{" "}
-                  تومان
+                <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                  {item.price} تومان
                 </p>
               </div>
             </article>
@@ -271,7 +323,7 @@ export function ProductDetailsHub() {
 
       <Separator className="my-12" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">موجود شد خبرم کن</CardTitle>
           <CardDescription>
@@ -294,7 +346,7 @@ export function ProductDetailsHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ثبت اطلاع

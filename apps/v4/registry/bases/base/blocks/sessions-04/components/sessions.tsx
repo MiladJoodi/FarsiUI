@@ -16,15 +16,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -49,7 +46,7 @@ const INITIAL: Session[] = [
     id: "1",
     device: "Chrome روی ویندوز",
     place: "تهران",
-    ip: "185.12.34.56",
+    ip: "۱۸۵.۱۲.۳۴.۵۶",
     lastActive: "الان",
     current: true,
     kind: "laptop",
@@ -58,7 +55,7 @@ const INITIAL: Session[] = [
     id: "2",
     device: "Safari روی آیفون",
     place: "تهران",
-    ip: "185.12.34.90",
+    ip: "۱۸۵.۱۲.۳۴.۹۰",
     lastActive: "۳ ساعت پیش",
     kind: "phone",
   },
@@ -66,7 +63,7 @@ const INITIAL: Session[] = [
     id: "3",
     device: "Firefox روی مک",
     place: "اصفهان",
-    ip: "91.98.12.3",
+    ip: "۹۱.۹۸.۱۲.۳",
     lastActive: "دیروز",
     kind: "laptop",
   },
@@ -74,26 +71,34 @@ const INITIAL: Session[] = [
     id: "4",
     device: "Edge روی ویندوز",
     place: "شیراز",
-    ip: "78.38.50.1",
+    ip: "۷۸.۳۸.۵۰.۱",
     lastActive: "۵ روز پیش",
     kind: "laptop",
   },
 ]
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "همین دستگاه", label: "همین دستگاه" },
+  { value: "سایر", label: "سایر" },
+] as const
+
 export function SessionsList() {
   const [sessions, setSessions] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState("همه")
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = sessions.filter((s) => {
-    if (filter === "current" && !s.current) return false
-    if (filter === "other" && s.current) return false
+    if (filter === "همین دستگاه" && !s.current) return false
+    if (filter === "سایر" && s.current) return false
     if (query && !`${s.device}${s.place}`.includes(query)) return false
     return true
   })
 
   function revoke(id: string) {
     setSessions((prev) => prev.filter((s) => s.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -102,12 +107,12 @@ export function SessionsList() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
           <div>
             <CardTitle>نشست‌های فعال</CardTitle>
             <CardDescription>
-              جستجوی فارسی RTL · IP انگلیسی LTR
+              جستجوی فارسی راست‌چین؛ آدرس آی‌پی چپ‌چین
             </CardDescription>
           </div>
           <Button
@@ -131,16 +136,23 @@ export function SessionsList() {
               className="flex-1"
             />
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-40" dir="rtl">
                 <SelectValue placeholder="فیلتر" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="current">همین دستگاه</SelectItem>
-                <SelectItem value="other">سایر</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -161,36 +173,72 @@ export function SessionsList() {
                           {s.device}
                         </p>
                         {s.current ? (
-                          <Badge variant="secondary">همین دستگاه</Badge>
+                          <Badge variant="outline" className="border">
+                            همین دستگاه
+                          </Badge>
                         ) : null}
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs tracking-normal text-muted-foreground">
                         {s.place} · {s.lastActive} ·{" "}
-                        <bdi dir="ltr">{s.ip}</bdi>
+                        <span dir="ltr" className="inline-block text-left">
+                          {s.ip}
+                        </span>
                       </p>
                     </div>
                     {!s.current ? (
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === s.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? s.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>جزئیات نشست</DropdownMenuItem>
-                          <DropdownMenuItem>اعتماد به دستگاه</DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            variant="destructive"
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-44 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            جزئیات نشست
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            اعتماد به دستگاه
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
                             onClick={() => revoke(s.id)}
                           >
                             پایان نشست
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     ) : null}
                   </div>
                 </li>

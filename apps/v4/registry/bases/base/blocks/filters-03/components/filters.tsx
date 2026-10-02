@@ -33,8 +33,16 @@ import { Switch } from "@/registry/bases/base/ui/switch"
 
 const BRANDS = ["آرام", "نور", "مینیمال", "سبک"] as const
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
 export function FiltersPanel() {
   const [brands, setBrands] = React.useState<string[]>(["آرام"])
+  const [category, setCategory] = React.useState("همه")
 
   function toggleBrand(name: string, on: boolean) {
     setBrands((prev) =>
@@ -48,14 +56,14 @@ export function FiltersPanel() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="border-b py-4 text-start">
           <CardTitle>فیلتر محصولات</CardTitle>
           <CardDescription>
-            جستجوی فارسی · ایمیل فروشنده LTR
+            جستجوی فارسی؛ ایمیل فروشنده چپ‌چین
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-5">
+        <CardContent className="space-y-5 py-4">
           <div className="relative">
             <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -67,15 +75,24 @@ export function FiltersPanel() {
 
           <Field>
             <FieldLabel>دسته</FieldLabel>
-            <Select defaultValue="all">
+            <Select
+              items={[...CATEGORY_ITEMS]}
+              value={category}
+              onValueChange={(value) => {
+                if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                  setCategory(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="دسته" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="audio">صوتی</SelectItem>
-                <SelectItem value="wearable">پوشیدنی</SelectItem>
-                <SelectItem value="home">خانه</SelectItem>
+                {CATEGORY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -87,8 +104,8 @@ export function FiltersPanel() {
                 id="f3-min"
                 inputMode="numeric"
                 placeholder="۱٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
             <Field>
@@ -97,8 +114,8 @@ export function FiltersPanel() {
                 id="f3-max"
                 inputMode="numeric"
                 placeholder="۱۰٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </div>
@@ -137,7 +154,7 @@ export function FiltersPanel() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>فیلتر اختیاری</FieldDescription>
           </Field>
@@ -147,15 +164,21 @@ export function FiltersPanel() {
             <Switch id="f3-stock" defaultChecked />
           </div>
         </CardContent>
-        <CardFooter className="gap-2 border-t">
+        <CardFooter className="gap-3 border-t py-4">
           <Button
+            type="button"
             variant="outline"
             className="flex-1"
-            onClick={() => setBrands([])}
+            onClick={() => {
+              setBrands([])
+              setCategory("همه")
+            }}
           >
             پاک کردن
           </Button>
-          <Button className="flex-1">اعمال</Button>
+          <Button type="button" className="flex-1">
+            اعمال
+          </Button>
         </CardFooter>
       </Card>
     </section>

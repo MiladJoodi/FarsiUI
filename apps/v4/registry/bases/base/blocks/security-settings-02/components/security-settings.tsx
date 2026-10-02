@@ -32,7 +32,7 @@ export function SecuritySettingsTabs() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>تنظیمات امنیتی</CardTitle>
           <CardDescription>
@@ -54,9 +54,9 @@ export function SecuritySettingsTabs() {
                     <Input
                       id="ss2-current"
                       type="password"
-                      placeholder="••••••••"
-                      dir="ltr"
-                      className="text-start"
+                      placeholder="رمز عبور فعلی"
+                      dir="rtl"
+                      className="text-end"
                       autoComplete="current-password"
                     />
                   </Field>
@@ -66,8 +66,8 @@ export function SecuritySettingsTabs() {
                       id="ss2-new"
                       type="password"
                       placeholder="حداقل ۸ کاراکتر"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                       autoComplete="new-password"
                     />
                     <FieldDescription>
@@ -81,6 +81,7 @@ export function SecuritySettingsTabs() {
                       type="password"
                       placeholder="تکرار رمز جدید"
                       dir="rtl"
+                      className="text-end"
                       autoComplete="new-password"
                     />
                   </Field>
@@ -109,7 +110,7 @@ export function SecuritySettingsTabs() {
                   defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                   placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left tracking-normal"
                 />
               </Field>
               <Field>
@@ -120,10 +121,12 @@ export function SecuritySettingsTabs() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
               </Field>
-              <Button className="w-full">ذخیره دو مرحله‌ای</Button>
+              <Button type="button" className="w-full">
+                ذخیره دو مرحله‌ای
+              </Button>
             </TabsContent>
           </Tabs>
         </CardContent>

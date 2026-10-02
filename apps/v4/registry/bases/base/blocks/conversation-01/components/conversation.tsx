@@ -21,7 +21,7 @@ export function ConversationSimple() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="flex h-[440px] flex-col overflow-hidden">
+      <Card className="flex h-[440px] flex-col gap-0 overflow-hidden bg-card py-0">
         <CardHeader className="border-b py-3">
           <CardTitle className="text-base">مکالمه · پیگیری سفارش</CardTitle>
         </CardHeader>
@@ -46,9 +46,11 @@ export function ConversationSimple() {
             </div>
           ))}
         </CardContent>
-        <CardFooter className="gap-2 border-t p-3">
+        <CardFooter className="flex items-center gap-3 border-t px-4 py-3">
           <Input placeholder="پاسخ بنویسید…" dir="rtl" className="flex-1" />
-          <Button type="button">ارسال</Button>
+          <Button type="button" className="shrink-0">
+            ارسال
+          </Button>
         </CardFooter>
       </Card>
     </section>

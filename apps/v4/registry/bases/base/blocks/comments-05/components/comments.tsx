@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   CheckIcon,
   MoreHorizontalIcon,
@@ -12,20 +11,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/av
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -36,6 +32,7 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type Comment = {
   id: string
@@ -43,7 +40,7 @@ type Comment = {
   email: string
   text: string
   time: string
-  status: "approved" | "pending" | "spam"
+  status: "تأییدشده" | "در انتظار" | "اسپم"
   initials: string
   avatar?: string
 }
@@ -55,7 +52,7 @@ const INITIAL: Comment[] = [
     email: "sara@example.com",
     text: "طراحی خیلی تمیزه؛ برای داشبورد فارسی عالیه.",
     time: "۱ ساعت پیش",
-    status: "approved",
+    status: "تأییدشده",
     initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
@@ -66,7 +63,7 @@ const INITIAL: Comment[] = [
     email: "ali@example.com",
     text: "کاش نمونهٔ فرم چندمرحله‌ای هم اضافه شود.",
     time: "۵ ساعت پیش",
-    status: "pending",
+    status: "در انتظار",
     initials: "ع‌ر",
   },
   {
@@ -75,7 +72,7 @@ const INITIAL: Comment[] = [
     email: "spam@example.com",
     text: "خرید ارزان همین حالا!!!",
     time: "دیروز",
-    status: "spam",
+    status: "اسپم",
     initials: "ا‌س",
   },
   {
@@ -84,28 +81,35 @@ const INITIAL: Comment[] = [
     email: "mina@example.com",
     text: "مستندات نصب واضح بود.",
     time: "۲ روز پیش",
-    status: "approved",
+    status: "تأییدشده",
     initials: "م‌ک",
   },
 ]
 
 const NAV = [
-  { id: "all", label: "همه" },
-  { id: "pending", label: "در انتظار" },
-  { id: "approved", label: "تأییدشده" },
-  { id: "spam", label: "اسپم" },
+  { id: "همه", label: "همه" },
+  { id: "در انتظار", label: "در انتظار" },
+  { id: "تأییدشده", label: "تأییدشده" },
+  { id: "اسپم", label: "اسپم" },
 ] as const
 
 type NavId = (typeof NAV)[number]["id"]
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "قدیمی‌ترین", label: "قدیمی‌ترین" },
+] as const
+
 export function CommentsHub() {
   const [items, setItems] = React.useState(INITIAL)
-  const [tab, setTab] = React.useState<NavId>("all")
-  const [sort, setSort] = React.useState("newest")
+  const [tab, setTab] = React.useState<NavId>("همه")
+  const [sort, setSort] = React.useState("جدیدترین")
   const [query, setQuery] = React.useState("")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = items.filter((c) => {
-    if (tab !== "all" && c.status !== tab) return false
+    if (tab !== "همه" && c.status !== tab) return false
     if (query && !`${c.name}${c.text}${c.email}`.includes(query)) return false
     return true
   })
@@ -114,10 +118,12 @@ export function CommentsHub() {
     setItems((prev) =>
       prev.map((c) => (c.id === id ? { ...c, status } : c))
     )
+    setOpenId(null)
   }
 
   function remove(id: string) {
     setItems((prev) => prev.filter((c) => c.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -133,38 +139,53 @@ export function CommentsHub() {
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">مدیریت دیدگاه‌ها</h2>
           <p className="mt-2 text-muted-foreground">
-            تأیید، اسپم، اعلان ایمیل و منوهای RTL
+            تأیید، اسپم، اعلان ایمیل و منوهای راست‌چین
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              onClick={() =>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-52 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
                 setItems((prev) =>
                   prev.map((c) =>
-                    c.status === "pending" ? { ...c, status: "approved" } : c
+                    c.status === "در انتظار"
+                      ? { ...c, status: "تأییدشده" }
+                      : c
                   )
                 )
-              }
+                setMoreOpen(false)
+              }}
             >
               تأیید همهٔ در انتظار
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              variant="destructive"
-              onClick={() =>
-                setItems((prev) => prev.filter((c) => c.status !== "spam"))
-              }
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => {
+                setItems((prev) => prev.filter((c) => c.status !== "اسپم"))
+                setMoreOpen(false)
+              }}
             >
               حذف همهٔ اسپم
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[11rem_1fr]">
@@ -197,7 +218,7 @@ export function CommentsHub() {
                 defaultValue="mod@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>اعلان دیدگاه جدید</FieldDescription>
             </Field>
@@ -220,15 +241,23 @@ export function CommentsHub() {
               className="flex-1"
             />
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full lg:w-36" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="oldest">قدیمی‌ترین</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -239,84 +268,117 @@ export function CommentsHub() {
                 دیدگاهی نیست
               </p>
             ) : (
-              (sort === "oldest" ? [...rows].reverse() : rows).map((c, i) => (
-                <div key={c.id}>
-                  {i > 0 && <Separator />}
-                  <div className="flex gap-3 px-4 py-3">
-                    <Avatar className="size-9">
-                      {c.avatar ? (
-                        <AvatarImage src={c.avatar} alt={c.name} />
-                      ) : null}
-                      <AvatarFallback>{c.initials}</AvatarFallback>
-                    </Avatar>
-                    <div className="min-w-0 flex-1 space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <p className="text-sm font-medium">{c.name}</p>
-                        <Badge
-                          variant={
-                            c.status === "spam"
-                              ? "destructive"
-                              : c.status === "pending"
-                                ? "outline"
-                                : "secondary"
+              (sort === "قدیمی‌ترین" ? [...rows].reverse() : rows).map(
+                (c, i) => (
+                  <div key={c.id}>
+                    {i > 0 && <Separator />}
+                    <div className="flex gap-3 px-4 py-3">
+                      <Avatar className="size-9">
+                        {c.avatar ? (
+                          <AvatarImage src={c.avatar} alt={c.name} />
+                        ) : null}
+                        <AvatarFallback>{c.initials}</AvatarFallback>
+                      </Avatar>
+                      <div className="min-w-0 flex-1 space-y-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <p className="text-sm font-medium">{c.name}</p>
+                          <Badge
+                            variant={
+                              c.status === "اسپم"
+                                ? "destructive"
+                                : c.status === "در انتظار"
+                                  ? "outline"
+                                  : "secondary"
+                            }
+                            className={
+                              c.status === "در انتظار" ? "border" : undefined
+                            }
+                          >
+                            {c.status}
+                          </Badge>
+                          <span className="text-xs tracking-normal text-muted-foreground">
+                            {c.time}
+                          </span>
+                        </div>
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          <span dir="ltr" className="inline-block text-left">
+                            {c.email}
+                          </span>
+                        </p>
+                        <p className="text-sm leading-relaxed">{c.text}</p>
+                      </div>
+                      <Popover
+                        open={openId === c.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? c.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="shrink-0"
+                            />
                           }
                         >
-                          {c.status === "spam"
-                            ? "اسپم"
-                            : c.status === "pending"
-                              ? "در انتظار"
-                              : "تأییدشده"}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground">
-                          {c.time}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground">
-                        <bdi dir="ltr">{c.email}</bdi>
-                      </p>
-                      <p className="text-sm leading-relaxed">{c.text}</p>
+                          <MoreHorizontalIcon className="size-4" />
+                          عملیات
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-40 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setStatus(c.id, "تأییدشده")}
+                          >
+                            <CheckIcon className="size-4" />
+                            تأیید
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setStatus(c.id, "در انتظار")}
+                          >
+                            در انتظار
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setStatus(c.id, "اسپم")}
+                          >
+                            علامت اسپم
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => remove(c.id)}
+                          >
+                            <Trash2Icon className="size-4" />
+                            حذف
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
-                      >
-                        <MoreHorizontalIcon className="size-4" />
-                        <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem
-                          onClick={() => setStatus(c.id, "approved")}
-                        >
-                          <CheckIcon className="size-4" />
-                          تأیید
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => setStatus(c.id, "pending")}
-                        >
-                          در انتظار
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => setStatus(c.id, "spam")}
-                        >
-                          علامت اسپم
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem
-                          variant="destructive"
-                          onClick={() => remove(c.id)}
-                        >
-                          <Trash2Icon className="size-4" />
-                          حذف
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
                   </div>
-                </div>
-              ))
+                )
+              )
             )}
           </div>
 
-          <div className="space-y-2 rounded-lg border p-4">
+          <div className="space-y-3 rounded-lg border p-4">
             <p className="text-sm font-medium">پاسخ سریع مدیر</p>
             <Textarea
               placeholder="پاسخ عمومی بنویسید…"

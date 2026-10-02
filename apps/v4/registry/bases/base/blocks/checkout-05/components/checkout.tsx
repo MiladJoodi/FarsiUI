@@ -51,6 +51,23 @@ const ITEMS = [
   },
 ] as const
 
+const PROVINCE_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "البرز", label: "البرز" },
+  { value: "اصفهان", label: "اصفهان" },
+] as const
+
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "شمیرانات", label: "شمیرانات" },
+] as const
+
+const PAY_ITEMS = [
+  { value: "درگاه آنلاین", label: "درگاه آنلاین" },
+  { value: "کیف پول", label: "کیف پول" },
+  { value: "پرداخت در محل", label: "پرداخت در محل" },
+] as const
+
 export function CheckoutHub() {
   const [sameBilling, setSameBilling] = React.useState(true)
   const [newsletter, setNewsletter] = React.useState(true)
@@ -75,7 +92,7 @@ export function CheckoutHub() {
 
       <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">اطلاعات تماس</CardTitle>
               <CardDescription>
@@ -101,7 +118,7 @@ export function CheckoutHub() {
                       type="email"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                       defaultValue="sara@example.com"
                     />
                   </Field>
@@ -110,10 +127,10 @@ export function CheckoutHub() {
                     <Input
                       id="c5-phone"
                       type="tel"
-                      placeholder="0912•••••••"
+                      placeholder="۰۹۱۲•••••••"
                       dir="ltr"
-                      className="text-start"
-                      defaultValue="09121234567"
+                      className="text-left tracking-normal"
+                      defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                     />
                   </Field>
                 </div>
@@ -131,7 +148,7 @@ export function CheckoutHub() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">آدرس ارسال</CardTitle>
             </CardHeader>
@@ -140,26 +157,35 @@ export function CheckoutHub() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field>
                     <FieldLabel htmlFor="c5-province">استان</FieldLabel>
-                    <Select defaultValue="tehran">
-                      <SelectTrigger id="c5-province" className="w-full" dir="rtl">
+                    <Select items={[...PROVINCE_ITEMS]} defaultValue="تهران">
+                      <SelectTrigger
+                        id="c5-province"
+                        className="w-full"
+                        dir="rtl"
+                      >
                         <SelectValue placeholder="استان" />
                       </SelectTrigger>
                       <SelectContent dir="rtl" lang="fa">
-                        <SelectItem value="tehran">تهران</SelectItem>
-                        <SelectItem value="alborz">البرز</SelectItem>
-                        <SelectItem value="isfahan">اصفهان</SelectItem>
+                        {PROVINCE_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="c5-city">شهر</FieldLabel>
-                    <Select defaultValue="tehran-city">
+                    <Select items={[...CITY_ITEMS]} defaultValue="تهران">
                       <SelectTrigger id="c5-city" className="w-full" dir="rtl">
                         <SelectValue placeholder="شهر" />
                       </SelectTrigger>
                       <SelectContent dir="rtl" lang="fa">
-                        <SelectItem value="tehran-city">تهران</SelectItem>
-                        <SelectItem value="shemiran">شمیرانات</SelectItem>
+                        {CITY_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </Field>
@@ -177,9 +203,9 @@ export function CheckoutHub() {
                   <FieldLabel htmlFor="c5-postal">کد پستی</FieldLabel>
                   <Input
                     id="c5-postal"
-                    placeholder="1234567890"
+                    placeholder="۱۲۳۴۵۶۷۸۹۰"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left tracking-normal"
                   />
                 </Field>
               </FieldGroup>
@@ -211,49 +237,47 @@ export function CheckoutHub() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">پرداخت و ارسال</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label>روش ارسال</Label>
-                <RadioGroup defaultValue="standard" className="gap-2">
+                <RadioGroup defaultValue="عادی" className="gap-2">
                   <div className="flex items-center justify-between gap-3 rounded-xl border p-3">
                     <div className="flex items-center gap-3">
-                      <RadioGroupItem value="standard" id="c5-std" />
+                      <RadioGroupItem value="عادی" id="c5-std" />
                       <Label htmlFor="c5-std" className="font-normal">
-                        عادی (۲–۴ روز)
+                        عادی (۲ تا ۴ روز)
                       </Label>
                     </div>
                     <span className="text-sm text-muted-foreground">رایگان</span>
                   </div>
                   <div className="flex items-center justify-between gap-3 rounded-xl border p-3">
                     <div className="flex items-center gap-3">
-                      <RadioGroupItem value="express" id="c5-exp" />
+                      <RadioGroupItem value="پیشتاز" id="c5-exp" />
                       <Label htmlFor="c5-exp" className="font-normal">
                         پیشتاز (۱ روز)
                       </Label>
                     </div>
-                    <span className="text-sm">
-                      <bdi dir="ltr" className="tabular-nums">
-                        ۲۵۰٬۰۰۰
-                      </bdi>
-                    </span>
+                    <span className="text-sm tracking-normal">۲۵۰٬۰۰۰</span>
                   </div>
                 </RadioGroup>
               </div>
 
               <div className="space-y-2">
                 <Label>روش پرداخت</Label>
-                <Select defaultValue="online">
+                <Select items={[...PAY_ITEMS]} defaultValue="درگاه آنلاین">
                   <SelectTrigger className="w-full" dir="rtl">
                     <SelectValue placeholder="روش پرداخت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="online">درگاه آنلاین</SelectItem>
-                    <SelectItem value="wallet">کیف پول</SelectItem>
-                    <SelectItem value="cod">پرداخت در محل</SelectItem>
+                    {PAY_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -262,7 +286,7 @@ export function CheckoutHub() {
         </div>
 
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">سفارش شما</CardTitle>
             </CardHeader>
@@ -279,15 +303,11 @@ export function CheckoutHub() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{item.name}</p>
-                      <p className="text-xs text-muted-foreground">
-                        تعداد <bdi dir="ltr">{item.qty}</bdi>
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        تعداد {item.qty}
                       </p>
                     </div>
-                    <p className="text-sm">
-                      <bdi dir="ltr" className="tabular-nums">
-                        {item.price}
-                      </bdi>
-                    </p>
+                    <p className="text-sm tracking-normal">{item.price}</p>
                   </div>
                 ))}
               </div>
@@ -316,21 +336,19 @@ export function CheckoutHub() {
                 </Button>
               </form>
               {applied && (
-                <Badge variant="secondary">۱۰٪ تخفیف اعمال شد</Badge>
+                <Badge variant="outline" className="border">
+                  ۱۰٪ تخفیف اعمال شد
+                </Badge>
               )}
 
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm tracking-normal">
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">جمع جزء</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    ۷٬۴۴۰٬۰۰۰
-                  </bdi>
+                  <span>۷٬۴۴۰٬۰۰۰</span>
                 </div>
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">تخفیف</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {applied ? "۷۴۴٬۰۰۰" : "۰"}
-                  </bdi>
+                  <span>{applied ? "۷۴۴٬۰۰۰" : "۰"}</span>
                 </div>
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">ارسال</span>
@@ -340,16 +358,13 @@ export function CheckoutHub() {
                 <div className="flex justify-between gap-3 text-base font-semibold">
                   <span>قابل پرداخت</span>
                   <span>
-                    <bdi dir="ltr" className="tabular-nums">
-                      {applied ? "۶٬۶۹۶٬۰۰۰" : "۷٬۴۴۰٬۰۰۰"}
-                    </bdi>{" "}
-                    تومان
+                    {applied ? "۶٬۶۹۶٬۰۰۰" : "۷٬۴۴۰٬۰۰۰"} تومان
                   </span>
                 </div>
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg">
+              <Button type="button" className="w-full" size="lg">
                 ثبت سفارش و پرداخت
               </Button>
             </CardFooter>

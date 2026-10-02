@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   MoreHorizontalIcon,
   PaperclipIcon,
@@ -12,15 +11,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -30,6 +26,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const CONTACTS = [
   {
@@ -66,17 +63,33 @@ const CONTACTS = [
   },
 ] as const
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "آنلاین", label: "آنلاین" },
+] as const
+
+const SEND_ITEMS = [
+  { value: "اینتر برای ارسال", label: "اینتر برای ارسال" },
+  { value: "کنترل+اینتر", label: "کنترل+اینتر" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function ChatHub() {
   const [active, setActive] = React.useState("1")
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState("همه")
   const [query, setQuery] = React.useState("")
   const [draft, setDraft] = React.useState("")
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   const contact = CONTACTS.find((c) => c.id === active) ?? CONTACTS[0]
 
   const list = CONTACTS.filter((c) => {
-    if (filter === "unread" && c.unread === 0) return false
-    if (filter === "online" && !c.online) return false
+    if (filter === "خوانده‌نشده" && c.unread === 0) return false
+    if (filter === "آنلاین" && !c.online) return false
     if (query && !`${c.name}${c.email}`.includes(query)) return false
     return true
   })
@@ -93,7 +106,7 @@ export function ChatHub() {
         </Badge>
         <h2 className="text-3xl font-bold tracking-tight">گفتگوها</h2>
         <p className="mt-2 text-muted-foreground">
-          فهرست مخاطبین، فیلتر RTL و ارسال پیام
+          فهرست مخاطبین، فیلتر راست‌چین و ارسال پیام
         </p>
       </div>
 
@@ -111,16 +124,23 @@ export function ChatHub() {
               />
             </div>
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="فیلتر" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="online">آنلاین</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -150,8 +170,8 @@ export function ChatHub() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <p className="truncate text-sm font-medium">{c.name}</p>
-                      <span className="shrink-0 text-[10px] text-muted-foreground">
-                        <bdi dir="ltr">{c.time}</bdi>
+                      <span className="shrink-0 text-[10px] tracking-normal text-muted-foreground">
+                        {c.time}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-2">
@@ -160,10 +180,10 @@ export function ChatHub() {
                       </p>
                       {c.unread > 0 ? (
                         <Badge
-                          variant="secondary"
-                          className="h-5 min-w-5 px-1.5"
+                          variant="outline"
+                          className="h-5 min-w-5 border px-1.5 tracking-normal"
                         >
-                          <bdi dir="ltr">{c.unread}</bdi>
+                          {toFa(c.unread)}
                         </Badge>
                       ) : null}
                     </div>
@@ -184,30 +204,63 @@ export function ChatHub() {
             </Avatar>
             <div className="min-w-0 flex-1">
               <p className="truncate font-semibold">{contact.name}</p>
-              <p className="truncate text-xs text-muted-foreground">
-                <bdi dir="ltr">{contact.email}</bdi>
+              <p className="truncate text-xs tracking-normal text-muted-foreground">
+                <span dir="ltr" className="inline-block text-left">
+                  {contact.email}
+                </span>
                 {contact.online ? " · آنلاین" : " · آفلاین"}
               </p>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" size="icon-sm" />}
+            <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>عملیات گفتگو</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>مشاهده پروفایل</DropdownMenuItem>
-                <DropdownMenuItem>کپی ایمیل</DropdownMenuItem>
-                <DropdownMenuItem>بی‌صدا کردن</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-44 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات گفتگو</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  مشاهده پروفایل
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  کپی ایمیل
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  بی‌صدا کردن
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setMoreOpen(false)}
+                >
                   حذف گفتگو
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="flex-1 space-y-3 overflow-auto p-4">
@@ -219,7 +272,10 @@ export function ChatHub() {
             </Bubble>
             <Bubble me={false} time="۱۰:۲۷">
               ممنون. اگر لازم شد به{" "}
-              <bdi dir="ltr">{contact.email}</bdi> هم بفرستید.
+              <span dir="ltr" className="inline-block text-left">
+                {contact.email}
+              </span>{" "}
+              هم بفرستید.
             </Bubble>
           </div>
 
@@ -237,13 +293,16 @@ export function ChatHub() {
                   <PaperclipIcon className="size-4" />
                   پیوست
                 </Button>
-                <Select defaultValue="enter">
-                  <SelectTrigger className="w-36" dir="rtl">
+                <Select items={[...SEND_ITEMS]} defaultValue="اینتر برای ارسال">
+                  <SelectTrigger className="w-40" dir="rtl">
                     <SelectValue placeholder="ارسال با" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="enter">Enter برای ارسال</SelectItem>
-                    <SelectItem value="ctrl">Ctrl+Enter</SelectItem>
+                    {SEND_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -284,10 +343,8 @@ function Bubble({
         >
           {children}
         </div>
-        <p className="text-[10px] text-muted-foreground">
-          <bdi dir="ltr" className="tabular-nums">
-            {time}
-          </bdi>
+        <p className="text-[10px] tracking-normal text-muted-foreground">
+          {time}
         </p>
       </div>
     </div>

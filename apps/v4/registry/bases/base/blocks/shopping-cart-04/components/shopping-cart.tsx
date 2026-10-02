@@ -12,15 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
@@ -65,6 +62,7 @@ export function ShoppingCartActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [saved, setSaved] = React.useState<CartItem[]>([])
   const [giftWrap, setGiftWrap] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0)
   const giftCost = giftWrap ? 150000 : 0
@@ -83,10 +81,12 @@ export function ShoppingCartActions() {
     if (!item) return
     setItems((prev) => prev.filter((x) => x.id !== id))
     setSaved((prev) => [...prev, item])
+    setOpenId(null)
   }
 
   function remove(id: string) {
     setItems((prev) => prev.filter((x) => x.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -98,13 +98,13 @@ export function ShoppingCartActions() {
       <div className="mb-6">
         <h2 className="text-2xl font-bold tracking-tight">سبد با عملیات</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          منوی کشویی راست‌چین و بسته‌بندی هدیه
+          منوی عملیات راست‌چین و بسته‌بندی هدیه
         </p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
-          <div className="divide-y rounded-xl border">
+          <div className="divide-y overflow-hidden rounded-xl border bg-card">
             {items.length === 0 ? (
               <p className="p-8 text-center text-sm text-muted-foreground">
                 سبد خالی است.
@@ -126,17 +126,20 @@ export function ShoppingCartActions() {
                         <p className="mt-1 text-xs text-muted-foreground">
                           {item.variant}
                         </p>
-                        <p className="mt-1 text-sm">
-                          <bdi dir="ltr" className="tabular-nums">
-                            {item.priceLabel}
-                          </bdi>{" "}
-                          تومان
+                        <p className="mt-1 text-sm tracking-normal">
+                          {item.priceLabel} تومان
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                      <Popover
+                        open={openId === item.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? item.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
                             <Button
+                              type="button"
                               variant="ghost"
                               size="icon"
                               className="size-8"
@@ -145,29 +148,42 @@ export function ShoppingCartActions() {
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">منوی آیتم</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="end"
-                          className="w-44"
+                          className="w-44 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
                             onClick={() => moveToSaved(item.id)}
                           >
                             ذخیره برای بعد
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>ویرایش گزینه</DropdownMenuItem>
-                          <DropdownMenuItem
-                            variant="destructive"
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ویرایش گزینه
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
                             onClick={() => remove(item.id)}
                           >
                             حذف از سبد
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                     <div className="flex items-center gap-2">
                       <Button
@@ -179,8 +195,8 @@ export function ShoppingCartActions() {
                       >
                         <MinusIcon className="size-3.5" />
                       </Button>
-                      <span className="w-8 text-center text-sm">
-                        <bdi dir="ltr">{item.qty}</bdi>
+                      <span className="w-8 text-center text-sm tracking-normal">
+                        {formatFa(item.qty)}
                       </span>
                       <Button
                         type="button"
@@ -203,7 +219,7 @@ export function ShoppingCartActions() {
               <h3 className="mb-3 text-sm font-medium text-muted-foreground">
                 ذخیره‌شده برای بعد
               </h3>
-              <div className="divide-y rounded-xl border">
+              <div className="divide-y overflow-hidden rounded-xl border bg-card">
                 {saved.map((item) => (
                   <div
                     key={item.id}
@@ -220,6 +236,7 @@ export function ShoppingCartActions() {
                       <p className="truncate text-sm font-medium">{item.name}</p>
                     </div>
                     <Button
+                      type="button"
                       size="sm"
                       variant="outline"
                       onClick={() => {
@@ -236,7 +253,7 @@ export function ShoppingCartActions() {
           )}
         </div>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">خلاصه</CardTitle>
           </CardHeader>
@@ -244,7 +261,7 @@ export function ShoppingCartActions() {
             <div className="flex items-center justify-between gap-4 rounded-xl border p-3">
               <div className="space-y-0.5">
                 <Label htmlFor="gift">بسته‌بندی هدیه</Label>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs tracking-normal text-muted-foreground">
                   ۱۵۰٬۰۰۰ تومان اضافه
                 </p>
               </div>
@@ -254,26 +271,28 @@ export function ShoppingCartActions() {
                 onCheckedChange={setGiftWrap}
               />
             </div>
-            {giftWrap && <Badge variant="secondary">هدیه فعال شد</Badge>}
+            {giftWrap && (
+              <Badge variant="outline" className="border">
+                هدیه فعال شد
+              </Badge>
+            )}
             <Separator />
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 tracking-normal">
               <span className="text-muted-foreground">جمع جزء</span>
-              <bdi dir="ltr" className="tabular-nums">
-                {formatFa(subtotal)}
-              </bdi>
+              <span>{formatFa(subtotal)}</span>
             </div>
-            <div className="flex justify-between gap-4 font-semibold">
+            <div className="flex justify-between gap-4 font-semibold tracking-normal">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(total)}
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>{formatFa(total)} تومان</span>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full" size="lg" disabled={items.length === 0}>
+            <Button
+              type="button"
+              className="w-full"
+              size="lg"
+              disabled={items.length === 0}
+            >
               تسویه‌حساب
             </Button>
           </CardFooter>

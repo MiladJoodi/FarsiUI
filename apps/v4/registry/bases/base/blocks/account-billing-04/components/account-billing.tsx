@@ -17,19 +17,16 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldGroup,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -50,32 +47,41 @@ type Invoice = {
 const INVOICES: Invoice[] = [
   {
     id: "1",
-    label: "INV-1405-07-12",
+    label: "فاکتور-۱۴۰۵-۰۷-۱۲",
     amount: "۱٬۳۲۰٬۰۰۰",
     date: "۱۴۰۵/۰۷/۱۲",
     status: "پرداخت‌شده",
   },
   {
     id: "2",
-    label: "INV-1405-06-12",
+    label: "فاکتور-۱۴۰۵-۰۶-۱۲",
     amount: "۱٬۳۲۰٬۰۰۰",
     date: "۱۴۰۵/۰۶/۱۲",
     status: "پرداخت‌شده",
   },
   {
     id: "3",
-    label: "INV-1405-05-12",
+    label: "فاکتور-۱۴۰۵-۰۵-۱۲",
     amount: "۱٬۳۲۰٬۰۰۰",
     date: "۱۴۰۵/۰۵/۱۲",
     status: "ناموفق",
   },
 ]
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "ناموفق", label: "ناموفق" },
+] as const
+
 export function AccountBillingHistory() {
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState("همه")
+  const [cardOpen, setCardOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = INVOICES.filter(
-    (inv) => filter === "all" || inv.status === filter
+    (inv) => filter === "همه" || inv.status === filter
   )
 
   return (
@@ -85,7 +91,7 @@ export function AccountBillingHistory() {
       className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="space-y-6">
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
             <div>
               <CardTitle>روش پرداخت</CardTitle>
@@ -93,24 +99,48 @@ export function AccountBillingHistory() {
                 کارت ذخیره‌شده و ایمیل فاکتور
               </CardDescription>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" size="icon-sm" />}
+            <Popover open={cardOpen} onOpenChange={setCardOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>عملیات کارت</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>ویرایش کارت</DropdownMenuItem>
-                <DropdownMenuItem>تنظیم به‌عنوان پیش‌فرض</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-48 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات کارت</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setCardOpen(false)}
+                >
+                  ویرایش کارت
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setCardOpen(false)}
+                >
+                  تنظیم به‌عنوان پیش‌فرض
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setCardOpen(false)}
+                >
                   حذف کارت
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+              </PopoverContent>
+            </Popover>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center gap-3 rounded-lg border p-4">
@@ -118,17 +148,16 @@ export function AccountBillingHistory() {
                 <CreditCardIcon className="size-4 text-muted-foreground" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium">
-                  <bdi dir="ltr">•••• 1234</bdi>
+                <p className="text-sm font-medium tracking-normal">
+                  •••• ۱۲۳۴
                 </p>
-                <p className="text-xs text-muted-foreground">
-                  انقضا{" "}
-                  <bdi dir="ltr" className="tabular-nums">
-                    ۰۸/۰۷
-                  </bdi>
+                <p className="text-xs tracking-normal text-muted-foreground">
+                  انقضا ۰۸/۰۷
                 </p>
               </div>
-              <Badge variant="secondary">پیش‌فرض</Badge>
+              <Badge variant="outline" className="border">
+                پیش‌فرض
+              </Badge>
             </div>
             <FieldGroup>
               <Field>
@@ -139,7 +168,7 @@ export function AccountBillingHistory() {
                   defaultValue="billing@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
               </Field>
               <Field>
@@ -155,24 +184,30 @@ export function AccountBillingHistory() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
             <div>
               <CardTitle>تاریخچه فاکتور</CardTitle>
               <CardDescription>دانلود و فیلتر وضعیت</CardDescription>
             </div>
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-36" dir="rtl">
                 <SelectValue placeholder="وضعیت" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="پرداخت‌شده">پرداخت‌شده</SelectItem>
-                <SelectItem value="در انتظار">در انتظار</SelectItem>
-                <SelectItem value="ناموفق">ناموفق</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </CardHeader>
@@ -182,42 +217,73 @@ export function AccountBillingHistory() {
                 {i > 0 && <Separator />}
                 <div className="flex items-center gap-3 py-3">
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium">
-                      <bdi dir="ltr">{inv.label}</bdi>
+                    <p className="text-sm font-medium tracking-normal">
+                      {inv.label}
                     </p>
-                    <p className="text-xs text-muted-foreground tabular-nums">
-                      <bdi dir="ltr">{inv.date}</bdi> ·{" "}
-                      <bdi dir="ltr">{inv.amount}</bdi> تومان
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {inv.date} · {inv.amount} تومان
                     </p>
                   </div>
                   <Badge
-                    variant={
-                      inv.status === "ناموفق" ? "destructive" : "secondary"
+                    variant="outline"
+                    className={
+                      inv.status === "ناموفق"
+                        ? "border-destructive text-destructive"
+                        : "border"
                     }
                   >
                     {inv.status}
                   </Badge>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === inv.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? inv.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button type="button" variant="ghost" size="icon-sm" />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-44 space-y-1 p-2"
+                    >
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
                         <DownloadIcon className="size-4" />
                         دانلود PDF
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>ارسال مجدد ایمیل</DropdownMenuItem>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        ارسال مجدد ایمیل
+                      </Button>
                       {inv.status === "ناموفق" ? (
-                        <>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>تلاش مجدد پرداخت</DropdownMenuItem>
-                        </>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          تلاش مجدد پرداخت
+                        </Button>
                       ) : null}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
             ))}

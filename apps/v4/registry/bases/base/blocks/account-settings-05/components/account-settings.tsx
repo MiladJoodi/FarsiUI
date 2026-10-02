@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   MoreHorizontalIcon,
   ShieldAlertIcon,
@@ -11,14 +10,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -26,6 +17,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -35,6 +31,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "general", label: "عمومی" },
@@ -45,8 +42,33 @@ const NAV = [
 
 type NavId = (typeof NAV)[number]["id"]
 
+const LANG_ITEMS = [
+  { value: "فارسی", label: "فارسی" },
+  { value: "انگلیسی", label: "انگلیسی" },
+] as const
+
+const TZ_ITEMS = [
+  { value: "تهران", label: "تهران (ایران)" },
+  { value: "دبی", label: "دبی" },
+  { value: "استانبول", label: "استانبول" },
+] as const
+
+const SESSION_ITEMS = [
+  { value: "۱ روز", label: "۱ روز" },
+  { value: "۷ روز", label: "۷ روز" },
+  { value: "۳۰ روز", label: "۳۰ روز" },
+  { value: "۹۰ روز", label: "۹۰ روز" },
+] as const
+
+const CHANNEL_ITEMS = [
+  { value: "ایمیل", label: "ایمیل" },
+  { value: "پیامک", label: "پیامک" },
+  { value: "اعلان مرورگر", label: "اعلان مرورگر" },
+] as const
+
 export function AccountSettingsHub() {
   const [section, setSection] = React.useState<NavId>("general")
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   return (
     <section
@@ -64,25 +86,49 @@ export function AccountSettingsHub() {
             عمومی، امنیت، اعلان‌ها و حذف حساب
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات حساب</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>دانلود داده‌ها</DropdownMenuItem>
-            <DropdownMenuItem>خروج از همهٔ دستگاه‌ها</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              variant="destructive"
-              onClick={() => setSection("danger")}
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-52 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات حساب</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              دانلود داده‌ها
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              خروج از همهٔ دستگاه‌ها
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => {
+                setSection("danger")
+                setMoreOpen(false)
+              }}
             >
               حذف حساب
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[12rem_1fr]">
@@ -136,7 +182,7 @@ export function AccountSettingsHub() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                     />
                   </Field>
                   <Field>
@@ -146,31 +192,39 @@ export function AccountSettingsHub() {
                       defaultValue="reza.k"
                       placeholder="username"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                     />
                   </Field>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field>
                       <FieldLabel htmlFor="as5-lang">زبان</FieldLabel>
-                      <Select defaultValue="fa">
+                      <Select items={[...LANG_ITEMS]} defaultValue="فارسی">
                         <SelectTrigger id="as5-lang" className="w-full" dir="rtl">
                           <SelectValue placeholder="زبان" />
                         </SelectTrigger>
                         <SelectContent dir="rtl" lang="fa">
-                          <SelectItem value="fa">فارسی</SelectItem>
-                          <SelectItem value="en">English</SelectItem>
+                          {LANG_ITEMS.map((item) => (
+                            <SelectItem key={item.value} value={item.value}>
+                              {item.label}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </Field>
                     <Field>
                       <FieldLabel htmlFor="as5-tz">منطقه زمانی</FieldLabel>
-                      <Input
-                        id="as5-tz"
-                        defaultValue="Asia/Tehran"
-                        placeholder="Asia/Tehran"
-                        dir="ltr"
-                        className="text-start"
-                      />
+                      <Select items={[...TZ_ITEMS]} defaultValue="تهران">
+                        <SelectTrigger id="as5-tz" className="w-full" dir="rtl">
+                          <SelectValue placeholder="منطقه زمانی" />
+                        </SelectTrigger>
+                        <SelectContent dir="rtl" lang="fa">
+                          {TZ_ITEMS.map((item) => (
+                            <SelectItem key={item.value} value={item.value}>
+                              {item.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </Field>
                   </div>
                   <div className="flex justify-end gap-2 pt-2">
@@ -196,9 +250,9 @@ export function AccountSettingsHub() {
                   <Input
                     id="as5-pass"
                     type="password"
-                    placeholder="••••••••"
-                    dir="ltr"
-                    className="text-start"
+                    placeholder="رمز عبور فعلی"
+                    dir="rtl"
+                    className="text-end"
                   />
                 </Field>
                 <Field>
@@ -207,8 +261,8 @@ export function AccountSettingsHub() {
                     id="as5-new"
                     type="password"
                     placeholder="حداقل ۸ کاراکتر"
-                    dir="ltr"
-                    className="text-start"
+                    dir="rtl"
+                    className="text-end tracking-normal"
                   />
                   <FieldDescription>
                     ترکیبی از حروف، عدد و نماد پیشنهاد می‌شود
@@ -238,19 +292,24 @@ export function AccountSettingsHub() {
               </div>
               <Field>
                 <FieldLabel htmlFor="as5-session">مدت نشست</FieldLabel>
-                <Select defaultValue="30">
-                  <SelectTrigger id="as5-session" className="w-full sm:max-w-xs" dir="rtl">
+                <Select items={[...SESSION_ITEMS]} defaultValue="۳۰ روز">
+                  <SelectTrigger
+                    id="as5-session"
+                    className="w-full sm:max-w-xs"
+                    dir="rtl"
+                  >
                     <SelectValue placeholder="مدت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="1">۱ روز</SelectItem>
-                    <SelectItem value="7">۷ روز</SelectItem>
-                    <SelectItem value="30">۳۰ روز</SelectItem>
-                    <SelectItem value="90">۹۰ روز</SelectItem>
+                    {SESSION_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
-              <Button>ذخیره امنیت</Button>
+              <Button type="button">ذخیره امنیت</Button>
             </div>
           ) : null}
 
@@ -262,14 +321,20 @@ export function AccountSettingsHub() {
               />
               <Field>
                 <FieldLabel htmlFor="as5-channel">کانال ترجیحی</FieldLabel>
-                <Select defaultValue="email">
-                  <SelectTrigger id="as5-channel" className="w-full sm:max-w-xs" dir="rtl">
+                <Select items={[...CHANNEL_ITEMS]} defaultValue="ایمیل">
+                  <SelectTrigger
+                    id="as5-channel"
+                    className="w-full sm:max-w-xs"
+                    dir="rtl"
+                  >
                     <SelectValue placeholder="کانال" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="email">ایمیل</SelectItem>
-                    <SelectItem value="sms">پیامک</SelectItem>
-                    <SelectItem value="push">اعلان مرورگر</SelectItem>
+                    {CHANNEL_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
@@ -280,11 +345,19 @@ export function AccountSettingsHub() {
                   title="محصول و به‌روزرسانی"
                   defaultChecked
                 />
-                <NotifyRow id="as5-n-security" title="هشدار امنیتی" defaultChecked />
-                <NotifyRow id="as5-n-billing" title="صورتحساب و پرداخت" defaultChecked />
+                <NotifyRow
+                  id="as5-n-security"
+                  title="هشدار امنیتی"
+                  defaultChecked
+                />
+                <NotifyRow
+                  id="as5-n-billing"
+                  title="صورتحساب و پرداخت"
+                  defaultChecked
+                />
                 <NotifyRow id="as5-n-marketing" title="پیشنهادها و تخفیف" />
               </div>
-              <Button>ذخیره اعلان‌ها</Button>
+              <Button type="button">ذخیره اعلان‌ها</Button>
             </div>
           ) : null}
 
@@ -309,14 +382,10 @@ export function AccountSettingsHub() {
                   <FieldLabel htmlFor="as5-confirm">
                     برای تأیید، عبارت «حذف حساب» را بنویسید
                   </FieldLabel>
-                  <Input
-                    id="as5-confirm"
-                    placeholder="حذف حساب"
-                    dir="rtl"
-                  />
+                  <Input id="as5-confirm" placeholder="حذف حساب" dir="rtl" />
                 </Field>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Button variant="destructive">
+                  <Button type="button" variant="destructive">
                     <Trash2Icon className="size-4" />
                     حذف حساب
                   </Button>

@@ -34,7 +34,7 @@ export function SearchSuggestions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>جستجو</CardTitle>
           <CardDescription>پیشنهادها و جستجوهای اخیر</CardDescription>
@@ -43,7 +43,7 @@ export function SearchSuggestions() {
           <div className="relative">
             <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="جستجو در FarsiUI…"
+              placeholder="جستجو در فارسی‌یوآی…"
               className="ps-9 pe-9"
               dir="rtl"
               defaultValue=""
@@ -94,12 +94,16 @@ export function SearchSuggestions() {
                     <span className="flex items-center gap-2">
                       <SearchIcon className="size-3.5 text-muted-foreground" />
                       {"ltr" in item && item.ltr ? (
-                        <bdi dir="ltr">{item.label}</bdi>
+                        <span dir="ltr" className="inline-block text-left">
+                          {item.label}
+                        </span>
                       ) : (
                         item.label
                       )}
                     </span>
-                    <Badge variant="outline">{item.tag}</Badge>
+                    <Badge variant="outline" className="border">
+                      {item.tag}
+                    </Badge>
                   </button>
                 </li>
               ))}

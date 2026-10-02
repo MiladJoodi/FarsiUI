@@ -35,9 +35,9 @@ const COMMENTS = [
   {
     id: "1",
     name: "سارا محمدی",
-    text: "عالی بود، مخصوصاً بخش RTL.",
+    text: "عالی بود، مخصوصاً بخش راست‌چین.",
     time: "۳ ساعت پیش",
-    status: "approved",
+    status: "تأییدشده",
     initials: "س‌م",
   },
   {
@@ -45,7 +45,7 @@ const COMMENTS = [
     name: "علی رضایی",
     text: "منتظر نسخهٔ بعدی هستم.",
     time: "دیروز",
-    status: "pending",
+    status: "در انتظار",
     initials: "ع‌ر",
   },
   {
@@ -53,19 +53,30 @@ const COMMENTS = [
     name: "مینا کریمی",
     text: "لینک مستندات را هم اضافه کنید.",
     time: "۲ روز پیش",
-    status: "approved",
+    status: "تأییدشده",
     initials: "م‌ک",
   },
 ] as const
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "قدیمی‌ترین", label: "قدیمی‌ترین" },
+] as const
+
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "تأییدشده", label: "تأییدشده" },
+  { value: "در انتظار", label: "در انتظار" },
+] as const
+
 export function CommentsFilter() {
-  const [sort, setSort] = React.useState("newest")
-  const [status, setStatus] = React.useState("all")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [status, setStatus] = React.useState("همه")
 
   const rows = COMMENTS.filter(
-    (c) => status === "all" || c.status === status
+    (c) => status === "همه" || c.status === status
   ).slice()
-  if (sort === "oldest") rows.reverse()
+  if (sort === "قدیمی‌ترین") rows.reverse()
 
   return (
     <section
@@ -73,43 +84,58 @@ export function CommentsFilter() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="border-b py-4 text-start">
           <CardTitle>دیدگاه‌ها</CardTitle>
           <CardDescription>
-            مرتب‌سازی و فیلتر با Select راست‌چین
+            مرتب‌سازی و فیلتر با انتخابگر راست‌چین
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 py-4">
           <div className="grid gap-3 sm:grid-cols-2">
             <Field>
               <FieldLabel>مرتب‌سازی</FieldLabel>
               <Select
+                items={[...SORT_ITEMS]}
                 value={sort}
-                onValueChange={(v) => setSort((v as string) ?? "newest")}
+                onValueChange={(value) => {
+                  if (SORT_ITEMS.some((item) => item.value === value)) {
+                    setSort(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="مرتب‌سازی" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="newest">جدیدترین</SelectItem>
-                  <SelectItem value="oldest">قدیمی‌ترین</SelectItem>
+                  {SORT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel>وضعیت</FieldLabel>
               <Select
+                items={[...STATUS_ITEMS]}
                 value={status}
-                onValueChange={(v) => setStatus((v as string) ?? "all")}
+                onValueChange={(value) => {
+                  if (STATUS_ITEMS.some((item) => item.value === value)) {
+                    setStatus(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="وضعیت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="all">همه</SelectItem>
-                  <SelectItem value="approved">تأییدشده</SelectItem>
-                  <SelectItem value="pending">در انتظار</SelectItem>
+                  {STATUS_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -128,12 +154,15 @@ export function CommentsFilter() {
                       <p className="text-sm font-medium">{c.name}</p>
                       <Badge
                         variant={
-                          c.status === "pending" ? "outline" : "secondary"
+                          c.status === "در انتظار" ? "outline" : "secondary"
+                        }
+                        className={
+                          c.status === "در انتظار" ? "border" : undefined
                         }
                       >
-                        {c.status === "pending" ? "در انتظار" : "تأییدشده"}
+                        {c.status}
                       </Badge>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs tracking-normal text-muted-foreground">
                         {c.time}
                       </span>
                     </div>
@@ -153,7 +182,7 @@ export function CommentsFilter() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>
               وقتی به دیدگاه‌تان پاسخ داده شد خبر می‌دهیم
@@ -164,7 +193,7 @@ export function CommentsFilter() {
             <Switch id="cm3-notify" defaultChecked />
           </div>
         </CardContent>
-        <CardFooter className="flex-col gap-2 border-t">
+        <CardFooter className="flex-col gap-3 border-t py-4">
           <Textarea
             placeholder="دیدگاه خود را بنویسید…"
             dir="rtl"

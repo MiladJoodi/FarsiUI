@@ -26,6 +26,14 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "شیراز", label: "شیراز" },
+  { value: "مشهد", label: "مشهد" },
+  { value: "تبریز", label: "تبریز" },
+] as const
+
 export function ProfileEdit() {
   return (
     <section
@@ -33,7 +41,7 @@ export function ProfileEdit() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader>
           <div className="mb-4 flex items-center gap-4">
             <Avatar className="size-14">
@@ -53,10 +61,7 @@ export function ProfileEdit() {
           </Button>
         </CardHeader>
         <CardContent>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="space-y-0"
-          >
+          <form onSubmit={(e) => e.preventDefault()} className="space-y-0">
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="p3-name">نام نمایشی</FieldLabel>
@@ -74,7 +79,7 @@ export function ProfileEdit() {
                   placeholder="sara.m"
                   defaultValue="sara.m"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <FieldDescription>فقط حروف انگلیسی، عدد و نقطه</FieldDescription>
               </Field>
@@ -86,21 +91,21 @@ export function ProfileEdit() {
                   placeholder="name@example.com"
                   defaultValue="sara@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
               </Field>
               <Field>
                 <FieldLabel htmlFor="p3-city">شهر</FieldLabel>
-                <Select defaultValue="tehran">
+                <Select items={[...CITY_ITEMS]} defaultValue="تهران">
                   <SelectTrigger id="p3-city" dir="rtl" className="w-full">
                     <SelectValue placeholder="انتخاب شهر" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="tehran">تهران</SelectItem>
-                    <SelectItem value="isfahan">اصفهان</SelectItem>
-                    <SelectItem value="shiraz">شیراز</SelectItem>
-                    <SelectItem value="mashhad">مشهد</SelectItem>
-                    <SelectItem value="tabriz">تبریز</SelectItem>
+                    {CITY_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>

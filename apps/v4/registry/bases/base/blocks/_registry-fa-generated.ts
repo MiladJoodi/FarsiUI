@@ -257,37 +257,5 @@ export const faBlocks: Registry["items"] = [
         "target": "app/blog-grid/page.tsx"
       }
     ]
-  },
-  {
-    "name": "inbox-01",
-    "title": "Inbox 01",
-    "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "inbox"
-    ],
-    "files": [
-      {
-        "path": "blocks/inbox-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/inbox/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "inbox-02",
-    "title": "Inbox 02",
-    "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "inbox"
-    ],
-    "files": [
-      {
-        "path": "blocks/inbox-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/inbox/page.tsx"
-      }
-    ]
   }
 ]

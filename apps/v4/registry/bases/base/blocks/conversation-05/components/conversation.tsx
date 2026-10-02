@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   MoreHorizontalIcon,
   PaperclipIcon,
@@ -13,20 +12,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/av
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -37,6 +33,7 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const THREADS = [
   {
@@ -62,15 +59,29 @@ const THREADS = [
   },
 ] as const
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "باز", label: "باز" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+] as const
+
+const STATUS_ITEMS = [
+  { value: "باز", label: "باز" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "بسته", label: "بسته" },
+] as const
+
 export function ConversationHub() {
   const [active, setActive] = React.useState("1")
-  const [status, setStatus] = React.useState("open")
-  const [filter, setFilter] = React.useState("all")
+  const [status, setStatus] = React.useState("باز")
+  const [filter, setFilter] = React.useState("همه")
   const [query, setQuery] = React.useState("")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [threadOpen, setThreadOpen] = React.useState(false)
 
   const list = THREADS.filter((t) => {
-    if (filter === "open" && t.status !== "باز") return false
-    if (filter === "unread" && !t.unread) return false
+    if (filter === "باز" && t.status !== "باز") return false
+    if (filter === "خوانده‌نشده" && !t.unread) return false
     if (query && !`${t.title}${t.customer}`.includes(query)) return false
     return true
   })
@@ -91,20 +102,46 @@ export function ConversationHub() {
             تیکت‌ها، وضعیت، دعوت همکار و پاسخ مشتری
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>مکالمهٔ جدید</DropdownMenuItem>
-            <DropdownMenuItem>خروجی CSV</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>تنظیمات اعلان</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              مکالمهٔ جدید
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              خروجی CSV
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              تنظیمات اعلان
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm lg:grid lg:h-[640px] lg:grid-cols-[14rem_1fr_13rem]">
@@ -117,16 +154,23 @@ export function ConversationHub() {
               dir="rtl"
             />
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="فیلتر" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="open">باز</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -168,24 +212,55 @@ export function ConversationHub() {
             </Avatar>
             <div className="min-w-0 flex-1">
               <p className="truncate font-semibold">پیگیری سفارش</p>
-              <p className="truncate text-xs text-muted-foreground">
-                سارا محمدی · <bdi dir="ltr">sara@example.com</bdi>
+              <p className="truncate text-xs tracking-normal text-muted-foreground">
+                سارا محمدی ·{" "}
+                <span dir="ltr" className="inline-block text-left">
+                  sara@example.com
+                </span>
               </p>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="ghost" size="icon-sm" />}
+            <Popover open={threadOpen} onOpenChange={setThreadOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">عملیات</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuItem>ادغام</DropdownMenuItem>
-                <DropdownMenuItem>انتقال</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">بستن</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-36 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setThreadOpen(false)}
+                >
+                  ادغام
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setThreadOpen(false)}
+                >
+                  انتقال
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setThreadOpen(false)}
+                >
+                  بستن
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="flex-1 space-y-3 overflow-auto p-4">
@@ -196,17 +271,21 @@ export function ConversationHub() {
               بسته امروز تحویل پست شده.
             </Bubble>
             <Bubble who="سارا محمدی" time="۰۹:۱۶">
-              رسید را به <bdi dir="ltr">sara@example.com</bdi> بفرستید.
+              رسید را به{" "}
+              <span dir="ltr" className="inline-block text-left">
+                sara@example.com
+              </span>{" "}
+              بفرستید.
             </Bubble>
           </div>
 
-          <div className="space-y-2 border-t p-3">
+          <div className="space-y-3 border-t px-4 py-3">
             <Textarea
               placeholder="پاسخ به مشتری…"
               dir="rtl"
               className="min-h-20 resize-none"
             />
-            <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <Button type="button" variant="outline" size="sm">
                 <PaperclipIcon className="size-4" />
                 پیوست
@@ -227,16 +306,23 @@ export function ConversationHub() {
             <Field>
               <FieldLabel>وضعیت</FieldLabel>
               <Select
+                items={[...STATUS_ITEMS]}
                 value={status}
-                onValueChange={(v) => setStatus((v as string) ?? "open")}
+                onValueChange={(value) => {
+                  if (STATUS_ITEMS.some((item) => item.value === value)) {
+                    setStatus(value as string)
+                  }
+                }}
               >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="وضعیت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="open">باز</SelectItem>
-                  <SelectItem value="pending">در انتظار</SelectItem>
-                  <SelectItem value="closed">بسته</SelectItem>
+                  {STATUS_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -253,11 +339,16 @@ export function ConversationHub() {
                 type="email"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>دسترسی فقط به این مکالمه</FieldDescription>
             </Field>
-            <Button type="button" variant="outline" size="sm" className="mt-2 w-full">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="mt-3 w-full"
+            >
               <UserPlusIcon className="size-4" />
               دعوت
             </Button>
@@ -313,10 +404,8 @@ function Bubble({
         >
           {children}
         </div>
-        <p className="text-[10px] text-muted-foreground">
-          <bdi dir="ltr" className="tabular-nums">
-            {time}
-          </bdi>
+        <p className="text-[10px] tracking-normal text-muted-foreground">
+          {time}
         </p>
       </div>
     </div>

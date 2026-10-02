@@ -17,15 +17,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -48,7 +45,7 @@ const RESULTS = [
     title: "فرم ورود",
     path: "blocks/login",
     type: "بلاک",
-    snippet: "ورود با ایمیل LTR و برچسب فارسی",
+    snippet: "ورود با ایمیل چپ‌چین و برچسب فارسی",
   },
   {
     id: "3",
@@ -59,21 +56,39 @@ const RESULTS = [
   },
   {
     id: "4",
-    title: "راهنمای RTL",
+    title: "راهنمای راست‌چین",
     path: "docs/rtl",
     type: "مستند",
     snippet: "پیاده‌سازی جهت راست‌چین در پروژه",
   },
 ] as const
 
+const SORT_ITEMS = [
+  { value: "مرتبط‌ترین", label: "مرتبط‌ترین" },
+  { value: "الفبایی", label: "الفبایی" },
+  { value: "جدیدترین", label: "جدیدترین" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function SearchResultsActions() {
-  const [sort, setSort] = React.useState("relevance")
+  const [sort, setSort] = React.useState("مرتبط‌ترین")
   const [saved, setSaved] = React.useState<string[]>([])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
+
+  const rows = RESULTS.slice().sort((a, b) => {
+    if (sort === "الفبایی") return a.title.localeCompare(b.title, "fa")
+    return 0
+  })
 
   function toggleSave(id: string) {
     setSaved((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     )
+    setOpenId(null)
   }
 
   return (
@@ -82,29 +97,56 @@ export function SearchResultsActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
           <div>
             <CardTitle>نتایج جستجو</CardTitle>
-            <CardDescription>
-              <bdi dir="ltr">{RESULTS.length}</bdi> نتیجه · منوی عملیات RTL
+            <CardDescription className="tracking-normal">
+              {toFa(RESULTS.length)} نتیجه · منوی عملیات راست‌چین
             </CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" className="shrink-0" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>ذخیره همه</DropdownMenuItem>
-              <DropdownMenuItem>اشتراک نتایج</DropdownMenuItem>
-              <DropdownMenuItem>خروجی CSV</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              عملیات
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                ذخیره همه
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                اشتراک نتایج
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                خروجی جدول
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -118,60 +160,105 @@ export function SearchResultsActions() {
               />
             </div>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "relevance")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="relevance">مرتبط‌ترین</SelectItem>
-                <SelectItem value="az">الفبایی</SelectItem>
-                <SelectItem value="newest">جدیدترین</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-0 overflow-hidden rounded-lg border">
-            {RESULTS.map((r, i) => (
+            {rows.map((r, i) => (
               <div key={r.id}>
                 {i > 0 && <Separator />}
                 <div className="flex items-start gap-3 px-4 py-3">
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="text-sm font-medium">{r.title}</p>
-                      <Badge variant="outline">{r.type}</Badge>
+                      <Badge variant="outline" className="border">
+                        {r.type}
+                      </Badge>
                       {saved.includes(r.id) ? (
                         <Badge variant="secondary">ذخیره‌شده</Badge>
                       ) : null}
                     </div>
-                    <p className="mt-0.5 text-xs text-muted-foreground">
-                      <bdi dir="ltr">{r.path}</bdi>
+                    <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
+                      <span dir="ltr" className="inline-block text-left">
+                        {r.path}
+                      </span>
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {r.snippet}
                     </p>
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === r.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? r.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="shrink-0"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
-                      <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>
+                      عملیات
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-44 space-y-1 p-2"
+                    >
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
                         <ArrowUpRightIcon className="size-4" />
                         باز کردن
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => toggleSave(r.id)}>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => toggleSave(r.id)}
+                      >
                         <BookmarkIcon className="size-4" />
                         {saved.includes(r.id) ? "حذف از ذخیره‌ها" : "ذخیره"}
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        کپی مسیر
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
             ))}

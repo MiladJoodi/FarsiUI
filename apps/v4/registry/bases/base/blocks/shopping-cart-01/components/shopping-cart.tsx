@@ -27,10 +27,12 @@ export function ShoppingCartSimple() {
     >
       <div className="mb-6">
         <h2 className="text-2xl font-bold tracking-tight">سبد خرید</h2>
-        <p className="mt-1 text-sm text-muted-foreground">لیست ساده بدون ویرایش تعداد</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          لیست ساده بدون ویرایش تعداد
+        </p>
       </div>
 
-      <div className="divide-y rounded-xl border">
+      <div className="divide-y overflow-hidden rounded-xl border bg-card">
         {ITEMS.map((item) => (
           <div key={item.name} className="flex gap-4 p-4">
             <div className="size-20 shrink-0 overflow-hidden rounded-lg border bg-muted">
@@ -42,14 +44,11 @@ export function ShoppingCartSimple() {
             </div>
             <div className="min-w-0 flex-1">
               <p className="font-medium">{item.name}</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                تعداد <bdi dir="ltr">{item.qty}</bdi>
+              <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                تعداد {item.qty}
               </p>
-              <p className="mt-2 text-sm">
-                <bdi dir="ltr" className="tabular-nums font-semibold">
-                  {item.price}
-                </bdi>{" "}
-                تومان
+              <p className="mt-2 text-sm tracking-normal">
+                <span className="font-semibold">{item.price}</span> تومان
               </p>
             </div>
           </div>
@@ -60,14 +59,11 @@ export function ShoppingCartSimple() {
 
       <div className="flex items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground">جمع کل</p>
-        <p className="text-lg font-semibold">
-          <bdi dir="ltr" className="tabular-nums">
-            ۷٬۴۴۰٬۰۰۰
-          </bdi>{" "}
-          تومان
+        <p className="text-lg font-semibold tracking-normal">
+          ۷٬۴۴۰٬۰۰۰ تومان
         </p>
       </div>
-      <Button className="mt-4 w-full" size="lg">
+      <Button type="button" className="mt-4 w-full" size="lg">
         ادامهٔ خرید
       </Button>
     </section>

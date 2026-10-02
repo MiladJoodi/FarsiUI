@@ -6,15 +6,17 @@ import { HeartIcon, MoreHorizontalIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 
 const PRODUCTS = [
   {
@@ -73,24 +75,25 @@ const PRODUCTS = [
   },
 ] as const
 
-type SortKey = "featured" | "price-asc" | "price-desc" | "name"
+const SORT_ITEMS = [
+  { value: "پیشنهادی", label: "پیشنهادی" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "نام", label: "نام الفبایی" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  featured: "پیشنهادی",
-  "price-asc": "ارزان‌ترین",
-  "price-desc": "گران‌ترین",
-  name: "نام الفبایی",
-}
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function ProductGridWishlist() {
-  const [sort, setSort] = React.useState<SortKey>("featured")
+  const [sort, setSort] = React.useState<SortKey>("پیشنهادی")
   const [wishlist, setWishlist] = React.useState(() => new Set(["2", "5"]))
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const sorted = React.useMemo(() => {
     const list = [...PRODUCTS]
-    if (sort === "price-asc") list.sort((a, b) => a.price - b.price)
-    else if (sort === "price-desc") list.sort((a, b) => b.price - a.price)
-    else if (sort === "name")
+    if (sort === "ارزان‌ترین") list.sort((a, b) => a.price - b.price)
+    else if (sort === "گران‌ترین") list.sort((a, b) => b.price - a.price)
+    else if (sort === "نام")
       list.sort((a, b) => a.name.localeCompare(b.name, "fa"))
     return list
   }, [sort])
@@ -108,27 +111,26 @@ export function ProductGridWishlist() {
             علاقه‌مندی و منوی عملیات راست‌چین
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={<Button variant="outline" className="w-full sm:w-auto" />}
-          >
-            مرتب‌سازی: {SORT_LABELS[sort]}
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-            <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={sort}
-              onValueChange={(v) => setSort((v as SortKey) ?? "featured")}
-            >
-              {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                <DropdownMenuRadioItem key={key} value={key}>
-                  {SORT_LABELS[key]}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Select
+          items={[...SORT_ITEMS]}
+          value={sort}
+          onValueChange={(value) => {
+            if (SORT_ITEMS.some((item) => item.value === value)) {
+              setSort(value as SortKey)
+            }
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-44" dir="rtl">
+            <SelectValue placeholder="مرتب‌سازی" />
+          </SelectTrigger>
+          <SelectContent dir="rtl" lang="fa">
+            {SORT_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -150,7 +152,7 @@ export function ProductGridWishlist() {
                     type="button"
                     size="icon"
                     variant="secondary"
-                    className="size-8 bg-background/90"
+                    className="size-8 bg-card/90"
                     onClick={() =>
                       setWishlist((prev) => {
                         const next = new Set(prev)
@@ -159,51 +161,76 @@ export function ProductGridWishlist() {
                         return next
                       })
                     }
-                    aria-label={liked ? "حذف از علاقه‌مندی" : "افزودن به علاقه‌مندی"}
+                    aria-label={
+                      liked ? "حذف از علاقه‌مندی" : "افزودن به علاقه‌مندی"
+                    }
                   >
                     <HeartIcon
                       className={`size-4 ${liked ? "fill-primary text-primary" : ""}`}
                     />
                   </Button>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
+                  <Popover
+                    open={openId === product.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? product.id : null)
+                    }
+                  >
+                    <PopoverTrigger
                       render={
                         <Button
+                          type="button"
                           size="icon"
                           variant="secondary"
-                          className="size-8 bg-background/90"
+                          className="size-8 bg-card/90"
                         />
                       }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">منوی محصول</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
+                    </PopoverTrigger>
+                    <PopoverContent
                       dir="rtl"
                       lang="fa"
                       align="end"
-                      className="w-40"
+                      className="w-40 space-y-1 p-2"
                     >
-                      <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>مشاهده سریع</DropdownMenuItem>
-                      <DropdownMenuItem>افزودن به سبد</DropdownMenuItem>
-                      <DropdownMenuItem>اشتراک‌گذاری</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        مشاهده سریع
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        افزودن به سبد
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        اشتراک‌گذاری
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <h3 className="truncate font-medium">{product.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {product.priceLabel}
-                    </bdi>{" "}
-                    تومان
+                  <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                    {product.priceLabel} تومان
                   </p>
                 </div>
-                <Badge variant="outline" className="shrink-0">
+                <Badge variant="outline" className="shrink-0 border">
                   {product.category}
                 </Badge>
               </div>

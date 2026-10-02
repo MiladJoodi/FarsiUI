@@ -12,17 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -125,26 +120,45 @@ const ORDERS: Order[] = [
   },
 ]
 
-type SortKey = "date" | "total" | "status" | "customer"
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "تحویل‌شده", label: "تحویل‌شده" },
+  { value: "در حال ارسال", label: "در حال ارسال" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+  { value: "لغو شده", label: "لغو شده" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  date: "تاریخ",
-  total: "مبلغ",
-  status: "وضعیت",
-  customer: "مشتری",
+const SORT_ITEMS = [
+  { value: "تاریخ", label: "تاریخ" },
+  { value: "مبلغ", label: "مبلغ" },
+  { value: "وضعیت", label: "وضعیت" },
+  { value: "مشتری", label: "مشتری" },
+] as const
+
+const PAGE_SIZE_ITEMS = [
+  { value: "3", label: "۳ ردیف" },
+  { value: "5", label: "۵ ردیف" },
+  { value: "8", label: "۸ ردیف" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 export function OrderHistoryHub() {
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("date")
+  const [status, setStatus] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("تاریخ")
   const [pageSize, setPageSize] = React.useState("5")
   const [page, setPage] = React.useState(0)
   const [orders, setOrders] = React.useState(ORDERS)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = orders.filter((order) => {
-      const matchStatus = status === "all" || order.status === status
+      const matchStatus = status === "همه" || order.status === status
       const q = query.trim().toLowerCase()
       const matchQuery =
         !q ||
@@ -155,8 +169,10 @@ export function OrderHistoryHub() {
       return matchStatus && matchQuery
     })
     list = [...list].sort((a, b) => {
-      if (sort === "total") return b.totalNum - a.totalNum
-      return a[sort].localeCompare(b[sort], "fa")
+      if (sort === "مبلغ") return b.totalNum - a.totalNum
+      if (sort === "وضعیت") return a.status.localeCompare(b.status, "fa")
+      if (sort === "مشتری") return a.customer.localeCompare(b.customer, "fa")
+      return a.date.localeCompare(b.date, "fa")
     })
     return list
   }, [orders, query, status, sort])
@@ -165,7 +181,7 @@ export function OrderHistoryHub() {
     setPage(0)
   }, [query, status, pageSize])
 
-  const size = Number(pageSize)
+  const size = Number(pageSize) || 5
   const pageCount = Math.max(1, Math.ceil(filtered.length / size))
   const safePage = Math.min(page, pageCount - 1)
   const slice = filtered.slice(safePage * size, safePage * size + size)
@@ -191,27 +207,27 @@ export function OrderHistoryHub() {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-3">
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>کل سفارش‌ها</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{orders.length}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(orders.length)}
               </CardTitle>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>تحویل‌شده</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{delivered}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(delivered)}
               </CardTitle>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>در حال ارسال</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{shipping}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(shipping)}
               </CardTitle>
             </CardHeader>
           </Card>
@@ -229,51 +245,55 @@ export function OrderHistoryHub() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (STATUS_ITEMS.some((item) => item.value === value)) {
+                setStatus(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="وضعیت" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="تحویل‌شده">تحویل‌شده</SelectItem>
-              <SelectItem value="در حال ارسال">در حال ارسال</SelectItem>
-              <SelectItem value="پرداخت‌شده">پرداخت‌شده</SelectItem>
-              <SelectItem value="لغو شده">لغو شده</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "date")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           سفارشی با این فیلتر پیدا نشد.
         </p>
       ) : (
         <>
-          <div className="overflow-x-auto rounded-xl border">
+          <div className="overflow-x-auto rounded-xl border bg-card">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -283,44 +303,40 @@ export function OrderHistoryHub() {
                   <TableHead className="text-start">تاریخ</TableHead>
                   <TableHead className="text-start">وضعیت</TableHead>
                   <TableHead className="text-start">مبلغ</TableHead>
-                  <TableHead className="w-12">
-                    <span className="sr-only">عملیات</span>
-                  </TableHead>
+                  <TableHead className="text-start pe-4">عملیات</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {slice.map((order) => (
                   <TableRow key={order.id}>
-                    <TableCell>
-                      <bdi dir="ltr" className="font-mono text-xs">
-                        {order.id}
-                      </bdi>
-                    </TableCell>
-                    <TableCell className="font-medium">
-                      {order.customer}
-                    </TableCell>
+                    <TableCell className="tracking-normal">{order.id}</TableCell>
+                    <TableCell className="font-medium">{order.customer}</TableCell>
                     <TableCell>
                       <span
                         dir="ltr"
-                        className="inline-block text-start text-sm"
+                        className="block text-left text-sm tracking-normal"
                       >
                         {order.email}
                       </span>
                     </TableCell>
-                    <TableCell>{order.date}</TableCell>
+                    <TableCell className="tracking-normal">{order.date}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{order.status}</Badge>
+                      <Badge variant="outline" className="border">
+                        {order.status}
+                      </Badge>
                     </TableCell>
-                    <TableCell>
-                      <bdi dir="ltr" className="tabular-nums">
-                        {order.total}
-                      </bdi>
-                    </TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                    <TableCell className="tracking-normal">{order.total}</TableCell>
+                    <TableCell className="pe-4">
+                      <Popover
+                        open={openId === order.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? order.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
                             <Button
+                              type="button"
                               variant="ghost"
                               size="icon"
                               className="size-8"
@@ -329,19 +345,37 @@ export function OrderHistoryHub() {
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">منوی سفارش</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="end"
-                          className="w-44"
+                          className="w-44 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>جزئیات</DropdownMenuItem>
-                          <DropdownMenuItem>رسید PDF</DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() =>
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            جزئیات
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            رسید PDF
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => {
                               setOrders((prev) =>
                                 prev.map((o) =>
                                   o.id === order.id
@@ -349,13 +383,16 @@ export function OrderHistoryHub() {
                                     : o
                                 )
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             علامت ارسال
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            variant="destructive"
-                            onClick={() =>
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => {
                               setOrders((prev) =>
                                 prev.map((o) =>
                                   o.id === order.id
@@ -363,12 +400,13 @@ export function OrderHistoryHub() {
                                     : o
                                 )
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             لغو
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -377,25 +415,39 @@ export function OrderHistoryHub() {
           </div>
 
           <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <Select
-              value={pageSize}
-              onValueChange={(value) => setPageSize((value as string) ?? "5")}
-            >
-              <SelectTrigger className="w-full sm:w-36" dir="rtl">
-                <SelectValue placeholder="تعداد" />
-              </SelectTrigger>
-              <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="3">۳ ردیف</SelectItem>
-                <SelectItem value="5">۵ ردیف</SelectItem>
-                <SelectItem value="8">۸ ردیف</SelectItem>
-              </SelectContent>
-            </Select>
-            <div className="flex items-center gap-3">
-              <p className="text-sm text-muted-foreground">
-                صفحه <bdi dir="ltr">{safePage + 1}</bdi> از{" "}
-                <bdi dir="ltr">{pageCount}</bdi>
+            <div className="flex items-center gap-2">
+              <Select
+                items={[...PAGE_SIZE_ITEMS]}
+                value={pageSize}
+                onValueChange={(value) => {
+                  if (PAGE_SIZE_ITEMS.some((item) => item.value === value)) {
+                    setPageSize(value as string)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-36" dir="rtl">
+                  <SelectValue>
+                    {(value: string | null) =>
+                      PAGE_SIZE_ITEMS.find((item) => item.value === value)
+                        ?.label ?? "۵ ردیف"
+                    }
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {PAGE_SIZE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-sm tracking-normal text-muted-foreground">
+                صفحه {toFa(safePage + 1)} از {toFa(pageCount)}
               </p>
+            </div>
+            <div className="flex gap-2">
               <Button
+                type="button"
                 variant="outline"
                 size="sm"
                 disabled={safePage === 0}
@@ -404,6 +456,7 @@ export function OrderHistoryHub() {
                 قبلی
               </Button>
               <Button
+                type="button"
                 variant="outline"
                 size="sm"
                 disabled={safePage >= pageCount - 1}
@@ -418,7 +471,7 @@ export function OrderHistoryHub() {
 
       <Separator className="my-10" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">ارسال رسید سفارش</CardTitle>
           <CardDescription>
@@ -441,7 +494,7 @@ export function OrderHistoryHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال

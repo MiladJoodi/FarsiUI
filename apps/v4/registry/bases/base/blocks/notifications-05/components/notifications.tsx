@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   BellIcon,
   CheckIcon,
@@ -15,20 +14,17 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -38,6 +34,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type Notice = {
   id: string
@@ -55,25 +52,25 @@ const INITIAL: Notice[] = [
     title: "سفارش ارسال شد",
     body: "کد پیگیری: ۱۲۳۴۵۶",
     time: "۵ دقیقه پیش",
-    type: "order",
+    type: "سفارش",
     unread: true,
     icon: PackageIcon,
   },
   {
     id: "2",
     title: "ورود جدید",
-    body: "Chrome · تهران",
+    body: "مرورگر کروم · تهران",
     time: "۱ ساعت پیش",
-    type: "security",
+    type: "امنیت",
     unread: true,
     icon: ShieldIcon,
   },
   {
     id: "3",
     title: "قابلیت جدید",
-    body: "کامپوننت Calendar RTL منتشر شد",
+    body: "کامپوننت تقویم راست‌چین منتشر شد",
     time: "دیروز",
-    type: "product",
+    type: "محصول",
     unread: false,
     icon: SparklesIcon,
   },
@@ -82,7 +79,7 @@ const INITIAL: Notice[] = [
     title: "تخفیف ویژه",
     body: "تا ۲۰٪ روی طرح حرفه‌ای",
     time: "۲ روز پیش",
-    type: "marketing",
+    type: "بازاریابی",
     unread: false,
     icon: BellIcon,
   },
@@ -91,32 +88,52 @@ const INITIAL: Notice[] = [
     title: "خلاصهٔ هفتگی",
     body: "۳ به‌روزرسانی آماده است",
     time: "شنبه",
-    type: "product",
+    type: "محصول",
     unread: false,
     icon: BellIcon,
   },
 ]
 
 const NAV = [
-  { id: "all", label: "همه" },
-  { id: "order", label: "سفارش" },
-  { id: "security", label: "امنیت" },
-  { id: "product", label: "محصول" },
-  { id: "marketing", label: "بازاریابی" },
+  { id: "همه", label: "همه" },
+  { id: "سفارش", label: "سفارش" },
+  { id: "امنیت", label: "امنیت" },
+  { id: "محصول", label: "محصول" },
+  { id: "بازاریابی", label: "بازاریابی" },
 ] as const
 
 type NavId = (typeof NAV)[number]["id"]
 
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "خوانده‌شده", label: "خوانده‌شده" },
+] as const
+
+const DIGEST_ITEMS = [
+  { value: "آنی", label: "آنی" },
+  { value: "روزانه", label: "روزانه" },
+  { value: "هفتگی", label: "هفتگی" },
+  { value: "خاموش", label: "خاموش" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function NotificationsHub() {
   const [items, setItems] = React.useState(INITIAL)
-  const [tab, setTab] = React.useState<NavId>("all")
-  const [status, setStatus] = React.useState("all")
+  const [tab, setTab] = React.useState<NavId>("همه")
+  const [status, setStatus] = React.useState("همه")
+  const [digest, setDigest] = React.useState("روزانه")
   const [query, setQuery] = React.useState("")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = items.filter((item) => {
-    if (tab !== "all" && item.type !== tab) return false
-    if (status === "unread" && !item.unread) return false
-    if (status === "read" && item.unread) return false
+    if (tab !== "همه" && item.type !== tab) return false
+    if (status === "خوانده‌نشده" && !item.unread) return false
+    if (status === "خوانده‌شده" && item.unread) return false
     if (query && !`${item.title}${item.body}`.includes(query)) return false
     return true
   })
@@ -135,39 +152,52 @@ export function NotificationsHub() {
             مرکز اعلان‌ها
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">اعلان‌ها</h2>
-          <p className="mt-2 text-muted-foreground">
-            {unread > 0 ? (
-              <>
-                <bdi dir="ltr">{unread}</bdi> خوانده‌نشده · فیلتر و ترجیحات
-              </>
-            ) : (
-              "همه خوانده شده‌اند"
-            )}
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {unread > 0
+              ? `${toFa(unread)} خوانده‌نشده · فیلتر و ترجیحات`
+              : "همه خوانده شده‌اند"}
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              onClick={() =>
-                setItems((prev) => prev.map((n) => ({ ...n, unread: false })))
-              }
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setItems((prev) =>
+                  prev.map((n) => ({ ...n, unread: false }))
+                )
+                setMoreOpen(false)
+              }}
             >
               همه خوانده
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              variant="destructive"
-              onClick={() => setItems([])}
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => {
+                setItems([])
+                setMoreOpen(false)
+              }}
             >
               پاک کردن همه
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[11rem_1fr]">
@@ -200,21 +230,30 @@ export function NotificationsHub() {
                 defaultValue="sara@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>خلاصهٔ روزانه به این آدرس</FieldDescription>
             </Field>
             <Field>
               <FieldLabel>تواتر خلاصه</FieldLabel>
-              <Select defaultValue="daily">
+              <Select
+                items={[...DIGEST_ITEMS]}
+                value={digest}
+                onValueChange={(value) => {
+                  if (DIGEST_ITEMS.some((item) => item.value === value)) {
+                    setDigest(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="تواتر" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="realtime">آنی</SelectItem>
-                  <SelectItem value="daily">روزانه</SelectItem>
-                  <SelectItem value="weekly">هفتگی</SelectItem>
-                  <SelectItem value="off">خاموش</SelectItem>
+                  {DIGEST_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -237,23 +276,32 @@ export function NotificationsHub() {
               className="flex-1"
             />
             <Select
+              items={[...STATUS_ITEMS]}
               value={status}
-              onValueChange={(v) => setStatus((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (STATUS_ITEMS.some((item) => item.value === value)) {
+                  setStatus(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full lg:w-36" dir="rtl">
                 <SelectValue placeholder="وضعیت" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="read">خوانده‌شده</SelectItem>
+                {STATUS_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             <Button
               type="button"
               variant="outline"
               onClick={() =>
-                setItems((prev) => prev.map((n) => ({ ...n, unread: false })))
+                setItems((prev) =>
+                  prev.map((n) => ({ ...n, unread: false }))
+                )
               }
             >
               <CheckIcon className="size-4" />
@@ -286,28 +334,54 @@ export function NotificationsHub() {
                         <div className="flex flex-wrap items-center gap-2">
                           <p className="text-sm font-medium">{item.title}</p>
                           {item.unread ? (
-                            <Badge variant="secondary" className="h-5">
+                            <Badge
+                              variant="outline"
+                              className="h-5 border"
+                            >
                               جدید
                             </Badge>
                           ) : null}
                         </div>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
+                        <p className="mt-0.5 text-sm tracking-normal text-muted-foreground">
                           {item.body}
                         </p>
-                        <p className="mt-1 text-xs text-muted-foreground">
+                        <p className="mt-1 text-xs tracking-normal text-muted-foreground">
                           {item.time}
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === item.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? item.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="shrink-0"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
-                          <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem
-                            onClick={() =>
+                          عملیات
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-44 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => {
                               setItems((prev) =>
                                 prev.map((n) =>
                                   n.id === item.id
@@ -315,26 +389,36 @@ export function NotificationsHub() {
                                     : n
                                 )
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             <CheckIcon className="size-4" />
                             علامت خوانده
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            variant="destructive"
-                            onClick={() =>
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            مشاهده
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => {
                               setItems((prev) =>
                                 prev.filter((n) => n.id !== item.id)
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             <Trash2Icon className="size-4" />
                             حذف
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </div>
                 )

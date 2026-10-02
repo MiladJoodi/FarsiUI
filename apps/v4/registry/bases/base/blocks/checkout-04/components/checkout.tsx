@@ -13,19 +13,16 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldGroup,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -48,10 +45,17 @@ const ADDRESSES = [
   },
 ] as const
 
+const BANK_ITEMS = [
+  { value: "ملی", label: "ملی" },
+  { value: "ملت", label: "ملت" },
+  { value: "سامان", label: "سامان" },
+] as const
+
 export function CheckoutAddressBook() {
   const [selected, setSelected] = React.useState<(typeof ADDRESSES)[number]>(
     ADDRESSES[0]
   )
+  const [addressOpen, setAddressOpen] = React.useState(false)
 
   return (
     <section
@@ -60,7 +64,9 @@ export function CheckoutAddressBook() {
       className="mx-auto flex min-h-svh max-w-4xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="mb-6">
-        <h2 className="text-2xl font-bold tracking-tight">تسویه با دفترچه آدرس</h2>
+        <h2 className="text-2xl font-bold tracking-tight">
+          تسویه با دفترچه آدرس
+        </h2>
         <p className="mt-1 text-sm text-muted-foreground">
           انتخاب آدرس از منوی کشویی راست‌چین
         </p>
@@ -68,45 +74,58 @@ export function CheckoutAddressBook() {
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0">
               <CardTitle className="text-base">آدرس تحویل</CardTitle>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={<Button variant="outline" size="sm" />}
+              <Popover open={addressOpen} onOpenChange={setAddressOpen}>
+                <PopoverTrigger
+                  render={
+                    <Button type="button" variant="outline" size="sm" />
+                  }
                 >
                   {selected.label}
                   <ChevronDownIcon className="size-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
+                </PopoverTrigger>
+                <PopoverContent
                   dir="rtl"
                   lang="fa"
                   align="end"
-                  className="w-56"
+                  className="w-56 space-y-1 p-2"
                 >
-                  <DropdownMenuLabel>آدرس‌های ذخیره‌شده</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
+                  <p className="px-2 py-1.5 text-sm font-medium">
+                    آدرس‌های ذخیره‌شده
+                  </p>
                   {ADDRESSES.map((addr) => (
-                    <DropdownMenuItem
+                    <Button
                       key={addr.id}
-                      onClick={() => setSelected(addr)}
+                      type="button"
+                      variant="ghost"
+                      className="h-auto w-full flex-col items-start gap-0.5 py-2"
+                      onClick={() => {
+                        setSelected(addr)
+                        setAddressOpen(false)
+                      }}
                     >
-                      <div className="flex flex-col gap-0.5">
-                        <span>{addr.label}</span>
-                        <span className="text-xs text-muted-foreground">
-                          {addr.detail}
-                        </span>
-                      </div>
-                    </DropdownMenuItem>
+                      <span>{addr.label}</span>
+                      <span className="text-xs font-normal text-muted-foreground">
+                        {addr.detail}
+                      </span>
+                    </Button>
                   ))}
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>افزودن آدرس جدید</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    className="h-8 w-full justify-start"
+                    onClick={() => setAddressOpen(false)}
+                  >
+                    افزودن آدرس جدید
+                  </Button>
+                </PopoverContent>
+              </Popover>
             </CardHeader>
             <CardContent>
               <div className="rounded-xl border bg-muted/30 p-4 text-sm">
-                <Badge variant="secondary" className="mb-2">
+                <Badge variant="outline" className="mb-2 border">
                   {selected.label}
                 </Badge>
                 <p>{selected.detail}</p>
@@ -114,7 +133,7 @@ export function CheckoutAddressBook() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">اطلاعات کارت</CardTitle>
             </CardHeader>
@@ -124,9 +143,9 @@ export function CheckoutAddressBook() {
                   <FieldLabel htmlFor="c4-card">شماره کارت</FieldLabel>
                   <Input
                     id="c4-card"
-                    placeholder="6037-****-****-****"
+                    placeholder="۶۰۳۷-••••-••••-••••"
                     dir="ltr"
-                    className="text-start font-mono"
+                    className="text-left font-mono tracking-normal"
                   />
                 </Field>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -134,9 +153,9 @@ export function CheckoutAddressBook() {
                     <FieldLabel htmlFor="c4-exp">انقضا</FieldLabel>
                     <Input
                       id="c4-exp"
-                      placeholder="MM/YY"
-                      dir="ltr"
-                      className="text-start"
+                      placeholder="ماه / سال"
+                      dir="rtl"
+                      className="tracking-normal"
                     />
                   </Field>
                   <Field>
@@ -145,20 +164,22 @@ export function CheckoutAddressBook() {
                       id="c4-cvv"
                       placeholder="•••"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                     />
                   </Field>
                 </div>
                 <Field>
                   <FieldLabel htmlFor="c4-bank">بانک</FieldLabel>
-                  <Select defaultValue="melli">
+                  <Select items={[...BANK_ITEMS]} defaultValue="ملی">
                     <SelectTrigger id="c4-bank" className="w-full" dir="rtl">
                       <SelectValue placeholder="بانک" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="melli">ملی</SelectItem>
-                      <SelectItem value="mellat">ملت</SelectItem>
-                      <SelectItem value="saman">سامان</SelectItem>
+                      {BANK_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -167,16 +188,14 @@ export function CheckoutAddressBook() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">خلاصه</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-sm">
+          <CardContent className="space-y-3 text-sm tracking-normal">
             <div className="flex justify-between gap-3">
               <span className="text-muted-foreground">جمع کالاها</span>
-              <bdi dir="ltr" className="tabular-nums">
-                ۷٬۴۴۰٬۰۰۰
-              </bdi>
+              <span>۷٬۴۴۰٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-3">
               <span className="text-muted-foreground">ارسال</span>
@@ -185,16 +204,11 @@ export function CheckoutAddressBook() {
             <Separator />
             <div className="flex justify-between gap-3 font-semibold">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  ۷٬۴۴۰٬۰۰۰
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>۷٬۴۴۰٬۰۰۰ تومان</span>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full" size="lg">
+            <Button type="button" className="w-full" size="lg">
               پرداخت امن
             </Button>
           </CardFooter>

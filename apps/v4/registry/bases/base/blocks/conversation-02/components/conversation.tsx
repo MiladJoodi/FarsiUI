@@ -47,19 +47,18 @@ export function ConversationThread() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="flex h-[540px] flex-col overflow-hidden">
+      <Card className="flex h-[540px] flex-col gap-0 overflow-hidden bg-card py-0">
         <CardHeader className="space-y-3 border-b py-3">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-sm font-semibold">پیگیری سفارش #۴۵۲۱</p>
-              <p className="text-xs text-muted-foreground">
-                شروع شده{" "}
-                <bdi dir="ltr" className="tabular-nums">
-                  ۱۴۰۵/۰۷/۱۲
-                </bdi>
+              <p className="text-xs tracking-normal text-muted-foreground">
+                شروع شده ۱۴۰۵/۰۷/۱۲
               </p>
             </div>
-            <Badge variant="secondary">باز</Badge>
+            <Badge variant="outline" className="border">
+              باز
+            </Badge>
           </div>
           <Separator />
           <div className="flex items-center gap-2">
@@ -75,7 +74,9 @@ export function ConversationThread() {
                 <AvatarFallback>پ‌ش</AvatarFallback>
               </Avatar>
             </div>
-            <p className="text-xs text-muted-foreground">۲ شرکت‌کننده</p>
+            <p className="text-xs tracking-normal text-muted-foreground">
+              ۲ شرکت‌کننده
+            </p>
           </div>
         </CardHeader>
         <CardContent className="flex-1 space-y-4 overflow-auto py-4">
@@ -104,24 +105,27 @@ export function ConversationThread() {
                   {r.text.includes("@") ? (
                     <>
                       عالی. رسید را به{" "}
-                      <bdi dir="ltr">sara@example.com</bdi> بفرستید.
+                      <span dir="ltr" className="inline-block text-left">
+                        sara@example.com
+                      </span>{" "}
+                      بفرستید.
                     </>
                   ) : (
                     r.text
                   )}
                 </div>
-                <p className="text-[10px] text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {r.time}
-                  </bdi>
+                <p className="text-[10px] tracking-normal text-muted-foreground">
+                  {r.time}
                 </p>
               </div>
             </div>
           ))}
         </CardContent>
-        <CardFooter className="gap-2 border-t p-3">
+        <CardFooter className="flex items-center gap-3 border-t px-4 py-3">
           <Input placeholder="پاسخ بنویسید…" dir="rtl" className="flex-1" />
-          <Button type="button">ارسال</Button>
+          <Button type="button" className="shrink-0">
+            ارسال
+          </Button>
         </CardFooter>
       </Card>
     </section>

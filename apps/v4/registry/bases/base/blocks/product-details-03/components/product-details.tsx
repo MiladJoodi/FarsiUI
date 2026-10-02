@@ -15,14 +15,30 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-const COLORS = [
-  { id: "black", label: "مشکی مات", swatch: "bg-zinc-900" },
-  { id: "sand", label: "بژ شنی", swatch: "bg-amber-200" },
-  { id: "olive", label: "زیتونی", swatch: "bg-green-800" },
+const IMAGES = [
+  "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1590874103328-eac38a67437e?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1622560480605-d876095ceb11?w=800&auto=format&fit=crop&q=80",
 ] as const
 
+const COLORS = [
+  { id: "مشکی", label: "مشکی مات", swatch: "bg-zinc-900" },
+  { id: "بژ", label: "بژ شنی", swatch: "bg-amber-200" },
+  { id: "زیتونی", label: "زیتونی", swatch: "bg-green-800" },
+] as const
+
+const SIZE_ITEMS = [
+  { value: "یک‌سایز", label: "یک‌سایز" },
+  { value: "نسخهٔ سفر", label: "نسخهٔ سفر" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function ProductDetailsVariants() {
-  const [color, setColor] = React.useState<(typeof COLORS)[number]["id"]>("black")
+  const [active, setActive] = React.useState(0)
+  const [color, setColor] = React.useState<(typeof COLORS)[number]["id"]>("مشکی")
   const [qty, setQty] = React.useState(1)
 
   return (
@@ -32,22 +48,44 @@ export function ProductDetailsVariants() {
       className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="grid gap-8 lg:grid-cols-2">
-        <div className="aspect-[4/5] overflow-hidden rounded-2xl border bg-muted">
-          <img
-            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&auto=format&fit=crop&q=80"
-            alt="کیف چرم دستی"
-            className="size-full object-cover"
-          />
+        <div className="space-y-3">
+          <div className="aspect-[4/5] overflow-hidden rounded-2xl border bg-muted">
+            <img
+              src={IMAGES[active]}
+              alt="کیف چرم دستی"
+              className="size-full object-cover"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            {IMAGES.map((src, index) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => setActive(index)}
+                className={`aspect-square overflow-hidden rounded-xl border bg-muted transition ${
+                  active === index
+                    ? "ring-2 ring-primary ring-offset-2"
+                    : "opacity-80 hover:opacity-100"
+                }`}
+              >
+                <img src={src} alt="" className="size-full object-cover" />
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-6">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge>جدید</Badge>
-              <Badge variant="outline">اکسسوری</Badge>
+              <Badge variant="outline" className="border">
+                جدید
+              </Badge>
+              <Badge variant="outline" className="border">
+                اکسسوری
+              </Badge>
             </div>
             <h1 className="text-3xl font-bold tracking-tight">کیف چرم دستی</h1>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 text-sm tracking-normal text-muted-foreground">
               <div className="flex text-amber-500">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <StarIcon
@@ -57,26 +95,16 @@ export function ProductDetailsVariants() {
                 ))}
               </div>
               <span>
-                امتیاز{" "}
-                <bdi dir="ltr" className="tabular-nums">
-                  ۴٫۶
-                </bdi>{" "}
-                از{" "}
-                <bdi dir="ltr" className="tabular-nums">
-                  ۱۲۸
-                </bdi>{" "}
-                نظر
+                امتیاز ۴٫۶ از {toFa(128)} نظر
               </span>
             </div>
-            <p className="text-xl">
-              <bdi dir="ltr" className="tabular-nums font-semibold">
-                ۳٬۱۵۰٬۰۰۰
-              </bdi>{" "}
+            <p className="text-xl tracking-normal">
+              <span className="font-semibold">۳٬۱۵۰٬۰۰۰</span>{" "}
               <span className="text-base text-muted-foreground">تومان</span>
             </p>
           </div>
 
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="leading-relaxed text-muted-foreground">
             چرم طبیعی، دوخت دستی و فضای کافی برای لپ‌تاپ ۱۳ اینچ و وسایل روزمره.
           </p>
 
@@ -106,13 +134,16 @@ export function ProductDetailsVariants() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label>اندازه</Label>
-              <Select defaultValue="one">
+              <Select items={[...SIZE_ITEMS]} defaultValue="یک‌سایز">
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="اندازه" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="one">یک‌سایز</SelectItem>
-                  <SelectItem value="travel">نسخهٔ سفر</SelectItem>
+                  {SIZE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -128,8 +159,8 @@ export function ProductDetailsVariants() {
                 >
                   <MinusIcon className="size-4" />
                 </Button>
-                <span className="w-10 text-center tabular-nums">
-                  <bdi dir="ltr">{qty}</bdi>
+                <span className="w-10 text-center tracking-normal">
+                  {toFa(qty)}
                 </span>
                 <Button
                   type="button"
@@ -146,7 +177,7 @@ export function ProductDetailsVariants() {
 
           <Separator />
 
-          <Button size="lg" className="w-full">
+          <Button type="button" size="lg" className="w-full">
             افزودن به سبد
           </Button>
         </div>

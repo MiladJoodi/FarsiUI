@@ -49,7 +49,7 @@ export function OrderHistoryCards() {
         {ORDERS.map((order) => (
           <article
             key={order.id}
-            className="flex gap-4 rounded-xl border p-4"
+            className="flex gap-4 rounded-xl border bg-card p-4"
           >
             <div className="size-16 shrink-0 overflow-hidden rounded-lg border bg-muted sm:size-20">
               <img
@@ -60,24 +60,25 @@ export function OrderHistoryCards() {
             </div>
             <div className="min-w-0 flex-1 space-y-2">
               <div className="flex flex-wrap items-center gap-2">
-                <bdi dir="ltr" className="font-mono text-xs font-medium">
+                <span className="text-sm font-medium tracking-normal">
                   {order.id}
-                </bdi>
-                <Badge variant="secondary">{order.status}</Badge>
+                </span>
+                <Badge variant="outline" className="border">
+                  {order.status}
+                </Badge>
               </div>
               <p className="truncate text-sm text-muted-foreground">
                 {order.items}
               </p>
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs text-muted-foreground">{order.date}</p>
-                <p className="text-sm font-medium">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {order.total}
-                  </bdi>{" "}
-                  تومان
+                <p className="text-xs tracking-normal text-muted-foreground">
+                  {order.date}
+                </p>
+                <p className="text-sm font-medium tracking-normal">
+                  {order.total} تومان
                 </p>
               </div>
-              <Button size="sm" variant="outline">
+              <Button type="button" size="sm" variant="outline">
                 مشاهده جزئیات
               </Button>
             </div>

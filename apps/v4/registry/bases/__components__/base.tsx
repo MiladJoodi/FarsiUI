@@ -746,6 +746,21 @@ export const Components: Record<string, any> = {
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "inbox-02"
         return { default: mod.default || mod[exportName] }
       }),
+  "inbox-03": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/inbox-03/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "inbox-03"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "inbox-04": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/inbox-04/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "inbox-04"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "inbox-05": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/inbox-05/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "inbox-05"
+        return { default: mod.default || mod[exportName] }
+      }),
   "preview": React.lazy(async () => {
         const mod = await import("@/registry/bases/base/blocks/preview/index")
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "preview"

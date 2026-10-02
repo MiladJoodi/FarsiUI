@@ -6,13 +6,10 @@ import { HeartIcon, Share2Icon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Tabs,
   TabsContent,
@@ -29,6 +26,7 @@ const IMAGES = [
 export function ProductDetailsTabs() {
   const [active, setActive] = React.useState(0)
   const [liked, setLiked] = React.useState(false)
+  const [shareOpen, setShareOpen] = React.useState(false)
 
   return (
     <section
@@ -51,7 +49,7 @@ export function ProductDetailsTabs() {
                 key={src}
                 type="button"
                 onClick={() => setActive(index)}
-                className={`aspect-square overflow-hidden rounded-xl border ${
+                className={`aspect-square overflow-hidden rounded-xl border bg-muted ${
                   active === index ? "ring-2 ring-primary ring-offset-2" : ""
                 }`}
               >
@@ -63,18 +61,18 @@ export function ProductDetailsTabs() {
 
         <div className="space-y-5">
           <div className="space-y-2">
-            <Badge variant="secondary">صوتی</Badge>
+            <Badge variant="outline" className="border">
+              صوتی
+            </Badge>
             <h1 className="text-3xl font-bold tracking-tight">هدفون بی‌سیم آرام</h1>
-            <p className="text-xl">
-              <bdi dir="ltr" className="tabular-nums font-semibold">
-                ۴٬۲۹۰٬۰۰۰
-              </bdi>{" "}
+            <p className="text-xl tracking-normal">
+              <span className="font-semibold">۴٬۲۹۰٬۰۰۰</span>{" "}
               <span className="text-base text-muted-foreground">تومان</span>
             </p>
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <Button size="lg" className="flex-1 sm:flex-none">
+            <Button type="button" size="lg" className="flex-1 sm:flex-none">
               افزودن به سبد
             </Button>
             <Button
@@ -89,21 +87,46 @@ export function ProductDetailsTabs() {
               />
               علاقه‌مندی
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button size="lg" variant="outline" />}
+            <Popover open={shareOpen} onOpenChange={setShareOpen}>
+              <PopoverTrigger
+                render={<Button type="button" size="lg" variant="outline" />}
               >
                 <Share2Icon className="size-4" />
                 اشتراک
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-                <DropdownMenuLabel>اشتراک‌گذاری</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-                <DropdownMenuItem>تلگرام</DropdownMenuItem>
-                <DropdownMenuItem>ایمیل</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="end"
+                className="w-44 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">اشتراک‌گذاری</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  کپی لینک
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  تلگرام
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
+                  ایمیل
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
 
           <Tabs defaultValue="desc" dir="rtl" className="w-full">
@@ -112,8 +135,11 @@ export function ProductDetailsTabs() {
               <TabsTrigger value="spec">مشخصات</TabsTrigger>
               <TabsTrigger value="reviews">نظرات</TabsTrigger>
             </TabsList>
-            <TabsContent value="desc" className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              نویزگیری فعال، میکروفون دوگانه و شارژ سریع — مناسب جلسات آنلاین و
+            <TabsContent
+              value="desc"
+              className="mt-4 text-sm leading-relaxed text-muted-foreground"
+            >
+              نویزگیری فعال، میکروفون دوگانه و شارژ سریع؛ مناسب جلسات آنلاین و
               مسیر روزانه.
             </TabsContent>
             <TabsContent value="spec" className="mt-4">
@@ -129,7 +155,7 @@ export function ProductDetailsTabs() {
                     className="flex items-center justify-between gap-4 border-b py-2 last:border-0"
                   >
                     <dt className="text-muted-foreground">{k}</dt>
-                    <dd className="font-medium">{v}</dd>
+                    <dd className="font-medium tracking-normal">{v}</dd>
                   </div>
                 ))}
               </dl>
@@ -145,7 +171,10 @@ export function ProductDetailsTabs() {
                   text: "نویزگیری برای مترو عالی است. بسته‌بندی هم مرتب بود.",
                 },
               ].map((review) => (
-                <div key={review.name} className="rounded-xl border p-4">
+                <div
+                  key={review.name}
+                  className="rounded-xl border bg-card p-4"
+                >
                   <p className="text-sm font-medium">{review.name}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {review.text}

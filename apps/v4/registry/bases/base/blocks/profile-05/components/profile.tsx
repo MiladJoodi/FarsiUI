@@ -1,7 +1,6 @@
 ﻿"use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   CameraIcon,
   CopyIcon,
@@ -14,14 +13,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/av
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -29,6 +20,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -39,6 +35,7 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "public", label: "نمای عمومی" },
@@ -48,9 +45,24 @@ const NAV = [
 
 type NavId = (typeof NAV)[number]["id"]
 
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "شیراز", label: "شیراز" },
+  { value: "مشهد", label: "مشهد" },
+] as const
+
+const VISIBILITY_ITEMS = [
+  { value: "عمومی", label: "عمومی" },
+  { value: "فقط دنبال‌کنندگان", label: "فقط دنبال‌کنندگان" },
+  { value: "خصوصی", label: "خصوصی" },
+] as const
+
 export function ProfileHub() {
   const [section, setSection] = React.useState<NavId>("public")
-  const [visibility, setVisibility] = React.useState("public")
+  const [visibility, setVisibility] = React.useState("عمومی")
+  const [shareOpen, setShareOpen] = React.useState(false)
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   return (
     <section
@@ -108,49 +120,93 @@ export function ProfileHub() {
             </div>
             <div className="pb-1">
               <h3 className="text-xl font-semibold">سارا محمدی</h3>
-              <p className="text-sm text-muted-foreground">
-                <bdi dir="ltr">sara@example.com</bdi>
+              <p className="text-sm tracking-normal text-muted-foreground">
+                <span dir="ltr" className="inline-block text-left">
+                  sara@example.com
+                </span>
               </p>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button size="sm" onClick={() => setSection("edit")}>
+            <Button type="button" size="sm" onClick={() => setSection("edit")}>
               ویرایش
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+            <Popover open={shareOpen} onOpenChange={setShareOpen}>
+              <PopoverTrigger
+                render={<Button type="button" variant="outline" size="sm" />}
+              >
                 <Share2Icon className="size-4" />
                 اشتراک
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>اشتراک‌گذاری</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-48 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">اشتراک‌گذاری</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
                   <CopyIcon className="size-4" />
                   کپی لینک پروفایل
-                </DropdownMenuItem>
-                <DropdownMenuItem>
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setShareOpen(false)}
+                >
                   <LinkIcon className="size-4" />
                   کپی نام کاربری
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" size="icon-sm" />}
+                </Button>
+              </PopoverContent>
+            </Popover>
+            <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuItem>دانلود دادهٔ پروفایل</DropdownMenuItem>
-                <DropdownMenuItem>مشاهده به‌عنوان مهمان</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-52 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  دانلود دادهٔ پروفایل
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  مشاهده به‌عنوان مهمان
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setMoreOpen(false)}
+                >
                   حذف پروفایل
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 
@@ -196,14 +252,18 @@ export function ProfileHub() {
                   <dl className="grid gap-2 text-sm sm:grid-cols-2">
                     <div>
                       <dt className="text-muted-foreground">نام کاربری</dt>
-                      <dd>
-                        <bdi dir="ltr">@sara.m</bdi>
+                      <dd className="tracking-normal">
+                        <span dir="ltr" className="inline-block text-left">
+                          @sara.m
+                        </span>
                       </dd>
                     </div>
                     <div>
                       <dt className="text-muted-foreground">وب‌سایت</dt>
-                      <dd>
-                        <bdi dir="ltr">farsiui.ir</bdi>
+                      <dd className="tracking-normal">
+                        <span dir="ltr" className="inline-block text-left">
+                          farsiui.ir
+                        </span>
                       </dd>
                     </div>
                   </dl>
@@ -246,7 +306,7 @@ export function ProfileHub() {
                         placeholder="sara.m"
                         defaultValue="sara.m"
                         dir="ltr"
-                        className="text-start"
+                        className="text-left"
                       />
                     </Field>
                     <Field>
@@ -257,7 +317,7 @@ export function ProfileHub() {
                         placeholder="name@example.com"
                         defaultValue="sara@example.com"
                         dir="ltr"
-                        className="text-start"
+                        className="text-left"
                       />
                       <FieldDescription>
                         برای ورود و اعلان‌های مهم استفاده می‌شود
@@ -272,20 +332,21 @@ export function ProfileHub() {
                         placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                         defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                         dir="ltr"
-                        className="text-start"
+                        className="text-left tracking-normal"
                       />
                     </Field>
                     <Field>
                       <FieldLabel htmlFor="p5-city">شهر</FieldLabel>
-                      <Select defaultValue="tehran">
+                      <Select items={[...CITY_ITEMS]} defaultValue="تهران">
                         <SelectTrigger id="p5-city" dir="rtl" className="w-full">
                           <SelectValue placeholder="انتخاب شهر" />
                         </SelectTrigger>
                         <SelectContent dir="rtl" lang="fa">
-                          <SelectItem value="tehran">تهران</SelectItem>
-                          <SelectItem value="isfahan">اصفهان</SelectItem>
-                          <SelectItem value="shiraz">شیراز</SelectItem>
-                          <SelectItem value="mashhad">مشهد</SelectItem>
+                          {CITY_ITEMS.map((item) => (
+                            <SelectItem key={item.value} value={item.value}>
+                              {item.label}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </Field>
@@ -297,7 +358,7 @@ export function ProfileHub() {
                         placeholder="https://example.com"
                         defaultValue="https://farsiui.ir"
                         dir="ltr"
-                        className="text-start"
+                        className="text-left"
                       />
                     </Field>
                     <Field>
@@ -330,16 +391,23 @@ export function ProfileHub() {
                 <Field>
                   <FieldLabel>سطح نمایش</FieldLabel>
                   <Select
+                    items={[...VISIBILITY_ITEMS]}
                     value={visibility}
-                    onValueChange={(v) => setVisibility((v as string) ?? "public")}
+                    onValueChange={(value) => {
+                      if (VISIBILITY_ITEMS.some((item) => item.value === value)) {
+                        setVisibility(value as string)
+                      }
+                    }}
                   >
                     <SelectTrigger dir="rtl" className="w-full sm:max-w-xs">
                       <SelectValue placeholder="انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="public">عمومی</SelectItem>
-                      <SelectItem value="followers">فقط دنبال‌کنندگان</SelectItem>
-                      <SelectItem value="private">خصوصی</SelectItem>
+                      {VISIBILITY_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FieldDescription>

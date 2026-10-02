@@ -60,12 +60,20 @@ const ORDERS = [
   },
 ] as const
 
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه وضعیت‌ها" },
+  { value: "تحویل‌شده", label: "تحویل‌شده" },
+  { value: "در حال ارسال", label: "در حال ارسال" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+  { value: "لغو شده", label: "لغو شده" },
+] as const
+
 export function OrderHistoryFilterable() {
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState("all")
+  const [status, setStatus] = React.useState("همه")
 
   const filtered = ORDERS.filter((order) => {
-    const matchStatus = status === "all" || order.status === status
+    const matchStatus = status === "همه" || order.status === status
     const q = query.trim().toLowerCase()
     const matchQuery =
       !q ||
@@ -102,29 +110,34 @@ export function OrderHistoryFilterable() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (STATUS_ITEMS.some((item) => item.value === value)) {
+                setStatus(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-44" dir="rtl">
-              <SelectValue placeholder="وضعیت" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه وضعیت‌ها</SelectItem>
-              <SelectItem value="تحویل‌شده">تحویل‌شده</SelectItem>
-              <SelectItem value="در حال ارسال">در حال ارسال</SelectItem>
-              <SelectItem value="پرداخت‌شده">پرداخت‌شده</SelectItem>
-              <SelectItem value="لغو شده">لغو شده</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           سفارشی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <Table>
             <TableHeader>
               <TableRow>
@@ -138,25 +151,22 @@ export function OrderHistoryFilterable() {
             <TableBody>
               {filtered.map((order) => (
                 <TableRow key={order.id}>
+                  <TableCell className="tracking-normal">{order.id}</TableCell>
                   <TableCell>
-                    <bdi dir="ltr" className="font-mono text-xs">
-                      {order.id}
-                    </bdi>
-                  </TableCell>
-                  <TableCell>
-                    <span dir="ltr" className="inline-block text-start text-sm">
+                    <span
+                      dir="ltr"
+                      className="block text-left text-sm tracking-normal"
+                    >
                       {order.email}
                     </span>
                   </TableCell>
-                  <TableCell>{order.date}</TableCell>
+                  <TableCell className="tracking-normal">{order.date}</TableCell>
                   <TableCell>
-                    <Badge variant="secondary">{order.status}</Badge>
+                    <Badge variant="outline" className="border">
+                      {order.status}
+                    </Badge>
                   </TableCell>
-                  <TableCell>
-                    <bdi dir="ltr" className="tabular-nums">
-                      {order.total}
-                    </bdi>
-                  </TableCell>
+                  <TableCell className="tracking-normal">{order.total}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -166,7 +176,7 @@ export function OrderHistoryFilterable() {
 
       {filtered.length > 0 && (
         <div className="mt-4 flex justify-end">
-          <Button variant="outline" size="sm">
+          <Button type="button" variant="outline" size="sm">
             خروجی اکسل
           </Button>
         </div>

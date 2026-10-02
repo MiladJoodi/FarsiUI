@@ -26,6 +26,20 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const METHOD_ITEMS = [
+  { value: "پیامک", label: "پیامک" },
+  { value: "ایمیل", label: "ایمیل" },
+  { value: "اپلیکیشن احراز", label: "اپلیکیشن احراز" },
+  { value: "غیرفعال", label: "غیرفعال" },
+] as const
+
+const TIMEOUT_ITEMS = [
+  { value: "۱ روز", label: "۱ روز" },
+  { value: "۷ روز", label: "۷ روز" },
+  { value: "۳۰ روز", label: "۳۰ روز" },
+  { value: "۹۰ روز", label: "۹۰ روز" },
+] as const
+
 export function SecuritySettingsMethods() {
   return (
     <section
@@ -33,7 +47,7 @@ export function SecuritySettingsMethods() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>روش‌های تأیید هویت</CardTitle>
           <CardDescription>
@@ -44,15 +58,16 @@ export function SecuritySettingsMethods() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="ss3-method">روش دو مرحله‌ای</FieldLabel>
-              <Select defaultValue="sms">
+              <Select items={[...METHOD_ITEMS]} defaultValue="پیامک">
                 <SelectTrigger id="ss3-method" className="w-full" dir="rtl">
                   <SelectValue placeholder="روش را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="sms">پیامک</SelectItem>
-                  <SelectItem value="email">ایمیل</SelectItem>
-                  <SelectItem value="app">اپلیکیشن احراز</SelectItem>
-                  <SelectItem value="off">غیرفعال</SelectItem>
+                  {METHOD_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -65,7 +80,7 @@ export function SecuritySettingsMethods() {
                 defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                 placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                 dir="ltr"
-                className="text-start"
+                className="text-left tracking-normal"
               />
             </Field>
             <Field>
@@ -76,7 +91,7 @@ export function SecuritySettingsMethods() {
                 defaultValue="reza@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>
                 برای بازیابی حساب در صورت از دست رفتن موبایل
@@ -84,15 +99,16 @@ export function SecuritySettingsMethods() {
             </Field>
             <Field>
               <FieldLabel htmlFor="ss3-timeout">مهلت نشست</FieldLabel>
-              <Select defaultValue="30">
+              <Select items={[...TIMEOUT_ITEMS]} defaultValue="۳۰ روز">
                 <SelectTrigger id="ss3-timeout" className="w-full" dir="rtl">
                   <SelectValue placeholder="مدت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="1">۱ روز</SelectItem>
-                  <SelectItem value="7">۷ روز</SelectItem>
-                  <SelectItem value="30">۳۰ روز</SelectItem>
-                  <SelectItem value="90">۹۰ روز</SelectItem>
+                  {TIMEOUT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -113,7 +129,7 @@ export function SecuritySettingsMethods() {
             <div className="flex items-center justify-between gap-4">
               <div className="space-y-0.5">
                 <Label htmlFor="ss3-lock">قفل پس از تلاش ناموفق</Label>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground tracking-normal">
                   بعد از ۵ تلاش اشتباه، حساب موقتاً قفل شود
                 </p>
               </div>
@@ -121,7 +137,9 @@ export function SecuritySettingsMethods() {
             </div>
           </div>
 
-          <Button className="w-full">اعمال تنظیمات</Button>
+          <Button type="button" className="w-full">
+            اعمال تنظیمات
+          </Button>
         </CardContent>
       </Card>
     </section>

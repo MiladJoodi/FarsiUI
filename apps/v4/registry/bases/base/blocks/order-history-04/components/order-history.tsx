@@ -6,13 +6,10 @@ import { MoreHorizontalIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Table,
   TableBody,
@@ -63,6 +60,7 @@ const INITIAL: Order[] = [
 
 export function OrderHistoryActions() {
   const [orders, setOrders] = React.useState(INITIAL)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   return (
     <section
@@ -77,7 +75,7 @@ export function OrderHistoryActions() {
         </p>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -86,55 +84,76 @@ export function OrderHistoryActions() {
               <TableHead className="text-start">تاریخ</TableHead>
               <TableHead className="text-start">وضعیت</TableHead>
               <TableHead className="text-start">مبلغ</TableHead>
-              <TableHead className="w-12">
-                <span className="sr-only">عملیات</span>
-              </TableHead>
+              <TableHead className="text-start pe-4">عملیات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {orders.map((order) => (
               <TableRow key={order.id}>
+                <TableCell className="tracking-normal">{order.id}</TableCell>
                 <TableCell>
-                  <bdi dir="ltr" className="font-mono text-xs">
-                    {order.id}
-                  </bdi>
-                </TableCell>
-                <TableCell>
-                  <span dir="ltr" className="inline-block text-start text-sm">
+                  <span
+                    dir="ltr"
+                    className="block text-left text-sm tracking-normal"
+                  >
                     {order.email}
                   </span>
                 </TableCell>
-                <TableCell>{order.date}</TableCell>
+                <TableCell className="tracking-normal">{order.date}</TableCell>
                 <TableCell>
-                  <Badge variant="secondary">{order.status}</Badge>
+                  <Badge variant="outline" className="border">
+                    {order.status}
+                  </Badge>
                 </TableCell>
-                <TableCell>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {order.total}
-                  </bdi>
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
+                <TableCell className="tracking-normal">{order.total}</TableCell>
+                <TableCell className="pe-4">
+                  <Popover
+                    open={openId === order.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? order.id : null)
+                    }
+                  >
+                    <PopoverTrigger
                       render={
-                        <Button variant="ghost" size="icon" className="size-8" />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="size-8"
+                        />
                       }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">منوی سفارش</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
+                    </PopoverTrigger>
+                    <PopoverContent
                       dir="rtl"
                       lang="fa"
                       align="end"
-                      className="w-44"
+                      className="w-44 space-y-1 p-2"
                     >
-                      <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>مشاهده جزئیات</DropdownMenuItem>
-                      <DropdownMenuItem>دانلود رسید</DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() =>
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        مشاهده جزئیات
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        دانلود رسید
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => {
                           setOrders((prev) =>
                             prev.map((o) =>
                               o.id === order.id
@@ -142,13 +161,16 @@ export function OrderHistoryActions() {
                                 : o
                             )
                           )
-                        }
+                          setOpenId(null)
+                        }}
                       >
                         علامت ارسال
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        variant="destructive"
-                        onClick={() =>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                        onClick={() => {
                           setOrders((prev) =>
                             prev.map((o) =>
                               o.id === order.id
@@ -156,12 +178,13 @@ export function OrderHistoryActions() {
                                 : o
                             )
                           )
-                        }
+                          setOpenId(null)
+                        }}
                       >
                         لغو سفارش
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </TableCell>
               </TableRow>
             ))}

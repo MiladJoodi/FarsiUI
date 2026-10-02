@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -21,7 +23,7 @@ export function CheckoutSimple() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>تسویه‌حساب</CardTitle>
         </CardHeader>
@@ -46,7 +48,7 @@ export function CheckoutSimple() {
                   type="email"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
               </Field>
               <Field>
@@ -59,19 +61,14 @@ export function CheckoutSimple() {
               </Field>
             </FieldGroup>
             <Separator />
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-sm tracking-normal">
               <span className="text-muted-foreground">مبلغ قابل پرداخت</span>
-              <span className="font-semibold">
-                <bdi dir="ltr" className="tabular-nums">
-                  ۷٬۴۴۰٬۰۰۰
-                </bdi>{" "}
-                تومان
-              </span>
+              <span className="font-semibold">۷٬۴۴۰٬۰۰۰ تومان</span>
             </div>
           </form>
         </CardContent>
         <CardFooter>
-          <Button className="w-full" size="lg">
+          <Button type="button" className="w-full" size="lg">
             پرداخت
           </Button>
         </CardFooter>

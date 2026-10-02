@@ -18,14 +18,6 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -33,6 +25,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -77,11 +74,20 @@ const INITIAL: Session[] = [
   },
 ]
 
+const TIMEOUT_ITEMS = [
+  { value: "۱ روز", label: "۱ روز" },
+  { value: "۷ روز", label: "۷ روز" },
+  { value: "۳۰ روز", label: "۳۰ روز" },
+  { value: "۹۰ روز", label: "۹۰ روز" },
+] as const
+
 export function SecuritySettingsSessions() {
   const [sessions, setSessions] = React.useState(INITIAL)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function revoke(id: string) {
     setSessions((prev) => prev.filter((s) => s.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -91,11 +97,11 @@ export function SecuritySettingsSessions() {
       className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="space-y-6">
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>تغییر رمز عبور</CardTitle>
             <CardDescription>
-              رمز انگلیسی چپ‌چین؛ برچسب فارسی راست‌چین
+              فیلدهای رمز راست‌چین؛ برچسب فارسی راست‌چین
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -115,9 +121,9 @@ export function SecuritySettingsSessions() {
                   <Input
                     id="ss4-current"
                     type="password"
-                    placeholder="••••••••"
-                    dir="ltr"
-                    className="text-start"
+                    placeholder="رمز عبور فعلی"
+                    dir="rtl"
+                    className="text-end"
                   />
                 </Field>
                 <Field>
@@ -126,12 +132,10 @@ export function SecuritySettingsSessions() {
                     id="ss4-new"
                     type="password"
                     placeholder="حداقل ۸ کاراکتر"
-                    dir="ltr"
-                    className="text-start"
+                    dir="rtl"
+                    className="text-end tracking-normal"
                   />
-                  <FieldDescription>
-                    از رمز قبلی استفاده نکنید
-                  </FieldDescription>
+                  <FieldDescription>از رمز قبلی استفاده نکنید</FieldDescription>
                 </Field>
                 <Button type="submit">به‌روزرسانی رمز</Button>
               </FieldGroup>
@@ -139,7 +143,7 @@ export function SecuritySettingsSessions() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="flex-row items-start justify-between gap-4 text-start">
             <div>
               <CardTitle>نشست‌های امن</CardTitle>
@@ -175,35 +179,69 @@ export function SecuritySettingsSessions() {
                           {session.device}
                         </p>
                         {session.current ? (
-                          <Badge variant="secondary">همین دستگاه</Badge>
+                          <Badge variant="outline" className="border">
+                            همین دستگاه
+                          </Badge>
                         ) : null}
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs tracking-normal text-muted-foreground">
                         {session.place} · {session.lastActive}
                       </p>
                     </div>
                     {!session.current ? (
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === session.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? session.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>جزئیات نشست</DropdownMenuItem>
-                          <DropdownMenuItem>اعتماد به دستگاه</DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            variant="destructive"
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-44 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            جزئیات نشست
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            اعتماد به دستگاه
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
                             onClick={() => revoke(session.id)}
                           >
                             پایان نشست
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     ) : null}
                   </div>
                 </div>
@@ -212,7 +250,7 @@ export function SecuritySettingsSessions() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <div className="flex items-center gap-2">
               <KeyRoundIcon className="size-4 text-muted-foreground" />
@@ -223,15 +261,16 @@ export function SecuritySettingsSessions() {
           <CardContent className="space-y-4">
             <Field>
               <FieldLabel htmlFor="ss4-timeout">مهلت نشست</FieldLabel>
-              <Select defaultValue="30">
+              <Select items={[...TIMEOUT_ITEMS]} defaultValue="۳۰ روز">
                 <SelectTrigger id="ss4-timeout" className="w-full" dir="rtl">
                   <SelectValue placeholder="مدت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="1">۱ روز</SelectItem>
-                  <SelectItem value="7">۷ روز</SelectItem>
-                  <SelectItem value="30">۳۰ روز</SelectItem>
-                  <SelectItem value="90">۹۰ روز</SelectItem>
+                  {TIMEOUT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -245,7 +284,9 @@ export function SecuritySettingsSessions() {
               </div>
               <Switch id="ss4-alert" defaultChecked />
             </div>
-            <Button className="w-full">ذخیره</Button>
+            <Button type="button" className="w-full">
+              ذخیره
+            </Button>
           </CardContent>
         </Card>
       </div>

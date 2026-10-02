@@ -4,7 +4,7 @@ const PRODUCT = {
   name: "هدفون بی‌سیم آرام",
   price: "۴٬۲۹۰٬۰۰۰",
   description:
-    "صدای شفاف، نویزگیری سبک و باتری تا ۳۰ ساعت — مناسب کار روزمره و سفر.",
+    "صدای شفاف، نویزگیری سبک و باتری تا ۳۰ ساعت؛ مناسب کار روزمره و سفر.",
   image:
     "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&auto=format&fit=crop&q=80",
 } as const
@@ -26,16 +26,14 @@ export function ProductDetailsSimple() {
         </div>
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight">{PRODUCT.name}</h1>
-          <p className="text-lg">
-            <bdi dir="ltr" className="tabular-nums font-semibold">
-              {PRODUCT.price}
-            </bdi>{" "}
+          <p className="text-lg tracking-normal">
+            <span className="font-semibold">{PRODUCT.price}</span>{" "}
             <span className="text-muted-foreground">تومان</span>
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="leading-relaxed text-muted-foreground">
             {PRODUCT.description}
           </p>
-          <Button size="lg" className="w-full sm:w-auto">
+          <Button type="button" size="lg" className="w-full sm:w-auto">
             افزودن به سبد
           </Button>
         </div>

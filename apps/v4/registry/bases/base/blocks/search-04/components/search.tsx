@@ -19,16 +19,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Kbd } from "@/registry/bases/base/ui/kbd"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -55,21 +52,28 @@ const HITS = [
   },
   {
     id: "3",
-    title: "راهنمای RTL",
+    title: "راهنمای راست‌چین",
     path: "docs/rtl",
     type: "مستند",
     icon: FileTextIcon,
   },
 ] as const
 
+const SCOPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "کامپوننت", label: "کامپوننت" },
+  { value: "بلاک", label: "بلاک" },
+  { value: "مستند", label: "مستند" },
+] as const
+
 export function SearchCommand() {
   const [query, setQuery] = React.useState("")
-  const [scope, setScope] = React.useState("all")
+  const [scope, setScope] = React.useState("همه")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = HITS.filter((h) => {
-    if (scope === "کامپوننت" && h.type !== "کامپوننت") return false
-    if (scope === "بلاک" && h.type !== "بلاک") return false
-    if (scope === "مستند" && h.type !== "مستند") return false
+    if (scope !== "همه" && h.type !== scope) return false
     if (query && !`${h.title}${h.path}`.includes(query)) return false
     return true
   })
@@ -80,7 +84,7 @@ export function SearchCommand() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 border-b py-3 text-start">
           <div>
             <CardTitle className="text-base">جستجوی سریع</CardTitle>
@@ -89,20 +93,40 @@ export function SearchCommand() {
               <Kbd>K</Kbd>
             </CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" className="shrink-0" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>گزینه‌ها</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>پاک کردن تاریخچه</DropdownMenuItem>
-              <DropdownMenuItem>تنظیمات جستجو</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              عملیات
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">گزینه‌ها</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                پاک کردن تاریخچه
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                تنظیمات جستجو
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
         <CardContent className="space-y-3 p-3">
           <div className="flex flex-col gap-2 sm:flex-row">
@@ -118,17 +142,23 @@ export function SearchCommand() {
               />
             </div>
             <Select
+              items={[...SCOPE_ITEMS]}
               value={scope}
-              onValueChange={(v) => setScope((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (SCOPE_ITEMS.some((item) => item.value === value)) {
+                  setScope(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-32" dir="rtl">
                 <SelectValue placeholder="محدوده" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="کامپوننت">کامپوننت</SelectItem>
-                <SelectItem value="بلاک">بلاک</SelectItem>
-                <SelectItem value="مستند">مستند</SelectItem>
+                {SCOPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -152,26 +182,62 @@ export function SearchCommand() {
                         <p className="truncate text-sm font-medium">
                           {hit.title}
                         </p>
-                        <p className="truncate text-xs text-muted-foreground">
-                          <bdi dir="ltr">{hit.path}</bdi>
+                        <p className="truncate text-xs tracking-normal text-muted-foreground">
+                          <span dir="ltr" className="inline-block text-left">
+                            {hit.path}
+                          </span>
                         </p>
                       </div>
-                      <Badge variant="outline">{hit.type}</Badge>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Badge variant="outline" className="border">
+                        {hit.type}
+                      </Badge>
+                      <Popover
+                        open={openId === hit.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? hit.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="shrink-0"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
-                          <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem>
+                          عملیات
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-40 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
                             <ArrowUpRightIcon className="size-4" />
                             باز کردن
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            کپی مسیر
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </div>
                 )

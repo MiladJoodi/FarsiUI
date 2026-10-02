@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -12,20 +11,17 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -35,6 +31,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const RESULTS = [
   {
@@ -49,14 +46,14 @@ const RESULTS = [
     title: "گروه دکمه",
     path: "components/button-group",
     type: "کامپوننت",
-    snippet: "چند دکمه کنار هم در چیدمان RTL",
+    snippet: "چند دکمه کنار هم در چیدمان راست‌چین",
   },
   {
     id: "3",
     title: "فرم ورود",
     path: "blocks/login",
     type: "بلاک",
-    snippet: "ورود با ایمیل LTR و برچسب فارسی",
+    snippet: "ورود با ایمیل چپ‌چین و برچسب فارسی",
   },
   {
     id: "4",
@@ -67,7 +64,7 @@ const RESULTS = [
   },
   {
     id: "5",
-    title: "راهنمای RTL",
+    title: "راهنمای راست‌چین",
     path: "docs/rtl",
     type: "مستند",
     snippet: "پیاده‌سازی جهت راست‌چین",
@@ -82,7 +79,7 @@ const RESULTS = [
 ] as const
 
 const NAV = [
-  { id: "all", label: "همه", count: 6 },
+  { id: "همه", label: "همه", count: 6 },
   { id: "کامپوننت", label: "کامپوننت", count: 3 },
   { id: "بلاک", label: "بلاک", count: 2 },
   { id: "مستند", label: "مستند", count: 1 },
@@ -90,19 +87,38 @@ const NAV = [
 
 type NavId = (typeof NAV)[number]["id"]
 
+const SORT_ITEMS = [
+  { value: "مرتبط‌ترین", label: "مرتبط‌ترین" },
+  { value: "الفبایی", label: "الفبایی" },
+  { value: "جدیدترین", label: "جدیدترین" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function SearchResultsHub() {
   const [query, setQuery] = React.useState("دکمه")
-  const [tab, setTab] = React.useState<NavId>("all")
-  const [sort, setSort] = React.useState("relevance")
+  const [tab, setTab] = React.useState<NavId>("همه")
+  const [sort, setSort] = React.useState("مرتبط‌ترین")
   const [page, setPage] = React.useState(1)
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
+
+  const totalPages = 1
 
   const rows = RESULTS.filter((r) => {
-    if (tab !== "all" && r.type !== tab) return false
+    if (tab !== "همه" && r.type !== tab) return false
     if (query && !`${r.title}${r.snippet}${r.path}`.includes(query)) {
       return false
     }
     return true
   })
+    .slice()
+    .sort((a, b) => {
+      if (sort === "الفبایی") return a.title.localeCompare(b.title, "fa")
+      return 0
+    })
 
   return (
     <section
@@ -118,23 +134,50 @@ export function SearchResultsHub() {
           <h2 className="text-3xl font-bold tracking-tight">
             نتایج برای «{query}»
           </h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> مورد · فیلتر و صفحه‌بندی
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(rows.length)} مورد · فیلتر و صفحه‌بندی
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>ذخیره جستجو</DropdownMenuItem>
-            <DropdownMenuItem>اشتراک لینک</DropdownMenuItem>
-            <DropdownMenuItem>خروجی CSV</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              ذخیره جستجو
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              اشتراک لینک
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              خروجی جدول
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="mb-4 flex flex-col gap-3 lg:flex-row">
@@ -152,16 +195,23 @@ export function SearchResultsHub() {
           />
         </div>
         <Select
+          items={[...SORT_ITEMS]}
           value={sort}
-          onValueChange={(v) => setSort((v as string) ?? "relevance")}
+          onValueChange={(value) => {
+            if (SORT_ITEMS.some((item) => item.value === value)) {
+              setSort(value as string)
+            }
+          }}
         >
           <SelectTrigger className="w-full lg:w-40" dir="rtl">
             <SelectValue placeholder="مرتب‌سازی" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="relevance">مرتبط‌ترین</SelectItem>
-            <SelectItem value="az">الفبایی</SelectItem>
-            <SelectItem value="newest">جدیدترین</SelectItem>
+            {SORT_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
@@ -181,14 +231,14 @@ export function SearchResultsHub() {
                   setPage(1)
                 }}
                 className={cn(
-                  "flex items-center justify-between rounded-lg px-3 py-2 text-start text-sm transition-colors hover:bg-muted",
+                  "flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-sm transition-colors hover:bg-muted",
                   tab === item.id && "bg-muted font-medium"
                 )}
               >
                 <span>{item.label}</span>
-                <bdi dir="ltr" className="text-xs text-muted-foreground">
-                  {item.count}
-                </bdi>
+                <span className="text-xs tracking-normal text-muted-foreground">
+                  {toFa(item.count)}
+                </span>
               </button>
             ))}
           </nav>
@@ -201,7 +251,7 @@ export function SearchResultsHub() {
                 type="email"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
               <FieldDescription>فیلتر اختیاری</FieldDescription>
             </Field>
@@ -229,28 +279,73 @@ export function SearchResultsHub() {
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="text-sm font-medium">{r.title}</p>
-                        <Badge variant="outline">{r.type}</Badge>
+                        <Badge variant="outline" className="border">
+                          {r.type}
+                        </Badge>
                       </div>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
-                        <bdi dir="ltr">{r.path}</bdi>
+                      <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
+                        <span dir="ltr" className="inline-block text-left">
+                          {r.path}
+                        </span>
                       </p>
                       <p className="mt-1 text-sm text-muted-foreground">
                         {r.snippet}
                       </p>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === r.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? r.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            className="shrink-0"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
-                        <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                        <DropdownMenuItem>ذخیره</DropdownMenuItem>
-                        <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        عملیات
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-40 space-y-1 p-2"
+                      >
+                        <p className="px-2 py-1.5 text-sm font-medium">
+                          عملیات
+                        </p>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          باز کردن
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          ذخیره
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          کپی مسیر
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))
@@ -258,9 +353,8 @@ export function SearchResultsHub() {
           </div>
 
           <div className="mt-4 flex items-center justify-between gap-3">
-            <p className="text-sm text-muted-foreground">
-              صفحه <bdi dir="ltr">{page}</bdi> از{" "}
-              <bdi dir="ltr">۱</bdi>
+            <p className="text-sm tracking-normal text-muted-foreground">
+              صفحه {toFa(page)} از {toFa(totalPages)}
             </p>
             <div className="flex gap-2">
               <Button
@@ -273,12 +367,7 @@ export function SearchResultsHub() {
                 <ChevronRightIcon className="size-4" />
                 قبلی
               </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                disabled
-              >
+              <Button type="button" variant="outline" size="sm" disabled>
                 بعدی
                 <ChevronLeftIcon className="size-4" />
               </Button>

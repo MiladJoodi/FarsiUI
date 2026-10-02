@@ -12,15 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import {
   Select,
@@ -114,20 +105,38 @@ const PRODUCTS = [
   },
 ] as const
 
-type SortKey = "featured" | "price-asc" | "price-desc" | "name"
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه دسته‌ها" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "اکسسوری", label: "اکسسوری" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "پیشنهادی", label: "پیشنهادی" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "نام", label: "نام الفبایی" },
+] as const
+
+const PAGE_SIZE_ITEMS = [
+  { value: "3", label: "۳ محصول" },
+  { value: "6", label: "۶ محصول" },
+  { value: "8", label: "۸ محصول" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 type ViewMode = "grid" | "list"
 
-const SORT_LABELS: Record<SortKey, string> = {
-  featured: "پیشنهادی",
-  "price-asc": "ارزان‌ترین",
-  "price-desc": "گران‌ترین",
-  name: "نام الفبایی",
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 export function ProductGridHub() {
   const [query, setQuery] = React.useState("")
-  const [category, setCategory] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("featured")
+  const [category, setCategory] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("پیشنهادی")
   const [view, setView] = React.useState<ViewMode>("grid")
   const [pageSize, setPageSize] = React.useState("6")
   const [page, setPage] = React.useState(0)
@@ -135,7 +144,7 @@ export function ProductGridHub() {
 
   const filtered = React.useMemo(() => {
     let list = PRODUCTS.filter((product) => {
-      const matchCat = category === "all" || product.category === category
+      const matchCat = category === "همه" || product.category === category
       const matchQuery =
         !query.trim() ||
         product.name.includes(query) ||
@@ -143,9 +152,9 @@ export function ProductGridHub() {
       return matchCat && matchQuery
     })
     list = [...list]
-    if (sort === "price-asc") list.sort((a, b) => a.price - b.price)
-    else if (sort === "price-desc") list.sort((a, b) => b.price - a.price)
-    else if (sort === "name")
+    if (sort === "ارزان‌ترین") list.sort((a, b) => a.price - b.price)
+    else if (sort === "گران‌ترین") list.sort((a, b) => b.price - a.price)
+    else if (sort === "نام")
       list.sort((a, b) => a.name.localeCompare(b.name, "fa"))
     return list
   }, [query, category, sort])
@@ -154,7 +163,7 @@ export function ProductGridHub() {
     setPage(0)
   }, [query, category, pageSize])
 
-  const size = Number(pageSize)
+  const size = Number(pageSize) || 6
   const pageCount = Math.max(1, Math.ceil(filtered.length / size))
   const safePage = Math.min(page, pageCount - 1)
   const slice = filtered.slice(safePage * size, safePage * size + size)
@@ -179,7 +188,9 @@ export function ProductGridHub() {
           <Badge variant="secondary" className="mb-3">
             فروشگاه
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight">فهرست کامل محصولات</h2>
+          <h2 className="text-3xl font-bold tracking-tight">
+            فهرست کامل محصولات
+          </h2>
           <p className="mt-2 text-muted-foreground">
             جستجو، فیلتر، مرتب‌سازی، نمایش شبکه‌ای/لیستی و دعوت با ایمیل
           </p>
@@ -197,41 +208,45 @@ export function ProductGridHub() {
             />
           </div>
           <Select
+            items={[...CATEGORY_ITEMS]}
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                setCategory(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full lg:w-40" dir="rtl">
-              <SelectValue placeholder="دسته" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه دسته‌ها</SelectItem>
-              <SelectItem value="صوتی">صوتی</SelectItem>
-              <SelectItem value="اکسسوری">اکسسوری</SelectItem>
-              <SelectItem value="پوشیدنی">پوشیدنی</SelectItem>
-              <SelectItem value="خانه">خانه</SelectItem>
+              {CATEGORY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full lg:w-auto" />}
-            >
-              {SORT_LABELS[sort]}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "featured")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full lg:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <div className="flex gap-1">
             <Button
               type="button"
@@ -254,14 +269,13 @@ export function ProductGridHub() {
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground">
-          <bdi dir="ltr">{filtered.length}</bdi> محصول ·{" "}
-          <bdi dir="ltr">{wishlist.size}</bdi> در علاقه‌مندی
+        <p className="text-sm tracking-normal text-muted-foreground">
+          {toFa(filtered.length)} محصول · {toFa(wishlist.size)} در علاقه‌مندی
         </p>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           محصولی با این فیلتر پیدا نشد.
         </p>
       ) : view === "grid" ? (
@@ -277,7 +291,10 @@ export function ProductGridHub() {
                     className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   {product.badge ? (
-                    <Badge className="absolute start-3 top-3">
+                    <Badge
+                      variant="outline"
+                      className="absolute start-3 top-3 border bg-card"
+                    >
                       {product.badge}
                     </Badge>
                   ) : null}
@@ -285,7 +302,7 @@ export function ProductGridHub() {
                     type="button"
                     size="icon"
                     variant="secondary"
-                    className="absolute end-2 top-2 size-8 bg-background/90"
+                    className="absolute end-2 top-2 size-8 bg-card/90"
                     onClick={() => toggleWish(product.id)}
                     aria-label={
                       liked ? "حذف از علاقه‌مندی" : "افزودن به علاقه‌مندی"
@@ -299,17 +316,14 @@ export function ProductGridHub() {
                 <div>
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-medium">{product.name}</h3>
-                    <Badge variant="outline" className="shrink-0">
+                    <Badge variant="outline" className="shrink-0 border">
                       {product.category}
                     </Badge>
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {product.priceLabel}
-                    </bdi>{" "}
-                    تومان
+                  <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                    {product.priceLabel} تومان
                   </p>
-                  <Button className="mt-3 w-full" size="sm">
+                  <Button type="button" className="mt-3 w-full" size="sm">
                     افزودن به سبد
                   </Button>
                 </div>
@@ -318,7 +332,7 @@ export function ProductGridHub() {
           })}
         </div>
       ) : (
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y overflow-hidden rounded-xl border bg-card">
           {slice.map((product) => {
             const liked = wishlist.has(product.id)
             return (
@@ -336,16 +350,17 @@ export function ProductGridHub() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-medium">{product.name}</h3>
-                    <Badge variant="outline">{product.category}</Badge>
+                    <Badge variant="outline" className="border">
+                      {product.category}
+                    </Badge>
                     {product.badge ? (
-                      <Badge variant="secondary">{product.badge}</Badge>
+                      <Badge variant="outline" className="border">
+                        {product.badge}
+                      </Badge>
                     ) : null}
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {product.priceLabel}
-                    </bdi>{" "}
-                    تومان
+                  <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                    {product.priceLabel} تومان
                   </p>
                 </div>
                 <div className="flex gap-2">
@@ -362,7 +377,9 @@ export function ProductGridHub() {
                       className={`size-4 ${liked ? "fill-primary text-primary" : ""}`}
                     />
                   </Button>
-                  <Button size="sm">افزودن به سبد</Button>
+                  <Button type="button" size="sm">
+                    افزودن به سبد
+                  </Button>
                 </div>
               </article>
             )
@@ -373,24 +390,36 @@ export function ProductGridHub() {
       {filtered.length > 0 && (
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <Select
+            items={[...PAGE_SIZE_ITEMS]}
             value={pageSize}
-            onValueChange={(value) => setPageSize((value as string) ?? "6")}
+            onValueChange={(value) => {
+              if (PAGE_SIZE_ITEMS.some((item) => item.value === value)) {
+                setPageSize(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="تعداد" />
+              <SelectValue>
+                {(value: string | null) =>
+                  PAGE_SIZE_ITEMS.find((item) => item.value === value)?.label ??
+                  "۶ محصول"
+                }
+              </SelectValue>
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="3">۳ محصول</SelectItem>
-              <SelectItem value="6">۶ محصول</SelectItem>
-              <SelectItem value="8">۸ محصول</SelectItem>
+              {PAGE_SIZE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <div className="flex items-center gap-3">
-            <p className="text-sm text-muted-foreground">
-              صفحه <bdi dir="ltr">{safePage + 1}</bdi> از{" "}
-              <bdi dir="ltr">{pageCount}</bdi>
+            <p className="text-sm tracking-normal text-muted-foreground">
+              صفحه {toFa(safePage + 1)} از {toFa(pageCount)}
             </p>
             <Button
+              type="button"
               variant="outline"
               size="sm"
               disabled={safePage === 0}
@@ -399,6 +428,7 @@ export function ProductGridHub() {
               قبلی
             </Button>
             <Button
+              type="button"
               variant="outline"
               size="sm"
               disabled={safePage >= pageCount - 1}
@@ -412,7 +442,7 @@ export function ProductGridHub() {
 
       <Separator className="my-10" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">خبر فروش ویژه</CardTitle>
           <CardDescription>
@@ -435,7 +465,7 @@ export function ProductGridHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               عضویت

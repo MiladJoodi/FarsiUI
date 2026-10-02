@@ -16,15 +16,12 @@ import {
   CardFooter,
   CardHeader,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -40,6 +37,7 @@ type Reply = {
   time: string
   me: boolean
   internal?: boolean
+  invoice?: boolean
 }
 
 const INITIAL: Reply[] = [
@@ -68,16 +66,25 @@ const INITIAL: Reply[] = [
   {
     id: "4",
     who: "سارا محمدی",
-    text: "شماره: INV-1405-07-12 — ایمیل billing@example.com",
+    text: "شماره: فاکتور-۱۴۰۵-۰۷-۱۲ — ایمیل صورتحساب sara@example.com",
     time: "۱۱:۰۸",
     me: false,
+    invoice: true,
   },
 ]
+
+const PRIORITY_ITEMS = [
+  { value: "کم", label: "کم" },
+  { value: "عادی", label: "عادی" },
+  { value: "بالا", label: "بالا" },
+] as const
 
 export function ConversationActions() {
   const [replies, setReplies] = React.useState(INITIAL)
   const [draft, setDraft] = React.useState("")
-  const [priority, setPriority] = React.useState("normal")
+  const [priority, setPriority] = React.useState("عادی")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function send() {
     const text = draft.trim()
@@ -97,6 +104,7 @@ export function ConversationActions() {
 
   function remove(id: string) {
     setReplies((prev) => prev.filter((r) => r.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -105,47 +113,85 @@ export function ConversationActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="flex h-[600px] flex-col overflow-hidden">
+      <Card className="flex h-[600px] flex-col gap-0 overflow-hidden bg-card py-0">
         <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold">
               مکالمه · اصلاح فاکتور
             </p>
-            <p className="text-xs text-muted-foreground">
-              <bdi dir="ltr">sara@example.com</bdi>
+            <p className="text-xs tracking-normal text-muted-foreground">
+              <span dir="ltr" className="inline-block text-left">
+                sara@example.com
+              </span>
             </p>
           </div>
           <Select
+            items={[...PRIORITY_ITEMS]}
             value={priority}
-            onValueChange={(v) => setPriority((v as string) ?? "normal")}
+            onValueChange={(value) => {
+              if (PRIORITY_ITEMS.some((item) => item.value === value)) {
+                setPriority(value as string)
+              }
+            }}
           >
-            <SelectTrigger className="w-28" dir="rtl">
+            <SelectTrigger className="w-28 shrink-0" dir="rtl">
               <SelectValue placeholder="اولویت" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="low">کم</SelectItem>
-              <SelectItem value="normal">عادی</SelectItem>
-              <SelectItem value="high">بالا</SelectItem>
+              {PRIORITY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon-sm"
+                  className="shrink-0"
+                />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>مکالمه</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>اختصاص به همکار</DropdownMenuItem>
-              <DropdownMenuItem>ادغام با تیکت دیگر</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive">
+              <span className="sr-only">عملیات مکالمه</span>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-48 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                اختصاص به همکار
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                ادغام با تیکت دیگر
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                onClick={() => setHeaderOpen(false)}
+              >
                 بستن مکالمه
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
 
         <CardContent className="flex-1 space-y-4 overflow-auto py-4">
@@ -161,78 +207,105 @@ export function ConversationActions() {
                     alt={r.who}
                   />
                 ) : null}
-                <AvatarFallback>{r.me ? "من" : "سم"}</AvatarFallback>
+                <AvatarFallback>{r.me ? "من" : "س‌م"}</AvatarFallback>
               </Avatar>
-              <div className="group max-w-[75%] space-y-1">
+              <div className="max-w-[75%] space-y-1">
                 <div className="flex items-center gap-2">
                   <p className="text-xs font-medium text-muted-foreground">
                     {r.who}
                   </p>
                   {r.internal ? (
-                    <Badge variant="outline" className="h-5 text-[10px]">
+                    <Badge variant="outline" className="h-5 border text-[10px]">
                       داخلی
                     </Badge>
                   ) : null}
                 </div>
-                <div className="flex items-start gap-1">
+                <div
+                  className={
+                    r.internal
+                      ? "rounded-2xl border border-dashed bg-muted/50 px-3 py-2 text-sm tracking-normal"
+                      : r.me
+                        ? "rounded-2xl bg-primary px-3 py-2 text-sm text-primary-foreground"
+                        : "rounded-2xl bg-muted px-3 py-2 text-sm tracking-normal"
+                  }
+                >
+                  {r.invoice ? (
+                    <>
+                      شماره: فاکتور-۱۴۰۵-۰۷-۱۲ — ایمیل صورتحساب{" "}
+                      <span dir="ltr" className="inline-block text-left">
+                        sara@example.com
+                      </span>
+                    </>
+                  ) : (
+                    r.text
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  <p className="text-[10px] tracking-normal text-muted-foreground">
+                    {r.time}
+                  </p>
                   {r.me ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
+                    <Popover
+                      open={openId === r.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? r.id : null)
+                      }
+                    >
+                      <PopoverTrigger
                         render={
                           <Button
+                            type="button"
                             variant="ghost"
-                            size="icon-sm"
-                            className="opacity-0 group-hover:opacity-100"
+                            size="sm"
+                            className="h-6 px-2 text-[10px] text-muted-foreground"
                           />
                         }
                       >
                         <MoreHorizontalIcon className="size-3.5" />
-                        <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>کپی</DropdownMenuItem>
-                        <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem
-                          variant="destructive"
+                        عملیات
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-36 space-y-1 p-2"
+                      >
+                        <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          کپی
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          ویرایش
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start text-destructive hover:text-destructive"
                           onClick={() => remove(r.id)}
                         >
                           حذف
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   ) : null}
-                  <div
-                    className={
-                      r.internal
-                        ? "rounded-2xl border border-dashed bg-muted/50 px-3 py-2 text-sm"
-                        : r.me
-                          ? "rounded-2xl bg-primary px-3 py-2 text-sm text-primary-foreground"
-                          : "rounded-2xl bg-muted px-3 py-2 text-sm"
-                    }
-                  >
-                    {r.text.includes("@") ? (
-                      <>
-                        شماره: <bdi dir="ltr">INV-1405-07-12</bdi> — ایمیل{" "}
-                        <bdi dir="ltr">billing@example.com</bdi>
-                      </>
-                    ) : (
-                      r.text
-                    )}
-                  </div>
                 </div>
-                <p className="text-[10px] text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {r.time}
-                  </bdi>
-                </p>
               </div>
             </div>
           ))}
         </CardContent>
 
-        <CardFooter className="gap-2 border-t p-3">
-          <Button type="button" variant="outline" size="icon">
+        <CardFooter className="flex items-center gap-3 border-t px-4 py-3">
+          <Button type="button" variant="outline" size="icon" className="shrink-0">
             <PaperclipIcon className="size-4" />
             <span className="sr-only">پیوست</span>
           </Button>
@@ -249,7 +322,7 @@ export function ConversationActions() {
             dir="rtl"
             className="flex-1"
           />
-          <Button type="button" onClick={send}>
+          <Button type="button" onClick={send} className="shrink-0">
             <SendIcon className="size-4" />
             ارسال
           </Button>

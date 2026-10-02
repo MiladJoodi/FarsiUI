@@ -20,15 +20,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -54,25 +51,25 @@ const INITIAL: Notice[] = [
     title: "سفارش ارسال شد",
     body: "کد پیگیری: ۱۲۳۴۵۶",
     time: "۵ دقیقه پیش",
-    type: "order",
+    type: "سفارش",
     unread: true,
     icon: PackageIcon,
   },
   {
     id: "2",
     title: "ورود جدید",
-    body: "Chrome · تهران",
+    body: "مرورگر کروم · تهران",
     time: "۱ ساعت پیش",
-    type: "security",
+    type: "امنیت",
     unread: true,
     icon: ShieldIcon,
   },
   {
     id: "3",
     title: "قابلیت جدید",
-    body: "کامپوننت Calendar RTL منتشر شد",
+    body: "کامپوننت تقویم راست‌چین منتشر شد",
     time: "دیروز",
-    type: "product",
+    type: "محصول",
     unread: false,
     icon: SparklesIcon,
   },
@@ -81,20 +78,35 @@ const INITIAL: Notice[] = [
     title: "تخفیف ویژه",
     body: "تا ۲۰٪ روی طرح حرفه‌ای",
     time: "۲ روز پیش",
-    type: "marketing",
+    type: "بازاریابی",
     unread: false,
     icon: BellIcon,
   },
 ]
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "سفارش", label: "سفارش" },
+  { value: "امنیت", label: "امنیت" },
+  { value: "محصول", label: "محصول" },
+  { value: "بازاریابی", label: "بازاریابی" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function NotificationsActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState("همه")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = items.filter((item) => {
-    if (filter === "unread" && !item.unread) return false
-    if (filter !== "all" && filter !== "unread" && item.type !== filter) {
+    if (filter === "خوانده‌نشده" && !item.unread) return false
+    if (filter !== "همه" && filter !== "خوانده‌نشده" && item.type !== filter) {
       return false
     }
     if (query && !`${item.title}${item.body}`.includes(query)) return false
@@ -107,14 +119,17 @@ export function NotificationsActions() {
     setItems((prev) =>
       prev.map((n) => (n.id === id ? { ...n, unread: false } : n))
     )
+    setOpenId(null)
   }
 
   function remove(id: string) {
     setItems((prev) => prev.filter((n) => n.id !== id))
+    setOpenId(null)
   }
 
   function markAll() {
     setItems((prev) => prev.map((n) => ({ ...n, unread: false })))
+    setHeaderOpen(false)
   }
 
   return (
@@ -123,45 +138,66 @@ export function NotificationsActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
           <div>
             <CardTitle className="flex items-center gap-2">
               اعلان‌ها
               {unread > 0 ? (
-                <Badge variant="secondary">
-                  <bdi dir="ltr">{unread}</bdi>
+                <Badge variant="outline" className="border tracking-normal">
+                  {toFa(unread)}
                 </Badge>
               ) : null}
             </CardTitle>
             <CardDescription>عملیات ردیف با منوی راست‌چین</CardDescription>
           </div>
-          <div className="flex gap-2">
-            <Button size="sm" variant="outline" onClick={markAll}>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              onClick={markAll}
+            >
               <CheckIcon className="size-3.5" />
               همه خوانده
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" size="icon-sm" />}
+            <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
-                <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={markAll}>
+                عملیات
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-44 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={markAll}
+                >
                   علامت‌گذاری همه
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  variant="destructive"
-                  onClick={() => setItems([])}
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => {
+                    setItems([])
+                    setHeaderOpen(false)
+                  }}
                 >
                   پاک کردن همه
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -174,19 +210,23 @@ export function NotificationsActions() {
               className="flex-1"
             />
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="فیلتر" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="order">سفارش</SelectItem>
-                <SelectItem value="security">امنیت</SelectItem>
-                <SelectItem value="product">محصول</SelectItem>
-                <SelectItem value="marketing">بازاریابی</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -210,37 +250,70 @@ export function NotificationsActions() {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
                         <p className="text-sm font-medium">{item.title}</p>
-                        <span className="shrink-0 text-xs text-muted-foreground">
+                        <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
                           {item.time}
                         </span>
                       </div>
-                      <p className="mt-0.5 text-sm text-muted-foreground">
+                      <p className="mt-0.5 text-sm tracking-normal text-muted-foreground">
                         {item.body}
                       </p>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === item.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? item.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            className="shrink-0"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
-                        <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem onClick={() => markRead(item.id)}>
+                        عملیات
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-44 space-y-1 p-2"
+                      >
+                        <p className="px-2 py-1.5 text-sm font-medium">
+                          عملیات
+                        </p>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => markRead(item.id)}
+                        >
                           <CheckIcon className="size-4" />
                           علامت خوانده
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>مشاهده جزئیات</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem
-                          variant="destructive"
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          مشاهده جزئیات
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start text-destructive hover:text-destructive"
                           onClick={() => remove(item.id)}
                         >
                           <Trash2Icon className="size-4" />
                           حذف
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               )

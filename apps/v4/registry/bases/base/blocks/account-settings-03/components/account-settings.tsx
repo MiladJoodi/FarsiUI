@@ -14,7 +14,6 @@ import {
   FieldGroup,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
   Select,
@@ -26,6 +25,30 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const LANG_ITEMS = [
+  { value: "فارسی", label: "فارسی" },
+  { value: "انگلیسی", label: "انگلیسی" },
+] as const
+
+const THEME_ITEMS = [
+  { value: "سیستم", label: "سیستم" },
+  { value: "روشن", label: "روشن" },
+  { value: "تیره", label: "تیره" },
+] as const
+
+const TZ_ITEMS = [
+  { value: "تهران", label: "تهران (ایران)" },
+  { value: "دبی", label: "دبی" },
+  { value: "استانبول", label: "استانبول" },
+] as const
+
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "شیراز", label: "شیراز" },
+  { value: "مشهد", label: "مشهد" },
+] as const
+
 export function AccountSettingsAppearance() {
   return (
     <section
@@ -33,7 +56,7 @@ export function AccountSettingsAppearance() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>ظاهر و زبان</CardTitle>
           <CardDescription>
@@ -44,51 +67,62 @@ export function AccountSettingsAppearance() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="as3-lang">زبان رابط</FieldLabel>
-              <Select defaultValue="fa">
+              <Select items={[...LANG_ITEMS]} defaultValue="فارسی">
                 <SelectTrigger id="as3-lang" className="w-full" dir="rtl">
                   <SelectValue placeholder="زبان را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="fa">فارسی</SelectItem>
-                  <SelectItem value="en">English</SelectItem>
+                  {LANG_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="as3-theme">پوسته</FieldLabel>
-              <Select defaultValue="system">
+              <Select items={[...THEME_ITEMS]} defaultValue="سیستم">
                 <SelectTrigger id="as3-theme" className="w-full" dir="rtl">
                   <SelectValue placeholder="پوسته را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="system">سیستم</SelectItem>
-                  <SelectItem value="light">روشن</SelectItem>
-                  <SelectItem value="dark">تیره</SelectItem>
+                  {THEME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="as3-tz">منطقه زمانی</FieldLabel>
-              <Input
-                id="as3-tz"
-                defaultValue="Asia/Tehran"
-                placeholder="Asia/Tehran"
-                dir="ltr"
-                className="text-start"
-              />
-              <FieldDescription>فرمت استاندارد IANA</FieldDescription>
+              <Select items={[...TZ_ITEMS]} defaultValue="تهران">
+                <SelectTrigger id="as3-tz" className="w-full" dir="rtl">
+                  <SelectValue placeholder="منطقه زمانی" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TZ_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FieldDescription>بر اساس شهر نمایش داده می‌شود</FieldDescription>
             </Field>
             <Field>
               <FieldLabel htmlFor="as3-city">شهر پیش‌فرض</FieldLabel>
-              <Select defaultValue="tehran">
+              <Select items={[...CITY_ITEMS]} defaultValue="تهران">
                 <SelectTrigger id="as3-city" className="w-full" dir="rtl">
                   <SelectValue placeholder="انتخاب شهر" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="tehran">تهران</SelectItem>
-                  <SelectItem value="isfahan">اصفهان</SelectItem>
-                  <SelectItem value="shiraz">شیراز</SelectItem>
-                  <SelectItem value="mashhad">مشهد</SelectItem>
+                  {CITY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -117,7 +151,9 @@ export function AccountSettingsAppearance() {
             </div>
           </div>
 
-          <Button className="w-full">اعمال تنظیمات</Button>
+          <Button type="button" className="w-full">
+            اعمال تنظیمات
+          </Button>
         </CardContent>
       </Card>
     </section>

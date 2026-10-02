@@ -1,7 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { MoreHorizontalIcon, MinusIcon, PlusIcon, ShoppingBagIcon } from "lucide-react"
+import {
+  MoreHorizontalIcon,
+  MinusIcon,
+  PlusIcon,
+  ShoppingBagIcon,
+} from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -13,16 +18,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -91,6 +93,12 @@ const SUGGESTED = [
   },
 ] as const
 
+const SHIPPING_ITEMS = [
+  { value: "عادی", label: "عادی · رایگان" },
+  { value: "پیشتاز", label: "پیشتاز · ۲۵۰٬۰۰۰ تومان" },
+  { value: "حضوری", label: "تحویل حضوری · رایگان" },
+] as const
+
 function formatFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
@@ -99,12 +107,12 @@ export function ShoppingCartHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [coupon, setCoupon] = React.useState("")
   const [applied, setApplied] = React.useState(false)
-  const [shipping, setShipping] = React.useState("standard")
+  const [shipping, setShipping] = React.useState("عادی")
   const [giftWrap, setGiftWrap] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0)
-  const shippingCost =
-    shipping === "express" ? 250000 : shipping === "pickup" ? 0 : 0
+  const shippingCost = shipping === "پیشتاز" ? 250000 : 0
   const discount = applied ? Math.round(subtotal * 0.1) : 0
   const giftCost = giftWrap ? 150000 : 0
   const total = subtotal - discount + shippingCost + giftCost
@@ -130,11 +138,11 @@ export function ShoppingCartHub() {
             فروشگاه
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">سبد خرید کامل</h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{count}</bdi> کالا · تخفیف، ارسال و رسید ایمیل
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {formatFa(count)} کالا · تخفیف، ارسال و رسید ایمیل
           </p>
         </div>
-        <Button variant="outline">
+        <Button type="button" variant="outline">
           <ShoppingBagIcon className="size-4" />
           ادامه خرید
         </Button>
@@ -142,7 +150,7 @@ export function ShoppingCartHub() {
 
       <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
         <div className="space-y-6">
-          <div className="divide-y rounded-xl border">
+          <div className="divide-y overflow-hidden rounded-xl border bg-card">
             {items.length === 0 ? (
               <p className="p-10 text-center text-sm text-muted-foreground">
                 سبد خرید خالی است.
@@ -164,17 +172,20 @@ export function ShoppingCartHub() {
                         <p className="mt-0.5 text-xs text-muted-foreground">
                           {item.variant}
                         </p>
-                        <p className="mt-1 text-sm">
-                          <bdi dir="ltr" className="tabular-nums">
-                            {item.priceLabel}
-                          </bdi>{" "}
-                          تومان
+                        <p className="mt-1 text-sm tracking-normal">
+                          {item.priceLabel} تومان
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                      <Popover
+                        open={openId === item.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? item.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
                             <Button
+                              type="button"
                               variant="ghost"
                               size="icon"
                               className="size-8"
@@ -183,29 +194,47 @@ export function ShoppingCartHub() {
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">منوی آیتم</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="end"
-                          className="w-44"
+                          className="w-44 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>ذخیره برای بعد</DropdownMenuItem>
-                          <DropdownMenuItem>مشاهده محصول</DropdownMenuItem>
-                          <DropdownMenuItem
-                            variant="destructive"
-                            onClick={() =>
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ذخیره برای بعد
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            مشاهده محصول
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => {
                               setItems((prev) =>
                                 prev.filter((x) => x.id !== item.id)
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             حذف
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                     <div className="flex items-center gap-2">
                       <Button
@@ -217,8 +246,8 @@ export function ShoppingCartHub() {
                       >
                         <MinusIcon className="size-3.5" />
                       </Button>
-                      <span className="w-8 text-center text-sm">
-                        <bdi dir="ltr">{item.qty}</bdi>
+                      <span className="w-8 text-center text-sm tracking-normal">
+                        {formatFa(item.qty)}
                       </span>
                       <Button
                         type="button"
@@ -242,7 +271,7 @@ export function ShoppingCartHub() {
               {SUGGESTED.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-3 rounded-xl border p-3"
+                  className="flex items-center gap-3 rounded-xl border bg-card p-3"
                 >
                   <div className="size-14 shrink-0 overflow-hidden rounded-lg bg-muted">
                     <img
@@ -253,14 +282,11 @@ export function ShoppingCartHub() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">{item.name}</p>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr" className="tabular-nums">
-                        {item.price}
-                      </bdi>{" "}
-                      تومان
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.price} تومان
                     </p>
                   </div>
-                  <Button size="sm" variant="outline">
+                  <Button type="button" size="sm" variant="outline">
                     افزودن
                   </Button>
                 </div>
@@ -270,7 +296,7 @@ export function ShoppingCartHub() {
         </div>
 
         <div className="space-y-4">
-          <Card>
+          <Card className="bg-card">
             <CardHeader>
               <CardTitle className="text-base">خلاصه سفارش</CardTitle>
             </CardHeader>
@@ -299,27 +325,32 @@ export function ShoppingCartHub() {
                   </Button>
                 </form>
                 {applied && (
-                  <Badge variant="secondary">۱۰٪ تخفیف اعمال شد</Badge>
+                  <Badge variant="outline" className="border">
+                    ۱۰٪ تخفیف اعمال شد
+                  </Badge>
                 )}
               </div>
 
               <div className="space-y-2">
                 <Label>روش ارسال</Label>
                 <Select
+                  items={[...SHIPPING_ITEMS]}
                   value={shipping}
-                  onValueChange={(value) =>
-                    setShipping((value as string) ?? "standard")
-                  }
+                  onValueChange={(value) => {
+                    if (SHIPPING_ITEMS.some((item) => item.value === value)) {
+                      setShipping(value as string)
+                    }
+                  }}
                 >
                   <SelectTrigger className="w-full" dir="rtl">
-                    <SelectValue placeholder="روش ارسال" />
+                    <SelectValue />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="standard">عادی — رایگان</SelectItem>
-                    <SelectItem value="express">
-                      پیشتاز — ۲۵۰٬۰۰۰ تومان
-                    </SelectItem>
-                    <SelectItem value="pickup">تحویل حضوری — رایگان</SelectItem>
+                    {SHIPPING_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -327,7 +358,7 @@ export function ShoppingCartHub() {
               <div className="flex items-center justify-between gap-4 rounded-xl border p-3">
                 <div className="space-y-0.5">
                   <Label htmlFor="gift5">بسته‌بندی هدیه</Label>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs tracking-normal text-muted-foreground">
                     ۱۵۰٬۰۰۰ تومان
                   </p>
                 </div>
@@ -340,59 +371,47 @@ export function ShoppingCartHub() {
 
               <Separator />
 
-              <div className="space-y-2">
+              <div className="space-y-2 tracking-normal">
                 <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">جمع جزء</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {formatFa(subtotal)}
-                  </bdi>
+                  <span>{formatFa(subtotal)}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">تخفیف</span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {formatFa(discount)}
-                  </bdi>
+                  <span>{formatFa(discount)}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">ارسال</span>
                   <span>
-                    {shippingCost === 0 ? (
-                      "رایگان"
-                    ) : (
-                      <bdi dir="ltr" className="tabular-nums">
-                        {formatFa(shippingCost)}
-                      </bdi>
-                    )}
+                    {shippingCost === 0 ? "رایگان" : formatFa(shippingCost)}
                   </span>
                 </div>
                 {giftWrap && (
                   <div className="flex justify-between gap-4">
                     <span className="text-muted-foreground">هدیه</span>
-                    <bdi dir="ltr" className="tabular-nums">
-                      {formatFa(giftCost)}
-                    </bdi>
+                    <span>{formatFa(giftCost)}</span>
                   </div>
                 )}
                 <Separator />
                 <div className="flex justify-between gap-4 text-base font-semibold">
                   <span>قابل پرداخت</span>
-                  <span>
-                    <bdi dir="ltr" className="tabular-nums">
-                      {formatFa(total)}
-                    </bdi>{" "}
-                    تومان
-                  </span>
+                  <span>{formatFa(total)} تومان</span>
                 </div>
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg" disabled={items.length === 0}>
+              <Button
+                type="button"
+                className="w-full"
+                size="lg"
+                disabled={items.length === 0}
+              >
                 تسویه‌حساب
               </Button>
             </CardFooter>
           </Card>
 
-          <Card dir="rtl" lang="fa">
+          <Card dir="rtl" lang="fa" className="bg-card">
             <CardHeader className="text-start">
               <CardTitle className="text-base">ارسال رسید به ایمیل</CardTitle>
               <CardDescription>
@@ -410,7 +429,7 @@ export function ShoppingCartHub() {
                   required
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <Button type="submit" variant="outline" className="w-full">
                   ذخیره ایمیل رسید

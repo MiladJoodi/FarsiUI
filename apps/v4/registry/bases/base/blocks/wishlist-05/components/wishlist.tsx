@@ -20,17 +20,12 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -133,27 +128,40 @@ const INITIAL: Item[] = [
   },
 ]
 
-type SortKey = "newest" | "price-asc" | "price-desc" | "name"
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "اکسسوری", label: "اکسسوری" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "نام الفبایی", label: "نام الفبایی" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 type ViewMode = "grid" | "list"
 
-const SORT_LABELS: Record<SortKey, string> = {
-  newest: "جدیدترین",
-  "price-asc": "ارزان‌ترین",
-  "price-desc": "گران‌ترین",
-  name: "نام الفبایی",
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 export function WishlistHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [category, setCategory] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("newest")
+  const [category, setCategory] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("جدیدترین")
   const [view, setView] = React.useState<ViewMode>("grid")
   const [selected, setSelected] = React.useState<string[]>([])
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = items.filter((item) => {
-      const matchCat = category === "all" || item.category === category
+      const matchCat = category === "همه" || item.category === category
       const matchQuery =
         !query.trim() ||
         item.name.includes(query) ||
@@ -161,9 +169,9 @@ export function WishlistHub() {
       return matchCat && matchQuery
     })
     list = [...list]
-    if (sort === "price-asc") list.sort((a, b) => a.price - b.price)
-    else if (sort === "price-desc") list.sort((a, b) => b.price - a.price)
-    else if (sort === "name")
+    if (sort === "ارزان‌ترین") list.sort((a, b) => a.price - b.price)
+    else if (sort === "گران‌ترین") list.sort((a, b) => b.price - a.price)
+    else if (sort === "نام الفبایی")
       list.sort((a, b) => a.name.localeCompare(b.name, "fa"))
     return list
   }, [items, query, category, sort])
@@ -194,15 +202,14 @@ export function WishlistHub() {
               فروشگاه
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight">مرکز علاقه‌مندی‌ها</h2>
-            <p className="mt-2 text-muted-foreground">
-              <bdi dir="ltr">{items.length}</bdi> کالا ·{" "}
-              <bdi dir="ltr">{inStockCount}</bdi> موجود
+            <p className="mt-2 tracking-normal text-muted-foreground">
+              {toFa(items.length)} کالا · {toFa(inStockCount)} موجود
             </p>
           </div>
           {selected.length > 0 && (
-            <Button onClick={moveSelectedToCart}>
+            <Button type="button" onClick={moveSelectedToCart}>
               <ShoppingCartIcon className="size-4" />
-              انتقال <bdi dir="ltr">{selected.length}</bdi> به سبد
+              انتقال {toFa(selected.length)} به سبد
             </Button>
           )}
         </div>
@@ -219,41 +226,45 @@ export function WishlistHub() {
             />
           </div>
           <Select
+            items={[...CATEGORY_ITEMS]}
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                setCategory(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full lg:w-40" dir="rtl">
-              <SelectValue placeholder="دسته" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="صوتی">صوتی</SelectItem>
-              <SelectItem value="اکسسوری">اکسسوری</SelectItem>
-              <SelectItem value="پوشیدنی">پوشیدنی</SelectItem>
-              <SelectItem value="خانه">خانه</SelectItem>
+              {CATEGORY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full lg:w-auto" />}
-            >
-              {SORT_LABELS[sort]}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "newest")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full lg:w-40" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <div className="flex gap-1">
             <Button
               type="button"
@@ -278,14 +289,17 @@ export function WishlistHub() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           موردی پیدا نشد.
         </p>
       ) : view === "grid" ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {filtered.map((item) => (
-            <article key={item.id} className="group flex flex-col gap-3">
-              <div className="relative aspect-square overflow-hidden rounded-xl border bg-muted">
+            <article
+              key={item.id}
+              className="group flex flex-col gap-3 rounded-xl border bg-card p-3"
+            >
+              <div className="relative aspect-square overflow-hidden rounded-lg border bg-muted">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -304,17 +318,15 @@ export function WishlistHub() {
               <div>
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="line-clamp-1 font-medium">{item.name}</h3>
-                  <Badge variant="outline" className="shrink-0">
+                  <Badge variant="outline" className="shrink-0 border">
                     {item.category}
                   </Badge>
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.priceLabel}
-                  </bdi>{" "}
-                  تومان
+                <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                  {item.priceLabel} تومان
                 </p>
                 <Button
+                  type="button"
                   className="mt-3 w-full"
                   size="sm"
                   disabled={!item.inStock}
@@ -329,7 +341,7 @@ export function WishlistHub() {
           ))}
         </div>
       ) : (
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y rounded-xl border bg-card">
           {filtered.map((item) => (
             <div
               key={item.id}
@@ -350,52 +362,75 @@ export function WishlistHub() {
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-medium">{item.name}</h3>
-                  <Badge variant="outline">{item.category}</Badge>
+                  <Badge variant="outline" className="border">
+                    {item.category}
+                  </Badge>
                   {!item.inStock && (
-                    <Badge variant="destructive">ناموجود</Badge>
+                    <Badge
+                      variant="outline"
+                      className="border-destructive text-destructive"
+                    >
+                      ناموجود
+                    </Badge>
                   )}
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.priceLabel}
-                  </bdi>{" "}
-                  تومان
+                <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                  {item.priceLabel} تومان
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button size="sm" disabled={!item.inStock}>
+                <Button type="button" size="sm" disabled={!item.inStock}>
                   به سبد
                 </Button>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
+                <Popover
+                  open={openId === item.id}
+                  onOpenChange={(open) =>
+                    setOpenId(open ? item.id : null)
+                  }
+                >
+                  <PopoverTrigger
                     render={
-                      <Button variant="outline" size="icon" className="size-8" />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="size-8"
+                      />
                     }
                   >
                     <MoreHorizontalIcon className="size-4" />
                     <span className="sr-only">منو</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                  </PopoverTrigger>
+                  <PopoverContent
                     dir="rtl"
                     lang="fa"
                     align="end"
-                    className="w-40"
+                    className="w-40 space-y-1 p-2"
                   >
-                    <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                    <DropdownMenuItem
-                      variant="destructive"
-                      onClick={() =>
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      مشاهده
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => {
                         setItems((prev) =>
                           prev.filter((x) => x.id !== item.id)
                         )
-                      }
+                        setOpenId(null)
+                      }}
                     >
                       حذف
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           ))}
@@ -404,7 +439,7 @@ export function WishlistHub() {
 
       <Separator className="my-10" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">اشتراک لیست علاقه‌مندی</CardTitle>
           <CardDescription>
@@ -427,7 +462,7 @@ export function WishlistHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال لینک

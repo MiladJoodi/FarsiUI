@@ -18,15 +18,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -80,25 +77,36 @@ const INITIAL: Comment[] = [
   },
 ]
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "بیشترین پسند", label: "بیشترین پسند" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function CommentsActions() {
   const [items, setItems] = React.useState(INITIAL)
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
   const [query, setQuery] = React.useState("")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = items
     .filter(
       (c) =>
-        !query ||
-        `${c.name}${c.text}${c.email}`.includes(query)
+        !query || `${c.name}${c.text}${c.email}`.includes(query)
     )
     .slice()
     .sort((a, b) => {
-      if (sort === "likes") return b.likes - a.likes
+      if (sort === "بیشترین پسند") return b.likes - a.likes
       return 0
     })
 
   function remove(id: string) {
     setItems((prev) => prev.filter((c) => c.id !== id))
+    setOpenId(null)
   }
 
   function like(id: string) {
@@ -113,28 +121,50 @@ export function CommentsActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 border-b py-4 text-start">
           <div>
             <CardTitle>دیدگاه‌ها</CardTitle>
-            <CardDescription>منوی عملیات راست‌چین برای هر دیدگاه</CardDescription>
+            <CardDescription>
+              منوی عملیات راست‌چین برای هر دیدگاه
+            </CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" className="shrink-0" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>مدیریت</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>بستن دیدگاه‌ها</DropdownMenuItem>
-              <DropdownMenuItem>خروجی CSV</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              عملیات
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">مدیریت</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                بستن دیدگاه‌ها
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                خروجی جدول
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 py-4">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Input
               value={query}
@@ -144,15 +174,23 @@ export function CommentsActions() {
               className="flex-1"
             />
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="likes">بیشترین پسند</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -172,34 +210,78 @@ export function CommentsActions() {
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <p className="text-sm font-medium">{c.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          <bdi dir="ltr">{c.email}</bdi> · {c.time}
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          <span dir="ltr" className="inline-block text-left">
+                            {c.email}
+                          </span>
+                          {" · "}
+                          {c.time}
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === c.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? c.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="shrink-0"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
-                          <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem>پاسخ</DropdownMenuItem>
-                          <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-                          <DropdownMenuItem>
+                          عملیات
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-40 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            پاسخ
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            کپی لینک
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
                             <FlagIcon className="size-4" />
                             گزارش
-                          </DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            variant="destructive"
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
                             onClick={() => remove(c.id)}
                           >
                             <Trash2Icon className="size-4" />
                             حذف
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                     <p className="text-sm leading-relaxed">{c.text}</p>
                     <Button
@@ -209,7 +291,7 @@ export function CommentsActions() {
                       onClick={() => like(c.id)}
                     >
                       <HeartIcon className="size-3.5" />
-                      <bdi dir="ltr">{c.likes}</bdi>
+                      <span className="tracking-normal">{toFa(c.likes)}</span>
                     </Button>
                   </div>
                 </div>
@@ -217,18 +299,18 @@ export function CommentsActions() {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="flex-col gap-2 border-t">
+        <CardFooter className="flex-col gap-3 border-t py-4">
           <Textarea
             placeholder="دیدگاه خود را بنویسید…"
             dir="rtl"
             className="min-h-20 resize-none"
           />
-          <div className="flex w-full flex-wrap items-center justify-between gap-2">
+          <div className="flex w-full flex-wrap items-center justify-between gap-3">
             <Input
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="max-w-xs text-start"
+              className="max-w-xs text-left"
               aria-label="ایمیل (اختیاری)"
             />
             <Button type="button">ارسال</Button>

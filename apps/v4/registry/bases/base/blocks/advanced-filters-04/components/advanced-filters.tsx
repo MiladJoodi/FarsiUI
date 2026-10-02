@@ -7,21 +7,16 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -49,14 +44,31 @@ const PRODUCTS = [
   { name: "لامپ رومیزی مینیمال", meta: "خانه · موجود" },
 ] as const
 
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "شیراز", label: "شیراز" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+] as const
+
+const sheetPanelClass =
+  "flex w-[min(100%-1.5rem,22rem)] flex-col gap-0 overflow-x-hidden p-4 sm:inset-y-3 sm:end-3 sm:h-[calc(100%-1.5rem)] sm:max-w-sm sm:rounded-xl"
+
 export function AdvancedFiltersChips() {
   const [chips, setChips] = React.useState<Chip[]>([
     { id: "stock", label: "موجود" },
     { id: "city", label: "تهران" },
     { id: "brand", label: "آرام" },
   ])
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [city, setCity] = React.useState("تهران")
   const [open, setOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function removeChip(id: string) {
     setChips((prev) => prev.filter((c) => c.id !== id))
@@ -66,53 +78,50 @@ export function AdvancedFiltersChips() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-xl flex-col justify-center overflow-x-hidden px-6 py-16 md:px-10"
     >
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b p-4">
-          <div>
+          <div className="min-w-0">
             <h2 className="text-lg font-semibold">فیلترهای پیشرفته</h2>
             <p className="text-sm text-muted-foreground">
-              چیپ فعال و پنل Sheet
+              چیپ فعال و پنل کناری
             </p>
           </div>
-          <div className="flex items-center gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="outline" size="sm" />}
-              >
-                مرتب‌سازی
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-44">
-                <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup
-                  value={sort}
-                  onValueChange={(v) => setSort(v ?? "newest")}
-                >
-                  <DropdownMenuRadioItem value="newest">
-                    جدیدترین
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="price-asc">
-                    ارزان‌ترین
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="price-desc">
-                    گران‌ترین
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <Select
+              items={[...SORT_ITEMS]}
+              value={sort}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
+            >
+              <SelectTrigger className="w-36" dir="rtl">
+                <SelectValue placeholder="مرتب‌سازی" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger
-                render={<Button variant="outline" size="sm" className="gap-2" />}
+                render={
+                  <Button type="button" variant="outline" size="sm" className="gap-2" />
+                }
               >
                 <FilterIcon className="size-4" />
                 فیلتر
               </SheetTrigger>
               <SheetContent
-                side="left"
-                className="flex w-[min(100%,22rem)] flex-col"
+                side="right"
+                className={sheetPanelClass}
                 dir="rtl"
                 lang="fa"
               >
@@ -121,17 +130,27 @@ export function AdvancedFiltersChips() {
                   <SheetDescription>شرایط دقیق‌تر</SheetDescription>
                 </SheetHeader>
 
-                <div className="mt-4 flex-1 space-y-4 overflow-y-auto">
+                <div className="mt-4 min-w-0 flex-1 space-y-4 overflow-y-auto overflow-x-hidden">
                   <Field>
                     <FieldLabel>شهر</FieldLabel>
-                    <Select defaultValue="teh">
+                    <Select
+                      items={[...CITY_ITEMS]}
+                      value={city}
+                      onValueChange={(value) => {
+                        if (CITY_ITEMS.some((item) => item.value === value)) {
+                          setCity(value as string)
+                        }
+                      }}
+                    >
                       <SelectTrigger className="w-full" dir="rtl">
                         <SelectValue placeholder="شهر" />
                       </SelectTrigger>
                       <SelectContent dir="rtl" lang="fa">
-                        <SelectItem value="teh">تهران</SelectItem>
-                        <SelectItem value="isf">اصفهان</SelectItem>
-                        <SelectItem value="shr">شیراز</SelectItem>
+                        {CITY_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </Field>
@@ -143,8 +162,8 @@ export function AdvancedFiltersChips() {
                         id="af4-min"
                         inputMode="numeric"
                         placeholder="۱٬۰۰۰٬۰۰۰"
-                        dir="ltr"
-                        className="text-start"
+                        dir="rtl"
+                        className="text-end tracking-normal"
                       />
                     </Field>
                     <Field>
@@ -153,8 +172,8 @@ export function AdvancedFiltersChips() {
                         id="af4-max"
                         inputMode="numeric"
                         placeholder="۱۰٬۰۰۰٬۰۰۰"
-                        dir="ltr"
-                        className="text-start"
+                        dir="rtl"
+                        className="text-end tracking-normal"
                       />
                     </Field>
                   </div>
@@ -179,13 +198,14 @@ export function AdvancedFiltersChips() {
                   </div>
                 </div>
 
-                <SheetFooter className="mt-4 gap-2 sm:flex-col">
+                <SheetFooter className="mt-4 gap-3 border-t pt-4 sm:flex-col">
                   <Button
+                    type="button"
                     className="w-full"
                     onClick={() => {
                       setChips([
                         { id: "stock", label: "موجود" },
-                        { id: "city", label: "تهران" },
+                        { id: "city", label: city },
                         { id: "ship", label: "ارسال رایگان" },
                       ])
                       setOpen(false)
@@ -194,6 +214,7 @@ export function AdvancedFiltersChips() {
                     اعمال
                   </Button>
                   <Button
+                    type="button"
                     variant="outline"
                     className="w-full"
                     onClick={() => {
@@ -209,7 +230,7 @@ export function AdvancedFiltersChips() {
           </div>
         </div>
 
-        <div className="space-y-3 p-4">
+        <div className="min-w-0 space-y-3 overflow-x-hidden p-4">
           {chips.length > 0 ? (
             <div className="flex flex-wrap gap-2">
               {chips.map((chip) => (
@@ -245,22 +266,54 @@ export function AdvancedFiltersChips() {
               <li key={p.name}>
                 {i > 0 && <Separator />}
                 <div className="flex items-center justify-between gap-3 px-4 py-3">
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-sm font-medium">{p.name}</p>
                     <p className="text-xs text-muted-foreground">{p.meta}</p>
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === p.name}
+                    onOpenChange={(next) =>
+                      setOpenId(next ? p.name : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="shrink-0"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
-                      <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                      <DropdownMenuItem>مقایسه</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      عملیات
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-40 space-y-1 p-2"
+                    >
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        مشاهده
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        مقایسه
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </li>
             ))}

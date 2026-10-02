@@ -32,7 +32,7 @@ export function AccountSettingsTabs() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>تنظیمات حساب</CardTitle>
           <CardDescription>
@@ -67,7 +67,7 @@ export function AccountSettingsTabs() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                     />
                     <FieldDescription>
                       برای ورود و بازیابی رمز استفاده می‌شود
@@ -82,7 +82,7 @@ export function AccountSettingsTabs() {
                       defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                       placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left tracking-normal"
                     />
                   </Field>
                   <Button type="submit">ذخیره حساب</Button>

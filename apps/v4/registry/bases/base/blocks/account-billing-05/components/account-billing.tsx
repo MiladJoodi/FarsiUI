@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   CreditCardIcon,
   MoreHorizontalIcon,
@@ -11,14 +10,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -26,6 +17,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -35,6 +31,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "overview", label: "نمای کلی" },
@@ -67,9 +64,49 @@ const PLANS = [
   },
 ] as const
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "ناموفق", label: "ناموفق" },
+] as const
+
+const CYCLE_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه (۲۰٪ تخفیف)" },
+] as const
+
+const INVOICE_ROWS = [
+  {
+    id: "1",
+    code: "فاکتور-۱۴۰۵-۰۷-۱۲",
+    amount: "۱٬۳۲۰٬۰۰۰",
+    status: "پرداخت‌شده",
+  },
+  {
+    id: "2",
+    code: "فاکتور-۱۴۰۵-۰۶-۱۲",
+    amount: "۱٬۳۲۰٬۰۰۰",
+    status: "پرداخت‌شده",
+  },
+  {
+    id: "3",
+    code: "فاکتور-۱۴۰۵-۰۵-۱۲",
+    amount: "۱٬۳۲۰٬۰۰۰",
+    status: "ناموفق",
+  },
+] as const
+
 export function AccountBillingHub() {
   const [section, setSection] = React.useState<NavId>("overview")
   const [plan, setPlan] = React.useState("pro")
+  const [filter, setFilter] = React.useState("همه")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
+
+  const filteredInvoices = INVOICE_ROWS.filter(
+    (inv) => filter === "همه" || inv.status === filter
+  )
 
   return (
     <section
@@ -87,26 +124,52 @@ export function AccountBillingHub() {
             طرح، روش پرداخت، فاکتورها و تمدید خودکار
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>میان‌برها</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setSection("invoices")}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-48 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">میان‌برها</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("invoices")
+                setMoreOpen(false)
+              }}
+            >
               فاکتورهای اخیر
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setSection("plans")}>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("plans")
+                setMoreOpen(false)
+              }}
+            >
               تغییر طرح
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem variant="destructive">
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => setMoreOpen(false)}
+            >
               لغو اشتراک
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[12rem_1fr]">
@@ -142,17 +205,17 @@ export function AccountBillingHub() {
                 <div className="rounded-lg border p-4">
                   <p className="text-sm text-muted-foreground">طرح فعلی</p>
                   <p className="mt-1 text-lg font-semibold">حرفه‌ای ماهانه</p>
-                  <Badge className="mt-2" variant="secondary">
+                  <Badge className="mt-2 border" variant="outline">
                     فعال
                   </Badge>
                 </div>
                 <div className="rounded-lg border p-4">
                   <p className="text-sm text-muted-foreground">پرداخت بعدی</p>
-                  <p className="mt-1 text-lg font-semibold tabular-nums">
-                    <bdi dir="ltr">۱٬۳۲۰٬۰۰۰</bdi> تومان
+                  <p className="mt-1 text-lg font-semibold tracking-normal">
+                    ۱٬۳۲۰٬۰۰۰ تومان
                   </p>
-                  <p className="mt-2 text-xs text-muted-foreground tabular-nums">
-                    <bdi dir="ltr">۱۴۰۵/۰۸/۱۲</bdi>
+                  <p className="mt-2 text-xs tracking-normal text-muted-foreground">
+                    ۱۴۰۵/۰۸/۱۲
                   </p>
                 </div>
               </div>
@@ -177,12 +240,12 @@ export function AccountBillingHub() {
               <div className="flex items-center gap-3 rounded-lg border p-4">
                 <CreditCardIcon className="size-5 text-muted-foreground" />
                 <div className="flex-1">
-                  <p className="text-sm font-medium">
-                    <bdi dir="ltr">•••• 1234</bdi>
+                  <p className="text-sm font-medium tracking-normal">
+                    •••• ۱۲۳۴
                   </p>
                   <p className="text-xs text-muted-foreground">پیش‌فرض</p>
                 </div>
-                <Button size="sm" variant="outline">
+                <Button type="button" size="sm" variant="outline">
                   تغییر
                 </Button>
               </div>
@@ -204,11 +267,22 @@ export function AccountBillingHub() {
                     defaultValue="billing@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>
                     رسیدها به این آدرس می‌روند
                   </FieldDescription>
+                </Field>
+                <Field>
+                  <FieldLabel htmlFor="ab5-card">شماره کارت</FieldLabel>
+                  <Input
+                    id="ab5-card"
+                    inputMode="numeric"
+                    defaultValue="۶۰۳۷-****-****-۱۲۳۴"
+                    placeholder="۶۰۳۷-****-****-۱۲۳۴"
+                    dir="rtl"
+                    className="text-end tracking-normal"
+                  />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="ab5-addr">آدرس صورتحساب</FieldLabel>
@@ -219,19 +293,24 @@ export function AccountBillingHub() {
                   />
                 </Field>
               </FieldGroup>
-              <Button>ذخیره پرداخت</Button>
+              <Button type="button">ذخیره پرداخت</Button>
             </div>
           ) : null}
 
           {section === "invoices" ? (
             <div className="space-y-6">
-              <Header
-                title="فاکتورها"
-                description="فیلتر و دانلود"
-              />
+              <Header title="فاکتورها" description="فیلتر و دانلود" />
               <Field>
                 <FieldLabel htmlFor="ab5-filter">وضعیت</FieldLabel>
-                <Select defaultValue="all">
+                <Select
+                  items={[...FILTER_ITEMS]}
+                  value={filter}
+                  onValueChange={(value) => {
+                    if (FILTER_ITEMS.some((item) => item.value === value)) {
+                      setFilter(value as string)
+                    }
+                  }}
+                >
                   <SelectTrigger
                     id="ab5-filter"
                     className="w-full sm:max-w-xs"
@@ -240,50 +319,83 @@ export function AccountBillingHub() {
                     <SelectValue placeholder="وضعیت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="all">همه</SelectItem>
-                    <SelectItem value="paid">پرداخت‌شده</SelectItem>
-                    <SelectItem value="pending">در انتظار</SelectItem>
-                    <SelectItem value="failed">ناموفق</SelectItem>
+                    {FILTER_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
               <ul className="space-y-0 rounded-lg border">
-                {[
-                  ["INV-1405-07-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
-                  ["INV-1405-06-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
-                  ["INV-1405-05-12", "۱٬۳۲۰٬۰۰۰", "ناموفق"],
-                ].map(([code, amount, status], i) => (
-                  <li key={code}>
+                {filteredInvoices.map((inv, i) => (
+                  <li key={inv.id}>
                     {i > 0 && <Separator />}
                     <div className="flex items-center gap-3 px-4 py-3">
                       <ReceiptIcon className="size-4 shrink-0 text-muted-foreground" />
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium">
-                          <bdi dir="ltr">{code}</bdi>
+                        <p className="text-sm font-medium tracking-normal">
+                          {inv.code}
                         </p>
-                        <p className="text-xs tabular-nums text-muted-foreground">
-                          <bdi dir="ltr">{amount}</bdi> تومان
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          {inv.amount} تومان
                         </p>
                       </div>
                       <Badge
-                        variant={
-                          status === "ناموفق" ? "destructive" : "secondary"
+                        variant="outline"
+                        className={
+                          inv.status === "ناموفق"
+                            ? "border-destructive text-destructive"
+                            : "border"
                         }
                       >
-                        {status}
+                        {inv.status}
                       </Badge>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === inv.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? inv.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem>دانلود PDF</DropdownMenuItem>
-                          <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-40 space-y-1 p-2"
+                        >
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            دانلود PDF
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ارسال ایمیل
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </li>
                 ))}
@@ -296,7 +408,7 @@ export function AccountBillingHub() {
               <Header title="طرح‌ها" description="طرح مناسب را انتخاب کنید" />
               <Field>
                 <FieldLabel htmlFor="ab5-cycle">دوره</FieldLabel>
-                <Select defaultValue="monthly">
+                <Select items={[...CYCLE_ITEMS]} defaultValue="ماهانه">
                   <SelectTrigger
                     id="ab5-cycle"
                     className="w-full sm:max-w-xs"
@@ -305,8 +417,11 @@ export function AccountBillingHub() {
                     <SelectValue placeholder="دوره" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="monthly">ماهانه</SelectItem>
-                    <SelectItem value="yearly">سالانه (۲۰٪ تخفیف)</SelectItem>
+                    {CYCLE_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
@@ -322,20 +437,20 @@ export function AccountBillingHub() {
                     )}
                   >
                     <p className="font-medium">{p.name}</p>
-                    <p className="mt-1 text-sm tabular-nums">
-                      <bdi dir="ltr">{p.price}</bdi>
+                    <p className="mt-1 text-sm tracking-normal">
+                      {p.price}
                       <span className="text-muted-foreground"> /ماه</span>
                     </p>
                     <p className="mt-2 text-xs text-muted-foreground">{p.desc}</p>
                     {"current" in p && p.current ? (
-                      <Badge className="mt-3" variant="secondary">
+                      <Badge className="mt-3 border" variant="outline">
                         فعلی
                       </Badge>
                     ) : null}
                   </button>
                 ))}
               </div>
-              <Button>اعمال طرح</Button>
+              <Button type="button">اعمال طرح</Button>
             </div>
           ) : null}
         </div>

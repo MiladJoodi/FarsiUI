@@ -1688,14 +1688,35 @@
   },
   {
     "name": "inbox-01",
-    "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
+    "description": "فهرست سادهٔ صندوق پیام با آواتار و پیش‌نمایش.",
     "categories": [
       "inbox"
     ]
   },
   {
     "name": "inbox-02",
-    "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
+    "description": "خوانده‌نشده با نشان تعداد فارسی و ایمیل چپ‌چین.",
+    "categories": [
+      "inbox"
+    ]
+  },
+  {
+    "name": "inbox-03",
+    "description": "جستجو و فیلتر پوشه با انتخابگر راست‌چین.",
+    "categories": [
+      "inbox"
+    ]
+  },
+  {
+    "name": "inbox-04",
+    "description": "مرتب‌سازی و منوی عملیات ردیف راست‌چین.",
+    "categories": [
+      "inbox"
+    ]
+  },
+  {
+    "name": "inbox-05",
+    "description": "مرکز کامل با پوشه، انتخاب گروهی و فوروارد ایمیل.",
     "categories": [
       "inbox"
     ]

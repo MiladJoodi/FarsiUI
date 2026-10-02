@@ -31,11 +31,13 @@ export function AccountBillingTabs() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <div className="flex flex-wrap items-center gap-2">
             <CardTitle>صورتحساب و طرح</CardTitle>
-            <Badge variant="secondary">فعال</Badge>
+            <Badge variant="outline" className="border">
+              فعال
+            </Badge>
           </div>
           <CardDescription>
             طرح فعلی و روش پرداخت را مدیریت کنید
@@ -55,14 +57,12 @@ export function AccountBillingTabs() {
                   تمدید خودکار هر ماه
                 </p>
                 <Separator className="my-3" />
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between text-sm tracking-normal">
                   <span>مبلغ ماهانه</span>
-                  <span className="tabular-nums font-medium">
-                    <bdi dir="ltr">۱٬۲۰۰٬۰۰۰</bdi> تومان
-                  </span>
+                  <span className="font-medium">۱٬۲۰۰٬۰۰۰ تومان</span>
                 </div>
               </div>
-              <Button className="w-full" variant="outline">
+              <Button type="button" className="w-full" variant="outline">
                 تغییر طرح
               </Button>
             </TabsContent>
@@ -87,7 +87,7 @@ export function AccountBillingTabs() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-start"
+                      className="text-left"
                     />
                     <FieldDescription>
                       فاکتورها به این آدرس ارسال می‌شوند
@@ -98,9 +98,9 @@ export function AccountBillingTabs() {
                     <Input
                       id="ab2-card"
                       inputMode="numeric"
-                      placeholder="6037-****-****-1234"
-                      dir="ltr"
-                      className="text-start"
+                      placeholder="۶۰۳۷-****-****-۱۲۳۴"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                   <Button type="submit">ذخیره روش پرداخت</Button>

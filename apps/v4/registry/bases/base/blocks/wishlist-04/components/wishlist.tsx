@@ -6,15 +6,17 @@ import { MoreHorizontalIcon, ShoppingCartIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 
 type Item = {
   id: string
@@ -89,25 +91,30 @@ const INITIAL: Item[] = [
   },
 ]
 
-type SortKey = "newest" | "price-asc" | "price-desc" | "name"
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "نام الفبایی", label: "نام الفبایی" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  newest: "جدیدترین",
-  "price-asc": "ارزان‌ترین",
-  "price-desc": "گران‌ترین",
-  name: "نام الفبایی",
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 export function WishlistActions() {
   const [items, setItems] = React.useState(INITIAL)
-  const [sort, setSort] = React.useState<SortKey>("newest")
+  const [sort, setSort] = React.useState<SortKey>("جدیدترین")
   const [moved, setMoved] = React.useState(0)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const sorted = React.useMemo(() => {
     const list = [...items]
-    if (sort === "price-asc") list.sort((a, b) => a.price - b.price)
-    else if (sort === "price-desc") list.sort((a, b) => b.price - a.price)
-    else if (sort === "name")
+    if (sort === "ارزان‌ترین") list.sort((a, b) => a.price - b.price)
+    else if (sort === "گران‌ترین") list.sort((a, b) => b.price - a.price)
+    else if (sort === "نام الفبایی")
       list.sort((a, b) => a.name.localeCompare(b.name, "fa"))
     return list
   }, [items, sort])
@@ -126,45 +133,39 @@ export function WishlistActions() {
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">عملیات علاقه‌مندی</h2>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 tracking-normal text-muted-foreground">
             مرتب‌سازی و منوی عملیات راست‌چین
-            {moved > 0 && (
-              <>
-                {" · "}
-                <bdi dir="ltr">{moved}</bdi> به سبد منتقل شد
-              </>
-            )}
+            {moved > 0 && <> · {toFa(moved)} به سبد منتقل شد</>}
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={<Button variant="outline" className="w-full sm:w-auto" />}
-          >
-            مرتب‌سازی: {SORT_LABELS[sort]}
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-            <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={sort}
-              onValueChange={(v) => setSort((v as SortKey) ?? "newest")}
-            >
-              {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                <DropdownMenuRadioItem key={key} value={key}>
-                  {SORT_LABELS[key]}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Select
+          items={[...SORT_ITEMS]}
+          value={sort}
+          onValueChange={(value) => {
+            if (SORT_ITEMS.some((item) => item.value === value)) {
+              setSort(value as SortKey)
+            }
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-44" dir="rtl">
+            <SelectValue placeholder="مرتب‌سازی" />
+          </SelectTrigger>
+          <SelectContent dir="rtl" lang="fa">
+            {SORT_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {sorted.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           لیست علاقه‌مندی خالی است.
         </p>
       ) : (
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y rounded-xl border bg-card">
           {sorted.map((item) => (
             <div
               key={item.id}
@@ -180,20 +181,27 @@ export function WishlistActions() {
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-medium">{item.name}</h3>
-                  <Badge variant="outline">{item.category}</Badge>
-                  <Badge variant={item.inStock ? "secondary" : "destructive"}>
+                  <Badge variant="outline" className="border">
+                    {item.category}
+                  </Badge>
+                  <Badge
+                    variant="outline"
+                    className={
+                      item.inStock
+                        ? "border"
+                        : "border-destructive text-destructive"
+                    }
+                  >
                     {item.inStock ? "موجود" : "ناموجود"}
                   </Badge>
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.priceLabel}
-                  </bdi>{" "}
-                  تومان
+                <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                  {item.priceLabel} تومان
                 </p>
               </div>
               <div className="flex gap-2">
                 <Button
+                  type="button"
                   size="sm"
                   disabled={!item.inStock}
                   onClick={() => moveToCart(item.id)}
@@ -201,35 +209,63 @@ export function WishlistActions() {
                   <ShoppingCartIcon className="size-4" />
                   به سبد
                 </Button>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
+                <Popover
+                  open={openId === item.id}
+                  onOpenChange={(open) =>
+                    setOpenId(open ? item.id : null)
+                  }
+                >
+                  <PopoverTrigger
                     render={
-                      <Button variant="outline" size="icon" className="size-8" />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="size-8"
+                      />
                     }
                   >
                     <MoreHorizontalIcon className="size-4" />
                     <span className="sr-only">منوی کالا</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                  </PopoverTrigger>
+                  <PopoverContent
                     dir="rtl"
                     lang="fa"
                     align="end"
-                    className="w-40"
+                    className="w-40 space-y-1 p-2"
                   >
-                    <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>مشاهده محصول</DropdownMenuItem>
-                    <DropdownMenuItem>اشتراک‌گذاری</DropdownMenuItem>
-                    <DropdownMenuItem
-                      variant="destructive"
-                      onClick={() =>
-                        setItems((prev) => prev.filter((x) => x.id !== item.id))
-                      }
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      مشاهده محصول
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      اشتراک‌گذاری
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => {
+                        setItems((prev) =>
+                          prev.filter((x) => x.id !== item.id)
+                        )
+                        setOpenId(null)
+                      }}
                     >
                       حذف
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           ))}

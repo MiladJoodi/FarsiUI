@@ -54,8 +54,8 @@ export function ProfileCard() {
           <div className="grid grid-cols-3 gap-2 text-center">
             {STATS.map((stat) => (
               <div key={stat.label}>
-                <p className="text-lg font-semibold tabular-nums">
-                  <bdi dir="ltr">{stat.value}</bdi>
+                <p className="text-lg font-semibold tracking-normal">
+                  {stat.value}
                 </p>
                 <p className="text-xs text-muted-foreground">{stat.label}</p>
               </div>

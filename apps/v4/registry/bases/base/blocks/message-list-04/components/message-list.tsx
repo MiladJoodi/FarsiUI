@@ -19,15 +19,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -94,10 +91,18 @@ const INITIAL: Msg[] = [
   },
 ]
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "ستاره‌دار", label: "ستاره‌دار" },
+] as const
+
 export function MessageListActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = items
     .filter(
@@ -109,8 +114,8 @@ export function MessageListActions() {
     )
     .slice()
     .sort((a, b) => {
-      if (sort === "unread") return Number(b.unread) - Number(a.unread)
-      if (sort === "starred") return Number(b.starred) - Number(a.starred)
+      if (sort === "خوانده‌نشده") return Number(b.unread) - Number(a.unread)
+      if (sort === "ستاره‌دار") return Number(b.starred) - Number(a.starred)
       return 0
     })
 
@@ -118,16 +123,19 @@ export function MessageListActions() {
     setItems((prev) =>
       prev.map((m) => (m.id === id ? { ...m, unread: false } : m))
     )
+    setOpenId(null)
   }
 
   function toggleStar(id: string) {
     setItems((prev) =>
       prev.map((m) => (m.id === id ? { ...m, starred: !m.starred } : m))
     )
+    setOpenId(null)
   }
 
   function remove(id: string) {
     setItems((prev) => prev.filter((m) => m.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -136,39 +144,56 @@ export function MessageListActions() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
           <div>
             <CardTitle>فهرست پیام‌ها</CardTitle>
             <CardDescription>عملیات ردیف با منوی راست‌چین</CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" className="shrink-0" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات گروهی</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() =>
-                  setItems((prev) => prev.map((m) => ({ ...m, unread: false })))
-                }
+              عملیات
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-48 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات گروهی</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => {
+                  setItems((prev) =>
+                    prev.map((m) => ({ ...m, unread: false }))
+                  )
+                  setHeaderOpen(false)
+                }}
               >
                 <CheckIcon className="size-4" />
                 همه خوانده
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                variant="destructive"
-                onClick={() => setItems([])}
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                onClick={() => {
+                  setItems([])
+                  setHeaderOpen(false)
+                }}
               >
                 <Trash2Icon className="size-4" />
                 پاک کردن همه
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -180,16 +205,23 @@ export function MessageListActions() {
               className="flex-1"
             />
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="starred">ستاره‌دار</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -218,51 +250,82 @@ export function MessageListActions() {
                         <StarIcon className="size-3.5 shrink-0 fill-amber-400 text-amber-400" />
                       ) : null}
                       {m.unread ? (
-                        <Badge variant="secondary" className="h-5">
+                        <Badge variant="outline" className="h-5 border">
                           جدید
                         </Badge>
                       ) : null}
                     </div>
-                    <p className="truncate text-xs text-muted-foreground">
-                      <bdi dir="ltr">{m.email}</bdi>
+                    <p className="truncate text-xs tracking-normal text-muted-foreground">
+                      <span dir="ltr" className="inline-block text-left">
+                        {m.email}
+                      </span>
                     </p>
                     <p className="truncate text-sm text-muted-foreground">
                       {m.preview}
                     </p>
                   </div>
-                  <span className="shrink-0 text-xs text-muted-foreground">
-                    <bdi dir="ltr">{m.time}</bdi>
+                  <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
+                    {m.time}
                   </span>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === m.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? m.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button type="button" variant="ghost" size="icon-sm" />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem onClick={() => markRead(m.id)}>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-44 space-y-1 p-2"
+                    >
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => markRead(m.id)}
+                      >
                         <CheckIcon className="size-4" />
                         علامت خوانده
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => toggleStar(m.id)}>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => toggleStar(m.id)}
+                      >
                         <StarIcon className="size-4" />
                         {m.starred ? "حذف ستاره" : "ستاره‌دار"}
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
                         <ArchiveIcon className="size-4" />
                         بایگانی
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem
-                        variant="destructive"
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start text-destructive hover:text-destructive"
                         onClick={() => remove(m.id)}
                       >
                         <Trash2Icon className="size-4" />
                         حذف
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
             ))}

@@ -16,32 +16,30 @@ export function AccountBillingSimple() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>صورتحساب</CardTitle>
           <CardDescription>خلاصهٔ دورهٔ جاری</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-3 text-sm">
+        <CardContent className="space-y-3 text-sm tracking-normal">
           <div className="flex justify-between">
             <span className="text-muted-foreground">طرح</span>
             <span>حرفه‌ای ماهانه</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">دوره</span>
-            <span className="tabular-nums">
-              <bdi dir="ltr">۱۴۰۵/۰۷</bdi>
-            </span>
+            <span>۱۴۰۵/۰۷</span>
           </div>
           <Separator />
           <div className="flex justify-between font-medium">
             <span>مبلغ قابل پرداخت</span>
-            <span className="tabular-nums">
-              <bdi dir="ltr">۱٬۳۲۰٬۰۰۰</bdi> تومان
-            </span>
+            <span>۱٬۳۲۰٬۰۰۰ تومان</span>
           </div>
         </CardContent>
         <CardFooter className="border-t">
-          <Button className="w-full">پرداخت</Button>
+          <Button type="button" className="w-full">
+            پرداخت
+          </Button>
         </CardFooter>
       </Card>
     </section>

@@ -43,11 +43,8 @@ export function ProductGridSimple() {
             </div>
             <div>
               <h3 className="font-medium">{product.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                <bdi dir="ltr" className="tabular-nums">
-                  {product.price}
-                </bdi>{" "}
-                تومان
+              <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                {product.price} تومان
               </p>
             </div>
           </article>

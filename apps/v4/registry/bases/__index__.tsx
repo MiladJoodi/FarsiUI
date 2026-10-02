@@ -2052,30 +2052,92 @@ export const Index: Record<string, Record<string, any>> = {
     "inbox-01": {
       name: "inbox-01",
       title: "Inbox 01",
-      description: "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
+      description: "فهرست سادهٔ صندوق پیام با آواتار و پیش‌نمایش.",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["avatar","card","separator"],
       files: [{
         path: "registry/bases/base/blocks/inbox-01/page.tsx",
         type: "registry:page",
         target: "app/inbox/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/inbox-01/components/inbox.tsx",
+        type: "registry:component",
+        target: ""
       }],
       categories: ["inbox"],
-      meta: undefined,
+      meta: {"iframeHeight":"720px"},
     },
     "inbox-02": {
       name: "inbox-02",
       title: "Inbox 02",
-      description: "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
+      description: "خوانده‌نشده با نشان تعداد فارسی و ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["avatar","badge","button","card","separator"],
       files: [{
         path: "registry/bases/base/blocks/inbox-02/page.tsx",
         type: "registry:page",
         target: "app/inbox/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/inbox-02/components/inbox.tsx",
+        type: "registry:component",
+        target: ""
       }],
       categories: ["inbox"],
-      meta: undefined,
+      meta: {"iframeHeight":"860px"},
+    },
+    "inbox-03": {
+      name: "inbox-03",
+      title: "Inbox 03",
+      description: "جستجو و فیلتر پوشه با انتخابگر راست‌چین.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","card","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/inbox-03/page.tsx",
+        type: "registry:page",
+        target: "app/inbox/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/inbox-03/components/inbox.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["inbox"],
+      meta: {"iframeHeight":"980px"},
+    },
+    "inbox-04": {
+      name: "inbox-04",
+      title: "Inbox 04",
+      description: "مرتب‌سازی و منوی عملیات ردیف راست‌چین.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","input","popover","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/inbox-04/page.tsx",
+        type: "registry:page",
+        target: "app/inbox/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/inbox-04/components/inbox.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["inbox"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "inbox-05": {
+      name: "inbox-05",
+      title: "Inbox 05",
+      description: "مرکز کامل با پوشه، انتخاب گروهی و فوروارد ایمیل.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","checkbox","field","input","popover","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/inbox-05/page.tsx",
+        type: "registry:page",
+        target: "app/inbox/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/inbox-05/components/inbox.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["inbox"],
+      meta: {"iframeHeight":"1400px"},
     },
     "preview": {
       name: "preview",

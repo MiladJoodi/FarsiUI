@@ -13,14 +13,6 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -28,6 +20,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -72,11 +69,20 @@ const INITIAL: Session[] = [
   },
 ]
 
+const FREQ_ITEMS = [
+  { value: "روزانه", label: "روزانه" },
+  { value: "هفتگی", label: "هفتگی" },
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "خاموش", label: "خاموش" },
+] as const
+
 export function AccountSettingsSessions() {
   const [sessions, setSessions] = React.useState(INITIAL)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function revoke(id: string) {
     setSessions((prev) => prev.filter((s) => s.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -86,7 +92,7 @@ export function AccountSettingsSessions() {
       className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="space-y-6">
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>ایمیل بازیابی</CardTitle>
             <CardDescription>
@@ -112,7 +118,7 @@ export function AccountSettingsSessions() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <FieldDescription>
                   کدهای امنیتی به این آدرس ارسال می‌شوند
@@ -120,15 +126,16 @@ export function AccountSettingsSessions() {
               </Field>
               <Field>
                 <FieldLabel htmlFor="as4-freq">تواتر خلاصه</FieldLabel>
-                <Select defaultValue="weekly">
+                <Select items={[...FREQ_ITEMS]} defaultValue="هفتگی">
                   <SelectTrigger id="as4-freq" className="w-full" dir="rtl">
                     <SelectValue placeholder="انتخاب کنید" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="daily">روزانه</SelectItem>
-                    <SelectItem value="weekly">هفتگی</SelectItem>
-                    <SelectItem value="monthly">ماهانه</SelectItem>
-                    <SelectItem value="off">خاموش</SelectItem>
+                    {FREQ_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
@@ -136,7 +143,7 @@ export function AccountSettingsSessions() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="flex-row items-start justify-between gap-4 text-start">
             <div>
               <CardTitle>نشست‌های فعال</CardTitle>
@@ -172,39 +179,61 @@ export function AccountSettingsSessions() {
                           {session.device}
                         </p>
                         {session.current ? (
-                          <Badge variant="secondary">همین دستگاه</Badge>
+                          <Badge variant="outline" className="border">
+                            همین دستگاه
+                          </Badge>
                         ) : null}
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs tracking-normal text-muted-foreground">
                         {session.place} · {session.lastActive}
                       </p>
                     </div>
                     {!session.current ? (
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                      <Popover
+                        open={openId === session.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? session.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
-                            <Button variant="ghost" size="icon-sm" />
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
                           }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="start"
+                          className="w-40 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>جزئیات نشست</DropdownMenuItem>
-                          <DropdownMenuItem
-                            variant="destructive"
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            جزئیات نشست
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
                             onClick={() => revoke(session.id)}
                           >
                             پایان نشست
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     ) : null}
                   </div>
                 </div>
@@ -213,7 +242,7 @@ export function AccountSettingsSessions() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>امنیت سریع</CardTitle>
             <CardDescription>هشدارها و تأیید ورود</CardDescription>
@@ -238,7 +267,9 @@ export function AccountSettingsSessions() {
               </div>
               <Switch id="as4-remember" defaultChecked />
             </div>
-            <Button className="w-full">ذخیره تنظیمات</Button>
+            <Button type="button" className="w-full">
+              ذخیره تنظیمات
+            </Button>
           </CardContent>
         </Card>
       </div>

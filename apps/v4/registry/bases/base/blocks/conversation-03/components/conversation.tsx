@@ -27,8 +27,14 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const STATUS_ITEMS = [
+  { value: "باز", label: "باز" },
+  { value: "در انتظار مشتری", label: "در انتظار مشتری" },
+  { value: "بسته", label: "بسته" },
+] as const
+
 export function ConversationStatus() {
-  const [status, setStatus] = React.useState("open")
+  const [status, setStatus] = React.useState("باز")
 
   return (
     <section
@@ -36,34 +42,37 @@ export function ConversationStatus() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="overflow-hidden">
+      <Card className="gap-0 overflow-hidden bg-card py-0">
         <CardHeader className="space-y-3 border-b py-3">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-sm font-semibold">مکالمه پشتیبانی</p>
               <p className="text-xs text-muted-foreground">موضوع: مشکل ورود</p>
             </div>
-            <Badge variant="secondary">
-              {status === "open"
-                ? "باز"
-                : status === "pending"
-                  ? "در انتظار"
-                  : "بسته"}
+            <Badge variant="outline" className="border">
+              {status}
             </Badge>
           </div>
           <Field>
             <FieldLabel>وضعیت مکالمه</FieldLabel>
             <Select
+              items={[...STATUS_ITEMS]}
               value={status}
-              onValueChange={(v) => setStatus((v as string) ?? "open")}
+              onValueChange={(value) => {
+                if (STATUS_ITEMS.some((item) => item.value === value)) {
+                  setStatus(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="وضعیت را انتخاب کنید" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="open">باز</SelectItem>
-                <SelectItem value="pending">در انتظار مشتری</SelectItem>
-                <SelectItem value="closed">بسته</SelectItem>
+                {STATUS_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -103,7 +112,7 @@ export function ConversationStatus() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>
               همکار را با ایمیل به این مکالمه اضافه کنید
@@ -118,13 +127,13 @@ export function ConversationStatus() {
             />
           </Field>
         </CardContent>
-        <CardFooter className="flex-col gap-2 border-t p-3">
+        <CardFooter className="flex flex-col gap-3 border-t px-4 py-3">
           <Textarea
             placeholder="پاسخ عمومی برای مشتری…"
             dir="rtl"
-            className="min-h-20 resize-none"
+            className="min-h-20 w-full resize-none"
           />
-          <Button type="button" className="w-full">
+          <Button type="button" className="w-full shrink-0">
             ارسال پاسخ
           </Button>
         </CardFooter>

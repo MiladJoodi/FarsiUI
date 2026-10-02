@@ -59,12 +59,21 @@ const MESSAGES = [
   { text: "مرسی، عالی شد.", me: false, time: "۱۰:۲۷" },
 ] as const
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function ChatSplit() {
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState("همه")
   const [query, setQuery] = React.useState("")
 
   const threads = THREADS.filter((t) => {
-    if (filter === "unread" && t.unread === 0) return false
+    if (filter === "خوانده‌نشده" && t.unread === 0) return false
     if (query && !t.name.includes(query)) return false
     return true
   })
@@ -75,7 +84,7 @@ export function ChatSplit() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card className="overflow-hidden p-0 md:grid md:h-[560px] md:grid-cols-[14rem_1fr]">
+      <Card className="overflow-hidden bg-card p-0 md:grid md:h-[560px] md:grid-cols-[14rem_1fr]">
         <aside className="flex flex-col border-b md:border-b-0 md:border-l">
           <div className="space-y-2 border-b p-3">
             <div className="relative">
@@ -89,15 +98,23 @@ export function ChatSplit() {
               />
             </div>
             <Select
+              items={[...FILTER_ITEMS]}
               value={filter}
-              onValueChange={(v) => setFilter((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (FILTER_ITEMS.some((item) => item.value === value)) {
+                  setFilter(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="فیلتر" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
+                {FILTER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -115,8 +132,8 @@ export function ChatSplit() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <p className="truncate text-sm font-medium">{t.name}</p>
-                      <span className="shrink-0 text-[10px] text-muted-foreground">
-                        <bdi dir="ltr">{t.time}</bdi>
+                      <span className="shrink-0 text-[10px] tracking-normal text-muted-foreground">
+                        {t.time}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-2">
@@ -124,8 +141,11 @@ export function ChatSplit() {
                         {t.preview}
                       </p>
                       {t.unread > 0 ? (
-                        <Badge variant="secondary" className="h-5 min-w-5 px-1.5">
-                          <bdi dir="ltr">{t.unread}</bdi>
+                        <Badge
+                          variant="outline"
+                          className="h-5 min-w-5 border px-1.5 tracking-normal"
+                        >
+                          {toFa(t.unread)}
                         </Badge>
                       ) : null}
                     </div>
@@ -166,10 +186,8 @@ export function ChatSplit() {
                   >
                     {m.text}
                   </div>
-                  <p className="text-[10px] text-muted-foreground">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {m.time}
-                    </bdi>
+                  <p className="text-[10px] tracking-normal text-muted-foreground">
+                    {m.time}
                   </p>
                 </div>
               </div>

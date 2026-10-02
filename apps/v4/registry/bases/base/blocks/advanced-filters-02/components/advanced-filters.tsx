@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { FilterIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -27,7 +28,26 @@ import {
 } from "@/registry/bases/base/ui/sheet"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+] as const
+
+const sheetPanelClass =
+  "flex w-[min(100%-1.5rem,20rem)] flex-col gap-0 overflow-x-hidden p-4 sm:inset-y-3 sm:end-3 sm:h-[calc(100%-1.5rem)] sm:max-w-sm sm:rounded-xl"
+
 export function AdvancedFiltersSheet() {
+  const [category, setCategory] = React.useState("همه")
+  const [sort, setSort] = React.useState("جدیدترین")
+
   return (
     <section
       dir="rtl"
@@ -41,13 +61,15 @@ export function AdvancedFiltersSheet() {
         </p>
         <div className="mt-4">
           <Sheet>
-            <SheetTrigger render={<Button variant="outline" className="gap-2" />}>
+            <SheetTrigger
+              render={<Button type="button" variant="outline" className="gap-2" />}
+            >
               <FilterIcon className="size-4" />
               فیلترهای پیشرفته
             </SheetTrigger>
             <SheetContent
-              side="left"
-              className="flex w-[min(100%,20rem)] flex-col"
+              side="right"
+              className={sheetPanelClass}
               dir="rtl"
               lang="fa"
             >
@@ -58,31 +80,50 @@ export function AdvancedFiltersSheet() {
                 </SheetDescription>
               </SheetHeader>
 
-              <FieldGroup className="mt-4 flex-1 gap-4">
+              <FieldGroup className="mt-4 min-w-0 flex-1 gap-4 overflow-y-auto">
                 <Field>
                   <FieldLabel>دسته</FieldLabel>
-                  <Select defaultValue="all">
+                  <Select
+                    items={[...CATEGORY_ITEMS]}
+                    value={category}
+                    onValueChange={(value) => {
+                      if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                        setCategory(value as string)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue placeholder="دسته" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="all">همه</SelectItem>
-                      <SelectItem value="audio">صوتی</SelectItem>
-                      <SelectItem value="wearable">پوشیدنی</SelectItem>
-                      <SelectItem value="home">خانه</SelectItem>
+                      {CATEGORY_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
                 <Field>
                   <FieldLabel>مرتب‌سازی</FieldLabel>
-                  <Select defaultValue="newest">
+                  <Select
+                    items={[...SORT_ITEMS]}
+                    value={sort}
+                    onValueChange={(value) => {
+                      if (SORT_ITEMS.some((item) => item.value === value)) {
+                        setSort(value as string)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue placeholder="مرتب‌سازی" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="newest">جدیدترین</SelectItem>
-                      <SelectItem value="price-asc">ارزان‌ترین</SelectItem>
-                      <SelectItem value="price-desc">گران‌ترین</SelectItem>
+                      {SORT_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -96,9 +137,11 @@ export function AdvancedFiltersSheet() {
                 </div>
               </FieldGroup>
 
-              <SheetFooter className="mt-4 gap-2 sm:flex-col">
-                <Button className="w-full">اعمال</Button>
-                <Button variant="outline" className="w-full">
+              <SheetFooter className="mt-4 gap-3 border-t pt-4 sm:flex-col">
+                <Button type="button" className="w-full">
+                  اعمال
+                </Button>
+                <Button type="button" variant="outline" className="w-full">
                   پاک کردن
                 </Button>
               </SheetFooter>

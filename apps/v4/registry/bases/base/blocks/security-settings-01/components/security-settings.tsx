@@ -18,7 +18,7 @@ export function SecuritySettingsSimple() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>تنظیمات امنیتی</CardTitle>
           <CardDescription>

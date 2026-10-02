@@ -46,12 +46,18 @@ const RESULTS = [
   },
 ] as const
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "کامپوننت", label: "کامپوننت" },
+  { value: "بلاک", label: "بلاک" },
+] as const
+
 export function SearchFilters() {
-  const [category, setCategory] = React.useState("all")
+  const [category, setCategory] = React.useState("همه")
   const [query, setQuery] = React.useState("دکمه")
 
   const rows = RESULTS.filter((r) => {
-    if (category !== "all" && r.category !== category) return false
+    if (category !== "همه" && r.category !== category) return false
     if (query && !`${r.title}${r.snippet}`.includes(query)) return false
     return true
   })
@@ -62,11 +68,11 @@ export function SearchFilters() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>جستجوی پیشرفته</CardTitle>
           <CardDescription>
-            فیلتر دسته با Select راست‌چین
+            فیلتر دسته با انتخابگر راست‌چین
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -82,16 +88,23 @@ export function SearchFilters() {
               />
             </div>
             <Select
+              items={[...CATEGORY_ITEMS]}
               value={category}
-              onValueChange={(v) => setCategory((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                  setCategory(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="دسته" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="کامپوننت">کامپوننت</SelectItem>
-                <SelectItem value="بلاک">بلاک</SelectItem>
+                {CATEGORY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -103,7 +116,7 @@ export function SearchFilters() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
           </Field>
 
@@ -129,7 +142,9 @@ export function SearchFilters() {
                   >
                     <div className="flex items-center gap-2">
                       <p className="text-sm font-medium">{r.title}</p>
-                      <Badge variant="outline">{r.category}</Badge>
+                      <Badge variant="outline" className="border">
+                        {r.category}
+                      </Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">{r.snippet}</p>
                   </button>
@@ -138,7 +153,9 @@ export function SearchFilters() {
             )}
           </div>
 
-          <Button className="w-full">اعمال فیلتر</Button>
+          <Button type="button" className="w-full">
+            اعمال فیلتر
+          </Button>
         </CardContent>
       </Card>
     </section>

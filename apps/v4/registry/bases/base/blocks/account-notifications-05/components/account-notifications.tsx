@@ -1,19 +1,10 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import { MoreHorizontalIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Field,
   FieldDescription,
@@ -23,6 +14,11 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -31,6 +27,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "channels", label: "کانال‌ها" },
@@ -42,14 +39,69 @@ const NAV = [
 type NavId = (typeof NAV)[number]["id"]
 
 const TYPES = [
-  { id: "product", title: "محصول و به‌روزرسانی", email: true, sms: false, push: true },
-  { id: "security", title: "هشدار امنیتی", email: true, sms: true, push: true },
-  { id: "billing", title: "صورتحساب", email: true, sms: false, push: false },
-  { id: "marketing", title: "پیشنهادها", email: false, sms: false, push: false },
+  {
+    id: "product",
+    title: "محصول و به‌روزرسانی",
+    email: true,
+    sms: false,
+    push: true,
+  },
+  {
+    id: "security",
+    title: "هشدار امنیتی",
+    email: true,
+    sms: true,
+    push: true,
+  },
+  {
+    id: "billing",
+    title: "صورتحساب",
+    email: true,
+    sms: false,
+    push: false,
+  },
+  {
+    id: "marketing",
+    title: "پیشنهادها",
+    email: false,
+    sms: false,
+    push: false,
+  },
+] as const
+
+const FREQ_ITEMS = [
+  { value: "آنی", label: "آنی" },
+  { value: "ساعتی", label: "ساعتی" },
+  { value: "روزانه", label: "روزانه" },
+  { value: "هفتگی", label: "هفتگی" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۲۲:۰۰", label: "۲۲:۰۰" },
+  { value: "۲۳:۰۰", label: "۲۳:۰۰" },
+  { value: "۰۰:۰۰", label: "۰۰:۰۰" },
+  { value: "۰۶:۰۰", label: "۰۶:۰۰" },
+  { value: "۰۷:۰۰", label: "۰۷:۰۰" },
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+] as const
+
+const DIGEST_FREQ_ITEMS = [
+  { value: "روزانه", label: "روزانه" },
+  { value: "هفتگی", label: "هفتگی" },
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "خاموش", label: "خاموش" },
+] as const
+
+const DAY_ITEMS = [
+  { value: "شنبه", label: "شنبه" },
+  { value: "یکشنبه", label: "یکشنبه" },
+  { value: "دوشنبه", label: "دوشنبه" },
+  { value: "جمعه", label: "جمعه" },
 ] as const
 
 export function AccountNotificationsHub() {
   const [section, setSection] = React.useState<NavId>("channels")
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   return (
     <section
@@ -67,24 +119,52 @@ export function AccountNotificationsHub() {
             کانال‌ها، انواع پیام، ساعات سکوت و خلاصهٔ ایمیلی
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>میان‌برها</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setSection("types")}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-48 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">میان‌برها</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("types")
+                setMoreOpen(false)
+              }}
+            >
               انواع پیام
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setSection("schedule")}>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("schedule")
+                setMoreOpen(false)
+              }}
+            >
               ساعات سکوت
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>خاموش کردن همهٔ اعلان‌ها</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              خاموش کردن همهٔ اعلان‌ها
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[12rem_1fr]">
@@ -145,13 +225,13 @@ export function AccountNotificationsHub() {
                   defaultValue="sara@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <FieldDescription>
                   اعلان‌های ایمیلی به این آدرس می‌روند
                 </FieldDescription>
               </Field>
-              <Button>ذخیره کانال‌ها</Button>
+              <Button type="button">ذخیره کانال‌ها</Button>
             </div>
           ) : null}
 
@@ -176,20 +256,29 @@ export function AccountNotificationsHub() {
                       <tr key={row.id} className="border-b last:border-0">
                         <td className="px-3 py-3 font-medium">{row.title}</td>
                         <td className="px-3 py-3 text-center">
-                          <Switch defaultChecked={row.email} aria-label="ایمیل" />
+                          <Switch
+                            defaultChecked={row.email}
+                            aria-label="ایمیل"
+                          />
                         </td>
                         <td className="px-3 py-3 text-center">
-                          <Switch defaultChecked={row.sms} aria-label="پیامک" />
+                          <Switch
+                            defaultChecked={row.sms}
+                            aria-label="پیامک"
+                          />
                         </td>
                         <td className="px-3 py-3 text-center">
-                          <Switch defaultChecked={row.push} aria-label="مرورگر" />
+                          <Switch
+                            defaultChecked={row.push}
+                            aria-label="مرورگر"
+                          />
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <Button>ذخیره انواع</Button>
+              <Button type="button">ذخیره انواع</Button>
             </div>
           ) : null}
 
@@ -202,38 +291,56 @@ export function AccountNotificationsHub() {
               <FieldGroup>
                 <Field>
                   <FieldLabel htmlFor="an5-freq">تواتر پیش‌فرض</FieldLabel>
-                  <Select defaultValue="realtime">
-                    <SelectTrigger id="an5-freq" className="w-full sm:max-w-xs" dir="rtl">
+                  <Select items={[...FREQ_ITEMS]} defaultValue="آنی">
+                    <SelectTrigger
+                      id="an5-freq"
+                      className="w-full sm:max-w-xs"
+                      dir="rtl"
+                    >
                       <SelectValue placeholder="تواتر" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="realtime">آنی</SelectItem>
-                      <SelectItem value="hourly">ساعتی</SelectItem>
-                      <SelectItem value="daily">روزانه</SelectItem>
-                      <SelectItem value="weekly">هفتگی</SelectItem>
+                      {FREQ_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field>
                     <FieldLabel htmlFor="an5-from">شروع سکوت</FieldLabel>
-                    <Input
-                      id="an5-from"
-                      type="time"
-                      defaultValue="22:00"
-                      dir="ltr"
-                      className="text-start"
-                    />
+                    <Select items={[...TIME_ITEMS]} defaultValue="۲۲:۰۰">
+                      <SelectTrigger id="an5-from" className="w-full" dir="rtl">
+                        <SelectValue placeholder="ساعت" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="an5-to">پایان سکوت</FieldLabel>
-                    <Input
-                      id="an5-to"
-                      type="time"
-                      defaultValue="07:00"
-                      dir="ltr"
-                      className="text-start"
-                    />
+                    <Select items={[...TIME_ITEMS]} defaultValue="۰۷:۰۰">
+                      <SelectTrigger id="an5-to" className="w-full" dir="rtl">
+                        <SelectValue placeholder="ساعت" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem
+                            key={`to-${item.value}`}
+                            value={item.value}
+                          >
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                 </div>
                 <Field>
@@ -254,7 +361,7 @@ export function AccountNotificationsHub() {
                 </div>
                 <Switch id="an5-quiet" defaultChecked />
               </div>
-              <Button>ذخیره زمان‌بندی</Button>
+              <Button type="button">ذخیره زمان‌بندی</Button>
             </div>
           ) : null}
 
@@ -267,7 +374,7 @@ export function AccountNotificationsHub() {
               <FieldGroup>
                 <Field>
                   <FieldLabel htmlFor="an5-digest-freq">تواتر خلاصه</FieldLabel>
-                  <Select defaultValue="weekly">
+                  <Select items={[...DIGEST_FREQ_ITEMS]} defaultValue="هفتگی">
                     <SelectTrigger
                       id="an5-digest-freq"
                       className="w-full sm:max-w-xs"
@@ -276,10 +383,11 @@ export function AccountNotificationsHub() {
                       <SelectValue placeholder="تواتر" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="daily">روزانه</SelectItem>
-                      <SelectItem value="weekly">هفتگی</SelectItem>
-                      <SelectItem value="monthly">ماهانه</SelectItem>
-                      <SelectItem value="off">خاموش</SelectItem>
+                      {DIGEST_FREQ_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -291,12 +399,12 @@ export function AccountNotificationsHub() {
                     defaultValue="sara@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="an5-digest-day">روز ارسال</FieldLabel>
-                  <Select defaultValue="sat">
+                  <Select items={[...DAY_ITEMS]} defaultValue="شنبه">
                     <SelectTrigger
                       id="an5-digest-day"
                       className="w-full sm:max-w-xs"
@@ -305,10 +413,11 @@ export function AccountNotificationsHub() {
                       <SelectValue placeholder="روز" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="sat">شنبه</SelectItem>
-                      <SelectItem value="sun">یکشنبه</SelectItem>
-                      <SelectItem value="mon">دوشنبه</SelectItem>
-                      <SelectItem value="fri">جمعه</SelectItem>
+                      {DAY_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -317,7 +426,7 @@ export function AccountNotificationsHub() {
                 <Label htmlFor="an5-digest-on">دریافت خلاصه</Label>
                 <Switch id="an5-digest-on" defaultChecked />
               </div>
-              <Button>ذخیره خلاصه</Button>
+              <Button type="button">ذخیره خلاصه</Button>
             </div>
           ) : null}
         </div>

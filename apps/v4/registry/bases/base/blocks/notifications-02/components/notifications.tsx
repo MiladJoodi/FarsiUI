@@ -26,19 +26,23 @@ const ITEMS = [
   },
   {
     title: "ورود جدید به حساب",
-    body: "Chrome · تهران",
+    body: "مرورگر کروم · تهران",
     time: "۱ ساعت پیش",
     unread: true,
     icon: ShieldIcon,
   },
   {
     title: "قابلیت جدید",
-    body: "کامپوننت Calendar RTL منتشر شد",
+    body: "کامپوننت تقویم راست‌چین منتشر شد",
     time: "دیروز",
     unread: false,
     icon: SparklesIcon,
   },
 ] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function NotificationsUnread() {
   const unread = ITEMS.filter((i) => i.unread).length
@@ -49,21 +53,21 @@ export function NotificationsUnread() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 border-b py-4 text-start">
           <div>
             <CardTitle className="flex items-center gap-2">
               <BellIcon className="size-5" />
               اعلان‌ها
               {unread > 0 ? (
-                <Badge variant="secondary">
-                  <bdi dir="ltr">{unread}</bdi>
+                <Badge variant="outline" className="border tracking-normal">
+                  {toFa(unread)}
                 </Badge>
               ) : null}
             </CardTitle>
             <CardDescription>آخرین رویدادهای حساب شما</CardDescription>
           </div>
-          <Button size="sm" variant="outline">
+          <Button type="button" size="sm" variant="outline" className="shrink-0">
             همه خوانده
           </Button>
         </CardHeader>
@@ -86,11 +90,11 @@ export function NotificationsUnread() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-2">
                       <p className="text-sm font-medium">{item.title}</p>
-                      <span className="shrink-0 text-xs text-muted-foreground">
+                      <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
                         {item.time}
                       </span>
                     </div>
-                    <p className="mt-0.5 text-sm text-muted-foreground">
+                    <p className="mt-0.5 text-sm tracking-normal text-muted-foreground">
                       {item.body}
                     </p>
                   </div>

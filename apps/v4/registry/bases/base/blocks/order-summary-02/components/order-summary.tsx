@@ -33,10 +33,12 @@ export function OrderSummaryCards() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0">
           <CardTitle className="text-base">خلاصه سفارش</CardTitle>
-          <Badge variant="secondary">در انتظار پرداخت</Badge>
+          <Badge variant="outline" className="border">
+            در انتظار پرداخت
+          </Badge>
         </CardHeader>
         <CardContent className="space-y-4">
           {ITEMS.map((item) => (
@@ -50,26 +52,20 @@ export function OrderSummaryCards() {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium">{item.name}</p>
-                <p className="text-xs text-muted-foreground">
-                  تعداد <bdi dir="ltr">{item.qty}</bdi>
+                <p className="text-xs tracking-normal text-muted-foreground">
+                  تعداد {item.qty}
                 </p>
               </div>
-              <p className="text-sm">
-                <bdi dir="ltr" className="tabular-nums">
-                  {item.price}
-                </bdi>
-              </p>
+              <p className="text-sm tracking-normal">{item.price}</p>
             </div>
           ))}
 
           <Separator />
 
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm tracking-normal">
             <div className="flex justify-between gap-3">
               <span className="text-muted-foreground">جمع جزء</span>
-              <bdi dir="ltr" className="tabular-nums">
-                ۷٬۴۴۰٬۰۰۰
-              </bdi>
+              <span>۷٬۴۴۰٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-3">
               <span className="text-muted-foreground">ارسال</span>
@@ -77,17 +73,14 @@ export function OrderSummaryCards() {
             </div>
             <div className="flex justify-between gap-3 font-semibold">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  ۷٬۴۴۰٬۰۰۰
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>۷٬۴۴۰٬۰۰۰ تومان</span>
             </div>
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full">ادامه به پرداخت</Button>
+          <Button type="button" className="w-full">
+            ادامه به پرداخت
+          </Button>
         </CardFooter>
       </Card>
     </section>

@@ -38,25 +38,25 @@ const ITEMS = [
     title: "سفارش ارسال شد",
     body: "کد پیگیری: ۱۲۳۴۵۶",
     time: "۵ دقیقه پیش",
-    type: "order",
+    type: "سفارش",
     unread: true,
     icon: PackageIcon,
   },
   {
     id: "2",
     title: "ورود جدید",
-    body: "Chrome · تهران — هشدار به security@example.com",
+    body: "مرورگر کروم · تهران — هشدار به security@example.com",
     time: "۱ ساعت پیش",
-    type: "security",
+    type: "امنیت",
     unread: true,
     icon: ShieldIcon,
   },
   {
     id: "3",
     title: "قابلیت جدید",
-    body: "کامپوننت Calendar RTL منتشر شد",
+    body: "کامپوننت تقویم راست‌چین منتشر شد",
     time: "دیروز",
-    type: "product",
+    type: "محصول",
     unread: false,
     icon: SparklesIcon,
   },
@@ -65,19 +65,29 @@ const ITEMS = [
     title: "خلاصهٔ هفتگی",
     body: "۳ به‌روزرسانی آماده است",
     time: "شنبه",
-    type: "product",
+    type: "محصول",
     unread: false,
     icon: BellIcon,
   },
 ] as const
 
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده" },
+  { value: "سفارش", label: "سفارش" },
+  { value: "امنیت", label: "امنیت" },
+  { value: "محصول", label: "محصول" },
+] as const
+
 export function NotificationsFilter() {
   const [query, setQuery] = React.useState("")
-  const [type, setType] = React.useState("all")
+  const [type, setType] = React.useState("همه")
 
   const rows = ITEMS.filter((item) => {
-    if (type === "unread" && !item.unread) return false
-    if (type !== "all" && type !== "unread" && item.type !== type) return false
+    if (type === "خوانده‌نشده" && !item.unread) return false
+    if (type !== "همه" && type !== "خوانده‌نشده" && item.type !== type) {
+      return false
+    }
     if (query && !`${item.title}${item.body}`.includes(query)) return false
     return true
   })
@@ -88,11 +98,11 @@ export function NotificationsFilter() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>اعلان‌ها</CardTitle>
           <CardDescription>
-            فیلتر راست‌چین · ایمیل هشدار چپ‌چین
+            فیلتر راست‌چین؛ ایمیل هشدار چپ‌چین
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -108,18 +118,23 @@ export function NotificationsFilter() {
               />
             </div>
             <Select
+              items={[...TYPE_ITEMS]}
               value={type}
-              onValueChange={(v) => setType((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="unread">خوانده‌نشده</SelectItem>
-                <SelectItem value="order">سفارش</SelectItem>
-                <SelectItem value="security">امنیت</SelectItem>
-                <SelectItem value="product">محصول</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -132,7 +147,7 @@ export function NotificationsFilter() {
               defaultValue="security@example.com"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>
               ورودهای مشکوک به این آدرس اطلاع داده می‌شود
@@ -163,22 +178,30 @@ export function NotificationsFilter() {
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <p className="text-sm font-medium">{item.title}</p>
-                          <span className="shrink-0 text-xs text-muted-foreground">
+                          <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
                             {item.time}
                           </span>
                         </div>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
+                        <p className="mt-0.5 text-sm tracking-normal text-muted-foreground">
                           {item.body.includes("@") ? (
                             <>
-                              Chrome · تهران — هشدار به{" "}
-                              <bdi dir="ltr">security@example.com</bdi>
+                              مرورگر کروم · تهران — هشدار به{" "}
+                              <span
+                                dir="ltr"
+                                className="inline-block text-left"
+                              >
+                                security@example.com
+                              </span>
                             </>
                           ) : (
                             item.body
                           )}
                         </p>
                         {item.unread ? (
-                          <Badge variant="secondary" className="mt-1.5">
+                          <Badge
+                            variant="outline"
+                            className="mt-1.5 border"
+                          >
                             جدید
                           </Badge>
                         ) : null}

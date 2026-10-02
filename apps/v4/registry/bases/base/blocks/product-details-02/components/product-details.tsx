@@ -14,8 +14,14 @@ import {
 
 const IMAGES = [
   "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80",
+] as const
+
+const SIZE_ITEMS = [
+  { value: "کوچک", label: "کوچک (S)" },
+  { value: "متوسط", label: "متوسط (M)" },
+  { value: "بزرگ", label: "بزرگ (L)" },
 ] as const
 
 export function ProductDetailsGallery() {
@@ -42,17 +48,13 @@ export function ProductDetailsGallery() {
                 key={src}
                 type="button"
                 onClick={() => setActive(index)}
-                className={`aspect-square overflow-hidden rounded-xl border transition ${
+                className={`aspect-square overflow-hidden rounded-xl border bg-muted transition ${
                   active === index
                     ? "ring-2 ring-primary ring-offset-2"
                     : "opacity-80 hover:opacity-100"
                 }`}
               >
-                <img
-                  src={src}
-                  alt=""
-                  className="size-full object-cover"
-                />
+                <img src={src} alt="" className="size-full object-cover" />
               </button>
             ))}
           </div>
@@ -60,36 +62,38 @@ export function ProductDetailsGallery() {
 
         <div className="flex flex-col justify-center space-y-5">
           <div className="space-y-2">
-            <Badge variant="secondary">پوشیدنی</Badge>
+            <Badge variant="outline" className="border">
+              پوشیدنی
+            </Badge>
             <h1 className="text-3xl font-bold tracking-tight">ساعت هوشمند نور</h1>
-            <p className="text-lg">
-              <bdi dir="ltr" className="tabular-nums font-semibold">
-                ۸٬۹۰۰٬۰۰۰
-              </bdi>{" "}
+            <p className="text-lg tracking-normal">
+              <span className="font-semibold">۸٬۹۰۰٬۰۰۰</span>{" "}
               <span className="text-muted-foreground">تومان</span>
             </p>
           </div>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="leading-relaxed text-muted-foreground">
             نمایشگر همیشه روشن، پایش ضربان قلب و مقاومت در برابر آب تا ۵۰ متر.
           </p>
           <div className="space-y-2">
             <p className="text-sm font-medium">سایز بند</p>
-            <Select defaultValue="m">
+            <Select items={[...SIZE_ITEMS]} defaultValue="متوسط">
               <SelectTrigger className="w-full sm:w-48" dir="rtl">
                 <SelectValue placeholder="سایز را انتخاب کنید" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="s">کوچک (S)</SelectItem>
-                <SelectItem value="m">متوسط (M)</SelectItem>
-                <SelectItem value="l">بزرگ (L)</SelectItem>
+                {SIZE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button size="lg" className="flex-1">
+            <Button type="button" size="lg" className="flex-1">
               افزودن به سبد
             </Button>
-            <Button size="lg" variant="outline" className="flex-1">
+            <Button type="button" size="lg" variant="outline" className="flex-1">
               خرید سریع
             </Button>
           </div>

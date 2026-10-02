@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   LaptopIcon,
   MoreHorizontalIcon,
@@ -11,14 +10,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -26,6 +17,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -35,6 +31,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "active", label: "فعال" },
@@ -46,13 +43,38 @@ const NAV = [
 type NavId = (typeof NAV)[number]["id"]
 
 const HISTORY = [
-  { place: "تهران · Chrome", time: "امروز ۱۴:۲۰", ok: true },
-  { place: "اصفهان · Safari", time: "دیروز ۰۹:۰۵", ok: true },
-  { place: "تهران · Firefox", time: "۳ روز پیش", ok: false },
+  { place: "تهران · Chrome", time: "امروز ۱۴:۲۰", ok: true, status: "موفق" },
+  { place: "اصفهان · Safari", time: "دیروز ۰۹:۰۵", ok: true, status: "موفق" },
+  {
+    place: "تهران · Firefox",
+    time: "۳ روز پیش",
+    ok: false,
+    status: "ناموفق",
+  },
+] as const
+
+const TIMEOUT_ITEMS = [
+  { value: "۱ روز", label: "۱ روز" },
+  { value: "۷ روز", label: "۷ روز" },
+  { value: "۳۰ روز", label: "۳۰ روز" },
+  { value: "۹۰ روز", label: "۹۰ روز" },
+] as const
+
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "موفق", label: "موفق" },
+  { value: "ناموفق", label: "ناموفق" },
 ] as const
 
 export function SessionsHub() {
   const [section, setSection] = React.useState<NavId>("active")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
+  const [status, setStatus] = React.useState("همه")
+
+  const filteredHistory = HISTORY.filter(
+    (h) => status === "همه" || h.status === status
+  )
 
   return (
     <section
@@ -70,26 +92,52 @@ export function SessionsHub() {
             دستگاه‌های فعال، معتبر، تنظیمات و تاریخچه ورود
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setSection("history")}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-48 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("history")
+                setMoreOpen(false)
+              }}
+            >
               تاریخچه ورود
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setSection("settings")}>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("settings")
+                setMoreOpen(false)
+              }}
+            >
               تنظیمات نشست
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem variant="destructive">
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => setMoreOpen(false)}
+            >
               خروج از همهٔ دستگاه‌ها
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[12rem_1fr]">
@@ -120,12 +168,14 @@ export function SessionsHub() {
               <Header title="نشست‌های فعال" description="دستگاه‌های متصل الان" />
               {[
                 {
+                  id: "1",
                   device: "Chrome روی ویندوز",
                   meta: "تهران · الان",
                   current: true,
                   kind: "laptop" as const,
                 },
                 {
+                  id: "2",
                   device: "Safari روی آیفون",
                   meta: "تهران · ۲ ساعت پیش",
                   kind: "phone" as const,
@@ -133,7 +183,7 @@ export function SessionsHub() {
               ].map((s, i) => {
                 const Icon = s.kind === "phone" ? SmartphoneIcon : LaptopIcon
                 return (
-                  <div key={s.device}>
+                  <div key={s.id}>
                     {i > 0 && <Separator className="my-2" />}
                     <div className="flex items-center gap-3">
                       <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
@@ -143,32 +193,67 @@ export function SessionsHub() {
                         <div className="flex flex-wrap items-center gap-2">
                           <p className="text-sm font-medium">{s.device}</p>
                           {s.current ? (
-                            <Badge variant="secondary">همین دستگاه</Badge>
+                            <Badge variant="outline" className="border">
+                              همین دستگاه
+                            </Badge>
                           ) : null}
                         </div>
-                        <p className="text-xs text-muted-foreground">{s.meta}</p>
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          {s.meta}
+                        </p>
                       </div>
                       {!s.current ? (
-                        <DropdownMenu>
-                          <DropdownMenuTrigger
-                            render={<Button variant="ghost" size="icon-sm" />}
+                        <Popover
+                          open={openId === s.id}
+                          onOpenChange={(open) =>
+                            setOpenId(open ? s.id : null)
+                          }
+                        >
+                          <PopoverTrigger
+                            render={
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="icon-sm"
+                              />
+                            }
                           >
                             <MoreHorizontalIcon className="size-4" />
                             <span className="sr-only">عملیات</span>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                            <DropdownMenuItem>جزئیات</DropdownMenuItem>
-                            <DropdownMenuItem variant="destructive">
+                          </PopoverTrigger>
+                          <PopoverContent
+                            dir="rtl"
+                            lang="fa"
+                            align="start"
+                            className="w-40 space-y-1 p-2"
+                          >
+                            <p className="px-2 py-1.5 text-sm font-medium">
+                              عملیات
+                            </p>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="h-8 w-full justify-start"
+                              onClick={() => setOpenId(null)}
+                            >
+                              جزئیات
+                            </Button>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                              onClick={() => setOpenId(null)}
+                            >
                               پایان نشست
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                            </Button>
+                          </PopoverContent>
+                        </Popover>
                       ) : null}
                     </div>
                   </div>
                 )
               })}
-              <Button variant="outline" className="w-full sm:w-auto">
+              <Button type="button" variant="outline" className="w-full sm:w-auto">
                 خروج از بقیه
               </Button>
             </div>
@@ -197,14 +282,14 @@ export function SessionsHub() {
                     defaultValue="reza@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>
                     لینک تأیید اعتماد به این آدرس می‌رود
                   </FieldDescription>
                 </Field>
               </FieldGroup>
-              <Button>افزودن دستگاه معتبر</Button>
+              <Button type="button">افزودن دستگاه معتبر</Button>
             </div>
           ) : null}
 
@@ -213,7 +298,7 @@ export function SessionsHub() {
               <Header title="تنظیمات" description="مهلت و هشدارها" />
               <Field>
                 <FieldLabel htmlFor="se5-timeout">مهلت نشست</FieldLabel>
-                <Select defaultValue="30">
+                <Select items={[...TIMEOUT_ITEMS]} defaultValue="۳۰ روز">
                   <SelectTrigger
                     id="se5-timeout"
                     className="w-full sm:max-w-xs"
@@ -222,10 +307,11 @@ export function SessionsHub() {
                     <SelectValue placeholder="مدت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="1">۱ روز</SelectItem>
-                    <SelectItem value="7">۷ روز</SelectItem>
-                    <SelectItem value="30">۳۰ روز</SelectItem>
-                    <SelectItem value="90">۹۰ روز</SelectItem>
+                    {TIMEOUT_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
@@ -250,7 +336,7 @@ export function SessionsHub() {
                   <Switch id="se5-alert" defaultChecked />
                 </div>
               </div>
-              <Button>ذخیره تنظیمات</Button>
+              <Button type="button">ذخیره تنظیمات</Button>
             </div>
           ) : null}
 
@@ -259,7 +345,15 @@ export function SessionsHub() {
               <Header title="تاریخچه ورود" description="آخرین تلاش‌ها" />
               <Field>
                 <FieldLabel htmlFor="se5-filter">وضعیت</FieldLabel>
-                <Select defaultValue="all">
+                <Select
+                  items={[...STATUS_ITEMS]}
+                  value={status}
+                  onValueChange={(value) => {
+                    if (STATUS_ITEMS.some((item) => item.value === value)) {
+                      setStatus(value as string)
+                    }
+                  }}
+                >
                   <SelectTrigger
                     id="se5-filter"
                     className="w-full sm:max-w-xs"
@@ -268,23 +362,34 @@ export function SessionsHub() {
                     <SelectValue placeholder="وضعیت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="all">همه</SelectItem>
-                    <SelectItem value="ok">موفق</SelectItem>
-                    <SelectItem value="fail">ناموفق</SelectItem>
+                    {STATUS_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
               <ul className="space-y-0 rounded-lg border">
-                {HISTORY.map((h, i) => (
+                {filteredHistory.map((h, i) => (
                   <li key={h.place + h.time}>
                     {i > 0 && <Separator />}
                     <div className="flex items-center justify-between gap-3 px-4 py-3">
                       <div>
                         <p className="text-sm font-medium">{h.place}</p>
-                        <p className="text-xs text-muted-foreground">{h.time}</p>
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          {h.time}
+                        </p>
                       </div>
-                      <Badge variant={h.ok ? "secondary" : "destructive"}>
-                        {h.ok ? "موفق" : "ناموفق"}
+                      <Badge
+                        variant="outline"
+                        className={
+                          h.ok
+                            ? "border"
+                            : "border-destructive text-destructive"
+                        }
+                      >
+                        {h.status}
                       </Badge>
                     </div>
                   </li>

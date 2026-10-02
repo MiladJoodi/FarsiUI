@@ -87,7 +87,7 @@ export function ShoppingCartEditable() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y overflow-hidden rounded-xl border bg-card">
           {items.length === 0 ? (
             <p className="p-8 text-center text-sm text-muted-foreground">
               سبد خرید خالی است.
@@ -106,11 +106,8 @@ export function ShoppingCartEditable() {
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <p className="font-medium">{item.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        <bdi dir="ltr" className="tabular-nums">
-                          {item.priceLabel}
-                        </bdi>{" "}
-                        تومان
+                      <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                        {item.priceLabel} تومان
                       </p>
                     </div>
                     <Button
@@ -134,8 +131,8 @@ export function ShoppingCartEditable() {
                     >
                       <MinusIcon className="size-3.5" />
                     </Button>
-                    <span className="w-8 text-center text-sm">
-                      <bdi dir="ltr">{item.qty}</bdi>
+                    <span className="w-8 text-center text-sm tracking-normal">
+                      {formatFa(item.qty)}
                     </span>
                     <Button
                       type="button"
@@ -154,37 +151,32 @@ export function ShoppingCartEditable() {
           )}
         </div>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">خلاصه سفارش</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 tracking-normal">
               <span className="text-muted-foreground">جمع جزء</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(subtotal)}
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>{formatFa(subtotal)} تومان</span>
             </div>
             <div className="flex justify-between gap-4">
               <span className="text-muted-foreground">هزینه ارسال</span>
               <span>رایگان</span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-4 font-semibold">
+            <div className="flex justify-between gap-4 font-semibold tracking-normal">
               <span>مبلغ قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  {formatFa(subtotal)}
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>{formatFa(subtotal)} تومان</span>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full" size="lg" disabled={items.length === 0}>
+            <Button
+              type="button"
+              className="w-full"
+              size="lg"
+              disabled={items.length === 0}
+            >
               تسویه‌حساب
             </Button>
           </CardFooter>

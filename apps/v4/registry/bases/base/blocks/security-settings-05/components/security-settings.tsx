@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   CopyIcon,
   KeyRoundIcon,
@@ -13,14 +12,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -28,6 +19,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -37,6 +33,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const NAV = [
   { id: "password", label: "رمز عبور" },
@@ -80,15 +77,34 @@ const LOGIN_LOG = [
   },
 ] as const
 
+const METHOD_ITEMS = [
+  { value: "پیامک", label: "پیامک" },
+  { value: "ایمیل", label: "ایمیل" },
+  { value: "اپلیکیشن احراز", label: "اپلیکیشن احراز" },
+] as const
+
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "موفق", label: "موفق" },
+  { value: "ناموفق", label: "ناموفق" },
+] as const
+
 export function SecuritySettingsHub() {
   const [section, setSection] = React.useState<NavId>("password")
   const [copied, setCopied] = React.useState(false)
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
+  const [filter, setFilter] = React.useState("همه")
 
   function copyCodes() {
     void navigator.clipboard?.writeText(RECOVERY_CODES.join("\n"))
     setCopied(true)
     window.setTimeout(() => setCopied(false), 2000)
   }
+
+  const filteredLog = LOGIN_LOG.filter(
+    (item) => filter === "همه" || item.status === filter
+  )
 
   return (
     <section
@@ -106,26 +122,52 @@ export function SecuritySettingsHub() {
             رمز، دو مرحله‌ای، کدهای بازیابی و تاریخچهٔ ورود
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات امنیتی</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setSection("activity")}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-52 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات امنیتی</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("activity")
+                setMoreOpen(false)
+              }}
+            >
               مشاهدهٔ ورودها
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setSection("recovery")}>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => {
+                setSection("recovery")
+                setMoreOpen(false)
+              }}
+            >
               کدهای بازیابی
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem variant="destructive">
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start text-destructive hover:text-destructive"
+              onClick={() => setMoreOpen(false)}
+            >
               خروج از همهٔ دستگاه‌ها
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[12rem_1fr]">
@@ -164,9 +206,9 @@ export function SecuritySettingsHub() {
                     <Input
                       id="ss5-current"
                       type="password"
-                      placeholder="••••••••"
-                      dir="ltr"
-                      className="text-start"
+                      placeholder="رمز عبور فعلی"
+                      dir="rtl"
+                      className="text-end"
                     />
                   </Field>
                   <Field>
@@ -175,8 +217,8 @@ export function SecuritySettingsHub() {
                       id="ss5-new"
                       type="password"
                       placeholder="حداقل ۸ کاراکتر"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                   <Field>
@@ -186,6 +228,7 @@ export function SecuritySettingsHub() {
                       type="password"
                       placeholder="تکرار رمز جدید"
                       dir="rtl"
+                      className="text-end"
                     />
                   </Field>
                   <div className="flex justify-end gap-2 pt-2">
@@ -220,14 +263,16 @@ export function SecuritySettingsHub() {
               <FieldGroup>
                 <Field>
                   <FieldLabel htmlFor="ss5-method">روش تأیید</FieldLabel>
-                  <Select defaultValue="sms">
+                  <Select items={[...METHOD_ITEMS]} defaultValue="پیامک">
                     <SelectTrigger id="ss5-method" className="w-full" dir="rtl">
                       <SelectValue placeholder="روش" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="sms">پیامک</SelectItem>
-                      <SelectItem value="email">ایمیل</SelectItem>
-                      <SelectItem value="app">اپلیکیشن احراز</SelectItem>
+                      {METHOD_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -240,7 +285,7 @@ export function SecuritySettingsHub() {
                     defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                     placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left tracking-normal"
                   />
                 </Field>
                 <Field>
@@ -251,11 +296,11 @@ export function SecuritySettingsHub() {
                     defaultValue="reza@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                 </Field>
               </FieldGroup>
-              <Button>ذخیره دو مرحله‌ای</Button>
+              <Button type="button">ذخیره دو مرحله‌ای</Button>
             </div>
           ) : null}
 
@@ -291,9 +336,11 @@ export function SecuritySettingsHub() {
                   {RECOVERY_CODES.map((code) => (
                     <li
                       key={code}
-                      className="rounded-md border bg-background px-3 py-2 font-mono text-sm"
+                      className="rounded-md border bg-background px-3 py-2 text-sm tracking-normal"
                     >
-                      <bdi dir="ltr">{code}</bdi>
+                      <span dir="ltr" className="inline-block text-left">
+                        {code}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -308,7 +355,7 @@ export function SecuritySettingsHub() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <FieldDescription>
                   کدهای پشتیبان به این آدرس هم ارسال می‌شوند
@@ -325,7 +372,15 @@ export function SecuritySettingsHub() {
               />
               <Field>
                 <FieldLabel htmlFor="ss5-filter">فیلتر وضعیت</FieldLabel>
-                <Select defaultValue="all">
+                <Select
+                  items={[...FILTER_ITEMS]}
+                  value={filter}
+                  onValueChange={(value) => {
+                    if (FILTER_ITEMS.some((item) => item.value === value)) {
+                      setFilter(value as string)
+                    }
+                  }}
+                >
                   <SelectTrigger
                     id="ss5-filter"
                     className="w-full sm:max-w-xs"
@@ -334,45 +389,81 @@ export function SecuritySettingsHub() {
                     <SelectValue placeholder="وضعیت" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="all">همه</SelectItem>
-                    <SelectItem value="ok">موفق</SelectItem>
-                    <SelectItem value="fail">ناموفق</SelectItem>
+                    {FILTER_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
               <ul className="space-y-0 rounded-lg border">
-                {LOGIN_LOG.map((item, i) => (
+                {filteredLog.map((item, i) => (
                   <li key={item.id}>
                     {i > 0 && <Separator />}
                     <div className="flex items-center justify-between gap-3 px-4 py-3">
                       <div>
                         <p className="text-sm font-medium">{item.place}</p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs tracking-normal text-muted-foreground">
                           {item.time}
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Badge variant={item.ok ? "secondary" : "destructive"}>
+                        <Badge
+                          variant="outline"
+                          className={
+                            item.ok
+                              ? "border"
+                              : "border-destructive text-destructive"
+                          }
+                        >
                           {item.status}
                         </Badge>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger
-                            render={<Button variant="ghost" size="icon-sm" />}
+                        <Popover
+                          open={openId === item.id}
+                          onOpenChange={(open) =>
+                            setOpenId(open ? item.id : null)
+                          }
+                        >
+                          <PopoverTrigger
+                            render={
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="icon-sm"
+                              />
+                            }
                           >
                             <MoreHorizontalIcon className="size-4" />
                             <span className="sr-only">عملیات</span>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent
+                          </PopoverTrigger>
+                          <PopoverContent
                             dir="rtl"
                             lang="fa"
                             align="start"
+                            className="w-48 space-y-1 p-2"
                           >
-                            <DropdownMenuItem>جزئیات</DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <p className="px-2 py-1.5 text-sm font-medium">
+                              عملیات
+                            </p>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="h-8 w-full justify-start"
+                              onClick={() => setOpenId(null)}
+                            >
+                              جزئیات
+                            </Button>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="h-8 w-full justify-start"
+                              onClick={() => setOpenId(null)}
+                            >
                               این دستگاه نیست؟ گزارش
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                            </Button>
+                          </PopoverContent>
+                        </Popover>
                       </div>
                     </div>
                   </li>

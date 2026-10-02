@@ -39,6 +39,10 @@ const MESSAGES = [
   },
 ] as const
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function MessageListUnread() {
   const totalUnread = MESSAGES.reduce((n, m) => n + m.unread, 0)
 
@@ -48,21 +52,17 @@ export function MessageListUnread() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="flex-row items-start justify-between gap-4 space-y-0 border-b py-4 text-start">
           <div>
             <CardTitle>فهرست پیام‌ها</CardTitle>
-            <CardDescription>
-              {totalUnread > 0 ? (
-                <>
-                  <bdi dir="ltr">{totalUnread}</bdi> پیام خوانده‌نشده
-                </>
-              ) : (
-                "همه خوانده شده‌اند"
-              )}
+            <CardDescription className="tracking-normal">
+              {totalUnread > 0
+                ? `${toFa(totalUnread)} پیام خوانده‌نشده`
+                : "همه خوانده شده‌اند"}
             </CardDescription>
           </div>
-          <Button size="sm" variant="outline">
+          <Button type="button" size="sm" variant="outline" className="shrink-0">
             همه خوانده
           </Button>
         </CardHeader>
@@ -86,20 +86,25 @@ export function MessageListUnread() {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
                     <p className="truncate text-sm font-medium">{m.name}</p>
-                    <span className="shrink-0 text-xs text-muted-foreground">
-                      <bdi dir="ltr">{m.time}</bdi>
+                    <span className="shrink-0 text-xs tracking-normal text-muted-foreground">
+                      {m.time}
                     </span>
                   </div>
-                  <p className="truncate text-xs text-muted-foreground">
-                    <bdi dir="ltr">{m.email}</bdi>
+                  <p className="truncate text-xs tracking-normal text-muted-foreground">
+                    <span dir="ltr" className="inline-block text-left">
+                      {m.email}
+                    </span>
                   </p>
                   <div className="mt-0.5 flex items-center justify-between gap-2">
                     <p className="truncate text-sm text-muted-foreground">
                       {m.preview}
                     </p>
                     {m.unread > 0 ? (
-                      <Badge variant="secondary" className="h-5 min-w-5 px-1.5">
-                        <bdi dir="ltr">{m.unread}</bdi>
+                      <Badge
+                        variant="outline"
+                        className="h-5 min-w-5 border px-1.5 tracking-normal"
+                      >
+                        {toFa(m.unread)}
                       </Badge>
                     ) : null}
                   </div>

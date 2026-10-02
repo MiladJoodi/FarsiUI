@@ -73,13 +73,21 @@ const INITIAL: Item[] = [
   },
 ]
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه دسته‌ها" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "اکسسوری", label: "اکسسوری" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
 export function WishlistFilterable() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [category, setCategory] = React.useState("all")
+  const [category, setCategory] = React.useState("همه")
 
   const filtered = items.filter((item) => {
-    const matchCat = category === "all" || item.category === category
+    const matchCat = category === "همه" || item.category === category
     const matchQuery =
       !query.trim() ||
       item.name.includes(query) ||
@@ -113,32 +121,40 @@ export function WishlistFilterable() {
             />
           </div>
           <Select
+            items={[...CATEGORY_ITEMS]}
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                setCategory(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-44" dir="rtl">
-              <SelectValue placeholder="دسته‌بندی" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه دسته‌ها</SelectItem>
-              <SelectItem value="صوتی">صوتی</SelectItem>
-              <SelectItem value="اکسسوری">اکسسوری</SelectItem>
-              <SelectItem value="پوشیدنی">پوشیدنی</SelectItem>
-              <SelectItem value="خانه">خانه</SelectItem>
+              {CATEGORY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           موردی با این فیلتر پیدا نشد.
         </p>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
-            <article key={item.id} className="flex flex-col gap-3">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-xl border bg-muted">
+            <article
+              key={item.id}
+              className="flex flex-col gap-3 rounded-xl border bg-card p-3"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg border bg-muted">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -160,18 +176,17 @@ export function WishlistFilterable() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <h3 className="truncate font-medium">{item.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    <bdi dir="ltr" className="tabular-nums">
-                      {item.price}
-                    </bdi>{" "}
-                    تومان
+                  <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                    {item.price} تومان
                   </p>
                 </div>
-                <Badge variant="secondary" className="shrink-0">
+                <Badge variant="outline" className="shrink-0 border">
                   {item.category}
                 </Badge>
               </div>
-              <Button size="sm">افزودن به سبد</Button>
+              <Button type="button" size="sm">
+                افزودن به سبد
+              </Button>
             </article>
           ))}
         </div>

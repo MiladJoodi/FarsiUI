@@ -34,8 +34,16 @@ import { Switch } from "@/registry/bases/base/ui/switch"
 
 const BRANDS = ["آرام", "نور", "مینیمال", "سبک"] as const
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
 export function AdvancedFiltersPanel() {
   const [brands, setBrands] = React.useState<string[]>(["آرام"])
+  const [category, setCategory] = React.useState("صوتی")
 
   function toggleBrand(name: string, on: boolean) {
     setBrands((prev) =>
@@ -62,20 +70,22 @@ export function AdvancedFiltersPanel() {
           </div>
           <Drawer>
             <DrawerTrigger
-              render={<Button variant="outline" size="sm" className="gap-2" />}
+              render={
+                <Button type="button" variant="outline" size="sm" className="gap-2" />
+              }
             >
               <FilterIcon className="size-4" />
               باز کردن
             </DrawerTrigger>
-            <DrawerContent dir="rtl" lang="fa">
+            <DrawerContent dir="rtl" lang="fa" className="overflow-x-hidden">
               <DrawerHeader className="text-start">
                 <DrawerTitle>فیلترهای پیشرفته</DrawerTitle>
                 <DrawerDescription>
-                  قیمت و ایمیل به‌صورت LTR
+                  قیمت و ایمیل به‌صورت چپ‌چین
                 </DrawerDescription>
               </DrawerHeader>
 
-              <div className="max-h-[60vh] space-y-4 overflow-y-auto px-4 pb-2">
+              <div className="max-h-[50vh] min-w-0 space-y-4 overflow-y-auto overflow-x-hidden px-4 pb-6">
                 <Field>
                   <FieldLabel>جستجو</FieldLabel>
                   <div className="relative">
@@ -90,15 +100,24 @@ export function AdvancedFiltersPanel() {
 
                 <Field>
                   <FieldLabel>دسته</FieldLabel>
-                  <Select defaultValue="audio">
+                  <Select
+                    items={[...CATEGORY_ITEMS]}
+                    value={category}
+                    onValueChange={(value) => {
+                      if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                        setCategory(value as string)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue placeholder="دسته" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="all">همه</SelectItem>
-                      <SelectItem value="audio">صوتی</SelectItem>
-                      <SelectItem value="wearable">پوشیدنی</SelectItem>
-                      <SelectItem value="home">خانه</SelectItem>
+                      {CATEGORY_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -126,8 +145,8 @@ export function AdvancedFiltersPanel() {
                       id="af3-min"
                       inputMode="numeric"
                       placeholder="۱٬۰۰۰٬۰۰۰"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                   <Field>
@@ -136,8 +155,8 @@ export function AdvancedFiltersPanel() {
                       id="af3-max"
                       inputMode="numeric"
                       placeholder="۱۰٬۰۰۰٬۰۰۰"
-                      dir="ltr"
-                      className="text-start"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                 </div>
@@ -149,7 +168,7 @@ export function AdvancedFiltersPanel() {
                     type="email"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>اختیاری</FieldDescription>
                 </Field>
@@ -162,9 +181,12 @@ export function AdvancedFiltersPanel() {
                 </div>
               </div>
 
-              <DrawerFooter className="gap-2">
-                <Button className="w-full">اعمال فیلتر</Button>
+              <DrawerFooter className="gap-3 border-t pt-4">
+                <Button type="button" className="w-full">
+                  اعمال فیلتر
+                </Button>
                 <Button
+                  type="button"
                   variant="outline"
                   className="w-full"
                   onClick={() => setBrands([])}

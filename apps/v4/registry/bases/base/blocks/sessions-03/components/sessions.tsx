@@ -26,6 +26,20 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const TIMEOUT_ITEMS = [
+  { value: "۱ روز", label: "۱ روز" },
+  { value: "۷ روز", label: "۷ روز" },
+  { value: "۳۰ روز", label: "۳۰ روز" },
+  { value: "۹۰ روز", label: "۹۰ روز" },
+] as const
+
+const CITY_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "شیراز", label: "شیراز" },
+  { value: "مشهد", label: "مشهد" },
+] as const
+
 export function SessionsPreferences() {
   return (
     <section
@@ -33,7 +47,7 @@ export function SessionsPreferences() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>ترجیحات نشست</CardTitle>
           <CardDescription>
@@ -44,29 +58,31 @@ export function SessionsPreferences() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="se3-timeout">مهلت نشست</FieldLabel>
-              <Select defaultValue="30">
+              <Select items={[...TIMEOUT_ITEMS]} defaultValue="۳۰ روز">
                 <SelectTrigger id="se3-timeout" className="w-full" dir="rtl">
                   <SelectValue placeholder="مدت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="1">۱ روز</SelectItem>
-                  <SelectItem value="7">۷ روز</SelectItem>
-                  <SelectItem value="30">۳۰ روز</SelectItem>
-                  <SelectItem value="90">۹۰ روز</SelectItem>
+                  {TIMEOUT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="se3-city">شهر پیش‌فرض</FieldLabel>
-              <Select defaultValue="tehran">
+              <Select items={[...CITY_ITEMS]} defaultValue="تهران">
                 <SelectTrigger id="se3-city" className="w-full" dir="rtl">
                   <SelectValue placeholder="انتخاب شهر" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="tehran">تهران</SelectItem>
-                  <SelectItem value="isfahan">اصفهان</SelectItem>
-                  <SelectItem value="shiraz">شیراز</SelectItem>
-                  <SelectItem value="mashhad">مشهد</SelectItem>
+                  {CITY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -78,11 +94,9 @@ export function SessionsPreferences() {
                 defaultValue="reza@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
-              <FieldDescription>
-                برای ورود از مکان ناآشنا
-              </FieldDescription>
+              <FieldDescription>برای ورود از مکان ناآشنا</FieldDescription>
             </Field>
             <Field>
               <FieldLabel htmlFor="se3-name">نام دستگاه قابل اعتماد</FieldLabel>
@@ -117,7 +131,9 @@ export function SessionsPreferences() {
             </div>
           </div>
 
-          <Button className="w-full">ذخیره ترجیحات</Button>
+          <Button type="button" className="w-full">
+            ذخیره ترجیحات
+          </Button>
         </CardContent>
       </Card>
     </section>

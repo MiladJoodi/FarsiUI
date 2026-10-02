@@ -33,6 +33,13 @@ const SUMMARY = [
   { name: "کیف چرم دستی", price: "۳٬۱۵۰٬۰۰۰" },
 ] as const
 
+const PROVINCE_ITEMS = [
+  { value: "تهران", label: "تهران" },
+  { value: "اصفهان", label: "اصفهان" },
+  { value: "فارس", label: "فارس" },
+  { value: "خراسان رضوی", label: "خراسان رضوی" },
+] as const
+
 export function CheckoutSplit() {
   return (
     <section
@@ -48,7 +55,7 @@ export function CheckoutSplit() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">اطلاعات ارسال</CardTitle>
           </CardHeader>
@@ -68,22 +75,23 @@ export function CheckoutSplit() {
                   <Input
                     id="c2-phone"
                     type="tel"
-                    placeholder="0912•••••••"
+                    placeholder="۰۹۱۲•••••••"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left tracking-normal"
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="c2-city">استان</FieldLabel>
-                  <Select defaultValue="tehran">
+                  <Select items={[...PROVINCE_ITEMS]} defaultValue="تهران">
                     <SelectTrigger id="c2-city" className="w-full" dir="rtl">
                       <SelectValue placeholder="استان را انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="tehran">تهران</SelectItem>
-                      <SelectItem value="isfahan">اصفهان</SelectItem>
-                      <SelectItem value="shiraz">فارس</SelectItem>
-                      <SelectItem value="mashhad">خراسان رضوی</SelectItem>
+                      {PROVINCE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -99,15 +107,15 @@ export function CheckoutSplit() {
 
               <div className="space-y-3">
                 <Label>روش پرداخت</Label>
-                <RadioGroup defaultValue="online" className="gap-3">
+                <RadioGroup defaultValue="درگاه آنلاین" className="gap-3">
                   <div className="flex items-center gap-3 rounded-xl border p-3">
-                    <RadioGroupItem value="online" id="pay-online" />
+                    <RadioGroupItem value="درگاه آنلاین" id="pay-online" />
                     <Label htmlFor="pay-online" className="font-normal">
                       درگاه آنلاین
                     </Label>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border p-3">
-                    <RadioGroupItem value="cod" id="pay-cod" />
+                    <RadioGroupItem value="پرداخت در محل" id="pay-cod" />
                     <Label htmlFor="pay-cod" className="font-normal">
                       پرداخت در محل
                     </Label>
@@ -118,34 +126,28 @@ export function CheckoutSplit() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-base">سفارش شما</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             {SUMMARY.map((item) => (
-              <div key={item.name} className="flex justify-between gap-3">
+              <div
+                key={item.name}
+                className="flex justify-between gap-3 tracking-normal"
+              >
                 <span className="text-muted-foreground">{item.name}</span>
-                <span>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {item.price}
-                  </bdi>
-                </span>
+                <span>{item.price}</span>
               </div>
             ))}
             <Separator />
-            <div className="flex justify-between gap-3 font-semibold">
+            <div className="flex justify-between gap-3 font-semibold tracking-normal">
               <span>جمع کل</span>
-              <span>
-                <bdi dir="ltr" className="tabular-nums">
-                  ۷٬۴۴۰٬۰۰۰
-                </bdi>{" "}
-                تومان
-              </span>
+              <span>۷٬۴۴۰٬۰۰۰ تومان</span>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full" size="lg">
+            <Button type="button" className="w-full" size="lg">
               تأیید و پرداخت
             </Button>
           </CardFooter>
