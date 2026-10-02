@@ -30,6 +30,10 @@ export const siteConfig = {
       label: "نمونه‌ها",
     },
     {
+      href: "/skills",
+      label: "مهارت‌ها",
+    },
+    {
       href: "/charts/area",
       label: "نمودارها",
     },
