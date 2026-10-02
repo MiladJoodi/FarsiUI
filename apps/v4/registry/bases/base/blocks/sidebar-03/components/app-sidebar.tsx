@@ -53,8 +53,8 @@ const data = {
         { title: "قراردادهای فایل", url: "#" },
         { title: "توابع", url: "#" },
         { title: "گزینه‌های next.config", url: "#" },
-        { title: "CLI", url: "#" },
-        { title: "Edge Runtime", url: "#" },
+        { title: "خط فرمان", url: "#" },
+        { title: "زمان‌اجرای لبه", url: "#" },
       ],
     },
     {
@@ -62,10 +62,10 @@ const data = {
       url: "#",
       items: [
         { title: "دسترس‌پذیری", url: "#" },
-        { title: "Fast Refresh", url: "#" },
+        { title: "تازه‌سازی سریع", url: "#" },
         { title: "کامپایلر Next.js", url: "#" },
         { title: "مرورگرهای پشتیبانی‌شده", url: "#" },
-        { title: "Turbopack", url: "#" },
+        { title: "توربوپک", url: "#" },
       ],
     },
     {

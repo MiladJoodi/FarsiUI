@@ -24,10 +24,16 @@ const COLUMNS = [
 ] as const
 
 const SOCIAL = [
-  { label: "گیت‌هاب", icon: GithubIcon, href: "#" },
-  { label: "لینکدین", icon: LinkedinIcon, href: "#" },
-  { label: "اینستاگرام", icon: InstagramIcon, href: "#" },
+  { label: "گیت‌هاب", icon: GithubIcon },
+  { label: "لینکدین", icon: LinkedinIcon },
+  { label: "اینستاگرام", icon: InstagramIcon },
 ] as const
+
+const LEGAL = ["حریم خصوصی", "شرایط استفاده", "کوکی‌ها"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function FooterShowcase() {
   const [done, setDone] = React.useState(false)
@@ -51,7 +57,8 @@ export function FooterShowcase() {
                 {SOCIAL.map((item) => (
                   <a
                     key={item.label}
-                    href={item.href}
+                    href="#"
+                    onClick={demoNavClick}
                     aria-label={item.label}
                     className={cn(
                       buttonVariants({ variant: "outline", size: "icon-sm" })
@@ -92,7 +99,11 @@ export function FooterShowcase() {
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                     {column.links.map((label) => (
                       <li key={label}>
-                        <a href="#" className="hover:text-foreground">
+                        <a
+                          href="#"
+                          onClick={demoNavClick}
+                          className="hover:text-foreground"
+                        >
                           {label}
                         </a>
                       </li>
@@ -106,17 +117,18 @@ export function FooterShowcase() {
           <Separator className="my-8" />
 
           <div className="flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-            <p>© ۱۴۰۴ FarsiUI · ساخته‌شده برای وب فارسی</p>
+            <p>© ۱۴۰۵ FarsiUI · ساخته‌شده برای وب فارسی</p>
             <div className="flex flex-wrap gap-x-4 gap-y-1">
-              <a href="#" className="hover:text-foreground">
-                حریم خصوصی
-              </a>
-              <a href="#" className="hover:text-foreground">
-                شرایط استفاده
-              </a>
-              <a href="#" className="hover:text-foreground">
-                کوکی‌ها
-              </a>
+              {LEGAL.map((label) => (
+                <a
+                  key={label}
+                  href="#"
+                  onClick={demoNavClick}
+                  className="hover:text-foreground"
+                >
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

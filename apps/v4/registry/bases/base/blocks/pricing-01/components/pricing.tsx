@@ -15,7 +15,7 @@ const PLANS = [
     price: "۰",
     period: "رایگان برای همیشه",
     cta: "شروع کنید",
-    variant: "outline" as const,
+    variant: "secondary" as const,
   },
   {
     name: "حرفه‌ای",

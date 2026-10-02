@@ -117,11 +117,11 @@ const data = {
           url: "#",
         },
         {
-          title: "CLI",
+          title: "خط فرمان",
           url: "#",
         },
         {
-          title: "Edge Runtime",
+          title: "زمان‌اجرای لبه",
           url: "#",
         },
       ],
@@ -135,11 +135,11 @@ const data = {
           url: "#",
         },
         {
-          title: "Fast Refresh",
+          title: "تازه‌سازی سریع",
           url: "#",
         },
         {
-          title: "Next.js Compiler",
+          title: "کامپایلر Next.js",
           url: "#",
         },
         {
@@ -147,7 +147,7 @@ const data = {
           url: "#",
         },
         {
-          title: "Turbopack",
+          title: "توربوپک",
           url: "#",
         },
       ],
@@ -195,7 +195,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   hugeicons="ArrowRight01Icon"
                   phosphor="CaretRightIcon"
                   remixicon="RiArrowRightSLine"
-                  className="ms-auto transition-transform group-data-open/collapsible:rotate-90"
+                  className="ms-auto transition-transform rtl:rotate-180 group-data-open/collapsible:rotate-90 rtl:group-data-open/collapsible:-rotate-90"
                 />
               </SidebarGroupLabel>
               <CollapsibleContent>

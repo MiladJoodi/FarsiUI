@@ -35,7 +35,7 @@ export function NewMilestone() {
             </Field>
             <Field>
               <FieldLabel htmlFor="target-date">تاریخ هدف</FieldLabel>
-              <Input id="target-date" defaultValue="آذر ۱۴۰۴" />
+              <Input id="target-date" defaultValue="آذر ۱۴۰۵" />
             </Field>
           </div>
         </FieldGroup>

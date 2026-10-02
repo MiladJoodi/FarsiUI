@@ -123,7 +123,7 @@ export function DocumentStatusGallery() {
                   <p className="mt-4 text-xs text-muted-foreground">
                     شماره پیگیری:{" "}
                     <span dir="ltr" className="font-medium tabular-nums text-foreground">
-                      DV-۱۴۰۴-۰۹۱۲
+                      DV-۱۴۰۵-۰۹۱۲
                     </span>
                   </p>
                 </CardContent>

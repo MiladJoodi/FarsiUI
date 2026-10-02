@@ -71,7 +71,7 @@ const INITIAL: User[] = [
     email: "ali@example.com",
     role: "ویرایشگر",
     status: "فعال",
-    joined: "۱۴۰۴/۰۱/۱۵",
+    joined: "۱۴۰۵/۰۱/۱۵",
     initials: "عر",
   },
   {
@@ -80,7 +80,7 @@ const INITIAL: User[] = [
     email: "mina@example.com",
     role: "مشاهده‌گر",
     status: "دعوت‌شده",
-    joined: "۱۴۰۴/۰۶/۰۱",
+    joined: "۱۴۰۵/۰۶/۰۱",
     initials: "مک",
   },
   {
@@ -107,7 +107,7 @@ const INITIAL: User[] = [
     email: "hossein@example.com",
     role: "مشاهده‌گر",
     status: "دعوت‌شده",
-    joined: "۱۴۰۴/۰۷/۰۱",
+    joined: "۱۴۰۵/۰۷/۰۱",
     initials: "هک",
   },
   {
@@ -125,7 +125,7 @@ const INITIAL: User[] = [
     email: "amir@example.com",
     role: "مشاهده‌گر",
     status: "فعال",
-    joined: "۱۴۰۴/۰۲/۱۲",
+    joined: "۱۴۰۵/۰۲/۱۲",
     initials: "اح",
   },
 ]

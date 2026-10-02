@@ -72,7 +72,7 @@ export function OrderSummaryHub() {
           <p className="mt-2 text-muted-foreground">
             شماره سفارش{" "}
             <bdi dir="ltr" className="font-medium text-foreground">
-              #۱۴۰۴۰۷۲۳۰۹
+              #۱۴۰۵۰۷۲۳۰۹
             </bdi>
           </p>
         </div>

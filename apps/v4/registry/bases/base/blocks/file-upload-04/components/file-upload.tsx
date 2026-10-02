@@ -32,7 +32,7 @@ type UploadItem = {
 const INITIAL: UploadItem[] = [
   {
     id: "1",
-    name: "invoice-1404.pdf",
+    name: "invoice-1405.pdf",
     size: "1.2 MB",
     progress: 100,
     status: "done",

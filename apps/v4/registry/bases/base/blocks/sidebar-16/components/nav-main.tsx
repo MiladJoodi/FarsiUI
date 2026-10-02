@@ -53,7 +53,7 @@ export function NavMain({
               <>
                 <SidebarMenuAction
                   render={<CollapsibleTrigger />}
-                  className="aria-expanded:rotate-90"
+                  className="rtl:rotate-180 aria-expanded:rotate-90 rtl:aria-expanded:-rotate-90"
                 >
                   <IconPlaceholder
                     lucide="ChevronRightIcon"
@@ -62,7 +62,7 @@ export function NavMain({
                     phosphor="CaretRightIcon"
                     remixicon="RiArrowRightSLine"
                   />
-                  <span className="sr-only">Toggle</span>
+                  <span className="sr-only">باز و بسته</span>
                 </SidebarMenuAction>
                 <CollapsibleContent>
                   <SidebarMenuSub>

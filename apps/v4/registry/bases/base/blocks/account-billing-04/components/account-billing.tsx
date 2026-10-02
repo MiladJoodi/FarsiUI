@@ -50,23 +50,23 @@ type Invoice = {
 const INVOICES: Invoice[] = [
   {
     id: "1",
-    label: "INV-1404-07-12",
+    label: "INV-1405-07-12",
     amount: "۱٬۳۲۰٬۰۰۰",
-    date: "۱۴۰۴/۰۷/۱۲",
+    date: "۱۴۰۵/۰۷/۱۲",
     status: "پرداخت‌شده",
   },
   {
     id: "2",
-    label: "INV-1404-06-12",
+    label: "INV-1405-06-12",
     amount: "۱٬۳۲۰٬۰۰۰",
-    date: "۱۴۰۴/۰۶/۱۲",
+    date: "۱۴۰۵/۰۶/۱۲",
     status: "پرداخت‌شده",
   },
   {
     id: "3",
-    label: "INV-1404-05-12",
+    label: "INV-1405-05-12",
     amount: "۱٬۳۲۰٬۰۰۰",
-    date: "۱۴۰۴/۰۵/۱۲",
+    date: "۱۴۰۵/۰۵/۱۲",
     status: "ناموفق",
   },
 ]

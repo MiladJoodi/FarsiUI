@@ -1,11 +1,12 @@
 "use client"
 
-const LINKS = [
-  { href: "#", label: "مستندات" },
-  { href: "#", label: "بلاک‌ها" },
-  { href: "#", label: "قیمت‌گذاری" },
-  { href: "#", label: "تماس" },
-] as const
+import * as React from "react"
+
+const LINKS = ["مستندات", "بلاک‌ها", "قیمت‌گذاری", "تماس"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function FooterLinks() {
   return (
@@ -15,21 +16,26 @@ export function FooterLinks() {
       </main>
       <footer className="border-t">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-10">
-          <a href="#" className="text-sm font-bold tracking-tight">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="text-sm font-bold tracking-tight"
+          >
             FarsiUI
           </a>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
-            {LINKS.map((link) => (
+            {LINKS.map((label) => (
               <a
-                key={link.label}
-                href={link.href}
+                key={label}
+                href="#"
+                onClick={demoNavClick}
                 className="transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label}
               </a>
             ))}
           </nav>
-          <p className="text-sm text-muted-foreground">© ۱۴۰۴</p>
+          <p className="text-sm text-muted-foreground">© ۱۴۰۵</p>
         </div>
       </footer>
     </div>

@@ -259,38 +259,6 @@ export const faBlocks: Registry["items"] = [
     ]
   },
   {
-    "name": "article-01",
-    "title": "Article 01",
-    "description": "مقاله — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "article"
-    ],
-    "files": [
-      {
-        "path": "blocks/article-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/article/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "article-02",
-    "title": "Article 02",
-    "description": "مقاله — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "article"
-    ],
-    "files": [
-      {
-        "path": "blocks/article-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/article/page.tsx"
-      }
-    ]
-  },
-  {
     "name": "inbox-01",
     "title": "Inbox 01",
     "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",

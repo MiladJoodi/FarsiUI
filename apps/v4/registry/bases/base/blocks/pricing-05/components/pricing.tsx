@@ -135,7 +135,7 @@ export function PricingShowcase() {
               <Button
                 className="w-full"
                 variant={
-                  "popular" in plan && plan.popular ? "default" : "outline"
+                  "popular" in plan && plan.popular ? "default" : "secondary"
                 }
               >
                 {plan.monthly === "سفارشی" ? "گفتگو با فروش" : "شروع کنید"}

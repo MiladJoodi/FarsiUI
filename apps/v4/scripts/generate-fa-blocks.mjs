@@ -44,6 +44,7 @@ const SKIP_SLUGS = new Set([
   "mobile-navigation",
   "breadcrumb-block",
   "blog-grid",
+  "article",
   "faq",
   "team",
   "contact",
@@ -568,7 +569,7 @@ function variantBodies(kind, fa, en, variant) {
               <TableRow key={name}>
                 <TableCell>{name}</TableCell>
                 <TableCell><Badge variant="secondary">{["فعال", "در انتظار", "بسته"][i]}</Badge></TableCell>
-                <TableCell className="tabular-nums">{["۱۴۰۴/۰۷/۱۰", "۱۴۰۴/۰۷/۱۱", "۱۴۰۴/۰۷/۱۲"][i]}</TableCell>
+                <TableCell className="tabular-nums">{["۱۴۰۵/۰۷/۱۰", "۱۴۰۵/۰۷/۱۱", "۱۴۰۵/۰۷/۱۲"][i]}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -646,7 +647,7 @@ function variantBodies(kind, fa, en, variant) {
               <li>قیمت‌گذاری</li>
             </ul>
           </div>
-          <div className="text-sm text-muted-foreground">© ۱۴۰۴ همه حقوق محفوظ است</div>
+          <div className="text-sm text-muted-foreground">© ۱۴۰۵ همه حقوق محفوظ است</div>
         </div>
       </footer>`
   } else if (kind === "drawer-nav" || kind === "drawer-filters") {

@@ -22,7 +22,7 @@ export function SidebarOptInForm() {
           <div className="grid gap-2.5">
             <SidebarInput
               type="email"
-              placeholder="name@example.com"
+              placeholder="ایمیل شما"
               dir="ltr"
               className="text-start"
             />

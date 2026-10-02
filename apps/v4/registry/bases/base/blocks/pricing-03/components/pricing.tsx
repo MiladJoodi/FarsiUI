@@ -104,7 +104,7 @@ export function PricingToggle() {
               <Button
                 className="w-full"
                 variant={
-                  "popular" in plan && plan.popular ? "default" : "outline"
+                  "popular" in plan && plan.popular ? "default" : "secondary"
                 }
               >
                 انتخاب پلن

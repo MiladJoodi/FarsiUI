@@ -93,7 +93,7 @@ export function PricingCards() {
             <CardFooter>
               <Button
                 className="w-full"
-                variant={plan.popular ? "default" : "outline"}
+                variant={plan.popular ? "default" : "secondary"}
               >
                 {plan.cta}
               </Button>

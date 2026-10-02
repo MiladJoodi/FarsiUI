@@ -52,9 +52,9 @@ export function OrderSummaryExpandable() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0">
           <div>
-            <CardTitle className="text-base">سفارش #۱۴۰۴۰۷۲۱۰۱</CardTitle>
+            <CardTitle className="text-base">سفارش #۱۴۰۵۰۷۲۱۰۱</CardTitle>
             <p className="mt-1 text-xs text-muted-foreground">
-              ۲۱ مهر ۱۴۰۴ · ساعت ۱۴:۳۲
+              ۲۱ مهر ۱۴۰۵ · ساعت ۱۴:۳۲
             </p>
           </div>
           <Badge>پرداخت‌شده</Badge>

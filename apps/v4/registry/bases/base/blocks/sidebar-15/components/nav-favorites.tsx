@@ -58,8 +58,9 @@ export function NavFavorites({
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-56 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
+                side={isMobile ? "bottom" : "left"}
                 align={isMobile ? "end" : "start"}
+                dir="rtl"
               >
                 <DropdownMenuItem>
                   <IconPlaceholder
@@ -82,7 +83,7 @@ export function NavFavorites({
                     remixicon="RiLinksLine"
                     className="text-muted-foreground"
                   />
-                  <span>Copy Link</span>
+                  <span>کپی لینک</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <IconPlaceholder

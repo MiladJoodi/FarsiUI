@@ -53,7 +53,7 @@ export function NavMain({
                 hugeicons="ArrowRight01Icon"
                 phosphor="CaretRightIcon"
                 remixicon="RiArrowRightSLine"
-                className="ms-auto transition-transform duration-200 group-data-open/collapsible:rotate-90"
+                className="ms-auto transition-transform duration-200 rtl:rotate-180 group-data-open/collapsible:rotate-90 rtl:group-data-open/collapsible:-rotate-90"
               />
             </CollapsibleTrigger>
             <CollapsibleContent>

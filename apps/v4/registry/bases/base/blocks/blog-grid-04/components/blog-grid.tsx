@@ -26,7 +26,7 @@ const POSTS = [
   {
     title: "شروع با بلاک ورود فارسی",
     excerpt: "کپی، تم، و اتصال به احراز هویت در کمتر از یک ساعت.",
-    date: "۲ مهر ۱۴۰۴",
+    date: "۲ مهر ۱۴۰۵",
     category: "شروع",
     author: "علی محمدی",
     avatar: "/avatars/02.png",
@@ -35,7 +35,7 @@ const POSTS = [
   {
     title: "فیلتر پیشرفته در جدول RTL",
     excerpt: "ترکیب Drawer و Checkbox برای فیلترهای موبایل.",
-    date: "۲۹ شهریور ۱۴۰۴",
+    date: "۲۹ شهریور ۱۴۰۵",
     category: "جدول",
     author: "سارا کریمی",
     avatar: "/avatars/03.png",
@@ -44,7 +44,7 @@ const POSTS = [
   {
     title: "تم روشن و تیره هماهنگ",
     excerpt: "متغیرهای رنگ که در هر دو حالت خوانا می‌مانند.",
-    date: "۲۴ شهریور ۱۴۰۴",
+    date: "۲۴ شهریور ۱۴۰۵",
     category: "تم",
     author: "نیما پورحسین",
     avatar: "/avatars/04.png",
@@ -53,7 +53,7 @@ const POSTS = [
   {
     title: "فرم پشتیبانی چندمرحله‌ای",
     excerpt: "اولویت، پیوست و شماره پیگیری فارسی.",
-    date: "۱۹ شهریور ۱۴۰۴",
+    date: "۱۹ شهریور ۱۴۰۵",
     category: "پشتیبانی",
     author: "هستی احمدی",
     avatar: "/avatars/05.png",
@@ -62,7 +62,7 @@ const POSTS = [
   {
     title: "آمار هفتگی با نمودار میله‌ای",
     excerpt: "روزهای شمسی شنبه تا جمعه در یک نگاه.",
-    date: "۱۲ شهریور ۱۴۰۴",
+    date: "۱۲ شهریور ۱۴۰۵",
     category: "آمار",
     author: "رضا کاظمی",
     avatar: "/avatars/06.png",
@@ -71,7 +71,7 @@ const POSTS = [
   {
     title: "نظرات کاربران با عکس واقعی",
     excerpt: "کارت نقل‌قول بدون فضای خالی اضافه.",
-    date: "۵ شهریور ۱۴۰۴",
+    date: "۵ شهریور ۱۴۰۵",
     category: "بازاریابی",
     author: "آزاده نوری",
     avatar: "/avatars/07.png",

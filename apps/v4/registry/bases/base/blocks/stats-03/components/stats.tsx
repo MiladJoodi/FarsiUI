@@ -51,7 +51,7 @@ export function StatsGoals() {
             اهداف این ماه
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            مهر ۱۴۰۴ · پیشرفت تیم محصول
+            مهر ۱۴۰۵ · پیشرفت تیم محصول
           </p>
         </div>
         <Badge variant="secondary">۴ هدف</Badge>

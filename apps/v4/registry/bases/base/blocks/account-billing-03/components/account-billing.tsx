@@ -119,7 +119,7 @@ export function AccountBillingInvoices() {
               <Badge variant="secondary">پرداخت‌شده</Badge>
             </div>
             <p className="mt-2 tabular-nums text-muted-foreground">
-              <bdi dir="ltr">INV-1404-07-12</bdi> ·{" "}
+              <bdi dir="ltr">INV-1405-07-12</bdi> ·{" "}
               <bdi dir="ltr">۱٬۳۲۰٬۰۰۰</bdi> تومان
             </p>
           </div>

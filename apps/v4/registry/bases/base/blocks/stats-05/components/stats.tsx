@@ -102,7 +102,7 @@ export function StatsShowcase() {
             نبض محصول، به وقت ایران
           </h2>
           <p className="mt-2 text-muted-foreground">
-            امروز · ۲ مهر ۱۴۰۴ · به‌وقت تهران
+            امروز · ۲ مهر ۱۴۰۵ · به‌وقت تهران
           </p>
         </div>
         <div className="flex items-center gap-2">

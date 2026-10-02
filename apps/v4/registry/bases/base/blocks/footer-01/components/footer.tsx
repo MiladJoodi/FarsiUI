@@ -8,7 +8,7 @@ export function FooterSimple() {
       </main>
       <footer className="border-t px-6 py-6">
         <p className="mx-auto max-w-5xl text-center text-sm text-muted-foreground">
-          © ۱۴۰۴ FarsiUI · همهٔ حقوق محفوظ است
+          © ۱۴۰۵ FarsiUI · همهٔ حقوق محفوظ است
         </p>
       </footer>
     </div>

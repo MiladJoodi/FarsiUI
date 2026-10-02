@@ -22,7 +22,7 @@ const FEATURED = {
   title: "راهنمای کامل ساخت صفحه فرود فارسی",
   excerpt:
     "از Hero تا Footer؛ ترتیب بخش‌ها، تایپوگرافی و CTAهایی که حس بومی می‌دهند.",
-  date: "۲ مهر ۱۴۰۴",
+  date: "۲ مهر ۱۴۰۵",
   read: "۸ دقیقه مطالعه",
   author: "مریم رضایی",
   avatar: "/avatars/01.png",
@@ -33,7 +33,7 @@ const POSTS = [
   {
     title: "مسیر صفحه (Breadcrumb) درست در RTL",
     excerpt: "جداکننده، ellipsis و منوی مسیرهای میانی.",
-    date: "۱ مهر ۱۴۰۴",
+    date: "۱ مهر ۱۴۰۵",
     category: "ناوبری",
     author: "علی محمدی",
     avatar: "/avatars/02.png",
@@ -42,7 +42,7 @@ const POSTS = [
   {
     title: "کارت‌های قیمت بدون فاصلهٔ ارقام",
     excerpt: "نمایش تومان با dir و letter-spacing صفر.",
-    date: "۲۸ شهریور ۱۴۰۴",
+    date: "۲۸ شهریور ۱۴۰۵",
     category: "قیمت",
     author: "سارا کریمی",
     avatar: "/avatars/03.png",
@@ -51,7 +51,7 @@ const POSTS = [
   {
     title: "فرم تماس جدا از پشتیبانی",
     excerpt: "دو دستهٔ جدا برای ناوبری بلاک‌ها.",
-    date: "۲۴ شهریور ۱۴۰۴",
+    date: "۲۴ شهریور ۱۴۰۵",
     category: "فرم",
     author: "نیما پورحسین",
     avatar: "/avatars/04.png",
@@ -60,7 +60,7 @@ const POSTS = [
   {
     title: "داشبورد آمار به وقت ایران",
     excerpt: "تب هفته، ماه و سال با درصد فارسی.",
-    date: "۱۸ شهریور ۱۴۰۴",
+    date: "۱۸ شهریور ۱۴۰۵",
     category: "آمار",
     author: "هستی احمدی",
     avatar: "/avatars/05.png",
@@ -69,7 +69,7 @@ const POSTS = [
   {
     title: "بنر اطلاع‌رسانی نسخهٔ جدید",
     excerpt: "نوار ساده تا پروموی کامل.",
-    date: "۱۰ شهریور ۱۴۰۴",
+    date: "۱۰ شهریور ۱۴۰۵",
     category: "بازاریابی",
     author: "رضا کاظمی",
     avatar: "/avatars/06.png",
@@ -78,7 +78,7 @@ const POSTS = [
   {
     title: "لوگوی مشتریان هم‌اندازه",
     excerpt: "باکس ثابت و مقیاس نوری برای PNGها.",
-    date: "۳ شهریور ۱۴۰۴",
+    date: "۳ شهریور ۱۴۰۵",
     category: "برند",
     author: "آزاده نوری",
     avatar: "/avatars/07.png",

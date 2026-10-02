@@ -85,7 +85,7 @@ export function BreadcrumbShowcase() {
           <Separator />
 
           <p className="text-sm text-muted-foreground">
-            آخرین ویرایش · ۲ مهر ۱۴۰۴ · مریم رضایی
+            آخرین ویرایش · ۲ مهر ۱۴۰۵ · مریم رضایی
           </p>
         </div>
       </header>

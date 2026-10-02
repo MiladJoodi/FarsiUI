@@ -28,11 +28,11 @@ const data = {
   calendars: [
     {
       name: "تقویم‌های من",
-      items: ["Personal", "Work", "Family"],
+      items: ["شخصی", "کاری", "خانوادگی"],
     },
     {
       name: "علاقه‌مندی‌ها",
-      items: ["Holidays", "Birthdays"],
+      items: ["تعطیلات", "تولدها"],
     },
     {
       name: "سایر",

@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const COLUMNS = [
@@ -16,6 +18,10 @@ const COLUMNS = [
     links: ["درباره ما", "تماس", "فرصت شغلی", "قوانین"],
   },
 ] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function FooterColumns() {
   return (
@@ -38,7 +44,11 @@ export function FooterColumns() {
                 <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                   {column.links.map((label) => (
                     <li key={label}>
-                      <a href="#" className="hover:text-foreground">
+                      <a
+                        href="#"
+                        onClick={demoNavClick}
+                        className="hover:text-foreground"
+                      >
                         {label}
                       </a>
                     </li>
@@ -49,7 +59,7 @@ export function FooterColumns() {
           </div>
           <Separator className="my-8" />
           <p className="text-sm text-muted-foreground">
-            © ۱۴۰۴ FarsiUI · همهٔ حقوق محفوظ است
+            © ۱۴۰۵ FarsiUI · همهٔ حقوق محفوظ است
           </p>
         </div>
       </footer>

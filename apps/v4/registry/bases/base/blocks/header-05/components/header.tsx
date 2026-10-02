@@ -16,7 +16,7 @@ export function HeaderShowcase() {
             <div className="max-w-2xl space-y-3">
               <Badge variant="secondary">فضای کاری</Badge>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                گزارش رشد مهر ۱۴۰۴
+                گزارش رشد مهر ۱۴۰۵
               </h1>
               <p className="text-muted-foreground">
                 خلاصهٔ بازدید، نصب بلاک و رضایت تیم‌های فارسی در یک نگاه
@@ -63,7 +63,7 @@ export function HeaderShowcase() {
             </p>
             <p>
               به‌روزرسانی:{" "}
-              <span className="font-medium text-foreground">۲ مهر ۱۴۰۴</span>
+              <span className="font-medium text-foreground">۲ مهر ۱۴۰۵</span>
             </p>
             <p>
               مالک:{" "}

@@ -305,7 +305,7 @@ For yearly reports:
 ```text
 ۱۴۰۲
 ۱۴۰۳
-۱۴۰۴
+۱۴۰۵
 ۱۴۰۵
 ```
 
@@ -323,7 +323,7 @@ When a chart crosses a year boundary, include the year with the month to avoid
 ambiguity:
 
 ```text
-اسفند ۱۴۰۴
+اسفند ۱۴۰۵
 فروردین ۱۴۰۵
 ```
 

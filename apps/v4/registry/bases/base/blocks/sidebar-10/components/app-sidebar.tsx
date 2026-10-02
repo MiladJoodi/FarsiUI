@@ -344,7 +344,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar dir="rtl" lang="fa" className="border-r-0" {...props}>
+    <Sidebar dir="rtl" lang="fa" className="border-e-0" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
         <NavMain items={data.navMain} />

@@ -80,7 +80,7 @@ export function InvoiceCreateForm() {
               <FieldLabel htmlFor="inv3-issue">تاریخ صدور</FieldLabel>
               <Input
                 id="inv3-issue"
-                placeholder="۱۴۰۴/۰۷/۱۰"
+                placeholder="۱۴۰۵/۰۷/۱۰"
                 dir="ltr"
                 className="text-start"
               />
@@ -90,7 +90,7 @@ export function InvoiceCreateForm() {
               <FieldLabel htmlFor="inv3-due">سررسید</FieldLabel>
               <Input
                 id="inv3-due"
-                placeholder="۱۴۰۴/۰۷/۲۰"
+                placeholder="۱۴۰۵/۰۷/۲۰"
                 dir="ltr"
                 className="text-start"
               />

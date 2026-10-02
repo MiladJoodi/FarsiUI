@@ -1131,3 +1131,5 @@ Use the provider's current official documentation and sandbox information when i
 * Zarinpal Merchant Panel: `https://www.zarinpal.com/panel/`
 
 Provider endpoints and payment behavior can change. If the current project depends on a specific API version, verify the endpoint and response contract against the provider's current documentation before shipping.
+
+Adapt the examples to the existing project's architecture. When modifying an existing project, inspect its current payment, authentication, billing, pricing, and fulfillment patterns first. Reuse existing abstractions where possible instead of introducing parallel implementations.

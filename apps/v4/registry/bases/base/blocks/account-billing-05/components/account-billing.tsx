@@ -152,7 +152,7 @@ export function AccountBillingHub() {
                     <bdi dir="ltr">۱٬۳۲۰٬۰۰۰</bdi> تومان
                   </p>
                   <p className="mt-2 text-xs text-muted-foreground tabular-nums">
-                    <bdi dir="ltr">۱۴۰۴/۰۸/۱۲</bdi>
+                    <bdi dir="ltr">۱۴۰۵/۰۸/۱۲</bdi>
                   </p>
                 </div>
               </div>
@@ -249,9 +249,9 @@ export function AccountBillingHub() {
               </Field>
               <ul className="space-y-0 rounded-lg border">
                 {[
-                  ["INV-1404-07-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
-                  ["INV-1404-06-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
-                  ["INV-1404-05-12", "۱٬۳۲۰٬۰۰۰", "ناموفق"],
+                  ["INV-1405-07-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
+                  ["INV-1405-06-12", "۱٬۳۲۰٬۰۰۰", "پرداخت‌شده"],
+                  ["INV-1405-05-12", "۱٬۳۲۰٬۰۰۰", "ناموفق"],
                 ].map(([code, amount, status], i) => (
                   <li key={code}>
                     {i > 0 && <Separator />}

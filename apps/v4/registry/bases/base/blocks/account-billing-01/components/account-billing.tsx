@@ -29,7 +29,7 @@ export function AccountBillingSimple() {
           <div className="flex justify-between">
             <span className="text-muted-foreground">دوره</span>
             <span className="tabular-nums">
-              <bdi dir="ltr">۱۴۰۴/۰۷</bdi>
+              <bdi dir="ltr">۱۴۰۵/۰۷</bdi>
             </span>
           </div>
           <Separator />

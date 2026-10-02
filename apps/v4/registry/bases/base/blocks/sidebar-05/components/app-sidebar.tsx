@@ -116,11 +116,11 @@ const data = {
           url: "#",
         },
         {
-          title: "CLI",
+          title: "خط فرمان",
           url: "#",
         },
         {
-          title: "Edge Runtime",
+          title: "زمان‌اجرای لبه",
           url: "#",
         },
       ],
@@ -134,11 +134,11 @@ const data = {
           url: "#",
         },
         {
-          title: "Fast Refresh",
+          title: "تازه‌سازی سریع",
           url: "#",
         },
         {
-          title: "Next.js Compiler",
+          title: "کامپایلر Next.js",
           url: "#",
         },
         {
@@ -146,7 +146,7 @@ const data = {
           url: "#",
         },
         {
-          title: "Turbopack",
+          title: "توربوپک",
           url: "#",
         },
       ],

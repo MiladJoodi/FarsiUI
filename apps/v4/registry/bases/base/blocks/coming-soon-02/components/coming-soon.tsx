@@ -66,7 +66,7 @@ export function ComingSoonCard() {
         <CardFooter className="justify-center border-t text-xs text-muted-foreground">
           تاریخ تقریبی:{" "}
           <bdi dir="ltr" className="mx-1">
-            ۱۴۰۴/۰۸
+            ۱۴۰۵/۰۸
           </bdi>
         </CardFooter>
       </Card>

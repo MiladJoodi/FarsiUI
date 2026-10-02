@@ -16,6 +16,7 @@ import {
 export default function Page() {
   return (
     <SidebarProvider dir="rtl" lang="fa">
+      <AppSidebar side="right" />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <Breadcrumb>
@@ -40,7 +41,6 @@ export default function Page() {
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
         </div>
       </SidebarInset>
-      <AppSidebar side="right" />
     </SidebarProvider>
   )
 }

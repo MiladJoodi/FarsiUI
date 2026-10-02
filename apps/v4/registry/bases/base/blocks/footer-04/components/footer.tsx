@@ -17,6 +17,10 @@ const COLUMNS = [
   },
 ] as const
 
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function FooterNewsletter() {
   const [done, setDone] = React.useState(false)
 
@@ -65,7 +69,11 @@ export function FooterNewsletter() {
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                     {column.links.map((label) => (
                       <li key={label}>
-                        <a href="#" className="hover:text-foreground">
+                        <a
+                          href="#"
+                          onClick={demoNavClick}
+                          className="hover:text-foreground"
+                        >
                           {label}
                         </a>
                       </li>
@@ -77,7 +85,7 @@ export function FooterNewsletter() {
           </div>
           <Separator className="my-8" />
           <p className="text-sm text-muted-foreground">
-            © ۱۴۰۴ FarsiUI · بدون اسپم، هر زمان لغو کنید
+            © ۱۴۰۵ FarsiUI · بدون اسپم، هر زمان لغو کنید
           </p>
         </div>
       </footer>

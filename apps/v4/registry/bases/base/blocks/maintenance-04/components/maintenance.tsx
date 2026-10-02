@@ -78,12 +78,12 @@ export function MaintenanceInContext() {
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">شروع</span>
-              <bdi dir="ltr">۱۴۰۴/۰۷/۱۰ · ۲۲:۳۰</bdi>
+              <bdi dir="ltr">۱۴۰۵/۰۷/۱۰ · ۲۲:۳۰</bdi>
             </div>
             <Separator />
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">پایان تقریبی</span>
-              <bdi dir="ltr">۱۴۰۴/۰۷/۱۱ · ۰۰:۱۵</bdi>
+              <bdi dir="ltr">۱۴۰۵/۰۷/۱۱ · ۰۰:۱۵</bdi>
             </div>
             <Separator />
             <div className="flex justify-between gap-2">

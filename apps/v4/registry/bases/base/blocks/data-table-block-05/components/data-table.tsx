@@ -56,7 +56,7 @@ const ROWS = [
     email: "ali@example.com",
     team: "طراحی",
     status: "دعوت‌شده",
-    joined: "۱۴۰۴/۰۱/۱۵",
+    joined: "۱۴۰۵/۰۱/۱۵",
   },
   {
     id: "u3",
@@ -88,7 +88,7 @@ const ROWS = [
     email: "hossein@example.com",
     team: "فروش",
     status: "دعوت‌شده",
-    joined: "۱۴۰۴/۰۶/۰۱",
+    joined: "۱۴۰۵/۰۶/۰۱",
   },
 ] as const
 

@@ -50,7 +50,7 @@ export function OrderSummaryActions() {
       <Card>
         <CardHeader className="flex flex-row items-start justify-between gap-3 space-y-0">
           <div>
-            <CardTitle className="text-base">سفارش #۱۴۰۴۰۷۲۲۱۸</CardTitle>
+            <CardTitle className="text-base">سفارش #۱۴۰۵۰۷۲۲۱۸</CardTitle>
             <p className="mt-1 text-xs text-muted-foreground">
               مشتری: علی رضایی
             </p>

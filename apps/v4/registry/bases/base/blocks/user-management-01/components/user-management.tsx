@@ -10,10 +10,10 @@ import {
 } from "@/registry/bases/base/ui/table"
 
 const USERS = [
-  { name: "سارا محمدی", status: "فعال", joined: "۱۴۰۴/۰۷/۱۰" },
-  { name: "علی رضایی", status: "در انتظار", joined: "۱۴۰۴/۰۷/۱۱" },
-  { name: "مینا کریمی", status: "معلق", joined: "۱۴۰۴/۰۷/۱۲" },
-  { name: "رضا نوری", status: "فعال", joined: "۱۴۰۴/۰۷/۱۳" },
+  { name: "سارا محمدی", status: "فعال", joined: "۱۴۰۵/۰۷/۱۰" },
+  { name: "علی رضایی", status: "در انتظار", joined: "۱۴۰۵/۰۷/۱۱" },
+  { name: "مینا کریمی", status: "معلق", joined: "۱۴۰۵/۰۷/۱۲" },
+  { name: "رضا نوری", status: "فعال", joined: "۱۴۰۵/۰۷/۱۳" },
 ] as const
 
 export function UserManagementSimple() {

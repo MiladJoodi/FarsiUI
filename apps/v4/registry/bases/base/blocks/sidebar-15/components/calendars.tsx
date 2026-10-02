@@ -46,7 +46,7 @@ export function Calendars({
                   hugeicons="ArrowRight01Icon"
                   phosphor="CaretRightIcon"
                   remixicon="RiArrowRightSLine"
-                  className="ms-auto transition-transform group-data-open/collapsible:rotate-90"
+                  className="ms-auto transition-transform rtl:rotate-180 group-data-open/collapsible:rotate-90 rtl:group-data-open/collapsible:-rotate-90"
                 />
               </SidebarGroupLabel>
               <CollapsibleContent>

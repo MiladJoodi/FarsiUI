@@ -68,7 +68,7 @@ const INITIAL: Reply[] = [
   {
     id: "4",
     who: "سارا محمدی",
-    text: "شماره: INV-1404-07-12 — ایمیل billing@example.com",
+    text: "شماره: INV-1405-07-12 — ایمیل billing@example.com",
     time: "۱۱:۰۸",
     me: false,
   },
@@ -213,7 +213,7 @@ export function ConversationActions() {
                   >
                     {r.text.includes("@") ? (
                       <>
-                        شماره: <bdi dir="ltr">INV-1404-07-12</bdi> — ایمیل{" "}
+                        شماره: <bdi dir="ltr">INV-1405-07-12</bdi> — ایمیل{" "}
                         <bdi dir="ltr">billing@example.com</bdi>
                       </>
                     ) : (

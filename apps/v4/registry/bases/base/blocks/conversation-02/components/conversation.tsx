@@ -55,7 +55,7 @@ export function ConversationThread() {
               <p className="text-xs text-muted-foreground">
                 شروع شده{" "}
                 <bdi dir="ltr" className="tabular-nums">
-                  ۱۴۰۴/۰۷/۱۲
+                  ۱۴۰۵/۰۷/۱۲
                 </bdi>
               </p>
             </div>

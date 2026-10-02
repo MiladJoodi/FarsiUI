@@ -87,7 +87,7 @@ export function PricingCompare() {
                 >
                   <Button
                     size="sm"
-                    variant={index === 1 ? "default" : "outline"}
+                    variant={index === 1 ? "default" : "secondary"}
                     className="w-full max-w-36"
                   >
                     {label}

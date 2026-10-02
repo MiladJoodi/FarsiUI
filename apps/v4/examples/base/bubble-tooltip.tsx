@@ -28,7 +28,7 @@ export default function BubbleTooltipDemo() {
               <CheckIcon />
             </TooltipTrigger>
             <TooltipContent>
-              خوانده‌شده در ۱۵ دی ۱۴۰۴، ساعت ۱۶:۳۲
+              خوانده‌شده در ۱۵ دی ۱۴۰۵، ساعت ۱۶:۳۲
             </TooltipContent>
           </Tooltip>
         </BubbleReactions>

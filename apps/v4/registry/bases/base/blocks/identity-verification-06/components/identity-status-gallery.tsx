@@ -143,10 +143,10 @@ export function IdentityStatusGallery() {
                   <AlertTitle>شماره پیگیری</AlertTitle>
                   <AlertDescription className="space-y-2">
                     <p dir="ltr" className="text-sm font-medium tabular-nums">
-                      IV-۱۴۰۴-۰۸۴۲۱
+                      IV-۱۴۰۵-۰۸۴۲۱
                     </p>
                     <p className="text-xs">
-                      آخرین به‌روزرسانی: ۲ مهر ۱۴۰۴ — ۱۴:۳۰
+                      آخرین به‌روزرسانی: ۲ مهر ۱۴۰۵ — ۱۴:۳۰
                     </p>
                   </AlertDescription>
                 </Alert>

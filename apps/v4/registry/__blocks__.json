@@ -211,14 +211,35 @@
   },
   {
     "name": "article-01",
-    "description": "مقاله — نمونهٔ راست‌چین فارسی",
+    "description": "مقالهٔ متنی ساده با عنوان و تاریخ شمسی.",
     "categories": [
       "article"
     ]
   },
   {
     "name": "article-02",
-    "description": "مقاله — نمونهٔ راست‌چین فارسی",
+    "description": "سربرگ با بج، نویسنده و جداکننده.",
+    "categories": [
+      "article"
+    ]
+  },
+  {
+    "name": "article-03",
+    "description": "کاور، اشتراک‌گذاری و برچسب‌ها.",
+    "categories": [
+      "article"
+    ]
+  },
+  {
+    "name": "article-04",
+    "description": "فهرست مطالب و مقالات مرتبط در ستون کناری.",
+    "categories": [
+      "article"
+    ]
+  },
+  {
+    "name": "article-05",
+    "description": "مجله کامل با کاور، فهرست، خبرنامه و دیدگاه.",
     "categories": [
       "article"
     ]

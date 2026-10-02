@@ -28,11 +28,11 @@ const data = {
   calendars: [
     {
       name: "تقویم‌های من",
-      items: ["Personal", "Work", "Family"],
+      items: ["شخصی", "کاری", "خانوادگی"],
     },
     {
       name: "علاقه‌مندی‌ها",
-      items: ["Holidays", "Birthdays"],
+      items: ["تعطیلات", "تولدها"],
     },
     {
       name: "سایر",
@@ -46,8 +46,10 @@ export function SidebarRight({
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
+      dir="rtl"
+      lang="fa"
       collapsible="none"
-      className="sticky top-0 hidden h-svh border-l lg:flex"
+      className="sticky top-0 hidden h-svh border-s lg:flex"
       {...props}
     >
       <SidebarHeader className="h-16 border-b border-sidebar-border">

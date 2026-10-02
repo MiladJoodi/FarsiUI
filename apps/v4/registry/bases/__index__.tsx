@@ -2049,34 +2049,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["blog-grid"],
       meta: undefined,
     },
-    "article-01": {
-      name: "article-01",
-      title: "Article 01",
-      description: "مقاله — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/article-01/page.tsx",
-        type: "registry:page",
-        target: "app/article/page.tsx"
-      }],
-      categories: ["article"],
-      meta: undefined,
-    },
-    "article-02": {
-      name: "article-02",
-      title: "Article 02",
-      description: "مقاله — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/article-02/page.tsx",
-        type: "registry:page",
-        target: "app/article/page.tsx"
-      }],
-      categories: ["article"],
-      meta: undefined,
-    },
     "inbox-01": {
       name: "inbox-01",
       title: "Inbox 01",
@@ -4564,6 +4536,96 @@ export const Index: Record<string, Record<string, any>> = {
       }],
       categories: ["blog-grid"],
       meta: {"iframeHeight":"1400px"},
+    },
+    "article-01": {
+      name: "article-01",
+      title: "Article 01",
+      description: "مقالهٔ متنی ساده با عنوان و تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/article-01/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/article-01/components/article.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["article"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "article-02": {
+      name: "article-02",
+      title: "Article 02",
+      description: "سربرگ با بج، نویسنده و جداکننده.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/article-02/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/article-02/components/article.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["article"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "article-03": {
+      name: "article-03",
+      title: "Article 03",
+      description: "کاور، اشتراک‌گذاری و برچسب‌ها.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/article-03/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/article-03/components/article.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["article"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "article-04": {
+      name: "article-04",
+      title: "Article 04",
+      description: "فهرست مطالب و مقالات مرتبط در ستون کناری.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/article-04/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/article-04/components/article.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["article"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "article-05": {
+      name: "article-05",
+      title: "Article 05",
+      description: "مجله کامل با کاور، فهرست، خبرنامه و دیدگاه.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","input","separator","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/article-05/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/article-05/components/article.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["article"],
+      meta: {"iframeHeight":"1600px"},
     },
     "faq-01": {
       name: "faq-01",

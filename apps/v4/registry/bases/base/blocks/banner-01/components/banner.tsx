@@ -1,5 +1,11 @@
 "use client"
 
+import * as React from "react"
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function BannerSimple() {
   return (
     <div
@@ -9,7 +15,11 @@ export function BannerSimple() {
     >
       <div className="w-full max-w-4xl rounded-lg border bg-muted/50 px-4 py-3 text-center text-sm md:px-6">
         نسخهٔ جدید FarsiUI منتشر شد.{" "}
-        <a href="#" className="font-medium underline underline-offset-4">
+        <a
+          href="#"
+          onClick={demoNavClick}
+          className="font-medium underline underline-offset-4"
+        >
           تغییرات را ببینید
         </a>
       </div>

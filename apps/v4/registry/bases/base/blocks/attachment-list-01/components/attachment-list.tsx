@@ -12,7 +12,7 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const ITEMS = [
-  { name: "invoice-1404.pdf", size: "1.2 MB" },
+  { name: "invoice-1405.pdf", size: "1.2 MB" },
   { name: "brief.docx", size: "420 KB" },
   { name: "photo-cover.jpg", size: "3.1 MB" },
 ] as const

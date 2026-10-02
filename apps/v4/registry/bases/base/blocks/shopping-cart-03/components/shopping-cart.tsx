@@ -170,7 +170,7 @@ export function ShoppingCartCoupon() {
                     setCoupon(e.target.value)
                     setApplied(false)
                   }}
-                  placeholder="مثلاً نوروز۱۴۰۴"
+                  placeholder="مثلاً نوروز۱۴۰۵"
                   dir="rtl"
                   className="sm:flex-1"
                 />

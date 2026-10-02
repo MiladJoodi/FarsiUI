@@ -9,10 +9,10 @@ import {
 } from "@/registry/bases/base/ui/table"
 
 const ROWS = [
-  { name: "سارا محمدی", status: "فعال", date: "۱۴۰۴/۰۷/۱۰" },
-  { name: "علی رضایی", status: "در انتظار", date: "۱۴۰۴/۰۷/۱۱" },
-  { name: "مینا کریمی", status: "بسته", date: "۱۴۰۴/۰۷/۱۲" },
-  { name: "رضا نوری", status: "فعال", date: "۱۴۰۴/۰۷/۱۳" },
+  { name: "سارا محمدی", status: "فعال", date: "۱۴۰۵/۰۷/۱۰" },
+  { name: "علی رضایی", status: "در انتظار", date: "۱۴۰۵/۰۷/۱۱" },
+  { name: "مینا کریمی", status: "بسته", date: "۱۴۰۵/۰۷/۱۲" },
+  { name: "رضا نوری", status: "فعال", date: "۱۴۰۵/۰۷/۱۳" },
 ] as const
 
 export function DataTableSimple() {
