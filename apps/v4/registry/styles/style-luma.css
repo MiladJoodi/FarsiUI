@@ -26,11 +26,11 @@
   }
 
   .cn-switch-thumb {
-    @apply bg-background dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground rounded-full shadow-sm group-data-[size=default]/switch:h-4 group-data-[size=default]/switch:w-6 group-data-[size=sm]/switch:h-3 group-data-[size=sm]/switch:w-4 data-checked:translate-x-[calc(100%-8px)] data-unchecked:translate-x-0 not-dark:bg-clip-padding;
+    @apply bg-background dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground rounded-full shadow-sm group-data-[size=default]/switch:h-4 group-data-[size=default]/switch:w-6 group-data-[size=sm]/switch:h-3 group-data-[size=sm]/switch:w-4 data-checked:translate-x-[calc(100%-8px)] rtl:data-checked:-translate-x-[calc(100%-8px)] data-unchecked:translate-x-0 not-dark:bg-clip-padding;
   }
 
   .cn-switch-thumb-aria {
-    @apply dark:not-data-selected:bg-foreground dark:data-selected:bg-primary-foreground data-selected:translate-x-[calc(100%-8px)] not-data-selected:translate-x-0;
+    @apply dark:not-data-selected:bg-foreground dark:data-selected:bg-primary-foreground data-selected:translate-x-[calc(100%-8px)] rtl:data-selected:-translate-x-[calc(100%-8px)] not-data-selected:translate-x-0;
   }
 
   /* MARK: Radio */

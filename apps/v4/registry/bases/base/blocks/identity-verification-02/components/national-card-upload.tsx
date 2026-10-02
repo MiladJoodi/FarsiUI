@@ -1,9 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { ImageIcon, UploadIcon, XIcon } from "lucide-react"
+import { cn } from "cn"
+import {
+  CheckIcon,
+  IdCardIcon,
+  ImageIcon,
+  UploadIcon,
+  XIcon,
+} from "lucide-react"
 
-import { NationalIdInput } from "@/registry/bases/base/blocks/identity-verification-02/components/national-id-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -19,6 +25,102 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Separator } from "@/registry/bases/base/ui/separator"
+
+const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹"
+const EN_DIGITS = "0123456789"
+
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (digit) => FA_DIGITS[Number(digit)] ?? digit)
+}
+
+function toEnDigits(value: string) {
+  return value.replace(/[۰-۹]/g, (digit) => {
+    const index = FA_DIGITS.indexOf(digit)
+    return index >= 0 ? EN_DIGITS[index] : digit
+  })
+}
+
+function normalizeNationalId(value: string) {
+  return toEnDigits(value).replace(/\D/g, "").slice(0, 10)
+}
+
+function formatNationalId(digits: string) {
+  const d = normalizeNationalId(digits)
+  const a = d.slice(0, 3)
+  const b = d.slice(3, 9)
+  const c = d.slice(9, 10)
+  let out = a
+  if (b) out += `-${b}`
+  if (c) out += `-${c}`
+  return toFaDigits(out)
+}
+
+function isNationalId(digits: string) {
+  const d = normalizeNationalId(digits)
+  if (!/^\d{10}$/.test(d)) return false
+  if (/^(\d)\1{9}$/.test(d)) return false
+
+  let sum = 0
+  for (let i = 0; i < 9; i++) {
+    sum += Number(d[i]) * (10 - i)
+  }
+  const rem = sum % 11
+  const check = Number(d[9])
+  return rem < 2 ? check === rem : check === 11 - rem
+}
+
+function NationalIdInput({
+  id,
+  name,
+}: {
+  id?: string
+  name?: string
+}) {
+  const [digits, setDigits] = React.useState("")
+  const complete = digits.length === 10
+  const valid = isNationalId(digits)
+  const invalid = complete && !valid
+
+  return (
+    <div className="space-y-1.5">
+      <div
+        className={cn(
+          "flex h-10 items-center gap-2 rounded-lg border bg-background px-3 shadow-xs transition-colors focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/50",
+          invalid ? "border-destructive" : "border-input"
+        )}
+        dir="ltr"
+      >
+        <IdCardIcon className="size-4 shrink-0 text-muted-foreground" />
+        <input
+          id={id}
+          name={name}
+          inputMode="numeric"
+          autoComplete="off"
+          value={formatNationalId(digits)}
+          onChange={(event) => setDigits(normalizeNationalId(event.target.value))}
+          placeholder="۰۰۱-۲۳۴۵۶۷-۸"
+          maxLength={12}
+          className="h-full min-w-0 flex-1 bg-transparent text-sm tabular-nums outline-none placeholder:text-muted-foreground/50"
+          aria-invalid={invalid ? true : undefined}
+        />
+        {valid ? (
+          <CheckIcon className="size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+        ) : null}
+      </div>
+      <p className="text-[11px] text-muted-foreground">
+        {valid ? (
+          "کد ملی معتبر است"
+        ) : invalid ? (
+          <span className="text-destructive">
+            کد ملی معتبر نیست؛ رقم‌ها را دوباره بررسی کنید
+          </span>
+        ) : (
+          "ده رقم، همان‌طور که روی کارت ملی چاپ شده"
+        )}
+      </p>
+    </div>
+  )
+}
 
 export function NationalCardUpload() {
   const [preview, setPreview] = React.useState<string | null>(null)
@@ -132,9 +234,7 @@ export function NationalCardUpload() {
         <CardHeader>
           <CardTitle className="text-base">پیش‌نمایش مدرک</CardTitle>
           <CardDescription>
-            {fileName
-              ? fileName
-              : "هنوز تصویری انتخاب نشده است"}
+            {fileName ? fileName : "هنوز تصویری انتخاب نشده است"}
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -1,49 +1,15 @@
-"use client"
+import { NationalIdForm } from "@/registry/bases/base/blocks/national-id-01/components/national-id-form"
 
-import { cn } from "cn"
-
-import { NationalIdInput } from "@/registry/bases/base/blocks/national-id-01/components/national-id-input"
-import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
-import { Label } from "@/registry/bases/base/ui/label"
-
-export default function Page({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export default function Page() {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn(
-        "bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6",
-        className
-      )}
-      {...props}
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>کد ملی</CardTitle>
-          <CardDescription>
-            کد ملی را همان‌طور که روی کارت چاپ شده وارد کنید
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="national-id">کد ملی</Label>
-            <NationalIdInput id="national-id" name="nationalId" />
-          </div>
-          <Button type="button" className="w-full">
-            ادامه
-          </Button>
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-sm">
+        <NationalIdForm />
+      </div>
     </div>
   )
 }

@@ -1247,11 +1247,11 @@
   }
 
   .cn-switch-thumb {
-    @apply bg-background dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground group-data-[size=default]/switch:size-3.5 group-data-[size=sm]/switch:size-2.5 data-checked:translate-x-[calc(100%+2px)] data-unchecked:translate-x-0.25;
+    @apply bg-background dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground group-data-[size=default]/switch:size-3.5 group-data-[size=sm]/switch:size-2.5 data-checked:translate-x-[calc(100%+2px)] rtl:data-checked:-translate-x-[calc(100%+2px)] data-unchecked:translate-x-0.25;
   }
 
   .cn-switch-thumb-aria {
-    @apply dark:not-data-selected:bg-foreground dark:data-selected:bg-primary-foreground data-selected:translate-x-[calc(100%+2px)] not-data-selected:translate-x-0.25;
+    @apply dark:not-data-selected:bg-foreground dark:data-selected:bg-primary-foreground data-selected:translate-x-[calc(100%+2px)] rtl:data-selected:-translate-x-[calc(100%+2px)] not-data-selected:translate-x-0.25;
   }
 
   /* MARK: Table */

@@ -1,4 +1,4 @@
-import { LicensePlateForm } from "@/registry/bases/base/blocks/license-plate-01/components/license-plate-form"
+import { IdentityCivilCheck } from "@/registry/bases/base/blocks/identity-verification-03/components/identity-civil-check"
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-md">
-        <LicensePlateForm />
+        <IdentityCivilCheck />
       </div>
     </div>
   )

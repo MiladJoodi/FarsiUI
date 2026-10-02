@@ -1,8 +1,7 @@
 import { type Metadata } from "next"
 
+import { ShowcaseCategoriesNav } from "@/components/showcase-categories-nav"
 import { ShowcaseHero } from "@/components/showcase-hero"
-import { ShowcaseMobileCategories } from "@/components/showcase-mobile-categories"
-import { ShowcaseSidebar } from "@/components/showcase-sidebar"
 
 const title = "نمونه‌ها"
 const description =
@@ -50,12 +49,10 @@ export default function ShowcaseLayout({
       />
 
       <ShowcaseHero />
-      <ShowcaseMobileCategories />
 
-      {/* سایدبار در RTL سمت راست می‌آید */}
-      <div className="mx-auto mt-8 flex w-full max-w-6xl flex-col gap-8 px-2 md:mt-10 md:px-4 lg:flex-row lg:items-start lg:gap-10">
-        <ShowcaseSidebar />
-        <div className="min-w-0 flex-1">{children}</div>
+      <div className="mx-auto mt-8 flex w-full max-w-6xl flex-col gap-6 px-2 md:mt-10 md:gap-8 md:px-4">
+        <ShowcaseCategoriesNav />
+        <div className="min-w-0">{children}</div>
       </div>
     </div>
   )

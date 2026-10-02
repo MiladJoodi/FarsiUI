@@ -19,6 +19,9 @@ const SKIP_SLUGS = new Set([
   "personal-info",
   "identity-verification",
   "forgot-password",
+  "national-id",
+  "license-plate",
+  "identity-check",
 ])
 
 const ITEMS = [

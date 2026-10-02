@@ -386,6 +386,221 @@ export const blocks: Registry["items"] = [
     categories: ["forgot-password"],
   },
   {
+    name: "national-id-01",
+    title: "National ID 01",
+    description: "فرم ورود کد ملی با اعتبارسنجی و تأیید.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field"],
+    files: [
+      {
+        path: "blocks/national-id-01/page.tsx",
+        target: "app/national-id/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/national-id-01/components/national-id-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["national-id"],
+  },
+  {
+    name: "national-id-02",
+    title: "National ID 02",
+    description: "اعتبارسنجی لحظه‌ای کد ملی با پنل نتیجه.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "card", "field", "separator"],
+    files: [
+      {
+        path: "blocks/national-id-02/page.tsx",
+        target: "app/national-id/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/national-id-02/components/national-id-validator.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["national-id"],
+  },
+  {
+    name: "national-id-03",
+    title: "National ID 03",
+    description: "فرم مشخصات هویتی با نام، کد ملی و تاریخ تولد.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/national-id-03/page.tsx",
+        target: "app/national-id/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/national-id-03/components/national-id-profile-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["national-id"],
+  },
+  {
+    name: "national-id-04",
+    title: "National ID 04",
+    description: "صفحه دو ستونه ورود کد ملی با تصویر کاور.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field"],
+    files: [
+      {
+        path: "blocks/national-id-04/page.tsx",
+        target: "app/national-id/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/national-id-04/components/national-id-split.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["national-id"],
+  },
+  {
+    name: "national-id-05",
+    title: "National ID 05",
+    description: "ورود متمرکز کد ملی با نشان وضعیت اعتبار.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "field"],
+    files: [
+      {
+        path: "blocks/national-id-05/page.tsx",
+        target: "app/national-id/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/national-id-05/components/national-id-centered.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["national-id"],
+  },
+  {
+    name: "license-plate-01",
+    title: "License Plate 01",
+    description: "فرم ثبت پلاک خودرو با تأیید نهایی.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field"],
+    files: [
+      {
+        path: "blocks/license-plate-01/page.tsx",
+        target: "app/license-plate/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/license-plate-01/components/license-plate-form.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/license-plate-01/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx",
+      },
+    ],
+    categories: ["license-plate"],
+  },
+  {
+    name: "license-plate-02",
+    title: "License Plate 02",
+    description: "ورود پلاک با پنل جزئیات و نوع حرف.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "card", "field", "separator"],
+    files: [
+      {
+        path: "blocks/license-plate-02/page.tsx",
+        target: "app/license-plate/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/license-plate-02/components/license-plate-inspector.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/license-plate-02/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx",
+      },
+    ],
+    categories: ["license-plate"],
+  },
+  {
+    name: "license-plate-03",
+    title: "License Plate 03",
+    description: "ثبت خودرو همراه با پلاک و نوع وسیله.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "select"],
+    files: [
+      {
+        path: "blocks/license-plate-03/page.tsx",
+        target: "app/license-plate/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/license-plate-03/components/license-plate-vehicle-form.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/license-plate-03/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx",
+      },
+    ],
+    categories: ["license-plate"],
+  },
+  {
+    name: "license-plate-04",
+    title: "License Plate 04",
+    description: "صفحه دو ستونه ثبت پلاک با تصویر کاور.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field"],
+    files: [
+      {
+        path: "blocks/license-plate-04/page.tsx",
+        target: "app/license-plate/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/license-plate-04/components/license-plate-split.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/license-plate-04/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx",
+      },
+    ],
+    categories: ["license-plate"],
+  },
+  {
+    name: "license-plate-05",
+    title: "License Plate 05",
+    description: "ثبت پلاک تاکسی فقط با حرف ت.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "field"],
+    files: [
+      {
+        path: "blocks/license-plate-05/page.tsx",
+        target: "app/license-plate/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/license-plate-05/components/license-plate-taxi.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/license-plate-05/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx",
+      },
+    ],
+    categories: ["license-plate"],
+  },
+  {
     name: "personal-info-01",
     title: "Personal Info 01",
     description: "فرم اطلاعات شخصی ساده داخل کارت.",
@@ -536,8 +751,23 @@ export const blocks: Registry["items"] = [
         path: "blocks/identity-verification-02/components/national-card-upload.tsx",
         type: "registry:component",
       },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-03",
+    title: "Identity Verification 03",
+    description: "بررسی هویت با ثبت‌احوال، OTP و نتیجه تأیید.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "input-otp"],
+    files: [
       {
-        path: "blocks/identity-verification-02/components/national-id-input.tsx",
+        path: "blocks/identity-verification-03/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-03/components/identity-civil-check.tsx",
         type: "registry:component",
       },
     ],

@@ -658,20 +658,6 @@
     ]
   },
   {
-    "name": "identity-check-01",
-    "description": "بررسی هویت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "identity-check"
-    ]
-  },
-  {
-    "name": "identity-check-02",
-    "description": "بررسی هویت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "identity-check"
-    ]
-  },
-  {
     "name": "identity-verification-01",
     "description": "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
     "categories": [
@@ -681,6 +667,13 @@
   {
     "name": "identity-verification-02",
     "description": "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
+    "categories": [
+      "identity-verification"
+    ]
+  },
+  {
+    "name": "identity-verification-03",
+    "description": "بررسی هویت با ثبت‌احوال، OTP و نتیجه تأیید.",
     "categories": [
       "identity-verification"
     ]
@@ -757,14 +750,35 @@
   },
   {
     "name": "license-plate-01",
-    "description": "پلاک خودرو — نمونهٔ راست‌چین فارسی",
+    "description": "فرم ثبت پلاک خودرو با تأیید نهایی.",
     "categories": [
       "license-plate"
     ]
   },
   {
     "name": "license-plate-02",
-    "description": "پلاک خودرو — نمونهٔ راست‌چین فارسی",
+    "description": "ورود پلاک با پنل جزئیات و نوع حرف.",
+    "categories": [
+      "license-plate"
+    ]
+  },
+  {
+    "name": "license-plate-03",
+    "description": "ثبت خودرو همراه با پلاک و نوع وسیله.",
+    "categories": [
+      "license-plate"
+    ]
+  },
+  {
+    "name": "license-plate-04",
+    "description": "صفحه دو ستونه ثبت پلاک با تصویر کاور.",
+    "categories": [
+      "license-plate"
+    ]
+  },
+  {
+    "name": "license-plate-05",
+    "description": "ثبت پلاک تاکسی فقط با حرف ت.",
     "categories": [
       "license-plate"
     ]
@@ -895,14 +909,35 @@
   },
   {
     "name": "national-id-01",
-    "description": "کد ملی — نمونهٔ راست‌چین فارسی",
+    "description": "فرم ورود کد ملی با اعتبارسنجی و تأیید.",
     "categories": [
       "national-id"
     ]
   },
   {
     "name": "national-id-02",
-    "description": "کد ملی — نمونهٔ راست‌چین فارسی",
+    "description": "اعتبارسنجی لحظه‌ای کد ملی با پنل نتیجه.",
+    "categories": [
+      "national-id"
+    ]
+  },
+  {
+    "name": "national-id-03",
+    "description": "فرم مشخصات هویتی با نام، کد ملی و تاریخ تولد.",
+    "categories": [
+      "national-id"
+    ]
+  },
+  {
+    "name": "national-id-04",
+    "description": "صفحه دو ستونه ورود کد ملی با تصویر کاور.",
+    "categories": [
+      "national-id"
+    ]
+  },
+  {
+    "name": "national-id-05",
+    "description": "ورود متمرکز کد ملی با نشان وضعیت اعتبار.",
     "categories": [
       "national-id"
     ]

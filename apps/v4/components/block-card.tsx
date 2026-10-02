@@ -298,46 +298,23 @@ export function BlockCard({
               lang="en"
               className="flex size-full flex-col overflow-hidden rounded-xl border bg-code text-code-foreground"
             >
-              <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b px-2 py-1.5">
-                {flatFiles.length > 1
-                  ? flatFiles.map((file) => (
-                      <button
-                        key={file.path}
-                        type="button"
-                        onClick={() => setActivePath(file.path)}
-                        className={cn(
-                          "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
-                          activePath === file.path && "bg-muted text-foreground"
-                        )}
-                      >
-                        {file.name}
-                      </button>
-                    ))
-                  : null}
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="ms-auto size-7 shrink-0"
-                  disabled={!activeFile?.content}
-                  onClick={() => {
-                    if (!activeFile?.content) return
-                    fileCopy.copyToClipboard(activeFile.content)
-                    trackEvent({
-                      name: "copy_block_code",
-                      properties: {
-                        name: item.name,
-                        file: installInfo?.installPath ?? activeFile.path,
-                      },
-                    })
-                  }}
-                >
-                  {fileCopy.isCopied ? (
-                    <Check className="size-3.5" />
-                  ) : (
-                    <Copy className="size-3.5" />
-                  )}
-                </Button>
-              </div>
+              {flatFiles.length > 1 ? (
+                <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b px-2 py-1.5">
+                  {flatFiles.map((file) => (
+                    <button
+                      key={file.path}
+                      type="button"
+                      onClick={() => setActivePath(file.path)}
+                      className={cn(
+                        "shrink-0 rounded-md px-2.5 py-1 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
+                        activePath === file.path && "bg-muted text-foreground"
+                      )}
+                    >
+                      {file.name}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
 
               <figure
                 data-rehype-pretty-code-figure=""
@@ -353,6 +330,29 @@ export function BlockCard({
                       {installInfo.fileName}
                     </span>
                   ) : null}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="ms-auto size-7 shrink-0"
+                    disabled={!activeFile?.content}
+                    onClick={() => {
+                      if (!activeFile?.content) return
+                      fileCopy.copyToClipboard(activeFile.content)
+                      trackEvent({
+                        name: "copy_block_code",
+                        properties: {
+                          name: item.name,
+                          file: installInfo?.installPath ?? activeFile.path,
+                        },
+                      })
+                    }}
+                  >
+                    {fileCopy.isCopied ? (
+                      <Check className="size-3.5" />
+                    ) : (
+                      <Copy className="size-3.5" />
+                    )}
+                  </Button>
                 </figcaption>
                 <div
                   key={activeFile?.path}

@@ -34,7 +34,6 @@ export const blocksNavCategories: BlocksNavCategory[] = [
       item("National ID", "کد ملی", "national-id"),
       item("License Plate", "پلاک خودرو", "license-plate"),
       item("Personal Info", "اطلاعات شخصی", "personal-info"),
-      item("Identity Check", "بررسی هویت", "identity-check"),
       item("Document Verification", "تأیید مدارک", "document-verification"),
       item("Profile Form", "فرم پروفایل", "profile-form"),
       item("Settings Form", "فرم تنظیمات", "settings-form"),
