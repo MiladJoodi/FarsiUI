@@ -1881,34 +1881,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["otp"],
       meta: undefined,
     },
-    "document-verification-01": {
-      name: "document-verification-01",
-      title: "Document Verification 01",
-      description: "تأیید مدارک — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/document-verification-01/page.tsx",
-        type: "registry:page",
-        target: "app/document-verification/page.tsx"
-      }],
-      categories: ["document-verification"],
-      meta: undefined,
-    },
-    "document-verification-02": {
-      name: "document-verification-02",
-      title: "Document Verification 02",
-      description: "تأیید مدارک — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/document-verification-02/page.tsx",
-        type: "registry:page",
-        target: "app/document-verification/page.tsx"
-      }],
-      categories: ["document-verification"],
-      meta: undefined,
-    },
     "profile-form-01": {
       name: "profile-form-01",
       title: "Profile Form 01",
@@ -4771,6 +4743,96 @@ export const Index: Record<string, Record<string, any>> = {
         target: "components/plate-input.tsx"
       }],
       categories: ["license-plate"],
+      meta: undefined,
+    },
+    "document-verification-01": {
+      name: "document-verification-01",
+      title: "Document Verification 01",
+      description: "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","progress","select"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-01/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-01/components/document-upload-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["document-verification"],
+      meta: undefined,
+    },
+    "document-verification-02": {
+      name: "document-verification-02",
+      title: "Document Verification 02",
+      description: "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-02/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-02/components/document-checklist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["document-verification"],
+      meta: undefined,
+    },
+    "document-verification-03": {
+      name: "document-verification-03",
+      title: "Document Verification 03",
+      description: "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
+      type: "registry:block",
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-03/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-03/components/document-preferences.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["document-verification"],
+      meta: undefined,
+    },
+    "document-verification-04": {
+      name: "document-verification-04",
+      title: "Document Verification 04",
+      description: "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-04/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-04/components/document-split-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["document-verification"],
+      meta: undefined,
+    },
+    "document-verification-05": {
+      name: "document-verification-05",
+      title: "Document Verification 05",
+      description: "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-05/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-05/components/document-status-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["document-verification"],
       meta: undefined,
     },
     "personal-info-01": {

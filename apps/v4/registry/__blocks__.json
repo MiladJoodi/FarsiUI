@@ -414,14 +414,35 @@
   },
   {
     "name": "document-verification-01",
-    "description": "تأیید مدارک — نمونهٔ راست‌چین فارسی",
+    "description": "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
     "categories": [
       "document-verification"
     ]
   },
   {
     "name": "document-verification-02",
-    "description": "تأیید مدارک — نمونهٔ راست‌چین فارسی",
+    "description": "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
+    "categories": [
+      "document-verification"
+    ]
+  },
+  {
+    "name": "document-verification-03",
+    "description": "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
+    "categories": [
+      "document-verification"
+    ]
+  },
+  {
+    "name": "document-verification-04",
+    "description": "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
+    "categories": [
+      "document-verification"
+    ]
+  },
+  {
+    "name": "document-verification-05",
+    "description": "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
     "categories": [
       "document-verification"
     ]

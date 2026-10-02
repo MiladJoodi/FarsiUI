@@ -676,16 +676,6 @@ export const Components: Record<string, any> = {
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "otp-02"
         return { default: mod.default || mod[exportName] }
       }),
-  "document-verification-01": React.lazy(async () => {
-        const mod = await import("@/registry/bases/base/blocks/document-verification-01/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-01"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "document-verification-02": React.lazy(async () => {
-        const mod = await import("@/registry/bases/base/blocks/document-verification-02/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-02"
-        return { default: mod.default || mod[exportName] }
-      }),
   "profile-form-01": React.lazy(async () => {
         const mod = await import("@/registry/bases/base/blocks/profile-form-01/page")
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "profile-form-01"
@@ -1664,6 +1654,31 @@ export const Components: Record<string, any> = {
   "license-plate-05": React.lazy(async () => {
         const mod = await import("@/registry/bases/base/blocks/license-plate-05/page")
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "license-plate-05"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "document-verification-01": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/document-verification-01/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-01"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "document-verification-02": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/document-verification-02/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-02"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "document-verification-03": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/document-verification-03/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-03"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "document-verification-04": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/document-verification-04/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-04"
+        return { default: mod.default || mod[exportName] }
+      }),
+  "document-verification-05": React.lazy(async () => {
+        const mod = await import("@/registry/bases/base/blocks/document-verification-05/page")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "document-verification-05"
         return { default: mod.default || mod[exportName] }
       }),
   "personal-info-01": React.lazy(async () => {
