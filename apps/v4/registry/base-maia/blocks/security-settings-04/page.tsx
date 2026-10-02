@@ -1,5 +1,0 @@
-import { SecuritySettingsSessions } from "@/registry/base-maia/blocks/security-settings-04/components/security-settings"
-
-export default function Page() {
-  return <SecuritySettingsSessions />
-}

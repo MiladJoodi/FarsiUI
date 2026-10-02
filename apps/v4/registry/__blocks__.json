@@ -1445,12 +1445,27 @@
   },
   {
     "name": "security-settings-01",
-    "description": "تنظیمات امنیتی — نمونهٔ راست‌چین فارسی",
+    "description": "سوئیچ‌های ساده برای دو مرحله‌ای و هشدار ورود.",
     "categories": ["security-settings"]
   },
   {
     "name": "security-settings-02",
-    "description": "تنظیمات امنیتی — نمونهٔ راست‌چین فارسی",
+    "description": "تب رمز عبور و دو مرحله‌ای با ایمیل LTR.",
+    "categories": ["security-settings"]
+  },
+  {
+    "name": "security-settings-03",
+    "description": "روش تأیید و مهلت نشست با Select راست‌چین.",
+    "categories": ["security-settings"]
+  },
+  {
+    "name": "security-settings-04",
+    "description": "نشست‌ها با منوی عملیات RTL و تغییر رمز.",
+    "categories": ["security-settings"]
+  },
+  {
+    "name": "security-settings-05",
+    "description": "مرکز امنیت با کد بازیابی، تاریخچه ورود و منوی RTL.",
     "categories": ["security-settings"]
   },
   {
