@@ -1,0 +1,190 @@
+"use client"
+
+import * as React from "react"
+import { DownloadIcon, MoreHorizontalIcon, PlusIcon } from "lucide-react"
+
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/registry/bases/base/ui/card"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/registry/bases/base/ui/dropdown-menu"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
+import { Separator } from "@/registry/bases/base/ui/separator"
+
+function formatJalali(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+}
+
+const INVOICES = [
+  {
+    id: "INV-1042",
+    customer: "شرکت نوآوران",
+    amount: "۹۲۵٬۴۱۰",
+    status: "پرداخت‌شده" as const,
+    date: new Date(Date.now() - 3 * 86400000),
+  },
+  {
+    id: "INV-1041",
+    customer: "استودیو پگاه",
+    amount: "۴۹۹٬۰۰۰",
+    status: "در انتظار" as const,
+    date: new Date(Date.now() - 8 * 86400000),
+  },
+  {
+    id: "INV-1040",
+    customer: "گروه آریا",
+    amount: "۱٬۲۰۰٬۰۰۰",
+    status: "سررسید گذشته" as const,
+    date: new Date(Date.now() - 20 * 86400000),
+  },
+  {
+    id: "INV-1039",
+    customer: "مریم رضایی",
+    amount: "۱۹۹٬۰۰۰",
+    status: "پیش‌نویس" as const,
+    date: new Date(Date.now() - 2 * 86400000),
+  },
+] as const
+
+function statusVariant(
+  status: (typeof INVOICES)[number]["status"]
+): "default" | "secondary" | "outline" | "destructive" {
+  if (status === "پرداخت‌شده") return "secondary"
+  if (status === "سررسید گذشته") return "destructive"
+  if (status === "پیش‌نویس") return "outline"
+  return "default"
+}
+
+export function InvoiceList() {
+  const [filter, setFilter] = React.useState("all")
+  const visible =
+    filter === "all"
+      ? INVOICES
+      : INVOICES.filter((i) => i.status === filter)
+
+  return (
+    <section
+      dir="rtl"
+      lang="fa"
+      className="mx-auto flex min-h-svh max-w-4xl flex-col justify-center px-6 py-16 md:px-10"
+    >
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">فاکتورها</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            فهرست اسناد — تاریخ شمسی
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Select value={filter} onValueChange={setFilter}>
+            <SelectTrigger className="w-[150px]" dir="rtl" size="sm">
+              <SelectValue placeholder="وضعیت" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              <SelectItem value="all">همه</SelectItem>
+              <SelectItem value="پرداخت‌شده">پرداخت‌شده</SelectItem>
+              <SelectItem value="در انتظار">در انتظار</SelectItem>
+              <SelectItem value="سررسید گذشته">سررسید گذشته</SelectItem>
+              <SelectItem value="پیش‌نویس">پیش‌نویس</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button size="sm">
+            <PlusIcon data-icon="inline-start" />
+            فاکتور جدید
+          </Button>
+        </div>
+      </div>
+
+      <Card>
+        <CardHeader className="text-start">
+          <CardTitle className="text-base">فهرست</CardTitle>
+          <CardDescription>
+            <bdi dir="ltr">{visible.length}</bdi> مورد
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-0 p-0">
+          {visible.map((inv, i) => (
+            <div key={inv.id}>
+              {i > 0 ? <Separator /> : null}
+              <div className="flex flex-wrap items-center gap-3 px-6 py-4">
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <bdi dir="ltr" className="font-medium">
+                      {inv.id}
+                    </bdi>
+                    <Badge
+                      variant={statusVariant(inv.status)}
+                      className="text-[10px]"
+                    >
+                      {inv.status}
+                    </Badge>
+                  </div>
+                  <p className="mt-0.5 text-sm text-muted-foreground">
+                    {inv.customer} ·{" "}
+                    <bdi dir="ltr">{formatJalali(inv.date)}</bdi>
+                  </p>
+                </div>
+                <span className="text-sm font-medium tabular-nums">
+                  <bdi dir="ltr">{inv.amount}</bdi> تومان
+                </span>
+                <div className="flex gap-1">
+                  <Button variant="outline" size="icon-sm" aria-label="دانلود">
+                    <DownloadIcon />
+                  </Button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      render={
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          aria-label="عملیات"
+                        />
+                      }
+                    >
+                      <MoreHorizontalIcon />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" dir="rtl" lang="fa">
+                      <DropdownMenuItem>مشاهده</DropdownMenuItem>
+                      <DropdownMenuItem>ارسال مجدد</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem variant="destructive">
+                        حذف
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </div>
+            </div>
+          ))}
+          {visible.length === 0 ? (
+            <p className="px-6 py-10 text-center text-sm text-muted-foreground">
+              فاکتوری با این فیلتر نیست
+            </p>
+          ) : null}
+        </CardContent>
+      </Card>
+    </section>
+  )
+}

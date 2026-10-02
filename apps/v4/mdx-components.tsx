@@ -328,8 +328,18 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => {
-    return <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
+  Tabs: ({
+    className,
+    dir = "rtl",
+    ...props
+  }: React.ComponentProps<typeof Tabs>) => {
+    return (
+      <Tabs
+        dir={dir}
+        className={cn("relative mt-6 w-full", className)}
+        {...props}
+      />
+    )
   },
   TabsList: ({
     className,

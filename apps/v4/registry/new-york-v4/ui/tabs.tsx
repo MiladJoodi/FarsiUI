@@ -8,6 +8,7 @@ import { Tabs as TabsPrimitive } from "radix-ui"
 function Tabs({
   className,
   orientation = "horizontal",
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
@@ -15,6 +16,7 @@ function Tabs({
       data-slot="tabs"
       data-orientation={orientation}
       orientation={orientation}
+      dir={dir}
       className={cn(
         "group/tabs flex gap-2 data-[orientation=horizontal]:flex-col",
         className

@@ -1,5 +1,0 @@
-import { SessionsSimple } from "@/registry/base-luma/blocks/sessions-01/components/sessions"
-
-export default function Page() {
-  return <SessionsSimple />
-}

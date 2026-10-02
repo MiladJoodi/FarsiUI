@@ -1,34 +1,5 @@
-import { cn } from "cn"
-import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/registry/bases/base/ui/empty"
+import { ErrorStateSimple } from "@/registry/bases/base/blocks/error-state-01/components/error-state"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      dir="rtl"
-      lang="fa"
-      className={cn("bg-muted text-foreground flex min-h-[420px] items-center justify-center p-6", className)}
-      {...props}
-    >
-      <Empty>
-        <EmptyHeader>
-          <EmptyMedia variant="icon" />
-          <EmptyTitle>حالت خطا</EmptyTitle>
-          <EmptyDescription>
-            مشکلی پیش آمد. لطفاً دوباره تلاش کنید.
-          </EmptyDescription>
-        </EmptyHeader>
-        <EmptyContent>
-          <Button>تلاش مجدد</Button>
-        </EmptyContent>
-      </Empty>
-    </div>
-  )
+export default function Page() {
+  return <ErrorStateSimple />
 }

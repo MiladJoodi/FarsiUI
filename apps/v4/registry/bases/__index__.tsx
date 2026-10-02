@@ -4,51 +4,34 @@
 import "server-only"
 
 export const Index: Record<string, Record<string, any>> = {
-  base: {
-    accordion: {
+  "base": {
+    "accordion": {
       name: "accordion",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/accordion.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/accordion.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/accordion",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/accordion-example.tsx",
-          api: "https://base-ui.com/react/components/accordion.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/accordion","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/accordion-example.tsx","api":"https://base-ui.com/react/components/accordion.md"}},
     },
-    alert: {
+    "alert": {
       name: "alert",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/alert.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/alert.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/alert",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/alert","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-example.tsx"}},
     },
     "alert-dialog": {
       name: "alert-dialog",
@@ -56,22 +39,13 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/alert-dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/alert-dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/alert-dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-dialog-example.tsx",
-          api: "https://base-ui.com/react/components/alert-dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/alert-dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-dialog-example.tsx","api":"https://base-ui.com/react/components/alert-dialog.md"}},
     },
     "aspect-ratio": {
       name: "aspect-ratio",
@@ -79,110 +53,69 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/aspect-ratio.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/aspect-ratio.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/aspect-ratio",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/aspect-ratio-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/aspect-ratio","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/aspect-ratio-example.tsx"}},
     },
-    avatar: {
+    "avatar": {
       name: "avatar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/avatar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/avatar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/avatar-example.tsx",
-          api: "https://base-ui.com/react/components/avatar.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/avatar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/avatar-example.tsx","api":"https://base-ui.com/react/components/avatar.md"}},
     },
-    badge: {
+    "badge": {
       name: "badge",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/badge.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/badge.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/badge",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/badge-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/badge","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/badge-example.tsx"}},
     },
-    breadcrumb: {
+    "breadcrumb": {
       name: "breadcrumb",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/breadcrumb.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/breadcrumb.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/breadcrumb",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/breadcrumb-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/breadcrumb","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/breadcrumb-example.tsx"}},
     },
-    button: {
+    "button": {
       name: "button",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/button.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/button",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/button","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-example.tsx"}},
     },
     "button-group": {
       name: "button-group",
@@ -190,203 +123,125 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/base/ui/button-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/button-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/button-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-group-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/button-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-group-example.tsx"}},
     },
-    calendar: {
+    "calendar": {
       name: "calendar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/calendar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/calendar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/calendar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/calendar-example.tsx",
-          api: "https://react-day-picker.js.org",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/calendar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/calendar-example.tsx","api":"https://react-day-picker.js.org"}},
     },
-    card: {
+    "card": {
       name: "card",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/card-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/card-example.tsx"}},
     },
-    carousel: {
+    "carousel": {
       name: "carousel",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/carousel.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/carousel.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/carousel",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/carousel-example.tsx",
-          api: "https://www.embla-carousel.com/get-started/react",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/carousel","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/carousel-example.tsx","api":"https://www.embla-carousel.com/get-started/react"}},
     },
-    chart: {
+    "chart": {
       name: "chart",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["card"],
-      files: [
-        {
-          path: "registry/bases/base/ui/chart.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/chart.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/chart",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/chart-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/chart","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/chart-example.tsx"}},
     },
-    checkbox: {
+    "checkbox": {
       name: "checkbox",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/checkbox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/checkbox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/checkbox-example.tsx",
-          api: "https://base-ui.com/react/components/checkbox.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/checkbox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/checkbox-example.tsx","api":"https://base-ui.com/react/components/checkbox.md"}},
     },
-    collapsible: {
+    "collapsible": {
       name: "collapsible",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/collapsible.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/collapsible.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/collapsible",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/collapsible-example.tsx",
-          api: "https://base-ui.com/react/components/collapsible.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/collapsible","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/collapsible-example.tsx","api":"https://base-ui.com/react/components/collapsible.md"}},
     },
-    combobox: {
+    "combobox": {
       name: "combobox",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input-group"],
-      files: [
-        {
-          path: "registry/bases/base/ui/combobox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group"],
+      files: [{
+        path: "registry/bases/base/ui/combobox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/combobox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/combobox-example.tsx",
-          api: "https://base-ui.com/react/components/combobox.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/combobox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/combobox-example.tsx","api":"https://base-ui.com/react/components/combobox.md"}},
     },
-    command: {
+    "command": {
       name: "command",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["dialog", "input-group"],
-      files: [
-        {
-          path: "registry/bases/base/ui/command.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["dialog","input-group"],
+      files: [{
+        path: "registry/bases/base/ui/command.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/command",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/command-example.tsx",
-          api: "https://github.com/dip/cmdk",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/command","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/command-example.tsx","api":"https://github.com/dip/cmdk"}},
     },
     "context-menu": {
       name: "context-menu",
@@ -394,68 +249,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/context-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/context-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/context-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/context-menu-example.tsx",
-          api: "https://base-ui.com/react/components/context-menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/context-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/context-menu-example.tsx","api":"https://base-ui.com/react/components/context-menu.md"}},
     },
-    dialog: {
+    "dialog": {
       name: "dialog",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dialog-example.tsx",
-          api: "https://base-ui.com/react/components/dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dialog-example.tsx","api":"https://base-ui.com/react/components/dialog.md"}},
     },
-    drawer: {
+    "drawer": {
       name: "drawer",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/drawer.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/drawer.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/drawer",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/drawer-example.tsx",
-          api: "https://base-ui.com/react/components/drawer.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/drawer","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/drawer-example.tsx","api":"https://base-ui.com/react/components/drawer.md"}},
     },
     "dropdown-menu": {
       name: "dropdown-menu",
@@ -463,66 +291,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/dropdown-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/dropdown-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/dropdown-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dropdown-menu-example.tsx",
-          api: "https://base-ui.com/react/components/menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/dropdown-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dropdown-menu-example.tsx","api":"https://base-ui.com/react/components/menu.md"}},
     },
-    empty: {
+    "empty": {
       name: "empty",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/empty.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/empty.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/empty",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/empty-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/empty","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/empty-example.tsx"}},
     },
-    field: {
+    "field": {
       name: "field",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["label", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/ui/field.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","separator"],
+      files: [{
+        path: "registry/bases/base/ui/field.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/field",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/field-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/field","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/field-example.tsx"}},
     },
     "hover-card": {
       name: "hover-card",
@@ -530,66 +333,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/hover-card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/hover-card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/hover-card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/hover-card-example.tsx",
-          api: "https://base-ui.com/react/components/hover-card.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/hover-card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/hover-card-example.tsx","api":"https://base-ui.com/react/components/hover-card.md"}},
     },
-    input: {
+    "input": {
       name: "input",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/input.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/input.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/input",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/input","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-example.tsx"}},
     },
     "input-group": {
       name: "input-group",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/ui/input-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","textarea"],
+      files: [{
+        path: "registry/bases/base/ui/input-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/input-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-group-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/input-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-group-example.tsx"}},
     },
     "input-otp": {
       name: "input-otp",
@@ -597,90 +375,55 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/input-otp.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/input-otp.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/input-otp",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-otp-example.tsx",
-          api: "https://input-otp.rodz.dev",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/input-otp","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-otp-example.tsx","api":"https://input-otp.rodz.dev"}},
     },
-    item: {
+    "item": {
       name: "item",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/base/ui/item.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/item.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/item",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/item-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/item","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/item-example.tsx"}},
     },
-    label: {
+    "label": {
       name: "label",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/label.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/label.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/label",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/label-example.tsx",
-          api: "https://base-ui.com/react/components/label.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/label","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/label-example.tsx","api":"https://base-ui.com/react/components/label.md"}},
     },
-    menubar: {
+    "menubar": {
       name: "menubar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/ui/menubar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/menubar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/menubar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/menubar-example.tsx",
-          api: "https://base-ui.com/react/components/menubar.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/menubar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/menubar-example.tsx","api":"https://base-ui.com/react/components/menubar.md"}},
     },
     "navigation-menu": {
       name: "navigation-menu",
@@ -688,90 +431,55 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/navigation-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/navigation-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/navigation-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/navigation-menu-example.tsx",
-          api: "https://base-ui.com/react/components/navigation-menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/navigation-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/navigation-menu-example.tsx","api":"https://base-ui.com/react/components/navigation-menu.md"}},
     },
-    pagination: {
+    "pagination": {
       name: "pagination",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/pagination.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/pagination.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/pagination",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/pagination-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/pagination","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/pagination-example.tsx"}},
     },
-    popover: {
+    "popover": {
       name: "popover",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/popover.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/popover.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/popover",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/popover-example.tsx",
-          api: "https://base-ui.com/react/components/popover.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/popover","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/popover-example.tsx","api":"https://base-ui.com/react/components/popover.md"}},
     },
-    progress: {
+    "progress": {
       name: "progress",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/progress.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/progress.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/progress",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/progress-example.tsx",
-          api: "https://base-ui.com/react/components/progress.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/progress","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/progress-example.tsx","api":"https://base-ui.com/react/components/progress.md"}},
     },
     "radio-group": {
       name: "radio-group",
@@ -779,45 +487,27 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/radio-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/radio-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/radio-group-example.tsx",
-          api: "https://base-ui.com/react/components/radio-group.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/radio-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/radio-group-example.tsx","api":"https://base-ui.com/react/components/radio-group.md"}},
     },
-    resizable: {
+    "resizable": {
       name: "resizable",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/resizable.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/resizable.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/resizable",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/resizable-example.tsx",
-          api: "https://github.com/bvaughn/react-resizable-panels",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/resizable","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/resizable-example.tsx","api":"https://github.com/bvaughn/react-resizable-panels"}},
     },
     "scroll-area": {
       name: "scroll-area",
@@ -825,347 +515,209 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/scroll-area.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/scroll-area.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/scroll-area",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/scroll-area-example.tsx",
-          api: "https://base-ui.com/react/components/scroll-area.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/scroll-area","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/scroll-area-example.tsx","api":"https://base-ui.com/react/components/scroll-area.md"}},
     },
-    select: {
+    "select": {
       name: "select",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/select-example.tsx",
-          api: "https://base-ui.com/react/components/select.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/select-example.tsx","api":"https://base-ui.com/react/components/select.md"}},
     },
-    separator: {
+    "separator": {
       name: "separator",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/separator.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/separator.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/separator",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/separator-example.tsx",
-          api: "https://base-ui.com/react/components/separator.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/separator","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/separator-example.tsx","api":"https://base-ui.com/react/components/separator.md"}},
     },
-    sheet: {
+    "sheet": {
       name: "sheet",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/sheet.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/sheet.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/sheet",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sheet-example.tsx",
-          api: "https://base-ui.com/react/components/dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/sheet","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sheet-example.tsx","api":"https://base-ui.com/react/components/dialog.md"}},
     },
-    sidebar: {
+    "sidebar": {
       name: "sidebar",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [
-        "button",
-        "input",
-        "separator",
-        "sheet",
-        "skeleton",
-        "tooltip",
-        "use-mobile",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/ui/sidebar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","separator","sheet","skeleton","tooltip","use-mobile"],
+      files: [{
+        path: "registry/bases/base/ui/sidebar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/sidebar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sidebar-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/sidebar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sidebar-example.tsx"}},
     },
-    skeleton: {
+    "skeleton": {
       name: "skeleton",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/skeleton.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/skeleton.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/skeleton",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/skeleton-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/skeleton","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/skeleton-example.tsx"}},
     },
-    slider: {
+    "slider": {
       name: "slider",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/slider.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/slider",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/slider-example.tsx",
-          api: "https://base-ui.com/react/components/slider.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/slider","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/slider-example.tsx","api":"https://base-ui.com/react/components/slider.md"}},
     },
-    sonner: {
+    "sonner": {
       name: "sonner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/sonner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/sonner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/sonner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sonner-example.tsx",
-          api: "https://sonner.emilkowal.ski",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/sonner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sonner-example.tsx","api":"https://sonner.emilkowal.ski"}},
     },
-    spinner: {
+    "spinner": {
       name: "spinner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/spinner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/spinner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/spinner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/spinner-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/spinner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/spinner-example.tsx"}},
     },
-    switch: {
+    "switch": {
       name: "switch",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/switch.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/switch",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/switch-example.tsx",
-          api: "https://base-ui.com/react/components/switch.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/switch","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/switch-example.tsx","api":"https://base-ui.com/react/components/switch.md"}},
     },
-    table: {
+    "table": {
       name: "table",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/table.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/table.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/table",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/table-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/table","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/table-example.tsx"}},
     },
-    tabs: {
+    "tabs": {
       name: "tabs",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/tabs.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/tabs.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/tabs",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tabs-example.tsx",
-          api: "https://base-ui.com/react/components/tabs.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/tabs","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tabs-example.tsx","api":"https://base-ui.com/react/components/tabs.md"}},
     },
-    textarea: {
+    "textarea": {
       name: "textarea",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/textarea.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/textarea",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/textarea-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/textarea","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/textarea-example.tsx"}},
     },
-    toast: {
+    "toast": {
       name: "toast",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/toast.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/toast.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/toast",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toast-example.tsx",
-          api: "https://base-ui.com/react/components/toast.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/toast","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toast-example.tsx","api":"https://base-ui.com/react/components/toast.md"}},
     },
-    toggle: {
+    "toggle": {
       name: "toggle",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/toggle.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/toggle.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/toggle",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-example.tsx",
-          api: "https://base-ui.com/react/components/toggle.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/toggle","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-example.tsx","api":"https://base-ui.com/react/components/toggle.md"}},
     },
     "toggle-group": {
       name: "toggle-group",
@@ -1173,67 +725,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["toggle"],
-      files: [
-        {
-          path: "registry/bases/base/ui/toggle-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/toggle-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/toggle-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-group-example.tsx",
-          api: "https://base-ui.com/react/components/toggle-group.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/toggle-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-group-example.tsx","api":"https://base-ui.com/react/components/toggle-group.md"}},
     },
-    tooltip: {
+    "tooltip": {
       name: "tooltip",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/tooltip.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/tooltip.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/tooltip",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tooltip-example.tsx",
-          api: "https://base-ui.com/react/components/tooltip.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/tooltip","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tooltip-example.tsx","api":"https://base-ui.com/react/components/tooltip.md"}},
     },
-    kbd: {
+    "kbd": {
       name: "kbd",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/kbd.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/kbd.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/kbd",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/kbd-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/kbd","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/kbd-example.tsx"}},
     },
     "native-select": {
       name: "native-select",
@@ -1241,72 +767,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/native-select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/native-select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/native-select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/native-select-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/native-select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/native-select-example.tsx"}},
     },
-    direction: {
+    "direction": {
       name: "direction",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/direction.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/direction.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/direction",
-          api: "https://base-ui.com/react/utils/direction-provider.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/direction","api":"https://base-ui.com/react/utils/direction-provider.md"}},
     },
-    attachment: {
+    "attachment": {
       name: "attachment",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/attachment.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/attachment.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    bubble: {
+    "bubble": {
       name: "bubble",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/bubble.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/bubble.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1316,67 +823,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/message-scroller.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/message-scroller.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    questionnaire: {
+    "questionnaire": {
       name: "questionnaire",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/ui/questionnaire.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/questionnaire.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/base/questionnaire",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/questionnaire-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/base/questionnaire","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/questionnaire-example.tsx"}},
     },
-    marker: {
+    "marker": {
       name: "marker",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/marker.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/marker.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    message: {
+    "message": {
       name: "message",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/ui/message.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/ui/message.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1385,14 +878,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Accordion",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion", "button", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/accordion-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","button","card","example"],
+      files: [{
+        path: "registry/bases/base/examples/accordion-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1401,14 +892,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert", "badge", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/alert-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert","badge","example"],
+      files: [{
+        path: "registry/bases/base/examples/alert-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1417,14 +906,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert-dialog", "button", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/alert-dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","button","dialog","example"],
+      files: [{
+        path: "registry/bases/base/examples/alert-dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1433,14 +920,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Aspect Ratio",
       description: "",
       type: "registry:example",
-      registryDependencies: ["aspect-ratio", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/aspect-ratio-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["aspect-ratio","example"],
+      files: [{
+        path: "registry/bases/base/examples/aspect-ratio-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1449,14 +934,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Avatar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar", "button", "empty", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/avatar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","empty","example"],
+      files: [{
+        path: "registry/bases/base/examples/avatar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1465,14 +948,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Badge",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge", "spinner", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/badge-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","spinner","example"],
+      files: [{
+        path: "registry/bases/base/examples/badge-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1481,14 +962,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Breadcrumb",
       description: "",
       type: "registry:example",
-      registryDependencies: ["breadcrumb", "dropdown-menu", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/breadcrumb-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/base/examples/breadcrumb-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1497,14 +976,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/button-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","example"],
+      files: [{
+        path: "registry/bases/base/examples/button-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1513,26 +990,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "label",
-        "popover",
-        "select",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/button-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","dropdown-menu","field","input","input-group","label","popover","select","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/examples/button-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1541,23 +1004,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Calendar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "calendar",
-        "card",
-        "field",
-        "input",
-        "label",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/calendar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","calendar","card","field","input","label","popover","example"],
+      files: [{
+        path: "registry/bases/base/examples/calendar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1566,21 +1018,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Card",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","example"],
+      files: [{
+        path: "registry/bases/base/examples/card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1589,14 +1032,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Carousel",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card", "carousel", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/carousel-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["card","carousel","example"],
+      files: [{
+        path: "registry/bases/base/examples/carousel-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1605,14 +1046,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Chart",
       description: "",
       type: "registry:example",
-      registryDependencies: ["chart", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/chart-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["chart","card","example"],
+      files: [{
+        path: "registry/bases/base/examples/chart-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1621,14 +1060,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Checkbox",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox", "field", "table", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/checkbox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","table","example"],
+      files: [{
+        path: "registry/bases/base/examples/checkbox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1637,22 +1074,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Collapsible",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "collapsible",
-        "field",
-        "input",
-        "tabs",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/collapsible-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","collapsible","field","input","tabs","example"],
+      files: [{
+        path: "registry/bases/base/examples/collapsible-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1661,25 +1088,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Combobox",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "combobox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/combobox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","combobox","dialog","field","input","input-group","item","select","example"],
+      files: [{
+        path: "registry/bases/base/examples/combobox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1688,14 +1102,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Command",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "command", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/command-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","command","example"],
+      files: [{
+        path: "registry/bases/base/examples/command-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1704,14 +1116,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Context Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "context-menu", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/context-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","context-menu","dialog","example"],
+      files: [{
+        path: "registry/bases/base/examples/context-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1720,29 +1130,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "checkbox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "native-select",
-        "select",
-        "switch",
-        "tabs",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","checkbox","dialog","field","input","input-group","kbd","native-select","select","switch","tabs","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/examples/dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1751,14 +1144,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Drawer",
       description: "",
       type: "registry:example",
-      registryDependencies: ["drawer", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/drawer-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["drawer","example"],
+      files: [{
+        path: "registry/bases/base/examples/drawer-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1767,20 +1158,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dropdown Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "dialog",
-        "dropdown-menu",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/dropdown-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","dialog","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/base/examples/dropdown-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1789,20 +1172,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Empty",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "empty",
-        "input-group",
-        "kbd",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/empty-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","empty","input-group","kbd","example"],
+      files: [{
+        path: "registry/bases/base/examples/empty-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1811,27 +1186,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Field",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "checkbox",
-        "field",
-        "input",
-        "input-otp",
-        "native-select",
-        "radio-group",
-        "select",
-        "slider",
-        "switch",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/field-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","checkbox","field","input","input-otp","native-select","radio-group","select","slider","switch","textarea","example"],
+      files: [{
+        path: "registry/bases/base/examples/field-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1840,14 +1200,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Hover Card",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "hover-card", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/hover-card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","hover-card","example"],
+      files: [{
+        path: "registry/bases/base/examples/hover-card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1856,21 +1214,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "field",
-        "input",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/input-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","native-select","select","example"],
+      files: [{
+        path: "registry/bases/base/examples/input-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1879,28 +1228,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "popover",
-        "spinner",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/input-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","card","dropdown-menu","field","input","input-group","kbd","popover","spinner","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/examples/input-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1909,14 +1242,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input OTP",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "card", "field", "input-otp", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/input-otp-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input-otp","example"],
+      files: [{
+        path: "registry/bases/base/examples/input-otp-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1925,14 +1256,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Item",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "item", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/item-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","item","example"],
+      files: [{
+        path: "registry/bases/base/examples/item-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1941,20 +1270,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Kbd",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "input-group",
-        "kbd",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/kbd-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/examples/kbd-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1963,21 +1284,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Label",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "checkbox",
-        "field",
-        "input",
-        "label",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/label-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","input","label","textarea","example"],
+      files: [{
+        path: "registry/bases/base/examples/label-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -1986,14 +1298,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Menubar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "menubar", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/menubar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","menubar","example"],
+      files: [{
+        path: "registry/bases/base/examples/menubar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2002,14 +1312,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Native Select",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "native-select", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/native-select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","native-select","example"],
+      files: [{
+        path: "registry/bases/base/examples/native-select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2018,14 +1326,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Navigation Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "navigation-menu", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/navigation-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","navigation-menu","example"],
+      files: [{
+        path: "registry/bases/base/examples/navigation-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2034,14 +1340,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Pagination",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "pagination", "select", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/pagination-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","pagination","select","example"],
+      files: [{
+        path: "registry/bases/base/examples/pagination-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2050,21 +1354,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Popover",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/popover-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","popover","example"],
+      files: [{
+        path: "registry/bases/base/examples/popover-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2073,14 +1368,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Progress",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "item", "progress", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/progress-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","item","progress","slider","example"],
+      files: [{
+        path: "registry/bases/base/examples/progress-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2089,14 +1382,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Radio Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "radio-group", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/radio-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","radio-group","example"],
+      files: [{
+        path: "registry/bases/base/examples/radio-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2105,14 +1396,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Resizable",
       description: "",
       type: "registry:example",
-      registryDependencies: ["resizable", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/resizable-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["resizable","example"],
+      files: [{
+        path: "registry/bases/base/examples/resizable-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2121,14 +1410,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Scroll Area",
       description: "",
       type: "registry:example",
-      registryDependencies: ["scroll-area", "separator", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/scroll-area-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["scroll-area","separator","example"],
+      files: [{
+        path: "registry/bases/base/examples/scroll-area-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2137,23 +1424,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Select",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "item",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","item","native-select","select","example"],
+      files: [{
+        path: "registry/bases/base/examples/select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2162,14 +1438,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Separator",
       description: "",
       type: "registry:example",
-      registryDependencies: ["separator", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/separator-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["separator","example"],
+      files: [{
+        path: "registry/bases/base/examples/separator-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2178,14 +1452,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sheet",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "field", "input", "sheet", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/sheet-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","sheet","example"],
+      files: [{
+        path: "registry/bases/base/examples/sheet-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2194,21 +1466,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "item",
-        "label",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/sidebar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","item","label","sidebar","example"],
+      files: [{
+        path: "registry/bases/base/examples/sidebar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2217,22 +1480,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Icon)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "collapsible",
-        "dropdown-menu",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/sidebar-icon-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","collapsible","dropdown-menu","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/base/examples/sidebar-icon-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2241,14 +1494,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Inset)",
       description: "",
       type: "registry:example",
-      registryDependencies: ["collapsible", "sidebar", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/sidebar-inset-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["collapsible","sidebar","example"],
+      files: [{
+        path: "registry/bases/base/examples/sidebar-inset-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2257,22 +1508,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Floating)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/sidebar-floating-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dropdown-menu","field","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/base/examples/sidebar-floating-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2281,14 +1522,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Skeleton",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/skeleton-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["skeleton","example"],
+      files: [{
+        path: "registry/bases/base/examples/skeleton-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2297,14 +1536,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Slider",
       description: "",
       type: "registry:example",
-      registryDependencies: ["label", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/slider-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","slider","example"],
+      files: [{
+        path: "registry/bases/base/examples/slider-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2313,14 +1550,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sonner",
       description: "",
       type: "registry:example",
-      registryDependencies: ["sonner", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/sonner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sonner","example"],
+      files: [{
+        path: "registry/bases/base/examples/sonner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2329,22 +1564,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Spinner",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "button",
-        "empty",
-        "field",
-        "input-group",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/spinner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","empty","field","input-group","spinner","example"],
+      files: [{
+        path: "registry/bases/base/examples/spinner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2353,14 +1578,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Switch",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "label", "switch", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/switch-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","label","switch","example"],
+      files: [{
+        path: "registry/bases/base/examples/switch-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2369,21 +1592,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Table",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "input",
-        "select",
-        "table",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/table-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","input","select","table","example"],
+      files: [{
+        path: "registry/bases/base/examples/table-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2392,14 +1606,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tabs",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dropdown-menu", "tabs", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/tabs-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","tabs","example"],
+      files: [{
+        path: "registry/bases/base/examples/tabs-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2408,14 +1620,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Textarea",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "textarea", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/textarea-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","textarea","example"],
+      files: [{
+        path: "registry/bases/base/examples/textarea-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2424,14 +1634,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toast",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "toast", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/toast-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","toast","example"],
+      files: [{
+        path: "registry/bases/base/examples/toast-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2440,14 +1648,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/toggle-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["toggle","example"],
+      files: [{
+        path: "registry/bases/base/examples/toggle-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2456,14 +1662,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input", "select", "toggle-group", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/toggle-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["input","select","toggle-group","example"],
+      files: [{
+        path: "registry/bases/base/examples/toggle-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2472,45 +1676,26 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "kbd", "tooltip", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/tooltip-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/examples/tooltip-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    demo: {
+    "demo": {
       name: "demo",
       title: "Demo",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "field",
-        "input-group",
-        "item",
-        "radio-group",
-        "slider",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/demo.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","button-group","card","checkbox","dropdown-menu","field","input-group","item","radio-group","slider","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/examples/demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2519,26 +1704,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Example",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "card",
-        "combobox",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/component-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","card","combobox","dropdown-menu","field","input","select","textarea","example"],
+      files: [{
+        path: "registry/bases/base/examples/component-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2548,13 +1719,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:example",
       registryDependencies: ["attachment"],
-      files: [
-        {
-          path: "registry/bases/base/examples/attachment-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/examples/attachment-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2563,14 +1732,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Bubble",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "button", "collapsible", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/bubble-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","button","collapsible","example"],
+      files: [{
+        path: "registry/bases/base/examples/bubble-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2579,25 +1746,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message Scroller",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "attachment",
-        "bubble",
-        "button",
-        "card",
-        "example",
-        "input-group",
-        "marker",
-        "message",
-        "message-scroller",
-        "spinner",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/message-scroller-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["attachment","bubble","button","card","example","input-group","marker","message","message-scroller","spinner"],
+      files: [{
+        path: "registry/bases/base/examples/message-scroller-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2606,21 +1760,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Questionnaire",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dialog",
-        "example",
-        "questionnaire",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/questionnaire-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dialog","example","questionnaire","sonner"],
+      files: [{
+        path: "registry/bases/base/examples/questionnaire-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2629,21 +1774,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Marker",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "marker",
-        "button",
-        "accordion",
-        "drawer",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/examples/marker-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["marker","button","accordion","drawer","spinner","example"],
+      files: [{
+        path: "registry/bases/base/examples/marker-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2652,46 +1788,40 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "message", "button", "example"],
-      files: [
-        {
-          path: "registry/bases/base/examples/message-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","message","button","example"],
+      files: [{
+        path: "registry/bases/base/examples/message-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    utils: {
+    "utils": {
       name: "utils",
       title: "undefined",
       description: "",
       type: "registry:lib",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/lib/utils.ts",
-          type: "registry:lib",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/lib/utils.ts",
+        type: "registry:lib",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    example: {
+    "example": {
       name: "example",
       title: "Example",
       description: "",
       type: "registry:component",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/components/example.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/components/example.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -2701,13 +1831,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/reset-password-01/page.tsx",
-          type: "registry:page",
-          target: "app/reset-password/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/reset-password-01/page.tsx",
+        type: "registry:page",
+        target: "app/reset-password/page.tsx"
+      }],
       categories: ["reset-password"],
       meta: undefined,
     },
@@ -2717,13 +1845,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/reset-password-02/page.tsx",
-          type: "registry:page",
-          target: "app/reset-password/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/reset-password-02/page.tsx",
+        type: "registry:page",
+        target: "app/reset-password/page.tsx"
+      }],
       categories: ["reset-password"],
       meta: undefined,
     },
@@ -2733,13 +1859,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/otp-01/page.tsx",
-          type: "registry:page",
-          target: "app/otp/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/otp-01/page.tsx",
+        type: "registry:page",
+        target: "app/otp/page.tsx"
+      }],
       categories: ["otp"],
       meta: undefined,
     },
@@ -2749,13 +1873,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/otp-02/page.tsx",
-          type: "registry:page",
-          target: "app/otp/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/otp-02/page.tsx",
+        type: "registry:page",
+        target: "app/otp/page.tsx"
+      }],
       categories: ["otp"],
       meta: undefined,
     },
@@ -2765,13 +1887,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "نوار ناوبری — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-01/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-01/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      }],
       categories: ["navbar"],
       meta: undefined,
     },
@@ -2781,13 +1901,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "نوار ناوبری — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-02/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-02/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      }],
       categories: ["navbar"],
       meta: undefined,
     },
@@ -2797,13 +1915,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "سربرگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-01/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/header-01/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      }],
       categories: ["header"],
       meta: undefined,
     },
@@ -2813,13 +1929,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "سربرگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-02/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/header-02/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      }],
       categories: ["header"],
       meta: undefined,
     },
@@ -2829,13 +1943,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "پابرگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-01/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/footer-01/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      }],
       categories: ["footer"],
       meta: undefined,
     },
@@ -2845,13 +1957,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "پابرگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-02/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/footer-02/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      }],
       categories: ["footer"],
       meta: undefined,
     },
@@ -2861,13 +1971,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "ناوبری موبایل — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-01/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-01/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      }],
       categories: ["mobile-navigation"],
       meta: undefined,
     },
@@ -2877,13 +1985,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "ناوبری موبایل — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-02/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-02/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      }],
       categories: ["mobile-navigation"],
       meta: undefined,
     },
@@ -2893,13 +1999,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مسیر صفحه — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-01/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb-block/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-01/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb-block/page.tsx"
+      }],
       categories: ["breadcrumb-block"],
       meta: undefined,
     },
@@ -2909,13 +2013,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مسیر صفحه — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-02/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb-block/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-02/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb-block/page.tsx"
+      }],
       categories: ["breadcrumb-block"],
       meta: undefined,
     },
@@ -2925,13 +2027,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فهرست وبلاگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-01/page.tsx",
-          type: "registry:page",
-          target: "app/blog-grid/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-01/page.tsx",
+        type: "registry:page",
+        target: "app/blog-grid/page.tsx"
+      }],
       categories: ["blog-grid"],
       meta: undefined,
     },
@@ -2941,13 +2041,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فهرست وبلاگ — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-02/page.tsx",
-          type: "registry:page",
-          target: "app/blog-grid/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-02/page.tsx",
+        type: "registry:page",
+        target: "app/blog-grid/page.tsx"
+      }],
       categories: ["blog-grid"],
       meta: undefined,
     },
@@ -2957,13 +2055,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مقاله — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/article-01/page.tsx",
-          type: "registry:page",
-          target: "app/article/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/article-01/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      }],
       categories: ["article"],
       meta: undefined,
     },
@@ -2973,78 +2069,12 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مقاله — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/article-02/page.tsx",
-          type: "registry:page",
-          target: "app/article/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/article-02/page.tsx",
+        type: "registry:page",
+        target: "app/article/page.tsx"
+      }],
       categories: ["article"],
-      meta: undefined,
-    },
-    "comments-01": {
-      name: "comments-01",
-      title: "Comments 01",
-      description: "دیدگاه‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/comments-01/page.tsx",
-          type: "registry:page",
-          target: "app/comments/page.tsx",
-        },
-      ],
-      categories: ["comments"],
-      meta: undefined,
-    },
-    "comments-02": {
-      name: "comments-02",
-      title: "Comments 02",
-      description: "دیدگاه‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/comments-02/page.tsx",
-          type: "registry:page",
-          target: "app/comments/page.tsx",
-        },
-      ],
-      categories: ["comments"],
-      meta: undefined,
-    },
-    "notifications-01": {
-      name: "notifications-01",
-      title: "Notifications 01",
-      description: "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/notifications-01/page.tsx",
-          type: "registry:page",
-          target: "app/notifications/page.tsx",
-        },
-      ],
-      categories: ["notifications"],
-      meta: undefined,
-    },
-    "notifications-02": {
-      name: "notifications-02",
-      title: "Notifications 02",
-      description: "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/notifications-02/page.tsx",
-          type: "registry:page",
-          target: "app/notifications/page.tsx",
-        },
-      ],
-      categories: ["notifications"],
       meta: undefined,
     },
     "inbox-01": {
@@ -3053,13 +2083,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/inbox-01/page.tsx",
-          type: "registry:page",
-          target: "app/inbox/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/inbox-01/page.tsx",
+        type: "registry:page",
+        target: "app/inbox/page.tsx"
+      }],
       categories: ["inbox"],
       meta: undefined,
     },
@@ -3069,1049 +2097,25 @@ export const Index: Record<string, Record<string, any>> = {
       description: "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/inbox-02/page.tsx",
-          type: "registry:page",
-          target: "app/inbox/page.tsx",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/inbox-02/page.tsx",
+        type: "registry:page",
+        target: "app/inbox/page.tsx"
+      }],
       categories: ["inbox"],
       meta: undefined,
     },
-    "search-01": {
-      name: "search-01",
-      title: "Search 01",
-      description: "جستجو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/search-01/page.tsx",
-          type: "registry:page",
-          target: "app/search/page.tsx",
-        },
-      ],
-      categories: ["search"],
-      meta: undefined,
-    },
-    "search-02": {
-      name: "search-02",
-      title: "Search 02",
-      description: "جستجو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/search-02/page.tsx",
-          type: "registry:page",
-          target: "app/search/page.tsx",
-        },
-      ],
-      categories: ["search"],
-      meta: undefined,
-    },
-    "search-results-01": {
-      name: "search-results-01",
-      title: "Search Results 01",
-      description: "نتایج جستجو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/search-results-01/page.tsx",
-          type: "registry:page",
-          target: "app/search-results/page.tsx",
-        },
-      ],
-      categories: ["search-results"],
-      meta: undefined,
-    },
-    "search-results-02": {
-      name: "search-results-02",
-      title: "Search Results 02",
-      description: "نتایج جستجو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/search-results-02/page.tsx",
-          type: "registry:page",
-          target: "app/search-results/page.tsx",
-        },
-      ],
-      categories: ["search-results"],
-      meta: undefined,
-    },
-    "filters-01": {
-      name: "filters-01",
-      title: "Filters 01",
-      description: "فیلترها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/filters-01/page.tsx",
-          type: "registry:page",
-          target: "app/filters/page.tsx",
-        },
-      ],
-      categories: ["filters"],
-      meta: undefined,
-    },
-    "filters-02": {
-      name: "filters-02",
-      title: "Filters 02",
-      description: "فیلترها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/filters-02/page.tsx",
-          type: "registry:page",
-          target: "app/filters/page.tsx",
-        },
-      ],
-      categories: ["filters"],
-      meta: undefined,
-    },
-    "advanced-filters-01": {
-      name: "advanced-filters-01",
-      title: "Advanced Filters 01",
-      description: "فیلترهای پیشرفته — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/advanced-filters-01/page.tsx",
-          type: "registry:page",
-          target: "app/advanced-filters/page.tsx",
-        },
-      ],
-      categories: ["advanced-filters"],
-      meta: undefined,
-    },
-    "advanced-filters-02": {
-      name: "advanced-filters-02",
-      title: "Advanced Filters 02",
-      description: "فیلترهای پیشرفته — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/advanced-filters-02/page.tsx",
-          type: "registry:page",
-          target: "app/advanced-filters/page.tsx",
-        },
-      ],
-      categories: ["advanced-filters"],
-      meta: undefined,
-    },
-    "sort-filter-01": {
-      name: "sort-filter-01",
-      title: "Sort & Filter 01",
-      description: "مرتب‌سازی و فیلتر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/sort-filter-01/page.tsx",
-          type: "registry:page",
-          target: "app/sort-filter/page.tsx",
-        },
-      ],
-      categories: ["sort-filter"],
-      meta: undefined,
-    },
-    "sort-filter-02": {
-      name: "sort-filter-02",
-      title: "Sort & Filter 02",
-      description: "مرتب‌سازی و فیلتر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/sort-filter-02/page.tsx",
-          type: "registry:page",
-          target: "app/sort-filter/page.tsx",
-        },
-      ],
-      categories: ["sort-filter"],
-      meta: undefined,
-    },
-    "empty-search-01": {
-      name: "empty-search-01",
-      title: "Empty Search 01",
-      description: "نتیجه‌ای پیدا نشد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/empty-search-01/page.tsx",
-          type: "registry:page",
-          target: "app/empty-search/page.tsx",
-        },
-      ],
-      categories: ["empty-search"],
-      meta: undefined,
-    },
-    "empty-search-02": {
-      name: "empty-search-02",
-      title: "Empty Search 02",
-      description: "نتیجه‌ای پیدا نشد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/empty-search-02/page.tsx",
-          type: "registry:page",
-          target: "app/empty-search/page.tsx",
-        },
-      ],
-      categories: ["empty-search"],
-      meta: undefined,
-    },
-    "file-upload-01": {
-      name: "file-upload-01",
-      title: "File Upload 01",
-      description: "بارگذاری فایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/file-upload-01/page.tsx",
-          type: "registry:page",
-          target: "app/file-upload/page.tsx",
-        },
-      ],
-      categories: ["file-upload"],
-      meta: undefined,
-    },
-    "file-upload-02": {
-      name: "file-upload-02",
-      title: "File Upload 02",
-      description: "بارگذاری فایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/file-upload-02/page.tsx",
-          type: "registry:page",
-          target: "app/file-upload/page.tsx",
-        },
-      ],
-      categories: ["file-upload"],
-      meta: undefined,
-    },
-    "file-manager-01": {
-      name: "file-manager-01",
-      title: "File Manager 01",
-      description: "مدیریت فایل‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/file-manager-01/page.tsx",
-          type: "registry:page",
-          target: "app/file-manager/page.tsx",
-        },
-      ],
-      categories: ["file-manager"],
-      meta: undefined,
-    },
-    "file-manager-02": {
-      name: "file-manager-02",
-      title: "File Manager 02",
-      description: "مدیریت فایل‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/file-manager-02/page.tsx",
-          type: "registry:page",
-          target: "app/file-manager/page.tsx",
-        },
-      ],
-      categories: ["file-manager"],
-      meta: undefined,
-    },
-    "image-gallery-01": {
-      name: "image-gallery-01",
-      title: "Image Gallery 01",
-      description: "گالری تصاویر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/image-gallery-01/page.tsx",
-          type: "registry:page",
-          target: "app/image-gallery/page.tsx",
-        },
-      ],
-      categories: ["image-gallery"],
-      meta: undefined,
-    },
-    "image-gallery-02": {
-      name: "image-gallery-02",
-      title: "Image Gallery 02",
-      description: "گالری تصاویر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/image-gallery-02/page.tsx",
-          type: "registry:page",
-          target: "app/image-gallery/page.tsx",
-        },
-      ],
-      categories: ["image-gallery"],
-      meta: undefined,
-    },
-    "media-grid-01": {
-      name: "media-grid-01",
-      title: "Media Grid 01",
-      description: "فهرست رسانه‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/media-grid-01/page.tsx",
-          type: "registry:page",
-          target: "app/media-grid/page.tsx",
-        },
-      ],
-      categories: ["media-grid"],
-      meta: undefined,
-    },
-    "media-grid-02": {
-      name: "media-grid-02",
-      title: "Media Grid 02",
-      description: "فهرست رسانه‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/media-grid-02/page.tsx",
-          type: "registry:page",
-          target: "app/media-grid/page.tsx",
-        },
-      ],
-      categories: ["media-grid"],
-      meta: undefined,
-    },
-    "attachment-list-01": {
-      name: "attachment-list-01",
-      title: "Attachment List 01",
-      description: "پیوست‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/attachment-list-01/page.tsx",
-          type: "registry:page",
-          target: "app/attachment-list/page.tsx",
-        },
-      ],
-      categories: ["attachment-list"],
-      meta: undefined,
-    },
-    "attachment-list-02": {
-      name: "attachment-list-02",
-      title: "Attachment List 02",
-      description: "پیوست‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/attachment-list-02/page.tsx",
-          type: "registry:page",
-          target: "app/attachment-list/page.tsx",
-        },
-      ],
-      categories: ["attachment-list"],
-      meta: undefined,
-    },
-    "avatar-upload-01": {
-      name: "avatar-upload-01",
-      title: "Avatar Upload 01",
-      description: "بارگذاری تصویر پروفایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/avatar-upload-01/page.tsx",
-          type: "registry:page",
-          target: "app/avatar-upload/page.tsx",
-        },
-      ],
-      categories: ["avatar-upload"],
-      meta: undefined,
-    },
-    "avatar-upload-02": {
-      name: "avatar-upload-02",
-      title: "Avatar Upload 02",
-      description: "بارگذاری تصویر پروفایل — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/avatar-upload-02/page.tsx",
-          type: "registry:page",
-          target: "app/avatar-upload/page.tsx",
-        },
-      ],
-      categories: ["avatar-upload"],
-      meta: undefined,
-    },
-    "calendar-block-01": {
-      name: "calendar-block-01",
-      title: "Calendar 01",
-      description: "تقویم — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/calendar-block-01/page.tsx",
-          type: "registry:page",
-          target: "app/calendar-block/page.tsx",
-        },
-      ],
-      categories: ["calendar-block"],
-      meta: undefined,
-    },
-    "calendar-block-02": {
-      name: "calendar-block-02",
-      title: "Calendar 02",
-      description: "تقویم — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/calendar-block-02/page.tsx",
-          type: "registry:page",
-          target: "app/calendar-block/page.tsx",
-        },
-      ],
-      categories: ["calendar-block"],
-      meta: undefined,
-    },
-    "event-list-01": {
-      name: "event-list-01",
-      title: "Event List 01",
-      description: "فهرست رویدادها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/event-list-01/page.tsx",
-          type: "registry:page",
-          target: "app/event-list/page.tsx",
-        },
-      ],
-      categories: ["event-list"],
-      meta: undefined,
-    },
-    "event-list-02": {
-      name: "event-list-02",
-      title: "Event List 02",
-      description: "فهرست رویدادها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/event-list-02/page.tsx",
-          type: "registry:page",
-          target: "app/event-list/page.tsx",
-        },
-      ],
-      categories: ["event-list"],
-      meta: undefined,
-    },
-    "event-details-01": {
-      name: "event-details-01",
-      title: "Event Details 01",
-      description: "جزئیات رویداد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/event-details-01/page.tsx",
-          type: "registry:page",
-          target: "app/event-details/page.tsx",
-        },
-      ],
-      categories: ["event-details"],
-      meta: undefined,
-    },
-    "event-details-02": {
-      name: "event-details-02",
-      title: "Event Details 02",
-      description: "جزئیات رویداد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/event-details-02/page.tsx",
-          type: "registry:page",
-          target: "app/event-details/page.tsx",
-        },
-      ],
-      categories: ["event-details"],
-      meta: undefined,
-    },
-    "schedule-01": {
-      name: "schedule-01",
-      title: "Schedule 01",
-      description: "برنامه زمانی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/schedule-01/page.tsx",
-          type: "registry:page",
-          target: "app/schedule/page.tsx",
-        },
-      ],
-      categories: ["schedule"],
-      meta: undefined,
-    },
-    "schedule-02": {
-      name: "schedule-02",
-      title: "Schedule 02",
-      description: "برنامه زمانی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/schedule-02/page.tsx",
-          type: "registry:page",
-          target: "app/schedule/page.tsx",
-        },
-      ],
-      categories: ["schedule"],
-      meta: undefined,
-    },
-    "datetime-picker-01": {
-      name: "datetime-picker-01",
-      title: "Date & Time Picker 01",
-      description: "انتخاب تاریخ و زمان — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/datetime-picker-01/page.tsx",
-          type: "registry:page",
-          target: "app/datetime-picker/page.tsx",
-        },
-      ],
-      categories: ["datetime-picker"],
-      meta: undefined,
-    },
-    "datetime-picker-02": {
-      name: "datetime-picker-02",
-      title: "Date & Time Picker 02",
-      description: "انتخاب تاریخ و زمان — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/datetime-picker-02/page.tsx",
-          type: "registry:page",
-          target: "app/datetime-picker/page.tsx",
-        },
-      ],
-      categories: ["datetime-picker"],
-      meta: undefined,
-    },
-    "booking-01": {
-      name: "booking-01",
-      title: "Booking 01",
-      description: "رزرو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/booking-01/page.tsx",
-          type: "registry:page",
-          target: "app/booking/page.tsx",
-        },
-      ],
-      categories: ["booking"],
-      meta: undefined,
-    },
-    "booking-02": {
-      name: "booking-02",
-      title: "Booking 02",
-      description: "رزرو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/booking-02/page.tsx",
-          type: "registry:page",
-          target: "app/booking/page.tsx",
-        },
-      ],
-      categories: ["booking"],
-      meta: undefined,
-    },
-    "payment-01": {
-      name: "payment-01",
-      title: "Payment 01",
-      description: "پرداخت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/payment-01/page.tsx",
-          type: "registry:page",
-          target: "app/payment/page.tsx",
-        },
-      ],
-      categories: ["payment"],
-      meta: undefined,
-    },
-    "payment-02": {
-      name: "payment-02",
-      title: "Payment 02",
-      description: "پرداخت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/payment-02/page.tsx",
-          type: "registry:page",
-          target: "app/payment/page.tsx",
-        },
-      ],
-      categories: ["payment"],
-      meta: undefined,
-    },
-    "payment-methods-01": {
-      name: "payment-methods-01",
-      title: "Payment Methods 01",
-      description: "روش‌های پرداخت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/payment-methods-01/page.tsx",
-          type: "registry:page",
-          target: "app/payment-methods/page.tsx",
-        },
-      ],
-      categories: ["payment-methods"],
-      meta: undefined,
-    },
-    "payment-methods-02": {
-      name: "payment-methods-02",
-      title: "Payment Methods 02",
-      description: "روش‌های پرداخت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/payment-methods-02/page.tsx",
-          type: "registry:page",
-          target: "app/payment-methods/page.tsx",
-        },
-      ],
-      categories: ["payment-methods"],
-      meta: undefined,
-    },
-    "subscription-01": {
-      name: "subscription-01",
-      title: "Subscription 01",
-      description: "اشتراک — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/subscription-01/page.tsx",
-          type: "registry:page",
-          target: "app/subscription/page.tsx",
-        },
-      ],
-      categories: ["subscription"],
-      meta: undefined,
-    },
-    "subscription-02": {
-      name: "subscription-02",
-      title: "Subscription 02",
-      description: "اشتراک — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/subscription-02/page.tsx",
-          type: "registry:page",
-          target: "app/subscription/page.tsx",
-        },
-      ],
-      categories: ["subscription"],
-      meta: undefined,
-    },
-    "plan-selection-01": {
-      name: "plan-selection-01",
-      title: "Plan Selection 01",
-      description: "انتخاب طرح — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/plan-selection-01/page.tsx",
-          type: "registry:page",
-          target: "app/plan-selection/page.tsx",
-        },
-      ],
-      categories: ["plan-selection"],
-      meta: undefined,
-    },
-    "plan-selection-02": {
-      name: "plan-selection-02",
-      title: "Plan Selection 02",
-      description: "انتخاب طرح — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/plan-selection-02/page.tsx",
-          type: "registry:page",
-          target: "app/plan-selection/page.tsx",
-        },
-      ],
-      categories: ["plan-selection"],
-      meta: undefined,
-    },
-    "invoice-01": {
-      name: "invoice-01",
-      title: "Invoice 01",
-      description: "فاکتور — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/invoice-01/page.tsx",
-          type: "registry:page",
-          target: "app/invoice/page.tsx",
-        },
-      ],
-      categories: ["invoice"],
-      meta: undefined,
-    },
-    "invoice-02": {
-      name: "invoice-02",
-      title: "Invoice 02",
-      description: "فاکتور — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/invoice-02/page.tsx",
-          type: "registry:page",
-          target: "app/invoice/page.tsx",
-        },
-      ],
-      categories: ["invoice"],
-      meta: undefined,
-    },
-    "billing-01": {
-      name: "billing-01",
-      title: "Billing 01",
-      description: "صورتحساب — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/billing-01/page.tsx",
-          type: "registry:page",
-          target: "app/billing/page.tsx",
-        },
-      ],
-      categories: ["billing"],
-      meta: undefined,
-    },
-    "billing-02": {
-      name: "billing-02",
-      title: "Billing 02",
-      description: "صورتحساب — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/billing-02/page.tsx",
-          type: "registry:page",
-          target: "app/billing/page.tsx",
-        },
-      ],
-      categories: ["billing"],
-      meta: undefined,
-    },
-    "empty-state-01": {
-      name: "empty-state-01",
-      title: "Empty State 01",
-      description: "حالت خالی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/empty-state-01/page.tsx",
-          type: "registry:page",
-          target: "app/empty-state/page.tsx",
-        },
-      ],
-      categories: ["empty-state"],
-      meta: undefined,
-    },
-    "empty-state-02": {
-      name: "empty-state-02",
-      title: "Empty State 02",
-      description: "حالت خالی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/empty-state-02/page.tsx",
-          type: "registry:page",
-          target: "app/empty-state/page.tsx",
-        },
-      ],
-      categories: ["empty-state"],
-      meta: undefined,
-    },
-    "error-state-01": {
-      name: "error-state-01",
-      title: "Error State 01",
-      description: "حالت خطا — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/error-state-01/page.tsx",
-          type: "registry:page",
-          target: "app/error-state/page.tsx",
-        },
-      ],
-      categories: ["error-state"],
-      meta: undefined,
-    },
-    "error-state-02": {
-      name: "error-state-02",
-      title: "Error State 02",
-      description: "حالت خطا — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/error-state-02/page.tsx",
-          type: "registry:page",
-          target: "app/error-state/page.tsx",
-        },
-      ],
-      categories: ["error-state"],
-      meta: undefined,
-    },
-    "not-found-block-01": {
-      name: "not-found-block-01",
-      title: "Not Found 01",
-      description: "پیدا نشد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/not-found-block-01/page.tsx",
-          type: "registry:page",
-          target: "app/not-found-block/page.tsx",
-        },
-      ],
-      categories: ["not-found-block"],
-      meta: undefined,
-    },
-    "not-found-block-02": {
-      name: "not-found-block-02",
-      title: "Not Found 02",
-      description: "پیدا نشد — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/not-found-block-02/page.tsx",
-          type: "registry:page",
-          target: "app/not-found-block/page.tsx",
-        },
-      ],
-      categories: ["not-found-block"],
-      meta: undefined,
-    },
-    "loading-state-01": {
-      name: "loading-state-01",
-      title: "Loading 01",
-      description: "در حال بارگذاری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/loading-state-01/page.tsx",
-          type: "registry:page",
-          target: "app/loading-state/page.tsx",
-        },
-      ],
-      categories: ["loading-state"],
-      meta: undefined,
-    },
-    "loading-state-02": {
-      name: "loading-state-02",
-      title: "Loading 02",
-      description: "در حال بارگذاری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/loading-state-02/page.tsx",
-          type: "registry:page",
-          target: "app/loading-state/page.tsx",
-        },
-      ],
-      categories: ["loading-state"],
-      meta: undefined,
-    },
-    "success-state-01": {
-      name: "success-state-01",
-      title: "Success 01",
-      description: "موفقیت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/success-state-01/page.tsx",
-          type: "registry:page",
-          target: "app/success-state/page.tsx",
-        },
-      ],
-      categories: ["success-state"],
-      meta: undefined,
-    },
-    "success-state-02": {
-      name: "success-state-02",
-      title: "Success 02",
-      description: "موفقیت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/success-state-02/page.tsx",
-          type: "registry:page",
-          target: "app/success-state/page.tsx",
-        },
-      ],
-      categories: ["success-state"],
-      meta: undefined,
-    },
-    "maintenance-01": {
-      name: "maintenance-01",
-      title: "Maintenance 01",
-      description: "تعمیر و نگهداری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/maintenance-01/page.tsx",
-          type: "registry:page",
-          target: "app/maintenance/page.tsx",
-        },
-      ],
-      categories: ["maintenance"],
-      meta: undefined,
-    },
-    "maintenance-02": {
-      name: "maintenance-02",
-      title: "Maintenance 02",
-      description: "تعمیر و نگهداری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/maintenance-02/page.tsx",
-          type: "registry:page",
-          target: "app/maintenance/page.tsx",
-        },
-      ],
-      categories: ["maintenance"],
-      meta: undefined,
-    },
-    "coming-soon-01": {
-      name: "coming-soon-01",
-      title: "Coming Soon 01",
-      description: "به‌زودی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/coming-soon-01/page.tsx",
-          type: "registry:page",
-          target: "app/coming-soon/page.tsx",
-        },
-      ],
-      categories: ["coming-soon"],
-      meta: undefined,
-    },
-    "coming-soon-02": {
-      name: "coming-soon-02",
-      title: "Coming Soon 02",
-      description: "به‌زودی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/blocks/coming-soon-02/page.tsx",
-          type: "registry:page",
-          target: "app/coming-soon/page.tsx",
-        },
-      ],
-      categories: ["coming-soon"],
-      meta: undefined,
-    },
-    preview: {
+    "preview": {
       name: "preview",
       title: "Preview",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "alert-dialog",
-        "avatar",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "chart",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "popover",
-        "radio-group",
-        "select",
-        "separator",
-        "sheet",
-        "slider",
-        "spinner",
-        "switch",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/preview/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","avatar","badge","button","button-group","card","chart","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","popover","radio-group","select","separator","sheet","slider","spinner","switch","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/base/blocks/preview/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -4120,45 +2124,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Preview 02",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "badge",
-        "breadcrumb",
-        "button",
-        "calendar",
-        "card",
-        "chart",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "native-select",
-        "progress",
-        "radio-group",
-        "select",
-        "separator",
-        "sidebar",
-        "skeleton",
-        "slider",
-        "spinner",
-        "switch",
-        "table",
-        "tabs",
-        "textarea",
-        "toggle-group",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/preview-02/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","breadcrumb","button","calendar","card","chart","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","native-select","progress","radio-group","select","separator","sidebar","skeleton","slider","spinner","switch","table","tabs","textarea","toggle-group"],
+      files: [{
+        path: "registry/bases/base/blocks/preview-02/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -4168,13 +2139,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/preview-03/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/preview-03/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -4183,20 +2152,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 01",
       description: "فرم ورود ساده.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/login-01/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/login-01/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/login-01/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/login-01/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-02": {
@@ -4204,20 +2170,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 02",
       description: "صفحه ورود دو ستونه با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/login-02/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/login-02/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/login-02/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/login-02/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-03": {
@@ -4225,20 +2188,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 03",
       description: "صفحه ورود با پس‌زمینه ملایم.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/login-03/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/login-03/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/login-03/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/login-03/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-04": {
@@ -4246,20 +2206,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 04",
       description: "صفحه ورود با فرم و تصویر.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/login-04/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/login-04/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/login-04/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/login-04/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-05": {
@@ -4267,20 +2224,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 05",
       description: "صفحه ورود فقط با ایمیل.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/login-05/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/login-05/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/login-05/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/login-05/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "signup-01": {
@@ -4288,20 +2242,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 01",
       description: "فرم ثبت‌نام ساده.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/signup-01/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/signup-01/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label"],
+      files: [{
+        path: "registry/bases/base/blocks/signup-01/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/signup-01/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-02": {
@@ -4309,20 +2260,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 02",
       description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/signup-02/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/signup-02/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/signup-02/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/signup-02/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-03": {
@@ -4330,20 +2278,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 03",
       description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/signup-03/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/signup-03/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/signup-03/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/signup-03/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-04": {
@@ -4351,20 +2296,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 04",
       description: "صفحه ثبت‌نام با فرم و تصویر.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/signup-04/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/signup-04/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/base/blocks/signup-04/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/signup-04/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-05": {
@@ -4372,20 +2314,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 05",
       description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/signup-05/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/signup-05/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label"],
+      files: [{
+        path: "registry/bases/base/blocks/signup-05/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/signup-05/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "forgot-password-01": {
@@ -4393,19 +2332,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Forgot Password 01",
       description: "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/forgot-password-01/page.tsx",
-          type: "registry:page",
-          target: "app/forgot-password/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/forgot-password-01/components/forgot-password-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-01/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-01/components/forgot-password-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["forgot-password"],
       meta: undefined,
     },
@@ -4414,19 +2350,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Forgot Password 02",
       description: "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "input-otp"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/forgot-password-02/page.tsx",
-          type: "registry:page",
-          target: "app/forgot-password/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/forgot-password-02/components/forgot-password-mobile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","input-otp"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-02/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-02/components/forgot-password-mobile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["forgot-password"],
       meta: undefined,
     },
@@ -4435,19 +2368,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Forgot Password 03",
       description: "انتخاب روش بازیابی بین ایمیل و موبایل.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/forgot-password-03/page.tsx",
-          type: "registry:page",
-          target: "app/forgot-password/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/forgot-password-03/components/forgot-password-methods.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-03/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-03/components/forgot-password-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["forgot-password"],
       meta: undefined,
     },
@@ -4456,19 +2386,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Forgot Password 04",
       description: "صفحه بازیابی دو ستونه با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/forgot-password-04/page.tsx",
-          type: "registry:page",
-          target: "app/forgot-password/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/forgot-password-04/components/forgot-password-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-04/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-04/components/forgot-password-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["forgot-password"],
       meta: undefined,
     },
@@ -4477,19 +2404,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Forgot Password 05",
       description: "بازیابی متمرکز با برند و وضعیت ارسال.",
       type: "registry:block",
-      registryDependencies: ["button", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/forgot-password-05/page.tsx",
-          type: "registry:page",
-          target: "app/forgot-password/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/forgot-password-05/components/forgot-password-centered.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-05/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-05/components/forgot-password-centered.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["forgot-password"],
       meta: undefined,
     },
@@ -4498,19 +2422,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 01",
       description: "فرم ورود کد ملی با اعتبارسنجی و تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/national-id-01/page.tsx",
-          type: "registry:page",
-          target: "app/national-id/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/national-id-01/components/national-id-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field"],
+      files: [{
+        path: "registry/bases/base/blocks/national-id-01/page.tsx",
+        type: "registry:page",
+        target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-01/components/national-id-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["national-id"],
       meta: undefined,
     },
@@ -4519,19 +2440,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 02",
       description: "اعتبارسنجی لحظه‌ای کد ملی با پنل نتیجه.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "field", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/national-id-02/page.tsx",
-          type: "registry:page",
-          target: "app/national-id/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/national-id-02/components/national-id-validator.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/national-id-02/page.tsx",
+        type: "registry:page",
+        target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-02/components/national-id-validator.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["national-id"],
       meta: undefined,
     },
@@ -4540,19 +2458,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 03",
       description: "فرم مشخصات هویتی با نام، کد ملی و تاریخ تولد.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/national-id-03/page.tsx",
-          type: "registry:page",
-          target: "app/national-id/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/national-id-03/components/national-id-profile-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/national-id-03/page.tsx",
+        type: "registry:page",
+        target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-03/components/national-id-profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["national-id"],
       meta: undefined,
     },
@@ -4561,19 +2476,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 04",
       description: "صفحه دو ستونه ورود کد ملی با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/national-id-04/page.tsx",
-          type: "registry:page",
-          target: "app/national-id/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/national-id-04/components/national-id-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field"],
+      files: [{
+        path: "registry/bases/base/blocks/national-id-04/page.tsx",
+        type: "registry:page",
+        target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-04/components/national-id-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["national-id"],
       meta: undefined,
     },
@@ -4582,19 +2494,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 05",
       description: "ورود متمرکز کد ملی با نشان وضعیت اعتبار.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/national-id-05/page.tsx",
-          type: "registry:page",
-          target: "app/national-id/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/national-id-05/components/national-id-centered.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","field"],
+      files: [{
+        path: "registry/bases/base/blocks/national-id-05/page.tsx",
+        type: "registry:page",
+        target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-05/components/national-id-centered.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["national-id"],
       meta: undefined,
     },
@@ -4603,24 +2512,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 01",
       description: "فرم ثبت پلاک خودرو با تأیید نهایی.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/license-plate-01/page.tsx",
-          type: "registry:page",
-          target: "app/license-plate/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-01/components/license-plate-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-01/components/plate-input.tsx",
-          type: "registry:file",
-          target: "components/plate-input.tsx",
-        },
-      ],
+      registryDependencies: ["button","card","field"],
+      files: [{
+        path: "registry/bases/base/blocks/license-plate-01/page.tsx",
+        type: "registry:page",
+        target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-01/components/license-plate-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/license-plate-01/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx"
+      }],
       categories: ["license-plate"],
       meta: undefined,
     },
@@ -4629,24 +2534,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 02",
       description: "ورود پلاک با پنل جزئیات و نوع حرف.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "field", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/license-plate-02/page.tsx",
-          type: "registry:page",
-          target: "app/license-plate/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-02/components/license-plate-inspector.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-02/components/plate-input.tsx",
-          type: "registry:file",
-          target: "components/plate-input.tsx",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/license-plate-02/page.tsx",
+        type: "registry:page",
+        target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-02/components/license-plate-inspector.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/license-plate-02/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx"
+      }],
       categories: ["license-plate"],
       meta: undefined,
     },
@@ -4655,24 +2556,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 03",
       description: "ثبت خودرو همراه با پلاک و نوع وسیله.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/license-plate-03/page.tsx",
-          type: "registry:page",
-          target: "app/license-plate/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-03/components/license-plate-vehicle-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-03/components/plate-input.tsx",
-          type: "registry:file",
-          target: "components/plate-input.tsx",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/license-plate-03/page.tsx",
+        type: "registry:page",
+        target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-03/components/license-plate-vehicle-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/license-plate-03/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx"
+      }],
       categories: ["license-plate"],
       meta: undefined,
     },
@@ -4681,24 +2578,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 04",
       description: "صفحه دو ستونه ثبت پلاک با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/license-plate-04/page.tsx",
-          type: "registry:page",
-          target: "app/license-plate/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-04/components/license-plate-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-04/components/plate-input.tsx",
-          type: "registry:file",
-          target: "components/plate-input.tsx",
-        },
-      ],
+      registryDependencies: ["button","card","field"],
+      files: [{
+        path: "registry/bases/base/blocks/license-plate-04/page.tsx",
+        type: "registry:page",
+        target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-04/components/license-plate-split.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/license-plate-04/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx"
+      }],
       categories: ["license-plate"],
       meta: undefined,
     },
@@ -4707,24 +2600,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 05",
       description: "ثبت پلاک تاکسی فقط با حرف ت.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "field"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/license-plate-05/page.tsx",
-          type: "registry:page",
-          target: "app/license-plate/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-05/components/license-plate-taxi.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/license-plate-05/components/plate-input.tsx",
-          type: "registry:file",
-          target: "components/plate-input.tsx",
-        },
-      ],
+      registryDependencies: ["badge","button","field"],
+      files: [{
+        path: "registry/bases/base/blocks/license-plate-05/page.tsx",
+        type: "registry:page",
+        target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-05/components/license-plate-taxi.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/license-plate-05/components/plate-input.tsx",
+        type: "registry:file",
+        target: "components/plate-input.tsx"
+      }],
       categories: ["license-plate"],
       meta: undefined,
     },
@@ -4733,19 +2622,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Document Verification 01",
       description: "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "progress", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/document-verification-01/page.tsx",
-          type: "registry:page",
-          target: "app/document-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/document-verification-01/components/document-upload-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","progress","select"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-01/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-01/components/document-upload-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["document-verification"],
       meta: undefined,
     },
@@ -4754,19 +2640,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Document Verification 02",
       description: "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/document-verification-02/page.tsx",
-          type: "registry:page",
-          target: "app/document-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/document-verification-02/components/document-checklist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-02/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-02/components/document-checklist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["document-verification"],
       meta: undefined,
     },
@@ -4775,19 +2658,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Document Verification 03",
       description: "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "label", "separator", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/document-verification-03/page.tsx",
-          type: "registry:page",
-          target: "app/document-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/document-verification-03/components/document-preferences.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-03/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-03/components/document-preferences.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["document-verification"],
       meta: undefined,
     },
@@ -4796,19 +2676,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Document Verification 04",
       description: "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/document-verification-04/page.tsx",
-          type: "registry:page",
-          target: "app/document-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/document-verification-04/components/document-split-upload.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-04/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-04/components/document-split-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["document-verification"],
       meta: undefined,
     },
@@ -4817,19 +2694,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Document Verification 05",
       description: "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/document-verification-05/page.tsx",
-          type: "registry:page",
-          target: "app/document-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/document-verification-05/components/document-status-gallery.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/document-verification-05/page.tsx",
+        type: "registry:page",
+        target: "app/document-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/document-verification-05/components/document-status-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["document-verification"],
       meta: undefined,
     },
@@ -4838,19 +2712,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Profile Form 01",
       description: "ویرایش پروفایل با نام نمایشی و بیو.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-form-01/page.tsx",
-          type: "registry:page",
-          target: "app/profile-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-form-01/components/profile-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-01/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile-form"],
       meta: undefined,
     },
@@ -4859,26 +2730,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Profile Form 02",
       description: "پروفایل عمومی با آواتار و اطلاعات تماس.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-form-02/page.tsx",
-          type: "registry:page",
-          target: "app/profile-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-form-02/components/profile-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-02/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile-form"],
       meta: undefined,
     },
@@ -4887,27 +2748,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Profile Form 03",
       description: "لینک‌های اجتماعی و سوئیچ‌های حریم خصوصی RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-form-03/page.tsx",
-          type: "registry:page",
-          target: "app/profile-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-form-03/components/profile-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-03/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile-form"],
       meta: undefined,
     },
@@ -4916,19 +2766,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Profile Form 04",
       description: "تکمیل پروفایل دو ستونه با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-form-04/page.tsx",
-          type: "registry:page",
-          target: "app/profile-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-form-04/components/profile-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/profile-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-form-04/components/profile-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile-form"],
       meta: undefined,
     },
@@ -4937,19 +2784,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Contact Form 01",
       description: "فرم تماس ساده با وضعیت ارسال.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-form-01/page.tsx",
-          type: "registry:page",
-          target: "app/contact-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-form-01/components/contact-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-01/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact-form"],
       meta: undefined,
     },
@@ -4958,26 +2802,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Contact Form 02",
       description: "فرم ارسال بازخورد با انتخاب نوع.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-form-02/page.tsx",
-          type: "registry:page",
-          target: "app/contact-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-form-02/components/contact-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-02/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact-form"],
       meta: undefined,
     },
@@ -4986,19 +2820,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Contact Form 03",
       description: "فرم تماس دو ستونه با اطلاعات تماس.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-form-03/page.tsx",
-          type: "registry:page",
-          target: "app/contact-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-form-03/components/contact-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-03/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact-form"],
       meta: undefined,
     },
@@ -5007,28 +2838,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Contact Form 04",
       description: "همکاری تجاری با سوئیچ درخواست تماس.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-form-04/page.tsx",
-          type: "registry:page",
-          target: "app/contact-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-form-04/components/contact-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/contact-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-form-04/components/contact-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact-form"],
       meta: undefined,
     },
@@ -5037,26 +2856,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Support Form 01",
       description: "درخواست پشتیبانی با انتخاب موضوع و شماره پیگیری.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/support-form-01/page.tsx",
-          type: "registry:page",
-          target: "app/support-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/support-form-01/components/support-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-01/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["support-form"],
       meta: undefined,
     },
@@ -5065,27 +2874,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Support Form 02",
       description: "تیکت پشتیبانی با انتخاب اولویت.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "radio-group",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/support-form-02/page.tsx",
-          type: "registry:page",
-          target: "app/support-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/support-form-02/components/support-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","radio-group","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-02/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["support-form"],
       meta: undefined,
     },
@@ -5094,26 +2892,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Support Form 03",
       description: "درخواست پشتیبانی چندمرحله‌ای با بازبینی نهایی.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/support-form-03/page.tsx",
-          type: "registry:page",
-          target: "app/support-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/support-form-03/components/support-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-03/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["support-form"],
       meta: undefined,
     },
@@ -5122,19 +2910,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Support Form 04",
       description: "وضعیت تیکت پشتیبانی با تب‌های باز / در انتظار / حل‌شده.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "separator", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/support-form-04/page.tsx",
-          type: "registry:page",
-          target: "app/support-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/support-form-04/components/support-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-04/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["support-form"],
       meta: undefined,
     },
@@ -5143,19 +2928,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Newsletter Form 01",
       description: "عضویت خبرنامه با تأیید ایمیل.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-form-01/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-form-01/components/newsletter-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-01/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter-form"],
       meta: undefined,
     },
@@ -5164,19 +2946,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Newsletter Form 02",
       description: "فرم عضویت فشردهٔ درون‌خطی.",
       type: "registry:block",
-      registryDependencies: ["button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-form-02/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-form-02/components/newsletter-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-02/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter-form"],
       meta: undefined,
     },
@@ -5185,27 +2964,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Newsletter Form 03",
       description: "خبرنامه موضوعی با سوئیچ‌های RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-form-03/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-form-03/components/newsletter-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-03/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter-form"],
       meta: undefined,
     },
@@ -5214,19 +2982,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Newsletter Form 04",
       description: "عضویت متمرکز با برند و وضعیت تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-form-04/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter-form/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-form-04/components/newsletter-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-form-04/components/newsletter-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter-form"],
       meta: undefined,
     },
@@ -5236,41 +3001,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "معرفی سادهٔ مرکزی با برند، عنوان و یک دکمه.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/hero-01/page.tsx",
-          type: "registry:page",
-          target: "app/hero/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/hero-01/components/hero.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/hero-01/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-01/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["hero"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "hero-02": {
       name: "hero-02",
       title: "Hero 02",
       description: "معرفی با بج، دو CTA و پس‌زمینهٔ ملایم.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/hero-02/page.tsx",
-          type: "registry:page",
-          target: "app/hero/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/hero-02/components/hero.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-02/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-02/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["hero"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "hero-03": {
       name: "hero-03",
@@ -5278,20 +3037,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "معرفی دو ستونه با تصویر تمام‌ارتفاع.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/hero-03/page.tsx",
-          type: "registry:page",
-          target: "app/hero/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/hero-03/components/hero.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/hero-03/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-03/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["hero"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "hero-04": {
       name: "hero-04",
@@ -5299,41 +3055,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "معرفی تمام‌عرض با تصویر پس‌زمینه و پوشش گرادیان.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/hero-04/page.tsx",
-          type: "registry:page",
-          target: "app/hero/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/hero-04/components/hero.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/hero-04/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-04/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["hero"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "hero-05": {
       name: "hero-05",
       title: "Hero 05",
       description: "معرفی کامل با ناوبری، اثبات اجتماعی و تصویر محصول.",
       type: "registry:block",
-      registryDependencies: ["avatar", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/hero-05/page.tsx",
-          type: "registry:page",
-          target: "app/hero/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/hero-05/components/hero.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-05/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-05/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["hero"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "features-01": {
       name: "features-01",
@@ -5341,104 +3091,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "شبکهٔ سادهٔ سه ستونه با آیکون و توضیح کوتاه.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/features-01/page.tsx",
-          type: "registry:page",
-          target: "app/features/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/features-01/components/features.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/features-01/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-01/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["features"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "features-02": {
       name: "features-02",
       title: "Features 02",
       description: "کارت‌های ویژگی با آیکون، توضیح و لینک جزئیات.",
       type: "registry:block",
-      registryDependencies: ["button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/features-02/page.tsx",
-          type: "registry:page",
-          target: "app/features/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/features-02/components/features.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/features-02/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-02/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["features"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "features-03": {
       name: "features-03",
       title: "Features 03",
       description: "ردیف‌های متناوب متن و تصویر برای معرفی قابلیت‌ها.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/features-03/page.tsx",
-          type: "registry:page",
-          target: "app/features/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/features-03/components/features.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/features-03/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-03/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["features"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "features-04": {
       name: "features-04",
       title: "Features 04",
       description: "شبکهٔ بنتویی با کارت بزرگ تصویر و کارت‌های کوچک.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/features-04/page.tsx",
-          type: "registry:page",
-          target: "app/features/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/features-04/components/features.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/features-04/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-04/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["features"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "features-05": {
       name: "features-05",
       title: "Features 05",
       description: "نمایش کامل با تب دسته‌ها، لیست قابلیت و تصویر محصول.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/features-05/page.tsx",
-          type: "registry:page",
-          target: "app/features/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/features-05/components/features.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/features-05/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-05/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["features"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "feature-split-01": {
       name: "feature-split-01",
@@ -5446,41 +3181,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "دو بخشی ساده: عنوان، توضیح و یک تصویر.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/feature-split-01/page.tsx",
-          type: "registry:page",
-          target: "app/feature-split/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/feature-split-01/components/feature-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-01/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-01/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["feature-split"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "feature-split-02": {
       name: "feature-split-02",
       title: "Feature Split 02",
       description: "دو بخشی با بج، چک‌لیست و دو CTA.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/feature-split-02/page.tsx",
-          type: "registry:page",
-          target: "app/feature-split/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/feature-split-02/components/feature-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-02/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-02/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["feature-split"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "feature-split-03": {
       name: "feature-split-03",
@@ -5488,62 +3217,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "تصویر تمام‌ارتفاع لبه‌به‌لبه در کنار متن.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/feature-split-03/page.tsx",
-          type: "registry:page",
-          target: "app/feature-split/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/feature-split-03/components/feature-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-03/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-03/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["feature-split"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "feature-split-04": {
       name: "feature-split-04",
       title: "Feature Split 04",
       description: "دو بخشی با آمار، نکات کلیدی و پیش‌نمایش محصول.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/feature-split-04/page.tsx",
-          type: "registry:page",
-          target: "app/feature-split/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/feature-split-04/components/feature-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-04/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-04/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["feature-split"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "feature-split-05": {
       name: "feature-split-05",
       title: "Feature Split 05",
       description: "دو بخشی تعاملی: انتخاب قابلیت و تعویض پیش‌نمایش.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/feature-split-05/page.tsx",
-          type: "registry:page",
-          target: "app/feature-split/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/feature-split-05/components/feature-split.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-05/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-05/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["feature-split"],
-      meta: { iframeHeight: "950px" },
+      meta: {"iframeHeight":"950px"},
     },
     "bento-01": {
       name: "bento-01",
@@ -5551,20 +3271,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "شبکهٔ سادهٔ ۲×۲ با کاشی‌های متنی هم‌اندازه.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/bento-01/page.tsx",
-          type: "registry:page",
-          target: "app/bento/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/bento-01/components/bento.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/bento-01/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-01/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["bento"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "bento-02": {
       name: "bento-02",
@@ -5572,196 +3289,161 @@ export const Index: Record<string, Record<string, any>> = {
       description: "بنتو با کاشی بزرگ دو در دو و کاشی‌های آیکون‌دار.",
       type: "registry:block",
       registryDependencies: ["badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/bento-02/page.tsx",
-          type: "registry:page",
-          target: "app/bento/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/bento-02/components/bento.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/bento-02/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-02/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["bento"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "bento-03": {
       name: "bento-03",
       title: "Bento 03",
       description: "بنتو با کاشی تصویر داشبورد و کاشی‌های متنی.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/bento-03/page.tsx",
-          type: "registry:page",
-          target: "app/bento/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/bento-03/components/bento.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-03/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-03/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["bento"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "bento-04": {
       name: "bento-04",
       title: "Bento 04",
       description: "بنتو با آمار، آواتار تیم و کاشی‌های قابلیت.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/bento-04/page.tsx",
-          type: "registry:page",
-          target: "app/bento/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/bento-04/components/bento.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-04/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-04/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["bento"],
-      meta: { iframeHeight: "950px" },
+      meta: {"iframeHeight":"950px"},
     },
     "bento-05": {
       name: "bento-05",
       title: "Bento 05",
       description: "بنتو کامل تعاملی با تصویر، CTA، آمار و انتخاب‌گر.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/bento-05/page.tsx",
-          type: "registry:page",
-          target: "app/bento/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/bento-05/components/bento.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-05/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-05/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["bento"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "pricing-01": {
       name: "pricing-01",
       title: "Pricing 01",
       description: "دو پلن ساده با قیمت و دکمه.",
       type: "registry:block",
-      registryDependencies: ["button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/pricing-01/page.tsx",
-          type: "registry:page",
-          target: "app/pricing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/pricing-01/components/pricing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-01/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-01/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["pricing"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "pricing-02": {
       name: "pricing-02",
       title: "Pricing 02",
       description: "سه کارت پلن با لیست امکانات و پلن پیشنهادی.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/pricing-02/page.tsx",
-          type: "registry:page",
-          target: "app/pricing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/pricing-02/components/pricing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-02/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-02/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["pricing"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "pricing-03": {
       name: "pricing-03",
       title: "Pricing 03",
       description: "قیمت‌گذاری با سوئیچ ماهانه / سالانه.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "label", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/pricing-03/page.tsx",
-          type: "registry:page",
-          target: "app/pricing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/pricing-03/components/pricing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","label","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-03/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-03/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["pricing"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "pricing-04": {
       name: "pricing-04",
       title: "Pricing 04",
       description: "جدول مقایسهٔ قابلیت‌های پلن‌ها.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/pricing-04/page.tsx",
-          type: "registry:page",
-          target: "app/pricing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/pricing-04/components/pricing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-04/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-04/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["pricing"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "pricing-05": {
       name: "pricing-05",
       title: "Pricing 05",
       description: "صفحهٔ کامل قیمت با سوئیچ، اثبات اجتماعی و پرسش‌های رایج.",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "label",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/pricing-05/page.tsx",
-          type: "registry:page",
-          target: "app/pricing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/pricing-05/components/pricing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","avatar","badge","button","card","label","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-05/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-05/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["pricing"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "cta-01": {
       name: "cta-01",
@@ -5769,62 +3451,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فراخوان سادهٔ مرکزی با یک دکمه.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/cta-01/page.tsx",
-          type: "registry:page",
-          target: "app/cta/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/cta-01/components/cta.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/cta-01/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-01/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["cta"],
-      meta: { iframeHeight: "600px" },
+      meta: {"iframeHeight":"600px"},
     },
     "cta-02": {
       name: "cta-02",
       title: "CTA 02",
       description: "فراخوان با بج و دو دکمهٔ اصلی / فرعی.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/cta-02/page.tsx",
-          type: "registry:page",
-          target: "app/cta/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/cta-02/components/cta.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-02/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-02/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["cta"],
-      meta: { iframeHeight: "650px" },
+      meta: {"iframeHeight":"650px"},
     },
     "cta-03": {
       name: "cta-03",
       title: "CTA 03",
       description: "کارت فراخوان با فرم ایمیل و وضعیت تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/cta-03/page.tsx",
-          type: "registry:page",
-          target: "app/cta/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/cta-03/components/cta.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-03/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-03/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["cta"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "cta-04": {
       name: "cta-04",
@@ -5832,41 +3505,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فراخوان دو ستونه با تصویر داشبورد.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/cta-04/page.tsx",
-          type: "registry:page",
-          target: "app/cta/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/cta-04/components/cta.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/cta-04/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-04/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["cta"],
-      meta: { iframeHeight: "750px" },
+      meta: {"iframeHeight":"750px"},
     },
     "cta-05": {
       name: "cta-05",
       title: "CTA 05",
       description: "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/cta-05/page.tsx",
-          type: "registry:page",
-          target: "app/cta/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/cta-05/components/cta.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-05/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-05/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["cta"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "banner-01": {
       name: "banner-01",
@@ -5874,41 +3541,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "نوار اطلاع‌رسانی ساده با لینک.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/banner-01/page.tsx",
-          type: "registry:page",
-          target: "app/banner/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/banner-01/components/banner.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/banner-01/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-01/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["banner"],
-      meta: { iframeHeight: "500px" },
+      meta: {"iframeHeight":"500px"},
     },
     "banner-02": {
       name: "banner-02",
       title: "Banner 02",
       description: "بنر تخفیف با آیکون، بج و دکمه.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/banner-02/page.tsx",
-          type: "registry:page",
-          target: "app/banner/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/banner-02/components/banner.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-02/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-02/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["banner"],
-      meta: { iframeHeight: "550px" },
+      meta: {"iframeHeight":"550px"},
     },
     "banner-03": {
       name: "banner-03",
@@ -5916,20 +3577,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "بنر هشدار قابل‌بستن برای نگهداری سیستم.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/banner-03/page.tsx",
-          type: "registry:page",
-          target: "app/banner/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/banner-03/components/banner.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/banner-03/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-03/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["banner"],
-      meta: { iframeHeight: "550px" },
+      meta: {"iframeHeight":"550px"},
     },
     "banner-04": {
       name: "banner-04",
@@ -5937,41 +3595,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "بنر رویداد دو ستونه با تصویر.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/banner-04/page.tsx",
-          type: "registry:page",
-          target: "app/banner/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/banner-04/components/banner.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/banner-04/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-04/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["banner"],
-      meta: { iframeHeight: "650px" },
+      meta: {"iframeHeight":"650px"},
     },
     "banner-05": {
       name: "banner-05",
       title: "Banner 05",
       description: "بنر پروموی تمام‌عرض با تصویر، کد تخفیف و بستن.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/banner-05/page.tsx",
-          type: "registry:page",
-          target: "app/banner/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/banner-05/components/banner.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-05/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-05/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["banner"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "stats-01": {
       name: "stats-01",
@@ -5979,25 +3631,21 @@ export const Index: Record<string, Record<string, any>> = {
       description: "سه عدد بزرگ مرکزی با برچسب فارسی.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/stats-01/page.tsx",
-          type: "registry:page",
-          target: "app/stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/stats-01/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["stats"],
-      meta: { iframeHeight: "650px" },
+      meta: {"iframeHeight":"650px"},
     },
     "stats-02": {
       name: "stats-02",
@@ -6005,110 +3653,87 @@ export const Index: Record<string, Record<string, any>> = {
       description: "کارت‌های KPI با روند صعودی/نزولی فارسی.",
       type: "registry:block",
       registryDependencies: ["card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/stats-02/page.tsx",
-          type: "registry:page",
-          target: "app/stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-02/components/stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/stats-02/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-02/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["stats"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "stats-03": {
       name: "stats-03",
       title: "Stats 03",
       description: "اهداف ماه شمسی با نوار پیشرفت.",
       type: "registry:block",
-      registryDependencies: ["badge", "progress"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/stats-03/page.tsx",
-          type: "registry:page",
-          target: "app/stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-03/components/stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","progress"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-03/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-03/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["stats"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "stats-04": {
       name: "stats-04",
       title: "Stats 04",
       description: "نمودار میله‌ای هفتهٔ شمسی با آمار کناری.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/stats-04/page.tsx",
-          type: "registry:page",
-          target: "app/stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-04/components/stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-04/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-04/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["stats"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "stats-05": {
       name: "stats-05",
       title: "Stats 05",
       description: "داشبورد کامل با تب دوره، شهرها و گزارش.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "progress",
-        "separator",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/stats-05/page.tsx",
-          type: "registry:page",
-          target: "app/stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-05/components/stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","progress","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-05/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-05/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["stats"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "testimonials-01": {
       name: "testimonials-01",
@@ -6116,104 +3741,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "یک نقل‌قول مرکزی با آواتار و نقش.",
       type: "registry:block",
       registryDependencies: ["avatar"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/testimonials-01/page.tsx",
-          type: "registry:page",
-          target: "app/testimonials/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/testimonials-01/components/testimonials.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-01/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-01/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["testimonials"],
-      meta: { iframeHeight: "650px" },
+      meta: {"iframeHeight":"650px"},
     },
     "testimonials-02": {
       name: "testimonials-02",
       title: "Testimonials 02",
       description: "سه کارت نظر با ستاره و عکس پروفایل.",
       type: "registry:block",
-      registryDependencies: ["avatar", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/testimonials-02/page.tsx",
-          type: "registry:page",
-          target: "app/testimonials/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/testimonials-02/components/testimonials.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","card"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-02/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-02/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["testimonials"],
-      meta: { iframeHeight: "800px" },
+      meta: {"iframeHeight":"800px"},
     },
     "testimonials-03": {
       name: "testimonials-03",
       title: "Testimonials 03",
       description: "داستان ویژه با تصویر بزرگ و دو نظر کناری.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/testimonials-03/page.tsx",
-          type: "registry:page",
-          target: "app/testimonials/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/testimonials-03/components/testimonials.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-03/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-03/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["testimonials"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "testimonials-04": {
       name: "testimonials-04",
       title: "Testimonials 04",
       description: "تعویض نظر با تب و آواتار مشتریان.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/testimonials-04/page.tsx",
-          type: "registry:page",
-          target: "app/testimonials/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/testimonials-04/components/testimonials.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-04/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-04/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["testimonials"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "testimonials-05": {
       name: "testimonials-05",
       title: "Testimonials 05",
       description: "گالری کامل نظرات با امتیاز، تصویر و CTA.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/testimonials-05/page.tsx",
-          type: "registry:page",
-          target: "app/testimonials/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/testimonials-05/components/testimonials.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-05/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-05/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["testimonials"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "logo-cloud-01": {
       name: "logo-cloud-01",
@@ -6221,25 +3831,21 @@ export const Index: Record<string, Record<string, any>> = {
       description: "ردیف سادهٔ لوگو با خاکستری‌سازی و هاور.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/page.tsx",
-          type: "registry:page",
-          target: "app/logo-cloud/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logo-cloud.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-01/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["logo-cloud"],
-      meta: { iframeHeight: "550px" },
+      meta: {"iframeHeight":"550px"},
     },
     "logo-cloud-02": {
       name: "logo-cloud-02",
@@ -6247,25 +3853,21 @@ export const Index: Record<string, Record<string, any>> = {
       description: "شبکهٔ کارت‌دار برای نمایش لوگوهای مشتریان.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/logo-cloud-02/page.tsx",
-          type: "registry:page",
-          target: "app/logo-cloud/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-02/components/logo-cloud.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-02/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-02/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["logo-cloud"],
-      meta: { iframeHeight: "750px" },
+      meta: {"iframeHeight":"750px"},
     },
     "logo-cloud-03": {
       name: "logo-cloud-03",
@@ -6273,25 +3875,21 @@ export const Index: Record<string, Record<string, any>> = {
       description: "دو ردیف مارکی متحرک از لوگوها.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/logo-cloud-03/page.tsx",
-          type: "registry:page",
-          target: "app/logo-cloud/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-03/components/logo-cloud.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-03/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-03/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["logo-cloud"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "logo-cloud-04": {
       name: "logo-cloud-04",
@@ -6299,163 +3897,133 @@ export const Index: Record<string, Record<string, any>> = {
       description: "ویترین لوگو با آمار تیم و راهنمای جایگزینی فایل.",
       type: "registry:block",
       registryDependencies: ["badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/logo-cloud-04/page.tsx",
-          type: "registry:page",
-          target: "app/logo-cloud/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-04/components/logo-cloud.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-04/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-04/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["logo-cloud"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "logo-cloud-05": {
       name: "logo-cloud-05",
       title: "Logo Cloud 05",
       description: "ویترین کامل لوگو با شبکه، اثبات اجتماعی و CTA.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/logo-cloud-05/page.tsx",
-          type: "registry:page",
-          target: "app/logo-cloud/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-05/components/logo-cloud.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-05/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-05/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["logo-cloud"],
-      meta: { iframeHeight: "950px" },
+      meta: {"iframeHeight":"950px"},
     },
     "newsletter-01": {
       name: "newsletter-01",
       title: "Newsletter 01",
       description: "عضویت سادهٔ مرکزی با ایمیل و وضعیت تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-01/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-01/components/newsletter.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-01/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-01/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter"],
-      meta: { iframeHeight: "600px" },
+      meta: {"iframeHeight":"600px"},
     },
     "newsletter-02": {
       name: "newsletter-02",
       title: "Newsletter 02",
       description: "کارت خبرنامه با لیست مزایا و عضویت.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-02/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-02/components/newsletter.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-02/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-02/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter"],
-      meta: { iframeHeight: "750px" },
+      meta: {"iframeHeight":"750px"},
     },
     "newsletter-03": {
       name: "newsletter-03",
       title: "Newsletter 03",
       description: "خبرنامه دو ستونه با پیش‌نمایش شماره‌های اخیر.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-03/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-03/components/newsletter.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-03/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-03/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter"],
-      meta: { iframeHeight: "750px" },
+      meta: {"iframeHeight":"750px"},
     },
     "newsletter-04": {
       name: "newsletter-04",
       title: "Newsletter 04",
       description: "انتخاب موضوع‌های خبرنامه با سوئیچ.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "input",
-        "label",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-04/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-04/components/newsletter.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-04/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-04/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "newsletter-05": {
       name: "newsletter-05",
       title: "Newsletter 05",
       description: "بخش کامل خبرنامه با مزایا، عضویت و اثبات اجتماعی.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/newsletter-05/page.tsx",
-          type: "registry:page",
-          target: "app/newsletter/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/newsletter-05/components/newsletter.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-05/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-05/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["newsletter"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "navbar-01": {
       name: "navbar-01",
@@ -6463,111 +4031,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "نوار ساده با لوگو، لینک‌ها و ورود.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-01/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/navbar-01/components/navbar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-01/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/navbar-01/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["navbar"],
-      meta: { iframeHeight: "520px" },
+      meta: {"iframeHeight":"520px"},
     },
     "navbar-02": {
       name: "navbar-02",
       title: "Navbar 02",
       description: "نوار با CTA و منوی موبایل شیت.",
       type: "registry:block",
-      registryDependencies: ["button", "sheet"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-02/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/navbar-02/components/navbar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-02/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/navbar-02/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["navbar"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "navbar-03": {
       name: "navbar-03",
       title: "Navbar 03",
       description: "لینک‌های مرکزی با جستجو و شیت موبایل.",
       type: "registry:block",
-      registryDependencies: ["button", "sheet"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-03/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/navbar-03/components/navbar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-03/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/navbar-03/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["navbar"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "navbar-04": {
       name: "navbar-04",
       title: "Navbar 04",
       description: "منوی کشویی محصولات با Navigation Menu.",
       type: "registry:block",
-      registryDependencies: ["button", "navigation-menu", "sheet"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-04/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/navbar-04/components/navbar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","navigation-menu","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-04/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/navbar-04/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["navbar"],
-      meta: { iframeHeight: "620px" },
+      meta: {"iframeHeight":"620px"},
     },
     "navbar-05": {
       name: "navbar-05",
       title: "Navbar 05",
       description: "نوار اپ با بنر، جستجو، آواتار و منوی موبایل.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "dropdown-menu",
-        "input",
-        "sheet",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/navbar-05/page.tsx",
-          type: "registry:page",
-          target: "app/navbar/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/navbar-05/components/navbar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu","input","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/navbar-05/page.tsx",
+        type: "registry:page",
+        target: "app/navbar/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/navbar-05/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["navbar"],
-      meta: { iframeHeight: "680px" },
+      meta: {"iframeHeight":"680px"},
     },
     "header-01": {
       name: "header-01",
@@ -6575,20 +4121,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "سربرگ ساده فقط با عنوان صفحه.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-01/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/header-01/components/header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/header-01/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/header-01/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["header"],
-      meta: { iframeHeight: "480px" },
+      meta: {"iframeHeight":"480px"},
     },
     "header-02": {
       name: "header-02",
@@ -6596,83 +4139,71 @@ export const Index: Record<string, Record<string, any>> = {
       description: "عنوان، توضیح کوتاه و یک دکمهٔ اکشن.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-02/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/header-02/components/header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/header-02/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/header-02/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["header"],
-      meta: { iframeHeight: "520px" },
+      meta: {"iframeHeight":"520px"},
     },
     "header-03": {
       name: "header-03",
       title: "Header 03",
       description: "مسیر صفحه، عنوان و دکمه‌های اکشن.",
       type: "registry:block",
-      registryDependencies: ["breadcrumb", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-03/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/header-03/components/header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","button"],
+      files: [{
+        path: "registry/bases/base/blocks/header-03/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/header-03/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["header"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "header-04": {
       name: "header-04",
       title: "Header 04",
       description: "سربرگ با توضیح و تب‌های بخش.",
       type: "registry:block",
-      registryDependencies: ["button", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-04/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/header-04/components/header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/header-04/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/header-04/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["header"],
-      meta: { iframeHeight: "600px" },
+      meta: {"iframeHeight":"600px"},
     },
     "header-05": {
       name: "header-05",
       title: "Header 05",
       description: "سربرگ کامل با بج، تیم، اکشن و متادیتا.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/header-05/page.tsx",
-          type: "registry:page",
-          target: "app/header/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/header-05/components/header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/header-05/page.tsx",
+        type: "registry:page",
+        target: "app/header/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/header-05/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["header"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "footer-01": {
       name: "footer-01",
@@ -6680,20 +4211,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "پابرگ ساده با کپی‌رایت.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-01/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/footer-01/components/footer.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/footer-01/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/footer-01/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["footer"],
-      meta: { iframeHeight: "480px" },
+      meta: {"iframeHeight":"480px"},
     },
     "footer-02": {
       name: "footer-02",
@@ -6701,20 +4229,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "لوگو، لینک‌های افقی و سال.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-02/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/footer-02/components/footer.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/footer-02/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/footer-02/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["footer"],
-      meta: { iframeHeight: "520px" },
+      meta: {"iframeHeight":"520px"},
     },
     "footer-03": {
       name: "footer-03",
@@ -6722,174 +4247,143 @@ export const Index: Record<string, Record<string, any>> = {
       description: "پابرگ چندستونه با معرفی برند.",
       type: "registry:block",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-03/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/footer-03/components/footer.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/footer-03/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/footer-03/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["footer"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "footer-04": {
       name: "footer-04",
       title: "Footer 04",
       description: "عضویت خبرنامه به‌همراه ستون لینک‌ها.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-04/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/footer-04/components/footer.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/footer-04/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/footer-04/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["footer"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "footer-05": {
       name: "footer-05",
       title: "Footer 05",
       description: "پابرگ کامل با شبکه اجتماعی، خبرنامه و لینک‌های حقوقی.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/footer-05/page.tsx",
-          type: "registry:page",
-          target: "app/footer/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/footer-05/components/footer.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/footer-05/page.tsx",
+        type: "registry:page",
+        target: "app/footer/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/footer-05/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["footer"],
-      meta: { iframeHeight: "850px" },
+      meta: {"iframeHeight":"850px"},
     },
     "mobile-navigation-01": {
       name: "mobile-navigation-01",
       title: "Mobile Navigation 01",
       description: "منوی کشویی ساده از پایین با لینک‌ها.",
       type: "registry:block",
-      registryDependencies: ["button", "drawer"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-01/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-01/components/mobile-navigation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","drawer"],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-01/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/mobile-navigation-01/components/mobile-navigation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["mobile-navigation"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "mobile-navigation-02": {
       name: "mobile-navigation-02",
       title: "Mobile Navigation 02",
       description: "شیت کناری با لینک‌ها و دکمه‌های ورود/شروع.",
       type: "registry:block",
-      registryDependencies: ["button", "sheet"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-02/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-02/components/mobile-navigation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-02/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/mobile-navigation-02/components/mobile-navigation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["mobile-navigation"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "mobile-navigation-03": {
       name: "mobile-navigation-03",
       title: "Mobile Navigation 03",
       description: "میانبرهای آیکونی در دراور پایین.",
       type: "registry:block",
-      registryDependencies: ["button", "drawer"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-03/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-03/components/mobile-navigation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","drawer"],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-03/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/mobile-navigation-03/components/mobile-navigation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["mobile-navigation"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "mobile-navigation-04": {
       name: "mobile-navigation-04",
       title: "Mobile Navigation 04",
       description: "منوی گروه‌بندی‌شده با بخش‌های جمع‌شونده.",
       type: "registry:block",
-      registryDependencies: ["button", "collapsible", "sheet"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-04/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-04/components/mobile-navigation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","collapsible","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-04/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/mobile-navigation-04/components/mobile-navigation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["mobile-navigation"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "mobile-navigation-05": {
       name: "mobile-navigation-05",
       title: "Mobile Navigation 05",
       description: "منوی کامل با پروفایل، جستجو، لینک و اکشن‌ها.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "input",
-        "separator",
-        "sheet",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-05/page.tsx",
-          type: "registry:page",
-          target: "app/mobile-navigation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/mobile-navigation-05/components/mobile-navigation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","input","separator","sheet"],
+      files: [{
+        path: "registry/bases/base/blocks/mobile-navigation-05/page.tsx",
+        type: "registry:page",
+        target: "app/mobile-navigation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/mobile-navigation-05/components/mobile-navigation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["mobile-navigation"],
-      meta: { iframeHeight: "760px" },
+      meta: {"iframeHeight":"760px"},
     },
     "breadcrumb-block-01": {
       name: "breadcrumb-block-01",
@@ -6897,20 +4391,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مسیر سادهٔ سه‌سطحی.",
       type: "registry:block",
       registryDependencies: ["breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-01/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-01/components/breadcrumb-block.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-01/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/breadcrumb-block-01/components/breadcrumb-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["breadcrumb-block"],
-      meta: { iframeHeight: "420px" },
+      meta: {"iframeHeight":"420px"},
     },
     "breadcrumb-block-02": {
       name: "breadcrumb-block-02",
@@ -6918,20 +4409,17 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مسیر بالای عنوان و توضیح صفحه.",
       type: "registry:block",
       registryDependencies: ["breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-02/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-02/components/breadcrumb-block.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-02/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/breadcrumb-block-02/components/breadcrumb-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["breadcrumb-block"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "breadcrumb-block-03": {
       name: "breadcrumb-block-03",
@@ -6939,67 +4427,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "مسیر با بخش میانی جمع‌شده (ellipsis).",
       type: "registry:block",
       registryDependencies: ["breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-03/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-03/components/breadcrumb-block.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-03/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/breadcrumb-block-03/components/breadcrumb-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["breadcrumb-block"],
-      meta: { iframeHeight: "420px" },
+      meta: {"iframeHeight":"420px"},
     },
     "breadcrumb-block-04": {
       name: "breadcrumb-block-04",
       title: "Breadcrumb 04",
       description: "مسیرهای میانی داخل منوی کشویی.",
       type: "registry:block",
-      registryDependencies: ["breadcrumb", "button", "dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-04/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-04/components/breadcrumb-block.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-04/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/breadcrumb-block-04/components/breadcrumb-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["breadcrumb-block"],
-      meta: { iframeHeight: "480px" },
+      meta: {"iframeHeight":"480px"},
     },
     "breadcrumb-block-05": {
       name: "breadcrumb-block-05",
       title: "Breadcrumb 05",
       description: "مسیر کامل با عنوان، اکشن‌ها و متادیتا.",
       type: "registry:block",
-      registryDependencies: [
-        "breadcrumb",
-        "button",
-        "dropdown-menu",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-05/page.tsx",
-          type: "registry:page",
-          target: "app/breadcrumb/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/breadcrumb-block-05/components/breadcrumb-block.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","button","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/breadcrumb-block-05/page.tsx",
+        type: "registry:page",
+        target: "app/breadcrumb/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/breadcrumb-block-05/components/breadcrumb-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["breadcrumb-block"],
-      meta: { iframeHeight: "680px" },
+      meta: {"iframeHeight":"680px"},
     },
     "blog-grid-01": {
       name: "blog-grid-01",
@@ -7007,118 +4481,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فهرست سادهٔ سه‌ستونه با عنوان و خلاصه.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-01/page.tsx",
-          type: "registry:page",
-          target: "app/blog/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/blog-grid-01/components/blog-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-01/page.tsx",
+        type: "registry:page",
+        target: "app/blog/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/blog-grid-01/components/blog-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["blog-grid"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "blog-grid-02": {
       name: "blog-grid-02",
       title: "Blog Grid 02",
       description: "کارت‌های مقاله با کاور رنگی و دسته.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-02/page.tsx",
-          type: "registry:page",
-          target: "app/blog/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/blog-grid-02/components/blog-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-02/page.tsx",
+        type: "registry:page",
+        target: "app/blog/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/blog-grid-02/components/blog-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["blog-grid"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "blog-grid-03": {
       name: "blog-grid-03",
       title: "Blog Grid 03",
       description: "مقالهٔ ویژه، فیلتر و فهرست کنار هم.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-03/page.tsx",
-          type: "registry:page",
-          target: "app/blog/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/blog-grid-03/components/blog-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-03/page.tsx",
+        type: "registry:page",
+        target: "app/blog/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/blog-grid-03/components/blog-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["blog-grid"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "blog-grid-04": {
       name: "blog-grid-04",
       title: "Blog Grid 04",
       description: "جستجو و دسته‌بندی با کارت نویسنده.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "input",
-        "select",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-04/page.tsx",
-          type: "registry:page",
-          target: "app/blog/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/blog-grid-04/components/blog-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-04/page.tsx",
+        type: "registry:page",
+        target: "app/blog/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/blog-grid-04/components/blog-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["blog-grid"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "blog-grid-05": {
       name: "blog-grid-05",
       title: "Blog Grid 05",
       description: "مجله کامل با ویژه، فیلتر، خبرنامه و صفحه‌بندی.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "dropdown-menu",
-        "input",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/blog-grid-05/page.tsx",
-          type: "registry:page",
-          target: "app/blog/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/blog-grid-05/components/blog-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/blog-grid-05/page.tsx",
+        type: "registry:page",
+        target: "app/blog/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/blog-grid-05/components/blog-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["blog-grid"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "faq-01": {
       name: "faq-01",
@@ -7126,113 +4571,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "آکاردئون سادهٔ مرکزی با چند پرسش.",
       type: "registry:block",
       registryDependencies: ["accordion"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/faq-01/page.tsx",
-          type: "registry:page",
-          target: "app/faq/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/faq-01/components/faq.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/faq-01/page.tsx",
+        type: "registry:page",
+        target: "app/faq/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/faq-01/components/faq.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["faq"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "faq-02": {
       name: "faq-02",
       title: "FAQ 02",
       description: "پرسش‌ها داخل کارت با بج و توضیح.",
       type: "registry:block",
-      registryDependencies: ["accordion", "badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/faq-02/page.tsx",
-          type: "registry:page",
-          target: "app/faq/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/faq-02/components/faq.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/faq-02/page.tsx",
+        type: "registry:page",
+        target: "app/faq/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/faq-02/components/faq.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["faq"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "faq-03": {
       name: "faq-03",
       title: "FAQ 03",
       description: "دو ستونه: معرفی و آکاردئون.",
       type: "registry:block",
-      registryDependencies: ["accordion", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/faq-03/page.tsx",
-          type: "registry:page",
-          target: "app/faq/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/faq-03/components/faq.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/faq-03/page.tsx",
+        type: "registry:page",
+        target: "app/faq/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/faq-03/components/faq.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["faq"],
-      meta: { iframeHeight: "780px" },
+      meta: {"iframeHeight":"780px"},
     },
     "faq-04": {
       name: "faq-04",
       title: "FAQ 04",
       description: "تب عمومی، صورتحساب و فنی با آکاردئون.",
       type: "registry:block",
-      registryDependencies: ["accordion", "button", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/faq-04/page.tsx",
-          type: "registry:page",
-          target: "app/faq/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/faq-04/components/faq.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/faq-04/page.tsx",
+        type: "registry:page",
+        target: "app/faq/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/faq-04/components/faq.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["faq"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "faq-05": {
       name: "faq-05",
       title: "FAQ 05",
       description: "جستجو، فیلتر، مرتب‌سازی و فرم ایمیل پشتیبانی.",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/faq-05/page.tsx",
-          type: "registry:page",
-          target: "app/faq/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/faq-05/components/faq.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/faq-05/page.tsx",
+        type: "registry:page",
+        target: "app/faq/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/faq-05/components/faq.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["faq"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "team-01": {
       name: "team-01",
@@ -7240,113 +4661,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فهرست متنی سادهٔ اعضای تیم.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/team-01/page.tsx",
-          type: "registry:page",
-          target: "app/team/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/team-01/components/team.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/team-01/page.tsx",
+        type: "registry:page",
+        target: "app/team/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/team-01/components/team.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["team"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "team-02": {
       name: "team-02",
       title: "Team 02",
       description: "کارت عضو با آواتار، نقش و واحد.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/team-02/page.tsx",
-          type: "registry:page",
-          target: "app/team/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/team-02/components/team.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/team-02/page.tsx",
+        type: "registry:page",
+        target: "app/team/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/team-02/components/team.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["team"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "team-03": {
       name: "team-03",
       title: "Team 03",
       description: "عضو ویژه کنار فهرست کوتاه تیم.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/team-03/page.tsx",
-          type: "registry:page",
-          target: "app/team/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/team-03/components/team.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/team-03/page.tsx",
+        type: "registry:page",
+        target: "app/team/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/team-03/components/team.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["team"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "team-04": {
       name: "team-04",
       title: "Team 04",
       description: "فیلتر واحد با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "card", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/team-04/page.tsx",
-          type: "registry:page",
-          target: "app/team/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/team-04/components/team.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","select"],
+      files: [{
+        path: "registry/bases/base/blocks/team-04/page.tsx",
+        type: "registry:page",
+        target: "app/team/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/team-04/components/team.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["team"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "team-05": {
       name: "team-05",
       title: "Team 05",
       description: "جستجو، فیلتر، مرتب‌سازی و فرم پیوستن.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/team-05/page.tsx",
-          type: "registry:page",
-          target: "app/team/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/team-05/components/team.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/team-05/page.tsx",
+        type: "registry:page",
+        target: "app/team/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/team-05/components/team.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["team"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "contact-01": {
       name: "contact-01",
@@ -7354,125 +4751,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "اطلاعات تماس ساده: ایمیل، تلفن و آدرس.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-01/page.tsx",
-          type: "registry:page",
-          target: "app/contact/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-01/components/contact.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/contact-01/page.tsx",
+        type: "registry:page",
+        target: "app/contact/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-01/components/contact.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "contact-02": {
       name: "contact-02",
       title: "Contact 02",
       description: "فرم پیام داخل کارت با ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-02/page.tsx",
-          type: "registry:page",
-          target: "app/contact/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-02/components/contact.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-02/page.tsx",
+        type: "registry:page",
+        target: "app/contact/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-02/components/contact.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "contact-03": {
       name: "contact-03",
       title: "Contact 03",
       description: "دو ستونه: اطلاعات دفتر و فرم پیام.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-03/page.tsx",
-          type: "registry:page",
-          target: "app/contact/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-03/components/contact.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-03/page.tsx",
+        type: "registry:page",
+        target: "app/contact/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-03/components/contact.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "contact-04": {
       name: "contact-04",
       title: "Contact 04",
       description: "فرم با Select موضوع راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-04/page.tsx",
-          type: "registry:page",
-          target: "app/contact/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-04/components/contact.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-04/page.tsx",
+        type: "registry:page",
+        target: "app/contact/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-04/components/contact.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "contact-05": {
       name: "contact-05",
       title: "Contact 05",
       description: "مرکز تماس با تب، Select، DropdownMenu و سوئیچ تماس.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-        "tabs",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/contact-05/page.tsx",
-          type: "registry:page",
-          target: "app/contact/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/contact-05/components/contact.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","label","select","separator","switch","tabs","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/contact-05/page.tsx",
+        type: "registry:page",
+        target: "app/contact/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/contact-05/components/contact.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["contact"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "steps-01": {
       name: "steps-01",
@@ -7480,113 +4841,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "فهرست شماره‌دار سادهٔ مراحل.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/steps-01/page.tsx",
-          type: "registry:page",
-          target: "app/steps/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/steps-01/components/steps.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/steps-01/page.tsx",
+        type: "registry:page",
+        target: "app/steps/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/steps-01/components/steps.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["steps"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "steps-02": {
       name: "steps-02",
       title: "Steps 02",
       description: "کارت‌های مرحله با شماره و بج.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/steps-02/page.tsx",
-          type: "registry:page",
-          target: "app/steps/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/steps-02/components/steps.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/steps-02/page.tsx",
+        type: "registry:page",
+        target: "app/steps/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/steps-02/components/steps.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["steps"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "steps-03": {
       name: "steps-03",
       title: "Steps 03",
       description: "زمان‌بندی عمودی با وضعیت انجام.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/steps-03/page.tsx",
-          type: "registry:page",
-          target: "app/steps/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/steps-03/components/steps.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/steps-03/page.tsx",
+        type: "registry:page",
+        target: "app/steps/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/steps-03/components/steps.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["steps"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "steps-04": {
       name: "steps-04",
       title: "Steps 04",
       description: "مراحل تعاملی با Select نوع فرآیند.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/steps-04/page.tsx",
-          type: "registry:page",
-          target: "app/steps/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/steps-04/components/steps.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","select"],
+      files: [{
+        path: "registry/bases/base/blocks/steps-04/page.tsx",
+        type: "registry:page",
+        target: "app/steps/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/steps-04/components/steps.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["steps"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "steps-05": {
       name: "steps-05",
       title: "Steps 05",
       description: "ویزارد کامل با فرم، Select و DropdownMenu.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/steps-05/page.tsx",
-          type: "registry:page",
-          target: "app/steps/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/steps-05/components/steps.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/steps-05/page.tsx",
+        type: "registry:page",
+        target: "app/steps/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/steps-05/components/steps.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["steps"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "comparison-01": {
       name: "comparison-01",
@@ -7594,41 +4931,35 @@ export const Index: Record<string, Record<string, any>> = {
       description: "جدول قبل/بعد بدون قیمت پلن.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/comparison-01/page.tsx",
-          type: "registry:page",
-          target: "app/comparison/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/comparison-01/components/comparison.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/comparison-01/page.tsx",
+        type: "registry:page",
+        target: "app/comparison/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comparison-01/components/comparison.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["comparison"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "comparison-02": {
       name: "comparison-02",
       title: "Comparison 02",
       description: "دو کارت مسیر: ساخت دستی در برابر FarsiUI.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/comparison-02/page.tsx",
-          type: "registry:page",
-          target: "app/comparison/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/comparison-02/components/comparison.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/comparison-02/page.tsx",
+        type: "registry:page",
+        target: "app/comparison/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comparison-02/components/comparison.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["comparison"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "comparison-03": {
       name: "comparison-03",
@@ -7636,88 +4967,69 @@ export const Index: Record<string, Record<string, any>> = {
       description: "ماتریس قابلیت ابزارهای UI فارسی.",
       type: "registry:block",
       registryDependencies: ["badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/comparison-03/page.tsx",
-          type: "registry:page",
-          target: "app/comparison/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/comparison-03/components/comparison.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/comparison-03/page.tsx",
+        type: "registry:page",
+        target: "app/comparison/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comparison-03/components/comparison.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["comparison"],
-      meta: { iframeHeight: "780px" },
+      meta: {"iframeHeight":"780px"},
     },
     "comparison-04": {
       name: "comparison-04",
       title: "Comparison 04",
       description: "انتخاب دو گزینه با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["button", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/comparison-04/page.tsx",
-          type: "registry:page",
-          target: "app/comparison/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/comparison-04/components/comparison.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","select"],
+      files: [{
+        path: "registry/bases/base/blocks/comparison-04/page.tsx",
+        type: "registry:page",
+        target: "app/comparison/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comparison-04/components/comparison.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["comparison"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "comparison-05": {
       name: "comparison-05",
       title: "Comparison 05",
       description: "جدول قابل جستجو، مرتب‌سازی و ارسال ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/comparison-05/page.tsx",
-          type: "registry:page",
-          target: "app/comparison/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/comparison-05/components/comparison.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/comparison-05/page.tsx",
+        type: "registry:page",
+        target: "app/comparison/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comparison-05/components/comparison.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["comparison"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "personal-info-01": {
       name: "personal-info-01",
       title: "Personal Info 01",
       description: "فرم اطلاعات شخصی ساده داخل کارت.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/personal-info-01/page.tsx",
-          type: "registry:page",
-          target: "app/personal-info/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/personal-info-01/components/personal-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-01/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-01/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["personal-info"],
       meta: undefined,
     },
@@ -7726,19 +5038,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Personal Info 02",
       description: "فرم پروفایل مرکزی با نام، تماس و بیو.",
       type: "registry:block",
-      registryDependencies: ["button", "field", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/personal-info-02/page.tsx",
-          type: "registry:page",
-          target: "app/personal-info/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/personal-info-02/components/personal-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-02/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-02/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["personal-info"],
       meta: undefined,
     },
@@ -7747,26 +5056,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Personal Info 03",
       description: "فرم اطلاعات شخصی همراه با آدرس و استان.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/personal-info-03/page.tsx",
-          type: "registry:page",
-          target: "app/personal-info/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/personal-info-03/components/personal-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-03/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-03/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["personal-info"],
       meta: undefined,
     },
@@ -7775,19 +5074,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Personal Info 04",
       description: "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/personal-info-04/page.tsx",
-          type: "registry:page",
-          target: "app/personal-info/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/personal-info-04/components/personal-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-04/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-04/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["personal-info"],
       meta: undefined,
     },
@@ -7796,29 +5092,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Personal Info 05",
       description: "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/personal-info-05/page.tsx",
-          type: "registry:page",
-          target: "app/personal-info/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/personal-info-05/components/personal-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","label","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-05/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-05/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["personal-info"],
       meta: undefined,
     },
@@ -7827,24 +5110,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 01",
       description: "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-01/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-01/components/identity-info-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-01/components/national-id-input.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-01/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-01/components/identity-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-01/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7853,19 +5132,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 02",
       description: "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-02/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-02/components/national-card-upload.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-02/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-02/components/national-card-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7874,19 +5150,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 03",
       description: "بررسی هویت با ثبت‌احوال، OTP و نتیجه تأیید.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "input-otp"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-03/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-03/components/identity-civil-check.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","input-otp"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-03/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-03/components/identity-civil-check.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7895,24 +5168,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 04",
       description: "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "field", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-04/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-04/components/multi-step-identity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-04/components/national-id-input.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-04/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-04/components/multi-step-identity.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-04/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7921,24 +5190,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 05",
       description: "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-05/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-05/components/identity-review.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-05/components/national-id-input.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-05/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-05/components/identity-review.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-05/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7947,19 +5212,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 06",
       description: "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
       type: "registry:block",
-      registryDependencies: ["alert", "badge", "button", "card", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-06/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-06/components/identity-status-gallery.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert","badge","button","card","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-06/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-06/components/identity-status-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7968,19 +5230,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Verification 07",
       description: "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/identity-verification-07/page.tsx",
-          type: "registry:page",
-          target: "app/identity-verification/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/identity-verification-07/components/account-identity-dashboard.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-07/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-07/components/account-identity-dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["identity-verification"],
       meta: undefined,
     },
@@ -7989,178 +5248,126 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dashboard 01",
       description: "داشبورد کامل با سایدبار راست، نمودار و جدول فارسی.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "chart",
-        "card",
-        "select",
-        "tabs",
-        "table",
-        "toggle-group",
-        "badge",
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "drawer",
-        "input",
-        "avatar",
-        "sheet",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/data.json",
-          type: "registry:file",
-          target: "app/dashboard/data.json",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/chart-area-interactive.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/nav-documents.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/section-cards.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-01/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","chart","card","select","tabs","table","toggle-group","badge","button","checkbox","dropdown-menu","drawer","input","avatar","sheet","sonner"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/data.json",
+        type: "registry:file",
+        target: "app/dashboard/data.json"
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/chart-area-interactive.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/nav-documents.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/section-cards.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/dashboard-01/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "dashboard-02": {
       name: "dashboard-02",
       title: "Dashboard 02",
       description: "سه کارت شاخص ساده بدون سایدبار.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-02/components/dashboard.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-02/components/dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "dashboard-03": {
       name: "dashboard-03",
       title: "Dashboard 03",
       description: "شاخص‌ها به‌همراه فهرست فعالیت اخیر.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-03/components/dashboard.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-03/components/dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "780px" },
+      meta: {"iframeHeight":"780px"},
     },
     "dashboard-04": {
       name: "dashboard-04",
       title: "Dashboard 04",
       description: "نمودار فروش با Select بازهٔ زمانی راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-04/components/dashboard.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","select"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-04/components/dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "780px" },
+      meta: {"iframeHeight":"780px"},
     },
     "dashboard-05": {
       name: "dashboard-05",
       title: "Dashboard 05",
       description: "میز کار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-05/components/dashboard.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-05/components/dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "dashboard-stats-01": {
       name: "dashboard-stats-01",
@@ -8168,462 +5375,359 @@ export const Index: Record<string, Record<string, any>> = {
       description: "چهار کارت شاخص عملیاتی ساده.",
       type: "registry:block",
       registryDependencies: ["card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-01/components/dashboard-stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-stats-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-stats-01/components/dashboard-stats.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-stats"],
-      meta: { iframeHeight: "560px" },
+      meta: {"iframeHeight":"560px"},
     },
     "dashboard-stats-02": {
       name: "dashboard-stats-02",
       title: "Dashboard Stats 02",
       description: "کارت شاخص با اسپارک‌لاین و درصد تغییر.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-02/components/dashboard-stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-stats-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-stats-02/components/dashboard-stats.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-stats"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "dashboard-stats-03": {
       name: "dashboard-stats-03",
       title: "Dashboard Stats 03",
       description: "KPI زنده کنار اهداف با Progress.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "progress"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-03/components/dashboard-stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","progress"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-stats-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-stats-03/components/dashboard-stats.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-stats"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "dashboard-stats-04": {
       name: "dashboard-stats-04",
       title: "Dashboard Stats 04",
       description: "درآمد کانال‌ها با Select بازه راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "card", "select", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-04/components/dashboard-stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-stats-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-stats-04/components/dashboard-stats.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-stats"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "dashboard-stats-05": {
       name: "dashboard-stats-05",
       title: "Dashboard Stats 05",
       description: "مرکز آمار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "progress",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-stats/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-stats-05/components/dashboard-stats.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","progress","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-stats-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-stats-05/components/dashboard-stats.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-stats"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "analytics-01": {
       name: "analytics-01",
       title: "Analytics 01",
       description: "نمودار میله‌ای بازدید هفتگی.",
       type: "registry:block",
-      registryDependencies: ["card", "chart"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/analytics-01/page.tsx",
-          type: "registry:page",
-          target: "app/analytics/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/analytics-01/components/analytics.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["card","chart"],
+      files: [{
+        path: "registry/bases/base/blocks/analytics-01/page.tsx",
+        type: "registry:page",
+        target: "app/analytics/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/analytics-01/components/analytics.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["analytics"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "analytics-02": {
       name: "analytics-02",
       title: "Analytics 02",
       description: "نمودار ناحیه‌ای ارگانیک در برابر تبلیغات.",
       type: "registry:block",
-      registryDependencies: ["card", "chart"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/analytics-02/page.tsx",
-          type: "registry:page",
-          target: "app/analytics/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/analytics-02/components/analytics.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["card","chart"],
+      files: [{
+        path: "registry/bases/base/blocks/analytics-02/page.tsx",
+        type: "registry:page",
+        target: "app/analytics/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/analytics-02/components/analytics.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["analytics"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "analytics-03": {
       name: "analytics-03",
       title: "Analytics 03",
       description: "قیف تبدیل از بازدید تا پرداخت.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/analytics-03/page.tsx",
-          type: "registry:page",
-          target: "app/analytics/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/analytics-03/components/analytics.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/analytics-03/page.tsx",
+        type: "registry:page",
+        target: "app/analytics/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/analytics-03/components/analytics.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["analytics"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "analytics-04": {
       name: "analytics-04",
       title: "Analytics 04",
       description: "نمودار دایره‌ای منابع ترافیک با Select.",
       type: "registry:block",
-      registryDependencies: ["badge", "card", "chart", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/analytics-04/page.tsx",
-          type: "registry:page",
-          target: "app/analytics/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/analytics-04/components/analytics.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card","chart","select"],
+      files: [{
+        path: "registry/bases/base/blocks/analytics-04/page.tsx",
+        type: "registry:page",
+        target: "app/analytics/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/analytics-04/components/analytics.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["analytics"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "analytics-05": {
       name: "analytics-05",
       title: "Analytics 05",
       description: "کاوش صفحه با نمودار، جدول، فیلتر و ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "chart",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/analytics-05/page.tsx",
-          type: "registry:page",
-          target: "app/analytics/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/analytics-05/components/analytics.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","chart","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/analytics-05/page.tsx",
+        type: "registry:page",
+        target: "app/analytics/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/analytics-05/components/analytics.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["analytics"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "data-table-block-01": {
       name: "data-table-block-01",
       title: "Data Table 01",
       description: "جدول سادهٔ کاربران با وضعیت و تاریخ.",
       type: "registry:block",
-      registryDependencies: ["badge", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/data-table-block-01/page.tsx",
-          type: "registry:page",
-          target: "app/data-table-block/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/data-table-block-01/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","table"],
+      files: [{
+        path: "registry/bases/base/blocks/data-table-block-01/page.tsx",
+        type: "registry:page",
+        target: "app/data-table-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/data-table-block-01/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["data-table-block"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "data-table-block-02": {
       name: "data-table-block-02",
       title: "Data Table 02",
       description: "جدول با آواتار، نقش و ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/data-table-block-02/page.tsx",
-          type: "registry:page",
-          target: "app/data-table-block/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/data-table-block-02/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","table"],
+      files: [{
+        path: "registry/bases/base/blocks/data-table-block-02/page.tsx",
+        type: "registry:page",
+        target: "app/data-table-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/data-table-block-02/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["data-table-block"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "data-table-block-03": {
       name: "data-table-block-03",
       title: "Data Table 03",
       description: "جستجو و فیلتر وضعیت با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "input", "select", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/data-table-block-03/page.tsx",
-          type: "registry:page",
-          target: "app/data-table-block/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/data-table-block-03/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","input","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/data-table-block-03/page.tsx",
+        type: "registry:page",
+        target: "app/data-table-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/data-table-block-03/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["data-table-block"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "data-table-block-04": {
       name: "data-table-block-04",
       title: "Data Table 04",
       description: "سفارش‌ها با صفحه‌بندی و نمایش ستون‌ها.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "select",
-        "table",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/data-table-block-04/page.tsx",
-          type: "registry:page",
-          target: "app/data-table-block/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/data-table-block-04/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/data-table-block-04/page.tsx",
+        type: "registry:page",
+        target: "app/data-table-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/data-table-block-04/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["data-table-block"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "data-table-block-05": {
       name: "data-table-block-05",
       title: "Data Table 05",
       description: "جدول کامل با انتخاب، منوی عملیات و دعوت ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-        "table",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/data-table-block-05/page.tsx",
-          type: "registry:page",
-          target: "app/data-table-block/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/data-table-block-05/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","checkbox","dropdown-menu","input","select","separator","table"],
+      files: [{
+        path: "registry/bases/base/blocks/data-table-block-05/page.tsx",
+        type: "registry:page",
+        target: "app/data-table-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/data-table-block-05/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["data-table-block"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "activity-01": {
       name: "activity-01",
       title: "Activity 01",
       description: "فید سادهٔ فعالیت‌های اخیر.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/activity-01/page.tsx",
-          type: "registry:page",
-          target: "app/activity/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/activity-01/components/activity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge"],
+      files: [{
+        path: "registry/bases/base/blocks/activity-01/page.tsx",
+        type: "registry:page",
+        target: "app/activity/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/activity-01/components/activity.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["activity"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "activity-02": {
       name: "activity-02",
       title: "Activity 02",
       description: "خط زمانی تیم با ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/activity-02/page.tsx",
-          type: "registry:page",
-          target: "app/activity/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/activity-02/components/activity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge"],
+      files: [{
+        path: "registry/bases/base/blocks/activity-02/page.tsx",
+        type: "registry:page",
+        target: "app/activity/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/activity-02/components/activity.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["activity"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "activity-03": {
       name: "activity-03",
       title: "Activity 03",
       description: "جستجو و فیلتر نوع با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "input", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/activity-03/page.tsx",
-          type: "registry:page",
-          target: "app/activity/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/activity-03/components/activity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/activity-03/page.tsx",
+        type: "registry:page",
+        target: "app/activity/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/activity-03/components/activity.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["activity"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "activity-04": {
       name: "activity-04",
       title: "Activity 04",
       description: "فعالیت‌های گروه‌بندی‌شده با منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/activity-04/page.tsx",
-          type: "registry:page",
-          target: "app/activity/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/activity-04/components/activity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/activity-04/page.tsx",
+        type: "registry:page",
+        target: "app/activity/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/activity-04/components/activity.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["activity"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "activity-05": {
       name: "activity-05",
       title: "Activity 05",
       description: "مرکز فعالیت با فیلتر، مرتب‌سازی و خلاصه ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/activity-05/page.tsx",
-          type: "registry:page",
-          target: "app/activity/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/activity-05/components/activity.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/activity-05/page.tsx",
+        type: "registry:page",
+        target: "app/activity/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/activity-05/components/activity.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["activity"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "recent-items-01": {
       name: "recent-items-01",
@@ -8631,383 +5735,269 @@ export const Index: Record<string, Record<string, any>> = {
       description: "لیست سادهٔ موارد اخیراً بازشده.",
       type: "registry:block",
       registryDependencies: ["badge"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/recent-items-01/page.tsx",
-          type: "registry:page",
-          target: "app/recent-items/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/recent-items-01/components/recent-items.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/recent-items-01/page.tsx",
+        type: "registry:page",
+        target: "app/recent-items/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/recent-items-01/components/recent-items.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["recent-items"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "recent-items-02": {
       name: "recent-items-02",
       title: "Recent Items 02",
       description: "کارت‌ها با مسیر چپ‌چین و ایمیل مالک.",
       type: "registry:block",
-      registryDependencies: ["badge", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/recent-items-02/page.tsx",
-          type: "registry:page",
-          target: "app/recent-items/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/recent-items-02/components/recent-items.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","card"],
+      files: [{
+        path: "registry/bases/base/blocks/recent-items-02/page.tsx",
+        type: "registry:page",
+        target: "app/recent-items/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/recent-items-02/components/recent-items.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["recent-items"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "recent-items-03": {
       name: "recent-items-03",
       title: "Recent Items 03",
       description: "جستجو و فیلتر نوع با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "input", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/recent-items-03/page.tsx",
-          type: "registry:page",
-          target: "app/recent-items/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/recent-items-03/components/recent-items.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/recent-items-03/page.tsx",
+        type: "registry:page",
+        target: "app/recent-items/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/recent-items-03/components/recent-items.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["recent-items"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "recent-items-04": {
       name: "recent-items-04",
       title: "Recent Items 04",
       description: "سنجاق و منوی عملیات راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/recent-items-04/page.tsx",
-          type: "registry:page",
-          target: "app/recent-items/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/recent-items-04/components/recent-items.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/recent-items-04/page.tsx",
+        type: "registry:page",
+        target: "app/recent-items/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/recent-items-04/components/recent-items.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["recent-items"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "recent-items-05": {
       name: "recent-items-05",
       title: "Recent Items 05",
       description: "مرکز موارد اخیر با فیلتر، سنجاق و اشتراک ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/recent-items-05/page.tsx",
-          type: "registry:page",
-          target: "app/recent-items/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/recent-items-05/components/recent-items.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/recent-items-05/page.tsx",
+        type: "registry:page",
+        target: "app/recent-items/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/recent-items-05/components/recent-items.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["recent-items"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "dashboard-settings-01": {
       name: "dashboard-settings-01",
       title: "Dashboard Settings 01",
       description: "سوئیچ‌های سادهٔ اعلان ایمیل، پیامک و مرورگر.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "label", "separator", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-01/components/dashboard-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-settings-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-settings-01/components/dashboard-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-settings"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "dashboard-settings-02": {
       name: "dashboard-settings-02",
       title: "Dashboard Settings 02",
       description: "تب‌های حساب، امنیت و اعلان با ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-02/components/dashboard-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-settings-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-settings-02/components/dashboard-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-settings"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "dashboard-settings-03": {
       name: "dashboard-settings-03",
       title: "Dashboard Settings 03",
       description: "ظاهر و زبان با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-03/components/dashboard-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-settings-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-settings-03/components/dashboard-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-settings"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "dashboard-settings-04": {
       name: "dashboard-settings-04",
       title: "Dashboard Settings 04",
       description: "فضای کاری، نقش اعضا و دعوت با منوی RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-04/components/dashboard-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-settings-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-settings-04/components/dashboard-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-settings"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "dashboard-settings-05": {
       name: "dashboard-settings-05",
       title: "Dashboard Settings 05",
       description: "کنسول پیشرفته با API، وب‌هوک و ناوبری کناری.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "checkbox",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/dashboard-settings-05/components/dashboard-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","checkbox","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/dashboard-settings-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/dashboard-settings-05/components/dashboard-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard-settings"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "user-management-01": {
       name: "user-management-01",
       title: "User Management 01",
       description: "جدول سادهٔ کاربران با وضعیت و تاریخ عضویت.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/user-management-01/page.tsx",
-          type: "registry:page",
-          target: "app/user-management/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/user-management-01/components/user-management.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","table"],
+      files: [{
+        path: "registry/bases/base/blocks/user-management-01/page.tsx",
+        type: "registry:page",
+        target: "app/user-management/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/user-management-01/components/user-management.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["user-management"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "user-management-02": {
       name: "user-management-02",
       title: "User Management 02",
       description: "جدول با آواتار، نقش و ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/user-management-02/page.tsx",
-          type: "registry:page",
-          target: "app/user-management/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/user-management-02/components/user-management.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","table"],
+      files: [{
+        path: "registry/bases/base/blocks/user-management-02/page.tsx",
+        type: "registry:page",
+        target: "app/user-management/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/user-management-02/components/user-management.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["user-management"],
-      meta: { iframeHeight: "700px" },
+      meta: {"iframeHeight":"700px"},
     },
     "user-management-03": {
       name: "user-management-03",
       title: "User Management 03",
       description: "جستجو و فیلتر وضعیت و نقش با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "input", "select", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/user-management-03/page.tsx",
-          type: "registry:page",
-          target: "app/user-management/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/user-management-03/components/user-management.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","input","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/user-management-03/page.tsx",
+        type: "registry:page",
+        target: "app/user-management/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/user-management-03/components/user-management.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["user-management"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "user-management-04": {
       name: "user-management-04",
       title: "User Management 04",
       description: "انتخاب گروهی، تغییر نقش و منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "select",
-        "table",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/user-management-04/page.tsx",
-          type: "registry:page",
-          target: "app/user-management/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/user-management-04/components/user-management.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","checkbox","dropdown-menu","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/user-management-04/page.tsx",
+        type: "registry:page",
+        target: "app/user-management/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/user-management-04/components/user-management.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["user-management"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "user-management-05": {
       name: "user-management-05",
       title: "User Management 05",
       description: "مرکز کامل با آمار، فیلتر، صفحه‌بندی و دعوت.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-        "table",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/user-management-05/page.tsx",
-          type: "registry:page",
-          target: "app/user-management/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/user-management-05/components/user-management.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","checkbox","dropdown-menu","input","select","separator","table"],
+      files: [{
+        path: "registry/bases/base/blocks/user-management-05/page.tsx",
+        type: "registry:page",
+        target: "app/user-management/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/user-management-05/components/user-management.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["user-management"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "product-grid-01": {
       name: "product-grid-01",
@@ -9015,112 +6005,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "شبکهٔ سادهٔ محصولات با تصویر و قیمت.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-grid-01/page.tsx",
-          type: "registry:page",
-          target: "app/product-grid/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-grid-01/components/product-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/product-grid-01/page.tsx",
+        type: "registry:page",
+        target: "app/product-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-grid-01/components/product-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-grid"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "product-grid-02": {
       name: "product-grid-02",
       title: "Product Grid 02",
       description: "کارت محصول با نشان، امتیاز و افزودن به سبد.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-grid-02/page.tsx",
-          type: "registry:page",
-          target: "app/product-grid/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-grid-02/components/product-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/product-grid-02/page.tsx",
+        type: "registry:page",
+        target: "app/product-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-grid-02/components/product-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-grid"],
-      meta: { iframeHeight: "960px" },
+      meta: {"iframeHeight":"960px"},
     },
     "product-grid-03": {
       name: "product-grid-03",
       title: "Product Grid 03",
       description: "جستجو و فیلتر دسته با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "input", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-grid-03/page.tsx",
-          type: "registry:page",
-          target: "app/product-grid/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-grid-03/components/product-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/product-grid-03/page.tsx",
+        type: "registry:page",
+        target: "app/product-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-grid-03/components/product-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-grid"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "product-grid-04": {
       name: "product-grid-04",
       title: "Product Grid 04",
       description: "مرتب‌سازی، علاقه‌مندی و منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-grid-04/page.tsx",
-          type: "registry:page",
-          target: "app/product-grid/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-grid-04/components/product-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/product-grid-04/page.tsx",
+        type: "registry:page",
+        target: "app/product-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-grid-04/components/product-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-grid"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "product-grid-05": {
       name: "product-grid-05",
       title: "Product Grid 05",
       description: "فروشگاه کامل با فیلتر، نمایش شبکه/لیست و خبرنامه.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-grid-05/page.tsx",
-          type: "registry:page",
-          target: "app/product-grid/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-grid-05/components/product-grid.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/product-grid-05/page.tsx",
+        type: "registry:page",
+        target: "app/product-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-grid-05/components/product-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-grid"],
-      meta: { iframeHeight: "1500px" },
+      meta: {"iframeHeight":"1500px"},
     },
     "product-details-01": {
       name: "product-details-01",
@@ -9128,389 +6095,269 @@ export const Index: Record<string, Record<string, any>> = {
       description: "صفحهٔ ساده: تصویر، قیمت و افزودن به سبد.",
       type: "registry:block",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-details-01/page.tsx",
-          type: "registry:page",
-          target: "app/product-details/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-details-01/components/product-details.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/product-details-01/page.tsx",
+        type: "registry:page",
+        target: "app/product-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-details-01/components/product-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-details"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "product-details-02": {
       name: "product-details-02",
       title: "Product Details 02",
       description: "گالری تصاویر و انتخاب سایز با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-details-02/page.tsx",
-          type: "registry:page",
-          target: "app/product-details/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-details-02/components/product-details.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","select"],
+      files: [{
+        path: "registry/bases/base/blocks/product-details-02/page.tsx",
+        type: "registry:page",
+        target: "app/product-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-details-02/components/product-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-details"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "product-details-03": {
       name: "product-details-03",
       title: "Product Details 03",
       description: "رنگ، اندازه، تعداد و امتیاز محصول.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "label", "select", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-details-03/page.tsx",
-          type: "registry:page",
-          target: "app/product-details/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-details-03/components/product-details.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","label","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/product-details-03/page.tsx",
+        type: "registry:page",
+        target: "app/product-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-details-03/components/product-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-details"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "product-details-04": {
       name: "product-details-04",
       title: "Product Details 04",
       description: "تب توضیحات/مشخصات/نظرات و منوی اشتراک RTL.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "dropdown-menu", "tabs"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-details-04/page.tsx",
-          type: "registry:page",
-          target: "app/product-details/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-details-04/components/product-details.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/product-details-04/page.tsx",
+        type: "registry:page",
+        target: "app/product-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-details-04/components/product-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-details"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "product-details-05": {
       name: "product-details-05",
       title: "Product Details 05",
       description: "صفحهٔ کامل: گالری، واریانت، FAQ، مرتبط و اطلاع ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "label",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/product-details-05/page.tsx",
-          type: "registry:page",
-          target: "app/product-details/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/product-details-05/components/product-details.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","button","card","dropdown-menu","input","label","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/product-details-05/page.tsx",
+        type: "registry:page",
+        target: "app/product-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/product-details-05/components/product-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["product-details"],
-      meta: { iframeHeight: "1800px" },
+      meta: {"iframeHeight":"1800px"},
     },
     "shopping-cart-01": {
       name: "shopping-cart-01",
       title: "Shopping Cart 01",
       description: "لیست سادهٔ سبد با تصویر و جمع کل.",
       type: "registry:block",
-      registryDependencies: ["button", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/shopping-cart-01/page.tsx",
-          type: "registry:page",
-          target: "app/shopping-cart/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/shopping-cart-01/components/shopping-cart.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/shopping-cart-01/page.tsx",
+        type: "registry:page",
+        target: "app/shopping-cart/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/shopping-cart-01/components/shopping-cart.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["shopping-cart"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "shopping-cart-02": {
       name: "shopping-cart-02",
       title: "Shopping Cart 02",
       description: "تغییر تعداد، حذف آیتم و خلاصه سفارش.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/shopping-cart-02/page.tsx",
-          type: "registry:page",
-          target: "app/shopping-cart/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/shopping-cart-02/components/shopping-cart.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/shopping-cart-02/page.tsx",
+        type: "registry:page",
+        target: "app/shopping-cart/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/shopping-cart-02/components/shopping-cart.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["shopping-cart"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "shopping-cart-03": {
       name: "shopping-cart-03",
       title: "Shopping Cart 03",
       description: "کد تخفیف فارسی و Select روش ارسال راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "input",
-        "label",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/shopping-cart-03/page.tsx",
-          type: "registry:page",
-          target: "app/shopping-cart/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/shopping-cart-03/components/shopping-cart.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","input","label","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/shopping-cart-03/page.tsx",
+        type: "registry:page",
+        target: "app/shopping-cart/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/shopping-cart-03/components/shopping-cart.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["shopping-cart"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "shopping-cart-04": {
       name: "shopping-cart-04",
       title: "Shopping Cart 04",
       description: "منوی عملیات RTL، ذخیره برای بعد و بسته‌بندی هدیه.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "label",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/shopping-cart-04/page.tsx",
-          type: "registry:page",
-          target: "app/shopping-cart/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/shopping-cart-04/components/shopping-cart.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/shopping-cart-04/page.tsx",
+        type: "registry:page",
+        target: "app/shopping-cart/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/shopping-cart-04/components/shopping-cart.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["shopping-cart"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "shopping-cart-05": {
       name: "shopping-cart-05",
       title: "Shopping Cart 05",
       description: "سبد کامل با پیشنهاد، تخفیف، ارسال و رسید ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/shopping-cart-05/page.tsx",
-          type: "registry:page",
-          target: "app/shopping-cart/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/shopping-cart-05/components/shopping-cart.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/shopping-cart-05/page.tsx",
+        type: "registry:page",
+        target: "app/shopping-cart/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/shopping-cart-05/components/shopping-cart.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["shopping-cart"],
-      meta: { iframeHeight: "1500px" },
+      meta: {"iframeHeight":"1500px"},
     },
     "checkout-01": {
       name: "checkout-01",
       title: "Checkout 01",
       description: "فرم سادهٔ تسویه با ایمیل چپ‌چین.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "field", "input", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/checkout-01/page.tsx",
-          type: "registry:page",
-          target: "app/checkout/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/checkout-01/components/checkout.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/checkout-01/page.tsx",
+        type: "registry:page",
+        target: "app/checkout/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/checkout-01/components/checkout.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["checkout"],
-      meta: { iframeHeight: "780px" },
+      meta: {"iframeHeight":"780px"},
     },
     "checkout-02": {
       name: "checkout-02",
       title: "Checkout 02",
       description: "ارسال دو ستونه با Select استان و روش پرداخت.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "radio-group",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/checkout-02/page.tsx",
-          type: "registry:page",
-          target: "app/checkout/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/checkout-02/components/checkout.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","radio-group","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/checkout-02/page.tsx",
+        type: "registry:page",
+        target: "app/checkout/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/checkout-02/components/checkout.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["checkout"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "checkout-03": {
       name: "checkout-03",
       title: "Checkout 03",
       description: "تسویه چندمرحله‌ای تماس، ارسال و پرداخت.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "radio-group",
-        "select",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/checkout-03/page.tsx",
-          type: "registry:page",
-          target: "app/checkout/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/checkout-03/components/checkout.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input","label","radio-group","select"],
+      files: [{
+        path: "registry/bases/base/blocks/checkout-03/page.tsx",
+        type: "registry:page",
+        target: "app/checkout/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/checkout-03/components/checkout.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["checkout"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "checkout-04": {
       name: "checkout-04",
       title: "Checkout 04",
       description: "دفترچه آدرس Dropdown RTL و فیلد کارت LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/checkout-04/page.tsx",
-          type: "registry:page",
-          target: "app/checkout/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/checkout-04/components/checkout.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/checkout-04/page.tsx",
+        type: "registry:page",
+        target: "app/checkout/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/checkout-04/components/checkout.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["checkout"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "checkout-05": {
       name: "checkout-05",
       title: "Checkout 05",
       description: "تسویه کامل با تصویر کالا، تخفیف و گزینه‌های ارسال.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "checkbox",
-        "field",
-        "input",
-        "label",
-        "radio-group",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/checkout-05/page.tsx",
-          type: "registry:page",
-          target: "app/checkout/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/checkout-05/components/checkout.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","checkbox","field","input","label","radio-group","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/checkout-05/page.tsx",
+        type: "registry:page",
+        target: "app/checkout/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/checkout-05/components/checkout.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["checkout"],
-      meta: { iframeHeight: "1600px" },
+      meta: {"iframeHeight":"1600px"},
     },
     "order-summary-01": {
       name: "order-summary-01",
@@ -9518,239 +6365,179 @@ export const Index: Record<string, Record<string, any>> = {
       description: "خلاصه سادهٔ اقلام و جمع کل.",
       type: "registry:block",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-summary-01/page.tsx",
-          type: "registry:page",
-          target: "app/order-summary/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-summary-01/components/order-summary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/order-summary-01/page.tsx",
+        type: "registry:page",
+        target: "app/order-summary/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-summary-01/components/order-summary.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-summary"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "order-summary-02": {
       name: "order-summary-02",
       title: "Order Summary 02",
       description: "کارت خلاصه با تصویر کالا و وضعیت پرداخت.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-summary-02/page.tsx",
-          type: "registry:page",
-          target: "app/order-summary/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-summary-02/components/order-summary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/order-summary-02/page.tsx",
+        type: "registry:page",
+        target: "app/order-summary/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-summary-02/components/order-summary.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-summary"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "order-summary-03": {
       name: "order-summary-03",
       title: "Order Summary 03",
       description: "جزئیات باز/بسته و Select فرمت رسید راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "label",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-summary-03/page.tsx",
-          type: "registry:page",
-          target: "app/order-summary/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-summary-03/components/order-summary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","label","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/order-summary-03/page.tsx",
+        type: "registry:page",
+        target: "app/order-summary/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-summary-03/components/order-summary.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-summary"],
-      meta: { iframeHeight: "960px" },
+      meta: {"iframeHeight":"960px"},
     },
     "order-summary-04": {
       name: "order-summary-04",
       title: "Order Summary 04",
       description: "منوی عملیات RTL و آدرس تحویل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-summary-04/page.tsx",
-          type: "registry:page",
-          target: "app/order-summary/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-summary-04/components/order-summary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/order-summary-04/page.tsx",
+        type: "registry:page",
+        target: "app/order-summary/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-summary-04/components/order-summary.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-summary"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "order-summary-05": {
       name: "order-summary-05",
       title: "Order Summary 05",
       description: "تأیید سفارش با تایم‌لاین، تحویل و ارسال رسید ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-summary-05/page.tsx",
-          type: "registry:page",
-          target: "app/order-summary/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-summary-05/components/order-summary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/order-summary-05/page.tsx",
+        type: "registry:page",
+        target: "app/order-summary/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-summary-05/components/order-summary.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-summary"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "order-history-01": {
       name: "order-history-01",
       title: "Order History 01",
       description: "جدول سادهٔ سفارش‌ها با وضعیت و مبلغ.",
       type: "registry:block",
-      registryDependencies: ["badge", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-history-01/page.tsx",
-          type: "registry:page",
-          target: "app/order-history/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-history-01/components/order-history.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","table"],
+      files: [{
+        path: "registry/bases/base/blocks/order-history-01/page.tsx",
+        type: "registry:page",
+        target: "app/order-history/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-history-01/components/order-history.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-history"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "order-history-02": {
       name: "order-history-02",
       title: "Order History 02",
       description: "کارت سفارش با تصویر و جزئیات کوتاه.",
       type: "registry:block",
-      registryDependencies: ["badge", "button"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-history-02/page.tsx",
-          type: "registry:page",
-          target: "app/order-history/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-history-02/components/order-history.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/order-history-02/page.tsx",
+        type: "registry:page",
+        target: "app/order-history/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-history-02/components/order-history.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-history"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "order-history-03": {
       name: "order-history-03",
       title: "Order History 03",
       description: "جستجو و فیلتر وضعیت با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "input", "select", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-history-03/page.tsx",
-          type: "registry:page",
-          target: "app/order-history/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-history-03/components/order-history.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","input","select","table"],
+      files: [{
+        path: "registry/bases/base/blocks/order-history-03/page.tsx",
+        type: "registry:page",
+        target: "app/order-history/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-history-03/components/order-history.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-history"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "order-history-04": {
       name: "order-history-04",
       title: "Order History 04",
       description: "جدول با منوی عملیات راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "dropdown-menu", "table"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-history-04/page.tsx",
-          type: "registry:page",
-          target: "app/order-history/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-history-04/components/order-history.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","table"],
+      files: [{
+        path: "registry/bases/base/blocks/order-history-04/page.tsx",
+        type: "registry:page",
+        target: "app/order-history/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-history-04/components/order-history.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-history"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "order-history-05": {
       name: "order-history-05",
       title: "Order History 05",
       description: "مرکز کامل با آمار، فیلتر، صفحه‌بندی و ارسال رسید.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-        "table",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/order-history-05/page.tsx",
-          type: "registry:page",
-          target: "app/order-history/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/order-history-05/components/order-history.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator","table"],
+      files: [{
+        path: "registry/bases/base/blocks/order-history-05/page.tsx",
+        type: "registry:page",
+        target: "app/order-history/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/order-history-05/components/order-history.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["order-history"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "wishlist-01": {
       name: "wishlist-01",
@@ -9758,113 +6545,89 @@ export const Index: Record<string, Record<string, any>> = {
       description: "شبکهٔ سادهٔ علاقه‌مندی با تصویر و قیمت.",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/base/blocks/wishlist-01/page.tsx",
-          type: "registry:page",
-          target: "app/wishlist/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/wishlist-01/components/wishlist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/wishlist-01/page.tsx",
+        type: "registry:page",
+        target: "app/wishlist/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/wishlist-01/components/wishlist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["wishlist"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "wishlist-02": {
       name: "wishlist-02",
       title: "Wishlist 02",
       description: "کارت با افزودن به سبد و حذف از لیست.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/wishlist-02/page.tsx",
-          type: "registry:page",
-          target: "app/wishlist/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/wishlist-02/components/wishlist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/wishlist-02/page.tsx",
+        type: "registry:page",
+        target: "app/wishlist/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/wishlist-02/components/wishlist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["wishlist"],
-      meta: { iframeHeight: "960px" },
+      meta: {"iframeHeight":"960px"},
     },
     "wishlist-03": {
       name: "wishlist-03",
       title: "Wishlist 03",
       description: "جستجو و فیلتر دسته با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "input", "select"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/wishlist-03/page.tsx",
-          type: "registry:page",
-          target: "app/wishlist/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/wishlist-03/components/wishlist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/wishlist-03/page.tsx",
+        type: "registry:page",
+        target: "app/wishlist/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/wishlist-03/components/wishlist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["wishlist"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "wishlist-04": {
       name: "wishlist-04",
       title: "Wishlist 04",
       description: "مرتب‌سازی و منوی عملیات RTL با وضعیت موجودی.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "dropdown-menu"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/wishlist-04/page.tsx",
-          type: "registry:page",
-          target: "app/wishlist/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/wishlist-04/components/wishlist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/wishlist-04/page.tsx",
+        type: "registry:page",
+        target: "app/wishlist/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/wishlist-04/components/wishlist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["wishlist"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "wishlist-05": {
       name: "wishlist-05",
       title: "Wishlist 05",
       description: "مرکز کامل با انتخاب گروهی، شبکه/لیست و اشتراک ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/wishlist-05/page.tsx",
-          type: "registry:page",
-          target: "app/wishlist/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/wishlist-05/components/wishlist.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","checkbox","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/wishlist-05/page.tsx",
+        type: "registry:page",
+        target: "app/wishlist/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/wishlist-05/components/wishlist.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["wishlist"],
-      meta: { iframeHeight: "1500px" },
+      meta: {"iframeHeight":"1500px"},
     },
     "profile-01": {
       name: "profile-01",
@@ -9872,1281 +6635,3893 @@ export const Index: Record<string, Record<string, any>> = {
       description: "نمای سادهٔ پروفایل با آواتار و بیو.",
       type: "registry:block",
       registryDependencies: ["avatar"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-01/page.tsx",
-          type: "registry:page",
-          target: "app/profile/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-01/components/profile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/blocks/profile-01/page.tsx",
+        type: "registry:page",
+        target: "app/profile/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-01/components/profile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "profile-02": {
       name: "profile-02",
       title: "Profile 02",
       description: "کارت پروفایل با آمار، نشان و دکمه‌های تعامل.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-02/page.tsx",
-          type: "registry:page",
-          target: "app/profile/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-02/components/profile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-02/page.tsx",
+        type: "registry:page",
+        target: "app/profile/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-02/components/profile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile"],
-      meta: { iframeHeight: "760px" },
+      meta: {"iframeHeight":"760px"},
     },
     "profile-03": {
       name: "profile-03",
       title: "Profile 03",
       description: "فرم ویرایش با پلیس‌هولدر فارسی و ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-03/page.tsx",
-          type: "registry:page",
-          target: "app/profile/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-03/components/profile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-03/page.tsx",
+        type: "registry:page",
+        target: "app/profile/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-03/components/profile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile"],
-      meta: { iframeHeight: "980px" },
+      meta: {"iframeHeight":"980px"},
     },
     "profile-04": {
       name: "profile-04",
       title: "Profile 04",
       description: "کاور، منوی عملیات RTL و تب نمای کلی/فعالیت.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "separator",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-04/page.tsx",
-          type: "registry:page",
-          target: "app/profile/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-04/components/profile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-04/page.tsx",
+        type: "registry:page",
+        target: "app/profile/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-04/components/profile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "profile-05": {
       name: "profile-05",
       title: "Profile 05",
       description: "مرکز کامل با ناوبری، ویرایش، حریم خصوصی و منوهای RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/profile-05/page.tsx",
-          type: "registry:page",
-          target: "app/profile/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/profile-05/components/profile.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/profile-05/page.tsx",
+        type: "registry:page",
+        target: "app/profile/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/profile-05/components/profile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["profile"],
-      meta: { iframeHeight: "1500px" },
+      meta: {"iframeHeight":"1500px"},
     },
     "account-settings-01": {
       name: "account-settings-01",
       title: "Account Settings 01",
       description: "سوئیچ‌های ساده برای ترجیحات پایهٔ حساب.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "label", "separator", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-settings-01/page.tsx",
-          type: "registry:page",
-          target: "app/account-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-settings-01/components/account-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-settings-01/page.tsx",
+        type: "registry:page",
+        target: "app/account-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-settings-01/components/account-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-settings"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "account-settings-02": {
       name: "account-settings-02",
       title: "Account Settings 02",
       description: "تب‌های حساب، امنیت و اعلان با ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-settings-02/page.tsx",
-          type: "registry:page",
-          target: "app/account-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-settings-02/components/account-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/account-settings-02/page.tsx",
+        type: "registry:page",
+        target: "app/account-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-settings-02/components/account-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-settings"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "account-settings-03": {
       name: "account-settings-03",
       title: "Account Settings 03",
       description: "ظاهر، زبان و شهر با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-settings-03/page.tsx",
-          type: "registry:page",
-          target: "app/account-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-settings-03/components/account-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-settings-03/page.tsx",
+        type: "registry:page",
+        target: "app/account-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-settings-03/components/account-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-settings"],
-      meta: { iframeHeight: "980px" },
+      meta: {"iframeHeight":"980px"},
     },
     "account-settings-04": {
       name: "account-settings-04",
       title: "Account Settings 04",
       description: "نشست‌ها با منوی عملیات RTL و ایمیل بازیابی.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-settings-04/page.tsx",
-          type: "registry:page",
-          target: "app/account-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-settings-04/components/account-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-settings-04/page.tsx",
+        type: "registry:page",
+        target: "app/account-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-settings-04/components/account-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-settings"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "account-settings-05": {
       name: "account-settings-05",
       title: "Account Settings 05",
       description: "مرکز کامل با ناوبری، منوی RTL و منطقه خطر.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-settings-05/page.tsx",
-          type: "registry:page",
-          target: "app/account-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-settings-05/components/account-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-settings-05/page.tsx",
+        type: "registry:page",
+        target: "app/account-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-settings-05/components/account-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-settings"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "security-settings-01": {
       name: "security-settings-01",
       title: "Security Settings 01",
       description: "سوئیچ‌های ساده برای دو مرحله‌ای و هشدار ورود.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "label", "separator", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/security-settings-01/page.tsx",
-          type: "registry:page",
-          target: "app/security-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/security-settings-01/components/security-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/security-settings-01/page.tsx",
+        type: "registry:page",
+        target: "app/security-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/security-settings-01/components/security-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["security-settings"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "security-settings-02": {
       name: "security-settings-02",
       title: "Security Settings 02",
       description: "تب رمز عبور و دو مرحله‌ای با ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/security-settings-02/page.tsx",
-          type: "registry:page",
-          target: "app/security-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/security-settings-02/components/security-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/security-settings-02/page.tsx",
+        type: "registry:page",
+        target: "app/security-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/security-settings-02/components/security-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["security-settings"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "security-settings-03": {
       name: "security-settings-03",
       title: "Security Settings 03",
       description: "روش تأیید و مهلت نشست با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/security-settings-03/page.tsx",
-          type: "registry:page",
-          target: "app/security-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/security-settings-03/components/security-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/security-settings-03/page.tsx",
+        type: "registry:page",
+        target: "app/security-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/security-settings-03/components/security-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["security-settings"],
-      meta: { iframeHeight: "980px" },
+      meta: {"iframeHeight":"980px"},
     },
     "security-settings-04": {
       name: "security-settings-04",
       title: "Security Settings 04",
       description: "نشست‌ها با منوی عملیات RTL و تغییر رمز.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/security-settings-04/page.tsx",
-          type: "registry:page",
-          target: "app/security-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/security-settings-04/components/security-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/security-settings-04/page.tsx",
+        type: "registry:page",
+        target: "app/security-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/security-settings-04/components/security-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["security-settings"],
-      meta: { iframeHeight: "1500px" },
+      meta: {"iframeHeight":"1500px"},
     },
     "security-settings-05": {
       name: "security-settings-05",
       title: "Security Settings 05",
       description: "مرکز امنیت با کد بازیابی، تاریخچه ورود و منوی RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/security-settings-05/page.tsx",
-          type: "registry:page",
-          target: "app/security-settings/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/security-settings-05/components/security-settings.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/security-settings-05/page.tsx",
+        type: "registry:page",
+        target: "app/security-settings/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/security-settings-05/components/security-settings.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["security-settings"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "account-notifications-01": {
       name: "account-notifications-01",
       title: "Account Notifications 01",
       description: "سوئیچ کانال‌های ایمیل، پیامک و مرورگر.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "label", "separator", "switch"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-notifications-01/page.tsx",
-          type: "registry:page",
-          target: "app/account-notifications/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-notifications-01/components/account-notifications.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-notifications-01/page.tsx",
+        type: "registry:page",
+        target: "app/account-notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-notifications-01/components/account-notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-notifications"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "account-notifications-02": {
       name: "account-notifications-02",
       title: "Account Notifications 02",
       description: "تب محصول/امنیت/بازاریابی با ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "separator",
-        "switch",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-notifications-02/page.tsx",
-          type: "registry:page",
-          target: "app/account-notifications/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-notifications-02/components/account-notifications.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/account-notifications-02/page.tsx",
+        type: "registry:page",
+        target: "app/account-notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-notifications-02/components/account-notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-notifications"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "account-notifications-03": {
       name: "account-notifications-03",
       title: "Account Notifications 03",
       description: "زمان‌بندی و تواتر با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-notifications-03/page.tsx",
-          type: "registry:page",
-          target: "app/account-notifications/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-notifications-03/components/account-notifications.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-notifications-03/page.tsx",
+        type: "registry:page",
+        target: "app/account-notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-notifications-03/components/account-notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-notifications"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "account-notifications-04": {
       name: "account-notifications-04",
       title: "Account Notifications 04",
       description: "صندوق اعلان با فیلتر و منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-notifications-04/page.tsx",
-          type: "registry:page",
-          target: "app/account-notifications/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-notifications-04/components/account-notifications.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/account-notifications-04/page.tsx",
+        type: "registry:page",
+        target: "app/account-notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-notifications-04/components/account-notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-notifications"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "account-notifications-05": {
       name: "account-notifications-05",
       title: "Account Notifications 05",
       description: "مرکز کامل کانال‌ها، ماتریس انواع و خلاصهٔ ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-notifications-05/page.tsx",
-          type: "registry:page",
-          target: "app/account-notifications/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-notifications-05/components/account-notifications.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-notifications-05/page.tsx",
+        type: "registry:page",
+        target: "app/account-notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-notifications-05/components/account-notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-notifications"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "account-billing-01": {
       name: "account-billing-01",
       title: "Account Billing 01",
       description: "خلاصهٔ سادهٔ صورتحساب و پرداخت.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-billing-01/page.tsx",
-          type: "registry:page",
-          target: "app/account-billing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-billing-01/components/account-billing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/account-billing-01/page.tsx",
+        type: "registry:page",
+        target: "app/account-billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-billing-01/components/account-billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-billing"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "account-billing-02": {
       name: "account-billing-02",
       title: "Account Billing 02",
       description: "تب طرح و پرداخت با ایمیل فاکتور LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "separator",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-billing-02/page.tsx",
-          type: "registry:page",
-          target: "app/account-billing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-billing-02/components/account-billing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/account-billing-02/page.tsx",
+        type: "registry:page",
+        target: "app/account-billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-billing-02/components/account-billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-billing"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "account-billing-03": {
       name: "account-billing-03",
       title: "Account Billing 03",
       description: "دوره و ارز با Select راست‌چین و تمدید خودکار.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-billing-03/page.tsx",
-          type: "registry:page",
-          target: "app/account-billing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-billing-03/components/account-billing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-billing-03/page.tsx",
+        type: "registry:page",
+        target: "app/account-billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-billing-03/components/account-billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-billing"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "account-billing-04": {
       name: "account-billing-04",
       title: "Account Billing 04",
       description: "کارت، تاریخچه فاکتور و منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-billing-04/page.tsx",
-          type: "registry:page",
-          target: "app/account-billing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-billing-04/components/account-billing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/account-billing-04/page.tsx",
+        type: "registry:page",
+        target: "app/account-billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-billing-04/components/account-billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-billing"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "account-billing-05": {
       name: "account-billing-05",
       title: "Account Billing 05",
       description: "مرکز کامل طرح، پرداخت، فاکتور و منوی RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/account-billing-05/page.tsx",
-          type: "registry:page",
-          target: "app/account-billing/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/account-billing-05/components/account-billing.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/account-billing-05/page.tsx",
+        type: "registry:page",
+        target: "app/account-billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/account-billing-05/components/account-billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["account-billing"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "sessions-01": {
       name: "sessions-01",
       title: "Sessions 01",
       description: "کارت سادهٔ نشست فعال همین دستگاه.",
       type: "registry:block",
-      registryDependencies: ["badge", "button", "card"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sessions-01/page.tsx",
-          type: "registry:page",
-          target: "app/sessions/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sessions-01/components/sessions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/sessions-01/page.tsx",
+        type: "registry:page",
+        target: "app/sessions/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sessions-01/components/sessions.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sessions"],
-      meta: { iframeHeight: "640px" },
+      meta: {"iframeHeight":"640px"},
     },
     "sessions-02": {
       name: "sessions-02",
       title: "Sessions 02",
       description: "تب نشست‌های فعال و ایمیل هشدار LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "separator",
-        "tabs",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sessions-02/page.tsx",
-          type: "registry:page",
-          target: "app/sessions/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sessions-02/components/sessions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","field","input","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/sessions-02/page.tsx",
+        type: "registry:page",
+        target: "app/sessions/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sessions-02/components/sessions.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sessions"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "sessions-03": {
       name: "sessions-03",
       title: "Sessions 03",
       description: "مهلت و شهر با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "button",
-        "card",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sessions-03/page.tsx",
-          type: "registry:page",
-          target: "app/sessions/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sessions-03/components/sessions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/sessions-03/page.tsx",
+        type: "registry:page",
+        target: "app/sessions/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sessions-03/components/sessions.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sessions"],
-      meta: { iframeHeight: "980px" },
+      meta: {"iframeHeight":"980px"},
     },
     "sessions-04": {
       name: "sessions-04",
       title: "Sessions 04",
       description: "فهرست نشست با فیلتر و منوی عملیات RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sessions-04/page.tsx",
-          type: "registry:page",
-          target: "app/sessions/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sessions-04/components/sessions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/sessions-04/page.tsx",
+        type: "registry:page",
+        target: "app/sessions/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sessions-04/components/sessions.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sessions"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "sessions-05": {
       name: "sessions-05",
       title: "Sessions 05",
       description: "مرکز کامل فعال، معتبر، تنظیمات و تاریخچه.",
       type: "registry:block",
-      registryDependencies: [
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sessions-05/page.tsx",
-          type: "registry:page",
-          target: "app/sessions/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sessions-05/components/sessions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/sessions-05/page.tsx",
+        type: "registry:page",
+        target: "app/sessions/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sessions-05/components/sessions.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sessions"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
     },
     "chat-01": {
       name: "chat-01",
       title: "Chat 01",
       description: "گفتگوی ساده با حباب پیام و ورودی فارسی.",
       type: "registry:block",
-      registryDependencies: ["avatar", "button", "card", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/chat-01/page.tsx",
-          type: "registry:page",
-          target: "app/chat/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/chat-01/components/chat.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","input"],
+      files: [{
+        path: "registry/bases/base/blocks/chat-01/page.tsx",
+        type: "registry:page",
+        target: "app/chat/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/chat-01/components/chat.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["chat"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "chat-02": {
       name: "chat-02",
       title: "Chat 02",
       description: "ترد با آواتار، زمان و ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "card", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/chat-02/page.tsx",
-          type: "registry:page",
-          target: "app/chat/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/chat-02/components/chat.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","input"],
+      files: [{
+        path: "registry/bases/base/blocks/chat-02/page.tsx",
+        type: "registry:page",
+        target: "app/chat/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/chat-02/components/chat.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["chat"],
-      meta: { iframeHeight: "820px" },
+      meta: {"iframeHeight":"820px"},
     },
     "chat-03": {
       name: "chat-03",
       title: "Chat 03",
       description: "فهرست گفتگو و فیلتر Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/chat-03/page.tsx",
-          type: "registry:page",
-          target: "app/chat/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/chat-03/components/chat.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/chat-03/page.tsx",
+        type: "registry:page",
+        target: "app/chat/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/chat-03/components/chat.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["chat"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "chat-04": {
       name: "chat-04",
       title: "Chat 04",
       description: "عملیات پیام و گفتگو با منوی RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/chat-04/page.tsx",
-          type: "registry:page",
-          target: "app/chat/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/chat-04/components/chat.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/chat-04/page.tsx",
+        type: "registry:page",
+        target: "app/chat/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/chat-04/components/chat.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["chat"],
-      meta: { iframeHeight: "900px" },
+      meta: {"iframeHeight":"900px"},
     },
     "chat-05": {
       name: "chat-05",
       title: "Chat 05",
       description: "مرکز کامل مخاطبین، فیلتر و ارسال با Textarea.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/chat-05/page.tsx",
-          type: "registry:page",
-          target: "app/chat/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/chat-05/components/chat.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu","input","select","separator","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/chat-05/page.tsx",
+        type: "registry:page",
+        target: "app/chat/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/chat-05/components/chat.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["chat"],
-      meta: { iframeHeight: "1200px" },
+      meta: {"iframeHeight":"1200px"},
     },
     "conversation-01": {
       name: "conversation-01",
       title: "Conversation 01",
       description: "مکالمهٔ ساده با موضوع و پاسخ فارسی.",
       type: "registry:block",
-      registryDependencies: ["avatar", "button", "card", "input"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/conversation-01/page.tsx",
-          type: "registry:page",
-          target: "app/conversation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/conversation-01/components/conversation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","input"],
+      files: [{
+        path: "registry/bases/base/blocks/conversation-01/page.tsx",
+        type: "registry:page",
+        target: "app/conversation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/conversation-01/components/conversation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["conversation"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "conversation-02": {
       name: "conversation-02",
       title: "Conversation 02",
       description: "ترد با شرکت‌کنندگان و ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "input",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/conversation-02/page.tsx",
-          type: "registry:page",
-          target: "app/conversation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/conversation-02/components/conversation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/conversation-02/page.tsx",
+        type: "registry:page",
+        target: "app/conversation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/conversation-02/components/conversation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["conversation"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "conversation-03": {
       name: "conversation-03",
       title: "Conversation 03",
       description: "وضعیت Select RTL و دعوت با ایمیل LTR.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "field",
-        "input",
-        "select",
-        "separator",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/conversation-03/page.tsx",
-          type: "registry:page",
-          target: "app/conversation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/conversation-03/components/conversation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","field","input","select","separator","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/conversation-03/page.tsx",
+        type: "registry:page",
+        target: "app/conversation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/conversation-03/components/conversation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["conversation"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "conversation-04": {
       name: "conversation-04",
       title: "Conversation 04",
       description: "اولویت و منوی عملیات پیام RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/conversation-04/page.tsx",
-          type: "registry:page",
-          target: "app/conversation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/conversation-04/components/conversation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/conversation-04/page.tsx",
+        type: "registry:page",
+        target: "app/conversation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/conversation-04/components/conversation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["conversation"],
-      meta: { iframeHeight: "960px" },
+      meta: {"iframeHeight":"960px"},
     },
     "conversation-05": {
       name: "conversation-05",
       title: "Conversation 05",
       description: "مرکز سه‌ستونه با دعوت همکار و فیلتر RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "dropdown-menu",
-        "field",
-        "input",
-        "label",
-        "select",
-        "separator",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/conversation-05/page.tsx",
-          type: "registry:page",
-          target: "app/conversation/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/conversation-05/components/conversation.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","dropdown-menu","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/conversation-05/page.tsx",
+        type: "registry:page",
+        target: "app/conversation/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/conversation-05/components/conversation.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["conversation"],
-      meta: { iframeHeight: "1300px" },
+      meta: {"iframeHeight":"1300px"},
     },
     "message-list-01": {
       name: "message-list-01",
       title: "Message List 01",
       description: "فهرست سادهٔ پیام با آواتار و پیش‌نمایش.",
       type: "registry:block",
-      registryDependencies: ["avatar", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/message-list-01/page.tsx",
-          type: "registry:page",
-          target: "app/message-list/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/message-list-01/components/message-list.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/message-list-01/page.tsx",
+        type: "registry:page",
+        target: "app/message-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/message-list-01/components/message-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["message-list"],
-      meta: { iframeHeight: "720px" },
+      meta: {"iframeHeight":"720px"},
     },
     "message-list-02": {
       name: "message-list-02",
       title: "Message List 02",
       description: "خوانده‌نشده، ایمیل LTR و نشان تعداد.",
       type: "registry:block",
-      registryDependencies: ["avatar", "badge", "button", "card", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/message-list-02/page.tsx",
-          type: "registry:page",
-          target: "app/message-list/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/message-list-02/components/message-list.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/message-list-02/page.tsx",
+        type: "registry:page",
+        target: "app/message-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/message-list-02/components/message-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["message-list"],
-      meta: { iframeHeight: "860px" },
+      meta: {"iframeHeight":"860px"},
     },
     "message-list-03": {
       name: "message-list-03",
       title: "Message List 03",
       description: "جستجو و فیلتر پوشه با Select راست‌چین.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "card",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/message-list-03/page.tsx",
-          type: "registry:page",
-          target: "app/message-list/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/message-list-03/components/message-list.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","card","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/message-list-03/page.tsx",
+        type: "registry:page",
+        target: "app/message-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/message-list-03/components/message-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["message-list"],
-      meta: { iframeHeight: "980px" },
+      meta: {"iframeHeight":"980px"},
     },
     "message-list-04": {
       name: "message-list-04",
       title: "Message List 04",
       description: "مرتب‌سازی و منوی عملیات ردیف RTL.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "dropdown-menu",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/message-list-04/page.tsx",
-          type: "registry:page",
-          target: "app/message-list/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/message-list-04/components/message-list.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/message-list-04/page.tsx",
+        type: "registry:page",
+        target: "app/message-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/message-list-04/components/message-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["message-list"],
-      meta: { iframeHeight: "1100px" },
+      meta: {"iframeHeight":"1100px"},
     },
     "message-list-05": {
       name: "message-list-05",
       title: "Message List 05",
       description: "مرکز کامل با پوشه، انتخاب گروهی و فوروارد ایمیل.",
       type: "registry:block",
-      registryDependencies: [
-        "avatar",
-        "badge",
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "separator",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/message-list-05/page.tsx",
-          type: "registry:page",
-          target: "app/message-list/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/message-list-05/components/message-list.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","badge","button","checkbox","dropdown-menu","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/message-list-05/page.tsx",
+        type: "registry:page",
+        target: "app/message-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/message-list-05/components/message-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["message-list"],
-      meta: { iframeHeight: "1400px" },
+      meta: {"iframeHeight":"1400px"},
+    },
+    "comments-01": {
+      name: "comments-01",
+      title: "Comments 01",
+      description: "فهرست سادهٔ دیدگاه با فرم ارسال فارسی.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/comments-01/page.tsx",
+        type: "registry:page",
+        target: "app/comments/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comments-01/components/comments.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["comments"],
+      meta: {"iframeHeight":"820px"},
+    },
+    "comments-02": {
+      name: "comments-02",
+      title: "Comments 02",
+      description: "ترد تو در تو با پسند و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","separator","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/comments-02/page.tsx",
+        type: "registry:page",
+        target: "app/comments/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comments-02/components/comments.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["comments"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "comments-03": {
+      name: "comments-03",
+      title: "Comments 03",
+      description: "فیلتر وضعیت و اعلان ایمیل با Select RTL.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/comments-03/page.tsx",
+        type: "registry:page",
+        target: "app/comments/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comments-03/components/comments.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["comments"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "comments-04": {
+      name: "comments-04",
+      title: "Comments 04",
+      description: "جستجو، مرتب‌سازی و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","dropdown-menu","input","select","separator","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/comments-04/page.tsx",
+        type: "registry:page",
+        target: "app/comments/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comments-04/components/comments.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["comments"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "comments-05": {
+      name: "comments-05",
+      title: "Comments 05",
+      description: "مرکز مدیریت با تأیید، اسپم و ایمیل مدیر.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","dropdown-menu","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/comments-05/page.tsx",
+        type: "registry:page",
+        target: "app/comments/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/comments-05/components/comments.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["comments"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "notifications-01": {
+      name: "notifications-01",
+      title: "Notifications 01",
+      description: "فهرست سادهٔ اعلان‌های اخیر.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/notifications-01/page.tsx",
+        type: "registry:page",
+        target: "app/notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/notifications-01/components/notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["notifications"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "notifications-02": {
+      name: "notifications-02",
+      title: "Notifications 02",
+      description: "اعلان با آیکون نوع و نشان خوانده‌نشده.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/notifications-02/page.tsx",
+        type: "registry:page",
+        target: "app/notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/notifications-02/components/notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["notifications"],
+      meta: {"iframeHeight":"860px"},
+    },
+    "notifications-03": {
+      name: "notifications-03",
+      title: "Notifications 03",
+      description: "جستجو، فیلتر Select RTL و ایمیل هشدار LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","card","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/notifications-03/page.tsx",
+        type: "registry:page",
+        target: "app/notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/notifications-03/components/notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["notifications"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "notifications-04": {
+      name: "notifications-04",
+      title: "Notifications 04",
+      description: "منوی عملیات RTL و علامت‌گذاری گروهی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/notifications-04/page.tsx",
+        type: "registry:page",
+        target: "app/notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/notifications-04/components/notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["notifications"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "notifications-05": {
+      name: "notifications-05",
+      title: "Notifications 05",
+      description: "مرکز کامل با دسته، خلاصه ایمیل و منوی RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/notifications-05/page.tsx",
+        type: "registry:page",
+        target: "app/notifications/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/notifications-05/components/notifications.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["notifications"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "search-01": {
+      name: "search-01",
+      title: "Search 01",
+      description: "نوار جستجوی ساده با پلیس‌هولدر فارسی.",
+      type: "registry:block",
+      registryDependencies: ["button","card","input"],
+      files: [{
+        path: "registry/bases/base/blocks/search-01/page.tsx",
+        type: "registry:page",
+        target: "app/search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-01/components/search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "search-02": {
+      name: "search-02",
+      title: "Search 02",
+      description: "جستجوهای اخیر و پیشنهاد با ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-02/page.tsx",
+        type: "registry:page",
+        target: "app/search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-02/components/search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "search-03": {
+      name: "search-03",
+      title: "Search 03",
+      description: "فیلتر دسته Select RTL و جستجوی ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/search-03/page.tsx",
+        type: "registry:page",
+        target: "app/search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-03/components/search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "search-04": {
+      name: "search-04",
+      title: "Search 04",
+      description: "جستجوی سریع با منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","kbd","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-04/page.tsx",
+        type: "registry:page",
+        target: "app/search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-04/components/search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "search-05": {
+      name: "search-05",
+      title: "Search 05",
+      description: "مرکز جستجو با ناوبری دسته و نتایج.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/search-05/page.tsx",
+        type: "registry:page",
+        target: "app/search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-05/components/search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "search-results-01": {
+      name: "search-results-01",
+      title: "Search Results 01",
+      description: "فهرست سادهٔ نتایج با تعداد.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-results-01/page.tsx",
+        type: "registry:page",
+        target: "app/search-results/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-results-01/components/search-results.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search-results"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "search-results-02": {
+      name: "search-results-02",
+      title: "Search Results 02",
+      description: "نتایج با مسیر LTR، نشان نوع و جستجوی مجدد.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-results-02/page.tsx",
+        type: "registry:page",
+        target: "app/search-results/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-results-02/components/search-results.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search-results"],
+      meta: {"iframeHeight":"980px"},
+    },
+    "search-results-03": {
+      name: "search-results-03",
+      title: "Search Results 03",
+      description: "مرتب‌سازی و فیلتر Select RTL با ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-results-03/page.tsx",
+        type: "registry:page",
+        target: "app/search-results/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-results-03/components/search-results.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search-results"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "search-results-04": {
+      name: "search-results-04",
+      title: "Search Results 04",
+      description: "ذخیره نتیجه و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/search-results-04/page.tsx",
+        type: "registry:page",
+        target: "app/search-results/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-results-04/components/search-results.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search-results"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "search-results-05": {
+      name: "search-results-05",
+      title: "Search Results 05",
+      description: "صفحهٔ کامل با فیلتر کناری و صفحه‌بندی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/search-results-05/page.tsx",
+        type: "registry:page",
+        target: "app/search-results/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/search-results-05/components/search-results.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["search-results"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "filters-01": {
+      name: "filters-01",
+      title: "Filters 01",
+      description: "سوییچ‌های پایهٔ موجودی، تخفیف و ارسال سریع.",
+      type: "registry:block",
+      registryDependencies: ["button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/filters-01/page.tsx",
+        type: "registry:page",
+        target: "app/filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/filters-01/components/filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["filters"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "filters-02": {
+      name: "filters-02",
+      title: "Filters 02",
+      description: "Selectهای دسته‌بندی، مرتب‌سازی و محدوده با RTL.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","select"],
+      files: [{
+        path: "registry/bases/base/blocks/filters-02/page.tsx",
+        type: "registry:page",
+        target: "app/filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/filters-02/components/filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["filters"],
+      meta: {"iframeHeight":"780px"},
+    },
+    "filters-03": {
+      name: "filters-03",
+      title: "Filters 03",
+      description: "جستجو، برند، قیمت LTR و ایمیل فروشنده.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","checkbox","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/filters-03/page.tsx",
+        type: "registry:page",
+        target: "app/filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/filters-03/components/filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["filters"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "filters-04": {
+      name: "filters-04",
+      title: "Filters 04",
+      description: "چیپ فعال، مرتب‌سازی و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/filters-04/page.tsx",
+        type: "registry:page",
+        target: "app/filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/filters-04/components/filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["filters"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "filters-05": {
+      name: "filters-05",
+      title: "Filters 05",
+      description: "مرکز فیلتر با سایدبار، facets و فهرست نتایج.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/filters-05/page.tsx",
+        type: "registry:page",
+        target: "app/filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/filters-05/components/filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["filters"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "advanced-filters-01": {
+      name: "advanced-filters-01",
+      title: "Advanced Filters 01",
+      description: "کشو ساده با چک‌باکس و اعمال فیلتر.",
+      type: "registry:block",
+      registryDependencies: ["button","checkbox","drawer","label","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/advanced-filters-01/page.tsx",
+        type: "registry:page",
+        target: "app/advanced-filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/advanced-filters-01/components/advanced-filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["advanced-filters"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "advanced-filters-02": {
+      name: "advanced-filters-02",
+      title: "Advanced Filters 02",
+      description: "پنل Sheet با Select RTL و سوییچ.",
+      type: "registry:block",
+      registryDependencies: ["button","field","label","select","sheet","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/advanced-filters-02/page.tsx",
+        type: "registry:page",
+        target: "app/advanced-filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/advanced-filters-02/components/advanced-filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["advanced-filters"],
+      meta: {"iframeHeight":"860px"},
+    },
+    "advanced-filters-03": {
+      name: "advanced-filters-03",
+      title: "Advanced Filters 03",
+      description: "کشو با جستجو، برند، قیمت و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","drawer","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/advanced-filters-03/page.tsx",
+        type: "registry:page",
+        target: "app/advanced-filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/advanced-filters-03/components/advanced-filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["advanced-filters"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "advanced-filters-04": {
+      name: "advanced-filters-04",
+      title: "Advanced Filters 04",
+      description: "چیپ فعال، مرتب‌سازی Dropdown و Sheet.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","sheet","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/advanced-filters-04/page.tsx",
+        type: "registry:page",
+        target: "app/advanced-filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/advanced-filters-04/components/advanced-filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["advanced-filters"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "advanced-filters-05": {
+      name: "advanced-filters-05",
+      title: "Advanced Filters 05",
+      description: "مرکز پیشرفته با پیش‌فرض، facets و فهرست نتایج.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","sheet","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/advanced-filters-05/page.tsx",
+        type: "registry:page",
+        target: "app/advanced-filters/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/advanced-filters-05/components/advanced-filters.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["advanced-filters"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "sort-filter-01": {
+      name: "sort-filter-01",
+      title: "Sort & Filter 01",
+      description: "دو Select پایه برای مرتب‌سازی و فیلتر.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","select"],
+      files: [{
+        path: "registry/bases/base/blocks/sort-filter-01/page.tsx",
+        type: "registry:page",
+        target: "app/sort-filter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sort-filter-01/components/sort-filter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sort-filter"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "sort-filter-02": {
+      name: "sort-filter-02",
+      title: "Sort & Filter 02",
+      description: "چیپ فیلتر و منوی مرتب‌سازی RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/sort-filter-02/page.tsx",
+        type: "registry:page",
+        target: "app/sort-filter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sort-filter-02/components/sort-filter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sort-filter"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "sort-filter-03": {
+      name: "sort-filter-03",
+      title: "Sort & Filter 03",
+      description: "جستجو، Selectها، قیمت و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/sort-filter-03/page.tsx",
+        type: "registry:page",
+        target: "app/sort-filter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sort-filter-03/components/sort-filter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sort-filter"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "sort-filter-04": {
+      name: "sort-filter-04",
+      title: "Sort & Filter 04",
+      description: "نوار ابزار با چیپ، Dropdown مرتب‌سازی و منو.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/sort-filter-04/page.tsx",
+        type: "registry:page",
+        target: "app/sort-filter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sort-filter-04/components/sort-filter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sort-filter"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "sort-filter-05": {
+      name: "sort-filter-05",
+      title: "Sort & Filter 05",
+      description: "مرکز کامل با سایدبار مرتب‌سازی/فیلتر و نتایج.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/sort-filter-05/page.tsx",
+        type: "registry:page",
+        target: "app/sort-filter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sort-filter-05/components/sort-filter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sort-filter"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "empty-search-01": {
+      name: "empty-search-01",
+      title: "Empty Search 01",
+      description: "حالت خالی ساده با آیکن و دکمه بازگشت.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-search-01/page.tsx",
+        type: "registry:page",
+        target: "app/empty-search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-search-01/components/empty-search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-search"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "empty-search-02": {
+      name: "empty-search-02",
+      title: "Empty Search 02",
+      description: "کارت خالی با عبارت LTR و پیشنهادهای جستجو.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-search-02/page.tsx",
+        type: "registry:page",
+        target: "app/empty-search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-search-02/components/empty-search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-search"],
+      meta: {"iframeHeight":"860px"},
+    },
+    "empty-search-03": {
+      name: "empty-search-03",
+      title: "Empty Search 03",
+      description: "نوار جستجو، Select RTL و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","empty","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-search-03/page.tsx",
+        type: "registry:page",
+        target: "app/empty-search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-search-03/components/empty-search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-search"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "empty-search-04": {
+      name: "empty-search-04",
+      title: "Empty Search 04",
+      description: "چیپ فیلتر، جستجوهای اخیر و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","empty","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-search-04/page.tsx",
+        type: "registry:page",
+        target: "app/empty-search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-search-04/components/empty-search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-search"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "empty-search-05": {
+      name: "empty-search-05",
+      title: "Empty Search 05",
+      description: "صفحه کامل با سایدبار فیلتر، دسته‌های محبوب و اطلاع‌رسانی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","empty","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-search-05/page.tsx",
+        type: "registry:page",
+        target: "app/empty-search/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-search-05/components/empty-search.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-search"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "file-upload-01": {
+      name: "file-upload-01",
+      title: "File Upload 01",
+      description: "ناحیهٔ رها کردن ساده و دکمه بارگذاری.",
+      type: "registry:block",
+      registryDependencies: ["button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/file-upload-01/page.tsx",
+        type: "registry:page",
+        target: "app/file-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-upload-01/components/file-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-upload"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "file-upload-02": {
+      name: "file-upload-02",
+      title: "File Upload 02",
+      description: "پیشرفت بارگذاری و نام فایل LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","card","progress"],
+      files: [{
+        path: "registry/bases/base/blocks/file-upload-02/page.tsx",
+        type: "registry:page",
+        target: "app/file-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-upload-02/components/file-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-upload"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "file-upload-03": {
+      name: "file-upload-03",
+      title: "File Upload 03",
+      description: "فرم با Select RTL، مسیر و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","progress","select","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/file-upload-03/page.tsx",
+        type: "registry:page",
+        target: "app/file-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-upload-03/components/file-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-upload"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "file-upload-04": {
+      name: "file-upload-04",
+      title: "File Upload 04",
+      description: "فهرست فایل‌ها با Progress و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/file-upload-04/page.tsx",
+        type: "registry:page",
+        target: "app/file-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-upload-04/components/file-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-upload"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "file-upload-05": {
+      name: "file-upload-05",
+      title: "File Upload 05",
+      description: "مرکز بارگذاری با تنظیمات کناری و صف فایل‌ها.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","field","input","label","progress","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/file-upload-05/page.tsx",
+        type: "registry:page",
+        target: "app/file-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-upload-05/components/file-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-upload"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "file-manager-01": {
+      name: "file-manager-01",
+      title: "File Manager 01",
+      description: "فهرست ساده پوشه و فایل.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/file-manager-01/page.tsx",
+        type: "registry:page",
+        target: "app/file-manager/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-manager-01/components/file-manager.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-manager"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "file-manager-02": {
+      name: "file-manager-02",
+      title: "File Manager 02",
+      description: "جستجو، مسیر LTR و فهرست فایل.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/file-manager-02/page.tsx",
+        type: "registry:page",
+        target: "app/file-manager/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-manager-02/components/file-manager.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-manager"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "file-manager-03": {
+      name: "file-manager-03",
+      title: "File Manager 03",
+      description: "پوشه‌ها، Select مرتب‌سازی و ایمیل اشتراک LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/file-manager-03/page.tsx",
+        type: "registry:page",
+        target: "app/file-manager/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-manager-03/components/file-manager.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-manager"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "file-manager-04": {
+      name: "file-manager-04",
+      title: "File Manager 04",
+      description: "چیپ فیلتر، نمای فهرست/شبکه و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/file-manager-04/page.tsx",
+        type: "registry:page",
+        target: "app/file-manager/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-manager-04/components/file-manager.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-manager"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "file-manager-05": {
+      name: "file-manager-05",
+      title: "File Manager 05",
+      description: "مدیر کامل با سایدبار پوشه، جدول و انتخاب چندتایی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/file-manager-05/page.tsx",
+        type: "registry:page",
+        target: "app/file-manager/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/file-manager-05/components/file-manager.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["file-manager"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "image-gallery-01": {
+      name: "image-gallery-01",
+      title: "Image Gallery 01",
+      description: "شبکهٔ سادهٔ شش تصویر.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/image-gallery-01/page.tsx",
+        type: "registry:page",
+        target: "app/image-gallery/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/image-gallery-01/components/image-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["image-gallery"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "image-gallery-02": {
+      name: "image-gallery-02",
+      title: "Image Gallery 02",
+      description: "کارت تصویر با عنوان و بج دسته.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/image-gallery-02/page.tsx",
+        type: "registry:page",
+        target: "app/image-gallery/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/image-gallery-02/components/image-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["image-gallery"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "image-gallery-03": {
+      name: "image-gallery-03",
+      title: "Image Gallery 03",
+      description: "جستجو، Select RTL و اشتراک ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","field","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/image-gallery-03/page.tsx",
+        type: "registry:page",
+        target: "app/image-gallery/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/image-gallery-03/components/image-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["image-gallery"],
+      meta: {"iframeHeight":"1300px"},
+    },
+    "image-gallery-04": {
+      name: "image-gallery-04",
+      title: "Image Gallery 04",
+      description: "پیش‌نمایش Dialog، چیپ فیلتر و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dialog","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/image-gallery-04/page.tsx",
+        type: "registry:page",
+        target: "app/image-gallery/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/image-gallery-04/components/image-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["image-gallery"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "image-gallery-05": {
+      name: "image-gallery-05",
+      title: "Image Gallery 05",
+      description: "مرکز گالری با آلبوم، فیلتر و پیش‌نمایش.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dialog","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/image-gallery-05/page.tsx",
+        type: "registry:page",
+        target: "app/image-gallery/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/image-gallery-05/components/image-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["image-gallery"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "media-grid-01": {
+      name: "media-grid-01",
+      title: "Media Grid 01",
+      description: "شبکهٔ ساده تصویر، ویدیو، صوت و سند.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/media-grid-01/page.tsx",
+        type: "registry:page",
+        target: "app/media-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/media-grid-01/components/media-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["media-grid"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "media-grid-02": {
+      name: "media-grid-02",
+      title: "Media Grid 02",
+      description: "کارت رسانه با بج نوع و اندازه LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/media-grid-02/page.tsx",
+        type: "registry:page",
+        target: "app/media-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/media-grid-02/components/media-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["media-grid"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "media-grid-03": {
+      name: "media-grid-03",
+      title: "Media Grid 03",
+      description: "جستجو، Select نوع/مرتب‌سازی و ایمیل اشتراک LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","field","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/media-grid-03/page.tsx",
+        type: "registry:page",
+        target: "app/media-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/media-grid-03/components/media-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["media-grid"],
+      meta: {"iframeHeight":"1300px"},
+    },
+    "media-grid-04": {
+      name: "media-grid-04",
+      title: "Media Grid 04",
+      description: "چیپ فیلتر و منوی عملیات RTL برای هر رسانه.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/media-grid-04/page.tsx",
+        type: "registry:page",
+        target: "app/media-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/media-grid-04/components/media-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["media-grid"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "media-grid-05": {
+      name: "media-grid-05",
+      title: "Media Grid 05",
+      description: "کتابخانه رسانه با فیلتر نوع، انتخاب چندتایی و تنظیمات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/media-grid-05/page.tsx",
+        type: "registry:page",
+        target: "app/media-grid/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/media-grid-05/components/media-grid.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["media-grid"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "attachment-list-01": {
+      name: "attachment-list-01",
+      title: "Attachment List 01",
+      description: "فهرست ساده پیوست‌ها با نام و اندازه LTR.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/attachment-list-01/page.tsx",
+        type: "registry:page",
+        target: "app/attachment-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/attachment-list-01/components/attachment-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["attachment-list"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "attachment-list-02": {
+      name: "attachment-list-02",
+      title: "Attachment List 02",
+      description: "پیوست‌ها با بج نوع و دکمه دانلود.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/attachment-list-02/page.tsx",
+        type: "registry:page",
+        target: "app/attachment-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/attachment-list-02/components/attachment-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["attachment-list"],
+      meta: {"iframeHeight":"860px"},
+    },
+    "attachment-list-03": {
+      name: "attachment-list-03",
+      title: "Attachment List 03",
+      description: "جستجو، Select نوع و ایمیل اطلاع‌رسانی LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/attachment-list-03/page.tsx",
+        type: "registry:page",
+        target: "app/attachment-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/attachment-list-03/components/attachment-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["attachment-list"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "attachment-list-04": {
+      name: "attachment-list-04",
+      title: "Attachment List 04",
+      description: "چیپ فیلتر، Progress و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/attachment-list-04/page.tsx",
+        type: "registry:page",
+        target: "app/attachment-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/attachment-list-04/components/attachment-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["attachment-list"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "attachment-list-05": {
+      name: "attachment-list-05",
+      title: "Attachment List 05",
+      description: "مرکز پیوست با منبع، انتخاب چندتایی و تنظیمات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","progress","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/attachment-list-05/page.tsx",
+        type: "registry:page",
+        target: "app/attachment-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/attachment-list-05/components/attachment-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["attachment-list"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "avatar-upload-01": {
+      name: "avatar-upload-01",
+      title: "Avatar Upload 01",
+      description: "آواتار ساده با دکمه انتخاب تصویر.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/avatar-upload-01/page.tsx",
+        type: "registry:page",
+        target: "app/avatar-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/avatar-upload-01/components/avatar-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["avatar-upload"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "avatar-upload-02": {
+      name: "avatar-upload-02",
+      title: "Avatar Upload 02",
+      description: "پیش‌نمایش، Progress و حذف تصویر.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","progress"],
+      files: [{
+        path: "registry/bases/base/blocks/avatar-upload-02/page.tsx",
+        type: "registry:page",
+        target: "app/avatar-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/avatar-upload-02/components/avatar-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["avatar-upload"],
+      meta: {"iframeHeight":"820px"},
+    },
+    "avatar-upload-03": {
+      name: "avatar-upload-03",
+      title: "Avatar Upload 03",
+      description: "فرم با Select برش، ایمیل LTR و سوییچ نمایش.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","field","input","label","progress","select","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/avatar-upload-03/page.tsx",
+        type: "registry:page",
+        target: "app/avatar-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/avatar-upload-03/components/avatar-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["avatar-upload"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "avatar-upload-04": {
+      name: "avatar-upload-04",
+      title: "Avatar Upload 04",
+      description: "تاریخچه تصاویر و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","dropdown-menu","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/avatar-upload-04/page.tsx",
+        type: "registry:page",
+        target: "app/avatar-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/avatar-upload-04/components/avatar-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["avatar-upload"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "avatar-upload-05": {
+      name: "avatar-upload-05",
+      title: "Avatar Upload 05",
+      description: "مرکز آپلود با پیشنهادها، دراپ‌زون و تنظیمات کناری.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","dropdown-menu","field","input","label","progress","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/avatar-upload-05/page.tsx",
+        type: "registry:page",
+        target: "app/avatar-upload/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/avatar-upload-05/components/avatar-upload.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["avatar-upload"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "calendar-block-01": {
+      name: "calendar-block-01",
+      title: "Calendar 01",
+      description: "تقویم شمسی ساده با نمایش تاریخ جلالی.",
+      type: "registry:block",
+      registryDependencies: ["calendar","card"],
+      files: [{
+        path: "registry/bases/base/blocks/calendar-block-01/page.tsx",
+        type: "registry:page",
+        target: "app/calendar-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/calendar-block-01/components/calendar-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["calendar-block"],
+      meta: {"iframeHeight":"820px"},
+    },
+    "calendar-block-02": {
+      name: "calendar-block-02",
+      title: "Calendar 02",
+      description: "تقویم شمسی با میانبرهای امروز و روزهای بعد.",
+      type: "registry:block",
+      registryDependencies: ["button","calendar","card"],
+      files: [{
+        path: "registry/bases/base/blocks/calendar-block-02/page.tsx",
+        type: "registry:page",
+        target: "app/calendar-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/calendar-block-02/components/calendar-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["calendar-block"],
+      meta: {"iframeHeight":"980px"},
+    },
+    "calendar-block-03": {
+      name: "calendar-block-03",
+      title: "Calendar 03",
+      description: "بازهٔ شمسی دو‌ماهه، Select و ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","field","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/calendar-block-03/page.tsx",
+        type: "registry:page",
+        target: "app/calendar-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/calendar-block-03/components/calendar-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["calendar-block"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "calendar-block-04": {
+      name: "calendar-block-04",
+      title: "Calendar 04",
+      description: "تقویم شمسی با رویداد روز و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/calendar-block-04/page.tsx",
+        type: "registry:page",
+        target: "app/calendar-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/calendar-block-04/components/calendar-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["calendar-block"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "calendar-block-05": {
+      name: "calendar-block-05",
+      title: "Calendar 05",
+      description: "مرکز تقویم شمسی با فیلتر رویداد، ساعت و دعوت ایمیل.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/calendar-block-05/page.tsx",
+        type: "registry:page",
+        target: "app/calendar-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/calendar-block-05/components/calendar-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["calendar-block"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "event-list-01": {
+      name: "event-list-01",
+      title: "Event List 01",
+      description: "فهرست ساده رویداد با تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-list-01/page.tsx",
+        type: "registry:page",
+        target: "app/event-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-list-01/components/event-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-list"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "event-list-02": {
+      name: "event-list-02",
+      title: "Event List 02",
+      description: "کارت روز/ماه شمسی، بج نوع و مکان.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-list-02/page.tsx",
+        type: "registry:page",
+        target: "app/event-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-list-02/components/event-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-list"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "event-list-03": {
+      name: "event-list-03",
+      title: "Event List 03",
+      description: "جستجو، Select نوع و دعوت ایمیل LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-list-03/page.tsx",
+        type: "registry:page",
+        target: "app/event-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-list-03/components/event-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-list"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "event-list-04": {
+      name: "event-list-04",
+      title: "Event List 04",
+      description: "چیپ فیلتر، وضعیت و منوی عملیات RTL.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-list-04/page.tsx",
+        type: "registry:page",
+        target: "app/event-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-list-04/components/event-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-list"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "event-list-05": {
+      name: "event-list-05",
+      title: "Event List 05",
+      description: "مرکز رویداد با گروه، انتخاب چندتایی و تنظیمات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","checkbox","dropdown-menu","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/event-list-05/page.tsx",
+        type: "registry:page",
+        target: "app/event-list/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-list-05/components/event-list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-list"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "event-details-01": {
+      name: "event-details-01",
+      title: "Event Details 01",
+      description: "کارت ساده جزئیات رویداد با تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-details-01/page.tsx",
+        type: "registry:page",
+        target: "app/event-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-details-01/components/event-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-details"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "event-details-02": {
+      name: "event-details-02",
+      title: "Event Details 02",
+      description: "کارت رویداد با مهمان‌ها، بج و پذیرش/رد.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-details-02/page.tsx",
+        type: "registry:page",
+        target: "app/event-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-details-02/components/event-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-details"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "event-details-03": {
+      name: "event-details-03",
+      title: "Event Details 03",
+      description: "فرم ویرایش رویداد با زمان LTR و ایمیل.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/event-details-03/page.tsx",
+        type: "registry:page",
+        target: "app/event-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-details-03/components/event-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-details"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "event-details-04": {
+      name: "event-details-04",
+      title: "Event Details 04",
+      description: "داشبورد جزئیات با دستور جلسه و شرکت‌کنندگان.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/event-details-04/page.tsx",
+        type: "registry:page",
+        target: "app/event-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-details-04/components/event-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-details"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "event-details-05": {
+      name: "event-details-05",
+      title: "Event Details 05",
+      description: "جزئیات پیشرفته با تب، ویرایش و پیوست.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","dropdown-menu","field","input","label","select","separator","switch","tabs","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/event-details-05/page.tsx",
+        type: "registry:page",
+        target: "app/event-details/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/event-details-05/components/event-details.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["event-details"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "schedule-01": {
+      name: "schedule-01",
+      title: "Schedule 01",
+      description: "برنامه ساده روز با تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/schedule-01/page.tsx",
+        type: "registry:page",
+        target: "app/schedule/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/schedule-01/components/schedule.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["schedule"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "schedule-02": {
+      name: "schedule-02",
+      title: "Schedule 02",
+      description: "کارت‌های اسلات روز با نوع و مکان.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/schedule-02/page.tsx",
+        type: "registry:page",
+        target: "app/schedule/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/schedule-02/components/schedule.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["schedule"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "schedule-03": {
+      name: "schedule-03",
+      title: "Schedule 03",
+      description: "فرم افزودن اسلات با زمان LTR.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","select","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/schedule-03/page.tsx",
+        type: "registry:page",
+        target: "app/schedule/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/schedule-03/components/schedule.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["schedule"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "schedule-04": {
+      name: "schedule-04",
+      title: "Schedule 04",
+      description: "برد هفتگی شمسی از شنبه تا جمعه.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/schedule-04/page.tsx",
+        type: "registry:page",
+        target: "app/schedule/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/schedule-04/components/schedule.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["schedule"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "schedule-05": {
+      name: "schedule-05",
+      title: "Schedule 05",
+      description: "محور روز، فیلتر، فهرست و تنظیمات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/schedule-05/page.tsx",
+        type: "registry:page",
+        target: "app/schedule/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/schedule-05/components/schedule.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["schedule"],
+      meta: {"iframeHeight":"1400px"},
+    },
+    "datetime-picker-01": {
+      name: "datetime-picker-01",
+      title: "Date & Time Picker 01",
+      description: "تقویم شمسی توکار با انتخاب ساعت.",
+      type: "registry:block",
+      registryDependencies: ["calendar","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/datetime-picker-01/page.tsx",
+        type: "registry:page",
+        target: "app/datetime-picker/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/datetime-picker-01/components/datetime-picker.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["datetime-picker"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "datetime-picker-02": {
+      name: "datetime-picker-02",
+      title: "Date & Time Picker 02",
+      description: "پاپ‌اور تاریخ شمسی و ورودی ساعت.",
+      type: "registry:block",
+      registryDependencies: ["button","calendar","card","field","input","popover"],
+      files: [{
+        path: "registry/bases/base/blocks/datetime-picker-02/page.tsx",
+        type: "registry:page",
+        target: "app/datetime-picker/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/datetime-picker-02/components/datetime-picker.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["datetime-picker"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "datetime-picker-03": {
+      name: "datetime-picker-03",
+      title: "Date & Time Picker 03",
+      description: "فرم بازه تاریخ شمسی با شروع و پایان.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","field","input","label","popover","select","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/datetime-picker-03/page.tsx",
+        type: "registry:page",
+        target: "app/datetime-picker/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/datetime-picker-03/components/datetime-picker.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["datetime-picker"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "datetime-picker-04": {
+      name: "datetime-picker-04",
+      title: "Date & Time Picker 04",
+      description: "داشبورد با میان‌بر تاریخ و ساعت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","field","input","popover","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/datetime-picker-04/page.tsx",
+        type: "registry:page",
+        target: "app/datetime-picker/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/datetime-picker-04/components/datetime-picker.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["datetime-picker"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "datetime-picker-05": {
+      name: "datetime-picker-05",
+      title: "Date & Time Picker 05",
+      description: "یک‌روزه، بازه، تقویم توکار و گزینه‌ها.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","field","input","label","popover","select","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/datetime-picker-05/page.tsx",
+        type: "registry:page",
+        target: "app/datetime-picker/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/datetime-picker-05/components/datetime-picker.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["datetime-picker"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "booking-01": {
+      name: "booking-01",
+      title: "Booking 01",
+      description: "رزرو ساده با تقویم شمسی و اسلات ساعت.",
+      type: "registry:block",
+      registryDependencies: ["button","calendar","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/booking-01/page.tsx",
+        type: "registry:page",
+        target: "app/booking/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/booking-01/components/booking.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["booking"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "booking-02": {
+      name: "booking-02",
+      title: "Booking 02",
+      description: "انتخاب خدمت، تاریخ شمسی و ساعت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","popover","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/booking-02/page.tsx",
+        type: "registry:page",
+        target: "app/booking/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/booking-02/components/booking.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["booking"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "booking-03": {
+      name: "booking-03",
+      title: "Booking 03",
+      description: "فرم رزرو با ایمیل، موبایل و یادآوری.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","calendar","card","field","input","label","popover","select","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/booking-03/page.tsx",
+        type: "registry:page",
+        target: "app/booking/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/booking-03/components/booking.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["booking"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "booking-04": {
+      name: "booking-04",
+      title: "Booking 04",
+      description: "رزرو چندمرحله‌ای با متخصص و خلاصه.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","calendar","card","popover","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/booking-04/page.tsx",
+        type: "registry:page",
+        target: "app/booking/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/booking-04/components/booking.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["booking"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "booking-05": {
+      name: "booking-05",
+      title: "Booking 05",
+      description: "رزرو پیشرفته با تب، خلاصه و تأیید.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","calendar","card","field","input","label","popover","select","separator","switch","tabs","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/booking-05/page.tsx",
+        type: "registry:page",
+        target: "app/booking/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/booking-05/components/booking.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["booking"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "payment-01": {
+      name: "payment-01",
+      title: "Payment 01",
+      description: "خلاصه ساده مبلغ قابل پرداخت.",
+      type: "registry:block",
+      registryDependencies: ["button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-01/page.tsx",
+        type: "registry:page",
+        target: "app/payment/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-01/components/payment.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "payment-02": {
+      name: "payment-02",
+      title: "Payment 02",
+      description: "انتخاب روش پرداخت با رادیو.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","label","radio-group","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-02/page.tsx",
+        type: "registry:page",
+        target: "app/payment/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-02/components/payment.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "payment-03": {
+      name: "payment-03",
+      title: "Payment 03",
+      description: "فرم کارت بانکی با فیلدهای LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-03/page.tsx",
+        type: "registry:page",
+        target: "app/payment/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-03/components/payment.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "payment-04": {
+      name: "payment-04",
+      title: "Payment 04",
+      description: "داشبورد پرداخت با کارت ذخیره‌شده و خلاصه.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","field","input","label","radio-group","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-04/page.tsx",
+        type: "registry:page",
+        target: "app/payment/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-04/components/payment.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "payment-05": {
+      name: "payment-05",
+      title: "Payment 05",
+      description: "پرداخت پیشرفته با کارت، کیف پول و رمز پویا.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-05/page.tsx",
+        type: "registry:page",
+        target: "app/payment/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-05/components/payment.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "payment-methods-01": {
+      name: "payment-methods-01",
+      title: "Payment Methods 01",
+      description: "فهرست ساده کارت‌های ذخیره‌شده.",
+      type: "registry:block",
+      registryDependencies: ["button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-methods-01/page.tsx",
+        type: "registry:page",
+        target: "app/payment-methods/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-methods-01/components/payment-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment-methods"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "payment-methods-02": {
+      name: "payment-methods-02",
+      title: "Payment Methods 02",
+      description: "کارت‌های روش پرداخت با بج پیش‌فرض.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-methods-02/page.tsx",
+        type: "registry:page",
+        target: "app/payment-methods/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-methods-02/components/payment-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment-methods"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "payment-methods-03": {
+      name: "payment-methods-03",
+      title: "Payment Methods 03",
+      description: "فرم افزودن کارت با فیلدهای LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-methods-03/page.tsx",
+        type: "registry:page",
+        target: "app/payment-methods/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-methods-03/components/payment-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment-methods"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "payment-methods-04": {
+      name: "payment-methods-04",
+      title: "Payment Methods 04",
+      description: "مدیریت فهرست با پیش‌فرض و منوی عملیات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-methods-04/page.tsx",
+        type: "registry:page",
+        target: "app/payment-methods/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-methods-04/components/payment-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment-methods"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "payment-methods-05": {
+      name: "payment-methods-05",
+      title: "Payment Methods 05",
+      description: "فیلتر، افزودن کارت و تنظیمات پیشرفته.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/payment-methods-05/page.tsx",
+        type: "registry:page",
+        target: "app/payment-methods/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/payment-methods-05/components/payment-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["payment-methods"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "subscription-01": {
+      name: "subscription-01",
+      title: "Subscription 01",
+      description: "وضعیت اشتراک فعلی با تمدید شمسی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/subscription-01/page.tsx",
+        type: "registry:page",
+        target: "app/subscription/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/subscription-01/components/subscription.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["subscription"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "subscription-02": {
+      name: "subscription-02",
+      title: "Subscription 02",
+      description: "مصرف دوره، تمدید و کارت پرداخت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/subscription-02/page.tsx",
+        type: "registry:page",
+        target: "app/subscription/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/subscription-02/components/subscription.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["subscription"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "subscription-03": {
+      name: "subscription-03",
+      title: "Subscription 03",
+      description: "فرم تغییر طرح یا لغو اشتراک.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/subscription-03/page.tsx",
+        type: "registry:page",
+        target: "app/subscription/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/subscription-03/components/subscription.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["subscription"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "subscription-04": {
+      name: "subscription-04",
+      title: "Subscription 04",
+      description: "داشبورد مصرف و صورت‌حساب دوره.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/subscription-04/page.tsx",
+        type: "registry:page",
+        target: "app/subscription/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/subscription-04/components/subscription.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["subscription"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "subscription-05": {
+      name: "subscription-05",
+      title: "Subscription 05",
+      description: "وضعیت، تغییر طرح و لغو با تب.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","progress","select","separator","switch","tabs","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/subscription-05/page.tsx",
+        type: "registry:page",
+        target: "app/subscription/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/subscription-05/components/subscription.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["subscription"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "plan-selection-01": {
+      name: "plan-selection-01",
+      title: "Plan Selection 01",
+      description: "انتخاب طرح در فلو با رادیو و دکمه ادامه.",
+      type: "registry:block",
+      registryDependencies: ["button","card","label","radio-group","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/plan-selection-01/page.tsx",
+        type: "registry:page",
+        target: "app/plan-selection/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/plan-selection-01/components/plan-selection.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["plan-selection"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "plan-selection-02": {
+      name: "plan-selection-02",
+      title: "Plan Selection 02",
+      description: "کارت‌های انتخاب‌پذیر در مرحله راه‌اندازی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/plan-selection-02/page.tsx",
+        type: "registry:page",
+        target: "app/plan-selection/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/plan-selection-02/components/plan-selection.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["plan-selection"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "plan-selection-03": {
+      name: "plan-selection-03",
+      title: "Plan Selection 03",
+      description: "پیکربندی ارتقا: طرح، صندلی و زمان اعمال.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","radio-group","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/plan-selection-03/page.tsx",
+        type: "registry:page",
+        target: "app/plan-selection/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/plan-selection-03/components/plan-selection.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["plan-selection"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "plan-selection-04": {
+      name: "plan-selection-04",
+      title: "Plan Selection 04",
+      description: "ویزارد با نشان مرحله و خلاصه قبل از پرداخت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/plan-selection-04/page.tsx",
+        type: "registry:page",
+        target: "app/plan-selection/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/plan-selection-04/components/plan-selection.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["plan-selection"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "plan-selection-05": {
+      name: "plan-selection-05",
+      title: "Plan Selection 05",
+      description: "فلو کامل انتخاب طرح با تیم و تأیید.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/plan-selection-05/page.tsx",
+        type: "registry:page",
+        target: "app/plan-selection/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/plan-selection-05/components/plan-selection.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["plan-selection"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "invoice-01": {
+      name: "invoice-01",
+      title: "Invoice 01",
+      description: "خلاصه ساده فاکتور با تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: ["card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/invoice-01/page.tsx",
+        type: "registry:page",
+        target: "app/invoice/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/invoice-01/components/invoice.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["invoice"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "invoice-02": {
+      name: "invoice-02",
+      title: "Invoice 02",
+      description: "سند فاکتور با ردیف‌ها و مالیات.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/invoice-02/page.tsx",
+        type: "registry:page",
+        target: "app/invoice/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/invoice-02/components/invoice.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["invoice"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "invoice-03": {
+      name: "invoice-03",
+      title: "Invoice 03",
+      description: "فرم صدور فاکتور با فیلدهای LTR.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/invoice-03/page.tsx",
+        type: "registry:page",
+        target: "app/invoice/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/invoice-03/components/invoice.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["invoice"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "invoice-04": {
+      name: "invoice-04",
+      title: "Invoice 04",
+      description: "فهرست فاکتورها با فیلتر وضعیت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","select","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/invoice-04/page.tsx",
+        type: "registry:page",
+        target: "app/invoice/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/invoice-04/components/invoice.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["invoice"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "invoice-05": {
+      name: "invoice-05",
+      title: "Invoice 05",
+      description: "جزئیات سند، جدول ردیف و فعالیت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/invoice-05/page.tsx",
+        type: "registry:page",
+        target: "app/invoice/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/invoice-05/components/invoice.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["invoice"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "billing-01": {
+      name: "billing-01",
+      title: "Billing 01",
+      description: "خلاصه صورتحساب دوره با تاریخ شمسی.",
+      type: "registry:block",
+      registryDependencies: ["button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/billing-01/page.tsx",
+        type: "registry:page",
+        target: "app/billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/billing-01/components/billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["billing"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "billing-02": {
+      name: "billing-02",
+      title: "Billing 02",
+      description: "کارت دوره با پیشرفت و سررسید.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/billing-02/page.tsx",
+        type: "registry:page",
+        target: "app/billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/billing-02/components/billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["billing"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "billing-03": {
+      name: "billing-03",
+      title: "Billing 03",
+      description: "تنظیمات چرخه و رسید دوره.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/billing-03/page.tsx",
+        type: "registry:page",
+        target: "app/billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/billing-03/components/billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["billing"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "billing-04": {
+      name: "billing-04",
+      title: "Billing 04",
+      description: "داشبورد ریز هزینه و پرداخت بعدی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","progress","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/billing-04/page.tsx",
+        type: "registry:page",
+        target: "app/billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/billing-04/components/billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["billing"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "billing-05": {
+      name: "billing-05",
+      title: "Billing 05",
+      description: "هزینه، مصرف و تنظیمات دوره با تب.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input","label","progress","select","separator","switch","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/billing-05/page.tsx",
+        type: "registry:page",
+        target: "app/billing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/billing-05/components/billing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["billing"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "empty-state-01": {
+      name: "empty-state-01",
+      title: "Empty State 01",
+      description: "حالت خالی ساده با آیکون صندوق.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-state-01/page.tsx",
+        type: "registry:page",
+        target: "app/empty-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-state-01/components/empty-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-state"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "empty-state-02": {
+      name: "empty-state-02",
+      title: "Empty State 02",
+      description: "کارت خالی پروژه با آیکون و دو CTA.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-state-02/page.tsx",
+        type: "registry:page",
+        target: "app/empty-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-state-02/components/empty-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-state"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "empty-state-03": {
+      name: "empty-state-03",
+      title: "Empty State 03",
+      description: "حالت خالی با تصویر واقعی فروشگاه.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-state-03/page.tsx",
+        type: "registry:page",
+        target: "app/empty-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-state-03/components/empty-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-state"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "empty-state-04": {
+      name: "empty-state-04",
+      title: "Empty State 04",
+      description: "خالی داخل صفحه فهرست با فیلتر و جستجو.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","input","select"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-state-04/page.tsx",
+        type: "registry:page",
+        target: "app/empty-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-state-04/components/empty-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-state"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "empty-state-05": {
+      name: "empty-state-05",
+      title: "Empty State 05",
+      description: "حالت خالی متحرک با آیکون و حلقهٔ نرم.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/empty-state-05/page.tsx",
+        type: "registry:page",
+        target: "app/empty-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/empty-state-05/components/empty-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["empty-state"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "error-state-01": {
+      name: "error-state-01",
+      title: "Error State 01",
+      description: "خطای ساده با آیکون هشدار.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/error-state-01/page.tsx",
+        type: "registry:page",
+        target: "app/error-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/error-state-01/components/error-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["error-state"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "error-state-02": {
+      name: "error-state-02",
+      title: "Error State 02",
+      description: "کارت خطای سرور با کد و دو CTA.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/error-state-02/page.tsx",
+        type: "registry:page",
+        target: "app/error-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/error-state-02/components/error-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["error-state"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "error-state-03": {
+      name: "error-state-03",
+      title: "Error State 03",
+      description: "خطای بارگذاری با تصویر واقعی.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/error-state-03/page.tsx",
+        type: "registry:page",
+        target: "app/error-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/error-state-03/components/error-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["error-state"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "error-state-04": {
+      name: "error-state-04",
+      title: "Error State 04",
+      description: "خطا داخل صفحه داشبورد گزارش.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","empty","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/error-state-04/page.tsx",
+        type: "registry:page",
+        target: "app/error-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/error-state-04/components/error-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["error-state"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "error-state-05": {
+      name: "error-state-05",
+      title: "Error State 05",
+      description: "خطای آفلاین متحرک با آیکون.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/error-state-05/page.tsx",
+        type: "registry:page",
+        target: "app/error-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/error-state-05/components/error-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["error-state"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "not-found-block-01": {
+      name: "not-found-block-01",
+      title: "Not Found 01",
+      description: "۴۰۴ ساده با آیکون.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/not-found-block-01/page.tsx",
+        type: "registry:page",
+        target: "app/not-found-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/not-found-block-01/components/not-found-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["not-found-block"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "not-found-block-02": {
+      name: "not-found-block-02",
+      title: "Not Found 02",
+      description: "کارت ۴۰۴ با خانه و جستجو.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/not-found-block-02/page.tsx",
+        type: "registry:page",
+        target: "app/not-found-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/not-found-block-02/components/not-found-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["not-found-block"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "not-found-block-03": {
+      name: "not-found-block-03",
+      title: "Not Found 03",
+      description: "۴۰۴ با تصویر مسیر.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/not-found-block-03/page.tsx",
+        type: "registry:page",
+        target: "app/not-found-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/not-found-block-03/components/not-found-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["not-found-block"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "not-found-block-04": {
+      name: "not-found-block-04",
+      title: "Not Found 04",
+      description: "محصول/منبع پیدا نشد داخل صفحه.",
+      type: "registry:block",
+      registryDependencies: ["badge","breadcrumb","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/not-found-block-04/page.tsx",
+        type: "registry:page",
+        target: "app/not-found-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/not-found-block-04/components/not-found-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["not-found-block"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "not-found-block-05": {
+      name: "not-found-block-05",
+      title: "Not Found 05",
+      description: "۴۰۴ متحرک با بج وضعیت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/not-found-block-05/page.tsx",
+        type: "registry:page",
+        target: "app/not-found-block/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/not-found-block-05/components/not-found-block.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["not-found-block"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "loading-state-01": {
+      name: "loading-state-01",
+      title: "Loading 01",
+      description: "اسپینر تمام‌صفحه ساده.",
+      type: "registry:block",
+      registryDependencies: ["spinner"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-01/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-01/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"480px"},
+    },
+    "loading-state-02": {
+      name: "loading-state-02",
+      title: "Loading 02",
+      description: "اسکلتون کارت با تصویر و متن.",
+      type: "registry:block",
+      registryDependencies: ["card","skeleton"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-02/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-02/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "loading-state-03": {
+      name: "loading-state-03",
+      title: "Loading 03",
+      description: "اسکلتون فهرست کاربران.",
+      type: "registry:block",
+      registryDependencies: ["card","skeleton"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-03/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-03/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "loading-state-04": {
+      name: "loading-state-04",
+      title: "Loading 04",
+      description: "اسکلتون جدول داده.",
+      type: "registry:block",
+      registryDependencies: ["card","skeleton"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-04/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-04/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "loading-state-05": {
+      name: "loading-state-05",
+      title: "Loading 05",
+      description: "اسکلتون فرم.",
+      type: "registry:block",
+      registryDependencies: ["card","skeleton"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-05/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-05/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "loading-state-06": {
+      name: "loading-state-06",
+      title: "Loading 06",
+      description: "اسکلتون داشبورد و آمار.",
+      type: "registry:block",
+      registryDependencies: ["card","skeleton"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-06/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-06/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "loading-state-07": {
+      name: "loading-state-07",
+      title: "Loading 07",
+      description: "اسپینر داخل دکمه و بج.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","spinner"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-07/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-07/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "loading-state-08": {
+      name: "loading-state-08",
+      title: "Loading 08",
+      description: "اورلی بارگذاری روی محتوا.",
+      type: "registry:block",
+      registryDependencies: ["button","card","spinner"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-08/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-08/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "loading-state-09": {
+      name: "loading-state-09",
+      title: "Loading 09",
+      description: "نوار پیشرفت و حالت نامشخص.",
+      type: "registry:block",
+      registryDependencies: ["card","progress","spinner"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-09/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-09/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"640px"},
+    },
+    "loading-state-10": {
+      name: "loading-state-10",
+      title: "Loading 10",
+      description: "گالری اسکلتون + اسپینر Empty.",
+      type: "registry:block",
+      registryDependencies: ["empty","skeleton","spinner"],
+      files: [{
+        path: "registry/bases/base/blocks/loading-state-10/page.tsx",
+        type: "registry:page",
+        target: "app/loading-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/loading-state-10/components/loading-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["loading-state"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "success-state-01": {
+      name: "success-state-01",
+      title: "Success 01",
+      description: "موفقیت ساده با آیکون تیک.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/success-state-01/page.tsx",
+        type: "registry:page",
+        target: "app/success-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/success-state-01/components/success-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["success-state"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "success-state-02": {
+      name: "success-state-02",
+      title: "Success 02",
+      description: "کارت پرداخت موفق با کد پیگیری.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/success-state-02/page.tsx",
+        type: "registry:page",
+        target: "app/success-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/success-state-02/components/success-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["success-state"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "success-state-03": {
+      name: "success-state-03",
+      title: "Success 03",
+      description: "موفقیت با تصویر جشن ثبت‌نام.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/success-state-03/page.tsx",
+        type: "registry:page",
+        target: "app/success-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/success-state-03/components/success-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["success-state"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "success-state-04": {
+      name: "success-state-04",
+      title: "Success 04",
+      description: "موفقیت انتشار داخل داشبورد استقرار.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/success-state-04/page.tsx",
+        type: "registry:page",
+        target: "app/success-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/success-state-04/components/success-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["success-state"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "success-state-05": {
+      name: "success-state-05",
+      title: "Success 05",
+      description: "موفقیت متحرک با تیک و حلقهٔ سبز.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/success-state-05/page.tsx",
+        type: "registry:page",
+        target: "app/success-state/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/success-state-05/components/success-state.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["success-state"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "maintenance-01": {
+      name: "maintenance-01",
+      title: "Maintenance 01",
+      description: "تعمیر و نگهداری ساده با آیکون آچار.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/maintenance-01/page.tsx",
+        type: "registry:page",
+        target: "app/maintenance/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/maintenance-01/components/maintenance.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["maintenance"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "maintenance-02": {
+      name: "maintenance-02",
+      title: "Maintenance 02",
+      description: "کارت نگهداری برنامه‌ریزی‌شده با زمان و CTA.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/maintenance-02/page.tsx",
+        type: "registry:page",
+        target: "app/maintenance/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/maintenance-02/components/maintenance.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["maintenance"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "maintenance-03": {
+      name: "maintenance-03",
+      title: "Maintenance 03",
+      description: "تعمیر و نگهداری با تصویر تیم فنی.",
+      type: "registry:block",
+      registryDependencies: ["button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/maintenance-03/page.tsx",
+        type: "registry:page",
+        target: "app/maintenance/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/maintenance-03/components/maintenance.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["maintenance"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "maintenance-04": {
+      name: "maintenance-04",
+      title: "Maintenance 04",
+      description: "محدودیت سرویس داخل داشبورد با زمان‌بندی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/maintenance-04/page.tsx",
+        type: "registry:page",
+        target: "app/maintenance/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/maintenance-04/components/maintenance.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["maintenance"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "maintenance-05": {
+      name: "maintenance-05",
+      title: "Maintenance 05",
+      description: "تعمیر و نگهداری متحرک با آچار و چرخ‌دنده.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/maintenance-05/page.tsx",
+        type: "registry:page",
+        target: "app/maintenance/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/maintenance-05/components/maintenance.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["maintenance"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "coming-soon-01": {
+      name: "coming-soon-01",
+      title: "Coming Soon 01",
+      description: "به‌زودی ساده با بج Coming Soon انگلیسی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/coming-soon-01/page.tsx",
+        type: "registry:page",
+        target: "app/coming-soon/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/coming-soon-01/components/coming-soon.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["coming-soon"],
+      meta: {"iframeHeight":"560px"},
+    },
+    "coming-soon-02": {
+      name: "coming-soon-02",
+      title: "Coming Soon 02",
+      description: "کارت انتظار با ایمیل اطلاع‌رسانی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","input"],
+      files: [{
+        path: "registry/bases/base/blocks/coming-soon-02/page.tsx",
+        type: "registry:page",
+        target: "app/coming-soon/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/coming-soon-02/components/coming-soon.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["coming-soon"],
+      meta: {"iframeHeight":"720px"},
+    },
+    "coming-soon-03": {
+      name: "coming-soon-03",
+      title: "Coming Soon 03",
+      description: "به‌زودی با تصویر محصول و لیست انتظار.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/coming-soon-03/page.tsx",
+        type: "registry:page",
+        target: "app/coming-soon/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/coming-soon-03/components/coming-soon.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["coming-soon"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "coming-soon-04": {
+      name: "coming-soon-04",
+      title: "Coming Soon 04",
+      description: "قابلیت در داشبورد با پیش‌نمایش تصویری.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/coming-soon-04/page.tsx",
+        type: "registry:page",
+        target: "app/coming-soon/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/coming-soon-04/components/coming-soon.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["coming-soon"],
+      meta: {"iframeHeight":"980px"},
+    },
+    "coming-soon-05": {
+      name: "coming-soon-05",
+      title: "Coming Soon 05",
+      description: "به‌زودی متحرک با ساعت شنی و بج انگلیسی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty"],
+      files: [{
+        path: "registry/bases/base/blocks/coming-soon-05/page.tsx",
+        type: "registry:page",
+        target: "app/coming-soon/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/coming-soon-05/components/coming-soon.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["coming-soon"],
+      meta: {"iframeHeight":"700px"},
     },
     "sidebar-01": {
       name: "sidebar-01",
       title: "Sidebar 01",
       description: "A simple sidebar with navigation grouped by section.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-01/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-01/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-01/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-01/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11155,35 +10530,24 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 02",
       description: "A sidebar with collapsible sections.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-02/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-02/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-02/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-02/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-02/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-02/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11192,19 +10556,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 03",
       description: "A sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-03/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-03/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11213,19 +10574,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 04",
       description: "A floating sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "separator"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-04/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-04/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11234,30 +10592,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 05",
       description: "A sidebar with collapsible submenus.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-05/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-05/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","collapsible"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-05/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-05/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11266,35 +10614,24 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 06",
       description: "A sidebar with submenus as dropdowns.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "card",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-06/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-06/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-06/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","card","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-06/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-06/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-06/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11303,46 +10640,32 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 07",
       description: "A sidebar that collapses to icons.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-07/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-07/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-07/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-07/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-07/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-07/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-07/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-07/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-07/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-07/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-07/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-07/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11351,46 +10674,32 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 08",
       description: "An inset sidebar with secondary navigation.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-08/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-08/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-08/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-08/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-08/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-08/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-08/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-08/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-08/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-08/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-08/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-08/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11399,33 +10708,20 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 09",
       description: "Collapsible nested sidebars.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "switch",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-09/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-09/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-09/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","switch","label"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-09/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-09/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-09/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11434,56 +10730,40 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 10",
       description: "A sidebar in a popover.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-10/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/nav-actions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-10/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-10/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/nav-actions.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-10/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11492,24 +10772,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 11",
       description: "A sidebar with a collapsible file tree.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-11/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-11/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-11/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-11/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11518,42 +10790,28 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 12",
       description: "A sidebar with a calendar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "calendar",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-12/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-12/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-12/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-12/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-12/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","calendar","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-12/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-12/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-12/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-12/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-12/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11562,19 +10820,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 13",
       description: "A sidebar in a dialog.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "button", "dialog"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-13/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-13/components/settings-dialog.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","button","dialog"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-13/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-13/components/settings-dialog.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11583,19 +10838,16 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 14",
       description: "A sidebar on the right.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-14/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-14/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-14/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-14/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11604,73 +10856,52 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 15",
       description: "A left and right sidebar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-        "calendar",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-15/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/sidebar-left.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/sidebar-right.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-15/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu","calendar","avatar"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-15/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/sidebar-left.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/sidebar-right.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-15/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11679,58 +10910,40 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 16",
       description: "A sidebar with a sticky site header.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "button",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/base/blocks/sidebar-16/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/base/blocks/sidebar-16/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","button","label"],
+      files: [{
+        path: "registry/bases/base/blocks/sidebar-16/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/sidebar-16/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["sidebar"],
       meta: undefined,
     },
@@ -11740,62 +10953,43 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:hook",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/base/hooks/use-mobile.ts",
-          type: "registry:hook",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/base/hooks/use-mobile.ts",
+        type: "registry:hook",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
   },
-  aria: {
-    accordion: {
+  "aria": {
+    "accordion": {
       name: "accordion",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/accordion.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/accordion.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/accordion",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/accordion-example.tsx",
-          api: "https://react-aria.adobe.com/DisclosureGroup#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/accordion","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/accordion-example.tsx","api":"https://react-aria.adobe.com/DisclosureGroup#api"}},
     },
-    alert: {
+    "alert": {
       name: "alert",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/alert.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/alert.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/alert",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/alert-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/alert","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/alert-example.tsx"}},
     },
     "alert-dialog": {
       name: "alert-dialog",
@@ -11803,22 +10997,13 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/alert-dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/alert-dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/alert-dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/alert-dialog-example.tsx",
-          api: "https://react-aria.adobe.com/Modal#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/alert-dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/alert-dialog-example.tsx","api":"https://react-aria.adobe.com/Modal#api"}},
     },
     "aspect-ratio": {
       name: "aspect-ratio",
@@ -11826,111 +11011,69 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/aspect-ratio.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/aspect-ratio.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/aspect-ratio",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/aspect-ratio-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/aspect-ratio","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/aspect-ratio-example.tsx"}},
     },
-    avatar: {
+    "avatar": {
       name: "avatar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/avatar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/avatar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/avatar-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/avatar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/avatar-example.tsx"}},
     },
-    badge: {
+    "badge": {
       name: "badge",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/badge.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/badge.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/badge",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/badge-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/badge","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/badge-example.tsx"}},
     },
-    breadcrumb: {
+    "breadcrumb": {
       name: "breadcrumb",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/breadcrumb.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/breadcrumb.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/breadcrumb",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/breadcrumb-example.tsx",
-          api: "https://react-aria.adobe.com/Breadcrumbs#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/breadcrumb","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/breadcrumb-example.tsx","api":"https://react-aria.adobe.com/Breadcrumbs#api"}},
     },
-    button: {
+    "button": {
       name: "button",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/button.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/button",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/button-example.tsx",
-          api: "https://react-aria.adobe.com/Button#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/button","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/button-example.tsx","api":"https://react-aria.adobe.com/Button#api"}},
     },
     "button-group": {
       name: "button-group",
@@ -11938,203 +11081,125 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/button-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/button-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/button-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/button-group-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/button-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/button-group-example.tsx"}},
     },
-    calendar: {
+    "calendar": {
       name: "calendar",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "select"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/calendar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","select"],
+      files: [{
+        path: "registry/bases/aria/ui/calendar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/calendar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/calendar-example.tsx",
-          api: "https://react-aria.adobe.com/Calendar#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/calendar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/calendar-example.tsx","api":"https://react-aria.adobe.com/Calendar#api"}},
     },
-    card: {
+    "card": {
       name: "card",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/card-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/card-example.tsx"}},
     },
-    carousel: {
+    "carousel": {
       name: "carousel",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/carousel.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/carousel.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/carousel",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/carousel-example.tsx",
-          api: "https://www.embla-carousel.com/docs/api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/carousel","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/carousel-example.tsx","api":"https://www.embla-carousel.com/docs/api"}},
     },
-    chart: {
+    "chart": {
       name: "chart",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["card"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/chart.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/chart.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/chart",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/chart-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/chart","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/chart-example.tsx"}},
     },
-    checkbox: {
+    "checkbox": {
       name: "checkbox",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/checkbox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/checkbox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/checkbox-example.tsx",
-          api: "https://react-aria.adobe.com/Checkbox#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/checkbox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/checkbox-example.tsx","api":"https://react-aria.adobe.com/Checkbox#api"}},
     },
-    collapsible: {
+    "collapsible": {
       name: "collapsible",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/collapsible.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/collapsible.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/collapsible",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/collapsible-example.tsx",
-          api: "https://react-aria.adobe.com/Disclosure#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/collapsible","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/collapsible-example.tsx","api":"https://react-aria.adobe.com/Disclosure#api"}},
     },
-    combobox: {
+    "combobox": {
       name: "combobox",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input-group"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/combobox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group"],
+      files: [{
+        path: "registry/bases/aria/ui/combobox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/combobox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/combobox-example.tsx",
-          api: "https://react-aria.adobe.com/ComboBox#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/combobox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/combobox-example.tsx","api":"https://react-aria.adobe.com/ComboBox#api"}},
     },
-    command: {
+    "command": {
       name: "command",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["dialog", "input-group"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/command.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["dialog","input-group"],
+      files: [{
+        path: "registry/bases/aria/ui/command.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/command",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/command-example.tsx",
-          api: "https://react-aria.adobe.com/Autocomplete#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/command","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/command-example.tsx","api":"https://react-aria.adobe.com/Autocomplete#api"}},
     },
     "context-menu": {
       name: "context-menu",
@@ -12142,68 +11207,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/context-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/context-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/context-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/context-menu-example.tsx",
-          api: "https://react-aria.adobe.com/Menu#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/context-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/context-menu-example.tsx","api":"https://react-aria.adobe.com/Menu#api"}},
     },
-    dialog: {
+    "dialog": {
       name: "dialog",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/dialog-example.tsx",
-          api: "https://react-aria.adobe.com/Modal#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/dialog-example.tsx","api":"https://react-aria.adobe.com/Modal#api"}},
     },
-    drawer: {
+    "drawer": {
       name: "drawer",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/drawer.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/drawer.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/drawer",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/drawer-example.tsx",
-          api: "https://base-ui.com/react/components/drawer.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/drawer","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/drawer-example.tsx","api":"https://base-ui.com/react/components/drawer.md"}},
     },
     "dropdown-menu": {
       name: "dropdown-menu",
@@ -12211,66 +11249,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/dropdown-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/dropdown-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/dropdown-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/dropdown-menu-example.tsx",
-          api: "https://react-aria.adobe.com/Menu#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/dropdown-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/dropdown-menu-example.tsx","api":"https://react-aria.adobe.com/Menu#api"}},
     },
-    empty: {
+    "empty": {
       name: "empty",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/empty.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/empty.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/empty",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/empty-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/empty","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/empty-example.tsx"}},
     },
-    field: {
+    "field": {
       name: "field",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["label", "separator"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/field.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","separator"],
+      files: [{
+        path: "registry/bases/aria/ui/field.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/field",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/field-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/field","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/field-example.tsx"}},
     },
     "hover-card": {
       name: "hover-card",
@@ -12278,68 +11291,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/hover-card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/hover-card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/hover-card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/hover-card-example.tsx",
-          api: "https://react-aria.adobe.com/PreviewTrigger#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/hover-card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/hover-card-example.tsx","api":"https://react-aria.adobe.com/PreviewTrigger#api"}},
     },
-    input: {
+    "input": {
       name: "input",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/input.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/input.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/input",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-example.tsx",
-          api: "https://react-aria.adobe.com/TextField#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/input","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-example.tsx","api":"https://react-aria.adobe.com/TextField#api"}},
     },
     "input-group": {
       name: "input-group",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/input-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","textarea"],
+      files: [{
+        path: "registry/bases/aria/ui/input-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/input-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-group-example.tsx",
-          api: "https://react-aria.adobe.com/Group#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/input-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-group-example.tsx","api":"https://react-aria.adobe.com/Group#api"}},
     },
     "input-otp": {
       name: "input-otp",
@@ -12347,136 +11333,83 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/input-otp.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/input-otp.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/input-otp",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-otp-example.tsx",
-          api: "https://input-otp.rodz.dev",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/input-otp","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/input-otp-example.tsx","api":"https://input-otp.rodz.dev"}},
     },
-    item: {
+    "item": {
       name: "item",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/item.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/item.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/item",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/item-example.tsx",
-          api: "https://react-aria.adobe.com/Link#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/item","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/item-example.tsx","api":"https://react-aria.adobe.com/Link#api"}},
     },
-    label: {
+    "label": {
       name: "label",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/label.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/label.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/label",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/label-example.tsx",
-          api: "https://react-aria.adobe.com/TextField#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/label","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/label-example.tsx","api":"https://react-aria.adobe.com/TextField#api"}},
     },
-    pagination: {
+    "pagination": {
       name: "pagination",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/pagination.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/pagination.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/pagination",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/pagination-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/pagination","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/pagination-example.tsx"}},
     },
-    popover: {
+    "popover": {
       name: "popover",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/popover.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/popover.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/popover",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/popover-example.tsx",
-          api: "https://react-aria.adobe.com/Popover#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/popover","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/popover-example.tsx","api":"https://react-aria.adobe.com/Popover#api"}},
     },
-    progress: {
+    "progress": {
       name: "progress",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/progress.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/progress.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/progress",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/progress-example.tsx",
-          api: "https://react-aria.adobe.com/ProgressBar#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/progress","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/progress-example.tsx","api":"https://react-aria.adobe.com/ProgressBar#api"}},
     },
     "radio-group": {
       name: "radio-group",
@@ -12484,45 +11417,27 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/radio-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/radio-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/radio-group-example.tsx",
-          api: "https://react-aria.adobe.com/RadioGroup#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/radio-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/radio-group-example.tsx","api":"https://react-aria.adobe.com/RadioGroup#api"}},
     },
-    resizable: {
+    "resizable": {
       name: "resizable",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/resizable.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/resizable.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/resizable",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/resizable-example.tsx",
-          api: "https://github.com/bvaughn/react-resizable-panels",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/resizable","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/resizable-example.tsx","api":"https://github.com/bvaughn/react-resizable-panels"}},
     },
     "scroll-area": {
       name: "scroll-area",
@@ -12530,325 +11445,195 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/scroll-area.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/scroll-area.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/scroll-area",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/scroll-area-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/scroll-area","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/scroll-area-example.tsx"}},
     },
-    select: {
+    "select": {
       name: "select",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["input-group"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/select-example.tsx",
-          api: "https://react-aria.adobe.com/Select#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/select-example.tsx","api":"https://react-aria.adobe.com/Select#api"}},
     },
-    separator: {
+    "separator": {
       name: "separator",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/separator.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/separator.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/separator",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/separator-example.tsx",
-          api: "https://react-aria.adobe.com/Separator#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/separator","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/separator-example.tsx","api":"https://react-aria.adobe.com/Separator#api"}},
     },
-    sheet: {
+    "sheet": {
       name: "sheet",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/sheet.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/sheet.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/sheet",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sheet-example.tsx",
-          api: "https://react-aria.adobe.com/Modal#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/sheet","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sheet-example.tsx","api":"https://react-aria.adobe.com/Modal#api"}},
     },
-    sidebar: {
+    "sidebar": {
       name: "sidebar",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [
-        "button",
-        "input",
-        "separator",
-        "sheet",
-        "skeleton",
-        "tooltip",
-        "use-mobile",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/ui/sidebar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","separator","sheet","skeleton","tooltip","use-mobile"],
+      files: [{
+        path: "registry/bases/aria/ui/sidebar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/sidebar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sidebar-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/sidebar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sidebar-example.tsx"}},
     },
-    skeleton: {
+    "skeleton": {
       name: "skeleton",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/skeleton.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/skeleton.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/skeleton",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/skeleton-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/skeleton","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/skeleton-example.tsx"}},
     },
-    slider: {
+    "slider": {
       name: "slider",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/slider.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/slider",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/slider-example.tsx",
-          api: "https://react-aria.adobe.com/Slider#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/slider","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/slider-example.tsx","api":"https://react-aria.adobe.com/Slider#api"}},
     },
-    sonner: {
+    "sonner": {
       name: "sonner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/sonner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/sonner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/sonner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sonner-example.tsx",
-          api: "https://sonner.emilkowal.ski",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/sonner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/sonner-example.tsx","api":"https://sonner.emilkowal.ski"}},
     },
-    spinner: {
+    "spinner": {
       name: "spinner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/spinner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/spinner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/spinner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/spinner-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/spinner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/spinner-example.tsx"}},
     },
-    switch: {
+    "switch": {
       name: "switch",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/switch.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/switch",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/switch-example.tsx",
-          api: "https://react-aria.adobe.com/Switch#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/switch","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/switch-example.tsx","api":"https://react-aria.adobe.com/Switch#api"}},
     },
-    table: {
+    "table": {
       name: "table",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/table.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/table.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/table",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/table-example.tsx",
-          api: "https://react-aria.adobe.com/Table#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/table","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/table-example.tsx","api":"https://react-aria.adobe.com/Table#api"}},
     },
-    tabs: {
+    "tabs": {
       name: "tabs",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/tabs.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/tabs.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/tabs",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/tabs-example.tsx",
-          api: "https://react-aria.adobe.com/Tabs#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/tabs","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/tabs-example.tsx","api":"https://react-aria.adobe.com/Tabs#api"}},
     },
-    textarea: {
+    "textarea": {
       name: "textarea",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/textarea.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/textarea",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/textarea-example.tsx",
-          api: "https://react-aria.adobe.com/TextField#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/textarea","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/textarea-example.tsx","api":"https://react-aria.adobe.com/TextField#api"}},
     },
-    toggle: {
+    "toggle": {
       name: "toggle",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/toggle.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/toggle.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/toggle",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/toggle-example.tsx",
-          api: "https://react-aria.adobe.com/ToggleButton#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/toggle","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/toggle-example.tsx","api":"https://react-aria.adobe.com/ToggleButton#api"}},
     },
     "toggle-group": {
       name: "toggle-group",
@@ -12856,67 +11641,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["toggle"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/toggle-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/toggle-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/toggle-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/toggle-group-example.tsx",
-          api: "https://react-aria.adobe.com/ToggleButtonGroup#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/toggle-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/toggle-group-example.tsx","api":"https://react-aria.adobe.com/ToggleButtonGroup#api"}},
     },
-    tooltip: {
+    "tooltip": {
       name: "tooltip",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/tooltip.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/tooltip.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/tooltip",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/tooltip-example.tsx",
-          api: "https://react-aria.adobe.com/Tooltip#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/tooltip","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/tooltip-example.tsx","api":"https://react-aria.adobe.com/Tooltip#api"}},
     },
-    kbd: {
+    "kbd": {
       name: "kbd",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/kbd.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/kbd.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/kbd",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/kbd-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/kbd","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/kbd-example.tsx"}},
     },
     "native-select": {
       name: "native-select",
@@ -12924,86 +11683,55 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/native-select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/native-select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/native-select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/native-select-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/native-select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/native-select-example.tsx"}},
     },
-    direction: {
+    "direction": {
       name: "direction",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/direction.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/direction.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/direction",
-          api: "https://react-aria.adobe.com/I18nProvider#api",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/direction","api":"https://react-aria.adobe.com/I18nProvider#api"}},
     },
-    attachment: {
+    "attachment": {
       name: "attachment",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/attachment.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/attachment.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/attachment",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/attachment-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/attachment","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/attachment-example.tsx"}},
     },
-    bubble: {
+    "bubble": {
       name: "bubble",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/bubble.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/bubble.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/bubble",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/bubble-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/bubble","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/bubble-example.tsx"}},
     },
     "message-scroller": {
       name: "message-scroller",
@@ -13011,101 +11739,67 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/message-scroller.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/message-scroller.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/message-scroller",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/message-scroller-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/message-scroller","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/message-scroller-example.tsx"}},
     },
-    questionnaire: {
+    "questionnaire": {
       name: "questionnaire",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/aria/ui/questionnaire.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/questionnaire.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/questionnaire",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/questionnaire-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/questionnaire","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/questionnaire-example.tsx"}},
     },
-    marker: {
+    "marker": {
       name: "marker",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/marker.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/marker.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/marker",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/marker-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/marker","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/marker-example.tsx"}},
     },
-    message: {
+    "message": {
       name: "message",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/ui/message.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/ui/message.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/aria/message",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/message-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/aria/message","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/aria/examples/message-example.tsx"}},
     },
     "accordion-example": {
       name: "accordion-example",
       title: "Accordion",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion", "button", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/accordion-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","button","card","example"],
+      files: [{
+        path: "registry/bases/aria/examples/accordion-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13114,14 +11808,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert", "badge", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/alert-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert","badge","example"],
+      files: [{
+        path: "registry/bases/aria/examples/alert-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13130,14 +11822,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert-dialog", "button", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/alert-dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","button","dialog","example"],
+      files: [{
+        path: "registry/bases/aria/examples/alert-dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13146,14 +11836,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Aspect Ratio",
       description: "",
       type: "registry:example",
-      registryDependencies: ["aspect-ratio", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/aspect-ratio-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["aspect-ratio","example"],
+      files: [{
+        path: "registry/bases/aria/examples/aspect-ratio-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13162,14 +11850,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Avatar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar", "button", "empty", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/avatar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","empty","example"],
+      files: [{
+        path: "registry/bases/aria/examples/avatar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13178,14 +11864,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Badge",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge", "spinner", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/badge-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","spinner","example"],
+      files: [{
+        path: "registry/bases/aria/examples/badge-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13194,14 +11878,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Breadcrumb",
       description: "",
       type: "registry:example",
-      registryDependencies: ["breadcrumb", "dropdown-menu", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/breadcrumb-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/aria/examples/breadcrumb-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13210,14 +11892,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/button-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","example"],
+      files: [{
+        path: "registry/bases/aria/examples/button-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13226,26 +11906,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "label",
-        "popover",
-        "select",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/button-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","dropdown-menu","field","input","input-group","label","popover","select","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/examples/button-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13254,23 +11920,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Calendar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "calendar",
-        "card",
-        "field",
-        "input",
-        "label",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/calendar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","calendar","card","field","input","label","popover","example"],
+      files: [{
+        path: "registry/bases/aria/examples/calendar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13279,21 +11934,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Card",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","example"],
+      files: [{
+        path: "registry/bases/aria/examples/card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13302,14 +11948,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Carousel",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card", "carousel", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/carousel-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["card","carousel","example"],
+      files: [{
+        path: "registry/bases/aria/examples/carousel-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13318,14 +11962,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Chart",
       description: "",
       type: "registry:example",
-      registryDependencies: ["chart", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/chart-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["chart","card","example"],
+      files: [{
+        path: "registry/bases/aria/examples/chart-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13334,14 +11976,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Checkbox",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox", "field", "table", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/checkbox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","table","example"],
+      files: [{
+        path: "registry/bases/aria/examples/checkbox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13350,22 +11990,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Collapsible",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "collapsible",
-        "field",
-        "input",
-        "tabs",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/collapsible-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","collapsible","field","input","tabs","example"],
+      files: [{
+        path: "registry/bases/aria/examples/collapsible-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13374,25 +12004,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Combobox",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "combobox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/combobox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","combobox","dialog","field","input","input-group","item","select","example"],
+      files: [{
+        path: "registry/bases/aria/examples/combobox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13401,14 +12018,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Command",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "command", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/command-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","command","example"],
+      files: [{
+        path: "registry/bases/aria/examples/command-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13417,14 +12032,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Context Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "context-menu", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/context-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","context-menu","dialog","example"],
+      files: [{
+        path: "registry/bases/aria/examples/context-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13433,29 +12046,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "checkbox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "native-select",
-        "select",
-        "switch",
-        "tabs",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","checkbox","dialog","field","input","input-group","kbd","native-select","select","switch","tabs","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/examples/dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13464,14 +12060,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Drawer",
       description: "",
       type: "registry:example",
-      registryDependencies: ["drawer", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/drawer-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["drawer","example"],
+      files: [{
+        path: "registry/bases/aria/examples/drawer-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13480,20 +12074,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dropdown Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "dialog",
-        "dropdown-menu",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/dropdown-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","dialog","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/aria/examples/dropdown-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13502,20 +12088,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Empty",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "empty",
-        "input-group",
-        "kbd",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/empty-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","empty","input-group","kbd","example"],
+      files: [{
+        path: "registry/bases/aria/examples/empty-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13524,27 +12102,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Field",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "checkbox",
-        "field",
-        "input",
-        "input-otp",
-        "native-select",
-        "radio-group",
-        "select",
-        "slider",
-        "switch",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/field-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","checkbox","field","input","input-otp","native-select","radio-group","select","slider","switch","textarea","example"],
+      files: [{
+        path: "registry/bases/aria/examples/field-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13553,14 +12116,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Hover Card",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "hover-card", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/hover-card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","hover-card","example"],
+      files: [{
+        path: "registry/bases/aria/examples/hover-card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13569,21 +12130,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "field",
-        "input",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/input-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","native-select","select","example"],
+      files: [{
+        path: "registry/bases/aria/examples/input-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13592,28 +12144,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "popover",
-        "spinner",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/input-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","card","dropdown-menu","field","input","input-group","kbd","popover","spinner","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/examples/input-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13622,14 +12158,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input OTP",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "card", "field", "input-otp", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/input-otp-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input-otp","example"],
+      files: [{
+        path: "registry/bases/aria/examples/input-otp-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13638,14 +12172,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Item",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "item", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/item-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","item","example"],
+      files: [{
+        path: "registry/bases/aria/examples/item-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13654,20 +12186,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Kbd",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "input-group",
-        "kbd",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/kbd-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/examples/kbd-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13676,21 +12200,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Label",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "checkbox",
-        "field",
-        "input",
-        "label",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/label-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","input","label","textarea","example"],
+      files: [{
+        path: "registry/bases/aria/examples/label-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13699,14 +12214,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Native Select",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "native-select", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/native-select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","native-select","example"],
+      files: [{
+        path: "registry/bases/aria/examples/native-select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13715,14 +12228,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Pagination",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "pagination", "select", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/pagination-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","pagination","select","example"],
+      files: [{
+        path: "registry/bases/aria/examples/pagination-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13731,21 +12242,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Popover",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/popover-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","popover","example"],
+      files: [{
+        path: "registry/bases/aria/examples/popover-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13754,14 +12256,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Progress",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "item", "progress", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/progress-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","item","progress","slider","example"],
+      files: [{
+        path: "registry/bases/aria/examples/progress-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13770,14 +12270,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Radio Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "radio-group", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/radio-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","radio-group","example"],
+      files: [{
+        path: "registry/bases/aria/examples/radio-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13786,14 +12284,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Resizable",
       description: "",
       type: "registry:example",
-      registryDependencies: ["resizable", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/resizable-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["resizable","example"],
+      files: [{
+        path: "registry/bases/aria/examples/resizable-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13802,14 +12298,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Scroll Area",
       description: "",
       type: "registry:example",
-      registryDependencies: ["scroll-area", "separator", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/scroll-area-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["scroll-area","separator","example"],
+      files: [{
+        path: "registry/bases/aria/examples/scroll-area-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13818,23 +12312,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Select",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "item",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","item","native-select","select","example"],
+      files: [{
+        path: "registry/bases/aria/examples/select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13843,14 +12326,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Separator",
       description: "",
       type: "registry:example",
-      registryDependencies: ["separator", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/separator-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["separator","example"],
+      files: [{
+        path: "registry/bases/aria/examples/separator-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13859,14 +12340,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sheet",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "field", "input", "sheet", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sheet-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","sheet","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sheet-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13875,21 +12354,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "item",
-        "label",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sidebar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","item","label","sidebar","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sidebar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13898,22 +12368,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Icon)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "collapsible",
-        "dropdown-menu",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sidebar-icon-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","collapsible","dropdown-menu","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sidebar-icon-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13922,14 +12382,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Inset)",
       description: "",
       type: "registry:example",
-      registryDependencies: ["collapsible", "sidebar", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sidebar-inset-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["collapsible","sidebar","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sidebar-inset-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13938,22 +12396,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Floating)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sidebar-floating-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dropdown-menu","field","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sidebar-floating-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13962,14 +12410,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Skeleton",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/skeleton-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["skeleton","example"],
+      files: [{
+        path: "registry/bases/aria/examples/skeleton-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13978,14 +12424,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Slider",
       description: "",
       type: "registry:example",
-      registryDependencies: ["label", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/slider-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","slider","example"],
+      files: [{
+        path: "registry/bases/aria/examples/slider-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -13994,14 +12438,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sonner",
       description: "",
       type: "registry:example",
-      registryDependencies: ["sonner", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/sonner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sonner","example"],
+      files: [{
+        path: "registry/bases/aria/examples/sonner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14010,22 +12452,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Spinner",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "button",
-        "empty",
-        "field",
-        "input-group",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/spinner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","empty","field","input-group","spinner","example"],
+      files: [{
+        path: "registry/bases/aria/examples/spinner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14034,14 +12466,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Switch",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "label", "switch", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/switch-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","label","switch","example"],
+      files: [{
+        path: "registry/bases/aria/examples/switch-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14050,21 +12480,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Table",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "input",
-        "select",
-        "table",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/table-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","input","select","table","example"],
+      files: [{
+        path: "registry/bases/aria/examples/table-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14073,14 +12494,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tabs",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dropdown-menu", "tabs", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/tabs-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","tabs","example"],
+      files: [{
+        path: "registry/bases/aria/examples/tabs-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14089,14 +12508,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Textarea",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "textarea", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/textarea-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","textarea","example"],
+      files: [{
+        path: "registry/bases/aria/examples/textarea-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14105,14 +12522,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/toggle-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["toggle","example"],
+      files: [{
+        path: "registry/bases/aria/examples/toggle-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14121,14 +12536,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input", "select", "toggle-group", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/toggle-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["input","select","toggle-group","example"],
+      files: [{
+        path: "registry/bases/aria/examples/toggle-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14137,45 +12550,26 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "kbd", "tooltip", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/tooltip-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/examples/tooltip-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    demo: {
+    "demo": {
       name: "demo",
       title: "Demo",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "field",
-        "input-group",
-        "item",
-        "radio-group",
-        "slider",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/demo.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","button-group","card","checkbox","dropdown-menu","field","input-group","item","radio-group","slider","switch","textarea"],
+      files: [{
+        path: "registry/bases/aria/examples/demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14184,26 +12578,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Example",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "card",
-        "combobox",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/component-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","card","combobox","dropdown-menu","field","input","select","textarea","example"],
+      files: [{
+        path: "registry/bases/aria/examples/component-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14213,13 +12593,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:example",
       registryDependencies: ["attachment"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/attachment-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/examples/attachment-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14228,14 +12606,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Bubble",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "button", "collapsible", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/bubble-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","button","collapsible","example"],
+      files: [{
+        path: "registry/bases/aria/examples/bubble-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14244,25 +12620,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message Scroller",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "attachment",
-        "bubble",
-        "button",
-        "card",
-        "example",
-        "input-group",
-        "marker",
-        "message",
-        "message-scroller",
-        "spinner",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/message-scroller-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["attachment","bubble","button","card","example","input-group","marker","message","message-scroller","spinner"],
+      files: [{
+        path: "registry/bases/aria/examples/message-scroller-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14271,21 +12634,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Questionnaire",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dialog",
-        "example",
-        "questionnaire",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/questionnaire-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dialog","example","questionnaire","sonner"],
+      files: [{
+        path: "registry/bases/aria/examples/questionnaire-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14294,21 +12648,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Marker",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "marker",
-        "button",
-        "accordion",
-        "drawer",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/examples/marker-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["marker","button","accordion","drawer","spinner","example"],
+      files: [{
+        path: "registry/bases/aria/examples/marker-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14317,90 +12662,54 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "message", "button", "example"],
-      files: [
-        {
-          path: "registry/bases/aria/examples/message-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","message","button","example"],
+      files: [{
+        path: "registry/bases/aria/examples/message-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    utils: {
+    "utils": {
       name: "utils",
       title: "undefined",
       description: "",
       type: "registry:lib",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/lib/utils.ts",
-          type: "registry:lib",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/lib/utils.ts",
+        type: "registry:lib",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    example: {
+    "example": {
       name: "example",
       title: "Example",
       description: "",
       type: "registry:component",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/components/example.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/components/example.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    preview: {
+    "preview": {
       name: "preview",
       title: "Preview",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "alert-dialog",
-        "avatar",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "chart",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "popover",
-        "radio-group",
-        "select",
-        "separator",
-        "sheet",
-        "slider",
-        "spinner",
-        "switch",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/preview/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","avatar","badge","button","button-group","card","chart","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","popover","radio-group","select","separator","sheet","slider","spinner","switch","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/aria/blocks/preview/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14409,45 +12718,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Preview 02",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "badge",
-        "breadcrumb",
-        "button",
-        "calendar",
-        "card",
-        "chart",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "native-select",
-        "progress",
-        "radio-group",
-        "select",
-        "separator",
-        "sidebar",
-        "skeleton",
-        "slider",
-        "spinner",
-        "switch",
-        "table",
-        "tabs",
-        "textarea",
-        "toggle-group",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/preview-02/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","breadcrumb","button","calendar","card","chart","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","native-select","progress","radio-group","select","separator","sidebar","skeleton","slider","spinner","switch","table","tabs","textarea","toggle-group"],
+      files: [{
+        path: "registry/bases/aria/blocks/preview-02/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14457,13 +12733,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/preview-03/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/blocks/preview-03/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -14472,20 +12746,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 01",
       description: "A simple login form.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/login-01/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/login-01/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/login-01/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/login-01/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-02": {
@@ -14493,20 +12764,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 02",
       description: "A two column login page with a cover image.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/login-02/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/login-02/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/login-02/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/login-02/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-03": {
@@ -14514,20 +12782,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 03",
       description: "A login page with a muted background color.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/login-03/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/login-03/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/login-03/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/login-03/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-04": {
@@ -14535,20 +12800,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 04",
       description: "A login page with form and image.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/login-04/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/login-04/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/login-04/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/login-04/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-05": {
@@ -14556,20 +12818,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 05",
       description: "A simple email-only login page.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/login-05/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/login-05/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/login-05/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/login-05/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "signup-01": {
@@ -14577,20 +12836,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 01",
       description: "A simple signup form.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/signup-01/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/signup-01/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label"],
+      files: [{
+        path: "registry/bases/aria/blocks/signup-01/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/signup-01/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-02": {
@@ -14598,20 +12854,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 02",
       description: "A two column signup page with a cover image.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/signup-02/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/signup-02/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/signup-02/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/signup-02/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-03": {
@@ -14619,20 +12872,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 03",
       description: "A signup page with a muted background color.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/signup-03/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/signup-03/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/signup-03/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/signup-03/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-04": {
@@ -14640,20 +12890,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 04",
       description: "A signup page with form and image.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/signup-04/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/signup-04/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/aria/blocks/signup-04/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/signup-04/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-05": {
@@ -14661,20 +12908,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 05",
       description: "A simple signup form with social providers.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/signup-05/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/signup-05/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label"],
+      files: [{
+        path: "registry/bases/aria/blocks/signup-05/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/signup-05/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "dashboard-01": {
@@ -14682,122 +12926,79 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dashboard 01",
       description: "A dashboard with sidebar, charts and data table.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "chart",
-        "card",
-        "select",
-        "tabs",
-        "table",
-        "toggle-group",
-        "badge",
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "drawer",
-        "input",
-        "avatar",
-        "sheet",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/data.json",
-          type: "registry:file",
-          target: "app/dashboard/data.json",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/chart-area-interactive.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/nav-documents.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/section-cards.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/dashboard-01/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","chart","card","select","tabs","table","toggle-group","badge","button","checkbox","dropdown-menu","drawer","input","avatar","sheet","sonner"],
+      files: [{
+        path: "registry/bases/aria/blocks/dashboard-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/data.json",
+        type: "registry:file",
+        target: "app/dashboard/data.json"
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/chart-area-interactive.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/nav-documents.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/section-cards.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/dashboard-01/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "sidebar-01": {
       name: "sidebar-01",
       title: "Sidebar 01",
       description: "A simple sidebar with navigation grouped by section.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-01/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-01/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-01/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-01/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-02": {
@@ -14805,36 +13006,25 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 02",
       description: "A sidebar with collapsible sections.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-02/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-02/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-02/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-02/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-02/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-02/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-03": {
@@ -14842,20 +13032,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 03",
       description: "A sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-03/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-03/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-04": {
@@ -14863,20 +13050,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 04",
       description: "A floating sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "separator"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-04/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-04/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-05": {
@@ -14884,31 +13068,21 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 05",
       description: "A sidebar with collapsible submenus.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-05/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-05/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","collapsible"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-05/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-05/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-06": {
@@ -14916,36 +13090,25 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 06",
       description: "A sidebar with submenus as dropdowns.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "card",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-06/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-06/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-06/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","card","dropdown-menu"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-06/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-06/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-06/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-07": {
@@ -14953,47 +13116,33 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 07",
       description: "A sidebar that collapses to icons.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-07/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-07/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-07/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-07/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-07/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-07/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-07/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-08": {
@@ -15001,47 +13150,33 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 08",
       description: "An inset sidebar with secondary navigation.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-08/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-08/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-08/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-08/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-08/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-08/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-08/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-09": {
@@ -15049,34 +13184,21 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 09",
       description: "Collapsible nested sidebars.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "switch",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-09/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-09/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-09/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","switch","label"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-09/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-09/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-09/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-10": {
@@ -15084,57 +13206,41 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 10",
       description: "A sidebar in a popover.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/nav-actions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-10/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-10/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/nav-actions.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-10/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-11": {
@@ -15142,25 +13248,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 11",
       description: "A sidebar with a collapsible file tree.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-11/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-11/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-11/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-11/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-12": {
@@ -15168,43 +13266,29 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 12",
       description: "A sidebar with a calendar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "calendar",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-12/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-12/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-12/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-12/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-12/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","calendar","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-12/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-12/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-12/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-12/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-12/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-13": {
@@ -15212,20 +13296,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 13",
       description: "A sidebar in a dialog.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "button", "dialog"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-13/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-13/components/settings-dialog.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","button","dialog"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-13/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-13/components/settings-dialog.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-14": {
@@ -15233,20 +13314,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 14",
       description: "A sidebar on the right.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-14/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-14/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-14/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-14/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-15": {
@@ -15254,74 +13332,53 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 15",
       description: "A left and right sidebar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-        "calendar",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/sidebar-left.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/sidebar-right.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-15/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu","calendar","avatar"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-15/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/sidebar-left.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/sidebar-right.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-15/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-16": {
@@ -15329,59 +13386,41 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 16",
       description: "A sidebar with a sticky site header.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "button",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/aria/blocks/sidebar-16/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","button","label"],
+      files: [{
+        path: "registry/bases/aria/blocks/sidebar-16/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/aria/blocks/sidebar-16/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "use-mobile": {
@@ -15390,62 +13429,43 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:hook",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/aria/hooks/use-mobile.ts",
-          type: "registry:hook",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/aria/hooks/use-mobile.ts",
+        type: "registry:hook",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
   },
-  radix: {
-    accordion: {
+  "radix": {
+    "accordion": {
       name: "accordion",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/accordion.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/accordion.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/accordion",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/accordion-example.tsx",
-          api: "https://www.radix-ui.com/primitives/docs/components/accordion.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/accordion","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/accordion-example.tsx","api":"https://www.radix-ui.com/primitives/docs/components/accordion.md"}},
     },
-    alert: {
+    "alert": {
       name: "alert",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/alert.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/alert.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/alert",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/alert-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/alert","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/alert-example.tsx"}},
     },
     "alert-dialog": {
       name: "alert-dialog",
@@ -15453,22 +13473,13 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/alert-dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/alert-dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/alert-dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/alert-dialog-example.tsx",
-          api: "https://www.radix-ui.com/primitives/docs/components/alert-dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/alert-dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/alert-dialog-example.tsx","api":"https://www.radix-ui.com/primitives/docs/components/alert-dialog.md"}},
     },
     "aspect-ratio": {
       name: "aspect-ratio",
@@ -15476,111 +13487,69 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/aspect-ratio.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/aspect-ratio.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/aspect-ratio",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/aspect-ratio-example.tsx",
-          api: "https://www.radix-ui.com/primitives/docs/components/aspect-ratio.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/aspect-ratio","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/aspect-ratio-example.tsx","api":"https://www.radix-ui.com/primitives/docs/components/aspect-ratio.md"}},
     },
-    avatar: {
+    "avatar": {
       name: "avatar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/avatar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/avatar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/avatar-example.tsx",
-          api: "https://www.radix-ui.com/primitives/docs/components/avatar.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/avatar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/avatar-example.tsx","api":"https://www.radix-ui.com/primitives/docs/components/avatar.md"}},
     },
-    badge: {
+    "badge": {
       name: "badge",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/badge.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/badge.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/badge",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/badge-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/badge","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/badge-example.tsx"}},
     },
-    breadcrumb: {
+    "breadcrumb": {
       name: "breadcrumb",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/breadcrumb.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/breadcrumb.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/breadcrumb",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/breadcrumb-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/breadcrumb","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/breadcrumb-example.tsx"}},
     },
-    button: {
+    "button": {
       name: "button",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/button.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/button",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/button-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/button","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/button-example.tsx"}},
     },
     "button-group": {
       name: "button-group",
@@ -15588,203 +13557,125 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/button-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/button-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/button-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/button-group-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/button-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/button-group-example.tsx"}},
     },
-    calendar: {
+    "calendar": {
       name: "calendar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/calendar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/calendar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/calendar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/calendar-example.tsx",
-          api: "https://react-day-picker.js.org",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/calendar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/calendar-example.tsx","api":"https://react-day-picker.js.org"}},
     },
-    card: {
+    "card": {
       name: "card",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/card-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/card-example.tsx"}},
     },
-    carousel: {
+    "carousel": {
       name: "carousel",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/carousel.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/carousel.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/carousel",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/carousel-example.tsx",
-          api: "https://www.embla-carousel.com/get-started/react",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/carousel","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/carousel-example.tsx","api":"https://www.embla-carousel.com/get-started/react"}},
     },
-    chart: {
+    "chart": {
       name: "chart",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/chart.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/chart.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/chart",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/chart-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/chart","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/chart-example.tsx"}},
     },
-    checkbox: {
+    "checkbox": {
       name: "checkbox",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/checkbox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/checkbox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/checkbox-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/checkbox.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/checkbox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/checkbox-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/checkbox.md"}},
     },
-    collapsible: {
+    "collapsible": {
       name: "collapsible",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/collapsible.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/collapsible.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/collapsible",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/collapsible-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/collapsible.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/collapsible","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/collapsible-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/collapsible.md"}},
     },
-    combobox: {
+    "combobox": {
       name: "combobox",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input-group"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/combobox.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group"],
+      files: [{
+        path: "registry/bases/radix/ui/combobox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/combobox",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/combobox-example.tsx",
-          api: "https://base-ui.com/react/components/combobox",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/combobox","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/combobox-example.tsx","api":"https://base-ui.com/react/components/combobox"}},
     },
-    command: {
+    "command": {
       name: "command",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["dialog", "input-group"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/command.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["dialog","input-group"],
+      files: [{
+        path: "registry/bases/radix/ui/command.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/command",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/command-example.tsx",
-          api: "https://github.com/dip/cmdk",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/command","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/command-example.tsx","api":"https://github.com/dip/cmdk"}},
     },
     "context-menu": {
       name: "context-menu",
@@ -15792,68 +13683,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/context-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/context-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/context-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/context-menu-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/context-menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/context-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/context-menu-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/context-menu.md"}},
     },
-    dialog: {
+    "dialog": {
       name: "dialog",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/dialog.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/dialog.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/dialog",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/dialog-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/dialog","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/dialog-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/dialog.md"}},
     },
-    drawer: {
+    "drawer": {
       name: "drawer",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/drawer.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/drawer.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/drawer",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/drawer-example.tsx",
-          api: "https://vaul.emilkowal.ski/getting-started",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/drawer","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/drawer-example.tsx","api":"https://vaul.emilkowal.ski/getting-started"}},
     },
     "dropdown-menu": {
       name: "dropdown-menu",
@@ -15861,66 +13725,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/dropdown-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/dropdown-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/dropdown-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/dropdown-menu-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/dropdown-menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/dropdown-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/dropdown-menu-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/dropdown-menu.md"}},
     },
-    empty: {
+    "empty": {
       name: "empty",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/empty.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/empty.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/empty",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/empty-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/empty","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/empty-example.tsx"}},
     },
-    field: {
+    "field": {
       name: "field",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["label", "separator"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/field.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","separator"],
+      files: [{
+        path: "registry/bases/radix/ui/field.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/field",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/field-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/field","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/field-example.tsx"}},
     },
     "hover-card": {
       name: "hover-card",
@@ -15928,66 +13767,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/hover-card.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/hover-card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/hover-card",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/hover-card-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/hover-card.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/hover-card","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/hover-card-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/hover-card.md"}},
     },
-    input: {
+    "input": {
       name: "input",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/input.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/input.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/input",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/input","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-example.tsx"}},
     },
     "input-group": {
       name: "input-group",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button", "input", "textarea"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/input-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input","textarea"],
+      files: [{
+        path: "registry/bases/radix/ui/input-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/input-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-group-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/input-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-group-example.tsx"}},
     },
     "input-otp": {
       name: "input-otp",
@@ -15995,90 +13809,55 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/input-otp.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/input-otp.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/input-otp",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-otp-example.tsx",
-          api: "https://input-otp.rodz.dev",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/input-otp","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/input-otp-example.tsx","api":"https://input-otp.rodz.dev"}},
     },
-    item: {
+    "item": {
       name: "item",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["separator"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/item.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/item.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/item",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/item-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/item","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/item-example.tsx"}},
     },
-    label: {
+    "label": {
       name: "label",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/label.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/label.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/label",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/label-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/label.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/label","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/label-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/label.md"}},
     },
-    menubar: {
+    "menubar": {
       name: "menubar",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/menubar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/menubar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/menubar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/menubar-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/menubar.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/menubar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/menubar-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/menubar.md"}},
     },
     "navigation-menu": {
       name: "navigation-menu",
@@ -16086,90 +13865,55 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/navigation-menu.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/navigation-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/navigation-menu",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/navigation-menu-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/navigation-menu.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/navigation-menu","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/navigation-menu-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/navigation-menu.md"}},
     },
-    pagination: {
+    "pagination": {
       name: "pagination",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/pagination.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/pagination.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/pagination",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/pagination-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/pagination","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/pagination-example.tsx"}},
     },
-    popover: {
+    "popover": {
       name: "popover",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/popover.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/popover.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/popover",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/popover-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/popover.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/popover","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/popover-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/popover.md"}},
     },
-    progress: {
+    "progress": {
       name: "progress",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/progress.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/progress.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/progress",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/progress-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/progress.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/progress","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/progress-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/progress.md"}},
     },
     "radio-group": {
       name: "radio-group",
@@ -16177,45 +13921,27 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/radio-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/radio-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/radio-group-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/radio-group.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/radio-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/radio-group-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/radio-group.md"}},
     },
-    resizable: {
+    "resizable": {
       name: "resizable",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/resizable.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/resizable.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/resizable",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/resizable-example.tsx",
-          api: "https://github.com/bvaughn/react-resizable-panels",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/resizable","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/resizable-example.tsx","api":"https://github.com/bvaughn/react-resizable-panels"}},
     },
     "scroll-area": {
       name: "scroll-area",
@@ -16223,324 +13949,195 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/scroll-area.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/scroll-area.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/scroll-area",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/scroll-area-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/scroll-area.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/scroll-area","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/scroll-area-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/scroll-area.md"}},
     },
-    select: {
+    "select": {
       name: "select",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/select-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/select.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/select-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/select.md"}},
     },
-    separator: {
+    "separator": {
       name: "separator",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/separator.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/separator.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/separator",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/separator-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/separator.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/separator","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/separator-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/separator.md"}},
     },
-    sheet: {
+    "sheet": {
       name: "sheet",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/sheet.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/sheet.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/sheet",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sheet-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/dialog.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/sheet","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sheet-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/dialog.md"}},
     },
-    sidebar: {
+    "sidebar": {
       name: "sidebar",
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: [
-        "button",
-        "separator",
-        "sheet",
-        "tooltip",
-        "input",
-        "use-mobile",
-        "skeleton",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/ui/sidebar.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","separator","sheet","tooltip","input","use-mobile","skeleton"],
+      files: [{
+        path: "registry/bases/radix/ui/sidebar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/sidebar",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sidebar-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/sidebar","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sidebar-example.tsx"}},
     },
-    skeleton: {
+    "skeleton": {
       name: "skeleton",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/skeleton.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/skeleton.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/skeleton",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/skeleton-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/skeleton","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/skeleton-example.tsx"}},
     },
-    slider: {
+    "slider": {
       name: "slider",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/slider.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/slider",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/slider-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/slider.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/slider","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/slider-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/slider.md"}},
     },
-    sonner: {
+    "sonner": {
       name: "sonner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/sonner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/sonner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/sonner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sonner-example.tsx",
-          api: "https://sonner.emilkowal.ski",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/sonner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/sonner-example.tsx","api":"https://sonner.emilkowal.ski"}},
     },
-    spinner: {
+    "spinner": {
       name: "spinner",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/spinner.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/spinner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/spinner",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/spinner-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/spinner","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/spinner-example.tsx"}},
     },
-    switch: {
+    "switch": {
       name: "switch",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/switch.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/switch",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/switch-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/switch.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/switch","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/switch-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/switch.md"}},
     },
-    table: {
+    "table": {
       name: "table",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/table.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/table.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/table",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/table-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/table","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/table-example.tsx"}},
     },
-    tabs: {
+    "tabs": {
       name: "tabs",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/tabs.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/tabs.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/tabs",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/tabs-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/tabs.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/tabs","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/tabs-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/tabs.md"}},
     },
-    textarea: {
+    "textarea": {
       name: "textarea",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/textarea.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/textarea",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/textarea-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/textarea","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/textarea-example.tsx"}},
     },
-    toggle: {
+    "toggle": {
       name: "toggle",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/toggle.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/toggle.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/toggle",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/toggle-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/toggle.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/toggle","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/toggle-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/toggle.md"}},
     },
     "toggle-group": {
       name: "toggle-group",
@@ -16548,67 +14145,41 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["toggle"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/toggle-group.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/toggle-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/toggle-group",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/toggle-group-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/toggle-group.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/toggle-group","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/toggle-group-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/toggle-group.md"}},
     },
-    tooltip: {
+    "tooltip": {
       name: "tooltip",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/tooltip.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/tooltip.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/tooltip",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/tooltip-example.tsx",
-          api: "https://www.radix-ui.com/docs/primitives/components/tooltip.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/tooltip","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/tooltip-example.tsx","api":"https://www.radix-ui.com/docs/primitives/components/tooltip.md"}},
     },
-    kbd: {
+    "kbd": {
       name: "kbd",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/kbd.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/kbd.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/kbd",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/kbd-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/kbd","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/kbd-example.tsx"}},
     },
     "native-select": {
       name: "native-select",
@@ -16616,72 +14187,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/native-select.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/native-select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/native-select",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/native-select-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/native-select","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/native-select-example.tsx"}},
     },
-    direction: {
+    "direction": {
       name: "direction",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/direction.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/direction.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/direction",
-          api: "https://www.radix-ui.com/primitives/docs/utilities/direction-provider.md",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/direction","api":"https://www.radix-ui.com/primitives/docs/utilities/direction-provider.md"}},
     },
-    attachment: {
+    "attachment": {
       name: "attachment",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/attachment.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/attachment.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    bubble: {
+    "bubble": {
       name: "bubble",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/bubble.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/bubble.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16691,67 +14243,53 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/message-scroller.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/message-scroller.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    questionnaire: {
+    "questionnaire": {
       name: "questionnaire",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: ["button"],
-      files: [
-        {
-          path: "registry/bases/radix/ui/questionnaire.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/questionnaire.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
-      meta: {
-        links: {
-          docs: "https://ui.shadcn.com/docs/components/radix/questionnaire",
-          examples:
-            "https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/questionnaire-example.tsx",
-        },
-      },
+      meta: {"links":{"docs":"https://ui.shadcn.com/docs/components/radix/questionnaire","examples":"https://ui.shadcn.com/code/apps/v4/registry/bases/radix/examples/questionnaire-example.tsx"}},
     },
-    marker: {
+    "marker": {
       name: "marker",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/marker.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/marker.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    message: {
+    "message": {
       name: "message",
       title: "undefined",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/ui/message.tsx",
-          type: "registry:ui",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/ui/message.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16760,14 +14298,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Accordion",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion", "button", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/accordion-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","button","card","example"],
+      files: [{
+        path: "registry/bases/radix/examples/accordion-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16776,14 +14312,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert", "badge", "button", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/alert-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert","badge","button","example"],
+      files: [{
+        path: "registry/bases/radix/examples/alert-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16792,14 +14326,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Alert Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert-dialog", "button", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/alert-dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","button","dialog","example"],
+      files: [{
+        path: "registry/bases/radix/examples/alert-dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16808,14 +14340,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Aspect Ratio",
       description: "",
       type: "registry:example",
-      registryDependencies: ["aspect-ratio", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/aspect-ratio-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["aspect-ratio","example"],
+      files: [{
+        path: "registry/bases/radix/examples/aspect-ratio-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16824,14 +14354,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Avatar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar", "button", "empty", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/avatar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","empty","example"],
+      files: [{
+        path: "registry/bases/radix/examples/avatar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16840,14 +14368,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Badge",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge", "spinner", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/badge-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","spinner","example"],
+      files: [{
+        path: "registry/bases/radix/examples/badge-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16856,14 +14382,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Breadcrumb",
       description: "",
       type: "registry:example",
-      registryDependencies: ["breadcrumb", "dropdown-menu", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/breadcrumb-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["breadcrumb","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/radix/examples/breadcrumb-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16872,14 +14396,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/button-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","example"],
+      files: [{
+        path: "registry/bases/radix/examples/button-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16888,26 +14410,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Button Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "label",
-        "popover",
-        "select",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/button-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","dropdown-menu","field","input","input-group","label","popover","select","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/examples/button-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16916,23 +14424,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Calendar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "calendar",
-        "card",
-        "field",
-        "input",
-        "label",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/calendar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","calendar","card","field","input","label","popover","example"],
+      files: [{
+        path: "registry/bases/radix/examples/calendar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16941,21 +14438,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Card",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "card",
-        "field",
-        "input",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","card","field","input","example"],
+      files: [{
+        path: "registry/bases/radix/examples/card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16964,14 +14452,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Carousel",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card", "carousel", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/carousel-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["card","carousel","example"],
+      files: [{
+        path: "registry/bases/radix/examples/carousel-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16980,14 +14466,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Chart",
       description: "",
       type: "registry:example",
-      registryDependencies: ["chart", "card", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/chart-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["chart","card","example"],
+      files: [{
+        path: "registry/bases/radix/examples/chart-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -16996,14 +14480,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Checkbox",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox", "field", "table", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/checkbox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","table","example"],
+      files: [{
+        path: "registry/bases/radix/examples/checkbox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17012,22 +14494,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Collapsible",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "collapsible",
-        "field",
-        "input",
-        "tabs",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/collapsible-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","collapsible","field","input","tabs","example"],
+      files: [{
+        path: "registry/bases/radix/examples/collapsible-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17036,25 +14508,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Combobox",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "combobox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/combobox-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","combobox","dialog","field","input","input-group","item","select","example"],
+      files: [{
+        path: "registry/bases/radix/examples/combobox-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17063,14 +14522,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Command",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "command", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/command-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","command","example"],
+      files: [{
+        path: "registry/bases/radix/examples/command-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17079,14 +14536,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Context Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "context-menu", "dialog", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/context-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","context-menu","dialog","example"],
+      files: [{
+        path: "registry/bases/radix/examples/context-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17095,29 +14550,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dialog",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "checkbox",
-        "dialog",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "native-select",
-        "select",
-        "switch",
-        "tabs",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/dialog-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","checkbox","dialog","field","input","input-group","kbd","native-select","select","switch","tabs","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/examples/dialog-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17126,14 +14564,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Drawer",
       description: "",
       type: "registry:example",
-      registryDependencies: ["drawer", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/drawer-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["drawer","example"],
+      files: [{
+        path: "registry/bases/radix/examples/drawer-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17142,20 +14578,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dropdown Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "dialog",
-        "dropdown-menu",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/dropdown-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","dialog","dropdown-menu","example"],
+      files: [{
+        path: "registry/bases/radix/examples/dropdown-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17164,20 +14592,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Empty",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "empty",
-        "input-group",
-        "kbd",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/empty-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","empty","input-group","kbd","example"],
+      files: [{
+        path: "registry/bases/radix/examples/empty-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17186,27 +14606,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Field",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "checkbox",
-        "field",
-        "input",
-        "input-otp",
-        "native-select",
-        "radio-group",
-        "select",
-        "slider",
-        "switch",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/field-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","checkbox","field","input","input-otp","native-select","radio-group","select","slider","switch","textarea","example"],
+      files: [{
+        path: "registry/bases/radix/examples/field-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17215,14 +14620,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Hover Card",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "hover-card", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/hover-card-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","hover-card","example"],
+      files: [{
+        path: "registry/bases/radix/examples/hover-card-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17231,21 +14634,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "field",
-        "input",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/input-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","native-select","select","example"],
+      files: [{
+        path: "registry/bases/radix/examples/input-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17254,28 +14648,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input Group",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "button-group",
-        "card",
-        "dropdown-menu",
-        "field",
-        "input",
-        "input-group",
-        "kbd",
-        "popover",
-        "spinner",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/input-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","button-group","card","dropdown-menu","field","input","input-group","kbd","popover","spinner","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/examples/input-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17284,14 +14662,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Input OTP",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "card", "field", "input-otp", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/input-otp-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","field","input-otp","example"],
+      files: [{
+        path: "registry/bases/radix/examples/input-otp-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17300,14 +14676,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Item",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "drawer", "item", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/item-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","drawer","item","example"],
+      files: [{
+        path: "registry/bases/radix/examples/item-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17316,20 +14690,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Kbd",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "input-group",
-        "kbd",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/kbd-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","input-group","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/examples/kbd-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17338,21 +14704,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Label",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "checkbox",
-        "field",
-        "input",
-        "label",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/label-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["checkbox","field","input","label","textarea","example"],
+      files: [{
+        path: "registry/bases/radix/examples/label-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17361,14 +14718,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Menubar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "menubar", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/menubar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","menubar","example"],
+      files: [{
+        path: "registry/bases/radix/examples/menubar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17377,14 +14732,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Native Select",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "native-select", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/native-select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","native-select","example"],
+      files: [{
+        path: "registry/bases/radix/examples/native-select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17393,14 +14746,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Navigation Menu",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dialog", "navigation-menu", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/navigation-menu-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","navigation-menu","example"],
+      files: [{
+        path: "registry/bases/radix/examples/navigation-menu-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17409,14 +14760,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Pagination",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "pagination", "select", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/pagination-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","pagination","select","example"],
+      files: [{
+        path: "registry/bases/radix/examples/pagination-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17425,21 +14774,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Popover",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "popover",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/popover-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","popover","example"],
+      files: [{
+        path: "registry/bases/radix/examples/popover-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17448,14 +14788,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Progress",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "item", "progress", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/progress-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","item","progress","slider","example"],
+      files: [{
+        path: "registry/bases/radix/examples/progress-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17464,14 +14802,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Radio Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "radio-group", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/radio-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","radio-group","example"],
+      files: [{
+        path: "registry/bases/radix/examples/radio-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17480,14 +14816,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Resizable",
       description: "",
       type: "registry:example",
-      registryDependencies: ["resizable", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/resizable-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["resizable","example"],
+      files: [{
+        path: "registry/bases/radix/examples/resizable-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17496,14 +14830,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Scroll Area",
       description: "",
       type: "registry:example",
-      registryDependencies: ["scroll-area", "separator", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/scroll-area-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["scroll-area","separator","example"],
+      files: [{
+        path: "registry/bases/radix/examples/scroll-area-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17512,23 +14844,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Select",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dialog",
-        "field",
-        "input",
-        "item",
-        "native-select",
-        "select",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/select-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dialog","field","input","item","native-select","select","example"],
+      files: [{
+        path: "registry/bases/radix/examples/select-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17537,14 +14858,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Separator",
       description: "",
       type: "registry:example",
-      registryDependencies: ["separator", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/separator-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["separator","example"],
+      files: [{
+        path: "registry/bases/radix/examples/separator-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17553,14 +14872,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sheet",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "field", "input", "sheet", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sheet-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","field","input","sheet","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sheet-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17569,21 +14886,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "item",
-        "label",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sidebar-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","item","label","sidebar","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sidebar-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17592,22 +14900,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Icon)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "avatar",
-        "button",
-        "collapsible",
-        "dropdown-menu",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sidebar-icon-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["avatar","button","collapsible","dropdown-menu","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sidebar-icon-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17616,14 +14914,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Inset)",
       description: "",
       type: "registry:example",
-      registryDependencies: ["collapsible", "sidebar", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sidebar-inset-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["collapsible","sidebar","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sidebar-inset-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17632,22 +14928,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar (Floating)",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dropdown-menu",
-        "field",
-        "item",
-        "sidebar",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sidebar-floating-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dropdown-menu","field","item","sidebar","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sidebar-floating-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17656,14 +14942,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Skeleton",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/skeleton-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["skeleton","example"],
+      files: [{
+        path: "registry/bases/radix/examples/skeleton-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17672,14 +14956,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Slider",
       description: "",
       type: "registry:example",
-      registryDependencies: ["label", "slider", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/slider-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["label","slider","example"],
+      files: [{
+        path: "registry/bases/radix/examples/slider-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17688,14 +14970,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sonner",
       description: "",
       type: "registry:example",
-      registryDependencies: ["sonner", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/sonner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sonner","example"],
+      files: [{
+        path: "registry/bases/radix/examples/sonner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17704,22 +14984,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Spinner",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "badge",
-        "button",
-        "empty",
-        "field",
-        "input-group",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/spinner-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["badge","button","empty","field","input-group","spinner","example"],
+      files: [{
+        path: "registry/bases/radix/examples/spinner-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17728,14 +14998,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Switch",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "label", "switch", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/switch-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","label","switch","example"],
+      files: [{
+        path: "registry/bases/radix/examples/switch-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17744,21 +15012,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Table",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "dropdown-menu",
-        "input",
-        "select",
-        "table",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/table-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","input","select","table","example"],
+      files: [{
+        path: "registry/bases/radix/examples/table-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17767,14 +15026,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tabs",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "dropdown-menu", "tabs", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/tabs-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","dropdown-menu","tabs","example"],
+      files: [{
+        path: "registry/bases/radix/examples/tabs-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17783,14 +15040,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Textarea",
       description: "",
       type: "registry:example",
-      registryDependencies: ["field", "textarea", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/textarea-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["field","textarea","example"],
+      files: [{
+        path: "registry/bases/radix/examples/textarea-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17799,14 +15054,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/toggle-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["toggle","example"],
+      files: [{
+        path: "registry/bases/radix/examples/toggle-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17815,14 +15068,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Toggle Group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input", "select", "toggle-group", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/toggle-group-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["input","select","toggle-group","example"],
+      files: [{
+        path: "registry/bases/radix/examples/toggle-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17831,45 +15082,26 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Tooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button", "kbd", "tooltip", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/tooltip-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","kbd","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/examples/tooltip-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    demo: {
+    "demo": {
       name: "demo",
       title: "Demo",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "field",
-        "input-group",
-        "item",
-        "radio-group",
-        "slider",
-        "switch",
-        "textarea",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/demo.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","button-group","card","checkbox","dropdown-menu","field","input-group","item","radio-group","slider","switch","textarea"],
+      files: [{
+        path: "registry/bases/radix/examples/demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17878,26 +15110,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Example",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "alert-dialog",
-        "badge",
-        "button",
-        "card",
-        "combobox",
-        "dropdown-menu",
-        "field",
-        "input",
-        "select",
-        "textarea",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/component-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","badge","button","card","combobox","dropdown-menu","field","input","select","textarea","example"],
+      files: [{
+        path: "registry/bases/radix/examples/component-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17907,13 +15125,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:example",
       registryDependencies: ["attachment"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/attachment-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/examples/attachment-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17922,14 +15138,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Bubble",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "button", "collapsible", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/bubble-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","button","collapsible","example"],
+      files: [{
+        path: "registry/bases/radix/examples/bubble-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17938,25 +15152,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message Scroller",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "attachment",
-        "bubble",
-        "button",
-        "card",
-        "example",
-        "input-group",
-        "marker",
-        "message",
-        "message-scroller",
-        "spinner",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/message-scroller-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["attachment","bubble","button","card","example","input-group","marker","message","message-scroller","spinner"],
+      files: [{
+        path: "registry/bases/radix/examples/message-scroller-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17965,21 +15166,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Questionnaire",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "button",
-        "card",
-        "dialog",
-        "example",
-        "questionnaire",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/questionnaire-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["button","card","dialog","example","questionnaire","sonner"],
+      files: [{
+        path: "registry/bases/radix/examples/questionnaire-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -17988,21 +15180,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Marker",
       description: "",
       type: "registry:example",
-      registryDependencies: [
-        "marker",
-        "button",
-        "collapsible",
-        "drawer",
-        "spinner",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/examples/marker-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["marker","button","collapsible","drawer","spinner","example"],
+      files: [{
+        path: "registry/bases/radix/examples/marker-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -18011,89 +15194,54 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Message",
       description: "",
       type: "registry:example",
-      registryDependencies: ["bubble", "message", "button", "example"],
-      files: [
-        {
-          path: "registry/bases/radix/examples/message-example.tsx",
-          type: "registry:example",
-          target: "",
-        },
-      ],
+      registryDependencies: ["bubble","message","button","example"],
+      files: [{
+        path: "registry/bases/radix/examples/message-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    utils: {
+    "utils": {
       name: "utils",
       title: "undefined",
       description: "",
       type: "registry:lib",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/lib/utils.ts",
-          type: "registry:lib",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/lib/utils.ts",
+        type: "registry:lib",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    example: {
+    "example": {
       name: "example",
       title: "Example",
       description: "",
       type: "registry:component",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/components/example.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/components/example.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
-    preview: {
+    "preview": {
       name: "preview",
       title: "Preview",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "alert-dialog",
-        "avatar",
-        "badge",
-        "button",
-        "button-group",
-        "card",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "popover",
-        "radio-group",
-        "select",
-        "separator",
-        "sheet",
-        "slider",
-        "spinner",
-        "switch",
-        "textarea",
-        "tooltip",
-        "example",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/preview/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["alert-dialog","avatar","badge","button","button-group","card","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","popover","radio-group","select","separator","sheet","slider","spinner","switch","textarea","tooltip","example"],
+      files: [{
+        path: "registry/bases/radix/blocks/preview/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -18102,45 +15250,12 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Preview 02",
       description: "",
       type: "registry:block",
-      registryDependencies: [
-        "accordion",
-        "badge",
-        "breadcrumb",
-        "button",
-        "calendar",
-        "card",
-        "chart",
-        "checkbox",
-        "combobox",
-        "dropdown-menu",
-        "empty",
-        "field",
-        "input",
-        "input-group",
-        "item",
-        "label",
-        "native-select",
-        "progress",
-        "radio-group",
-        "select",
-        "separator",
-        "sidebar",
-        "skeleton",
-        "slider",
-        "spinner",
-        "switch",
-        "table",
-        "tabs",
-        "textarea",
-        "toggle-group",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/preview-02/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      registryDependencies: ["accordion","badge","breadcrumb","button","calendar","card","chart","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","native-select","progress","radio-group","select","separator","sidebar","skeleton","slider","spinner","switch","table","tabs","textarea","toggle-group"],
+      files: [{
+        path: "registry/bases/radix/blocks/preview-02/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -18150,13 +15265,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:block",
       registryDependencies: [],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/preview-03/index.tsx",
-          type: "registry:block",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/blocks/preview-03/index.tsx",
+        type: "registry:block",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },
@@ -18165,20 +15278,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 01",
       description: "A simple login form.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/login-01/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/login-01/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/login-01/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/login-01/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-02": {
@@ -18186,20 +15296,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 02",
       description: "A two column login page with a cover image.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/login-02/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/login-02/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/login-02/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/login-02/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-03": {
@@ -18207,20 +15314,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 03",
       description: "A login page with a muted background color.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/login-03/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/login-03/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/login-03/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/login-03/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-04": {
@@ -18228,20 +15332,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 04",
       description: "A login page with form and image.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/login-04/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/login-04/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/login-04/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/login-04/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "login-05": {
@@ -18249,20 +15350,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Login 05",
       description: "A simple email-only login page.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/login-05/page.tsx",
-          type: "registry:page",
-          target: "app/login/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/login-05/components/login-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "login"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/login-05/page.tsx",
+        type: "registry:page",
+        target: "app/login/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/login-05/components/login-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","login"],
       meta: undefined,
     },
     "signup-01": {
@@ -18270,20 +15368,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 01",
       description: "A simple signup form.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/signup-01/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/signup-01/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label"],
+      files: [{
+        path: "registry/bases/radix/blocks/signup-01/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/signup-01/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-02": {
@@ -18291,20 +15386,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 02",
       description: "A two column signup page with a cover image.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/signup-02/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/signup-02/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/signup-02/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/signup-02/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-03": {
@@ -18312,20 +15404,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 03",
       description: "A signup page with a muted background color.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/signup-03/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/signup-03/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/signup-03/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/signup-03/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-04": {
@@ -18333,20 +15422,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 04",
       description: "A signup page with form and image.",
       type: "registry:block",
-      registryDependencies: ["button", "card", "input", "label", "field"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/signup-04/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/signup-04/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","card","input","label","field"],
+      files: [{
+        path: "registry/bases/radix/blocks/signup-04/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/signup-04/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "signup-05": {
@@ -18354,20 +15440,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Signup 05",
       description: "A simple signup form with social providers.",
       type: "registry:block",
-      registryDependencies: ["button", "input", "label"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/signup-05/page.tsx",
-          type: "registry:page",
-          target: "app/signup/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/signup-05/components/signup-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["authentication", "signup"],
+      registryDependencies: ["button","input","label"],
+      files: [{
+        path: "registry/bases/radix/blocks/signup-05/page.tsx",
+        type: "registry:page",
+        target: "app/signup/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/signup-05/components/signup-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["authentication","signup"],
       meta: undefined,
     },
     "dashboard-01": {
@@ -18375,122 +15458,79 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Dashboard 01",
       description: "A dashboard with sidebar, charts and data table.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "chart",
-        "card",
-        "select",
-        "tabs",
-        "table",
-        "toggle-group",
-        "badge",
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "drawer",
-        "input",
-        "avatar",
-        "sheet",
-        "sonner",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/data.json",
-          type: "registry:file",
-          target: "app/dashboard/data.json",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/chart-area-interactive.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/data-table.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/nav-documents.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/section-cards.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/dashboard-01/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","chart","card","select","tabs","table","toggle-group","badge","button","checkbox","dropdown-menu","drawer","input","avatar","sheet","sonner"],
+      files: [{
+        path: "registry/bases/radix/blocks/dashboard-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/data.json",
+        type: "registry:file",
+        target: "app/dashboard/data.json"
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/chart-area-interactive.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/data-table.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/nav-documents.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/section-cards.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/dashboard-01/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
       categories: ["dashboard"],
-      meta: { iframeHeight: "1000px" },
+      meta: {"iframeHeight":"1000px"},
     },
     "sidebar-01": {
       name: "sidebar-01",
       title: "Sidebar 01",
       description: "A simple sidebar with navigation grouped by section.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-01/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-01/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-01/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-01/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-01/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-01/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-02": {
@@ -18498,36 +15538,25 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 02",
       description: "A sidebar with collapsible sections.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-02/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-02/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-02/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-02/components/version-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-02/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-02/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-02/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-02/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-03": {
@@ -18535,20 +15564,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 03",
       description: "A sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-03/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-03/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-03/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-03/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-04": {
@@ -18556,20 +15582,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 04",
       description: "A floating sidebar with submenus.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "separator"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-04/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-04/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-04/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-04/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-05": {
@@ -18577,31 +15600,21 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 05",
       description: "A sidebar with collapsible submenus.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "label",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-05/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-05/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-05/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","label","collapsible"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-05/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-05/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-05/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-06": {
@@ -18609,36 +15622,25 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 06",
       description: "A sidebar with submenus as dropdowns.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "card",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-06/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-06/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-06/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","card","dropdown-menu"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-06/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-06/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-06/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-06/components/sidebar-opt-in-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-07": {
@@ -18646,47 +15648,33 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 07",
       description: "A sidebar that collapses to icons.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-07/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-07/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-07/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-07/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-07/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-07/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-07/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-08": {
@@ -18694,47 +15682,33 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 08",
       description: "An inset sidebar with secondary navigation.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-08/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-08/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-08/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-08/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-08/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-08/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-08/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-09": {
@@ -18742,34 +15716,21 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 09",
       description: "Collapsible nested sidebars.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "switch",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-09/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-09/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-09/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","switch","label"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-09/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-09/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-09/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-10": {
@@ -18777,57 +15738,41 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 10",
       description: "A sidebar in a popover.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/nav-actions.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-10/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-10/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/nav-actions.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-10/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-11": {
@@ -18835,25 +15780,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 11",
       description: "A sidebar with a collapsible file tree.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-11/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-11/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-11/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-11/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-12": {
@@ -18861,43 +15798,29 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 12",
       description: "A sidebar with a calendar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "calendar",
-        "dropdown-menu",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-12/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-12/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-12/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-12/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-12/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","calendar","dropdown-menu","avatar"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-12/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-12/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-12/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-12/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-12/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-13": {
@@ -18905,20 +15828,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 13",
       description: "A sidebar in a dialog.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb", "button", "dialog"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-13/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-13/components/settings-dialog.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","button","dialog"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-13/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-13/components/settings-dialog.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-14": {
@@ -18926,20 +15846,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 14",
       description: "A sidebar on the right.",
       type: "registry:block",
-      registryDependencies: ["sidebar", "breadcrumb"],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-14/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-14/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-14/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-14/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-15": {
@@ -18947,74 +15864,53 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 15",
       description: "A left and right sidebar.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "popover",
-        "collapsible",
-        "dropdown-menu",
-        "calendar",
-        "avatar",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/calendars.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/date-picker.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/nav-favorites.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/nav-workspaces.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/sidebar-left.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/sidebar-right.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-15/components/team-switcher.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","popover","collapsible","dropdown-menu","calendar","avatar"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-15/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/calendars.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/date-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/nav-favorites.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/nav-workspaces.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/sidebar-left.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/sidebar-right.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-15/components/team-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "sidebar-16": {
@@ -19022,59 +15918,41 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Sidebar 16",
       description: "A sidebar with a sticky site header.",
       type: "registry:block",
-      registryDependencies: [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "button",
-        "label",
-      ],
-      files: [
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/page.tsx",
-          type: "registry:page",
-          target: "app/dashboard/page.tsx",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/app-sidebar.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/nav-main.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/nav-projects.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/nav-secondary.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/nav-user.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/search-form.tsx",
-          type: "registry:component",
-          target: "",
-        },
-        {
-          path: "registry/bases/radix/blocks/sidebar-16/components/site-header.tsx",
-          type: "registry:component",
-          target: "",
-        },
-      ],
-      categories: ["sidebar", "dashboard"],
+      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar","button","label"],
+      files: [{
+        path: "registry/bases/radix/blocks/sidebar-16/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/nav-projects.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/nav-secondary.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/nav-user.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/radix/blocks/sidebar-16/components/site-header.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar","dashboard"],
       meta: undefined,
     },
     "use-mobile": {
@@ -19083,13 +15961,11 @@ export const Index: Record<string, Record<string, any>> = {
       description: "",
       type: "registry:hook",
       registryDependencies: undefined,
-      files: [
-        {
-          path: "registry/bases/radix/hooks/use-mobile.ts",
-          type: "registry:hook",
-          target: "",
-        },
-      ],
+      files: [{
+        path: "registry/bases/radix/hooks/use-mobile.ts",
+        type: "registry:hook",
+        target: ""
+      }],
       categories: undefined,
       meta: undefined,
     },

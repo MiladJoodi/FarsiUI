@@ -1,0 +1,98 @@
+"use client"
+
+import { CalendarIcon, CreditCardIcon } from "lucide-react"
+
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/bases/base/ui/card"
+import { Progress } from "@/registry/bases/base/ui/progress"
+import { Separator } from "@/registry/bases/base/ui/separator"
+
+const NEXT_BILLING = new Date()
+NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
+
+function formatJalali(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+}
+
+function formatJalaliCompact(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+}
+
+export function SubscriptionUsageCard() {
+  return (
+    <section
+      dir="rtl"
+      lang="fa"
+      className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
+    >
+      <Card>
+        <CardHeader className="text-start">
+          <div className="mb-2 flex flex-wrap gap-2">
+            <Badge>حرفه‌ای</Badge>
+            <Badge variant="outline">فعال</Badge>
+          </div>
+          <CardTitle>وضعیت اشتراک</CardTitle>
+          <CardDescription>مصرف دوره و تمدید شمسی</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>پروژه‌ها</span>
+              <bdi dir="ltr" className="text-muted-foreground">
+                ۷ / ۱۰
+              </bdi>
+            </div>
+            <Progress value={70} />
+          </div>
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>فضای ذخیره</span>
+              <bdi dir="ltr" className="text-muted-foreground">
+                ۱۲ / ۲۰ گیگابایت
+              </bdi>
+            </div>
+            <Progress value={60} />
+          </div>
+          <Separator />
+          <div className="space-y-2 text-sm">
+            <p className="flex items-center gap-2">
+              <CalendarIcon className="size-4 text-muted-foreground" />
+              تمدید: {formatJalali(NEXT_BILLING)}
+            </p>
+            <bdi dir="ltr" className="block text-xs text-muted-foreground">
+              {formatJalaliCompact(NEXT_BILLING)}
+            </bdi>
+            <p className="flex items-center gap-2">
+              <CreditCardIcon className="size-4 text-muted-foreground" />
+              کارت <bdi dir="ltr">**** ۴۲۱۸</bdi>
+            </p>
+          </div>
+        </CardContent>
+        <CardFooter className="gap-2 border-t">
+          <Button className="flex-1">تغییر طرح</Button>
+          <Button variant="outline" className="flex-1">
+            به‌روزرسانی کارت
+          </Button>
+        </CardFooter>
+      </Card>
+    </section>
+  )
+}

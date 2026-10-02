@@ -1,0 +1,259 @@
+"use client"
+
+import * as React from "react"
+import { cn } from "cn"
+import {
+  FileTextIcon,
+  LayoutIcon,
+  MoreHorizontalIcon,
+  SearchIcon,
+  ComponentIcon,
+} from "lucide-react"
+
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/registry/bases/base/ui/dropdown-menu"
+import {
+  Field,
+  FieldDescription,
+  FieldLabel,
+} from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
+import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
+import { Separator } from "@/registry/bases/base/ui/separator"
+import { Switch } from "@/registry/bases/base/ui/switch"
+
+const RESULTS = [
+  {
+    id: "1",
+    title: "دکمه",
+    path: "components/button",
+    type: "کامپوننت",
+    snippet: "دکمه‌های راست‌چین با انواع مختلف",
+    icon: ComponentIcon,
+  },
+  {
+    id: "2",
+    title: "فرم ورود",
+    path: "blocks/login",
+    type: "بلاک",
+    snippet: "ورود با ایمیل LTR و برچسب فارسی",
+    icon: LayoutIcon,
+  },
+  {
+    id: "3",
+    title: "جدول داده",
+    path: "components/data-table",
+    type: "کامپوننت",
+    snippet: "جدول با فیلتر و صفحه‌بندی",
+    icon: ComponentIcon,
+  },
+  {
+    id: "4",
+    title: "راهنمای جهت",
+    path: "docs/direction",
+    type: "مستند",
+    snippet: "نحوهٔ کار با RTL در FarsiUI",
+    icon: FileTextIcon,
+  },
+  {
+    id: "5",
+    title: "تقویم",
+    path: "components/calendar",
+    type: "کامپوننت",
+    snippet: "تقویم شمسی و انتخاب تاریخ",
+    icon: ComponentIcon,
+  },
+] as const
+
+const NAV = [
+  { id: "all", label: "همه" },
+  { id: "کامپوننت", label: "کامپوننت" },
+  { id: "بلاک", label: "بلاک" },
+  { id: "مستند", label: "مستند" },
+] as const
+
+type NavId = (typeof NAV)[number]["id"]
+
+export function SearchHub() {
+  const [query, setQuery] = React.useState("دکمه")
+  const [tab, setTab] = React.useState<NavId>("all")
+  const [sort, setSort] = React.useState("relevance")
+
+  const rows = RESULTS.filter((r) => {
+    if (tab !== "all" && r.type !== tab) return false
+    if (query && !`${r.title}${r.snippet}${r.path}`.includes(query)) {
+      return false
+    }
+    return true
+  })
+
+  return (
+    <section
+      dir="rtl"
+      lang="fa"
+      className="mx-auto flex min-h-svh max-w-4xl flex-col justify-center px-6 py-16 md:px-10"
+    >
+      <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <Badge variant="secondary" className="mb-3">
+            مرکز جستجو
+          </Badge>
+          <h2 className="text-3xl font-bold tracking-tight">جستجو</h2>
+          <p className="mt-2 text-muted-foreground">
+            فیلتر دسته، مرتب‌سازی و نتایج زنده
+          </p>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+            <MoreHorizontalIcon className="size-4" />
+            بیشتر
+          </DropdownMenuTrigger>
+          <DropdownMenuContent dir="rtl" lang="fa" align="start">
+            <DropdownMenuLabel>گزینه‌ها</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>ذخیره جستجو</DropdownMenuItem>
+            <DropdownMenuItem>پاک کردن تاریخچه</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      <div className="mb-4 flex flex-col gap-3 lg:flex-row">
+        <div className="relative flex-1">
+          <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="جستجو در کامپوننت‌ها و بلاک‌ها…"
+            className="ps-9"
+            dir="rtl"
+          />
+        </div>
+        <Select
+          value={sort}
+          onValueChange={(v) => setSort((v as string) ?? "relevance")}
+        >
+          <SelectTrigger className="w-full lg:w-40" dir="rtl">
+            <SelectValue placeholder="مرتب‌سازی" />
+          </SelectTrigger>
+          <SelectContent dir="rtl" lang="fa">
+            <SelectItem value="relevance">مرتبط‌ترین</SelectItem>
+            <SelectItem value="az">الفبایی</SelectItem>
+            <SelectItem value="newest">جدیدترین</SelectItem>
+          </SelectContent>
+        </Select>
+        <Button type="button">جستجو</Button>
+      </div>
+
+      <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[11rem_1fr]">
+        <aside className="border-b bg-muted/30 p-3 md:border-b-0 md:border-l">
+          <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">
+            محدوده
+          </p>
+          <nav className="flex gap-1 overflow-x-auto md:flex-col">
+            {NAV.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setTab(item.id)}
+                className={cn(
+                  "rounded-lg px-3 py-2 text-start text-sm transition-colors hover:bg-muted",
+                  tab === item.id && "bg-muted font-medium"
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+          <Separator className="my-3" />
+          <div className="space-y-3 px-1">
+            <Field>
+              <FieldLabel htmlFor="sr5-author">ایمیل نویسنده</FieldLabel>
+              <Input
+                id="sr5-author"
+                type="email"
+                placeholder="name@example.com"
+                dir="ltr"
+                className="text-start"
+              />
+              <FieldDescription>فیلتر اختیاری با ایمیل</FieldDescription>
+            </Field>
+            <div className="flex items-center justify-between gap-2">
+              <Label htmlFor="sr5-docs" className="text-sm">
+                شامل پیش‌نویس
+              </Label>
+              <Switch id="sr5-docs" />
+            </div>
+          </div>
+        </aside>
+
+        <div className="p-4 md:p-5">
+          <p className="mb-3 text-sm text-muted-foreground">
+            <bdi dir="ltr">{rows.length}</bdi> نتیجه برای «{query || "…"}»
+          </p>
+          <div className="overflow-hidden rounded-lg border">
+            {rows.length === 0 ? (
+              <div className="flex flex-col items-center gap-2 py-12 text-muted-foreground">
+                <SearchIcon className="size-8 opacity-50" />
+                <p className="text-sm">نتیجه‌ای پیدا نشد</p>
+              </div>
+            ) : (
+              rows.map((r, i) => {
+                const Icon = r.icon
+                return (
+                  <div key={r.id}>
+                    {i > 0 && <Separator />}
+                    <div className="flex items-start gap-3 px-4 py-3">
+                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border bg-muted">
+                        <Icon className="size-4 text-muted-foreground" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <p className="text-sm font-medium">{r.title}</p>
+                          <Badge variant="outline">{r.type}</Badge>
+                        </div>
+                        <p className="mt-0.5 text-xs text-muted-foreground">
+                          <bdi dir="ltr">{r.path}</bdi>
+                        </p>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {r.snippet}
+                        </p>
+                      </div>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger
+                          render={<Button variant="ghost" size="icon-sm" />}
+                        >
+                          <MoreHorizontalIcon className="size-4" />
+                          <span className="sr-only">عملیات</span>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
+                          <DropdownMenuItem>باز کردن</DropdownMenuItem>
+                          <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
+                          <DropdownMenuItem>اشتراک‌گذاری</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  </div>
+                )
+              })
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
