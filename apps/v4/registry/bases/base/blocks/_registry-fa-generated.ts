@@ -67,38 +67,6 @@ export const faBlocks: Registry["items"] = [
     ]
   },
   {
-    "name": "document-verification-01",
-    "title": "Document Verification 01",
-    "description": "تأیید مدارک — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "document-verification"
-    ],
-    "files": [
-      {
-        "path": "blocks/document-verification-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/document-verification/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "document-verification-02",
-    "title": "Document Verification 02",
-    "description": "تأیید مدارک — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "document-verification"
-    ],
-    "files": [
-      {
-        "path": "blocks/document-verification-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/document-verification/page.tsx"
-      }
-    ]
-  },
-  {
     "name": "profile-form-01",
     "title": "Profile Form 01",
     "description": "فرم پروفایل — نمونهٔ راست‌چین فارسی",

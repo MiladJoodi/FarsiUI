@@ -1,4 +1,4 @@
-import { DocumentChecklist } from "@/registry/bases/base/blocks/document-verification-02/components/document-checklist"
+import { DocumentPreferences } from "@/registry/bases/base/blocks/document-verification-03/components/document-preferences"
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-lg">
-        <DocumentChecklist />
+        <DocumentPreferences />
       </div>
     </div>
   )

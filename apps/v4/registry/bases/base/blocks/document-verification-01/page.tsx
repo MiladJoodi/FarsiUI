@@ -1,41 +1,15 @@
-import { cn } from "cn"
-import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/bases/base/ui/avatar"
-import { Progress } from "@/registry/bases/base/ui/progress"
+import { DocumentUploadForm } from "@/registry/bases/base/blocks/document-verification-01/components/document-upload-form"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
+export default function Page() {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-muted text-foreground flex min-h-[420px] items-center justify-center p-6", className)}
-      {...props}
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>تأیید مدارک</CardTitle>
-          <CardDescription>فایل را بکشید و رها کنید یا انتخاب کنید</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex h-32 items-center justify-center rounded-xl border border-dashed text-sm text-muted-foreground">
-            رها کردن فایل‌ها اینجا
-          </div>
-          <Progress value={45} />
-          <Button className="w-full">بارگذاری</Button>
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-md">
+        <DocumentUploadForm />
+      </div>
     </div>
   )
 }

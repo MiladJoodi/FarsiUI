@@ -601,6 +601,107 @@ export const blocks: Registry["items"] = [
     categories: ["license-plate"],
   },
   {
+    name: "document-verification-01",
+    title: "Document Verification 01",
+    description: "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
+    type: "registry:block",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "progress",
+      "select",
+    ],
+    files: [
+      {
+        path: "blocks/document-verification-01/page.tsx",
+        target: "app/document-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/document-verification-01/components/document-upload-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["document-verification"],
+  },
+  {
+    name: "document-verification-02",
+    title: "Document Verification 02",
+    description: "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "card", "separator"],
+    files: [
+      {
+        path: "blocks/document-verification-02/page.tsx",
+        target: "app/document-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/document-verification-02/components/document-checklist.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["document-verification"],
+  },
+  {
+    name: "document-verification-03",
+    title: "Document Verification 03",
+    description: "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "label", "separator", "switch"],
+    files: [
+      {
+        path: "blocks/document-verification-03/page.tsx",
+        target: "app/document-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/document-verification-03/components/document-preferences.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["document-verification"],
+  },
+  {
+    name: "document-verification-04",
+    title: "Document Verification 04",
+    description: "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/document-verification-04/page.tsx",
+        target: "app/document-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/document-verification-04/components/document-split-upload.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["document-verification"],
+  },
+  {
+    name: "document-verification-05",
+    title: "Document Verification 05",
+    description: "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "card", "tabs"],
+    files: [
+      {
+        path: "blocks/document-verification-05/page.tsx",
+        target: "app/document-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/document-verification-05/components/document-status-gallery.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["document-verification"],
+  },
+  {
     name: "personal-info-01",
     title: "Personal Info 01",
     description: "فرم اطلاعات شخصی ساده داخل کارت.",
