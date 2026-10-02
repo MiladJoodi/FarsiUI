@@ -66,6 +66,15 @@ const SKIP_SLUGS = new Set([
   "profile",
   "account-settings",
   "security-settings",
+  "account-notifications",
+  "account-billing",
+  "sessions",
+  "chat",
+  "conversation",
+  "message-list",
+  "comments",
+  "notifications",
+  "search",
 ])
 
 const ITEMS = [
@@ -116,18 +125,9 @@ const ITEMS = [
   ["activity", "فعالیت‌ها", "Activity", "feed"],
   ["recent-items", "موارد اخیر", "Recent Items", "list"],
   // account
-  ["account-notifications", "اعلان‌ها", "Notifications", "list"],
-  ["account-billing", "صورتحساب", "Billing", "billing"],
-  ["sessions", "نشست‌ها", "Sessions", "list"],
   // communication
-  ["chat", "گفتگو", "Chat", "chat"],
-  ["conversation", "مکالمه", "Conversation", "chat"],
-  ["message-list", "فهرست پیام‌ها", "Message List", "list"],
-  ["comments", "دیدگاه‌ها", "Comments", "comments"],
-  ["notifications", "اعلان‌ها", "Notifications", "list"],
   ["inbox", "صندوق پیام‌ها", "Inbox", "inbox"],
   // search
-  ["search", "جستجو", "Search", "search"],
   ["search-results", "نتایج جستجو", "Search Results", "search-results"],
   ["filters", "فیلترها", "Filters", "filters"],
   ["advanced-filters", "فیلترهای پیشرفته", "Advanced Filters", "drawer-filters"],

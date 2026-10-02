@@ -1,0 +1,189 @@
+"use client"
+
+import * as React from "react"
+import { SearchIcon, SendIcon } from "lucide-react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/registry/bases/base/ui/card"
+import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
+import { Separator } from "@/registry/bases/base/ui/separator"
+
+const THREADS = [
+  {
+    id: "1",
+    name: "سارا محمدی",
+    preview: "مرسی، عالی شد.",
+    time: "۱۰:۲۷",
+    unread: 2,
+    initials: "سم",
+  },
+  {
+    id: "2",
+    name: "علی رضایی",
+    preview: "فاکتور رو فرستادم",
+    time: "دیروز",
+    unread: 0,
+    initials: "عر",
+  },
+  {
+    id: "3",
+    name: "مینا کریمی",
+    preview: "فردا جلسه داریم؟",
+    time: "دوشنبه",
+    unread: 1,
+    initials: "مک",
+  },
+] as const
+
+const MESSAGES = [
+  { text: "سلام، وضعیت تیکت پشتیبانی چطوره؟", me: false, time: "۱۰:۲۴" },
+  {
+    text: "سلام! امروز پاسخ می‌دهیم.",
+    me: true,
+    time: "۱۰:۲۶",
+  },
+  { text: "مرسی، عالی شد.", me: false, time: "۱۰:۲۷" },
+] as const
+
+export function ChatSplit() {
+  const [filter, setFilter] = React.useState("all")
+  const [query, setQuery] = React.useState("")
+
+  const threads = THREADS.filter((t) => {
+    if (filter === "unread" && t.unread === 0) return false
+    if (query && !t.name.includes(query)) return false
+    return true
+  })
+
+  return (
+    <section
+      dir="rtl"
+      lang="fa"
+      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+    >
+      <Card className="overflow-hidden p-0 md:grid md:h-[560px] md:grid-cols-[14rem_1fr]">
+        <aside className="flex flex-col border-b md:border-b-0 md:border-l">
+          <div className="space-y-2 border-b p-3">
+            <div className="relative">
+              <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="جستجوی گفتگو…"
+                className="ps-9"
+                dir="rtl"
+              />
+            </div>
+            <Select
+              value={filter}
+              onValueChange={(v) => setFilter((v as string) ?? "all")}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="فیلتر" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                <SelectItem value="all">همه</SelectItem>
+                <SelectItem value="unread">خوانده‌نشده</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex-1 overflow-auto">
+            {threads.map((t, i) => (
+              <div key={t.id}>
+                {i > 0 && <Separator />}
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-2 px-3 py-2.5 text-start hover:bg-muted/60"
+                >
+                  <Avatar className="size-9">
+                    <AvatarFallback>{t.initials}</AvatarFallback>
+                  </Avatar>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="truncate text-sm font-medium">{t.name}</p>
+                      <span className="shrink-0 text-[10px] text-muted-foreground">
+                        <bdi dir="ltr">{t.time}</bdi>
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="truncate text-xs text-muted-foreground">
+                        {t.preview}
+                      </p>
+                      {t.unread > 0 ? (
+                        <Badge variant="secondary" className="h-5 min-w-5 px-1.5">
+                          <bdi dir="ltr">{t.unread}</bdi>
+                        </Badge>
+                      ) : null}
+                    </div>
+                  </div>
+                </button>
+              </div>
+            ))}
+          </div>
+        </aside>
+
+        <div className="flex min-h-[360px] flex-col">
+          <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
+            <Avatar className="size-9">
+              <AvatarImage
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
+                alt="سارا محمدی"
+              />
+              <AvatarFallback>سم</AvatarFallback>
+            </Avatar>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold">سارا محمدی</p>
+              <p className="text-xs text-muted-foreground">آنلاین</p>
+            </div>
+          </CardHeader>
+          <CardContent className="flex-1 space-y-3 overflow-auto py-4">
+            {MESSAGES.map((m, i) => (
+              <div
+                key={i}
+                className={m.me ? "flex justify-start" : "flex justify-end"}
+              >
+                <div className="max-w-[75%] space-y-1">
+                  <div
+                    className={
+                      m.me
+                        ? "rounded-2xl bg-primary px-3 py-2 text-sm text-primary-foreground"
+                        : "rounded-2xl bg-muted px-3 py-2 text-sm"
+                    }
+                  >
+                    {m.text}
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">
+                    <bdi dir="ltr" className="tabular-nums">
+                      {m.time}
+                    </bdi>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+          <CardFooter className="gap-2 border-t p-3">
+            <Input placeholder="پیام بنویسید…" dir="rtl" className="flex-1" />
+            <Button type="button" size="icon">
+              <SendIcon className="size-4" />
+              <span className="sr-only">ارسال</span>
+            </Button>
+          </CardFooter>
+        </div>
+      </Card>
+    </section>
+  )
+}
