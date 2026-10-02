@@ -1,8 +1,9 @@
 "use client"
 
+import * as React from "react"
 import { MenuIcon, SearchIcon } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
+import { Avatar, AvatarFallback } from "@/registry/bases/base/ui/avatar"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -22,26 +23,33 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 
-const LINKS = [
-  { href: "#", label: "داشبورد" },
-  { href: "#", label: "بلاک‌ها" },
-  { href: "#", label: "پروژه‌ها" },
-  { href: "#", label: "تنظیمات" },
-] as const
+const LINKS = ["داشبورد", "بلاک‌ها", "پروژه‌ها", "تنظیمات"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function NavbarApp() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <div className="border-b bg-muted/50 px-4 py-2 text-center text-xs text-muted-foreground md:px-6">
         نسخهٔ جدید منتشر شد.{" "}
-        <a href="#" className="font-medium text-foreground underline-offset-4 hover:underline">
+        <a
+          href="#"
+          onClick={demoNavClick}
+          className="font-medium text-foreground underline-offset-4 hover:underline"
+        >
           تغییرات را ببینید
         </a>
       </div>
 
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-3 px-4 md:px-6">
-          <a href="#" className="flex shrink-0 items-center gap-2">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="flex shrink-0 items-center gap-2"
+          >
             <span className="text-sm font-bold tracking-tight">FarsiUI</span>
             <Badge variant="secondary" className="hidden sm:inline-flex">
               بتا
@@ -49,13 +57,14 @@ export function NavbarApp() {
           </a>
 
           <nav className="ms-4 hidden items-center gap-4 text-sm text-muted-foreground lg:flex">
-            {LINKS.map((link) => (
+            {LINKS.map((label) => (
               <a
-                key={link.label}
-                href={link.href}
+                key={label}
+                href="#"
+                onClick={demoNavClick}
                 className="transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label}
               </a>
             ))}
           </nav>
@@ -76,14 +85,14 @@ export function NavbarApp() {
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    className="rounded-full"
+                    type="button"
+                    className="size-8 rounded-full p-0"
                     aria-label="حساب کاربری"
                   />
                 }
               >
                 <Avatar className="size-7">
-                  <AvatarImage src="/avatars/01.png" alt="مریم رضایی" />
-                  <AvatarFallback>مر</AvatarFallback>
+                  <AvatarFallback className="text-xs">مر</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48" dir="rtl" lang="fa">
@@ -94,10 +103,16 @@ export function NavbarApp() {
                   </p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>پروفایل</DropdownMenuItem>
-                <DropdownMenuItem>تنظیمات</DropdownMenuItem>
+                <DropdownMenuItem onClick={(event) => event.preventDefault()}>
+                  پروفایل
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={(event) => event.preventDefault()}>
+                  تنظیمات
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>خروج</DropdownMenuItem>
+                <DropdownMenuItem onClick={(event) => event.preventDefault()}>
+                  خروج
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -107,6 +122,7 @@ export function NavbarApp() {
                   <Button
                     size="icon-sm"
                     variant="outline"
+                    type="button"
                     className="lg:hidden"
                     aria-label="باز کردن منو"
                   />
@@ -124,13 +140,14 @@ export function NavbarApp() {
                     <Input placeholder="جستجو…" className="h-9 ps-8" />
                   </div>
                   <nav className="flex flex-col gap-1">
-                    {LINKS.map((link) => (
+                    {LINKS.map((label) => (
                       <a
-                        key={link.label}
-                        href={link.href}
+                        key={label}
+                        href="#"
+                        onClick={demoNavClick}
                         className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                       >
-                        {link.label}
+                        {label}
                       </a>
                     ))}
                   </nav>

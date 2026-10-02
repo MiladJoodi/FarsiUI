@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { MenuIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -11,37 +12,41 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 
-const LINKS = [
-  { href: "#", label: "محصولات" },
-  { href: "#", label: "قیمت‌ها" },
-  { href: "#", label: "بلاک‌ها" },
-  { href: "#", label: "مستندات" },
-] as const
+const LINKS = ["محصولات", "قیمت‌ها", "بلاک‌ها", "مستندات"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function NavbarCta() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center gap-3 px-4 md:px-6">
-          <a href="#" className="shrink-0 text-sm font-bold tracking-tight">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="shrink-0 text-sm font-bold tracking-tight"
+          >
             FarsiUI
           </a>
           <nav className="ms-6 hidden items-center gap-5 text-sm text-muted-foreground md:flex">
-            {LINKS.map((link) => (
+            {LINKS.map((label) => (
               <a
-                key={link.label}
-                href={link.href}
+                key={label}
+                href="#"
+                onClick={demoNavClick}
                 className="transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label}
               </a>
             ))}
           </nav>
           <div className="ms-auto flex items-center gap-2">
-            <Button size="sm" variant="ghost" className="hidden sm:inline-flex">
+            <Button size="sm" variant="ghost" type="button" className="hidden sm:inline-flex">
               ورود
             </Button>
-            <Button size="sm" className="hidden sm:inline-flex">
+            <Button size="sm" type="button" className="hidden sm:inline-flex">
               شروع رایگان
             </Button>
             <Sheet>
@@ -50,6 +55,7 @@ export function NavbarCta() {
                   <Button
                     size="icon-sm"
                     variant="outline"
+                    type="button"
                     className="md:hidden"
                     aria-label="باز کردن منو"
                   />
@@ -62,21 +68,24 @@ export function NavbarCta() {
                   <SheetTitle>منو</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col gap-1 px-1">
-                  {LINKS.map((link) => (
+                  {LINKS.map((label) => (
                     <a
-                      key={link.label}
-                      href={link.href}
+                      key={label}
+                      href="#"
+                      onClick={demoNavClick}
                       className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                     >
-                      {link.label}
+                      {label}
                     </a>
                   ))}
                 </nav>
                 <div className="mt-6 flex flex-col gap-2 px-1">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" type="button" className="w-full">
                     ورود
                   </Button>
-                  <Button className="w-full">شروع رایگان</Button>
+                  <Button type="button" className="w-full">
+                    شروع رایگان
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>

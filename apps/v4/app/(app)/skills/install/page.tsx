@@ -5,7 +5,7 @@ import { getSkills } from "@/lib/skills"
 import {
   SkillCopyCommand,
   SkillCopyIconButton,
-  SkillToolIcon,
+  SkillAgentPathRow,
 } from "@/components/skill-copy"
 
 export const metadata: Metadata = {
@@ -16,12 +16,6 @@ export const metadata: Metadata = {
     canonical: "/skills/install",
   },
 }
-
-const TREE = `پروژهٔ شما/
-└── .cursor/
-    └── skills/
-        └── persian-conversational/
-            └── SKILL.md`
 
 export default function SkillsInstallPage() {
   const example = getSkills()[0]
@@ -39,11 +33,8 @@ export default function SkillsInstallPage() {
             نحوه نصب
           </h1>
           <p className="text-pretty text-[1.05rem] text-muted-foreground sm:text-base">
-            مهارت یک فایل{" "}
-            <bdi dir="ltr" className="font-mono text-foreground">
-              SKILL.md
-            </bdi>{" "}
-            است. آن را در پوشهٔ skills مربوط به Agent بگذارید — نه در ریشهٔ پروژه.
+            مهارت یک فایل راهنما است. آن را داخل پوشهٔ مربوط به ابزار خودتان
+            بگذارید — نه مستقیم در ریشهٔ پروژه.
           </p>
         </header>
 
@@ -52,7 +43,7 @@ export default function SkillsInstallPage() {
             نصب سریع با CLI
           </h2>
           <p className="text-sm leading-7 text-muted-foreground">
-            داخل پوشهٔ پروژه این دستور را بزنید:
+            داخل ریشهٔ پروژه این دستور را بزنید:
           </p>
           {example ? (
             <SkillCopyCommand command={example.installCommand} />
@@ -61,73 +52,23 @@ export default function SkillsInstallPage() {
 
         <section className="space-y-3">
           <h2 className="font-heading text-lg font-medium tracking-tight">
-            داخل پروژه
-          </h2>
-          <p className="text-sm leading-7 text-muted-foreground">
-            اول ریشهٔ پروژه، بعد پوشهٔ Agent. مثال Cursor:
-          </p>
-          <div className="overflow-hidden rounded-xl border">
-            <div className="flex items-center justify-between border-b bg-muted/30 px-3 py-1.5">
-              <span className="text-xs text-muted-foreground">ساختار پوشه</span>
-              <SkillCopyIconButton value={TREE} label="کپی ساختار" />
-            </div>
-            <pre
-              dir="ltr"
-              lang="en"
-              className="overflow-x-auto bg-code p-3 text-start font-mono text-[12px] leading-5"
-            >
-              {TREE}
-            </pre>
-          </div>
-          <p className="text-sm leading-7 text-muted-foreground">
-            درست:{" "}
-            <bdi dir="ltr" className="font-mono text-foreground">
-              .cursor/skills/persian-conversational/SKILL.md
-            </bdi>
-            . اشتباه: گذاشتن پوشهٔ مهارت مستقیم در ریشهٔ پروژه.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="font-heading text-lg font-medium tracking-tight">
             نصب دستی
           </h2>
           <p className="text-sm leading-7 text-muted-foreground">
-            از صفحهٔ هر مهارت، با آیکون دانلود فایل را بگیرید و در مسیر Agent
-            بگذارید:
+            فایل را دانلود کنید یا خودتان بسازید و در یکی از مسیرهای زیر بگذارید
+            — نه مستقیم کنار فایل‌های ریشهٔ پروژه:
           </p>
 
           <div className="space-y-2">
             {(example?.installTargets ?? [])
               .filter((target) => target.id !== "other")
               .map((target) => (
-                <div
+                <SkillAgentPathRow
                   key={target.id}
-                  className="flex items-center gap-3 rounded-xl border px-3 py-2.5"
-                >
-                  <SkillToolIcon id={target.id} name={target.name} />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium" dir="ltr" lang="en">
-                      {target.name}
-                    </p>
-                    <p
-                      dir="ltr"
-                      lang="en"
-                      className="break-all font-mono text-[12px] text-muted-foreground"
-                    >
-                      {target.paths[0]}
-                    </p>
-                    {target.note ? (
-                      <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                        {target.note}
-                      </p>
-                    ) : null}
-                  </div>
-                  <SkillCopyIconButton
-                    value={target.paths[0]!}
-                    label="کپی مسیر"
-                  />
-                </div>
+                  id={target.id}
+                  name={target.name}
+                  paths={target.paths}
+                />
               ))}
           </div>
 
@@ -140,13 +81,20 @@ export default function SkillsInstallPage() {
                 </bdi>{" "}
                 هم ارجاع بدهید:
               </p>
-              <pre
-                dir="ltr"
-                lang="en"
-                className="overflow-x-auto rounded-xl border bg-code p-3 text-start font-mono text-[12px] leading-5"
-              >
-                {example.agentsHint}
-              </pre>
+              <div className="relative">
+                <SkillCopyIconButton
+                  value={example.agentsHint}
+                  label="کپی"
+                  className="absolute top-2 end-2 z-10 bg-code"
+                />
+                <pre
+                  dir="ltr"
+                  lang="en"
+                  className="overflow-x-auto rounded-xl border bg-code p-3 pe-12 text-start font-mono text-[12px] leading-5"
+                >
+                  {example.agentsHint}
+                </pre>
+              </div>
             </div>
           ) : null}
         </section>

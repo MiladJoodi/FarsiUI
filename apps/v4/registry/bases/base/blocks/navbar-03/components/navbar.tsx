@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { MenuIcon, SearchIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -11,30 +12,34 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 
-const LINKS = [
-  { href: "#", label: "محصول" },
-  { href: "#", label: "ویژگی‌ها" },
-  { href: "#", label: "قیمت" },
-  { href: "#", label: "بلاگ" },
-] as const
+const LINKS = ["محصول", "ویژگی‌ها", "قیمت", "بلاگ"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function NavbarCentered() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="relative mx-auto flex h-14 w-full max-w-5xl items-center px-4 md:px-6">
-          <a href="#" className="relative z-10 text-sm font-bold tracking-tight">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="relative z-10 text-sm font-bold tracking-tight"
+          >
             FarsiUI
           </a>
 
           <nav className="absolute inset-x-0 hidden items-center justify-center gap-6 text-sm text-muted-foreground md:flex">
-            {LINKS.map((link) => (
+            {LINKS.map((label) => (
               <a
-                key={link.label}
-                href={link.href}
+                key={label}
+                href="#"
+                onClick={demoNavClick}
                 className="transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label}
               </a>
             ))}
           </nav>
@@ -43,12 +48,13 @@ export function NavbarCentered() {
             <Button
               size="icon-sm"
               variant="ghost"
+              type="button"
               className="hidden sm:inline-flex"
               aria-label="جستجو"
             >
               <SearchIcon className="size-4" />
             </Button>
-            <Button size="sm" className="hidden md:inline-flex">
+            <Button size="sm" type="button" className="hidden md:inline-flex">
               شروع کنید
             </Button>
             <Sheet>
@@ -57,6 +63,7 @@ export function NavbarCentered() {
                   <Button
                     size="icon-sm"
                     variant="outline"
+                    type="button"
                     className="md:hidden"
                     aria-label="باز کردن منو"
                   />
@@ -69,17 +76,20 @@ export function NavbarCentered() {
                   <SheetTitle>ناوبری</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col gap-1">
-                  {LINKS.map((link) => (
+                  {LINKS.map((label) => (
                     <a
-                      key={link.label}
-                      href={link.href}
+                      key={label}
+                      href="#"
+                      onClick={demoNavClick}
                       className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                     >
-                      {link.label}
+                      {label}
                     </a>
                   ))}
                 </nav>
-                <Button className="mt-6 w-full">شروع کنید</Button>
+                <Button type="button" className="mt-6 w-full">
+                  شروع کنید
+                </Button>
               </SheetContent>
             </Sheet>
           </div>

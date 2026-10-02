@@ -11,7 +11,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -29,69 +28,50 @@ function SkillsNavList() {
   const skillItems = React.useMemo(() => getSkills(), [])
 
   return (
-    <>
-      <SidebarGroup className="pt-1">
-        <SidebarGroupContent>
-          <SidebarMenu className="gap-0.5">
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={pathname === "/skills/install"}
-                className={ACTIVE_ITEM_CLASS}
-              >
-                <Link href="/skills/install">نحوه نصب</Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={pathname === "/skills"}
-                className={ACTIVE_ITEM_CLASS}
-              >
-                <Link href="/skills">معرفی</Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
+    <SidebarGroup className="pt-1">
+      <SidebarGroupContent>
+        <SidebarMenu className="gap-0.5">
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === "/skills"}
+              className={ACTIVE_ITEM_CLASS}
+            >
+              <Link href="/skills">معرفی</Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
 
-      <SidebarGroup className="pt-4">
-        <SidebarGroupLabel className="h-7 px-2 text-[0.7rem] font-medium text-muted-foreground">
-          مهارت‌ها
-        </SidebarGroupLabel>
-        <SidebarGroupContent>
-          <SidebarMenu className="gap-0.5">
-            {skillItems.map((skill) => (
-              <SidebarMenuItem key={skill.slug}>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === `/skills/${skill.slug}`}
-                  className={`${ACTIVE_ITEM_CLASS} ps-2`}
+          {skillItems.map((skill) => (
+            <SidebarMenuItem key={skill.slug}>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === `/skills/${skill.slug}`}
+                className={`${ACTIVE_ITEM_CLASS} ps-2`}
+              >
+                <Link
+                  href={`/skills/${skill.slug}`}
+                  className="flex w-full min-w-0 items-center gap-1.5"
                 >
-                  <Link
-                    href={`/skills/${skill.slug}`}
-                    className="flex w-full min-w-0 items-center gap-2"
+                  <span className="shrink-0 whitespace-nowrap">{skill.title}</span>
+                  <span
+                    aria-hidden
+                    className="mb-0.5 min-w-2 flex-1 border-b border-dashed border-border/60"
+                  />
+                  <span
+                    dir="ltr"
+                    lang="en"
+                    title={skill.slug}
+                    className="min-w-0 shrink truncate font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
                   >
-                    <span className="truncate">{skill.title}</span>
-                    <span
-                      aria-hidden
-                      className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
-                    />
-                    <span
-                      dir="ltr"
-                      lang="en"
-                      className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                    >
-                      {skill.slug}
-                    </span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
-    </>
+                    {skill.slug}
+                  </span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
   )
 }
 
@@ -100,7 +80,7 @@ export function SkillsListIndex() {
   const current = getSkillsNavCurrent(pathname)
 
   return (
-    <ListIndexNav title="فهرست مهارت‌ها" current={current}>
+    <ListIndexNav title="فهرست" current={current}>
       <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
         <SkillsNavList />
       </SidebarProvider>

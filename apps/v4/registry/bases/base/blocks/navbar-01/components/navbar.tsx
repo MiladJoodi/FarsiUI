@@ -1,33 +1,40 @@
 "use client"
 
+import * as React from "react"
+
 import { Button } from "@/registry/bases/base/ui/button"
 
-const LINKS = [
-  { href: "#", label: "محصولات" },
-  { href: "#", label: "قیمت‌ها" },
-  { href: "#", label: "مستندات" },
-] as const
+const LINKS = ["محصولات", "قیمت‌ها", "مستندات"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function NavbarSimple() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4 md:px-6">
-          <a href="#" className="text-sm font-bold tracking-tight">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="text-sm font-bold tracking-tight"
+          >
             FarsiUI
           </a>
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            {LINKS.map((link) => (
+            {LINKS.map((label) => (
               <a
-                key={link.label}
-                href={link.href}
+                key={label}
+                href="#"
+                onClick={demoNavClick}
                 className="transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label}
               </a>
             ))}
           </nav>
-          <Button size="sm" variant="outline">
+          <Button size="sm" variant="outline" type="button">
             ورود
           </Button>
         </div>

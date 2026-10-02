@@ -58,21 +58,18 @@ export default function SkillsPage() {
           </h2>
           <ol className="list-decimal space-y-2 pe-5 text-muted-foreground marker:text-foreground/50">
             <li className="leading-7">
-              اول{" "}
-              <Link
-                href="/skills/install"
-                className="font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                نحوه نصب
-              </Link>{" "}
-              را بخوانید تا مسیر درست Agent خودتان را بشناسید.
+              از فهرست کناری، مهارت موردنظر را انتخاب کنید.
             </li>
             <li className="leading-7">
-              بعد از فهرست کناری، مهارت موردنظر را باز کنید و فایل{" "}
+              فایل{" "}
               <bdi dir="ltr" className="font-mono text-foreground">
                 SKILL.md
               </bdi>{" "}
-              را کپی کنید.
+              را کپی یا دانلود کنید و در مسیری که داخل همان صفحه برای{" "}
+              <bdi dir="ltr" className="font-medium text-foreground">
+                Agent
+              </bdi>{" "}
+              شما نوشته شده بگذارید. تمام.
             </li>
           </ol>
         </section>

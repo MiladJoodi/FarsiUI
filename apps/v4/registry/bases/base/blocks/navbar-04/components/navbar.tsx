@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { MenuIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -35,17 +36,22 @@ const PRODUCTS = [
   },
 ] as const
 
-const LINKS = [
-  { href: "#", label: "قیمت‌گذاری" },
-  { href: "#", label: "مستندات" },
-] as const
+const LINKS = ["قیمت‌گذاری", "مستندات"] as const
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function NavbarMega() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center gap-2 px-4 md:px-6">
-          <a href="#" className="shrink-0 text-sm font-bold tracking-tight">
+          <a
+            href="#"
+            onClick={demoNavClick}
+            className="shrink-0 text-sm font-bold tracking-tight"
+          >
             FarsiUI
           </a>
 
@@ -60,6 +66,7 @@ export function NavbarMega() {
                         <li key={item.title}>
                           <NavigationMenuLink
                             href="#"
+                            onClick={demoNavClick}
                             className="flex flex-col gap-0.5 rounded-md p-3 text-start hover:bg-muted"
                           >
                             <span className="text-sm font-medium">
@@ -74,13 +81,14 @@ export function NavbarMega() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                {LINKS.map((link) => (
-                  <NavigationMenuItem key={link.label}>
+                {LINKS.map((label) => (
+                  <NavigationMenuItem key={label}>
                     <NavigationMenuLink
-                      href={link.href}
+                      href="#"
+                      onClick={demoNavClick}
                       className={navigationMenuTriggerStyle()}
                     >
-                      {link.label}
+                      {label}
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
@@ -89,10 +97,10 @@ export function NavbarMega() {
           </div>
 
           <div className="ms-auto flex items-center gap-2">
-            <Button size="sm" variant="ghost" className="hidden sm:inline-flex">
+            <Button size="sm" variant="ghost" type="button" className="hidden sm:inline-flex">
               ورود
             </Button>
-            <Button size="sm" className="hidden sm:inline-flex">
+            <Button size="sm" type="button" className="hidden sm:inline-flex">
               شروع رایگان
             </Button>
             <Sheet>
@@ -101,6 +109,7 @@ export function NavbarMega() {
                   <Button
                     size="icon-sm"
                     variant="outline"
+                    type="button"
                     className="md:hidden"
                     aria-label="باز کردن منو"
                   />
@@ -121,6 +130,7 @@ export function NavbarMega() {
                       <a
                         key={item.title}
                         href="#"
+                        onClick={demoNavClick}
                         className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                       >
                         {item.title}
@@ -128,19 +138,22 @@ export function NavbarMega() {
                     ))}
                   </div>
                   <div>
-                    {LINKS.map((link) => (
+                    {LINKS.map((label) => (
                       <a
-                        key={link.label}
-                        href={link.href}
+                        key={label}
+                        href="#"
+                        onClick={demoNavClick}
                         className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                       >
-                        {link.label}
+                        {label}
                       </a>
                     ))}
                   </div>
                   <div className="flex flex-col gap-2 pt-2">
-                    <Button variant="outline">ورود</Button>
-                    <Button>شروع رایگان</Button>
+                    <Button variant="outline" type="button">
+                      ورود
+                    </Button>
+                    <Button type="button">شروع رایگان</Button>
                   </div>
                 </div>
               </SheetContent>
