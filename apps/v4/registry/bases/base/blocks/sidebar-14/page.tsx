@@ -15,21 +15,21 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider>
+    <SidebarProvider dir="rtl" lang="fa">
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">Build Your Application</BreadcrumbLink>
+                <BreadcrumbLink href="#">ساخت اپلیکیشن</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                <BreadcrumbPage>دریافت داده</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <SidebarTrigger className="-mr-1 ml-auto rotate-180" />
+          <SidebarTrigger className="-ms-1 ms-auto" />
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">

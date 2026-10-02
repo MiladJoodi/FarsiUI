@@ -33,7 +33,7 @@ export function NavWorkspaces({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Workspaces</SidebarGroupLabel>
+      <SidebarGroupLabel>فضاهای کاری</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {workspaces.map((workspace) => (
@@ -45,7 +45,7 @@ export function NavWorkspaces({
                 </SidebarMenuButton>
                 <SidebarMenuAction
                   render={<CollapsibleTrigger />}
-                  className="left-2 bg-sidebar-accent text-sidebar-accent-foreground data-open:rotate-90"
+                  className="start-2 bg-sidebar-accent text-sidebar-accent-foreground data-open:rotate-90"
                   showOnHover
                 >
                   <IconPlaceholder
@@ -89,7 +89,7 @@ export function NavWorkspaces({
                 phosphor="DotsThreeOutlineIcon"
                 remixicon="RiMoreLine"
               />
-              <span>More</span>
+              <span>بیشتر</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

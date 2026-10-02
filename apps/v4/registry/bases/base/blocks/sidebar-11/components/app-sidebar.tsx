@@ -51,7 +51,7 @@ const data = {
     ],
     [
       "components",
-      ["ui", "button.tsx", "card.tsx"],
+      ["ui", "دکمه.tsx", "card.tsx"],
       "header.tsx",
       "footer.tsx",
     ],
@@ -67,10 +67,10 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar dir="rtl" lang="fa" {...props}>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Changes</SidebarGroupLabel>
+          <SidebarGroupLabel>تغییرات</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.changes.map((item, index) => (
@@ -92,7 +92,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Files</SidebarGroupLabel>
+          <SidebarGroupLabel>فایل‌ها</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.tree.map((item, index) => (
@@ -112,7 +112,7 @@ function Tree({ item }: { item: TreeItem }) {
   if (!items.length) {
     return (
       <SidebarMenuButton
-        isActive={name === "button.tsx"}
+        isActive={name === "دکمه.tsx"}
         className="data-[active=true]:bg-transparent"
       >
         <IconPlaceholder

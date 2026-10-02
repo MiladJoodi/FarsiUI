@@ -25,7 +25,7 @@ export function PricingCompare() {
     >
       <div className="mb-10 text-center">
         <Badge variant="outline" className="mb-3">
-          مقایسه
+          پلن‌ها
         </Badge>
         <h2 className="text-3xl font-bold tracking-tight">همهٔ پلن‌ها کنار هم</h2>
         <p className="mt-2 text-muted-foreground">

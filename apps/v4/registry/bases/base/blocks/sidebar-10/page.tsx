@@ -15,7 +15,7 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider>
+    <SidebarProvider dir="rtl" lang="fa">
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-14 shrink-0 items-center gap-2">
@@ -23,19 +23,19 @@ export default function Page() {
             <SidebarTrigger />
             <Separator
               orientation="vertical"
-              className="mr-2 data-vertical:h-4 data-vertical:self-auto"
+              className="me-2 data-vertical:h-4 data-vertical:self-auto"
             />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1">
-                    Project Management & Task Tracking
+                    مدیریت پروژه و پیگیری وظایف
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <div className="ml-auto px-3">
+          <div className="ms-auto px-3">
             <NavActions />
           </div>
         </header>

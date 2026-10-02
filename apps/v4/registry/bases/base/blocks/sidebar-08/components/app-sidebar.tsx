@@ -19,13 +19,13 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const data = {
   user: {
-    name: "shadcn",
+    name: "سارا محمدی",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: "Playground",
+      title: "میز کار",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -39,21 +39,21 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "تاریخچه",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "نشان‌شده‌ها",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "تنظیمات",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "مدل‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -66,21 +66,21 @@ const data = {
       ),
       items: [
         {
-          title: "Genesis",
+          title: "ژنسیس",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "اکتشاف",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "کوانتوم",
           url: "#",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "مستندات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -93,25 +93,25 @@ const data = {
       ),
       items: [
         {
-          title: "Introduction",
+          title: "مقدمه",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "شروع کار",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "آموزش‌ها",
           url: "#",
         },
         {
-          title: "Changelog",
+          title: "تغییرات",
           url: "#",
         },
       ],
     },
     {
-      title: "Settings",
+      title: "تنظیمات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -124,19 +124,19 @@ const data = {
       ),
       items: [
         {
-          title: "General",
+          title: "عمومی",
           url: "#",
         },
         {
-          title: "Team",
+          title: "تیم",
           url: "#",
         },
         {
-          title: "Billing",
+          title: "صورتحساب",
           url: "#",
         },
         {
-          title: "Limits",
+          title: "محدودیت‌ها",
           url: "#",
         },
       ],
@@ -144,7 +144,7 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "پشتیبانی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -157,7 +157,7 @@ const data = {
       ),
     },
     {
-      title: "Feedback",
+      title: "بازخورد",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -172,7 +172,7 @@ const data = {
   ],
   projects: [
     {
-      name: "Design Engineering",
+      name: "مهندسی طراحی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -185,7 +185,7 @@ const data = {
       ),
     },
     {
-      name: "Sales & Marketing",
+      name: "فروش و بازاریابی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -198,7 +198,7 @@ const data = {
       ),
     },
     {
-      name: "Travel",
+      name: "سفر و گردشگری",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -214,7 +214,7 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar dir="rtl" lang="fa" variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -229,9 +229,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   className="size-4"
                 />
               </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">Acme Inc</span>
-                <span className="truncate text-xs">Enterprise</span>
+              <div className="grid flex-1 text-start text-sm leading-tight">
+                <span className="truncate font-medium">FarsiUI</span>
+                <span className="truncate text-xs">سازمانی</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>

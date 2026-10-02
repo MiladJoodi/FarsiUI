@@ -47,7 +47,7 @@ export function NavUser({
             </Avatar>
             <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
+              <span className="truncate text-xs" dir="ltr">{user.email}</span>
             </div>
             <IconPlaceholder
               lucide="ChevronsUpDownIcon"
@@ -74,7 +74,7 @@ export function NavUser({
                   </Avatar>
                   <div className="grid flex-1 text-start text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
-                    <span className="truncate text-xs">{user.email}</span>
+                    <span className="truncate text-xs" dir="ltr">{user.email}</span>
                   </div>
                 </div>
               </DropdownMenuLabel>

@@ -7,7 +7,7 @@ import { cn } from "cn"
  * Options: "estedad" | "vazirmatn" | "iransans"
  */
 export type UiFontName = "estedad" | "vazirmatn" | "iransans"
-export const ACTIVE_UI_FONT: UiFontName = "iransans"
+export const ACTIVE_UI_FONT: UiFontName = "estedad"
 
 // Self-hosted: next/font/google cannot reach fonts.googleapis.com on many networks.
 const fontEstedad = localFont({
@@ -26,17 +26,22 @@ const fontVazirmatn = localFont({
   adjustFontFallback: false,
 })
 
-/** IRANSansWeb FaNum — Bold only (copied from IRANSansWeb(FaNum)_Bold). */
+/** IRANSansWeb FaNum (from agmj_iransans_(fanum)). */
 const fontIranSans = localFont({
   src: [
     {
-      path: "../app/fonts/iransans-fanum-bold.woff",
-      weight: "700",
+      path: "../app/fonts/iransans-fanum.woff2",
+      weight: "400",
       style: "normal",
     },
     {
-      path: "../app/fonts/iransans-fanum-bold.ttf",
-      weight: "700",
+      path: "../app/fonts/iransans-fanum.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../app/fonts/iransans-fanum.ttf",
+      weight: "400",
       style: "normal",
     },
   ],

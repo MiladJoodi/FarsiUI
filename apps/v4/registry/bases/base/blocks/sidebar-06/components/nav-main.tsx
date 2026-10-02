@@ -48,14 +48,15 @@ export function NavMain({
                   hugeicons="MoreHorizontalCircle01Icon"
                   phosphor="DotsThreeOutlineIcon"
                   remixicon="RiMoreLine"
-                  className="ml-auto"
+                  className="ms-auto"
                 />
               </DropdownMenuTrigger>
               {item.items?.length ? (
                 <DropdownMenuContent
-                  side={isMobile ? "bottom" : "right"}
+                  side={isMobile ? "bottom" : "left"}
                   align={isMobile ? "end" : "start"}
                   className="min-w-56 rounded-lg"
+                  dir="rtl"
                 >
                   {item.items.map((item) => (
                     <DropdownMenuItem

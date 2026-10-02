@@ -8,8 +8,8 @@ export const description = "A sidebar with a header and a search form."
 
 export default function Page() {
   return (
-    <div className="[--header-height:calc(--spacing(14))]">
-      <SidebarProvider className="flex flex-col">
+    <div dir="rtl" lang="fa" className="[--header-height:calc(--spacing(14))]">
+      <SidebarProvider dir="rtl" lang="fa" className="flex flex-col">
         <SiteHeader />
         <div className="flex flex-1">
           <AppSidebar />

@@ -62,7 +62,7 @@ export function TeamSwitcher({
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="text-xs text-muted-foreground">
-                Teams
+                تیم‌ها
               </DropdownMenuLabel>
               {teams.map((team, index) => (
                 <DropdownMenuItem
@@ -92,7 +92,7 @@ export function TeamSwitcher({
                   />
                 </div>
                 <div className="font-medium text-muted-foreground">
-                  Add team
+                  افزودن تیم
                 </div>
               </DropdownMenuItem>
             </DropdownMenuGroup>

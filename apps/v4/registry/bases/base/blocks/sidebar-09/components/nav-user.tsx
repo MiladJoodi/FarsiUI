@@ -38,19 +38,18 @@ export function NavUser({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <SidebarMenuButton
-                size="lg"
-                className="md:h-8 md:p-0 data-open:bg-sidebar-accent data-open:text-sidebar-accent-foreground"
-              />
+              <SidebarMenuButton size="lg" className="aria-expanded:bg-muted" />
             }
           >
-            <Avatar className="h-8 w-8 rounded-lg">
+            <Avatar>
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              <AvatarFallback>سم</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
+              <span className="truncate text-xs" dir="ltr">
+                {user.email}
+              </span>
             </div>
             <IconPlaceholder
               lucide="ChevronsUpDownIcon"
@@ -58,27 +57,32 @@ export function NavUser({
               hugeicons="UnfoldMoreIcon"
               phosphor="CaretUpDownIcon"
               remixicon="RiArrowUpDownLine"
-              className="ml-auto size-4"
+              className="ms-auto size-4"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            className="w-fit"
+            side={isMobile ? "bottom" : "left"}
             align="end"
             sideOffset={4}
+            dir="rtl"
           >
-            <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="p-0 font-normal">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
+                  <Avatar>
+                    <AvatarImage src={user.avatar} alt={user.name} />
+                    <AvatarFallback>سم</AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-start text-sm leading-tight">
+                    <span className="truncate font-medium">{user.name}</span>
+                    <span className="truncate text-xs" dir="ltr">
+                      {user.email}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </DropdownMenuLabel>
+              </DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
@@ -89,7 +93,7 @@ export function NavUser({
                   phosphor="SparkleIcon"
                   remixicon="RiSparklingLine"
                 />
-                Upgrade to Pro
+                ارتقا به نسخه حرفه‌ای
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -102,7 +106,7 @@ export function NavUser({
                   phosphor="CheckCircleIcon"
                   remixicon="RiCheckboxCircleLine"
                 />
-                Account
+                حساب کاربری
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -112,7 +116,7 @@ export function NavUser({
                   phosphor="CreditCardIcon"
                   remixicon="RiBankCardLine"
                 />
-                Billing
+                صورتحساب
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -122,7 +126,7 @@ export function NavUser({
                   phosphor="BellIcon"
                   remixicon="RiNotificationLine"
                 />
-                Notifications
+                اعلان‌ها
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -134,7 +138,7 @@ export function NavUser({
                 phosphor="SignOutIcon"
                 remixicon="RiLogoutBoxLine"
               />
-              Log out
+              خروج
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

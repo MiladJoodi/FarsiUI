@@ -31,8 +31,10 @@ export function PrimaryColorPalette({
       role="radiogroup"
       aria-label="رنگ اصلی"
       className={cn(
-        "flex flex-wrap items-center gap-1.5",
-        compact ? "justify-end" : "justify-center gap-2",
+        "flex items-center gap-1.5",
+        compact
+          ? "max-w-[min(100%,11.5rem)] shrink justify-end gap-1 overflow-x-auto scrollbar-none sm:max-w-none sm:gap-1.5"
+          : "flex-wrap justify-center gap-2",
         className
       )}
     >

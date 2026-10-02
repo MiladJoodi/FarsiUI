@@ -2,1351 +2,1177 @@
   {
     "name": "account-billing-01",
     "description": "صورتحساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-billing-02",
     "description": "صورتحساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-notifications-01",
     "description": "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-notifications-02",
     "description": "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-settings-01",
     "description": "تنظیمات حساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "account-settings-02",
     "description": "تنظیمات حساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "activity-01",
-    "description": "فعالیت‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "activity"
-    ]
+    "description": "فید سادهٔ فعالیت‌های اخیر.",
+    "categories": ["activity"]
   },
   {
     "name": "activity-02",
-    "description": "فعالیت‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "activity"
-    ]
+    "description": "خط زمانی تیم با ایمیل چپ‌چین.",
+    "categories": ["activity"]
+  },
+  {
+    "name": "activity-03",
+    "description": "جستجو و فیلتر نوع با Select راست‌چین.",
+    "categories": ["activity"]
+  },
+  {
+    "name": "activity-04",
+    "description": "فعالیت‌های گروه‌بندی‌شده با منوی عملیات RTL.",
+    "categories": ["activity"]
+  },
+  {
+    "name": "activity-05",
+    "description": "مرکز فعالیت با فیلتر، مرتب‌سازی و خلاصه ایمیل.",
+    "categories": ["activity"]
   },
   {
     "name": "advanced-filters-01",
     "description": "فیلترهای پیشرفته — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "advanced-filters-02",
     "description": "فیلترهای پیشرفته — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "analytics-01",
-    "description": "تحلیل‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "analytics"
-    ]
+    "description": "نمودار میله‌ای بازدید هفتگی.",
+    "categories": ["analytics"]
   },
   {
     "name": "analytics-02",
-    "description": "تحلیل‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "analytics"
-    ]
+    "description": "نمودار ناحیه‌ای ارگانیک در برابر تبلیغات.",
+    "categories": ["analytics"]
+  },
+  {
+    "name": "analytics-03",
+    "description": "قیف تبدیل از بازدید تا پرداخت.",
+    "categories": ["analytics"]
+  },
+  {
+    "name": "analytics-04",
+    "description": "نمودار دایره‌ای منابع ترافیک با Select.",
+    "categories": ["analytics"]
+  },
+  {
+    "name": "analytics-05",
+    "description": "کاوش صفحه با نمودار، جدول، فیلتر و ایمیل.",
+    "categories": ["analytics"]
   },
   {
     "name": "article-01",
     "description": "مقاله — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "article-02",
     "description": "مقاله — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "attachment-list-01",
     "description": "پیوست‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "attachment-list-02",
     "description": "پیوست‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "avatar-upload-01",
     "description": "بارگذاری تصویر پروفایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "avatar-upload-02",
     "description": "بارگذاری تصویر پروفایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "banner-01",
     "description": "نوار اطلاع‌رسانی ساده با لینک.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-02",
     "description": "بنر تخفیف با آیکون، بج و دکمه.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-03",
     "description": "بنر هشدار قابل‌بستن برای نگهداری سیستم.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-04",
     "description": "بنر رویداد دو ستونه با تصویر.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-05",
     "description": "بنر پروموی تمام‌عرض با تصویر، کد تخفیف و بستن.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "bento-01",
     "description": "شبکهٔ سادهٔ ۲×۲ با کاشی‌های متنی هم‌اندازه.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-02",
     "description": "بنتو با کاشی بزرگ دو در دو و کاشی‌های آیکون‌دار.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-03",
     "description": "بنتو با کاشی تصویر داشبورد و کاشی‌های متنی.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-04",
     "description": "بنتو با آمار، آواتار تیم و کاشی‌های قابلیت.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-05",
     "description": "بنتو کامل تعاملی با تصویر، CTA، آمار و انتخاب‌گر.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "billing-01",
     "description": "صورتحساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "billing-02",
     "description": "صورتحساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "blog-grid-01",
-    "description": "فهرست وبلاگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "blog-grid"
-    ]
+    "description": "فهرست سادهٔ سه‌ستونه با عنوان و خلاصه.",
+    "categories": ["blog-grid"]
   },
   {
     "name": "blog-grid-02",
-    "description": "فهرست وبلاگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "blog-grid"
-    ]
+    "description": "کارت‌های مقاله با کاور رنگی و دسته.",
+    "categories": ["blog-grid"]
+  },
+  {
+    "name": "blog-grid-03",
+    "description": "مقالهٔ ویژه، فیلتر و فهرست کنار هم.",
+    "categories": ["blog-grid"]
+  },
+  {
+    "name": "blog-grid-04",
+    "description": "جستجو و دسته‌بندی با کارت نویسنده.",
+    "categories": ["blog-grid"]
+  },
+  {
+    "name": "blog-grid-05",
+    "description": "مجله کامل با ویژه، فیلتر، خبرنامه و صفحه‌بندی.",
+    "categories": ["blog-grid"]
   },
   {
     "name": "booking-01",
     "description": "رزرو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "booking-02",
     "description": "رزرو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "breadcrumb-block-01",
-    "description": "مسیر صفحه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "description": "مسیر سادهٔ سه‌سطحی.",
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "breadcrumb-block-02",
-    "description": "مسیر صفحه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "description": "مسیر بالای عنوان و توضیح صفحه.",
+    "categories": ["breadcrumb-block"]
+  },
+  {
+    "name": "breadcrumb-block-03",
+    "description": "مسیر با بخش میانی جمع‌شده (ellipsis).",
+    "categories": ["breadcrumb-block"]
+  },
+  {
+    "name": "breadcrumb-block-04",
+    "description": "مسیرهای میانی داخل منوی کشویی.",
+    "categories": ["breadcrumb-block"]
+  },
+  {
+    "name": "breadcrumb-block-05",
+    "description": "مسیر کامل با عنوان، اکشن‌ها و متادیتا.",
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "calendar-block-01",
     "description": "تقویم — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "calendar-block-02",
     "description": "تقویم — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "chat-01",
     "description": "گفتگو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "chat-02",
     "description": "گفتگو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "checkout-01",
     "description": "تسویه‌حساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "checkout-02",
     "description": "تسویه‌حساب — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "coming-soon-01",
     "description": "به‌زودی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "coming-soon-02",
     "description": "به‌زودی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "comments-01",
     "description": "دیدگاه‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comments-02",
     "description": "دیدگاه‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comparison-01",
-    "description": "مقایسه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "comparison"
-    ]
+    "description": "جدول قبل/بعد بدون قیمت پلن.",
+    "categories": ["comparison"]
   },
   {
     "name": "comparison-02",
-    "description": "مقایسه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "comparison"
-    ]
+    "description": "دو کارت مسیر: ساخت دستی در برابر FarsiUI.",
+    "categories": ["comparison"]
+  },
+  {
+    "name": "comparison-03",
+    "description": "ماتریس قابلیت ابزارهای UI فارسی.",
+    "categories": ["comparison"]
+  },
+  {
+    "name": "comparison-04",
+    "description": "انتخاب دو گزینه با Select راست‌چین.",
+    "categories": ["comparison"]
+  },
+  {
+    "name": "comparison-05",
+    "description": "جدول قابل جستجو، مرتب‌سازی و ارسال ایمیل.",
+    "categories": ["comparison"]
   },
   {
     "name": "contact-01",
-    "description": "تماس — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "contact"
-    ]
+    "description": "اطلاعات تماس ساده: ایمیل، تلفن و آدرس.",
+    "categories": ["contact"]
   },
   {
     "name": "contact-02",
-    "description": "تماس — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "contact"
-    ]
+    "description": "فرم پیام داخل کارت با ایمیل LTR.",
+    "categories": ["contact"]
+  },
+  {
+    "name": "contact-03",
+    "description": "دو ستونه: اطلاعات دفتر و فرم پیام.",
+    "categories": ["contact"]
+  },
+  {
+    "name": "contact-04",
+    "description": "فرم با Select موضوع راست‌چین.",
+    "categories": ["contact"]
+  },
+  {
+    "name": "contact-05",
+    "description": "مرکز تماس با تب، Select، DropdownMenu و سوئیچ تماس.",
+    "categories": ["contact"]
   },
   {
     "name": "contact-form-01",
     "description": "فرم تماس ساده با وضعیت ارسال.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-02",
     "description": "فرم ارسال بازخورد با انتخاب نوع.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-03",
     "description": "فرم تماس دو ستونه با اطلاعات تماس.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-04",
     "description": "همکاری تجاری با سوئیچ درخواست تماس.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "conversation-01",
     "description": "مکالمه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "conversation"
-    ]
+    "categories": ["conversation"]
   },
   {
     "name": "conversation-02",
     "description": "مکالمه — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "conversation"
-    ]
+    "categories": ["conversation"]
   },
   {
     "name": "cta-01",
     "description": "فراخوان سادهٔ مرکزی با یک دکمه.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-02",
     "description": "فراخوان با بج و دو دکمهٔ اصلی / فرعی.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-03",
     "description": "کارت فراخوان با فرم ایمیل و وضعیت تأیید.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-04",
     "description": "فراخوان دو ستونه با تصویر داشبورد.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-05",
     "description": "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "dashboard-01",
     "description": "A dashboard with sidebar, charts and data table.",
-    "categories": [
-      "dashboard"
-    ]
+    "categories": ["dashboard"]
+  },
+  {
+    "name": "dashboard-02",
+    "description": "سه کارت شاخص ساده بدون سایدبار.",
+    "categories": ["dashboard"]
+  },
+  {
+    "name": "dashboard-03",
+    "description": "شاخص‌ها به‌همراه فهرست فعالیت اخیر.",
+    "categories": ["dashboard"]
+  },
+  {
+    "name": "dashboard-04",
+    "description": "نمودار فروش با Select بازهٔ زمانی راست‌چین.",
+    "categories": ["dashboard"]
+  },
+  {
+    "name": "dashboard-05",
+    "description": "میز کار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
+    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-settings-01",
     "description": "تنظیمات — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-settings-02",
     "description": "تنظیمات — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-stats-01",
-    "description": "آمار داشبورد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "description": "چهار کارت شاخص عملیاتی ساده.",
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "dashboard-stats-02",
-    "description": "آمار داشبورد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "description": "کارت شاخص با اسپارک‌لاین و درصد تغییر.",
+    "categories": ["dashboard-stats"]
+  },
+  {
+    "name": "dashboard-stats-03",
+    "description": "KPI زنده کنار اهداف با Progress.",
+    "categories": ["dashboard-stats"]
+  },
+  {
+    "name": "dashboard-stats-04",
+    "description": "درآمد کانال‌ها با Select بازه راست‌چین.",
+    "categories": ["dashboard-stats"]
+  },
+  {
+    "name": "dashboard-stats-05",
+    "description": "مرکز آمار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "data-table-block-01",
-    "description": "جدول داده‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "data-table-block"
-    ]
+    "description": "جدول سادهٔ کاربران با وضعیت و تاریخ.",
+    "categories": ["data-table-block"]
   },
   {
     "name": "data-table-block-02",
-    "description": "جدول داده‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "data-table-block"
-    ]
+    "description": "جدول با آواتار، نقش و ایمیل چپ‌چین.",
+    "categories": ["data-table-block"]
+  },
+  {
+    "name": "data-table-block-03",
+    "description": "جستجو و فیلتر وضعیت با Select راست‌چین.",
+    "categories": ["data-table-block"]
+  },
+  {
+    "name": "data-table-block-04",
+    "description": "سفارش‌ها با صفحه‌بندی و نمایش ستون‌ها.",
+    "categories": ["data-table-block"]
+  },
+  {
+    "name": "data-table-block-05",
+    "description": "جدول کامل با انتخاب، منوی عملیات و دعوت ایمیل.",
+    "categories": ["data-table-block"]
   },
   {
     "name": "datetime-picker-01",
     "description": "انتخاب تاریخ و زمان — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "datetime-picker-02",
     "description": "انتخاب تاریخ و زمان — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "document-verification-01",
     "description": "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-02",
     "description": "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-03",
     "description": "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-04",
     "description": "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-05",
     "description": "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "empty-search-01",
     "description": "نتیجه‌ای پیدا نشد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-search-02",
     "description": "نتیجه‌ای پیدا نشد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-state-01",
     "description": "حالت خالی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "empty-state-02",
     "description": "حالت خالی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "error-state-01",
     "description": "حالت خطا — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "error-state-02",
     "description": "حالت خطا — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "event-details-01",
     "description": "جزئیات رویداد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-details-02",
     "description": "جزئیات رویداد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-list-01",
     "description": "فهرست رویدادها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "event-list-02",
     "description": "فهرست رویدادها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "faq-01",
-    "description": "پرسش‌های متداول — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "faq"
-    ]
+    "description": "آکاردئون سادهٔ مرکزی با چند پرسش.",
+    "categories": ["faq"]
   },
   {
     "name": "faq-02",
-    "description": "پرسش‌های متداول — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "faq"
-    ]
+    "description": "پرسش‌ها داخل کارت با بج و توضیح.",
+    "categories": ["faq"]
+  },
+  {
+    "name": "faq-03",
+    "description": "دو ستونه: معرفی و آکاردئون.",
+    "categories": ["faq"]
+  },
+  {
+    "name": "faq-04",
+    "description": "تب عمومی، صورتحساب و فنی با آکاردئون.",
+    "categories": ["faq"]
+  },
+  {
+    "name": "faq-05",
+    "description": "جستجو، فیلتر، مرتب‌سازی و فرم ایمیل پشتیبانی.",
+    "categories": ["faq"]
   },
   {
     "name": "feature-split-01",
     "description": "دو بخشی ساده: عنوان، توضیح و یک تصویر.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-02",
     "description": "دو بخشی با بج، چک‌لیست و دو CTA.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-03",
     "description": "تصویر تمام‌ارتفاع لبه‌به‌لبه در کنار متن.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-04",
     "description": "دو بخشی با آمار، نکات کلیدی و پیش‌نمایش محصول.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-05",
     "description": "دو بخشی تعاملی: انتخاب قابلیت و تعویض پیش‌نمایش.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "features-01",
     "description": "شبکهٔ سادهٔ سه ستونه با آیکون و توضیح کوتاه.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-02",
     "description": "کارت‌های ویژگی با آیکون، توضیح و لینک جزئیات.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-03",
     "description": "ردیف‌های متناوب متن و تصویر برای معرفی قابلیت‌ها.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-04",
     "description": "شبکهٔ بنتویی با کارت بزرگ تصویر و کارت‌های کوچک.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-05",
     "description": "نمایش کامل با تب دسته‌ها، لیست قابلیت و تصویر محصول.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "file-manager-01",
     "description": "مدیریت فایل‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-manager-02",
     "description": "مدیریت فایل‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-upload-01",
     "description": "بارگذاری فایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "file-upload-02",
     "description": "بارگذاری فایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "filters-01",
     "description": "فیلترها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "filters-02",
     "description": "فیلترها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "footer-01",
-    "description": "پابرگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "footer"
-    ]
+    "description": "پابرگ ساده با کپی‌رایت.",
+    "categories": ["footer"]
   },
   {
     "name": "footer-02",
-    "description": "پابرگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "footer"
-    ]
+    "description": "لوگو، لینک‌های افقی و سال.",
+    "categories": ["footer"]
+  },
+  {
+    "name": "footer-03",
+    "description": "پابرگ چندستونه با معرفی برند.",
+    "categories": ["footer"]
+  },
+  {
+    "name": "footer-04",
+    "description": "عضویت خبرنامه به‌همراه ستون لینک‌ها.",
+    "categories": ["footer"]
+  },
+  {
+    "name": "footer-05",
+    "description": "پابرگ کامل با شبکه اجتماعی، خبرنامه و لینک‌های حقوقی.",
+    "categories": ["footer"]
   },
   {
     "name": "forgot-password-01",
     "description": "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-02",
     "description": "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-03",
     "description": "انتخاب روش بازیابی بین ایمیل و موبایل.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-04",
     "description": "صفحه بازیابی دو ستونه با تصویر کاور.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-05",
     "description": "بازیابی متمرکز با برند و وضعیت ارسال.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "header-01",
-    "description": "سربرگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "header"
-    ]
+    "description": "سربرگ ساده فقط با عنوان صفحه.",
+    "categories": ["header"]
   },
   {
     "name": "header-02",
-    "description": "سربرگ — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "header"
-    ]
+    "description": "عنوان، توضیح کوتاه و یک دکمهٔ اکشن.",
+    "categories": ["header"]
+  },
+  {
+    "name": "header-03",
+    "description": "مسیر صفحه، عنوان و دکمه‌های اکشن.",
+    "categories": ["header"]
+  },
+  {
+    "name": "header-04",
+    "description": "سربرگ با توضیح و تب‌های بخش.",
+    "categories": ["header"]
+  },
+  {
+    "name": "header-05",
+    "description": "سربرگ کامل با بج، تیم، اکشن و متادیتا.",
+    "categories": ["header"]
   },
   {
     "name": "hero-01",
     "description": "معرفی سادهٔ مرکزی با برند، عنوان و یک دکمه.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-02",
     "description": "معرفی با بج، دو CTA و پس‌زمینهٔ ملایم.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-03",
     "description": "معرفی دو ستونه با تصویر تمام‌ارتفاع.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-04",
     "description": "معرفی تمام‌عرض با تصویر پس‌زمینه و پوشش گرادیان.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-05",
     "description": "معرفی کامل با ناوبری، اثبات اجتماعی و تصویر محصول.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "identity-verification-01",
     "description": "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-02",
     "description": "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-03",
     "description": "بررسی هویت با ثبت‌احوال، OTP و نتیجه تأیید.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-04",
     "description": "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-05",
     "description": "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-06",
     "description": "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-07",
     "description": "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "image-gallery-01",
     "description": "گالری تصاویر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "image-gallery-02",
     "description": "گالری تصاویر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "inbox-01",
     "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "inbox-02",
     "description": "صندوق پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "invoice-01",
     "description": "فاکتور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "invoice-02",
     "description": "فاکتور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "license-plate-01",
     "description": "فرم ثبت پلاک خودرو با تأیید نهایی.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-02",
     "description": "ورود پلاک با پنل جزئیات و نوع حرف.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-03",
     "description": "ثبت خودرو همراه با پلاک و نوع وسیله.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-04",
     "description": "صفحه دو ستونه ثبت پلاک با تصویر کاور.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-05",
     "description": "ثبت پلاک تاکسی فقط با حرف ت.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "loading-state-01",
     "description": "در حال بارگذاری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-02",
     "description": "در حال بارگذاری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "login-01",
     "description": "A simple login form.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-02",
     "description": "A two column login page with a cover image.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-03",
     "description": "A login page with a muted background color.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-04",
     "description": "A login page with form and image.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-05",
     "description": "A simple email-only login page.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "logo-cloud-01",
     "description": "ردیف سادهٔ لوگو با خاکستری‌سازی و هاور.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-02",
     "description": "شبکهٔ کارت‌دار برای نمایش لوگوهای مشتریان.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-03",
     "description": "دو ردیف مارکی متحرک از لوگوها.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-04",
     "description": "ویترین لوگو با آمار تیم و راهنمای جایگزینی فایل.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-05",
     "description": "ویترین کامل لوگو با شبکه، اثبات اجتماعی و CTA.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "maintenance-01",
     "description": "تعمیر و نگهداری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "maintenance-02",
     "description": "تعمیر و نگهداری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "media-grid-01",
     "description": "فهرست رسانه‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "media-grid-02",
     "description": "فهرست رسانه‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "message-list-01",
     "description": "فهرست پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "message-list-02",
     "description": "فهرست پیام‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "mobile-navigation-01",
-    "description": "ناوبری موبایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "description": "منوی کشویی ساده از پایین با لینک‌ها.",
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "mobile-navigation-02",
-    "description": "ناوبری موبایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "description": "شیت کناری با لینک‌ها و دکمه‌های ورود/شروع.",
+    "categories": ["mobile-navigation"]
+  },
+  {
+    "name": "mobile-navigation-03",
+    "description": "میانبرهای آیکونی در دراور پایین.",
+    "categories": ["mobile-navigation"]
+  },
+  {
+    "name": "mobile-navigation-04",
+    "description": "منوی گروه‌بندی‌شده با بخش‌های جمع‌شونده.",
+    "categories": ["mobile-navigation"]
+  },
+  {
+    "name": "mobile-navigation-05",
+    "description": "منوی کامل با پروفایل، جستجو، لینک و اکشن‌ها.",
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "national-id-01",
     "description": "فرم ورود کد ملی با اعتبارسنجی و تأیید.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-02",
     "description": "اعتبارسنجی لحظه‌ای کد ملی با پنل نتیجه.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-03",
     "description": "فرم مشخصات هویتی با نام، کد ملی و تاریخ تولد.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-04",
     "description": "صفحه دو ستونه ورود کد ملی با تصویر کاور.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-05",
     "description": "ورود متمرکز کد ملی با نشان وضعیت اعتبار.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "navbar-01",
-    "description": "نوار ناوبری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "navbar"
-    ]
+    "description": "نوار ساده با لوگو، لینک‌ها و ورود.",
+    "categories": ["navbar"]
   },
   {
     "name": "navbar-02",
-    "description": "نوار ناوبری — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "navbar"
-    ]
+    "description": "نوار با CTA و منوی موبایل شیت.",
+    "categories": ["navbar"]
+  },
+  {
+    "name": "navbar-03",
+    "description": "لینک‌های مرکزی با جستجو و شیت موبایل.",
+    "categories": ["navbar"]
+  },
+  {
+    "name": "navbar-04",
+    "description": "منوی کشویی محصولات با Navigation Menu.",
+    "categories": ["navbar"]
+  },
+  {
+    "name": "navbar-05",
+    "description": "نوار اپ با بنر، جستجو، آواتار و منوی موبایل.",
+    "categories": ["navbar"]
   },
   {
     "name": "newsletter-01",
     "description": "عضویت سادهٔ مرکزی با ایمیل و وضعیت تأیید.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-02",
     "description": "کارت خبرنامه با لیست مزایا و عضویت.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-03",
     "description": "خبرنامه دو ستونه با پیش‌نمایش شماره‌های اخیر.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-04",
     "description": "انتخاب موضوع‌های خبرنامه با سوئیچ.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-05",
     "description": "بخش کامل خبرنامه با مزایا، عضویت و اثبات اجتماعی.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-form-01",
     "description": "عضویت خبرنامه با تأیید ایمیل.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-02",
     "description": "فرم عضویت فشردهٔ درون‌خطی.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-03",
     "description": "خبرنامه موضوعی با سوئیچ‌های RTL.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-04",
     "description": "عضویت متمرکز با برند و وضعیت تأیید.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "not-found-block-01",
     "description": "پیدا نشد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "not-found-block-02",
     "description": "پیدا نشد — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "notifications-01",
     "description": "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "notifications-02",
     "description": "اعلان‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "order-history-01",
     "description": "تاریخچه سفارش‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-history-02",
     "description": "تاریخچه سفارش‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-summary-01",
     "description": "خلاصه سفارش — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "order-summary-02",
     "description": "خلاصه سفارش — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "otp-01",
     "description": "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "otp"
-    ]
+    "categories": ["otp"]
   },
   {
     "name": "otp-02",
     "description": "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "otp"
-    ]
+    "categories": ["otp"]
   },
   {
     "name": "payment-01",
     "description": "پرداخت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-02",
     "description": "پرداخت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-methods-01",
     "description": "روش‌های پرداخت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "payment-methods-02",
     "description": "روش‌های پرداخت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "personal-info-01",
     "description": "فرم اطلاعات شخصی ساده داخل کارت.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-02",
     "description": "فرم پروفایل مرکزی با نام، تماس و بیو.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-03",
     "description": "فرم اطلاعات شخصی همراه با آدرس و استان.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-04",
     "description": "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-05",
     "description": "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "plan-selection-01",
     "description": "انتخاب طرح — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "plan-selection-02",
     "description": "انتخاب طرح — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "preview"
@@ -1360,638 +1186,486 @@
   {
     "name": "pricing-01",
     "description": "دو پلن ساده با قیمت و دکمه.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-02",
     "description": "سه کارت پلن با لیست امکانات و پلن پیشنهادی.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-03",
     "description": "قیمت‌گذاری با سوئیچ ماهانه / سالانه.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-04",
     "description": "جدول مقایسهٔ قابلیت‌های پلن‌ها.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-05",
     "description": "صفحهٔ کامل قیمت با سوئیچ، اثبات اجتماعی و پرسش‌های رایج.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "product-details-01",
     "description": "جزئیات محصول — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-details-02",
     "description": "جزئیات محصول — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-grid-01",
     "description": "فهرست محصولات — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "product-grid-02",
     "description": "فهرست محصولات — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "profile-01",
     "description": "پروفایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-02",
     "description": "پروفایل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-form-01",
     "description": "ویرایش پروفایل با نام نمایشی و بیو.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-02",
     "description": "پروفایل عمومی با آواتار و اطلاعات تماس.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-03",
     "description": "لینک‌های اجتماعی و سوئیچ‌های حریم خصوصی RTL.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-04",
     "description": "تکمیل پروفایل دو ستونه با تصویر کاور.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "recent-items-01",
-    "description": "موارد اخیر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "recent-items"
-    ]
+    "description": "لیست سادهٔ موارد اخیراً بازشده.",
+    "categories": ["recent-items"]
   },
   {
     "name": "recent-items-02",
-    "description": "موارد اخیر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "recent-items"
-    ]
+    "description": "کارت‌ها با مسیر چپ‌چین و ایمیل مالک.",
+    "categories": ["recent-items"]
+  },
+  {
+    "name": "recent-items-03",
+    "description": "جستجو و فیلتر نوع با Select راست‌چین.",
+    "categories": ["recent-items"]
+  },
+  {
+    "name": "recent-items-04",
+    "description": "سنجاق و منوی عملیات راست‌چین.",
+    "categories": ["recent-items"]
+  },
+  {
+    "name": "recent-items-05",
+    "description": "مرکز موارد اخیر با فیلتر، سنجاق و اشتراک ایمیل.",
+    "categories": ["recent-items"]
   },
   {
     "name": "reset-password-01",
     "description": "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "reset-password"
-    ]
+    "categories": ["reset-password"]
   },
   {
     "name": "reset-password-02",
     "description": "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "reset-password"
-    ]
+    "categories": ["reset-password"]
   },
   {
     "name": "schedule-01",
     "description": "برنامه زمانی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "schedule-02",
     "description": "برنامه زمانی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "search-01",
     "description": "جستجو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-02",
     "description": "جستجو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-results-01",
     "description": "نتایج جستجو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "search-results-02",
     "description": "نتایج جستجو — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "security-settings-01",
     "description": "تنظیمات امنیتی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "security-settings-02",
     "description": "تنظیمات امنیتی — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "sessions-01",
     "description": "نشست‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "sessions-02",
     "description": "نشست‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "settings-form-01",
     "description": "شروع ساده: سوئیچ‌های اعلان ایمیل، پیامک و مرورگر.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-02",
     "description": "متوسط: تب‌های حساب، امنیت و اعلان در یک کارت.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-03",
     "description": "امنیت: تغییر رمز عبور و منطقه خطر حذف حساب.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-04",
     "description": "ظاهر و زبان با Select و سوئیچ‌های نمایش.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-05",
     "description": "مدیریت نشست‌ها و دستگاه‌های فعال.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-06",
     "description": "حریم خصوصی روزمره: وضعیت آنلاین، جستجو و دعوت به گروه.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-07",
     "description": "اعضای تیم، دعوت و سیاست‌های فضای کاری.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "settings-form-08",
     "description": "کنسول پیشرفته: API، وب‌هوک و تنظیمات امنیتی.",
-    "categories": [
-      "settings-form"
-    ]
+    "categories": ["settings-form"]
   },
   {
     "name": "shopping-cart-01",
     "description": "سبد خرید — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "shopping-cart-02",
     "description": "سبد خرید — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "sidebar-01",
     "description": "A simple sidebar with navigation grouped by section.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-02",
     "description": "A sidebar with collapsible sections.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-03",
     "description": "A sidebar with submenus.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-04",
     "description": "A floating sidebar with submenus.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-05",
     "description": "A sidebar with collapsible submenus.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-06",
     "description": "A sidebar with submenus as dropdowns.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-07",
     "description": "A sidebar that collapses to icons.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-08",
     "description": "An inset sidebar with secondary navigation.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-09",
     "description": "Collapsible nested sidebars.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-10",
     "description": "A sidebar in a popover.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-11",
     "description": "A sidebar with a collapsible file tree.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-12",
     "description": "A sidebar with a calendar.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-13",
     "description": "A sidebar in a dialog.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-14",
     "description": "A sidebar on the right.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-15",
     "description": "A left and right sidebar.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-16",
     "description": "A sidebar with a sticky site header.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "signup-01",
     "description": "A simple signup form.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-02",
     "description": "A two column signup page with a cover image.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-03",
     "description": "A signup page with a muted background color.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-04",
     "description": "A signup page with form and image.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-05",
     "description": "A simple signup form with social providers.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "sort-filter-01",
     "description": "مرتب‌سازی و فیلتر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "sort-filter-02",
     "description": "مرتب‌سازی و فیلتر — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "stats-01",
     "description": "سه عدد بزرگ مرکزی با برچسب فارسی.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-02",
     "description": "کارت‌های KPI با روند صعودی/نزولی فارسی.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-03",
     "description": "اهداف ماه شمسی با نوار پیشرفت.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-04",
     "description": "نمودار میله‌ای هفتهٔ شمسی با آمار کناری.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-05",
     "description": "داشبورد کامل با تب دوره، شهرها و گزارش.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "steps-01",
-    "description": "مراحل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "steps"
-    ]
+    "description": "فهرست شماره‌دار سادهٔ مراحل.",
+    "categories": ["steps"]
   },
   {
     "name": "steps-02",
-    "description": "مراحل — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "steps"
-    ]
+    "description": "کارت‌های مرحله با شماره و بج.",
+    "categories": ["steps"]
+  },
+  {
+    "name": "steps-03",
+    "description": "زمان‌بندی عمودی با وضعیت انجام.",
+    "categories": ["steps"]
+  },
+  {
+    "name": "steps-04",
+    "description": "مراحل تعاملی با Select نوع فرآیند.",
+    "categories": ["steps"]
+  },
+  {
+    "name": "steps-05",
+    "description": "ویزارد کامل با فرم، Select و DropdownMenu.",
+    "categories": ["steps"]
   },
   {
     "name": "subscription-01",
     "description": "اشتراک — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "subscription-02",
     "description": "اشتراک — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "success-state-01",
     "description": "موفقیت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "success-state-02",
     "description": "موفقیت — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "support-form-01",
     "description": "درخواست پشتیبانی با انتخاب موضوع و شماره پیگیری.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-02",
     "description": "تیکت پشتیبانی با انتخاب اولویت.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-03",
     "description": "درخواست پشتیبانی چندمرحله‌ای با بازبینی نهایی.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-04",
     "description": "وضعیت تیکت پشتیبانی با تب‌های باز / در انتظار / حل‌شده.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "team-01",
-    "description": "تیم — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "team"
-    ]
+    "description": "فهرست متنی سادهٔ اعضای تیم.",
+    "categories": ["team"]
   },
   {
     "name": "team-02",
-    "description": "تیم — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "team"
-    ]
+    "description": "کارت عضو با آواتار، نقش و واحد.",
+    "categories": ["team"]
+  },
+  {
+    "name": "team-03",
+    "description": "عضو ویژه کنار فهرست کوتاه تیم.",
+    "categories": ["team"]
+  },
+  {
+    "name": "team-04",
+    "description": "فیلتر واحد با Select راست‌چین.",
+    "categories": ["team"]
+  },
+  {
+    "name": "team-05",
+    "description": "جستجو، فیلتر، مرتب‌سازی و فرم پیوستن.",
+    "categories": ["team"]
   },
   {
     "name": "testimonials-01",
     "description": "یک نقل‌قول مرکزی با آواتار و نقش.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-02",
     "description": "سه کارت نظر با ستاره و عکس پروفایل.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-03",
     "description": "داستان ویژه با تصویر بزرگ و دو نظر کناری.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-04",
     "description": "تعویض نظر با تب و آواتار مشتریان.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-05",
     "description": "گالری کامل نظرات با امتیاز، تصویر و CTA.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "user-management-01",
     "description": "مدیریت کاربران — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "user-management-02",
     "description": "مدیریت کاربران — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "wishlist-01",
     "description": "علاقه‌مندی‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   },
   {
     "name": "wishlist-02",
     "description": "علاقه‌مندی‌ها — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   }
 ]

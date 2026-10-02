@@ -19,13 +19,13 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "سارا محمدی",
+    email: "sara@example.com",
+    avatar: "/avatars/01.png",
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "داشبورد",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -38,7 +38,7 @@ const data = {
       ),
     },
     {
-      title: "Lifecycle",
+      title: "چرخهٔ کار",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -51,7 +51,7 @@ const data = {
       ),
     },
     {
-      title: "Analytics",
+      title: "تحلیل",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -64,7 +64,7 @@ const data = {
       ),
     },
     {
-      title: "Projects",
+      title: "پروژه‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -77,7 +77,7 @@ const data = {
       ),
     },
     {
-      title: "Team",
+      title: "تیم",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -90,81 +90,9 @@ const data = {
       ),
     },
   ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: (
-        <IconPlaceholder
-          lucide="CameraIcon"
-          tabler="IconCamera"
-          hugeicons="Camera01Icon"
-          phosphor="CameraIcon"
-          remixicon="RiCameraLine"
-        />
-      ),
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: (
-        <IconPlaceholder
-          lucide="FileTextIcon"
-          tabler="IconFileDescription"
-          hugeicons="File01Icon"
-          phosphor="FileTextIcon"
-          remixicon="RiFileTextLine"
-        />
-      ),
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: (
-        <IconPlaceholder
-          lucide="FileTextIcon"
-          tabler="IconFileAi"
-          hugeicons="File01Icon"
-          phosphor="FileTextIcon"
-          remixicon="RiFileTextLine"
-        />
-      ),
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-  ],
   navSecondary: [
     {
-      title: "Settings",
+      title: "تنظیمات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -177,7 +105,7 @@ const data = {
       ),
     },
     {
-      title: "Get Help",
+      title: "راهنما",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -190,7 +118,7 @@ const data = {
       ),
     },
     {
-      title: "Search",
+      title: "جستجو",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -205,7 +133,7 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "کتابخانهٔ داده",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -218,7 +146,7 @@ const data = {
       ),
     },
     {
-      name: "Reports",
+      name: "گزارش‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -231,7 +159,7 @@ const data = {
       ),
     },
     {
-      name: "Word Assistant",
+      name: "دستیار متن",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -245,9 +173,10 @@ const data = {
     },
   ],
 }
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas" dir="rtl" lang="fa" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -263,7 +192,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 remixicon="RiCommandLine"
                 className="size-5!"
               />
-              <span className="text-base font-semibold">Acme Inc.</span>
+              <span className="text-base font-semibold">فارسی‌UI</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

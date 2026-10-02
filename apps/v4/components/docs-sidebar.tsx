@@ -10,6 +10,7 @@ import { DOCS_SIDEBAR_SCROLL_STORAGE_KEY } from "@/lib/docs-sidebar-scroll"
 import { showMcpDocs } from "@/lib/flags"
 import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
 import type { source } from "@/lib/source"
+import { ListIndexNav } from "@/components/list-index-nav"
 import {
   Collapsible,
   CollapsibleContent,
@@ -31,7 +32,14 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarProvider,
 } from "@/registry/new-york-v4/ui/sidebar"
+
+const ACTIVE_ITEM_CLASS =
+  "relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+
+const ACTIVE_SECTION_CLASS =
+  "relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "مقدمه", href: "/docs" },
@@ -221,10 +229,45 @@ function DocsSidebarSearch({
   )
 }
 
-export function DocsSidebar({
+function getDocsCurrentLabel(
+  tree: typeof source.pageTree,
+  pathname: string,
+  currentBase: string
+) {
+  for (const item of tree.children) {
+    if (item.type !== "folder") continue
+    for (const page of getPagesFromFolder(item, currentBase)) {
+      if (page.url === pathname) {
+        return splitDocTitle(String(page.name)).fa
+      }
+    }
+  }
+
+  let best: { name: string; href: string } | null = null
+  for (const section of TOP_LEVEL_SECTIONS) {
+    const matches =
+      section.href === "/docs"
+        ? pathname === "/docs"
+        : pathname === section.href || pathname.startsWith(`${section.href}/`)
+
+    if (
+      matches &&
+      (!best || section.href.length > best.href.length)
+    ) {
+      best = section
+    }
+  }
+
+  return best?.name ?? null
+}
+
+function DocsSidebarBody({
   tree,
-  ...props
-}: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
+  persistScroll = true,
+}: {
+  tree: typeof source.pageTree
+  persistScroll?: boolean
+}) {
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
   const contentRef = React.useRef<HTMLDivElement>(null)
@@ -313,6 +356,10 @@ export function DocsSidebar({
     filteredSections.length > 0 || filteredGroups.length > 0
 
   React.useLayoutEffect(() => {
+    if (!persistScroll) {
+      return
+    }
+
     const container = contentRef.current
 
     if (!container) {
@@ -345,9 +392,13 @@ export function DocsSidebar({
     }
 
     saveScrollState(container)
-  }, [pathname])
+  }, [pathname, persistScroll])
 
   React.useEffect(() => {
+    if (!persistScroll) {
+      return
+    }
+
     const container = contentRef.current
 
     if (!container) {
@@ -357,15 +408,10 @@ export function DocsSidebar({
     const onScroll = () => saveScrollState(container)
     container.addEventListener("scroll", onScroll, { passive: true })
     return () => container.removeEventListener("scroll", onScroll)
-  }, [])
+  }, [persistScroll])
 
   return (
-    <Sidebar
-      className="sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
-      collapsible="none"
-      {...props}
-    >
-      <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
+    <>
       <div className="shrink-0 pe-2 pt-2 pb-3">
         <DocsSidebarSearch
           value={searchValue}
@@ -399,7 +445,7 @@ export function DocsSidebar({
                           ? pathname === href
                           : pathname.startsWith(href)
                       }
-                      className="relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+                      className={ACTIVE_SECTION_CLASS}
                     >
                       <Link href={href}>
                         <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
@@ -442,7 +488,7 @@ export function DocsSidebar({
                           <SidebarMenuButton
                             asChild
                             isActive={page.url === pathname}
-                            className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                            className={ACTIVE_ITEM_CLASS}
                           >
                             <Link
                               href={page.url}
@@ -500,7 +546,7 @@ export function DocsSidebar({
                       <SidebarMenuButton
                         asChild
                         isActive={page.url === pathname}
-                        className="relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+                        className={ACTIVE_ITEM_CLASS}
                       >
                         <Link
                           href={page.url}
@@ -540,6 +586,39 @@ export function DocsSidebar({
           </SidebarGroup>
         ))}
       </SidebarContent>
+    </>
+  )
+}
+
+export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
+  const pathname = usePathname()
+  const currentBase = getCurrentBase(pathname)
+  const current = React.useMemo(
+    () => getDocsCurrentLabel(tree, pathname, currentBase),
+    [tree, pathname, currentBase]
+  )
+
+  return (
+    <ListIndexNav title="فهرست" current={current}>
+      <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
+        <DocsSidebarBody tree={tree} persistScroll={false} />
+      </SidebarProvider>
+    </ListIndexNav>
+  )
+}
+
+export function DocsSidebar({
+  tree,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
+  return (
+    <Sidebar
+      className="sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
+      collapsible="none"
+      {...props}
+    >
+      <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
+      <DocsSidebarBody tree={tree} />
     </Sidebar>
   )
 }

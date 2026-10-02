@@ -11,7 +11,7 @@ export function GitHubLink() {
     <Button asChild size="sm" variant="ghost" className="h-8 shadow-none">
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
         <Icons.gitHub />
-        <React.Suspense fallback={<Skeleton className="h-4 w-[42px]" />}>
+        <React.Suspense fallback={<Skeleton className="hidden h-4 w-[42px] sm:block" />}>
           <StarsCount />
         </React.Suspense>
       </Link>
@@ -31,7 +31,7 @@ export async function StarsCount() {
       : json.stargazers_count?.toLocaleString()
 
   return (
-    <span className="w-fit text-xs text-muted-foreground tabular-nums">
+    <span className="hidden w-fit text-xs text-muted-foreground tabular-nums sm:inline">
       {formattedCount}
     </span>
   )

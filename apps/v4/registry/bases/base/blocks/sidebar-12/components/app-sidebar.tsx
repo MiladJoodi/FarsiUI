@@ -21,29 +21,29 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
+    name: "سارا محمدی",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   calendars: [
     {
-      name: "My Calendars",
+      name: "تقویم‌های من",
       items: ["Personal", "Work", "Family"],
     },
     {
-      name: "Favorites",
+      name: "علاقه‌مندی‌ها",
       items: ["Holidays", "Birthdays"],
     },
     {
-      name: "Other",
-      items: ["Travel", "Reminders", "Deadlines"],
+      name: "سایر",
+      items: ["سفر", "یادآورها", "موعدها"],
     },
   ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar dir="rtl" lang="fa" {...props}>
       <SidebarHeader className="h-16 border-b border-sidebar-border">
         <NavUser user={data.user} />
       </SidebarHeader>
@@ -63,7 +63,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 phosphor="PlusIcon"
                 remixicon="RiAddLine"
               />
-              <span>New Calendar</span>
+              <span>تقویم جدید</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

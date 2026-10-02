@@ -15,7 +15,7 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider>
+    <SidebarProvider dir="rtl" lang="fa">
       <SidebarLeft />
       <SidebarInset>
         <header className="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
@@ -23,13 +23,13 @@ export default function Page() {
             <SidebarTrigger />
             <Separator
               orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
+              className="me-2 data-[orientation=vertical]:h-4"
             />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1">
-                    Project Management & Task Tracking
+                    مدیریت پروژه و پیگیری وظایف
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>

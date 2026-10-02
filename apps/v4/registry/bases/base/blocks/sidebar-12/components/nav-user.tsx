@@ -43,11 +43,13 @@ export function NavUser({
           >
             <Avatar>
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>سم</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
+              <span className="truncate text-xs" dir="ltr">
+                {user.email}
+              </span>
             </div>
             <IconPlaceholder
               lucide="ChevronsUpDownIcon"
@@ -55,25 +57,28 @@ export function NavUser({
               hugeicons="UnfoldMoreIcon"
               phosphor="CaretUpDownIcon"
               remixicon="RiArrowUpDownLine"
-              className="ml-auto size-4"
+              className="ms-auto size-4"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
-            align="start"
+            className="w-fit"
+            side={isMobile ? "bottom" : "left"}
+            align="end"
             sideOffset={4}
+            dir="rtl"
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
                   <Avatar>
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback>سم</AvatarFallback>
                   </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
+                  <div className="grid flex-1 text-start text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
-                    <span className="truncate text-xs">{user.email}</span>
+                    <span className="truncate text-xs" dir="ltr">
+                      {user.email}
+                    </span>
                   </div>
                 </div>
               </DropdownMenuLabel>
@@ -88,7 +93,7 @@ export function NavUser({
                   phosphor="SparkleIcon"
                   remixicon="RiSparklingLine"
                 />
-                Upgrade to Pro
+                ارتقا به نسخه حرفه‌ای
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -101,7 +106,7 @@ export function NavUser({
                   phosphor="CheckCircleIcon"
                   remixicon="RiCheckboxCircleLine"
                 />
-                Account
+                حساب کاربری
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -111,7 +116,7 @@ export function NavUser({
                   phosphor="CreditCardIcon"
                   remixicon="RiBankCardLine"
                 />
-                Billing
+                صورتحساب
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -121,7 +126,7 @@ export function NavUser({
                   phosphor="BellIcon"
                   remixicon="RiNotificationLine"
                 />
-                Notifications
+                اعلان‌ها
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -133,7 +138,7 @@ export function NavUser({
                 phosphor="SignOutIcon"
                 remixicon="RiLogoutBoxLine"
               />
-              Log out
+              خروج
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

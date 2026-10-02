@@ -16,7 +16,7 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider
+    <SidebarProvider dir="rtl" lang="fa"
       style={
         {
           "--sidebar-width": "350px",
@@ -26,19 +26,19 @@ export default function Page() {
       <AppSidebar />
       <SidebarInset>
         <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b bg-background p-4">
-          <SidebarTrigger className="-ml-1" />
+          <SidebarTrigger className="-ms-1" />
           <Separator
             orientation="vertical"
-            className="mr-2 data-vertical:h-4 data-vertical:self-auto"
+            className="me-2 data-vertical:h-4 data-vertical:self-auto"
           />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">All Inboxes</BreadcrumbLink>
+                <BreadcrumbLink href="#">همه صندوق‌ها</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Inbox</BreadcrumbPage>
+                <BreadcrumbPage>صندوق ورودی</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

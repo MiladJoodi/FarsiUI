@@ -13,13 +13,11 @@ export function SearchForm({ ...props }: React.ComponentProps<"form">) {
     <form {...props}>
       <SidebarGroup className="py-0">
         <SidebarGroupContent className="relative">
-          <Label htmlFor="search" className="sr-only">
-            Search
-          </Label>
+          <Label htmlFor="search" className="sr-only">جستجو</Label>
           <SidebarInput
             id="search"
-            placeholder="Search the docs..."
-            className="pl-8"
+            placeholder="جستجو در مستندات..."
+            className="ps-8"
           />
           <IconPlaceholder
             lucide="SearchIcon"
@@ -27,7 +25,7 @@ export function SearchForm({ ...props }: React.ComponentProps<"form">) {
             hugeicons="SearchIcon"
             phosphor="MagnifyingGlassIcon"
             remixicon="RiSearchLine"
-            className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none"
+            className="pointer-events-none absolute top-1/2 start-2 size-4 -translate-y-1/2 opacity-50 select-none"
           />
         </SidebarGroupContent>
       </SidebarGroup>

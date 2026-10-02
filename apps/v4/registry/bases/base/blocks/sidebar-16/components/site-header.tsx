@@ -36,20 +36,20 @@ export function SiteHeader() {
         </Button>
         <Separator
           orientation="vertical"
-          className="mr-2 data-vertical:h-4 data-vertical:self-auto"
+          className="me-2 data-vertical:h-4 data-vertical:self-auto"
         />
         <Breadcrumb className="hidden sm:block">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">Build Your Application</BreadcrumbLink>
+              <BreadcrumbLink href="#">ساخت اپلیکیشن</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+              <BreadcrumbPage>دریافت داده</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <SearchForm className="w-full sm:ml-auto sm:w-auto" />
+        <SearchForm className="w-full sm:ms-auto sm:w-auto" />
       </div>
     </header>
   )

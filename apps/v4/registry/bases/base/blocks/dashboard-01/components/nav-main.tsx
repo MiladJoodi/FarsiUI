@@ -25,7 +25,7 @@ export function NavMain({
         <SidebarMenu>
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
-              tooltip="Quick Create"
+              tooltip="ایجاد سریع"
               className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
             >
               <IconPlaceholder
@@ -35,7 +35,7 @@ export function NavMain({
                 phosphor="PlusCircleIcon"
                 remixicon="RiAddCircleFill"
               />
-              <span>Quick Create</span>
+              <span>ایجاد سریع</span>
             </SidebarMenuButton>
             <Button
               size="icon"
@@ -49,7 +49,7 @@ export function NavMain({
                 phosphor="EnvelopeIcon"
                 remixicon="RiMailLine"
               />
-              <span className="sr-only">Inbox</span>
+              <span className="sr-only">صندوق ورودی</span>
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>

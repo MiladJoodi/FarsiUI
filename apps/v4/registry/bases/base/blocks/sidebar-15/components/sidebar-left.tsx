@@ -19,7 +19,7 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 const data = {
   teams: [
     {
-      name: "Acme Inc",
+      name: "FarsiUI",
       logo: (
         <IconPlaceholder
           lucide="TerminalIcon"
@@ -29,10 +29,10 @@ const data = {
           remixicon="RiCommandLine"
         />
       ),
-      plan: "Enterprise",
+      plan: "سازمانی",
     },
     {
-      name: "Acme Corp.",
+      name: "شرکت آریا",
       logo: (
         <IconPlaceholder
           lucide="AudioLinesIcon"
@@ -42,10 +42,10 @@ const data = {
           remixicon="RiPulseLine"
         />
       ),
-      plan: "Startup",
+      plan: "استارتاپ",
     },
     {
-      name: "Evil Corp.",
+      name: "استودیو نوآ",
       logo: (
         <IconPlaceholder
           lucide="TerminalIcon"
@@ -55,12 +55,12 @@ const data = {
           remixicon="RiCommandLine"
         />
       ),
-      plan: "Free",
+      plan: "رایگان",
     },
   ],
   navMain: [
     {
-      title: "Search",
+      title: "جستجو",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -73,7 +73,7 @@ const data = {
       ),
     },
     {
-      title: "Ask AI",
+      title: "پرسش از هوش مصنوعی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -86,7 +86,7 @@ const data = {
       ),
     },
     {
-      title: "Home",
+      title: "خانه",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -100,7 +100,7 @@ const data = {
       isActive: true,
     },
     {
-      title: "Inbox",
+      title: "صندوق ورودی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -116,7 +116,7 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Calendar",
+      title: "تقویم",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -129,7 +129,7 @@ const data = {
       ),
     },
     {
-      title: "Settings",
+      title: "تنظیمات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -142,7 +142,7 @@ const data = {
       ),
     },
     {
-      title: "Templates",
+      title: "قالب‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -155,7 +155,7 @@ const data = {
       ),
     },
     {
-      title: "Trash",
+      title: "سطل زباله",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -168,7 +168,7 @@ const data = {
       ),
     },
     {
-      title: "Help",
+      title: "راهنما",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -183,157 +183,157 @@ const data = {
   ],
   favorites: [
     {
-      name: "Project Management & Task Tracking",
+      name: "مدیریت پروژه و پیگیری وظایف",
       url: "#",
       emoji: "📊",
     },
     {
-      name: "Family Recipe Collection & Meal Planning",
+      name: "دستور پخت و برنامه غذایی",
       url: "#",
       emoji: "🍳",
     },
     {
-      name: "Fitness Tracker & Workout Routines",
+      name: "پیگیری تناسب اندام",
       url: "#",
       emoji: "💪",
     },
     {
-      name: "Book Notes & Reading List",
+      name: "یادداشت کتاب و فهرست مطالعه",
       url: "#",
       emoji: "📚",
     },
     {
-      name: "Sustainable Gardening Tips & Plant Care",
+      name: "باغبانی و نگهداری گیاه",
       url: "#",
       emoji: "🌱",
     },
     {
-      name: "Language Learning Progress & Resources",
+      name: "پیشرفت زبان‌آموزی",
       url: "#",
       emoji: "🗣️",
     },
     {
-      name: "Home Renovation Ideas & Budget Tracker",
+      name: "بازسازی منزل و بودجه",
       url: "#",
       emoji: "🏠",
     },
     {
-      name: "Personal Finance & Investment Portfolio",
+      name: "مالی شخصی و سرمایه‌گذاری",
       url: "#",
       emoji: "💰",
     },
     {
-      name: "Movie & TV Show Watchlist with Reviews",
+      name: "فهرست فیلم و سریال",
       url: "#",
       emoji: "🎬",
     },
     {
-      name: "Daily Habit Tracker & Goal Setting",
+      name: "پیگیری عادت و اهداف روزانه",
       url: "#",
       emoji: "✅",
     },
   ],
   workspaces: [
     {
-      name: "Personal Life Management",
+      name: "مدیریت زندگی شخصی",
       emoji: "🏠",
       pages: [
         {
-          name: "Daily Journal & Reflection",
+          name: "یادداشت روزانه",
           url: "#",
           emoji: "📔",
         },
         {
-          name: "Health & Wellness Tracker",
+          name: "پیگیری سلامت و تندرستی",
           url: "#",
           emoji: "🍏",
         },
         {
-          name: "Personal Growth & Learning Goals",
+          name: "رشد شخصی و یادگیری",
           url: "#",
           emoji: "🌟",
         },
       ],
     },
     {
-      name: "Professional Development",
+      name: "رشد حرفه‌ای",
       emoji: "💼",
       pages: [
         {
-          name: "Career Objectives & Milestones",
+          name: "اهداف شغلی و نقاط عطف",
           url: "#",
           emoji: "🎯",
         },
         {
-          name: "Skill Acquisition & Training Log",
+          name: "مهارت‌ها و گزارش آموزش",
           url: "#",
           emoji: "🧠",
         },
         {
-          name: "Networking Contacts & Events",
+          name: "ارتباطات و رویدادها",
           url: "#",
           emoji: "🤝",
         },
       ],
     },
     {
-      name: "Creative Projects",
+      name: "پروژه‌های خلاقانه",
       emoji: "🎨",
       pages: [
         {
-          name: "Writing Ideas & Story Outlines",
+          name: "ایده نوشتن و طرح داستان",
           url: "#",
           emoji: "✍️",
         },
         {
-          name: "Art & Design Portfolio",
+          name: "نمونه‌کار هنر و طراحی",
           url: "#",
           emoji: "🖼️",
         },
         {
-          name: "Music Composition & Practice Log",
+          name: "آهنگسازی و تمرین موسیقی",
           url: "#",
           emoji: "🎵",
         },
       ],
     },
     {
-      name: "Home Management",
+      name: "مدیریت منزل",
       emoji: "🏡",
       pages: [
         {
-          name: "Household Budget & Expense Tracking",
+          name: "بودجه خانوار و هزینه‌ها",
           url: "#",
           emoji: "💰",
         },
         {
-          name: "Home Maintenance Schedule & Tasks",
+          name: "نگهداری منزل و وظایف",
           url: "#",
           emoji: "🔧",
         },
         {
-          name: "Family Calendar & Event Planning",
+          name: "تقویم خانواده و برنامه‌ریزی",
           url: "#",
           emoji: "📅",
         },
       ],
     },
     {
-      name: "Travel & Adventure",
+      name: "سفر و ماجراجویی",
       emoji: "🧳",
       pages: [
         {
-          name: "Trip Planning & Itineraries",
+          name: "برنامه سفر و مسیرها",
           url: "#",
           emoji: "🗺️",
         },
         {
-          name: "Travel Bucket List & Inspiration",
+          name: "لیست سفر و ایده‌ها",
           url: "#",
           emoji: "🌎",
         },
         {
-          name: "Travel Journal & Photo Gallery",
+          name: "دفتر سفر و گالری",
           url: "#",
           emoji: "📸",
         },
@@ -346,7 +346,7 @@ export function SidebarLeft({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar className="border-r-0" {...props}>
+    <Sidebar dir="rtl" lang="fa" className="border-r-0" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
         <NavMain items={data.navMain} />

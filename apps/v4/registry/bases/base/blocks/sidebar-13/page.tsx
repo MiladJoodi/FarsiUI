@@ -2,7 +2,11 @@ import { SettingsDialog } from "@/registry/bases/base/blocks/sidebar-13/componen
 
 export default function Page() {
   return (
-    <div className="flex h-svh items-center justify-center">
+    <div
+      dir="rtl"
+      lang="fa"
+      className="flex h-svh items-center justify-center"
+    >
       <SettingsDialog />
     </div>
   )

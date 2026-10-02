@@ -30,7 +30,7 @@ export function NavFavorites({
   const { isMobile } = useSidebar()
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Favorites</SidebarGroupLabel>
+      <SidebarGroupLabel>علاقه‌مندی‌ها</SidebarGroupLabel>
       <SidebarMenu>
         {favorites.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -54,7 +54,7 @@ export function NavFavorites({
                   phosphor="DotsThreeOutlineIcon"
                   remixicon="RiMoreLine"
                 />
-                <span className="sr-only">More</span>
+                <span className="sr-only">بیشتر</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-56 rounded-lg"
@@ -70,7 +70,7 @@ export function NavFavorites({
                     remixicon="RiStarOffLine"
                     className="text-muted-foreground"
                   />
-                  <span>Remove from Favorites</span>
+                  <span>حذف از علاقه‌مندی‌ها</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -93,7 +93,7 @@ export function NavFavorites({
                     remixicon="RiArrowRightUpLine"
                     className="text-muted-foreground"
                   />
-                  <span>Open in New Tab</span>
+                  <span>باز کردن در تب جدید</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -105,7 +105,7 @@ export function NavFavorites({
                     remixicon="RiDeleteBinLine"
                     className="text-muted-foreground"
                   />
-                  <span>Delete</span>
+                  <span>حذف</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -120,7 +120,7 @@ export function NavFavorites({
               phosphor="DotsThreeOutlineIcon"
               remixicon="RiMoreLine"
             />
-            <span>More</span>
+            <span>بیشتر</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

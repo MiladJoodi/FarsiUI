@@ -15,15 +15,14 @@ export function SiteHeader() {
 
   return (
     <header dir="rtl" lang="fa" className="sticky top-0 z-50 w-full bg-background">
-      <div className="container-wrapper px-6 3xl:fixed:px-0">
-        <div className="flex h-(--header-height) items-center **:data-[slot=separator]:h-4! 3xl:fixed:container">
+      <div className="container-wrapper px-4 sm:px-6 3xl:fixed:px-0">
+        <div className="flex h-(--header-height) items-center gap-1 **:data-[slot=separator]:h-4! 3xl:fixed:container">
           <MobileNav
-            tree={pageTree}
             items={siteConfig.navItems}
             className="flex lg:hidden"
           />
           <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
-          <div className="ms-auto flex items-center gap-2 md:flex-1 md:justify-end">
+          <div className="ms-auto flex min-w-0 items-center gap-1.5 sm:gap-2 md:flex-1 md:justify-end">
             <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
               <CommandMenu
                 tree={pageTree}
@@ -35,10 +34,12 @@ export function SiteHeader() {
               orientation="vertical"
               className="ms-2 hidden lg:block"
             />
-            <GitHubLink />
-            <Separator orientation="vertical" />
             <HeaderPrimaryColors />
-            <ModeSwitcher />
+            <Separator orientation="vertical" className="hidden sm:block" />
+            <div className="flex shrink-0 items-center gap-0.5">
+              <GitHubLink />
+              <ModeSwitcher />
+            </div>
           </div>
         </div>
       </div>

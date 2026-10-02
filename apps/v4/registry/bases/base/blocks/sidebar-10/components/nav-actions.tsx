@@ -22,7 +22,7 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 const data = [
   [
     {
-      label: "Customize Page",
+      label: "شخصی‌سازی صفحه",
       icon: (
         <IconPlaceholder
           lucide="Settings2Icon"
@@ -34,7 +34,7 @@ const data = [
       ),
     },
     {
-      label: "Turn into wiki",
+      label: "تبدیل به ویکی",
       icon: (
         <IconPlaceholder
           lucide="FileTextIcon"
@@ -48,7 +48,7 @@ const data = [
   ],
   [
     {
-      label: "Copy Link",
+      label: "کپی لینک",
       icon: (
         <IconPlaceholder
           lucide="LinkIcon"
@@ -60,7 +60,7 @@ const data = [
       ),
     },
     {
-      label: "Duplicate",
+      label: "تکثیر",
       icon: (
         <IconPlaceholder
           lucide="CopyIcon"
@@ -72,7 +72,7 @@ const data = [
       ),
     },
     {
-      label: "Move to",
+      label: "انتقال به",
       icon: (
         <IconPlaceholder
           lucide="CornerUpRightIcon"
@@ -84,7 +84,7 @@ const data = [
       ),
     },
     {
-      label: "Move to Trash",
+      label: "انتقال به سطل زباله",
       icon: (
         <IconPlaceholder
           lucide="Trash2Icon"
@@ -98,7 +98,7 @@ const data = [
   ],
   [
     {
-      label: "Undo",
+      label: "واگرد",
       icon: (
         <IconPlaceholder
           lucide="CornerUpLeftIcon"
@@ -110,7 +110,7 @@ const data = [
       ),
     },
     {
-      label: "View analytics",
+      label: "مشاهده تحلیل‌ها",
       icon: (
         <IconPlaceholder
           lucide="ChartLineIcon"
@@ -122,7 +122,7 @@ const data = [
       ),
     },
     {
-      label: "Version History",
+      label: "تاریخچه نسخه",
       icon: (
         <IconPlaceholder
           lucide="GalleryVerticalEndIcon"
@@ -134,7 +134,7 @@ const data = [
       ),
     },
     {
-      label: "Show delete pages",
+      label: "نمایش صفحات حذف‌شده",
       icon: (
         <IconPlaceholder
           lucide="TrashIcon"
@@ -146,7 +146,7 @@ const data = [
       ),
     },
     {
-      label: "Notifications",
+      label: "اعلان‌ها",
       icon: (
         <IconPlaceholder
           lucide="BellIcon"
@@ -160,7 +160,7 @@ const data = [
   ],
   [
     {
-      label: "Import",
+      label: "وارد کردن",
       icon: (
         <IconPlaceholder
           lucide="ArrowUpIcon"
@@ -172,7 +172,7 @@ const data = [
       ),
     },
     {
-      label: "Export",
+      label: "خروجی گرفتن",
       icon: (
         <IconPlaceholder
           lucide="ArrowDownIcon"
@@ -193,7 +193,7 @@ export function NavActions() {
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="hidden font-medium text-muted-foreground md:inline-block">
-        Edit Oct 08
+        ویرایش ۱۸ مهر ۱۴۰۳
       </div>
       <Button variant="ghost" size="icon" className="h-7 w-7">
         <IconPlaceholder
@@ -225,6 +225,7 @@ export function NavActions() {
         <PopoverContent
           className="w-56 overflow-hidden rounded-lg p-0"
           align="end"
+          dir="rtl"
         >
           <Sidebar collapsible="none" className="bg-transparent">
             <SidebarContent>

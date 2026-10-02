@@ -3,10 +3,11 @@ import { cn } from "cn"
 
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+function Accordion({ className, dir, ...props }: AccordionPrimitive.Root.Props) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
+      dir={dir}
       className={cn("cn-accordion flex w-full flex-col", className)}
       {...props}
     />

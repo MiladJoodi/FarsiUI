@@ -19,92 +19,92 @@ import {
 const data = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "شروع کار",
       url: "#",
       items: [
         {
-          title: "Installation",
+          title: "نصب",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "ساختار پروژه",
           url: "#",
         },
       ],
     },
     {
-      title: "Build Your Application",
+      title: "ساخت اپلیکیشن",
       url: "#",
       items: [
         {
-          title: "Routing",
+          title: "مسیریابی",
           url: "#",
         },
         {
-          title: "Data Fetching",
+          title: "دریافت داده",
           url: "#",
           isActive: true,
         },
         {
-          title: "Rendering",
+          title: "رندرینگ",
           url: "#",
         },
         {
-          title: "Caching",
+          title: "کش",
           url: "#",
         },
         {
-          title: "Styling",
+          title: "استایل‌دهی",
           url: "#",
         },
         {
-          title: "Optimizing",
+          title: "بهینه‌سازی",
           url: "#",
         },
         {
-          title: "Configuring",
+          title: "پیکربندی",
           url: "#",
         },
         {
-          title: "Testing",
+          title: "تست",
           url: "#",
         },
         {
-          title: "Authentication",
+          title: "احراز هویت",
           url: "#",
         },
         {
-          title: "Deploying",
+          title: "استقرار",
           url: "#",
         },
         {
-          title: "Upgrading",
+          title: "ارتقاء",
           url: "#",
         },
         {
-          title: "Examples",
+          title: "نمونه‌ها",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "مرجع API",
       url: "#",
       items: [
         {
-          title: "Components",
+          title: "کامپوننت‌ها",
           url: "#",
         },
         {
-          title: "File Conventions",
+          title: "قراردادهای فایل",
           url: "#",
         },
         {
-          title: "Functions",
+          title: "توابع",
           url: "#",
         },
         {
-          title: "next.config.js Options",
+          title: "گزینه‌های next.config",
           url: "#",
         },
         {
@@ -118,11 +118,11 @@ const data = {
       ],
     },
     {
-      title: "Architecture",
+      title: "معماری",
       url: "#",
       items: [
         {
-          title: "Accessibility",
+          title: "دسترس‌پذیری",
           url: "#",
         },
         {
@@ -134,7 +134,7 @@ const data = {
           url: "#",
         },
         {
-          title: "Supported Browsers",
+          title: "مرورگرهای پشتیبانی‌شده",
           url: "#",
         },
         {
@@ -144,11 +144,11 @@ const data = {
       ],
     },
     {
-      title: "Community",
+      title: "جامعه",
       url: "#",
       items: [
         {
-          title: "Contribution Guide",
+          title: "راهنمای مشارکت",
           url: "#",
         },
       ],
@@ -157,10 +157,10 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar dir="rtl" lang="fa" {...props}>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Table of Contents</SidebarGroupLabel>
+          <SidebarGroupLabel>فهرست مطالب</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.navMain.map((item) => (

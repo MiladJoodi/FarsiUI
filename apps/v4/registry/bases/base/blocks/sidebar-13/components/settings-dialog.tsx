@@ -33,7 +33,7 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 const data = {
   nav: [
     {
-      name: "Notifications",
+      name: "اعلان‌ها",
       icon: (
         <IconPlaceholder
           lucide="BellIcon"
@@ -45,7 +45,7 @@ const data = {
       ),
     },
     {
-      name: "Navigation",
+      name: "ناوبری",
       icon: (
         <IconPlaceholder
           lucide="MenuIcon"
@@ -57,7 +57,7 @@ const data = {
       ),
     },
     {
-      name: "Home",
+      name: "خانه",
       icon: (
         <IconPlaceholder
           lucide="HomeIcon"
@@ -69,7 +69,7 @@ const data = {
       ),
     },
     {
-      name: "Appearance",
+      name: "ظاهر",
       icon: (
         <IconPlaceholder
           lucide="PaintbrushIcon"
@@ -81,7 +81,7 @@ const data = {
       ),
     },
     {
-      name: "Messages & media",
+      name: "پیام و رسانه",
       icon: (
         <IconPlaceholder
           lucide="MessageCircleIcon"
@@ -93,7 +93,7 @@ const data = {
       ),
     },
     {
-      name: "Language & region",
+      name: "زبان و منطقه",
       icon: (
         <IconPlaceholder
           lucide="GlobeIcon"
@@ -105,7 +105,7 @@ const data = {
       ),
     },
     {
-      name: "Accessibility",
+      name: "دسترس‌پذیری",
       icon: (
         <IconPlaceholder
           lucide="KeyboardIcon"
@@ -117,7 +117,7 @@ const data = {
       ),
     },
     {
-      name: "Mark as read",
+      name: "علامت به‌عنوان خوانده",
       icon: (
         <IconPlaceholder
           lucide="CheckIcon"
@@ -129,7 +129,7 @@ const data = {
       ),
     },
     {
-      name: "Audio & video",
+      name: "صدا و تصویر",
       icon: (
         <IconPlaceholder
           lucide="VideoIcon"
@@ -141,7 +141,7 @@ const data = {
       ),
     },
     {
-      name: "Connected accounts",
+      name: "حساب‌های متصل",
       icon: (
         <IconPlaceholder
           lucide="LinkIcon"
@@ -153,7 +153,7 @@ const data = {
       ),
     },
     {
-      name: "Privacy & visibility",
+      name: "حریم خصوصی و نمایش",
       icon: (
         <IconPlaceholder
           lucide="LockIcon"
@@ -165,7 +165,7 @@ const data = {
       ),
     },
     {
-      name: "Advanced",
+      name: "پیشرفته",
       icon: (
         <IconPlaceholder
           lucide="SettingsIcon"
@@ -183,14 +183,14 @@ export function SettingsDialog() {
   const [open, setOpen] = React.useState(true)
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button size="sm" />}>Open Dialog</DialogTrigger>
+      <DialogTrigger render={<Button size="sm" />}>باز کردن تنظیمات</DialogTrigger>
       <DialogContent className="overflow-hidden p-0 md:max-h-[500px] md:max-w-[700px] lg:max-w-[800px]">
-        <DialogTitle className="sr-only">Settings</DialogTitle>
+        <DialogTitle className="sr-only">تنظیمات</DialogTitle>
         <DialogDescription className="sr-only">
-          Customize your settings here.
+          تنظیمات خود را اینجا شخصی‌سازی کنید.
         </DialogDescription>
-        <SidebarProvider className="items-start">
-          <Sidebar collapsible="none" className="hidden md:flex">
+        <SidebarProvider dir="rtl" lang="fa" className="items-start">
+          <Sidebar dir="rtl" lang="fa" collapsible="none" className="hidden md:flex">
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent>
@@ -198,7 +198,7 @@ export function SettingsDialog() {
                     {data.nav.map((item) => (
                       <SidebarMenuItem key={item.name}>
                         <SidebarMenuButton
-                          isActive={item.name === "Messages & media"}
+                          isActive={item.name === "پیام و رسانه"}
                           render={<a href="#" />}
                         >
                           {item.icon}
@@ -217,11 +217,11 @@ export function SettingsDialog() {
                 <Breadcrumb>
                   <BreadcrumbList>
                     <BreadcrumbItem className="hidden md:block">
-                      <BreadcrumbLink href="#">Settings</BreadcrumbLink>
+                      <BreadcrumbLink href="#">تنظیمات</BreadcrumbLink>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator className="hidden md:block" />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>Messages & media</BreadcrumbPage>
+                      <BreadcrumbPage>پیام و رسانه</BreadcrumbPage>
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>

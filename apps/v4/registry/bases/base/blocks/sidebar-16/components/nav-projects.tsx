@@ -30,7 +30,7 @@ export function NavProjects({
   const { isMobile } = useSidebar()
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -54,12 +54,13 @@ export function NavProjects({
                   phosphor="DotsThreeOutlineIcon"
                   remixicon="RiMoreLine"
                 />
-                <span className="sr-only">More</span>
+                <span className="sr-only">بیشتر</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="w-48"
-                side={isMobile ? "bottom" : "right"}
+                className="w-fit"
+                side={isMobile ? "bottom" : "left"}
                 align={isMobile ? "end" : "start"}
+                dir="rtl"
               >
                 <DropdownMenuItem>
                   <IconPlaceholder
@@ -70,7 +71,7 @@ export function NavProjects({
                     remixicon="RiFolderLine"
                     className="text-muted-foreground"
                   />
-                  <span>View Project</span>
+                  <span>مشاهده پروژه</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <IconPlaceholder
@@ -81,7 +82,7 @@ export function NavProjects({
                     remixicon="RiShareLine"
                     className="text-muted-foreground"
                   />
-                  <span>Share Project</span>
+                  <span>اشتراک‌گذاری پروژه</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -93,7 +94,7 @@ export function NavProjects({
                     remixicon="RiDeleteBinLine"
                     className="text-muted-foreground"
                   />
-                  <span>Delete Project</span>
+                  <span>حذف پروژه</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -108,7 +109,7 @@ export function NavProjects({
               phosphor="DotsThreeOutlineIcon"
               remixicon="RiMoreLine"
             />
-            <span>More</span>
+            <span>بیشتر</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

@@ -39,6 +39,22 @@ const SKIP_SLUGS = new Set([
   "testimonials",
   "logo-cloud",
   "newsletter",
+  "navbar",
+  "header",
+  "footer",
+  "mobile-navigation",
+  "breadcrumb-block",
+  "blog-grid",
+  "faq",
+  "team",
+  "contact",
+  "steps",
+  "comparison",
+  "dashboard-stats",
+  "analytics",
+  "data-table-block",
+  "activity",
+  "recent-items",
 ])
 
 const ITEMS = [

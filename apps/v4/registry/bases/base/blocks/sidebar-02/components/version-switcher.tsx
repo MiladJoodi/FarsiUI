@@ -46,8 +46,8 @@ export function VersionSwitcher({
               />
             </div>
             <div className="flex flex-col gap-0.5 leading-none">
-              <span className="font-medium">Documentation</span>
-              <span className="">v{selectedVersion}</span>
+              <span className="font-medium">مستندات</span>
+              <span className="">نسخه {selectedVersion}</span>
             </div>
             <IconPlaceholder
               lucide="ChevronsUpDownIcon"
@@ -55,10 +55,10 @@ export function VersionSwitcher({
               hugeicons="UnfoldMoreIcon"
               phosphor="CaretUpDownIcon"
               remixicon="RiArrowUpDownLine"
-              className="ml-auto"
+              className="ms-auto"
             />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
+          <DropdownMenuContent align="start" dir="rtl">
             {versions.map((version) => (
               <DropdownMenuItem
                 key={version}
@@ -72,7 +72,7 @@ export function VersionSwitcher({
                     hugeicons="Tick02Icon"
                     phosphor="CheckIcon"
                     remixicon="RiCheckLine"
-                    className="ml-auto"
+                    className="ms-auto"
                   />
                 )}
               </DropdownMenuItem>

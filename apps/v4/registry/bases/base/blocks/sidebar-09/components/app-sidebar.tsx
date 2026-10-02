@@ -23,13 +23,13 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 // This is sample data
 const data = {
   user: {
-    name: "shadcn",
+    name: "سارا محمدی",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: "Inbox",
+      title: "صندوق ورودی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -43,7 +43,7 @@ const data = {
       isActive: true,
     },
     {
-      title: "Drafts",
+      title: "پیش‌نویس‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -57,7 +57,7 @@ const data = {
       isActive: false,
     },
     {
-      title: "Sent",
+      title: "ارسال‌شده",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -71,7 +71,7 @@ const data = {
       isActive: false,
     },
     {
-      title: "Junk",
+      title: "هرزنامه",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -85,7 +85,7 @@ const data = {
       isActive: false,
     },
     {
-      title: "Trash",
+      title: "سطل زباله",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -101,84 +101,84 @@ const data = {
   ],
   mails: [
     {
-      name: "William Smith",
-      email: "williamsmith@example.com",
-      subject: "Meeting Tomorrow",
-      date: "09:34 AM",
+      name: "علی رضایی",
+      email: "ali.rezaei@example.com",
+      subject: "جلسه فردا",
+      date: "۰۹:۳۴",
       teaser:
-        "Hi team, just a reminder about our meeting tomorrow at 10 AM.\nPlease come prepared with your project updates.",
+        "سلام تیم، یادآوری جلسه فردا ساعت ۱۰.\nلطفاً به‌روزرسانی پروژه‌ها را آماده داشته باشید.",
     },
     {
-      name: "Alice Smith",
-      email: "alicesmith@example.com",
-      subject: "Re: Project Update",
-      date: "Yesterday",
+      name: "مریم احمدی",
+      email: "maryam@example.com",
+      subject: "پاسخ: به‌روزرسانی پروژه",
+      date: "دیروز",
       teaser:
-        "Thanks for the update. The progress looks great so far.\nLet's schedule a call to discuss the next steps.",
+        "ممنون از به‌روزرسانی. پیشرفت عالی است.\nبرای گام بعدی یک تماس هماهنگ کنیم.",
     },
     {
-      name: "Bob Johnson",
-      email: "bobjohnson@example.com",
-      subject: "Weekend Plans",
-      date: "2 days ago",
+      name: "حسین کریمی",
+      email: "hossein@example.com",
+      subject: "برنامه آخر هفته",
+      date: "۲ روز پیش",
       teaser:
-        "Hey everyone! I'm thinking of organizing a team outing this weekend.\nWould you be interested in a hiking trip or a beach day?",
+        "سلام! برای آخر هفته یک گردش تیمی در نظر دارم.\nعلاقه‌ای به کوهنوردی یا ساحل دارید؟",
     },
     {
-      name: "Emily Davis",
-      email: "emilydavis@example.com",
-      subject: "Re: Question about Budget",
-      date: "2 days ago",
+      name: "نرگس موسوی",
+      email: "narges@example.com",
+      subject: "پاسخ: سوال درباره بودجه",
+      date: "۲ روز پیش",
       teaser:
-        "I've reviewed the budget numbers you sent over.\nCan we set up a quick call to discuss some potential adjustments?",
+        "اعداد بودجه را بررسی کردم.\nبرای چند اصلاح احتمالی یک تماس کوتاه بگذاریم.",
     },
     {
-      name: "Michael Wilson",
-      email: "michaelwilson@example.com",
-      subject: "Important Announcement",
-      date: "1 week ago",
+      name: "امیر حسینی",
+      email: "amir@example.com",
+      subject: "اطلاعیه مهم",
+      date: "۱ هفته پیش",
       teaser:
-        "Please join us for an all-hands meeting this Friday at 3 PM.\nWe have some exciting news to share about the company's future.",
+        "جمعه ساعت ۱۵ جلسه عمومی داریم.\nخبرهای خوبی درباره آینده شرکت داریم.",
     },
     {
-      name: "Sarah Brown",
-      email: "sarahbrown@example.com",
-      subject: "Re: Feedback on Proposal",
-      date: "1 week ago",
+      name: "سارا محمدی",
+      email: "sara@example.com",
+      subject: "پاسخ: بازخورد پیشنهاد",
+      date: "۱ هفته پیش",
       teaser:
-        "Thank you for sending over the proposal. I've reviewed it and have some thoughts.\nCould we schedule a meeting to discuss my feedback in detail?",
+        "پیشنهاد را دیدم و چند نکته دارم.\nبرای جزئیات یک جلسه تنظیم کنیم.",
     },
     {
-      name: "David Lee",
-      email: "davidlee@example.com",
-      subject: "New Project Idea",
-      date: "1 week ago",
+      name: "رضا نوری",
+      email: "reza@example.com",
+      subject: "ایده پروژه جدید",
+      date: "۱ هفته پیش",
       teaser:
-        "I've been brainstorming and came up with an interesting project concept.\nDo you have time this week to discuss its potential impact and feasibility?",
+        "ایده جالبی برای پروژه جدید دارم.\nاین هفته وقت دارید درباره امکان‌سنجی صحبت کنیم؟",
     },
     {
-      name: "Olivia Wilson",
-      email: "oliviawilson@example.com",
-      subject: "Vacation Plans",
-      date: "1 week ago",
+      name: "لیلا جعفری",
+      email: "leila@example.com",
+      subject: "برنامه مرخصی",
+      date: "۱ هفته پیش",
       teaser:
-        "Just a heads up that I'll be taking a two-week vacation next month.\nI'll make sure all my projects are up to date before I leave.",
+        "ماه آینده دو هفته مرخصی دارم.\nقبل از رفتن همه پروژه‌ها را به‌روز می‌کنم.",
     },
     {
-      name: "James Martin",
-      email: "jamesmartin@example.com",
-      subject: "Re: Conference Registration",
-      date: "1 week ago",
+      name: "پارسا اکبری",
+      email: "parsa@example.com",
+      subject: "پاسخ: ثبت‌نام کنفرانس",
+      date: "۱ هفته پیش",
       teaser:
-        "I've completed the registration for the upcoming tech conference.\nLet me know if you need any additional information from my end.",
+        "ثبت‌نام کنفرانس تکمیل شد.\nاگر اطلاعات دیگری لازم است بگویید.",
     },
     {
-      name: "Sophia White",
-      email: "sophiawhite@example.com",
-      subject: "Team Dinner",
-      date: "1 week ago",
+      name: "نیلوفر باقری",
+      email: "niloofar@example.com",
+      subject: "شام تیمی",
+      date: "۱ هفته پیش",
       teaser:
-        "To celebrate our recent project success, I'd like to organize a team dinner.\nAre you available next Friday evening? Please let me know your preferences.",
+        "برای جشن موفقیت پروژه شام تیمی می‌خواهیم.\nجمعه شب وقت دارید؟",
     },
   ],
 }
@@ -189,7 +189,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [mails, setMails] = React.useState(data.mails)
   const { setOpen } = useSidebar()
   return (
-    <Sidebar
+    <Sidebar dir="rtl" lang="fa"
       collapsible="icon"
       className="overflow-hidden *:data-[sidebar=sidebar]:flex-row"
       {...props}
@@ -219,9 +219,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     className="size-4"
                   />
                 </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                <div className="grid flex-1 text-start text-sm leading-tight">
+                  <span className="truncate font-medium">FarsiUI</span>
+                  <span className="truncate text-xs">سازمانی</span>
                 </div>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -275,11 +275,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               {activeItem?.title}
             </div>
             <Label className="flex items-center gap-2 text-sm">
-              <span>Unreads</span>
+              <span>خوانده‌نشده</span>
               <Switch className="shadow-none" />
             </Label>
           </div>
-          <SidebarInput placeholder="Type to search..." />
+          <SidebarInput placeholder="جستجو..." />
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup className="px-0">
@@ -292,7 +292,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 >
                   <div className="flex w-full items-center gap-2">
                     <span>{mail.name}</span>{" "}
-                    <span className="ml-auto text-xs">{mail.date}</span>
+                    <span className="ms-auto text-xs">{mail.date}</span>
                   </div>
                   <span className="font-medium">{mail.subject}</span>
                   <span className="line-clamp-2 w-[260px] text-xs whitespace-break-spaces">
