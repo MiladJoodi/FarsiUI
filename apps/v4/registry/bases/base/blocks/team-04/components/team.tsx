@@ -45,7 +45,7 @@ const MEMBERS = [
     dept: "مهندسی",
     avatar: "/avatars/04.png",
     fallback: "نپ",
-    bio: "رجیستری و تحویل بلاک.",
+    bio: "رجیستری و تحویل بلوک.",
   },
   {
     name: "هستی احمدی",

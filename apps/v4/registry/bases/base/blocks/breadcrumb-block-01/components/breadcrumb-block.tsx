@@ -32,7 +32,7 @@ export function BreadcrumbSimple() {
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink href="#" onClick={demoNavClick}>
-              بلاک‌ها
+              بلوک‌ها
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

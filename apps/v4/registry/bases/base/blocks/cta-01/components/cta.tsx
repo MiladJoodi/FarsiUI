@@ -13,7 +13,7 @@ export function CtaSimple() {
         امروز شروع کنید
       </h2>
       <p className="mt-3 max-w-md text-muted-foreground">
-        بلاک‌های فارسی را کپی کنید و محصولتان را سریع‌تر بسازید
+        بلوک‌های فارسی را کپی کنید و محصولتان را سریع‌تر بسازید
       </p>
       <Button size="lg" className="mt-8">
         شروع رایگان

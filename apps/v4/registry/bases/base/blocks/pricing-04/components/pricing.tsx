@@ -10,7 +10,7 @@ const COLS = ["قابلیت", "پایه", "حرفه‌ای", "سازمانی"] a
 const ROWS = [
   { label: "پروژه", values: ["۱", "نامحدود", "نامحدود"] },
   { label: "اعضای تیم", values: ["۱", "۵", "نامحدود"] },
-  { label: "بلاک‌ها", values: [true, true, true] },
+  { label: "بلوک‌ها", values: [true, true, true] },
   { label: "تم سفارشی", values: [false, true, true] },
   { label: "SSO", values: [false, false, true] },
   { label: "پشتیبانی اختصاصی", values: [false, false, true] },

@@ -47,7 +47,7 @@ const HITS = [
     id: "2",
     title: "فرم ورود",
     path: "blocks/login",
-    type: "بلاک",
+    type: "بلوک",
     icon: LayoutIcon,
   },
   {
@@ -62,7 +62,7 @@ const HITS = [
 const SCOPE_ITEMS = [
   { value: "همه", label: "همه" },
   { value: "کامپوننت", label: "کامپوننت" },
-  { value: "بلاک", label: "بلاک" },
+  { value: "بلوک", label: "بلوک" },
   { value: "مستند", label: "مستند" },
 ] as const
 
@@ -135,7 +135,7 @@ export function SearchCommand() {
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="جستجو کامپوننت، بلاک یا مستند…"
+                placeholder="جستجو کامپوننت، بلوک یا مستند…"
                 className="ps-9"
                 dir="rtl"
                 autoFocus

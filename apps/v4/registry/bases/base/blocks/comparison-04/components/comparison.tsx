@@ -67,7 +67,7 @@ const FEATURES = [
   { key: "placeholder", label: "متن راهنمای فارسی" },
   { key: "dropdown", label: "منوی کشویی راست‌چین" },
   { key: "digits", label: "اعداد فارسی" },
-  { key: "auth", label: "بلاک احراز هویت" },
+  { key: "auth", label: "بلوک احراز هویت" },
   { key: "docs", label: "مستندات فارسی" },
 ] as const
 
@@ -158,7 +158,7 @@ export function ComparisonPicker() {
       </div>
 
       <Button variant="outline" className="mt-6 w-full sm:w-fit">
-        مشاهدهٔ بلاک‌های آماده
+        مشاهدهٔ بلوک‌های آماده
       </Button>
     </section>
   )

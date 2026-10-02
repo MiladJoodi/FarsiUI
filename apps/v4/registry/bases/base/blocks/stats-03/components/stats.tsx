@@ -25,7 +25,7 @@ const GOALS = [
     done: true,
   },
   {
-    title: "نصب بلاک‌ها",
+    title: "نصب بلوک‌ها",
     current: "۳٬۲۰۰",
     target: "۵٬۰۰۰ نصب",
     percent: 64,

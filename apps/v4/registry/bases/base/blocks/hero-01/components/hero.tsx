@@ -14,7 +14,7 @@ export function HeroSimple() {
         رابط کاربری فارسی، آمادهٔ استفاده
       </h1>
       <p className="mt-4 max-w-md text-muted-foreground">
-        کامپوننت‌ها و بلاک‌های راست‌چین برای ساخت سریع محصول فارسی
+        کامپوننت‌ها و بلوک‌های راست‌چین برای ساخت سریع محصول فارسی
       </p>
       <Button size="lg" className="mt-8">
         شروع رایگان

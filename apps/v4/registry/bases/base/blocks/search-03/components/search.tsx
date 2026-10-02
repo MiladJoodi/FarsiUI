@@ -36,7 +36,7 @@ const RESULTS = [
   },
   {
     title: "فرم ورود",
-    category: "بلاک",
+    category: "بلوک",
     snippet: "ورود با ایمیل و رمز عبور فارسی",
   },
   {
@@ -49,7 +49,7 @@ const RESULTS = [
 const CATEGORY_ITEMS = [
   { value: "همه", label: "همه" },
   { value: "کامپوننت", label: "کامپوننت" },
-  { value: "بلاک", label: "بلاک" },
+  { value: "بلوک", label: "بلوک" },
 ] as const
 
 export function SearchFilters() {

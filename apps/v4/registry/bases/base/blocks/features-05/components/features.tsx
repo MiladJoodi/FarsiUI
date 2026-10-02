@@ -75,7 +75,7 @@ export function FeaturesShowcase() {
             هر آنچه برای محصول فارسی لازم است
           </h2>
           <p className="mt-3 text-muted-foreground md:text-lg">
-            بین دسته‌ها جابه‌جا شوید و ببینید چطور بلاک‌ها کنار هم یک سیستم می‌سازند
+            بین دسته‌ها جابه‌جا شوید و ببینید چطور بلوک‌ها کنار هم یک سیستم می‌سازند
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

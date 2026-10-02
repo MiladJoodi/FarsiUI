@@ -9,7 +9,7 @@ import { Button } from "@/registry/bases/base/ui/button"
 import { Input } from "@/registry/bases/base/ui/input"
 
 const PERKS = [
-  "بلاک و الگوی هفته",
+  "بلوک و الگوی هفته",
   "نکتهٔ RTL و تایپ فارسی",
   "داستان تیم‌های محصول",
 ] as const
@@ -74,7 +74,7 @@ export function NewsletterShowcase() {
                 برای کسانی که فارسی می‌سازند
               </h2>
               <p className="mt-3 text-muted-foreground">
-                بلاک تازه، نکتهٔ RTL و داستان تیم‌ها — یک ایمیل در هفته
+                بلوک تازه، نکتهٔ RTL و داستان تیم‌ها — یک ایمیل در هفته
               </p>
 
               <form

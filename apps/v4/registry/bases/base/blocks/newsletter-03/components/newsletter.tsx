@@ -8,7 +8,7 @@ import { Button } from "@/registry/bases/base/ui/button"
 import { Input } from "@/registry/bases/base/ui/input"
 
 const ISSUES = [
-  { week: "هفتهٔ ۳۹", title: "بلاک آمار و نمودار شمسی" },
+  { week: "هفتهٔ ۳۹", title: "بلوک آمار و نمودار شمسی" },
   { week: "هفتهٔ ۳۸", title: "فرم پشتیبانی چندمرحله‌ای" },
   { week: "هفتهٔ ۳۷", title: "نکته‌های تایپ فارسی در فرم" },
 ] as const
@@ -40,7 +40,7 @@ export function NewsletterSplit() {
               خبرنامهٔ سازندگان فارسی
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
-              الگو، نکته و بلاک تازه — جمعه هر هفته در اینباکس شما
+              الگو، نکته و بلوک تازه — جمعه هر هفته در اینباکس شما
             </p>
             <form
               className="mt-8 flex flex-col gap-3 sm:flex-row"

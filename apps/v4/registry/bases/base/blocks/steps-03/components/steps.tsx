@@ -11,7 +11,7 @@ const STEPS = [
     status: "done" as const,
   },
   {
-    title: "انتخاب بلاک‌ها",
+    title: "انتخاب بلوک‌ها",
     desc: "از ورود تا داشبورد، الگوی مناسب را کنار هم می‌چینیم.",
     status: "done" as const,
   },

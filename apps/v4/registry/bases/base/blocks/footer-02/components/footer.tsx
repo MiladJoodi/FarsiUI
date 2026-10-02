@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-const LINKS = ["مستندات", "بلاک‌ها", "قیمت‌گذاری", "تماس"] as const
+const LINKS = ["مستندات", "بلوک‌ها", "قیمت‌گذاری", "تماس"] as const
 
 function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()

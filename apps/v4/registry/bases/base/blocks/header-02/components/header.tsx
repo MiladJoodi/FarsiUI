@@ -9,13 +9,13 @@ export function HeaderWithAction() {
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-              بلاک‌های فارسی
+              بلوک‌های فارسی
             </h1>
             <p className="mt-2 text-sm text-muted-foreground md:text-base">
               بخش‌های آمادهٔ راست‌چین برای ساخت سریع رابط محصول
             </p>
           </div>
-          <Button className="w-fit shrink-0">بلاک جدید</Button>
+          <Button className="w-fit shrink-0">بلوک جدید</Button>
         </div>
       </header>
       <main className="flex flex-1 items-center justify-center px-6 text-sm text-muted-foreground">

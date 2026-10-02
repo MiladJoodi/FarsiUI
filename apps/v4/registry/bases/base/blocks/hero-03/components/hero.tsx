@@ -15,7 +15,7 @@ export function HeroSplit() {
           طراحی برای زبان و فرهنگ شما
         </h1>
         <p className="mt-4 max-w-md text-muted-foreground md:text-lg">
-          بلاک‌های معرفی، احراز هویت و داشبورد با ظاهر یکدست؛ کپی کنید و روی
+          بلوک‌های معرفی، احراز هویت و داشبورد با ظاهر یکدست؛ کپی کنید و روی
           محصول خود بگذارید.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">

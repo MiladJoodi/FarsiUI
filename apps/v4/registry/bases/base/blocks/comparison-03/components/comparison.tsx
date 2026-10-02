@@ -10,7 +10,7 @@ const ROWS = [
   { label: "منوی کشویی RTL", values: [false, false, true] },
   { label: "اعداد فارسی در آمار", values: [false, false, true] },
   { label: "مستندات فارسی", values: [false, true, true] },
-  { label: "بلاک احراز هویت بومی", values: [false, false, true] },
+  { label: "بلوک احراز هویت بومی", values: [false, false, true] },
 ] as const
 
 export function ComparisonMatrix() {

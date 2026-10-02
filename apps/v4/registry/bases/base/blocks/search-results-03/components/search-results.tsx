@@ -37,7 +37,7 @@ const RESULTS = [
   {
     title: "فرم ورود",
     path: "blocks/login",
-    type: "بلاک",
+    type: "بلوک",
     snippet: "ورود با ایمیل و رمز عبور فارسی",
   },
   {
@@ -57,7 +57,7 @@ const RESULTS = [
 const TYPE_ITEMS = [
   { value: "همه", label: "همه" },
   { value: "کامپوننت", label: "کامپوننت" },
-  { value: "بلاک", label: "بلاک" },
+  { value: "بلوک", label: "بلوک" },
   { value: "مستند", label: "مستند" },
 ] as const
 

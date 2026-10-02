@@ -11,7 +11,7 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const COLUMNS = [
   {
     title: "محصول",
-    links: ["بلاک‌ها", "کامپوننت‌ها", "تم‌ها", "قیمت‌گذاری"],
+    links: ["بلوک‌ها", "کامپوننت‌ها", "تم‌ها", "قیمت‌گذاری"],
   },
   {
     title: "منابع",
@@ -50,7 +50,7 @@ export function FooterShowcase() {
               <div>
                 <p className="text-base font-bold tracking-tight">FarsiUI</p>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  ابزار و بلاک برای تیم‌هایی که محصول فارسی می‌سازند
+                  ابزار و بلوک برای تیم‌هایی که محصول فارسی می‌سازند
                 </p>
               </div>
               <div className="flex items-center gap-2">

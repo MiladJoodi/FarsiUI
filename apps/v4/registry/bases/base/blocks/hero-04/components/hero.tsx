@@ -24,7 +24,7 @@ export function HeroFullBleed() {
           محصول فارسی‌تان را سریع‌تر به بازار برسانید
         </h1>
         <p className="mt-4 max-w-lg text-white/80 md:text-lg">
-          مجموعه‌ای از بلاک‌های واقعی برای صفحات معرفی، ورود و تنظیمات — آمادهٔ
+          مجموعه‌ای از بلوک‌های واقعی برای صفحات معرفی، ورود و تنظیمات — آمادهٔ
           کپی در پروژهٔ Next.js
         </p>
         <div className="mt-8 flex flex-wrap gap-3">

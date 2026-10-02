@@ -19,7 +19,7 @@ export function HeaderShowcase() {
                 گزارش رشد مهر ۱۴۰۵
               </h1>
               <p className="text-muted-foreground">
-                خلاصهٔ بازدید، نصب بلاک و رضایت تیم‌های فارسی در یک نگاه
+                خلاصهٔ بازدید، نصب بلوک و رضایت تیم‌های فارسی در یک نگاه
               </p>
               <div className="flex items-center gap-3 pt-1">
                 <div className="flex -space-x-2 space-x-reverse">

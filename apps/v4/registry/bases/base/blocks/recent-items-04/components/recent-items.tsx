@@ -14,7 +14,7 @@ import {
 const ITEMS = [
   {
     id: "1",
-    title: "بلاک ورود",
+    title: "بلوک ورود",
     path: "/blocks/login",
     opened: "همین الان",
     pinned: true,

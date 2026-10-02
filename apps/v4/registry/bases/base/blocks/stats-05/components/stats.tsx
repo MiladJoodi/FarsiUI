@@ -21,7 +21,7 @@ const PERIODS = [
     delta: "+۱۸٪",
     items: [
       { label: "کاربر جدید", value: "۶۴۲" },
-      { label: "نصب بلاک", value: "۹۱۸" },
+      { label: "نصب بلوک", value: "۹۱۸" },
       { label: "رضایت", value: "۹۷٪" },
     ],
   },
@@ -33,7 +33,7 @@ const PERIODS = [
     delta: "+۱۱٪",
     items: [
       { label: "کاربر جدید", value: "۲٬۴۸۰" },
-      { label: "نصب بلاک", value: "۳٬۲۸۴" },
+      { label: "نصب بلوک", value: "۳٬۲۸۴" },
       { label: "رضایت", value: "۹۶٪" },
     ],
   },
@@ -45,7 +45,7 @@ const PERIODS = [
     delta: "+۴۲٪",
     items: [
       { label: "کاربر جدید", value: "۲۸ هزار" },
-      { label: "نصب بلاک", value: "۴۱ هزار" },
+      { label: "نصب بلوک", value: "۴۱ هزار" },
       { label: "رضایت", value: "۹۵٪" },
     ],
   },
@@ -192,7 +192,7 @@ export function StatsShowcase() {
                   <div className="space-y-2">
                     <p className="font-medium">گزارش کامل تیم</p>
                     <p className="text-sm text-muted-foreground">
-                      جزئیات قیف، شهرها و بلاک‌های پرکاربرد را ببینید
+                      جزئیات قیف، شهرها و بلوک‌های پرکاربرد را ببینید
                     </p>
                   </div>
                   <Button size="sm" className="w-fit">

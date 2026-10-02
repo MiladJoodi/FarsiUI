@@ -6,7 +6,7 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
 const STATS = [
-  { label: "بلاک آماده", value: "۸۰+" },
+  { label: "بلوک آماده", value: "۸۰+" },
   { label: "کامپوننت", value: "۴۰+" },
   { label: "تم", value: "روشن / تیره" },
 ] as const

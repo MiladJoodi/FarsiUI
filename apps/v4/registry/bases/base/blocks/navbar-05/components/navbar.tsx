@@ -23,7 +23,7 @@ import {
   SheetTrigger,
 } from "@/registry/bases/base/ui/sheet"
 
-const LINKS = ["داشبورد", "بلاک‌ها", "پروژه‌ها", "تنظیمات"] as const
+const LINKS = ["داشبورد", "بلوک‌ها", "پروژه‌ها", "تنظیمات"] as const
 
 function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()

@@ -15,7 +15,7 @@ import { Button } from "@/registry/bases/base/ui/button"
 
 const HIGHLIGHTS = [
   { id: "rtl", title: "RTL کامل", desc: "فرم و ناوبری راست‌چین" },
-  { id: "blocks", title: "بلاک‌ها", desc: "الگوهای صفحهٔ واقعی" },
+  { id: "blocks", title: "بلوک‌ها", desc: "الگوهای صفحهٔ واقعی" },
   { id: "theme", title: "تم‌ها", desc: "روشن و تیره هماهنگ" },
 ] as const
 
@@ -66,7 +66,7 @@ export function BentoShowcase() {
         <div className="flex flex-col justify-between rounded-2xl border bg-primary p-5 text-primary-foreground md:col-span-2">
           <div>
             <p className="text-sm opacity-80">آمادهٔ شروع؟</p>
-            <p className="mt-2 text-xl font-bold">اولین بلاک را امروز بگذارید</p>
+            <p className="mt-2 text-xl font-bold">اولین بلوک را امروز بگذارید</p>
           </div>
           <Button
             variant="secondary"
@@ -81,7 +81,7 @@ export function BentoShowcase() {
         <div className="rounded-2xl border bg-card p-5 md:col-span-2">
           <p className="text-3xl font-bold tabular-nums">۹۹٪</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            رضایت تیم‌هایی که بلاک‌ها را کپی کردند
+            رضایت تیم‌هایی که بلوک‌ها را کپی کردند
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export function BentoShowcase() {
                 {HIGHLIGHTS.find((item) => item.id === active)?.title}
               </p>
             </div>
-            <Button variant="secondary">گالری بلاک‌ها</Button>
+            <Button variant="secondary">گالری بلوک‌ها</Button>
           </div>
         </div>
       </div>

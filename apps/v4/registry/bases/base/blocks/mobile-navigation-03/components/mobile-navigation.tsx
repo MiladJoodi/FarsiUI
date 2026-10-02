@@ -21,7 +21,7 @@ import {
 
 const ITEMS = [
   { label: "خانه", icon: HomeIcon },
-  { label: "بلاک‌ها", icon: PuzzleIcon },
+  { label: "بلوک‌ها", icon: PuzzleIcon },
   { label: "مستندات", icon: BookOpenIcon },
   { label: "قیمت", icon: WalletIcon },
   { label: "پشتیبانی", icon: MessagesSquareIcon },

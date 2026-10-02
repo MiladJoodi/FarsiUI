@@ -52,14 +52,14 @@ const RESULTS = [
     id: "3",
     title: "فرم ورود",
     path: "blocks/login",
-    type: "بلاک",
+    type: "بلوک",
     snippet: "ورود با ایمیل چپ‌چین و برچسب فارسی",
   },
   {
     id: "4",
     title: "فرم ثبت‌نام",
     path: "blocks/signup",
-    type: "بلاک",
+    type: "بلوک",
     snippet: "ثبت‌نام با اعتبارسنجی فارسی",
   },
   {
@@ -81,7 +81,7 @@ const RESULTS = [
 const NAV = [
   { id: "همه", label: "همه", count: 6 },
   { id: "کامپوننت", label: "کامپوننت", count: 3 },
-  { id: "بلاک", label: "بلاک", count: 2 },
+  { id: "بلوک", label: "بلوک", count: 2 },
   { id: "مستند", label: "مستند", count: 1 },
 ] as const
 

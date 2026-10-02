@@ -12,7 +12,7 @@ import { Switch } from "@/registry/bases/base/ui/switch"
 const TOPICS = [
   {
     id: "blocks",
-    title: "بلاک‌های جدید",
+    title: "بلوک‌های جدید",
     desc: "هر وقت الگوی تازه‌ای منتشر شد",
     defaultChecked: true,
   },

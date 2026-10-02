@@ -9,7 +9,7 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const COLUMNS = [
   {
     title: "محصول",
-    links: ["بلاک‌ها", "کامپوننت‌ها", "قیمت‌گذاری"],
+    links: ["بلوک‌ها", "کامپوننت‌ها", "قیمت‌گذاری"],
   },
   {
     title: "پشتیبانی",

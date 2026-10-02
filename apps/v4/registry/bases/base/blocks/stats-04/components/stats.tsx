@@ -41,7 +41,7 @@ export function StatsSpotlight() {
         <div className="rounded-2xl border bg-card p-6 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-sm text-muted-foreground">نصب بلاک‌ها</p>
+              <p className="text-sm text-muted-foreground">نصب بلوک‌ها</p>
               <p className="mt-1 text-4xl font-bold">
                 <StatNumber value="۳٬۲۸۴" />
               </p>

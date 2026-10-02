@@ -15,12 +15,12 @@ export function CtaSplit() {
           محصول فارسی‌تان را یک پله جلو ببرید
         </h2>
         <p className="mt-4 max-w-md text-muted-foreground md:text-lg">
-          از معرفی تا داشبورد؛ بلاک‌های راست‌چین آمادهٔ کپی در پروژهٔ Next.js
+          از معرفی تا داشبورد؛ بلوک‌های راست‌چین آمادهٔ کپی در پروژهٔ Next.js
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button size="lg">شروع رایگان</Button>
           <Button size="lg" variant="outline">
-            گالری بلاک‌ها
+            گالری بلوک‌ها
           </Button>
         </div>
       </div>

@@ -10,7 +10,7 @@ const FEATURES = [
   },
   {
     icon: LayoutTemplateIcon,
-    title: "بلاک‌های آماده",
+    title: "بلوک‌های آماده",
     desc: "بخش‌های رایج محصول را کپی کنید و سریع جلو بروید.",
   },
   {

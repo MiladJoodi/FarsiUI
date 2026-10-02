@@ -44,7 +44,7 @@ const RESULTS = [
     id: "2",
     title: "فرم ورود",
     path: "blocks/login",
-    type: "بلاک",
+    type: "بلوک",
     snippet: "ورود با ایمیل چپ‌چین و برچسب فارسی",
   },
   {

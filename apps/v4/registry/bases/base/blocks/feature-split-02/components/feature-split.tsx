@@ -24,7 +24,7 @@ export function FeatureSplitChecklist() {
           همهٔ جزئیات RTL از قبل حل شده
         </h2>
         <p className="mt-4 text-muted-foreground md:text-lg">
-          به‌جای وصله‌کاری CSS، از بلاک‌هایی استفاده کنید که از اول برای فارسی
+          به‌جای وصله‌کاری CSS، از بلوک‌هایی استفاده کنید که از اول برای فارسی
           طراحی شده‌اند.
         </p>
         <ul className="mt-6 space-y-3">
@@ -38,7 +38,7 @@ export function FeatureSplitChecklist() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Button size="lg">مشاهدهٔ مستندات</Button>
           <Button size="lg" variant="outline">
-            دیدن بلاک‌ها
+            دیدن بلوک‌ها
           </Button>
         </div>
       </div>

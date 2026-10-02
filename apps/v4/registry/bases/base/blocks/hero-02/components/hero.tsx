@@ -20,13 +20,13 @@ export function HeroBadgeCta() {
           از ایده تا رابط، بدون دردسر راست‌چین
         </h1>
         <p className="mt-4 text-muted-foreground md:text-lg">
-          دکمه‌ها، فرم‌ها و بلاک‌های آماده با تایپوگرافی فارسی و جهت RTL از روز
+          دکمه‌ها، فرم‌ها و بلوک‌های آماده با تایپوگرافی فارسی و جهت RTL از روز
           اول
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Button size="lg">مشاهدهٔ مستندات</Button>
           <Button size="lg" variant="outline">
-            دیدن بلاک‌ها
+            دیدن بلوک‌ها
           </Button>
         </div>
       </div>

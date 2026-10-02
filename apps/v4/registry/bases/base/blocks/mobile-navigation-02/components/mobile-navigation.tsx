@@ -14,7 +14,7 @@ import {
 
 const LINKS = [
   { href: "#", label: "خانه" },
-  { href: "#", label: "بلاک‌ها" },
+  { href: "#", label: "بلوک‌ها" },
   { href: "#", label: "قیمت‌گذاری" },
   { href: "#", label: "مستندات" },
   { href: "#", label: "تماس" },

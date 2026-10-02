@@ -16,7 +16,7 @@ const STEPS = [
   { label: "بازدید صفحهٔ فرود", display: "۱۰٬۰۰۰", width: 100, widthLabel: "٪۱۰۰" },
   { label: "شروع ثبت‌نام", display: "۴٬۲۰۰", width: 42, widthLabel: "٪۴۲" },
   { label: "تأیید ایمیل", display: "۳٬۱۰۰", width: 31, widthLabel: "٪۳۱" },
-  { label: "اولین بلاک", display: "۱٬۸۰۰", width: 18, widthLabel: "٪۱۸" },
+  { label: "اولین بلوک", display: "۱٬۸۰۰", width: 18, widthLabel: "٪۱۸" },
   { label: "پرداخت", display: "۶۴۰", width: 6.4, widthLabel: "٪۶٫۴" },
 ] as const
 

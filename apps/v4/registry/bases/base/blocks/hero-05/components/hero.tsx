@@ -8,7 +8,7 @@ import { Button } from "@/registry/bases/base/ui/button"
 
 const AVATARS = ["مر", "عل", "سا", "نپ"] as const
 
-const LINKS = ["مستندات", "بلاک‌ها", "قیمت‌ها"] as const
+const LINKS = ["مستندات", "بلوک‌ها", "قیمت‌ها"] as const
 
 function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()

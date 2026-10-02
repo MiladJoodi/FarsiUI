@@ -47,7 +47,7 @@ const RESULTS = [
     id: "2",
     title: "فرم ورود",
     path: "blocks/login",
-    type: "بلاک",
+    type: "بلوک",
     snippet: "ورود با ایمیل چپ‌چین و برچسب فارسی",
     icon: LayoutIcon,
   },
@@ -80,7 +80,7 @@ const RESULTS = [
 const NAV = [
   { id: "همه", label: "همه" },
   { id: "کامپوننت", label: "کامپوننت" },
-  { id: "بلاک", label: "بلاک" },
+  { id: "بلوک", label: "بلوک" },
   { id: "مستند", label: "مستند" },
 ] as const
 
@@ -172,7 +172,7 @@ export function SearchHub() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="جستجو در کامپوننت‌ها و بلاک‌ها…"
+            placeholder="جستجو در کامپوننت‌ها و بلوک‌ها…"
             className="ps-9"
             dir="rtl"
           />

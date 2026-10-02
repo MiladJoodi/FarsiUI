@@ -26,7 +26,7 @@ import {
 
 const LINKS = [
   { label: "خانه", icon: HomeIcon },
-  { label: "بلاک‌ها", icon: PuzzleIcon },
+  { label: "بلوک‌ها", icon: PuzzleIcon },
   { label: "قیمت‌گذاری", icon: WalletIcon },
   { label: "تنظیمات", icon: SettingsIcon },
 ] as const

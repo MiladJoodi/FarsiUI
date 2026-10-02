@@ -8,7 +8,7 @@ import { Button } from "@/registry/bases/base/ui/button"
 import { Input } from "@/registry/bases/base/ui/input"
 
 const PERKS = [
-  "بلاک‌ها و الگوهای تازه",
+  "بلوک‌ها و الگوهای تازه",
   "نکته‌های RTL و تایپ فارسی",
   "بدون تبلیغات مزاحم",
 ] as const
