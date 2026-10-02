@@ -17,149 +17,68 @@ import {
 } from "@/registry/bases/base/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-// This is sample data.
 const data = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "شروع کار",
       url: "#",
       items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
+        { title: "نصب", url: "#" },
+        { title: "ساختار پروژه", url: "#" },
       ],
     },
     {
-      title: "Build Your Application",
+      title: "ساخت اپلیکیشن",
       url: "#",
       items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
+        { title: "مسیریابی", url: "#" },
+        { title: "دریافت داده", url: "#", isActive: true },
+        { title: "رندرینگ", url: "#" },
+        { title: "کش", url: "#" },
+        { title: "استایل‌دهی", url: "#" },
+        { title: "بهینه‌سازی", url: "#" },
+        { title: "پیکربندی", url: "#" },
+        { title: "تست", url: "#" },
+        { title: "احراز هویت", url: "#" },
+        { title: "استقرار", url: "#" },
+        { title: "ارتقاء", url: "#" },
+        { title: "نمونه‌ها", url: "#" },
       ],
     },
     {
-      title: "API Reference",
+      title: "مرجع API",
       url: "#",
       items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
+        { title: "کامپوننت‌ها", url: "#" },
+        { title: "قراردادهای فایل", url: "#" },
+        { title: "توابع", url: "#" },
+        { title: "گزینه‌های next.config", url: "#" },
+        { title: "CLI", url: "#" },
+        { title: "Edge Runtime", url: "#" },
       ],
     },
     {
-      title: "Architecture",
+      title: "معماری",
       url: "#",
       items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
+        { title: "دسترس‌پذیری", url: "#" },
+        { title: "Fast Refresh", url: "#" },
+        { title: "کامپایلر Next.js", url: "#" },
+        { title: "مرورگرهای پشتیبانی‌شده", url: "#" },
+        { title: "Turbopack", url: "#" },
       ],
     },
     {
-      title: "Community",
+      title: "جامعه",
       url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
+      items: [{ title: "راهنمای مشارکت", url: "#" }],
     },
   ],
 }
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar dir="rtl" lang="fa" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -175,8 +94,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">Documentation</span>
-                <span className="">v1.0.0</span>
+                <span className="font-medium">مستندات</span>
+                <span className="">نسخه ۱٫۰٫۰</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -194,13 +113,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenuButton>
                 {item.items?.length ? (
                   <SidebarMenuSub>
-                    {item.items.map((item) => (
-                      <SidebarMenuSubItem key={item.title}>
+                    {item.items.map((subItem) => (
+                      <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton
-                          isActive={item.isActive}
-                          render={<a href={item.url} />}
+                          isActive={subItem.isActive}
+                          render={<a href={subItem.url} />}
                         >
-                          {item.title}
+                          {subItem.title}
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}

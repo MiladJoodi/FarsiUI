@@ -1,6 +1,9 @@
+"use client"
+
 import { cn } from "cn"
+
+import { PlateInput } from "@/registry/bases/base/blocks/license-plate-02/components/plate-input"
 import { Button } from "@/registry/bases/base/ui/button"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
   Sheet,
@@ -29,20 +32,24 @@ export default function Page({
     >
       <Sheet>
         <SheetTrigger render={<Button />}>ثبت پلاک خودرو</SheetTrigger>
-        <SheetContent side="right" className="w-full sm:max-w-md" dir="rtl" lang="fa">
+        <SheetContent
+          side="right"
+          className="w-full sm:max-w-md"
+          dir="rtl"
+          lang="fa"
+        >
           <SheetHeader>
             <SheetTitle>پلاک خودرو</SheetTitle>
-            <SheetDescription>شماره پلاک خودرو را وارد کنید</SheetDescription>
+            <SheetDescription>
+              شماره پلاک را مانند پلاک فلزی وارد کنید
+            </SheetDescription>
           </SheetHeader>
           <div className="grid flex-1 auto-rows-min gap-4 px-4">
-            <div className="grid gap-2">
-              <Label htmlFor="plate-number">شماره پلاک</Label>
-              <Input
-                id="plate-number"
-                placeholder="۱۲ ب ۳۴۵ ایران ۶۷"
-                dir="rtl"
-                className="text-start"
-              />
+            <div className="grid justify-items-center gap-2">
+              <Label htmlFor="plate-sheet" className="w-full text-start">
+                شماره پلاک
+              </Label>
+              <PlateInput id="plate-sheet" name="plate" />
             </div>
           </div>
           <SheetFooter>

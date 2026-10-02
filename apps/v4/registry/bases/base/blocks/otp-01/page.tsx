@@ -30,16 +30,18 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
           <CardDescription>کد ۶ رقمی ارسال‌شده به موبایل را وارد کنید</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-4">
-          <InputOTP maxLength={6} dir="ltr">
-            <InputOTPGroup>
-              <InputOTPSlot index={0} />
-              <InputOTPSlot index={1} />
-              <InputOTPSlot index={2} />
-              <InputOTPSlot index={3} />
-              <InputOTPSlot index={4} />
-              <InputOTPSlot index={5} />
-            </InputOTPGroup>
-          </InputOTP>
+          <div dir="ltr">
+            <InputOTP maxLength={6}>
+              <InputOTPGroup>
+                <InputOTPSlot index={0} className="size-10 text-base" />
+                <InputOTPSlot index={1} className="size-10 text-base" />
+                <InputOTPSlot index={2} className="size-10 text-base" />
+                <InputOTPSlot index={3} className="size-10 text-base" />
+                <InputOTPSlot index={4} className="size-10 text-base" />
+                <InputOTPSlot index={5} className="size-10 text-base" />
+              </InputOTPGroup>
+            </InputOTP>
+          </div>
           <Button className="w-full">تأیید کد</Button>
         </CardContent>
       </Card>

@@ -15,16 +15,15 @@ import {
 } from "@/registry/bases/base/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-// This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "سارا محمدی",
+    email: "sara@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "شرکت آریا",
       logo: (
         <IconPlaceholder
           lucide="GalleryVerticalEndIcon"
@@ -34,10 +33,10 @@ const data = {
           remixicon="RiGalleryLine"
         />
       ),
-      plan: "Enterprise",
+      plan: "سازمانی",
     },
     {
-      name: "Acme Corp.",
+      name: "استودیو نوآ",
       logo: (
         <IconPlaceholder
           lucide="AudioLinesIcon"
@@ -47,10 +46,10 @@ const data = {
           remixicon="RiPulseLine"
         />
       ),
-      plan: "Startup",
+      plan: "استارتاپ",
     },
     {
-      name: "Evil Corp.",
+      name: "تیم آزاد",
       logo: (
         <IconPlaceholder
           lucide="TerminalIcon"
@@ -60,12 +59,12 @@ const data = {
           remixicon="RiCommandLine"
         />
       ),
-      plan: "Free",
+      plan: "رایگان",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "میز کار",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -78,22 +77,13 @@ const data = {
       ),
       isActive: true,
       items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
+        { title: "تاریخچه", url: "#" },
+        { title: "نشان‌شده‌ها", url: "#" },
+        { title: "تنظیمات", url: "#" },
       ],
     },
     {
-      title: "Models",
+      title: "مدل‌ها",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -105,22 +95,13 @@ const data = {
         />
       ),
       items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
+        { title: "ژنسیس", url: "#" },
+        { title: "اکتشاف", url: "#" },
+        { title: "کوانتوم", url: "#" },
       ],
     },
     {
-      title: "Documentation",
+      title: "مستندات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -132,26 +113,14 @@ const data = {
         />
       ),
       items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+        { title: "مقدمه", url: "#" },
+        { title: "شروع کار", url: "#" },
+        { title: "آموزش‌ها", url: "#" },
+        { title: "تغییرات", url: "#" },
       ],
     },
     {
-      title: "Settings",
+      title: "تنظیمات",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -163,28 +132,16 @@ const data = {
         />
       ),
       items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+        { title: "عمومی", url: "#" },
+        { title: "تیم", url: "#" },
+        { title: "صورتحساب", url: "#" },
+        { title: "محدودیت‌ها", url: "#" },
       ],
     },
   ],
   projects: [
     {
-      name: "Design Engineering",
+      name: "طراحی محصول",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -197,7 +154,7 @@ const data = {
       ),
     },
     {
-      name: "Sales & Marketing",
+      name: "فروش و بازاریابی",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -210,7 +167,7 @@ const data = {
       ),
     },
     {
-      name: "Travel",
+      name: "سفر و گردشگری",
       url: "#",
       icon: (
         <IconPlaceholder
@@ -227,7 +184,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" dir="rtl" lang="fa" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>

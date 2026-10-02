@@ -34,8 +34,8 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
       {...props}
     >
       <Drawer>
-        <DrawerTrigger asChild>
-          <Button variant="outline">باز کردن تأیید OTP</Button>
+        <DrawerTrigger render={<Button variant="outline" />}>
+          باز کردن تأیید OTP
         </DrawerTrigger>
         <DrawerContent dir="rtl" lang="fa">
           <DrawerHeader>
@@ -45,10 +45,10 @@ export default function Page({ className, ...props }: React.ComponentProps<"div"
           <div className="flex justify-center px-4 pb-2" dir="ltr">
             <InputOTP maxLength={4}>
               <InputOTPGroup>
-                <InputOTPSlot index={0} />
-                <InputOTPSlot index={1} />
-                <InputOTPSlot index={2} />
-                <InputOTPSlot index={3} />
+                <InputOTPSlot index={0} className="size-10 text-base" />
+                <InputOTPSlot index={1} className="size-10 text-base" />
+                <InputOTPSlot index={2} className="size-10 text-base" />
+                <InputOTPSlot index={3} className="size-10 text-base" />
               </InputOTPGroup>
             </InputOTP>
           </div>

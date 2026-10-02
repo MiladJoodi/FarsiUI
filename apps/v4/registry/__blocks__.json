@@ -596,14 +596,35 @@
   },
   {
     "name": "forgot-password-01",
-    "description": "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
+    "description": "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
     "categories": [
       "forgot-password"
     ]
   },
   {
     "name": "forgot-password-02",
-    "description": "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
+    "description": "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
+    "categories": [
+      "forgot-password"
+    ]
+  },
+  {
+    "name": "forgot-password-03",
+    "description": "انتخاب روش بازیابی بین ایمیل و موبایل.",
+    "categories": [
+      "forgot-password"
+    ]
+  },
+  {
+    "name": "forgot-password-04",
+    "description": "صفحه بازیابی دو ستونه با تصویر کاور.",
+    "categories": [
+      "forgot-password"
+    ]
+  },
+  {
+    "name": "forgot-password-05",
+    "description": "بازیابی متمرکز با برند و وضعیت ارسال.",
     "categories": [
       "forgot-password"
     ]
@@ -652,14 +673,42 @@
   },
   {
     "name": "identity-verification-01",
-    "description": "احراز هویت — نمونهٔ راست‌چین فارسی",
+    "description": "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
     "categories": [
       "identity-verification"
     ]
   },
   {
     "name": "identity-verification-02",
-    "description": "احراز هویت — نمونهٔ راست‌چین فارسی",
+    "description": "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
+    "categories": [
+      "identity-verification"
+    ]
+  },
+  {
+    "name": "identity-verification-04",
+    "description": "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
+    "categories": [
+      "identity-verification"
+    ]
+  },
+  {
+    "name": "identity-verification-05",
+    "description": "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
+    "categories": [
+      "identity-verification"
+    ]
+  },
+  {
+    "name": "identity-verification-06",
+    "description": "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
+    "categories": [
+      "identity-verification"
+    ]
+  },
+  {
+    "name": "identity-verification-07",
+    "description": "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
     "categories": [
       "identity-verification"
     ]
@@ -1000,14 +1049,35 @@
   },
   {
     "name": "personal-info-01",
-    "description": "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
+    "description": "فرم اطلاعات شخصی ساده داخل کارت.",
     "categories": [
       "personal-info"
     ]
   },
   {
     "name": "personal-info-02",
-    "description": "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
+    "description": "فرم پروفایل مرکزی با نام، تماس و بیو.",
+    "categories": [
+      "personal-info"
+    ]
+  },
+  {
+    "name": "personal-info-03",
+    "description": "فرم اطلاعات شخصی همراه با آدرس و استان.",
+    "categories": [
+      "personal-info"
+    ]
+  },
+  {
+    "name": "personal-info-04",
+    "description": "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
+    "categories": [
+      "personal-info"
+    ]
+  },
+  {
+    "name": "personal-info-05",
+    "description": "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
     "categories": [
       "personal-info"
     ]

@@ -1,6 +1,9 @@
+"use client"
+
 import { cn } from "cn"
+
+import { NationalIdInput } from "@/registry/bases/base/blocks/national-id-02/components/national-id-input"
 import { Button } from "@/registry/bases/base/ui/button"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
   Sheet,
@@ -29,22 +32,22 @@ export default function Page({
     >
       <Sheet>
         <SheetTrigger render={<Button />}>ورود کد ملی</SheetTrigger>
-        <SheetContent side="right" className="w-full sm:max-w-md" dir="rtl" lang="fa">
+        <SheetContent
+          side="right"
+          className="w-full sm:max-w-md"
+          dir="rtl"
+          lang="fa"
+        >
           <SheetHeader>
             <SheetTitle>کد ملی</SheetTitle>
-            <SheetDescription>کد ملی ۱۰ رقمی خود را وارد کنید</SheetDescription>
+            <SheetDescription>
+              کد ملی ۱۰ رقمی خود را وارد کنید
+            </SheetDescription>
           </SheetHeader>
           <div className="grid flex-1 auto-rows-min gap-4 px-4">
             <div className="grid gap-2">
-              <Label htmlFor="national-id">کد ملی</Label>
-              <Input
-                id="national-id"
-                inputMode="numeric"
-                maxLength={10}
-                placeholder="۰۰۱۲۳۴۵۶۷۸"
-                dir="ltr"
-                className="text-start tracking-widest"
-              />
+              <Label htmlFor="national-id-sheet">کد ملی</Label>
+              <NationalIdInput id="national-id-sheet" name="nationalId" />
             </div>
           </div>
           <SheetFooter>

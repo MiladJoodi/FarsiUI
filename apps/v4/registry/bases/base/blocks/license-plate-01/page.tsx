@@ -1,40 +1,51 @@
+"use client"
+
 import { cn } from "cn"
+
+import { PlateInput } from "@/registry/bases/base/blocks/license-plate-01/components/plate-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
+export default function Page({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       dir="rtl"
       lang="fa"
-      className={cn("bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6", className)}
+      className={cn(
+        "bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6",
+        className
+      )}
       {...props}
     >
-      <div className="w-full max-w-md">
-        <Card>
-          <CardHeader>
-            <CardTitle>پلاک خودرو</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="field-a">ایمیل</Label>
-              <Input id="field-a" type="email" placeholder="name@example.com" dir="ltr" className="text-start" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="field-b">جزئیات</Label>
-              <Input id="field-b" placeholder="اینجا بنویسید…" dir="rtl" className="text-start" />
-            </div>
-            <Button className="w-full">ادامه</Button>
-          </CardContent>
-        </Card>
-      </div>
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle>پلاک خودرو</CardTitle>
+          <CardDescription>
+            شماره پلاک را مانند پلاک فلزی وارد کنید
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4">
+          <div className="grid justify-items-center gap-2">
+            <Label htmlFor="plate" className="w-full text-start">
+              شماره پلاک
+            </Label>
+            <PlateInput id="plate" name="plate" />
+          </div>
+          <Button type="button" className="w-full">
+            ادامه
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   )
 }

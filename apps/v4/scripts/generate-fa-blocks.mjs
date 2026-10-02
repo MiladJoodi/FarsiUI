@@ -11,7 +11,15 @@ const root = path.resolve(__dirname, "..")
 const blocksRoot = path.join(root, "registry/bases/base/blocks")
 
 /** Existing categories we already have examples for — skip generating. */
-const SKIP_SLUGS = new Set(["login", "signup", "sidebar", "dashboard"])
+const SKIP_SLUGS = new Set([
+  "login",
+  "signup",
+  "sidebar",
+  "dashboard",
+  "personal-info",
+  "identity-verification",
+  "forgot-password",
+])
 
 const ITEMS = [
   // forms-auth (skip login/signup)

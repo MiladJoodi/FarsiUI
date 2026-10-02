@@ -1825,34 +1825,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
-    "forgot-password-01": {
-      name: "forgot-password-01",
-      title: "Forgot Password 01",
-      description: "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/forgot-password-01/page.tsx",
-        type: "registry:page",
-        target: "app/forgot-password/page.tsx"
-      }],
-      categories: ["forgot-password"],
-      meta: undefined,
-    },
-    "forgot-password-02": {
-      name: "forgot-password-02",
-      title: "Forgot Password 02",
-      description: "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/forgot-password-02/page.tsx",
-        type: "registry:page",
-        target: "app/forgot-password/page.tsx"
-      }],
-      categories: ["forgot-password"],
-      meta: undefined,
-    },
     "reset-password-01": {
       name: "reset-password-01",
       title: "Reset Password 01",
@@ -1909,44 +1881,20 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["otp"],
       meta: undefined,
     },
-    "identity-verification-01": {
-      name: "identity-verification-01",
-      title: "Identity Verification 01",
-      description: "احراز هویت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/identity-verification-01/page.tsx",
-        type: "registry:page",
-        target: "app/identity-verification/page.tsx"
-      }],
-      categories: ["identity-verification"],
-      meta: undefined,
-    },
-    "identity-verification-02": {
-      name: "identity-verification-02",
-      title: "Identity Verification 02",
-      description: "احراز هویت — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/identity-verification-02/page.tsx",
-        type: "registry:page",
-        target: "app/identity-verification/page.tsx"
-      }],
-      categories: ["identity-verification"],
-      meta: undefined,
-    },
     "national-id-01": {
       name: "national-id-01",
       title: "National ID 01",
       description: "کد ملی — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","card","label"],
       files: [{
         path: "registry/bases/base/blocks/national-id-01/page.tsx",
         type: "registry:page",
         target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-01/components/national-id-input.tsx",
+        type: "registry:component",
+        target: "components/national-id-input.tsx"
       }],
       categories: ["national-id"],
       meta: undefined,
@@ -1956,11 +1904,15 @@ export const Index: Record<string, Record<string, any>> = {
       title: "National ID 02",
       description: "کد ملی — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","label","sheet"],
       files: [{
         path: "registry/bases/base/blocks/national-id-02/page.tsx",
         type: "registry:page",
         target: "app/national-id/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/national-id-02/components/national-id-input.tsx",
+        type: "registry:component",
+        target: "components/national-id-input.tsx"
       }],
       categories: ["national-id"],
       meta: undefined,
@@ -1970,11 +1922,15 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 01",
       description: "پلاک خودرو — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","card","label"],
       files: [{
         path: "registry/bases/base/blocks/license-plate-01/page.tsx",
         type: "registry:page",
         target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-01/components/plate-input.tsx",
+        type: "registry:component",
+        target: "components/plate-input.tsx"
       }],
       categories: ["license-plate"],
       meta: undefined,
@@ -1984,41 +1940,17 @@ export const Index: Record<string, Record<string, any>> = {
       title: "License Plate 02",
       description: "پلاک خودرو — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","label","sheet"],
       files: [{
         path: "registry/bases/base/blocks/license-plate-02/page.tsx",
         type: "registry:page",
         target: "app/license-plate/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/license-plate-02/components/plate-input.tsx",
+        type: "registry:component",
+        target: "components/plate-input.tsx"
       }],
       categories: ["license-plate"],
-      meta: undefined,
-    },
-    "personal-info-01": {
-      name: "personal-info-01",
-      title: "Personal Info 01",
-      description: "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/personal-info-01/page.tsx",
-        type: "registry:page",
-        target: "app/personal-info/page.tsx"
-      }],
-      categories: ["personal-info"],
-      meta: undefined,
-    },
-    "personal-info-02": {
-      name: "personal-info-02",
-      title: "Personal Info 02",
-      description: "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/personal-info-02/page.tsx",
-        type: "registry:page",
-        target: "app/personal-info/page.tsx"
-      }],
-      categories: ["personal-info"],
       meta: undefined,
     },
     "identity-check-01": {
@@ -2026,11 +1958,15 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Check 01",
       description: "بررسی هویت — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","card","input","label"],
       files: [{
         path: "registry/bases/base/blocks/identity-check-01/page.tsx",
         type: "registry:page",
         target: "app/identity-check/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-check-01/components/national-id-input.tsx",
+        type: "registry:component",
+        target: "components/national-id-input.tsx"
       }],
       categories: ["identity-check"],
       meta: undefined,
@@ -2040,11 +1976,15 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Identity Check 02",
       description: "بررسی هویت — نمونهٔ راست‌چین فارسی",
       type: "registry:block",
-      registryDependencies: undefined,
+      registryDependencies: ["button","card","input","input-otp","label"],
       files: [{
         path: "registry/bases/base/blocks/identity-check-02/page.tsx",
         type: "registry:page",
         target: "app/identity-check/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-check-02/components/national-id-input.tsx",
+        type: "registry:component",
+        target: "components/national-id-input.tsx"
       }],
       categories: ["identity-check"],
       meta: undefined,
@@ -4651,6 +4591,310 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["authentication","signup"],
       meta: undefined,
     },
+    "forgot-password-01": {
+      name: "forgot-password-01",
+      title: "Forgot Password 01",
+      description: "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-01/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-01/components/forgot-password-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["forgot-password"],
+      meta: undefined,
+    },
+    "forgot-password-02": {
+      name: "forgot-password-02",
+      title: "Forgot Password 02",
+      description: "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","input-otp"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-02/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-02/components/forgot-password-mobile.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["forgot-password"],
+      meta: undefined,
+    },
+    "forgot-password-03": {
+      name: "forgot-password-03",
+      title: "Forgot Password 03",
+      description: "انتخاب روش بازیابی بین ایمیل و موبایل.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-03/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-03/components/forgot-password-methods.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["forgot-password"],
+      meta: undefined,
+    },
+    "forgot-password-04": {
+      name: "forgot-password-04",
+      title: "Forgot Password 04",
+      description: "صفحه بازیابی دو ستونه با تصویر کاور.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-04/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-04/components/forgot-password-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["forgot-password"],
+      meta: undefined,
+    },
+    "forgot-password-05": {
+      name: "forgot-password-05",
+      title: "Forgot Password 05",
+      description: "بازیابی متمرکز با برند و وضعیت ارسال.",
+      type: "registry:block",
+      registryDependencies: ["button","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/forgot-password-05/page.tsx",
+        type: "registry:page",
+        target: "app/forgot-password/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/forgot-password-05/components/forgot-password-centered.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["forgot-password"],
+      meta: undefined,
+    },
+    "personal-info-01": {
+      name: "personal-info-01",
+      title: "Personal Info 01",
+      description: "فرم اطلاعات شخصی ساده داخل کارت.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-01/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-01/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["personal-info"],
+      meta: undefined,
+    },
+    "personal-info-02": {
+      name: "personal-info-02",
+      title: "Personal Info 02",
+      description: "فرم پروفایل مرکزی با نام، تماس و بیو.",
+      type: "registry:block",
+      registryDependencies: ["button","field","input","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-02/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-02/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["personal-info"],
+      meta: undefined,
+    },
+    "personal-info-03": {
+      name: "personal-info-03",
+      title: "Personal Info 03",
+      description: "فرم اطلاعات شخصی همراه با آدرس و استان.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-03/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-03/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["personal-info"],
+      meta: undefined,
+    },
+    "personal-info-04": {
+      name: "personal-info-04",
+      title: "Personal Info 04",
+      description: "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-04/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-04/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["personal-info"],
+      meta: undefined,
+    },
+    "personal-info-05": {
+      name: "personal-info-05",
+      title: "Personal Info 05",
+      description: "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","field","input","label","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/personal-info-05/page.tsx",
+        type: "registry:page",
+        target: "app/personal-info/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/personal-info-05/components/personal-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["personal-info"],
+      meta: undefined,
+    },
+    "identity-verification-01": {
+      name: "identity-verification-01",
+      title: "Identity Verification 01",
+      description: "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-01/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-01/components/identity-info-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-01/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
+    "identity-verification-02": {
+      name: "identity-verification-02",
+      title: "Identity Verification 02",
+      description: "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-02/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-02/components/national-card-upload.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-02/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
+    "identity-verification-04": {
+      name: "identity-verification-04",
+      title: "Identity Verification 04",
+      description: "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","field","input"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-04/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-04/components/multi-step-identity.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-04/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
+    "identity-verification-05": {
+      name: "identity-verification-05",
+      title: "Identity Verification 05",
+      description: "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-05/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-05/components/identity-review.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/identity-verification-05/components/national-id-input.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
+    "identity-verification-06": {
+      name: "identity-verification-06",
+      title: "Identity Verification 06",
+      description: "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","card","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-06/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-06/components/identity-status-gallery.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
+    "identity-verification-07": {
+      name: "identity-verification-07",
+      title: "Identity Verification 07",
+      description: "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/identity-verification-07/page.tsx",
+        type: "registry:page",
+        target: "app/identity-verification/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/identity-verification-07/components/account-identity-dashboard.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["identity-verification"],
+      meta: undefined,
+    },
     "dashboard-01": {
       name: "dashboard-01",
       title: "Dashboard 01",
@@ -4728,7 +4972,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-02": {
@@ -4754,7 +4998,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-03": {
@@ -4772,7 +5016,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-04": {
@@ -4790,7 +5034,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-05": {
@@ -4812,7 +5056,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-06": {
@@ -4838,7 +5082,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-07": {
@@ -4872,7 +5116,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-08": {
@@ -4906,7 +5150,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-09": {
@@ -4928,7 +5172,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-10": {
@@ -4970,7 +5214,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-11": {
@@ -4988,7 +5232,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-12": {
@@ -5018,7 +5262,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-13": {
@@ -5036,7 +5280,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-14": {
@@ -5054,7 +5298,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-15": {
@@ -5108,7 +5352,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "sidebar-16": {
@@ -5150,7 +5394,7 @@ export const Index: Record<string, Record<string, any>> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","dashboard"],
+      categories: ["sidebar"],
       meta: undefined,
     },
     "use-mobile": {
@@ -6950,7 +7194,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-01": {
       name: "login-01",
       title: "Login 01",
-      description: "فرم ورود ساده.",
+      description: "A simple login form.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -6968,7 +7212,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-02": {
       name: "login-02",
       title: "Login 02",
-      description: "صفحه ورود دو ستونه با تصویر کاور.",
+      description: "A two column login page with a cover image.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -6986,7 +7230,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-03": {
       name: "login-03",
       title: "Login 03",
-      description: "صفحه ورود با پس‌زمینه ملایم.",
+      description: "A login page with a muted background color.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -7004,7 +7248,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-04": {
       name: "login-04",
       title: "Login 04",
-      description: "صفحه ورود با فرم و تصویر.",
+      description: "A login page with form and image.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -7022,7 +7266,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-05": {
       name: "login-05",
       title: "Login 05",
-      description: "صفحه ورود فقط با ایمیل.",
+      description: "A simple email-only login page.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -7040,7 +7284,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-01": {
       name: "signup-01",
       title: "Signup 01",
-      description: "فرم ثبت‌نام ساده.",
+      description: "A simple signup form.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
@@ -7058,7 +7302,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-02": {
       name: "signup-02",
       title: "Signup 02",
-      description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
+      description: "A two column signup page with a cover image.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -7076,7 +7320,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-03": {
       name: "signup-03",
       title: "Signup 03",
-      description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
+      description: "A signup page with a muted background color.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -7094,7 +7338,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-04": {
       name: "signup-04",
       title: "Signup 04",
-      description: "صفحه ثبت‌نام با فرم و تصویر.",
+      description: "A signup page with form and image.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -7112,7 +7356,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-05": {
       name: "signup-05",
       title: "Signup 05",
-      description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
+      description: "A simple signup form with social providers.",
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{
@@ -9482,7 +9726,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-01": {
       name: "login-01",
       title: "Login 01",
-      description: "فرم ورود ساده.",
+      description: "A simple login form.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -9500,7 +9744,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-02": {
       name: "login-02",
       title: "Login 02",
-      description: "صفحه ورود دو ستونه با تصویر کاور.",
+      description: "A two column login page with a cover image.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -9518,7 +9762,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-03": {
       name: "login-03",
       title: "Login 03",
-      description: "صفحه ورود با پس‌زمینه ملایم.",
+      description: "A login page with a muted background color.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -9536,7 +9780,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-04": {
       name: "login-04",
       title: "Login 04",
-      description: "صفحه ورود با فرم و تصویر.",
+      description: "A login page with form and image.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -9554,7 +9798,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-05": {
       name: "login-05",
       title: "Login 05",
-      description: "صفحه ورود فقط با ایمیل.",
+      description: "A simple email-only login page.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -9572,7 +9816,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-01": {
       name: "signup-01",
       title: "Signup 01",
-      description: "فرم ثبت‌نام ساده.",
+      description: "A simple signup form.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
@@ -9590,7 +9834,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-02": {
       name: "signup-02",
       title: "Signup 02",
-      description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
+      description: "A two column signup page with a cover image.",
       type: "registry:block",
       registryDependencies: ["button","input","label","field"],
       files: [{
@@ -9608,7 +9852,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-03": {
       name: "signup-03",
       title: "Signup 03",
-      description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
+      description: "A signup page with a muted background color.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -9626,7 +9870,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-04": {
       name: "signup-04",
       title: "Signup 04",
-      description: "صفحه ثبت‌نام با فرم و تصویر.",
+      description: "A signup page with form and image.",
       type: "registry:block",
       registryDependencies: ["button","card","input","label","field"],
       files: [{
@@ -9644,7 +9888,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-05": {
       name: "signup-05",
       title: "Signup 05",
-      description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
+      description: "A simple signup form with social providers.",
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{

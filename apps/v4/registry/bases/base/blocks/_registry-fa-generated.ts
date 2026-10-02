@@ -3,38 +3,6 @@ import { type Registry } from "farsiui/schema"
 /** Auto-generated RTL Persian blocks. Do not edit by hand. */
 export const faBlocks: Registry["items"] = [
   {
-    "name": "forgot-password-01",
-    "title": "Forgot Password 01",
-    "description": "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "forgot-password"
-    ],
-    "files": [
-      {
-        "path": "blocks/forgot-password-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/forgot-password/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "forgot-password-02",
-    "title": "Forgot Password 02",
-    "description": "فراموشی رمز عبور — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "forgot-password"
-    ],
-    "files": [
-      {
-        "path": "blocks/forgot-password-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/forgot-password/page.tsx"
-      }
-    ]
-  },
-  {
     "name": "reset-password-01",
     "title": "Reset Password 01",
     "description": "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
@@ -99,42 +67,15 @@ export const faBlocks: Registry["items"] = [
     ]
   },
   {
-    "name": "identity-verification-01",
-    "title": "Identity Verification 01",
-    "description": "احراز هویت — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "identity-verification"
-    ],
-    "files": [
-      {
-        "path": "blocks/identity-verification-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/identity-verification/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "identity-verification-02",
-    "title": "Identity Verification 02",
-    "description": "احراز هویت — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "identity-verification"
-    ],
-    "files": [
-      {
-        "path": "blocks/identity-verification-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/identity-verification/page.tsx"
-      }
-    ]
-  },
-  {
     "name": "national-id-01",
     "title": "National ID 01",
     "description": "کد ملی — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "card",
+      "label"
+    ],
     "categories": [
       "national-id"
     ],
@@ -143,6 +84,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/national-id-01/page.tsx",
         "type": "registry:page",
         "target": "app/national-id/page.tsx"
+      },
+      {
+        "path": "blocks/national-id-01/components/national-id-input.tsx",
+        "type": "registry:component",
+        "target": "components/national-id-input.tsx"
       }
     ]
   },
@@ -151,6 +97,11 @@ export const faBlocks: Registry["items"] = [
     "title": "National ID 02",
     "description": "کد ملی — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "label",
+      "sheet"
+    ],
     "categories": [
       "national-id"
     ],
@@ -159,6 +110,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/national-id-02/page.tsx",
         "type": "registry:page",
         "target": "app/national-id/page.tsx"
+      },
+      {
+        "path": "blocks/national-id-02/components/national-id-input.tsx",
+        "type": "registry:component",
+        "target": "components/national-id-input.tsx"
       }
     ]
   },
@@ -167,6 +123,11 @@ export const faBlocks: Registry["items"] = [
     "title": "License Plate 01",
     "description": "پلاک خودرو — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "card",
+      "label"
+    ],
     "categories": [
       "license-plate"
     ],
@@ -175,6 +136,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/license-plate-01/page.tsx",
         "type": "registry:page",
         "target": "app/license-plate/page.tsx"
+      },
+      {
+        "path": "blocks/license-plate-01/components/plate-input.tsx",
+        "type": "registry:component",
+        "target": "components/plate-input.tsx"
       }
     ]
   },
@@ -183,6 +149,11 @@ export const faBlocks: Registry["items"] = [
     "title": "License Plate 02",
     "description": "پلاک خودرو — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "label",
+      "sheet"
+    ],
     "categories": [
       "license-plate"
     ],
@@ -191,38 +162,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/license-plate-02/page.tsx",
         "type": "registry:page",
         "target": "app/license-plate/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "personal-info-01",
-    "title": "Personal Info 01",
-    "description": "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "personal-info"
-    ],
-    "files": [
+      },
       {
-        "path": "blocks/personal-info-01/page.tsx",
-        "type": "registry:page",
-        "target": "app/personal-info/page.tsx"
-      }
-    ]
-  },
-  {
-    "name": "personal-info-02",
-    "title": "Personal Info 02",
-    "description": "اطلاعات شخصی — نمونهٔ راست‌چین فارسی",
-    "type": "registry:block",
-    "categories": [
-      "personal-info"
-    ],
-    "files": [
-      {
-        "path": "blocks/personal-info-02/page.tsx",
-        "type": "registry:page",
-        "target": "app/personal-info/page.tsx"
+        "path": "blocks/license-plate-02/components/plate-input.tsx",
+        "type": "registry:component",
+        "target": "components/plate-input.tsx"
       }
     ]
   },
@@ -231,6 +175,12 @@ export const faBlocks: Registry["items"] = [
     "title": "Identity Check 01",
     "description": "بررسی هویت — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "card",
+      "input",
+      "label"
+    ],
     "categories": [
       "identity-check"
     ],
@@ -239,6 +189,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/identity-check-01/page.tsx",
         "type": "registry:page",
         "target": "app/identity-check/page.tsx"
+      },
+      {
+        "path": "blocks/identity-check-01/components/national-id-input.tsx",
+        "type": "registry:component",
+        "target": "components/national-id-input.tsx"
       }
     ]
   },
@@ -247,6 +202,13 @@ export const faBlocks: Registry["items"] = [
     "title": "Identity Check 02",
     "description": "بررسی هویت — نمونهٔ راست‌چین فارسی",
     "type": "registry:block",
+    "registryDependencies": [
+      "button",
+      "card",
+      "input",
+      "input-otp",
+      "label"
+    ],
     "categories": [
       "identity-check"
     ],
@@ -255,6 +217,11 @@ export const faBlocks: Registry["items"] = [
         "path": "blocks/identity-check-02/page.tsx",
         "type": "registry:page",
         "target": "app/identity-check/page.tsx"
+      },
+      {
+        "path": "blocks/identity-check-02/components/national-id-input.tsx",
+        "type": "registry:component",
+        "target": "components/national-id-input.tsx"
       }
     ]
   },

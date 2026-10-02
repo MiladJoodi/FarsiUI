@@ -291,6 +291,349 @@ export const blocks: Registry["items"] = [
     categories: ["authentication", "signup"],
   },
   {
+    name: "forgot-password-01",
+    title: "Forgot Password 01",
+    description: "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/forgot-password-01/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-01/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-02",
+    title: "Forgot Password 02",
+    description: "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "input-otp"],
+    files: [
+      {
+        path: "blocks/forgot-password-02/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-02/components/forgot-password-mobile.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-03",
+    title: "Forgot Password 03",
+    description: "انتخاب روش بازیابی بین ایمیل و موبایل.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "tabs"],
+    files: [
+      {
+        path: "blocks/forgot-password-03/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-03/components/forgot-password-methods.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-04",
+    title: "Forgot Password 04",
+    description: "صفحه بازیابی دو ستونه با تصویر کاور.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/forgot-password-04/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-04/components/forgot-password-split.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-05",
+    title: "Forgot Password 05",
+    description: "بازیابی متمرکز با برند و وضعیت ارسال.",
+    type: "registry:block",
+    registryDependencies: ["button", "field", "input"],
+    files: [
+      {
+        path: "blocks/forgot-password-05/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-05/components/forgot-password-centered.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "personal-info-01",
+    title: "Personal Info 01",
+    description: "فرم اطلاعات شخصی ساده داخل کارت.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/personal-info-01/page.tsx",
+        target: "app/personal-info/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/personal-info-01/components/personal-info-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["personal-info"],
+  },
+  {
+    name: "personal-info-02",
+    title: "Personal Info 02",
+    description: "فرم پروفایل مرکزی با نام، تماس و بیو.",
+    type: "registry:block",
+    registryDependencies: ["button", "field", "input", "textarea"],
+    files: [
+      {
+        path: "blocks/personal-info-02/page.tsx",
+        target: "app/personal-info/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/personal-info-02/components/personal-info-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["personal-info"],
+  },
+  {
+    name: "personal-info-03",
+    title: "Personal Info 03",
+    description: "فرم اطلاعات شخصی همراه با آدرس و استان.",
+    type: "registry:block",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input",
+      "select",
+      "textarea",
+    ],
+    files: [
+      {
+        path: "blocks/personal-info-03/page.tsx",
+        target: "app/personal-info/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/personal-info-03/components/personal-info-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["personal-info"],
+  },
+  {
+    name: "personal-info-04",
+    title: "Personal Info 04",
+    description: "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/personal-info-04/page.tsx",
+        target: "app/personal-info/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/personal-info-04/components/personal-info-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["personal-info"],
+  },
+  {
+    name: "personal-info-05",
+    title: "Personal Info 05",
+    description: "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
+    type: "registry:block",
+    registryDependencies: [
+      "avatar",
+      "button",
+      "card",
+      "field",
+      "input",
+      "label",
+      "separator",
+      "switch",
+      "textarea",
+    ],
+    files: [
+      {
+        path: "blocks/personal-info-05/page.tsx",
+        target: "app/personal-info/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/personal-info-05/components/personal-info-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["personal-info"],
+  },
+  {
+    name: "identity-verification-01",
+    title: "Identity Verification 01",
+    description: "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/identity-verification-01/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-01/components/identity-info-form.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/identity-verification-01/components/national-id-input.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-02",
+    title: "Identity Verification 02",
+    description: "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "separator"],
+    files: [
+      {
+        path: "blocks/identity-verification-02/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-02/components/national-card-upload.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/identity-verification-02/components/national-id-input.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-04",
+    title: "Identity Verification 04",
+    description: "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
+    type: "registry:block",
+    registryDependencies: ["badge", "button", "card", "field", "input"],
+    files: [
+      {
+        path: "blocks/identity-verification-04/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-04/components/multi-step-identity.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/identity-verification-04/components/national-id-input.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-05",
+    title: "Identity Verification 05",
+    description: "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "field", "input", "separator"],
+    files: [
+      {
+        path: "blocks/identity-verification-05/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-05/components/identity-review.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/identity-verification-05/components/national-id-input.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-06",
+    title: "Identity Verification 06",
+    description: "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
+    type: "registry:block",
+    registryDependencies: ["alert", "badge", "button", "card", "tabs"],
+    files: [
+      {
+        path: "blocks/identity-verification-06/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-06/components/identity-status-gallery.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
+    name: "identity-verification-07",
+    title: "Identity Verification 07",
+    description: "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
+    type: "registry:block",
+    registryDependencies: [
+      "avatar",
+      "badge",
+      "button",
+      "card",
+      "separator",
+    ],
+    files: [
+      {
+        path: "blocks/identity-verification-07/page.tsx",
+        target: "app/identity-verification/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/identity-verification-07/components/account-identity-dashboard.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["identity-verification"],
+  },
+  {
     name: "dashboard-01",
     title: "Dashboard 01",
     type: "registry:block",
@@ -408,7 +751,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-02",
@@ -441,7 +784,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-03",
@@ -460,7 +803,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-04",
@@ -479,7 +822,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-05",
@@ -508,7 +851,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-06",
@@ -541,7 +884,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-07",
@@ -583,7 +926,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-08",
@@ -625,7 +968,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-09",
@@ -657,7 +1000,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-10",
@@ -707,7 +1050,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-11",
@@ -726,7 +1069,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-12",
@@ -765,7 +1108,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-13",
@@ -784,7 +1127,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-14",
@@ -803,7 +1146,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-15",
@@ -867,7 +1210,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
   {
     name: "sidebar-16",
@@ -919,6 +1262,6 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["sidebar", "dashboard"],
+    categories: ["sidebar"],
   },
 ]

@@ -49,7 +49,7 @@ export function TeamSwitcher({
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
               {activeTeam.logo}
             </div>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{activeTeam.name}</span>
               <span className="truncate text-xs">{activeTeam.plan}</span>
             </div>
@@ -59,18 +59,19 @@ export function TeamSwitcher({
               hugeicons="UnfoldMoreIcon"
               phosphor="CaretUpDownIcon"
               remixicon="RiArrowUpDownLine"
-              className="ml-auto"
+              className="ms-auto"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-fit"
             align="start"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "left"}
             sideOffset={4}
+            dir="rtl"
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="text-xs text-muted-foreground">
-                Teams
+                تیم‌ها
               </DropdownMenuLabel>
               {teams.map((team, index) => (
                 <DropdownMenuItem
@@ -100,7 +101,7 @@ export function TeamSwitcher({
                   />
                 </div>
                 <div className="font-medium text-muted-foreground">
-                  Add team
+                  افزودن تیم
                 </div>
               </DropdownMenuItem>
             </DropdownMenuGroup>

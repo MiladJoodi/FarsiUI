@@ -33,7 +33,7 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>پلتفرم</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -53,7 +53,7 @@ export function NavMain({
                 hugeicons="ArrowRight01Icon"
                 phosphor="CaretRightIcon"
                 remixicon="RiArrowRightSLine"
-                className="ml-auto transition-transform duration-200 group-data-open/collapsible:rotate-90"
+                className="ms-auto transition-transform duration-200 group-data-open/collapsible:rotate-90"
               />
             </CollapsibleTrigger>
             <CollapsibleContent>
