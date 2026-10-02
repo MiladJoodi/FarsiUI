@@ -19,14 +19,14 @@ const MESSAGES = [
     me: false,
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     who: "شما",
     text: "سلام سارا! در صف بررسی است و امروز پاسخ می‌دهیم.",
     time: "۱۰:۲۶",
     me: true,
-    initials: "من",
+    initials: "م‌ن",
   },
   {
     who: "سارا محمدی",
@@ -35,7 +35,7 @@ const MESSAGES = [
     me: false,
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
-    initials: "سم",
+    initials: "س‌م",
   },
 ] as const
 
@@ -53,7 +53,7 @@ export function ChatThread() {
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
               alt="سارا محمدی"
             />
-            <AvatarFallback>سم</AvatarFallback>
+            <AvatarFallback>س‌م</AvatarFallback>
           </Avatar>
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold">سارا محمدی</p>

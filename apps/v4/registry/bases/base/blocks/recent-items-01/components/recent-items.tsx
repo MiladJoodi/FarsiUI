@@ -19,17 +19,20 @@ export function RecentItemsSimple() {
         <p className="mt-1 text-sm text-muted-foreground">لیست ساده بدون فیلتر</p>
       </div>
 
-      <ul className="divide-y rounded-xl border">
+      <ul className="divide-y overflow-hidden rounded-xl border bg-card">
         {ITEMS.map((item) => (
-          <li
-            key={item.title}
-            className="flex items-center justify-between gap-3 p-4"
-          >
-            <div className="min-w-0">
-              <p className="truncate text-sm font-medium">{item.title}</p>
-              <p className="text-xs text-muted-foreground">{item.meta}</p>
+          <li key={item.title} className="flex items-center gap-3 p-4">
+            <div className="min-w-0 flex-1 space-y-1">
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-sm font-medium leading-snug">{item.title}</p>
+                <span className="shrink-0 text-xs text-muted-foreground">
+                  {item.meta}
+                </span>
+              </div>
             </div>
-            <Badge variant="secondary">{item.type}</Badge>
+            <Badge variant="outline" className="shrink-0 border">
+              {item.type}
+            </Badge>
           </li>
         ))}
       </ul>

@@ -12,19 +12,19 @@ const MESSAGES = [
     name: "سارا محمدی",
     preview: "سلام، وضعیت سفارش چطوره؟",
     time: "۱۰:۲۴",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     name: "علی رضایی",
     preview: "فاکتور را فرستادم",
     time: "دیروز",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     name: "مینا کریمی",
     preview: "فردا جلسه داریم؟",
     time: "دوشنبه",
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 

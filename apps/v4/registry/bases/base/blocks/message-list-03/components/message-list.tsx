@@ -31,7 +31,7 @@ const MESSAGES = [
     time: "۱۰:۲۴",
     folder: "inbox",
     unread: true,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -43,7 +43,7 @@ const MESSAGES = [
     time: "دیروز",
     folder: "inbox",
     unread: false,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -53,7 +53,7 @@ const MESSAGES = [
     time: "دوشنبه",
     folder: "starred",
     unread: true,
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "4",
@@ -63,7 +63,7 @@ const MESSAGES = [
     time: "هفتهٔ پیش",
     folder: "archive",
     unread: false,
-    initials: "پش",
+    initials: "پ‌ش",
   },
 ] as const
 

@@ -52,14 +52,22 @@ const ITEMS = [
   },
 ] as const
 
-type TypeFilter = "all" | "صفحه" | "فایل" | "مستندات" | "پروژه"
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه انواع" },
+  { value: "صفحه", label: "صفحه" },
+  { value: "فایل", label: "فایل" },
+  { value: "مستندات", label: "مستندات" },
+  { value: "پروژه", label: "پروژه" },
+] as const
+
+type TypeFilter = (typeof TYPE_ITEMS)[number]["value"]
 
 export function RecentItemsFilterable() {
   const [query, setQuery] = React.useState("")
-  const [type, setType] = React.useState<TypeFilter>("all")
+  const [type, setType] = React.useState<TypeFilter>("همه")
 
   const filtered = ITEMS.filter((item) => {
-    const matchType = type === "all" || item.type === type
+    const matchType = type === "همه" || item.type === type
     const q = query.trim().toLowerCase()
     const matchQuery =
       !q ||
@@ -95,45 +103,53 @@ export function RecentItemsFilterable() {
             />
           </div>
           <Select
+            items={[...TYPE_ITEMS]}
             value={type}
-            onValueChange={(value) => setType((value as TypeFilter) ?? "all")}
+            onValueChange={(value) => {
+              if (TYPE_ITEMS.some((item) => item.value === value)) {
+                setType(value as TypeFilter)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="نوع" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه انواع</SelectItem>
-              <SelectItem value="صفحه">صفحه</SelectItem>
-              <SelectItem value="فایل">فایل</SelectItem>
-              <SelectItem value="مستندات">مستندات</SelectItem>
-              <SelectItem value="پروژه">پروژه</SelectItem>
+              {TYPE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           موردی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <ul className="divide-y rounded-xl border">
+        <ul className="divide-y overflow-hidden rounded-xl border bg-card">
           {filtered.map((item) => (
-            <li
-              key={item.path}
-              className="flex items-center justify-between gap-3 p-4"
-            >
-              <div className="min-w-0">
-                <p className="truncate text-sm font-medium">{item.title}</p>
-                <p className="mt-0.5 truncate text-xs text-muted-foreground">
-                  <span dir="ltr" className="inline-block text-start font-mono">
+            <li key={item.path} className="flex items-center gap-3 p-4">
+              <div className="min-w-0 flex-1 space-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-medium leading-snug">{item.title}</p>
+                  <span className="shrink-0 text-xs text-muted-foreground">
+                    {item.opened}
+                  </span>
+                </div>
+                <p className="truncate text-xs text-muted-foreground">
+                  <span
+                    dir="ltr"
+                    className="inline-block text-left font-mono tracking-normal"
+                  >
                     {item.path}
                   </span>
-                  {" · "}
-                  {item.opened}
                 </p>
               </div>
-              <Badge variant="secondary" className="shrink-0">
+              <Badge variant="outline" className="shrink-0 border">
                 {item.type}
               </Badge>
             </li>

@@ -75,7 +75,7 @@ export function ConversationStatus() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
                 alt="سارا"
               />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div className="max-w-[80%] space-y-1">
               <p className="text-xs text-muted-foreground">سارا محمدی</p>
@@ -86,7 +86,7 @@ export function ConversationStatus() {
           </div>
           <div className="flex flex-row-reverse gap-2">
             <Avatar className="size-8">
-              <AvatarFallback>پش</AvatarFallback>
+              <AvatarFallback>پ‌ش</AvatarFallback>
             </Avatar>
             <div className="max-w-[80%] space-y-1 text-start">
               <p className="text-xs text-muted-foreground">پشتیبانی</p>

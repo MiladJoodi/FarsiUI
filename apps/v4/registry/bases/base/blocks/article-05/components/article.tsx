@@ -32,13 +32,13 @@ const RELATED = [
 const COMMENTS = [
   {
     name: "هستی احمدی",
-    initials: "ها",
+    initials: "ه‌ا",
     text: "ستون فهرست مطالب روی دسکتاپ خیلی کمک کرد.",
     time: "۳ ساعت پیش",
   },
   {
     name: "رضا کاظمی",
-    initials: "رک",
+    initials: "ر‌ک",
     text: "کاش نسخهٔ تاریک کاور را هم نشان دهید.",
     time: "دیروز",
   },
@@ -81,7 +81,7 @@ export function ArticleMagazine() {
             <div className="flex items-center gap-3">
               <Avatar className="size-11">
                 <AvatarImage src="/avatars/07.png" alt="آزاده نوری" />
-                <AvatarFallback>آن</AvatarFallback>
+                <AvatarFallback>آ‌ن</AvatarFallback>
               </Avatar>
               <div className="text-sm">
                 <p className="font-medium">آزاده نوری</p>

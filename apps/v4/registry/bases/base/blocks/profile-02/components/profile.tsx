@@ -33,7 +33,7 @@ export function ProfileCard() {
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"
               alt="سارا محمدی"
             />
-            <AvatarFallback>سم</AvatarFallback>
+            <AvatarFallback>س‌م</AvatarFallback>
           </Avatar>
           <div className="mt-3 space-y-1">
             <div className="flex items-center justify-center gap-2">

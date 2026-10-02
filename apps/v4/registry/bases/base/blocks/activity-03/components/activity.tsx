@@ -62,20 +62,23 @@ const ITEMS = [
   },
 ] as const
 
-type TypeFilter =
-  | "all"
-  | "امنیت"
-  | "مالی"
-  | "محتوا"
-  | "تیم"
-  | "پشتیبانی"
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه انواع" },
+  { value: "امنیت", label: "امنیت" },
+  { value: "مالی", label: "مالی" },
+  { value: "محتوا", label: "محتوا" },
+  { value: "تیم", label: "تیم" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+] as const
+
+type TypeFilter = (typeof TYPE_ITEMS)[number]["value"]
 
 export function ActivityFilterable() {
   const [query, setQuery] = React.useState("")
-  const [type, setType] = React.useState<TypeFilter>("all")
+  const [type, setType] = React.useState<TypeFilter>("همه")
 
   const filtered = ITEMS.filter((item) => {
-    const matchType = type === "all" || item.type === type
+    const matchType = type === "همه" || item.type === type
     const matchQuery =
       !query.trim() ||
       item.title.includes(query) ||
@@ -110,39 +113,45 @@ export function ActivityFilterable() {
             />
           </div>
           <Select
+            items={[...TYPE_ITEMS]}
             value={type}
-            onValueChange={(value) => setType((value as TypeFilter) ?? "all")}
+            onValueChange={(value) => {
+              if (TYPE_ITEMS.some((item) => item.value === value)) {
+                setType(value as TypeFilter)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="نوع" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه انواع</SelectItem>
-              <SelectItem value="امنیت">امنیت</SelectItem>
-              <SelectItem value="مالی">مالی</SelectItem>
-              <SelectItem value="محتوا">محتوا</SelectItem>
-              <SelectItem value="تیم">تیم</SelectItem>
-              <SelectItem value="پشتیبانی">پشتیبانی</SelectItem>
+              {TYPE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           فعالیتی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y overflow-hidden rounded-xl border bg-card">
           {filtered.map((item) => (
             <div key={item.title} className="flex items-start gap-3 p-4">
-              <Avatar className="size-9">
+              <Avatar className="mt-0.5 size-9 shrink-0">
                 <AvatarFallback>{item.initials}</AvatarFallback>
               </Avatar>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <p className="text-sm font-medium">{item.title}</p>
-                  <Badge variant="secondary">{item.type}</Badge>
+                  <p className="text-sm font-medium leading-snug">{item.title}</p>
+                  <Badge variant="outline" className="border">
+                    {item.type}
+                  </Badge>
                 </div>
                 <p className="mt-0.5 text-sm text-muted-foreground">
                   {item.detail}

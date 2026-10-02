@@ -16,17 +16,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -45,7 +40,7 @@ const ITEMS = [
     channel: "محصول",
     time: "۵ دقیقه پیش",
     unread: true,
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
@@ -55,7 +50,7 @@ const ITEMS = [
     channel: "طراحی",
     time: "۴۵ دقیقه پیش",
     unread: true,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -75,7 +70,7 @@ const ITEMS = [
     channel: "پشتیبانی",
     time: "دیروز",
     unread: false,
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "5",
@@ -85,7 +80,7 @@ const ITEMS = [
     channel: "مالی",
     time: "۲ روز پیش",
     unread: false,
-    initials: "رن",
+    initials: "ر‌ن",
   },
   {
     id: "6",
@@ -95,29 +90,44 @@ const ITEMS = [
     channel: "تیم",
     time: "۳ روز پیش",
     unread: true,
-    initials: "نا",
+    initials: "ن‌ا",
   },
 ] as const
 
-type SortKey = "newest" | "unread" | "actor"
+const CHANNEL_ITEMS = [
+  { value: "همه", label: "همه کانال‌ها" },
+  { value: "محصول", label: "محصول" },
+  { value: "طراحی", label: "طراحی" },
+  { value: "امنیت", label: "امنیت" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+  { value: "مالی", label: "مالی" },
+  { value: "تیم", label: "تیم" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  newest: "جدیدترین",
-  unread: "خوانده‌نشده اول",
-  actor: "نام بازیگر",
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "خوانده‌نشده", label: "خوانده‌نشده اول" },
+  { value: "نام", label: "نام بازیگر" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
 export function ActivityHub() {
   const [query, setQuery] = React.useState("")
-  const [channel, setChannel] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("newest")
+  const [channel, setChannel] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("جدیدترین")
   const [readIds, setReadIds] = React.useState<string[]>([])
   const [hiddenIds, setHiddenIds] = React.useState<string[]>([])
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = ITEMS.filter((item) => {
       if (hiddenIds.includes(item.id)) return false
-      const matchChannel = channel === "all" || item.channel === channel
+      const matchChannel = channel === "همه" || item.channel === channel
       const q = query.trim().toLowerCase()
       const matchQuery =
         !q ||
@@ -129,12 +139,12 @@ export function ActivityHub() {
     })
 
     list = [...list].sort((a, b) => {
-      if (sort === "unread") {
+      if (sort === "خوانده‌نشده") {
         const aUnread = a.unread && !readIds.includes(a.id) ? 1 : 0
         const bUnread = b.unread && !readIds.includes(b.id) ? 1 : 0
         return bUnread - aUnread
       }
-      if (sort === "actor") {
+      if (sort === "نام") {
         return a.actor.localeCompare(b.actor, "fa")
       }
       return 0
@@ -164,8 +174,8 @@ export function ActivityHub() {
             </p>
           </div>
           {unreadCount > 0 && (
-            <Badge>
-              <bdi dir="ltr">{unreadCount}</bdi> خوانده‌نشده
+            <Badge variant="outline" className="border">
+              {toFa(unreadCount)} خوانده‌نشده
             </Badge>
           )}
         </div>
@@ -182,47 +192,50 @@ export function ActivityHub() {
             />
           </div>
           <Select
+            items={[...CHANNEL_ITEMS]}
             value={channel}
-            onValueChange={(value) => setChannel((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (CHANNEL_ITEMS.some((item) => item.value === value)) {
+                setChannel(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="کانال" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه کانال‌ها</SelectItem>
-              <SelectItem value="محصول">محصول</SelectItem>
-              <SelectItem value="طراحی">طراحی</SelectItem>
-              <SelectItem value="امنیت">امنیت</SelectItem>
-              <SelectItem value="پشتیبانی">پشتیبانی</SelectItem>
-              <SelectItem value="مالی">مالی</SelectItem>
-              <SelectItem value="تیم">تیم</SelectItem>
+              {CHANNEL_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "newest")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {unreadCount > 0 && (
           <Button
+            type="button"
             variant="ghost"
             size="sm"
             className="px-0"
@@ -231,9 +244,7 @@ export function ActivityHub() {
                 Array.from(
                   new Set([
                     ...prev,
-                    ...filtered
-                      .filter((i) => i.unread)
-                      .map((i) => i.id),
+                    ...filtered.filter((i) => i.unread).map((i) => i.id),
                   ])
                 )
               )
@@ -245,42 +256,52 @@ export function ActivityHub() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           رویدادی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y overflow-hidden rounded-xl border bg-card">
           {filtered.map((item) => {
             const isUnread = item.unread && !readIds.includes(item.id)
             return (
               <div key={item.id} className="flex items-start gap-3 p-4">
-                <Avatar className="size-9">
+                <Avatar className="mt-0.5 size-9 shrink-0">
                   <AvatarFallback>{item.initials}</AvatarFallback>
                 </Avatar>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <p
-                      className={`text-sm ${isUnread ? "font-semibold" : "font-medium"}`}
+                      className={`text-sm leading-snug ${isUnread ? "font-semibold" : "font-medium"}`}
                     >
                       {item.actor}
                     </p>
-                    <Badge variant="outline">{item.channel}</Badge>
-                    {isUnread && <Badge>جدید</Badge>}
+                    <Badge variant="outline" className="border">
+                      {item.channel}
+                    </Badge>
+                    {isUnread && (
+                      <Badge variant="outline" className="border">
+                        جدید
+                      </Badge>
+                    )}
                   </div>
                   <p className="mt-0.5 text-sm text-muted-foreground">
                     {item.title}
                   </p>
                   <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    <span dir="ltr" className="inline-block text-start">
+                    <span dir="ltr" className="block text-left tracking-normal">
                       {item.email}
                     </span>
                     <span>{item.time}</span>
                   </div>
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
+                <Popover
+                  open={openId === item.id}
+                  onOpenChange={(open) => setOpenId(open ? item.id : null)}
+                >
+                  <PopoverTrigger
                     render={
                       <Button
+                        type="button"
                         variant="ghost"
                         size="icon"
                         className="size-8 shrink-0"
@@ -289,35 +310,48 @@ export function ActivityHub() {
                   >
                     <MoreHorizontalIcon className="size-4" />
                     <span className="sr-only">منوی عملیات</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                  </PopoverTrigger>
+                  <PopoverContent
                     dir="rtl"
                     lang="fa"
                     align="end"
-                    className="w-44"
+                    className="w-44 space-y-1 p-2"
                   >
-                    <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() =>
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => {
                         setReadIds((prev) =>
                           prev.includes(item.id) ? prev : [...prev, item.id]
                         )
-                      }
+                        setOpenId(null)
+                      }}
                     >
                       علامت خوانده‌شده
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>مشاهده جزئیات</DropdownMenuItem>
-                    <DropdownMenuItem
-                      variant="destructive"
-                      onClick={() =>
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      مشاهده جزئیات
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => {
                         setHiddenIds((prev) => [...prev, item.id])
-                      }
+                        setOpenId(null)
+                      }}
                     >
                       حذف از فید
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </div>
             )
           })}
@@ -349,7 +383,7 @@ export function ActivityHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               فعال‌سازی

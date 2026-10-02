@@ -50,7 +50,7 @@ const INITIAL: User[] = [
     email: "sara@example.com",
     role: "مدیر",
     status: "فعال",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
@@ -58,7 +58,7 @@ const INITIAL: User[] = [
     email: "ali@example.com",
     role: "ویرایشگر",
     status: "فعال",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -66,7 +66,7 @@ const INITIAL: User[] = [
     email: "mina@example.com",
     role: "مشاهده‌گر",
     status: "دعوت‌شده",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "4",
@@ -74,7 +74,7 @@ const INITIAL: User[] = [
     email: "reza@example.com",
     role: "ویرایشگر",
     status: "معلق",
-    initials: "رن",
+    initials: "ر‌ن",
   },
   {
     id: "5",
@@ -82,7 +82,7 @@ const INITIAL: User[] = [
     email: "negar@example.com",
     role: "مشاهده‌گر",
     status: "فعال",
-    initials: "نا",
+    initials: "ن‌ا",
   },
 ]
 

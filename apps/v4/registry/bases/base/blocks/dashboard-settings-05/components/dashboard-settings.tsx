@@ -40,6 +40,12 @@ const NAV = [
   { id: "webhooks", label: "وب‌هوک" },
 ] as const
 
+const ENV_ITEMS = [
+  { value: "تولید", label: "تولید" },
+  { value: "پیش‌تولید", label: "پیش‌تولید" },
+  { value: "توسعه", label: "توسعه" },
+] as const
+
 type NavId = (typeof NAV)[number]["id"]
 
 export function DashboardSettingsConsole() {
@@ -109,7 +115,7 @@ export function DashboardSettingsConsole() {
                     defaultValue="farsiui-product"
                     placeholder="workspace-slug"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>
                     در آدرس‌ها و وب‌هوک‌ها استفاده می‌شود
@@ -117,14 +123,16 @@ export function DashboardSettingsConsole() {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="ds5-env">محیط</FieldLabel>
-                  <Select defaultValue="production">
+                  <Select items={[...ENV_ITEMS]} defaultValue="تولید">
                     <SelectTrigger id="ds5-env" className="w-full" dir="rtl">
                       <SelectValue placeholder="محیط را انتخاب کنید" />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="production">تولید</SelectItem>
-                      <SelectItem value="staging">پیش‌تولید</SelectItem>
-                      <SelectItem value="dev">توسعه</SelectItem>
+                      {ENV_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -148,7 +156,7 @@ export function DashboardSettingsConsole() {
                     defaultValue="ops@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                 </Field>
               </FieldGroup>
@@ -237,7 +245,7 @@ export function DashboardSettingsConsole() {
                     id="ds5-hook"
                     placeholder="https://api.example.com/hooks"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                 </Field>
                 <Field>
@@ -247,7 +255,7 @@ export function DashboardSettingsConsole() {
                     type="password"
                     defaultValue="whsec_demo"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                 </Field>
                 <Field>

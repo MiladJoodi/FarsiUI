@@ -161,7 +161,7 @@ export function BookingFancy() {
               src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&auto=format&fit=crop&q=80"
               alt="دکتر مریم رضایی"
             />
-            <AvatarFallback>مر</AvatarFallback>
+            <AvatarFallback>م‌ر</AvatarFallback>
           </Avatar>
           <div className="text-sm">
             <p className="font-medium">دکتر مریم رضایی</p>

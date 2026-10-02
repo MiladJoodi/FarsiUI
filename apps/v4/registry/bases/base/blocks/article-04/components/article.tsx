@@ -42,7 +42,7 @@ export function ArticleSidebar() {
             <div className="flex items-center gap-3">
               <Avatar className="size-10">
                 <AvatarImage src="/avatars/02.png" alt="علی محمدی" />
-                <AvatarFallback>عم</AvatarFallback>
+                <AvatarFallback>ع‌م</AvatarFallback>
               </Avatar>
               <div className="text-sm">
                 <p className="font-medium">علی محمدی</p>

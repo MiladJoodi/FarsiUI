@@ -92,7 +92,7 @@ export function NavbarApp() {
                 }
               >
                 <Avatar className="size-7">
-                  <AvatarFallback className="text-xs">مر</AvatarFallback>
+                  <AvatarFallback className="text-xs">م‌ر</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48" dir="rtl" lang="fa">

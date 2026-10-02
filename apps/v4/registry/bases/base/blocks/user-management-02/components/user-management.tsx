@@ -18,28 +18,28 @@ const USERS = [
     email: "sara@example.com",
     role: "مدیر",
     status: "فعال",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     name: "علی رضایی",
     email: "ali@example.com",
     role: "ویرایشگر",
     status: "دعوت‌شده",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     name: "مینا کریمی",
     email: "mina@example.com",
     role: "مشاهده‌گر",
     status: "فعال",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     name: "رضا نوری",
     email: "reza@example.com",
     role: "ویرایشگر",
     status: "معلق",
-    initials: "رن",
+    initials: "ر‌ن",
   },
 ] as const
 

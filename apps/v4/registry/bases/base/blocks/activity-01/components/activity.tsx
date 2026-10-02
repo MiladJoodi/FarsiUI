@@ -41,17 +41,19 @@ export function ActivitySimple() {
         </p>
       </div>
 
-      <div className="divide-y rounded-xl border">
+      <div className="divide-y overflow-hidden rounded-xl border bg-card">
         {ITEMS.map((item) => (
-          <div key={item.title} className="flex items-center gap-3 p-4">
-            <Avatar className="size-9">
+          <div key={item.title} className="flex items-start gap-3 p-4">
+            <Avatar className="mt-0.5 size-9 shrink-0">
               <AvatarFallback>{item.initials}</AvatarFallback>
             </Avatar>
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">{item.title}</p>
+            <div className="min-w-0 flex-1 space-y-0.5">
+              <p className="text-sm font-medium leading-snug">{item.title}</p>
               <p className="text-xs text-muted-foreground">{item.meta}</p>
             </div>
-            <Badge variant="outline">جدید</Badge>
+            <Badge variant="outline" className="mt-0.5 shrink-0">
+              جدید
+            </Badge>
           </div>
         ))}
       </div>

@@ -38,7 +38,7 @@ const COMMENTS = [
     text: "عالی بود، مخصوصاً بخش RTL.",
     time: "۳ ساعت پیش",
     status: "approved",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
@@ -46,7 +46,7 @@ const COMMENTS = [
     text: "منتظر نسخهٔ بعدی هستم.",
     time: "دیروز",
     status: "pending",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -54,7 +54,7 @@ const COMMENTS = [
     text: "لینک مستندات را هم اضافه کنید.",
     time: "۲ روز پیش",
     status: "approved",
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 

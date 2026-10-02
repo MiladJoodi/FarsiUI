@@ -18,7 +18,7 @@ const REPLIES = [
     text: "سلام، می‌خواستم وضعیت ارسال را بدونم.",
     time: "۰۹:۱۲",
     me: false,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -27,14 +27,14 @@ const REPLIES = [
     text: "سلام سارا، بسته امروز تحویل پست شده.",
     time: "۰۹:۱۵",
     me: true,
-    initials: "من",
+    initials: "م‌ن",
   },
   {
     who: "سارا محمدی",
     text: "عالی. رسید را به sara@example.com بفرستید.",
     time: "۰۹:۱۶",
     me: false,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -69,10 +69,10 @@ export function ConversationThread() {
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
                   alt="سارا"
                 />
-                <AvatarFallback>سم</AvatarFallback>
+                <AvatarFallback>س‌م</AvatarFallback>
               </Avatar>
               <Avatar className="size-7 border-2 border-background">
-                <AvatarFallback>پش</AvatarFallback>
+                <AvatarFallback>پ‌ش</AvatarFallback>
               </Avatar>
             </div>
             <p className="text-xs text-muted-foreground">۲ شرکت‌کننده</p>

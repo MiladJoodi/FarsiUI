@@ -17,7 +17,7 @@ const MESSAGES = [
     preview: "سلام، وضعیت سفارش چطوره؟",
     time: "۱۰:۲۴",
     unread: 2,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -27,7 +27,7 @@ const MESSAGES = [
     preview: "فاکتور را فرستادم",
     time: "دیروز",
     unread: 0,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     name: "مینا کریمی",
@@ -35,7 +35,7 @@ const MESSAGES = [
     preview: "فردا جلسه داریم؟",
     time: "دوشنبه",
     unread: 1,
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 

@@ -25,6 +25,17 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const LANG_ITEMS = [
+  { value: "فارسی", label: "فارسی" },
+  { value: "English", label: "English" },
+] as const
+
+const DENSITY_ITEMS = [
+  { value: "راحت", label: "راحت" },
+  { value: "فشرده", label: "فشرده" },
+  { value: "باز", label: "باز" },
+] as const
+
 export function DashboardSettingsAppearance() {
   return (
     <section
@@ -32,7 +43,7 @@ export function DashboardSettingsAppearance() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="text-start">
           <CardTitle>ظاهر و زبان</CardTitle>
           <CardDescription>
@@ -43,26 +54,31 @@ export function DashboardSettingsAppearance() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="ds3-lang">زبان رابط</FieldLabel>
-              <Select defaultValue="fa">
+              <Select items={[...LANG_ITEMS]} defaultValue="فارسی">
                 <SelectTrigger id="ds3-lang" className="w-full" dir="rtl">
                   <SelectValue placeholder="زبان را انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="fa">فارسی</SelectItem>
-                  <SelectItem value="en">English</SelectItem>
+                  {LANG_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="ds3-density">تراکم چیدمان</FieldLabel>
-              <Select defaultValue="comfortable">
+              <Select items={[...DENSITY_ITEMS]} defaultValue="راحت">
                 <SelectTrigger id="ds3-density" className="w-full" dir="rtl">
                   <SelectValue placeholder="تراکم" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="comfortable">راحت</SelectItem>
-                  <SelectItem value="compact">فشرده</SelectItem>
-                  <SelectItem value="spacious">باز</SelectItem>
+                  {DENSITY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -73,7 +89,7 @@ export function DashboardSettingsAppearance() {
                 defaultValue="Asia/Tehran"
                 placeholder="Asia/Tehran"
                 dir="ltr"
-                className="text-start"
+                className="text-left"
               />
             </Field>
           </FieldGroup>

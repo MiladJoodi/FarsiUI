@@ -11,7 +11,7 @@ const ITEMS = [
     email: "sara@example.com",
     time: "۵ دقیقه پیش",
     type: "نظر",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     actor: "علی رضایی",
@@ -19,7 +19,7 @@ const ITEMS = [
     email: "ali@example.com",
     time: "۴۰ دقیقه پیش",
     type: "فایل",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     actor: "مینا کریمی",
@@ -27,7 +27,7 @@ const ITEMS = [
     email: "mina@example.com",
     time: "۲ ساعت پیش",
     type: "تیکت",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     actor: "رضا نوری",
@@ -35,7 +35,7 @@ const ITEMS = [
     email: "reza@example.com",
     time: "دیروز",
     type: "تیم",
-    initials: "رن",
+    initials: "ر‌ن",
   },
 ] as const
 
@@ -53,30 +53,35 @@ export function ActivityTimeline() {
         </p>
       </div>
 
-      <ol className="relative space-y-0 border-s border-border ps-6">
-        {ITEMS.map((item) => (
-          <li key={item.email + item.time} className="relative pb-8 last:pb-0">
-            <span className="absolute top-1 -start-[1.9rem] flex size-8 items-center justify-center rounded-full border bg-background">
-              <Avatar className="size-7">
-                <AvatarFallback className="text-[10px]">
-                  {item.initials}
-                </AvatarFallback>
-              </Avatar>
-            </span>
-            <div className="flex flex-wrap items-center gap-2">
-              <p className="text-sm font-medium">{item.actor}</p>
-              <Badge variant="secondary">{item.type}</Badge>
-            </div>
-            <p className="mt-1 text-sm text-muted-foreground">{item.action}</p>
-            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-              <span dir="ltr" className="inline-block text-start">
-                {item.email}
+      <div className="rounded-xl border bg-card p-5">
+        <ol className="relative space-y-0 border-s border-border ps-8">
+          {ITEMS.map((item) => (
+            <li
+              key={item.email + item.time}
+              className="relative pb-8 last:pb-0"
+            >
+              <span className="absolute top-0 -start-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border bg-card rtl:translate-x-1/2">
+                <Avatar className="size-7 shrink-0">
+                  <AvatarFallback className="text-[10px]">
+                    {item.initials}
+                  </AvatarFallback>
+                </Avatar>
               </span>
-              <span>{item.time}</span>
-            </div>
-          </li>
-        ))}
-      </ol>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-sm font-medium leading-snug">{item.actor}</p>
+                <Badge variant="outline">{item.type}</Badge>
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">{item.action}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                <span dir="ltr" className="block text-left tracking-normal">
+                  {item.email}
+                </span>
+                <span>{item.time}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   )
 }

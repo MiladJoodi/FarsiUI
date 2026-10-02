@@ -92,7 +92,7 @@ export function TestimonialsShowcase() {
             <div className="flex items-center gap-3">
               <Avatar className="size-12 border-2 border-white/30">
                 <AvatarImage src={FEATURED.avatar} alt={FEATURED.name} />
-                <AvatarFallback>آن</AvatarFallback>
+                <AvatarFallback>آ‌ن</AvatarFallback>
               </Avatar>
               <div className="text-sm text-white">
                 <p className="font-medium">{FEATURED.name}</p>

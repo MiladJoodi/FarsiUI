@@ -40,7 +40,7 @@ const CONTACTS = [
     time: "۱۰:۲۷",
     unread: 2,
     online: true,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -52,7 +52,7 @@ const CONTACTS = [
     time: "دیروز",
     unread: 0,
     online: false,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -62,7 +62,7 @@ const CONTACTS = [
     time: "دوشنبه",
     unread: 1,
     online: true,
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 

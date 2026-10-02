@@ -113,7 +113,7 @@ export function AvatarUploadHistory() {
           <div className="relative">
             <Avatar className="size-28">
               {preview ? <AvatarImage src={preview} alt="پروفایل" /> : null}
-              <AvatarFallback className="text-2xl">مر</AvatarFallback>
+              <AvatarFallback className="text-2xl">م‌ر</AvatarFallback>
             </Avatar>
             <Button
               type="button"
@@ -184,7 +184,7 @@ export function AvatarUploadHistory() {
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <Avatar className="size-9">
                     <AvatarImage src={item.src} alt={item.name} />
-                    <AvatarFallback>مر</AvatarFallback>
+                    <AvatarFallback>م‌ر</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">

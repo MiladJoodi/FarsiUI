@@ -170,7 +170,7 @@ export function DropdownDrawerHover() {
                     src="https://github.com/shadcn.png"
                     alt="سارا محمدی"
                   />
-                  <AvatarFallback>سم</AvatarFallback>
+                  <AvatarFallback>س‌م</AvatarFallback>
                 </Avatar>
                 <div className="flex min-w-0 flex-1 flex-col gap-1 text-start">
                   <div className="text-sm font-semibold">سارا محمدی</div>

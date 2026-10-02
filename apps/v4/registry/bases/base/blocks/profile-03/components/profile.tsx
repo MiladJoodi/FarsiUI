@@ -41,7 +41,7 @@ export function ProfileEdit() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"
                 alt="سارا محمدی"
               />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div>
               <CardTitle>ویرایش پروفایل</CardTitle>

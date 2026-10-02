@@ -73,7 +73,7 @@ export function ProfileCover() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"
                 alt="سارا محمدی"
               />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div className="mb-1 flex gap-2">
               <Button size="sm">ویرایش پروفایل</Button>

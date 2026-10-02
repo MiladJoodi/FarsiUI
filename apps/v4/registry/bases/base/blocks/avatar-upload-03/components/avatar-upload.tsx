@@ -90,7 +90,7 @@ export function AvatarUploadForm() {
                   {preview ? (
                     <AvatarImage src={preview} alt="پروفایل" />
                   ) : null}
-                  <AvatarFallback className="text-xl">مر</AvatarFallback>
+                  <AvatarFallback className="text-xl">م‌ر</AvatarFallback>
                 </Avatar>
                 <Button
                   type="button"

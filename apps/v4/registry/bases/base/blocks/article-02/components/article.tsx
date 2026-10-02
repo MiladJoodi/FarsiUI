@@ -25,7 +25,7 @@ export function ArticleWithAuthor() {
         <div className="flex items-center gap-3">
           <Avatar className="size-10">
             <AvatarImage src="/avatars/01.png" alt="مریم رضایی" />
-            <AvatarFallback>مر</AvatarFallback>
+            <AvatarFallback>م‌ر</AvatarFallback>
           </Avatar>
           <div className="text-sm">
             <p className="font-medium">مریم رضایی</p>

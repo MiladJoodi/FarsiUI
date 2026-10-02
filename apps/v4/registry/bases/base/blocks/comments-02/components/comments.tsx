@@ -24,7 +24,7 @@ const THREAD = [
     text: "این کامپوننت برای پروژه‌های RTL عالیه.",
     time: "۳ ساعت پیش",
     likes: "۱۲",
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
     replies: [
@@ -33,7 +33,7 @@ const THREAD = [
         name: "علی رضایی",
         text: "موافقم، مخصوصاً Accordion.",
         time: "۲ ساعت پیش",
-        initials: "عر",
+        initials: "ع‌ر",
       },
     ],
   },
@@ -44,7 +44,7 @@ const THREAD = [
     text: "آیا راهنمای نصب فارسی هم دارید؟",
     time: "دیروز",
     likes: "۴",
-    initials: "مک",
+    initials: "م‌ک",
     replies: [],
   },
 ] as const

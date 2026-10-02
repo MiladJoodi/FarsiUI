@@ -58,7 +58,7 @@ const INITIAL: Msg[] = [
     time: "۱۰:۲۴",
     unread: true,
     starred: false,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -70,7 +70,7 @@ const INITIAL: Msg[] = [
     time: "دیروز",
     unread: false,
     starred: true,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -80,7 +80,7 @@ const INITIAL: Msg[] = [
     time: "دوشنبه",
     unread: true,
     starred: false,
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "4",
@@ -90,7 +90,7 @@ const INITIAL: Msg[] = [
     time: "هفتهٔ پیش",
     unread: false,
     starred: false,
-    initials: "پش",
+    initials: "پ‌ش",
   },
 ]
 

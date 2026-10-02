@@ -125,7 +125,7 @@ export function AvatarUploadHub() {
                 }
               >
                 {preview ? <AvatarImage src={preview} alt="پروفایل" /> : null}
-                <AvatarFallback className="text-3xl">مر</AvatarFallback>
+                <AvatarFallback className="text-3xl">م‌ر</AvatarFallback>
               </Avatar>
               <Button
                 type="button"

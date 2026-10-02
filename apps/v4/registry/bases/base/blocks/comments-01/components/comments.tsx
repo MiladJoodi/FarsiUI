@@ -14,13 +14,13 @@ const COMMENTS = [
     name: "سارا محمدی",
     text: "عالی بود، مخصوصاً بخش تایپوگرافی فارسی.",
     time: "۲ ساعت پیش",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     name: "علی رضایی",
     text: "آیا نسخهٔ تیره هم دارید؟",
     time: "دیروز",
-    initials: "عر",
+    initials: "ع‌ر",
   },
 ] as const
 

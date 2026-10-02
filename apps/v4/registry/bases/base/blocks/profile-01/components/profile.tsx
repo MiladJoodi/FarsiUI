@@ -12,7 +12,7 @@ export function ProfileSimple() {
           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"
           alt="سارا محمدی"
         />
-        <AvatarFallback>سم</AvatarFallback>
+        <AvatarFallback>س‌م</AvatarFallback>
       </Avatar>
       <h1 className="mt-6 text-2xl font-bold tracking-tight">سارا محمدی</h1>
       <p className="mt-1 text-muted-foreground">طراح محصول · تهران</p>

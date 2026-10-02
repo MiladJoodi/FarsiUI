@@ -99,7 +99,7 @@ export function ChatActions() {
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
               alt="علی رضایی"
             />
-            <AvatarFallback>عر</AvatarFallback>
+            <AvatarFallback>ع‌ر</AvatarFallback>
           </Avatar>
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold">علی رضایی</p>

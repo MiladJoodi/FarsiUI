@@ -56,7 +56,7 @@ const INITIAL: Comment[] = [
     text: "طراحی خیلی تمیزه؛ برای داشبورد فارسی عالیه.",
     time: "۱ ساعت پیش",
     likes: 8,
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -67,7 +67,7 @@ const INITIAL: Comment[] = [
     text: "کاش نمونهٔ فرم چندمرحله‌ای هم اضافه شود.",
     time: "۵ ساعت پیش",
     likes: 3,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -76,7 +76,7 @@ const INITIAL: Comment[] = [
     text: "مستندات نصب رو خوندم؛ واضح بود.",
     time: "دیروز",
     likes: 5,
-    initials: "مک",
+    initials: "م‌ک",
   },
 ]
 

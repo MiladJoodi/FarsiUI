@@ -74,7 +74,7 @@ export function AccountIdentityDashboard() {
         <CardHeader className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <Avatar className="size-12">
-              <AvatarFallback>نپ</AvatarFallback>
+              <AvatarFallback>ن‌پ</AvatarFallback>
             </Avatar>
             <div>
               <CardTitle className="text-lg">نیما پناهی</CardTitle>

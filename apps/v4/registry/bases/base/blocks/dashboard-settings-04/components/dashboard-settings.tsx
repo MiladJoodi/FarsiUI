@@ -17,20 +17,17 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldGroup,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -41,32 +38,40 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const ROLE_ITEMS = [
+  { value: "مالک", label: "مالک" },
+  { value: "مدیر", label: "مدیر" },
+  { value: "عضو", label: "عضو" },
+  { value: "مهمان", label: "مهمان" },
+] as const
+
 const MEMBERS = [
   {
     id: "1",
     name: "سارا محمدی",
     email: "sara@example.com",
     role: "مالک",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
     name: "علی رضایی",
     email: "ali@example.com",
     role: "مدیر",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
     name: "مینا کریمی",
     email: "mina@example.com",
     role: "عضو",
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 
 export function DashboardSettingsTeam() {
   const [members, setMembers] = React.useState(MEMBERS.map((m) => ({ ...m })))
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   return (
     <section
@@ -75,7 +80,7 @@ export function DashboardSettingsTeam() {
       className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="space-y-6">
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>فضای کاری</CardTitle>
             <CardDescription>
@@ -88,7 +93,7 @@ export function DashboardSettingsTeam() {
                 <FieldLabel htmlFor="ds4-ws">نام فضای کاری</FieldLabel>
                 <Input
                   id="ds4-ws"
-                  defaultValue="تیم محصول فارسی‌UI"
+                  defaultValue="تیم محصول FarsiUI"
                   placeholder="نام تیم یا شرکت"
                   dir="rtl"
                 />
@@ -100,7 +105,7 @@ export function DashboardSettingsTeam() {
                   defaultValue="farsiui-product"
                   placeholder="workspace-slug"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
               </Field>
             </FieldGroup>
@@ -116,7 +121,7 @@ export function DashboardSettingsTeam() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>اعضای تیم</CardTitle>
             <CardDescription>
@@ -128,87 +133,110 @@ export function DashboardSettingsTeam() {
               <div key={member.id}>
                 {index > 0 ? <Separator className="my-3" /> : null}
                 <div className="flex items-center gap-3">
-                  <Avatar className="size-9">
+                  <Avatar className="size-9 shrink-0">
                     <AvatarFallback>{member.initials}</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="text-sm font-medium">{member.name}</p>
                       {member.role === "مالک" && (
-                        <Badge variant="secondary">مالک</Badge>
+                        <Badge variant="outline" className="border">
+                          مالک
+                        </Badge>
                       )}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      <span dir="ltr" className="inline-block text-start">
+                      <span
+                        dir="ltr"
+                        className="inline-block text-left tracking-normal"
+                      >
                         {member.email}
                       </span>
                     </p>
                   </div>
                   <Select
+                    items={[...ROLE_ITEMS]}
                     value={member.role}
-                    onValueChange={(value) =>
+                    onValueChange={(value) => {
+                      if (!ROLE_ITEMS.some((item) => item.value === value)) {
+                        return
+                      }
                       setMembers((prev) =>
                         prev.map((m) =>
-                          m.id === member.id
-                            ? { ...m, role: (value as string) ?? m.role }
-                            : m
+                          m.id === member.id ? { ...m, role: value } : m
                         )
                       )
-                    }
+                    }}
                     disabled={member.role === "مالک"}
                   >
                     <SelectTrigger className="w-28" dir="rtl" size="sm">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="مالک">مالک</SelectItem>
-                      <SelectItem value="مدیر">مدیر</SelectItem>
-                      <SelectItem value="عضو">عضو</SelectItem>
-                      <SelectItem value="مهمان">مهمان</SelectItem>
+                      {ROLE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
+                  <Popover
+                    open={openId === member.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? member.id : null)
+                    }
+                  >
+                    <PopoverTrigger
                       render={
                         <Button
+                          type="button"
                           variant="ghost"
                           size="icon"
-                          className="size-8"
+                          className="size-8 shrink-0"
                           disabled={member.role === "مالک"}
                         />
                       }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">منوی عضو</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
+                    </PopoverTrigger>
+                    <PopoverContent
                       dir="rtl"
                       lang="fa"
                       align="end"
-                      className="w-40"
+                      className="w-40 space-y-1 p-2"
                     >
-                      <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                      <DropdownMenuItem
-                        variant="destructive"
-                        onClick={() =>
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        ارسال ایمیل
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                        onClick={() => {
                           setMembers((prev) =>
                             prev.filter((m) => m.id !== member.id)
                           )
-                        }
+                          setOpenId(null)
+                        }}
                       >
                         حذف از تیم
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
             ))}
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader className="text-start">
             <CardTitle>دعوت عضو جدید</CardTitle>
             <CardDescription>
@@ -231,7 +259,7 @@ export function DashboardSettingsTeam() {
                 required
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-start sm:flex-1"
+                className="text-left sm:flex-1"
               />
               <Button type="submit" className="sm:shrink-0">
                 ارسال دعوت

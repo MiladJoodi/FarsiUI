@@ -12,17 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -95,25 +90,34 @@ const ITEMS = [
   },
 ] as const
 
-type SortKey = "recent" | "title" | "type"
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه انواع" },
+  { value: "صفحه", label: "صفحه" },
+  { value: "فایل", label: "فایل" },
+  { value: "مستندات", label: "مستندات" },
+  { value: "پروژه", label: "پروژه" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  recent: "اخیراً بازشده",
-  title: "عنوان",
-  type: "نوع",
-}
+const SORT_ITEMS = [
+  { value: "اخیر", label: "اخیراً بازشده" },
+  { value: "عنوان", label: "عنوان" },
+  { value: "نوع", label: "نوع" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function RecentItemsHub() {
   const [query, setQuery] = React.useState("")
-  const [type, setType] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("recent")
+  const [type, setType] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("اخیر")
   const [pinned, setPinned] = React.useState(() => new Set(["1", "4"]))
   const [hidden, setHidden] = React.useState<string[]>([])
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = ITEMS.filter((item) => {
       if (hidden.includes(item.id)) return false
-      const matchType = type === "all" || item.type === type
+      const matchType = type === "همه" || item.type === type
       const q = query.trim().toLowerCase()
       const matchQuery =
         !q ||
@@ -128,8 +132,8 @@ export function RecentItemsHub() {
     list = [...list].sort((a, b) => {
       const pinDiff = Number(pinned.has(b.id)) - Number(pinned.has(a.id))
       if (pinDiff !== 0) return pinDiff
-      if (sort === "title") return a.title.localeCompare(b.title, "fa")
-      if (sort === "type") return a.type.localeCompare(b.type, "fa")
+      if (sort === "عنوان") return a.title.localeCompare(b.title, "fa")
+      if (sort === "نوع") return a.type.localeCompare(b.type, "fa")
       return a.openedAt - b.openedAt
     })
     return list
@@ -164,50 +168,54 @@ export function RecentItemsHub() {
             />
           </div>
           <Select
+            items={[...TYPE_ITEMS]}
             value={type}
-            onValueChange={(value) => setType((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (TYPE_ITEMS.some((item) => item.value === value)) {
+                setType(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="نوع" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه انواع</SelectItem>
-              <SelectItem value="صفحه">صفحه</SelectItem>
-              <SelectItem value="فایل">فایل</SelectItem>
-              <SelectItem value="مستندات">مستندات</SelectItem>
-              <SelectItem value="پروژه">پروژه</SelectItem>
+              {TYPE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "recent")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           موردی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <ul className="divide-y rounded-xl border">
+        <ul className="divide-y overflow-hidden rounded-xl border bg-card">
           {filtered.map((item) => {
             const isPinned = pinned.has(item.id)
             return (
@@ -217,32 +225,48 @@ export function RecentItemsHub() {
                 ) : (
                   <span className="mt-1 size-3.5 shrink-0" />
                 )}
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <p className="text-sm font-medium">{item.title}</p>
-                    <Badge variant="outline">{item.type}</Badge>
-                    {isPinned && (
-                      <Badge variant="secondary">سنجاق‌شده</Badge>
-                    )}
+                <div className="min-w-0 flex-1 space-y-1">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex min-w-0 flex-wrap items-center gap-2">
+                      <p className="text-sm font-medium leading-snug">
+                        {item.title}
+                      </p>
+                      <Badge variant="outline" className="border">
+                        {item.type}
+                      </Badge>
+                      {isPinned && (
+                        <Badge variant="outline" className="border">
+                          سنجاق‌شده
+                        </Badge>
+                      )}
+                    </div>
+                    <span className="shrink-0 text-xs text-muted-foreground">
+                      {item.openedLabel}
+                    </span>
                   </div>
-                  <p className="mt-0.5 text-xs text-muted-foreground">
-                    <span dir="ltr" className="inline-block text-start font-mono">
+                  <p className="text-xs text-muted-foreground">
+                    <span
+                      dir="ltr"
+                      className="inline-block text-left font-mono tracking-normal"
+                    >
                       {item.path}
                     </span>
-                    {" · "}
-                    {item.openedLabel}
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {item.owner} ·{" "}
-                    <span dir="ltr" className="inline-block text-start">
+                    <span dir="ltr" className="inline-block text-left tracking-normal">
                       {item.email}
                     </span>
                   </p>
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
+                <Popover
+                  open={openId === item.id}
+                  onOpenChange={(open) => setOpenId(open ? item.id : null)}
+                >
+                  <PopoverTrigger
                     render={
                       <Button
+                        type="button"
                         variant="ghost"
                         size="icon"
                         className="size-8 shrink-0"
@@ -251,38 +275,51 @@ export function RecentItemsHub() {
                   >
                     <MoreHorizontalIcon className="size-4" />
                     <span className="sr-only">منوی عملیات</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                  </PopoverTrigger>
+                  <PopoverContent
                     dir="rtl"
                     lang="fa"
                     align="end"
-                    className="w-44"
+                    className="w-44 space-y-1 p-2"
                   >
-                    <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() =>
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => {
                         setPinned((prev) => {
                           const next = new Set(prev)
                           if (next.has(item.id)) next.delete(item.id)
                           else next.add(item.id)
                           return next
                         })
-                      }
+                        setOpenId(null)
+                      }}
                     >
                       {isPinned ? "برداشتن سنجاق" : "سنجاق کردن"}
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                    <DropdownMenuItem
-                      variant="destructive"
-                      onClick={() =>
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      باز کردن
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => {
                         setHidden((prev) => [...prev, item.id])
-                      }
+                        setOpenId(null)
+                      }}
                     >
                       حذف از اخیر
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </li>
             )
           })}
@@ -291,7 +328,7 @@ export function RecentItemsHub() {
 
       <Separator className="my-10" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">اشتراک لیست اخیر</CardTitle>
           <CardDescription>
@@ -314,7 +351,7 @@ export function RecentItemsHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال لینک

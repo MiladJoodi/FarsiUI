@@ -69,7 +69,7 @@ export function MobileNavShowcase() {
                 <div className="flex items-center gap-3">
                   <Avatar className="size-10">
                     <AvatarImage src="/avatars/01.png" alt="مریم رضایی" />
-                    <AvatarFallback>مر</AvatarFallback>
+                    <AvatarFallback>م‌ر</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium">مریم رضایی</p>

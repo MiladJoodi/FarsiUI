@@ -27,7 +27,7 @@ export function AvatarUploadSimple() {
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-4">
           <Avatar className="size-24">
-            <AvatarFallback className="text-2xl">مر</AvatarFallback>
+            <AvatarFallback className="text-2xl">م‌ر</AvatarFallback>
           </Avatar>
           <Button variant="outline" className="relative">
             انتخاب تصویر

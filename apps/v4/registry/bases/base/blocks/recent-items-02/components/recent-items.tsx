@@ -1,6 +1,5 @@
 import { FileIcon, FolderIcon, LayoutDashboardIcon } from "lucide-react"
 
-import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
   CardDescription,
@@ -67,24 +66,31 @@ export function RecentItemsCards() {
         {ITEMS.map((item) => {
           const Icon = ICONS[item.kind]
           return (
-            <Card key={item.path}>
+            <Card key={item.path} className="bg-card">
               <CardHeader className="flex flex-row items-start gap-3 space-y-0 text-start">
                 <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border bg-muted/40">
                   <Icon className="size-4 text-muted-foreground" />
                 </div>
                 <div className="min-w-0 flex-1 space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <CardTitle className="text-base">{item.title}</CardTitle>
-                    <Badge variant="outline">{item.opened}</Badge>
+                  <div className="flex items-start justify-between gap-3">
+                    <CardTitle className="text-base leading-snug">
+                      {item.title}
+                    </CardTitle>
+                    <span className="shrink-0 text-xs text-muted-foreground">
+                      {item.opened}
+                    </span>
                   </div>
                   <CardDescription>
-                    <span dir="ltr" className="inline-block text-start font-mono text-xs">
+                    <span
+                      dir="ltr"
+                      className="block text-left font-mono text-xs tracking-normal"
+                    >
                       {item.path}
                     </span>
                   </CardDescription>
                   <p className="text-xs text-muted-foreground">
                     {item.owner} ·{" "}
-                    <span dir="ltr" className="inline-block text-start">
+                    <span dir="ltr" className="inline-block text-left tracking-normal">
                       {item.email}
                     </span>
                   </p>

@@ -63,7 +63,7 @@ const INITIAL: User[] = [
     role: "مدیر",
     status: "فعال",
     joined: "۱۴۰۳/۱۱/۰۲",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
@@ -72,7 +72,7 @@ const INITIAL: User[] = [
     role: "ویرایشگر",
     status: "فعال",
     joined: "۱۴۰۵/۰۱/۱۵",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -81,7 +81,7 @@ const INITIAL: User[] = [
     role: "مشاهده‌گر",
     status: "دعوت‌شده",
     joined: "۱۴۰۵/۰۶/۰۱",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "4",
@@ -90,7 +90,7 @@ const INITIAL: User[] = [
     role: "ویرایشگر",
     status: "معلق",
     joined: "۱۴۰۳/۰۴/۰۹",
-    initials: "رن",
+    initials: "ر‌ن",
   },
   {
     id: "5",
@@ -99,7 +99,7 @@ const INITIAL: User[] = [
     role: "مدیر",
     status: "فعال",
     joined: "۱۴۰۲/۰۸/۲۰",
-    initials: "نا",
+    initials: "ن‌ا",
   },
   {
     id: "6",
@@ -108,7 +108,7 @@ const INITIAL: User[] = [
     role: "مشاهده‌گر",
     status: "دعوت‌شده",
     joined: "۱۴۰۵/۰۷/۰۱",
-    initials: "هک",
+    initials: "ه‌ک",
   },
   {
     id: "7",
@@ -117,7 +117,7 @@ const INITIAL: User[] = [
     role: "ویرایشگر",
     status: "فعال",
     joined: "۱۴۰۳/۰۹/۲۸",
-    initials: "لم",
+    initials: "ل‌م",
   },
   {
     id: "8",
@@ -126,7 +126,7 @@ const INITIAL: User[] = [
     role: "مشاهده‌گر",
     status: "فعال",
     joined: "۱۴۰۵/۰۲/۱۲",
-    initials: "اح",
+    initials: "ا‌ح",
   },
 ]
 

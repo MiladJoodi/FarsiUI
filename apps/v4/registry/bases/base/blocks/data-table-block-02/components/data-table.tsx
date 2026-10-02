@@ -18,28 +18,28 @@ const ROWS = [
     email: "sara@example.com",
     role: "مدیر محصول",
     status: "فعال",
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     name: "علی رضایی",
     email: "ali@example.com",
     role: "طراح رابط",
     status: "در انتظار",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     name: "مینا کریمی",
     email: "mina@example.com",
     role: "توسعه‌دهنده",
     status: "فعال",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     name: "رضا نوری",
     email: "reza@example.com",
     role: "پشتیبانی",
     status: "غیرفعال",
-    initials: "رن",
+    initials: "ر‌ن",
   },
 ] as const
 

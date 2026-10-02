@@ -164,7 +164,7 @@ export function ConversationHub() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
                 alt="سارا"
               />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div className="min-w-0 flex-1">
               <p className="truncate font-semibold">پیگیری سفارش</p>

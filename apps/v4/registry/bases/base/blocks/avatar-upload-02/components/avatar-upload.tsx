@@ -79,7 +79,7 @@ export function AvatarUploadProgress() {
           <div className="relative">
             <Avatar className="size-28">
               {preview ? <AvatarImage src={preview} alt="پروفایل" /> : null}
-              <AvatarFallback className="text-2xl">مر</AvatarFallback>
+              <AvatarFallback className="text-2xl">م‌ر</AvatarFallback>
             </Avatar>
             <Button
               type="button"

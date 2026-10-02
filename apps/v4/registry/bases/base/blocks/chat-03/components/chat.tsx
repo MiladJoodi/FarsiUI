@@ -29,7 +29,7 @@ const THREADS = [
     preview: "مرسی، عالی شد.",
     time: "۱۰:۲۷",
     unread: 2,
-    initials: "سم",
+    initials: "س‌م",
   },
   {
     id: "2",
@@ -37,7 +37,7 @@ const THREADS = [
     preview: "فاکتور رو فرستادم",
     time: "دیروز",
     unread: 0,
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -45,7 +45,7 @@ const THREADS = [
     preview: "فردا جلسه داریم؟",
     time: "دوشنبه",
     unread: 1,
-    initials: "مک",
+    initials: "م‌ک",
   },
 ] as const
 
@@ -143,7 +143,7 @@ export function ChatSplit() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
                 alt="سارا محمدی"
               />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold">سارا محمدی</p>

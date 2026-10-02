@@ -61,7 +61,7 @@ const INITIAL: Msg[] = [
     unread: true,
     starred: false,
     folder: "inbox",
-    initials: "سم",
+    initials: "س‌م",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
   },
@@ -74,7 +74,7 @@ const INITIAL: Msg[] = [
     unread: false,
     starred: true,
     folder: "inbox",
-    initials: "عر",
+    initials: "ع‌ر",
   },
   {
     id: "3",
@@ -85,7 +85,7 @@ const INITIAL: Msg[] = [
     unread: true,
     starred: false,
     folder: "starred",
-    initials: "مک",
+    initials: "م‌ک",
   },
   {
     id: "4",
@@ -96,7 +96,7 @@ const INITIAL: Msg[] = [
     unread: false,
     starred: false,
     folder: "archive",
-    initials: "پش",
+    initials: "پ‌ش",
   },
   {
     id: "5",
@@ -107,7 +107,7 @@ const INITIAL: Msg[] = [
     unread: false,
     starred: false,
     folder: "inbox",
-    initials: "رک",
+    initials: "ر‌ک",
   },
 ]
 

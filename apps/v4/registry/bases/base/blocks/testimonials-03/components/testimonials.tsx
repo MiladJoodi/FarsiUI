@@ -51,7 +51,7 @@ export function TestimonialsFeatured() {
             <div className="flex items-center gap-3">
               <Avatar className="size-11">
                 <AvatarImage src="/avatars/07.png" alt="آزاده نوری" />
-                <AvatarFallback>آن</AvatarFallback>
+                <AvatarFallback>آ‌ن</AvatarFallback>
               </Avatar>
               <div className="text-sm">
                 <p className="font-medium">آزاده نوری</p>

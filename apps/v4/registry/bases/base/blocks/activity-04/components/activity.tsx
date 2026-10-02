@@ -10,13 +10,10 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 
 const GROUPS = [
   {
@@ -28,7 +25,7 @@ const GROUPS = [
         email: "sara@example.com",
         time: "۱۰:۲۴",
         unread: true,
-        initials: "سم",
+        initials: "س‌م",
       },
       {
         id: "a2",
@@ -49,7 +46,7 @@ const GROUPS = [
         email: "ali@example.com",
         time: "۱۸:۴۰",
         unread: false,
-        initials: "عر",
+        initials: "ع‌ر",
       },
       {
         id: "a4",
@@ -70,7 +67,7 @@ const GROUPS = [
         email: "mina@example.com",
         time: "دوشنبه",
         unread: false,
-        initials: "مک",
+        initials: "م‌ک",
       },
     ],
   },
@@ -79,6 +76,7 @@ const GROUPS = [
 export function ActivityGrouped() {
   const [hidden, setHidden] = React.useState<string[]>([])
   const [read, setRead] = React.useState<string[]>([])
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   return (
     <section
@@ -87,7 +85,9 @@ export function ActivityGrouped() {
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <div className="mb-6">
-        <h2 className="text-2xl font-bold tracking-tight">فعالیت‌های گروه‌بندی‌شده</h2>
+        <h2 className="text-2xl font-bold tracking-tight">
+          فعالیت‌های گروه‌بندی‌شده
+        </h2>
         <p className="mt-1 text-sm text-muted-foreground">
           بر اساس روز؛ منوی عملیات راست‌چین
         </p>
@@ -95,14 +95,16 @@ export function ActivityGrouped() {
 
       <div className="space-y-8">
         {GROUPS.map((group) => {
-          const visible = group.items.filter((item) => !hidden.includes(item.id))
+          const visible = group.items.filter(
+            (item) => !hidden.includes(item.id)
+          )
           if (visible.length === 0) return null
           return (
             <div key={group.day}>
-              <h3 className="mb-3 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+              <h3 className="mb-3 text-xs font-medium tracking-wide text-muted-foreground">
                 {group.day}
               </h3>
-              <div className="divide-y rounded-xl border">
+              <div className="divide-y overflow-hidden rounded-xl border bg-card">
                 {visible.map((item) => {
                   const isUnread = item.unread && !read.includes(item.id)
                   return (
@@ -110,33 +112,42 @@ export function ActivityGrouped() {
                       key={item.id}
                       className="flex items-start gap-3 p-4"
                     >
-                      <Avatar className="size-9">
+                      <Avatar className="mt-0.5 size-9 shrink-0">
                         <AvatarFallback>{item.initials}</AvatarFallback>
                       </Avatar>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <p
-                            className={`text-sm ${isUnread ? "font-semibold" : "font-medium"}`}
+                            className={`text-sm leading-snug ${isUnread ? "font-semibold" : "font-medium"}`}
                           >
                             {item.title}
                           </p>
                           {isUnread && (
-                            <Badge variant="default" className="shrink-0">
+                            <Badge variant="outline" className="shrink-0 border">
                               خوانده‌نشده
                             </Badge>
                           )}
                         </div>
                         <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                          <span dir="ltr" className="inline-block text-start">
+                          <span
+                            dir="ltr"
+                            className="block text-left tracking-normal"
+                          >
                             {item.email}
                           </span>
-                          <bdi dir="ltr">{item.time}</bdi>
+                          <span className="tracking-normal">{item.time}</span>
                         </div>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                      <Popover
+                        open={openId === item.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? item.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
                             <Button
+                              type="button"
                               variant="ghost"
                               size="icon"
                               className="size-8 shrink-0"
@@ -145,36 +156,44 @@ export function ActivityGrouped() {
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">منوی عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="end"
-                          className="w-40"
+                          className="w-40 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            onClick={() =>
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => {
                               setRead((prev) =>
                                 prev.includes(item.id)
                                   ? prev
                                   : [...prev, item.id]
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             علامت خوانده‌شده
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() =>
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => {
                               setHidden((prev) => [...prev, item.id])
-                            }
-                            variant="destructive"
+                              setOpenId(null)
+                            }}
                           >
                             پنهان کردن
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   )
                 })}

@@ -17,7 +17,7 @@ export function TestimonialsSimple() {
         <figcaption className="mt-8 flex flex-col items-center gap-3">
           <Avatar className="size-12">
             <AvatarImage src="/avatars/01.png" alt="مریم رضایی" />
-            <AvatarFallback>مر</AvatarFallback>
+            <AvatarFallback>م‌ر</AvatarFallback>
           </Avatar>
           <div className="text-sm">
             <p className="font-medium">مریم رضایی</p>

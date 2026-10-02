@@ -46,7 +46,7 @@ export function PersonalInfoForm({
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Avatar className="size-16">
               <AvatarImage src="https://github.com/shadcn.png" alt="پروفایل" />
-              <AvatarFallback>سم</AvatarFallback>
+              <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
             <div className="flex flex-wrap gap-2">
               <Button type="button" variant="outline" size="sm">
