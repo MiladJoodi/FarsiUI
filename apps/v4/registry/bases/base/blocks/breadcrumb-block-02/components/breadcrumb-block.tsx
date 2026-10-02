@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,6 +11,10 @@ import {
   BreadcrumbSeparator,
 } from "@/registry/bases/base/ui/breadcrumb"
 
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function BreadcrumbWithTitle() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
@@ -17,11 +23,15 @@ export function BreadcrumbWithTitle() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={demoNavClick}>
+                  خانه
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">پروژه‌ها</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={demoNavClick}>
+                  پروژه‌ها
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>

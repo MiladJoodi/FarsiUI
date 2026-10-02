@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react"
@@ -218,12 +218,12 @@ export function ContactHub() {
               </div>
               <div className="grid gap-3">
                 <a
-                  href="mailto:hello@farsiui.dev"
+                  href="mailto:info@farsiui.ir"
                   className="flex items-center gap-3 rounded-xl border bg-card p-4 text-sm hover:bg-muted/40"
                 >
                   <MailIcon className="size-4 shrink-0 text-muted-foreground" />
                   <span dir="ltr" className="font-medium tracking-normal [letter-spacing:0]">
-                    hello@farsiui.dev
+                    info@farsiui.ir
                   </span>
                 </a>
                 <div className="flex items-center gap-3 rounded-xl border bg-card p-4 text-sm">

@@ -45,9 +45,9 @@ export function VersionSwitcher({
                 className="size-4"
               />
             </div>
-            <div className="flex flex-col gap-0.5 leading-none">
+            <div className="flex flex-col gap-0.5 leading-none text-start">
               <span className="font-medium">مستندات</span>
-              <span className="">نسخه {selectedVersion}</span>
+              <span>{selectedVersion}</span>
             </div>
             <IconPlaceholder
               lucide="ChevronsUpDownIcon"
@@ -58,13 +58,21 @@ export function VersionSwitcher({
               className="ms-auto"
             />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" dir="rtl">
+          <DropdownMenuContent
+            align="start"
+            dir="rtl"
+            lang="fa"
+            className="w-56"
+          >
             {versions.map((version) => (
               <DropdownMenuItem
                 key={version}
-                onSelect={() => setSelectedVersion(version)}
+                onSelect={(e) => {
+                  e.preventDefault()
+                  setSelectedVersion(version)
+                }}
               >
-                v{version}{" "}
+                {version}
                 {version === selectedVersion && (
                   <IconPlaceholder
                     lucide="CheckIcon"

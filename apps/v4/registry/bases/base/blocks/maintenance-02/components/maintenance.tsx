@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { BellIcon, ConstructionIcon, MailIcon } from "lucide-react"
 
@@ -64,7 +64,7 @@ export function MaintenanceCard() {
         <CardFooter className="justify-center border-t text-xs text-muted-foreground">
           وضعیت زنده:{" "}
           <bdi dir="ltr" className="mx-1">
-            status.farsiui.dev
+            status.farsiui.ir
           </bdi>
         </CardFooter>
       </Card>

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { MoreHorizontalIcon } from "lucide-react"
@@ -33,7 +33,7 @@ const GROUPS = [
       {
         id: "a2",
         title: "یادآوری: بررسی PR داشبورد",
-        email: "bot@farsiui.dev",
+        email: "bot@farsiui.ir",
         time: "۰۹:۰۵",
         unread: true,
         initials: "ب",

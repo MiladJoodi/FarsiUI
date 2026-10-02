@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   BookOpenIcon,
   HomeIcon,
@@ -27,13 +28,18 @@ const ITEMS = [
 ] as const
 
 export function MobileNavIcons() {
+  const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
+
   return (
     <div
       dir="rtl"
       lang="fa"
       className="flex min-h-svh items-center justify-center bg-muted/40 p-6"
     >
-      <div className="flex h-[34rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm">
+      <div
+        ref={setFrame}
+        className="relative flex h-[34rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm"
+      >
         <header className="flex h-14 items-center justify-between border-b px-4">
           <span className="text-sm font-bold">FarsiUI</span>
           <Drawer>
@@ -44,7 +50,11 @@ export function MobileNavIcons() {
             >
               <MenuIcon className="size-4" />
             </DrawerTrigger>
-            <DrawerContent dir="rtl" lang="fa">
+            <DrawerContent
+              container={frame}
+              dir="rtl"
+              lang="fa"
+            >
               <DrawerHeader>
                 <DrawerTitle>دسترسی سریع</DrawerTitle>
               </DrawerHeader>

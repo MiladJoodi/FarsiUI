@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-12/components/app-sidebar"
+﻿import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-12/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,8 +14,9 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider dir="rtl" lang="fa">
-      <AppSidebar />
+    <div dir="rtl" lang="fa" className="min-h-svh">
+      <SidebarProvider>
+      <AppSidebar side="right" />
       <SidebarInset>
         <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
           <SidebarTrigger className="-ms-1" />
@@ -40,5 +41,6 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
+    </div>
   )
 }

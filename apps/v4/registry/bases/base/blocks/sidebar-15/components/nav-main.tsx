@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   SidebarMenu,
@@ -22,7 +22,7 @@ export function NavMain({
         <SidebarMenuItem key={item.title}>
           <SidebarMenuButton
             isActive={item.isActive}
-            render={<a href={item.url} />}
+            render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}
           >
             {item.icon}
             <span>{item.title}</span>

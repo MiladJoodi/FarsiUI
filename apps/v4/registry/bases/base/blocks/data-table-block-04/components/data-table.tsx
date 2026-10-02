@@ -5,14 +5,13 @@ import { Columns3Icon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
+import { Checkbox } from "@/registry/bases/base/ui/checkbox"
+import { Label } from "@/registry/bases/base/ui/label"
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -31,56 +30,56 @@ import {
 
 const ROWS = [
   {
-    id: "ORD-۱۲۰۱",
+    id: "۱۲۰۱",
     customer: "سارا محمدی",
     email: "sara@example.com",
     amount: "۴٬۲۰۰٬۰۰۰",
     status: "پرداخت‌شده",
   },
   {
-    id: "ORD-۱۲۰۲",
+    id: "۱۲۰۲",
     customer: "علی رضایی",
     email: "ali@example.com",
     amount: "۱٬۱۵۰٬۰۰۰",
     status: "در انتظار",
   },
   {
-    id: "ORD-۱۲۰۳",
+    id: "۱۲۰۳",
     customer: "مینا کریمی",
     email: "mina@example.com",
     amount: "۸٬۹۰۰٬۰۰۰",
     status: "پرداخت‌شده",
   },
   {
-    id: "ORD-۱۲۰۴",
+    id: "۱۲۰۴",
     customer: "رضا نوری",
     email: "reza@example.com",
     amount: "۶۵۰٬۰۰۰",
     status: "لغو شده",
   },
   {
-    id: "ORD-۱۲۰۵",
+    id: "۱۲۰۵",
     customer: "نگار احمدی",
     email: "negar@example.com",
     amount: "۳٬۳۰۰٬۰۰۰",
     status: "پرداخت‌شده",
   },
   {
-    id: "ORD-۱۲۰۶",
+    id: "۱۲۰۶",
     customer: "حسین کاظمی",
     email: "hossein@example.com",
     amount: "۲٬۷۵۰٬۰۰۰",
     status: "در انتظار",
   },
   {
-    id: "ORD-۱۲۰۷",
+    id: "۱۲۰۷",
     customer: "لیلا موسوی",
     email: "leila@example.com",
     amount: "۵٬۱۰۰٬۰۰۰",
     status: "پرداخت‌شده",
   },
   {
-    id: "ORD-۱۲۰۸",
+    id: "۱۲۰۸",
     customer: "امیر حسینی",
     email: "amir@example.com",
     amount: "۹۸۰٬۰۰۰",
@@ -98,9 +97,20 @@ const COL_LABELS: Record<ColKey, string> = {
   status: "وضعیت",
 }
 
+const PAGE_SIZE_ITEMS = [
+  { value: "۳", label: "۳ ردیف", size: 3 },
+  { value: "۵", label: "۵ ردیف", size: 5 },
+  { value: "۸", label: "۸ ردیف", size: 8 },
+] as const
+
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 export function DataTablePaginated() {
-  const [pageSize, setPageSize] = React.useState("5")
+  const [pageSize, setPageSize] = React.useState("۵")
   const [page, setPage] = React.useState(0)
+  const [colsOpen, setColsOpen] = React.useState(false)
   const [visible, setVisible] = React.useState<Record<ColKey, boolean>>({
     id: true,
     customer: true,
@@ -109,7 +119,8 @@ export function DataTablePaginated() {
     status: true,
   })
 
-  const size = Number(pageSize)
+  const size =
+    PAGE_SIZE_ITEMS.find((item) => item.value === pageSize)?.size ?? 5
   const pageCount = Math.max(1, Math.ceil(ROWS.length / size))
   const safePage = Math.min(page, pageCount - 1)
   const slice = ROWS.slice(safePage * size, safePage * size + size)
@@ -132,46 +143,66 @@ export function DataTablePaginated() {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
+          <Popover open={colsOpen} onOpenChange={setColsOpen}>
+            <PopoverTrigger
+              render={
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                />
+              }
             >
               <Columns3Icon className="size-4" />
               ستون‌ها
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>نمایش ستون</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="end"
+              className="w-44 space-y-3 p-3"
+            >
+              <p className="text-sm font-medium">نمایش ستون</p>
               {(Object.keys(COL_LABELS) as ColKey[]).map((key) => (
-                <DropdownMenuCheckboxItem
-                  key={key}
-                  checked={visible[key]}
-                  onCheckedChange={(checked) =>
-                    setVisible((prev) => ({ ...prev, [key]: !!checked }))
-                  }
-                >
-                  {COL_LABELS[key]}
-                </DropdownMenuCheckboxItem>
+                <div key={key} className="flex items-center gap-2">
+                  <Checkbox
+                    id={`col-${key}`}
+                    checked={visible[key]}
+                    onCheckedChange={(checked) =>
+                      setVisible((prev) => ({ ...prev, [key]: !!checked }))
+                    }
+                  />
+                  <Label htmlFor={`col-${key}`} className="font-normal">
+                    {COL_LABELS[key]}
+                  </Label>
+                </div>
               ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverContent>
+          </Popover>
           <Select
+            items={[...PAGE_SIZE_ITEMS]}
             value={pageSize}
-            onValueChange={(value) => setPageSize((value as string) ?? "5")}
+            onValueChange={(value) => {
+              if (PAGE_SIZE_ITEMS.some((item) => item.value === value)) {
+                setPageSize(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="تعداد ردیف" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="3">۳ ردیف</SelectItem>
-              <SelectItem value="5">۵ ردیف</SelectItem>
-              <SelectItem value="8">۸ ردیف</SelectItem>
+              {PAGE_SIZE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -194,31 +225,32 @@ export function DataTablePaginated() {
             {slice.map((row) => (
               <TableRow key={row.id}>
                 {visible.id && (
-                  <TableCell>
-                    <bdi dir="ltr" className="font-mono text-xs">
-                      {row.id}
-                    </bdi>
+                  <TableCell className="text-start tracking-normal">
+                    {row.id}
                   </TableCell>
                 )}
                 {visible.customer && (
-                  <TableCell className="font-medium">{row.customer}</TableCell>
+                  <TableCell className="text-start font-medium">
+                    {row.customer}
+                  </TableCell>
                 )}
                 {visible.email && (
                   <TableCell>
-                    <span dir="ltr" className="inline-block text-start text-sm">
+                    <span
+                      dir="ltr"
+                      className="block text-left text-sm tracking-normal"
+                    >
                       {row.email}
                     </span>
                   </TableCell>
                 )}
                 {visible.amount && (
-                  <TableCell>
-                    <bdi dir="ltr" className="tabular-nums">
-                      {row.amount}
-                    </bdi>
+                  <TableCell className="text-start tracking-normal">
+                    {row.amount}
                   </TableCell>
                 )}
                 {visible.status && (
-                  <TableCell>
+                  <TableCell className="text-start">
                     <Badge variant="secondary">{row.status}</Badge>
                   </TableCell>
                 )}
@@ -230,12 +262,11 @@ export function DataTablePaginated() {
 
       <div className="mt-4 flex items-center justify-between gap-3">
         <p className="text-sm text-muted-foreground">
-          صفحه{" "}
-          <bdi dir="ltr">{safePage + 1}</bdi> از{" "}
-          <bdi dir="ltr">{pageCount}</bdi>
+          صفحه {toFa(safePage + 1)} از {toFa(pageCount)}
         </p>
         <div className="flex gap-2">
           <Button
+            type="button"
             variant="outline"
             size="sm"
             disabled={safePage === 0}
@@ -244,6 +275,7 @@ export function DataTablePaginated() {
             قبلی
           </Button>
           <Button
+            type="button"
             variant="outline"
             size="sm"
             disabled={safePage >= pageCount - 1}

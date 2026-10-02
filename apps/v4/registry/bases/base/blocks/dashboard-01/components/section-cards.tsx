@@ -1,5 +1,7 @@
 "use client"
 
+import type * as React from "react"
+
 import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
@@ -11,16 +13,25 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
+function StatValue({ children }: { children: React.ReactNode }) {
+  return (
+    <bdi
+      dir="ltr"
+      className="inline-block tracking-normal [letter-spacing:0] [font-variant-numeric:lining-nums]"
+    >
+      {children}
+    </bdi>
+  )
+}
+
 export function SectionCards() {
   return (
     <div className="grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>درآمد کل</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            <bdi dir="ltr" className="inline-block tracking-normal [letter-spacing:0]">
-              ۱۲۵٬۰۰۰٬۰۰۰
-            </bdi>
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۱۲۵٬۰۰۰٬۰۰۰</StatValue>
             <span className="ms-1 text-sm font-normal text-muted-foreground">
               تومان
             </span>
@@ -56,8 +67,8 @@ export function SectionCards() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>مشتریان جدید</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            ۱٬۲۳۴
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۱٬۲۳۴</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -90,8 +101,8 @@ export function SectionCards() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>حساب‌های فعال</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            ۴۵٬۶۷۸
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۴۵٬۶۷۸</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -124,8 +135,8 @@ export function SectionCards() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>نرخ رشد</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            ٪۴٫۵
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>٪۴٫۵</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">

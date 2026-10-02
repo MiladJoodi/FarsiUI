@@ -13,15 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import {
@@ -78,22 +69,33 @@ const METRICS = [
   },
 ] as const
 
-type SortKey = "name" | "progress" | "category"
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "مالی", label: "مالی" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+  { value: "فنی", label: "فنی" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  name: "نام",
-  progress: "پیشرفت",
-  category: "دسته",
+const SORT_ITEMS = [
+  { value: "نام", label: "نام" },
+  { value: "پیشرفت", label: "پیشرفت" },
+  { value: "دسته", label: "دسته" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
 export function DashboardStatsHub() {
   const [query, setQuery] = React.useState("")
-  const [category, setCategory] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("name")
+  const [category, setCategory] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("نام")
 
   const filtered = React.useMemo(() => {
     let list = METRICS.filter((item) => {
-      const matchCat = category === "all" || item.category === category
+      const matchCat = category === "همه" || item.category === category
       const matchQuery =
         !query ||
         item.name.includes(query) ||
@@ -101,8 +103,9 @@ export function DashboardStatsHub() {
       return matchCat && matchQuery
     })
     list = [...list].sort((a, b) => {
-      if (sort === "progress") return b.progress - a.progress
-      return a[sort].localeCompare(b[sort], "fa")
+      if (sort === "پیشرفت") return b.progress - a.progress
+      if (sort === "دسته") return a.category.localeCompare(b.category, "fa")
+      return a.name.localeCompare(b.name, "fa")
     })
     return list
   }, [query, category, sort])
@@ -136,40 +139,41 @@ export function DashboardStatsHub() {
             />
           </div>
           <Select
+            items={[...CATEGORY_ITEMS]}
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (typeof value === "string") setCategory(value)
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
               <SelectValue placeholder="دسته" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="مالی">مالی</SelectItem>
-              <SelectItem value="پشتیبانی">پشتیبانی</SelectItem>
-              <SelectItem value="فنی">فنی</SelectItem>
+              {CATEGORY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "name")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (typeof value === "string") setSort(value as SortKey)
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -195,7 +199,7 @@ export function DashboardStatsHub() {
                 <div className="w-full space-y-1 sm:max-w-48">
                   <Progress value={item.progress} />
                   <p className="text-xs text-muted-foreground">
-                    <StatNumber value={`${item.progress}٪`} /> نسبت به هدف
+                    <StatNumber value={`٪${toFa(item.progress)}`} /> نسبت به هدف
                   </p>
                 </div>
               </CardHeader>
@@ -227,7 +231,7 @@ export function DashboardStatsHub() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start sm:flex-1"
             />

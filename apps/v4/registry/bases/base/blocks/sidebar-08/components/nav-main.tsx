@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   Collapsible,
@@ -44,7 +44,7 @@ export function NavMain({
           >
             <SidebarMenuButton
               tooltip={item.title}
-              render={<a href={item.url} />}
+              render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}
             >
               {item.icon}
               <span>{item.title}</span>
@@ -69,7 +69,7 @@ export function NavMain({
                   <SidebarMenuSub>
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton render={<a href={subItem.url} />}>
+                        <SidebarMenuSubButton render={<a href={subItem.url} onClick={(e) => { if (subItem.url === "#") e.preventDefault() }} />}>
                           <span>{subItem.title}</span>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>

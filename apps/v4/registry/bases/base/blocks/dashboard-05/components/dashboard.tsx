@@ -12,15 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import {
   Select,
@@ -39,22 +30,29 @@ const ROWS = [
   { title: "آموزش تیم", owner: "هستی احمدی", status: "فعال", amount: "۴٬۸۰۰٬۰۰۰" },
 ] as const
 
-type SortKey = "title" | "amount" | "status"
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "فعال", label: "فعال" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "بسته", label: "بسته" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  title: "عنوان",
-  amount: "مبلغ",
-  status: "وضعیت",
-}
+const SORT_ITEMS = [
+  { value: "عنوان", label: "عنوان" },
+  { value: "مبلغ", label: "مبلغ" },
+  { value: "وضعیت", label: "وضعیت" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function DashboardOps() {
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("title")
+  const [status, setStatus] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("عنوان")
 
   const filtered = React.useMemo(() => {
     let list = ROWS.filter((row) => {
-      const matchStatus = status === "all" || row.status === status
+      const matchStatus = status === "همه" || row.status === status
       const matchQuery =
         !query ||
         row.title.includes(query) ||
@@ -62,7 +60,9 @@ export function DashboardOps() {
         row.status.includes(query)
       return matchStatus && matchQuery
     })
-    list = [...list].sort((a, b) => a[sort].localeCompare(b[sort], "fa"))
+    const key =
+      sort === "عنوان" ? "title" : sort === "مبلغ" ? "amount" : "status"
+    list = [...list].sort((a, b) => a[key].localeCompare(b[key], "fa"))
     return list
   }, [query, status, sort])
 
@@ -94,40 +94,41 @@ export function DashboardOps() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (typeof value === "string") setStatus(value)
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
               <SelectValue placeholder="وضعیت" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="فعال">فعال</SelectItem>
-              <SelectItem value="در انتظار">در انتظار</SelectItem>
-              <SelectItem value="بسته">بسته</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "title")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (typeof value === "string") setSort(value as SortKey)
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -155,7 +156,7 @@ export function DashboardOps() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Badge variant="outline">{row.status}</Badge>
-                  <span className="tabular-nums text-sm font-medium">
+                  <span className="text-sm font-medium">
                     <bdi
                       dir="ltr"
                       className="inline-block tracking-normal [letter-spacing:0]"
@@ -194,7 +195,7 @@ export function DashboardOps() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start sm:flex-1"
             />

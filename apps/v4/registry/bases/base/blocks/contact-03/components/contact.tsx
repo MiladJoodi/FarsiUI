@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -33,7 +33,7 @@ export function ContactSplit() {
             <div>
               <p className="text-muted-foreground">ایمیل</p>
               <p dir="ltr" className="mt-1 font-medium tracking-normal [letter-spacing:0]">
-                hello@farsiui.dev
+                info@farsiui.ir
               </p>
             </div>
             <div>

@@ -28,7 +28,7 @@ import {
 } from "@/registry/bases/base/ui/table"
 
 const DATA = {
-  today: {
+  امروز: {
     hero: "۱۸٬۴۰۰٬۰۰۰",
     label: "درآمد",
     rows: [
@@ -37,7 +37,7 @@ const DATA = {
       { channel: "نمایندگی", value: "۳٬۷۰۰٬۰۰۰", share: "٪۲۰" },
     ],
   },
-  week: {
+  هفته: {
     hero: "۹۶٬۰۰۰٬۰۰۰",
     label: "درآمد",
     rows: [
@@ -46,7 +46,7 @@ const DATA = {
       { channel: "نمایندگی", value: "۱۹٬۲۰۰٬۰۰۰", share: "٪۲۰" },
     ],
   },
-  month: {
+  ماه: {
     hero: "۴۲۰٬۰۰۰٬۰۰۰",
     label: "درآمد",
     rows: [
@@ -59,8 +59,13 @@ const DATA = {
 
 type Period = keyof typeof DATA
 
+const PERIOD_ITEMS = (Object.keys(DATA) as Period[]).map((key) => ({
+  value: key,
+  label: key,
+}))
+
 export function DashboardStatsPeriod() {
-  const [period, setPeriod] = React.useState<Period>("week")
+  const [period, setPeriod] = React.useState<Period>("هفته")
   const current = DATA[period]
 
   return (
@@ -80,16 +85,21 @@ export function DashboardStatsPeriod() {
           </p>
         </div>
         <Select
+          items={PERIOD_ITEMS}
           value={period}
-          onValueChange={(value) => setPeriod((value as Period) ?? "week")}
+          onValueChange={(value) => {
+            if (value && value in DATA) setPeriod(value as Period)
+          }}
         >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="بازه" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="today">امروز</SelectItem>
-            <SelectItem value="week">هفته</SelectItem>
-            <SelectItem value="month">ماه</SelectItem>
+            {PERIOD_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>

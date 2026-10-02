@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   Avatar,
@@ -47,7 +47,7 @@ export function NavUser({
             </Avatar>
             <div className="grid flex-1 text-start text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs" dir="ltr">
+              <span className="justify-self-start truncate text-xs" dir="ltr">
                 {user.email}
               </span>
             </div>
@@ -76,7 +76,7 @@ export function NavUser({
                   </Avatar>
                   <div className="grid flex-1 text-start text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
-                    <span className="truncate text-xs" dir="ltr">
+                    <span className="justify-self-start truncate text-xs" dir="ltr">
                       {user.email}
                     </span>
                   </div>

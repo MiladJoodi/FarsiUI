@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { MenuIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -20,13 +21,18 @@ const LINKS = [
 ] as const
 
 export function MobileNavSheet() {
+  const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
+
   return (
     <div
       dir="rtl"
       lang="fa"
       className="flex min-h-svh items-center justify-center bg-muted/40 p-6"
     >
-      <div className="flex h-[34rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm">
+      <div
+        ref={setFrame}
+        className="relative flex h-[34rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm"
+      >
         <header className="flex h-14 items-center gap-3 border-b px-4">
           <Sheet>
             <SheetTrigger
@@ -37,6 +43,7 @@ export function MobileNavSheet() {
               <MenuIcon className="size-4" />
             </SheetTrigger>
             <SheetContent
+              container={frame}
               side="right"
               className="w-[min(100%,18rem)]"
               dir="rtl"

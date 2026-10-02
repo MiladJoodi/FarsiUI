@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-14/components/app-sidebar"
+﻿import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-14/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,14 +15,15 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider dir="rtl" lang="fa">
+    <div dir="rtl" lang="fa" className="min-h-svh">
+      <SidebarProvider>
       <AppSidebar side="right" />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">ساخت اپلیکیشن</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={(e) => e.preventDefault()}>ساخت اپلیکیشن</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
@@ -42,5 +43,6 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
+    </div>
   )
 }

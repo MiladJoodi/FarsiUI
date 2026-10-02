@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { MoreHorizontalIcon, SearchIcon } from "lucide-react"
@@ -61,7 +61,7 @@ const ITEMS = [
     id: "3",
     actor: "سیستم",
     title: "هشدار امنیتی: ورود از IP جدید",
-    email: "security@farsiui.dev",
+    email: "security@farsiui.ir",
     channel: "امنیت",
     time: "۲ ساعت پیش",
     unread: false,

@@ -15,45 +15,41 @@ import {
 import { cn } from "@/registry/bases/base/lib/utils"
 
 const FLOWS = {
-  onboard: {
-    label: "شروع محصول",
-    steps: [
-      { title: "ساخت حساب", desc: "نام و ایمیل سازمانی را وارد کنید." },
-      { title: "انتخاب تم", desc: "ظاهر روشن یا تیره را مشخص کنید." },
-      { title: "اولین بلاک", desc: "یک بخش Hero یا ورود اضافه کنید." },
-      { title: "انتشار استیج", desc: "لینک پیش‌نمایش را با تیم به اشتراک بگذارید." },
-    ],
-  },
-  support: {
-    label: "پشتیبانی",
-    steps: [
-      { title: "ثبت تیکت", desc: "موضوع و اولویت را انتخاب کنید." },
-      { title: "بررسی تیم", desc: "پشتیبان جزئیات را می‌خواند." },
-      { title: "پاسخ", desc: "راه‌حل یا درخواست اطلاعات بیشتر." },
-      { title: "بستن", desc: "تأیید شما تیکت را می‌بندد." },
-    ],
-  },
-  hire: {
-    label: "استخدام",
-    steps: [
-      { title: "ارسال رزومه", desc: "فرم شغلی را پر کنید." },
-      { title: "غربالگری", desc: "بررسی اولیهٔ مهارت‌ها." },
-      { title: "مصاحبه", desc: "جلسهٔ آنلاین با تیم." },
-      { title: "پیشنهاد", desc: "ارائهٔ پیشنهاد همکاری." },
-    ],
-  },
+  "شروع محصول": [
+    { title: "ساخت حساب", desc: "نام و ایمیل سازمانی را وارد کنید." },
+    { title: "انتخاب تم", desc: "ظاهر روشن یا تیره را مشخص کنید." },
+    { title: "اولین بلاک", desc: "یک بخش معرفی یا ورود اضافه کنید." },
+    { title: "انتشار پیش‌نمایش", desc: "لینک پیش‌نمایش را با تیم به اشتراک بگذارید." },
+  ],
+  پشتیبانی: [
+    { title: "ثبت تیکت", desc: "موضوع و اولویت را انتخاب کنید." },
+    { title: "بررسی تیم", desc: "پشتیبان جزئیات را می‌خواند." },
+    { title: "پاسخ", desc: "راه‌حل یا درخواست اطلاعات بیشتر." },
+    { title: "بستن", desc: "تأیید شما تیکت را می‌بندد." },
+  ],
+  استخدام: [
+    { title: "ارسال رزومه", desc: "فرم شغلی را پر کنید." },
+    { title: "غربالگری", desc: "بررسی اولیهٔ مهارت‌ها." },
+    { title: "مصاحبه", desc: "جلسهٔ آنلاین با تیم." },
+    { title: "پیشنهاد", desc: "ارائهٔ پیشنهاد همکاری." },
+  ],
 } as const
 
 type FlowKey = keyof typeof FLOWS
+
+const FLOW_ITEMS = (Object.keys(FLOWS) as FlowKey[]).map((key) => ({
+  value: key,
+  label: key,
+}))
 
 function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
 export function StepsInteractive() {
-  const [flow, setFlow] = React.useState<FlowKey>("onboard")
+  const [flow, setFlow] = React.useState<FlowKey>("شروع محصول")
   const [step, setStep] = React.useState(0)
-  const steps = FLOWS[flow].steps
+  const steps = FLOWS[flow]
 
   React.useEffect(() => {
     setStep(0)
@@ -73,16 +69,19 @@ export function StepsInteractive() {
           </p>
         </div>
         <Select
+          items={FLOW_ITEMS}
           value={flow}
-          onValueChange={(value) => setFlow((value as FlowKey) ?? "onboard")}
+          onValueChange={(value) => {
+            if (value && value in FLOWS) setFlow(value as FlowKey)
+          }}
         >
           <SelectTrigger className="w-full sm:w-44" dir="rtl">
             <SelectValue placeholder="نوع فرآیند" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            {(Object.keys(FLOWS) as FlowKey[]).map((key) => (
-              <SelectItem key={key} value={key}>
-                {FLOWS[key].label}
+            {FLOW_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
               </SelectItem>
             ))}
           </SelectContent>
@@ -94,7 +93,10 @@ export function StepsInteractive() {
           const done = i < step
           const current = i === step
           return (
-            <li key={item.title} className="flex flex-col items-center gap-2 text-center">
+            <li
+              key={item.title}
+              className="flex flex-col items-center gap-2 text-center"
+            >
               <button
                 type="button"
                 onClick={() => setStep(i)}
@@ -111,7 +113,9 @@ export function StepsInteractive() {
               <span
                 className={cn(
                   "hidden text-xs sm:block",
-                  current ? "font-medium text-foreground" : "text-muted-foreground"
+                  current
+                    ? "font-medium text-foreground"
+                    : "text-muted-foreground"
                 )}
               >
                 {item.title}
@@ -126,10 +130,12 @@ export function StepsInteractive() {
           <Badge variant="outline">
             مرحله {toFa(step + 1)} از {toFa(steps.length)}
           </Badge>
-          <Badge variant="secondary">{FLOWS[flow].label}</Badge>
+          <Badge variant="secondary">{flow}</Badge>
         </div>
-        <h3 className="text-xl font-bold tracking-tight">{steps[step]?.title}</h3>
-        <p className="mt-2 text-muted-foreground leading-relaxed">
+        <h3 className="text-xl font-bold tracking-tight">
+          {steps[step]?.title}
+        </h3>
+        <p className="mt-2 leading-relaxed text-muted-foreground">
           {steps[step]?.desc}
         </p>
         <div className="mt-8 flex flex-wrap gap-2">

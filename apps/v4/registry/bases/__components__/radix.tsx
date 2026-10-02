@@ -751,11 +751,6 @@ export const Components: Record<string, any> = {
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-07"
         return { default: mod.default || mod[exportName] }
       }),
-  "sidebar-08": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-08/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-08"
-        return { default: mod.default || mod[exportName] }
-      }),
   "sidebar-09": React.lazy(async () => {
         const mod = await import("@/registry/bases/radix/blocks/sidebar-09/page")
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-09"

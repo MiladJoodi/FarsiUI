@@ -16,10 +16,14 @@ const GOALS = [
   { label: "فعال‌سازی کاربر جدید", current: "٪۶۱", percent: 61 },
 ] as const
 
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 const KPIS = [
   { label: "جلسات امروز", value: "۴٬۸۲۰" },
-  { label: "خطای ۵xx", value: "۰٫۰۴٪" },
-  { label: "پینگ API", value: "۱۱۲ms" },
+  { label: "خطای سرور", value: "۰٫۰۴٪" },
+  { label: "تأخیر رابط", value: "۱۱۲ میلی‌ثانیه" },
 ] as const
 
 export function DashboardStatsGoals() {
@@ -72,7 +76,7 @@ export function DashboardStatsGoals() {
                 </div>
                 <Progress value={goal.percent} />
                 <p className="text-xs text-muted-foreground">
-                  <StatNumber value={`${goal.percent}٪`} /> تکمیل شده
+                    <StatNumber value={`٪${toFa(goal.percent)}`} /> تکمیل شده
                 </p>
               </div>
             ))}

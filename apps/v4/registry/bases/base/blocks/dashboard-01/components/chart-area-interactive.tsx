@@ -142,11 +142,11 @@ const chartConfig = {
 
 export function ChartAreaInteractive() {
   const isMobile = useIsMobile()
-  const [timeRange, setTimeRange] = React.useState("90d")
+  const [timeRange, setTimeRange] = React.useState("۹۰روز")
 
   React.useEffect(() => {
     if (isMobile) {
-      setTimeRange("7d")
+      setTimeRange("۷روز")
     }
   }, [isMobile])
 
@@ -154,15 +154,21 @@ export function ChartAreaInteractive() {
     const date = new Date(item.date)
     const referenceDate = new Date("2024-06-30")
     let daysToSubtract = 90
-    if (timeRange === "30d") {
+    if (timeRange === "۳۰روز") {
       daysToSubtract = 30
-    } else if (timeRange === "7d") {
+    } else if (timeRange === "۷روز") {
       daysToSubtract = 7
     }
     const startDate = new Date(referenceDate)
     startDate.setDate(startDate.getDate() - daysToSubtract)
     return date >= startDate
   })
+
+  const rangeItems = [
+    { value: "۹۰روز", label: "۳ ماه اخیر" },
+    { value: "۳۰روز", label: "۳۰ روز اخیر" },
+    { value: "۷روز", label: "۷ روز اخیر" },
+  ] as const
 
   return (
     <Card className="@container/card" dir="rtl" lang="fa">
@@ -179,22 +185,21 @@ export function ChartAreaInteractive() {
             multiple={false}
             value={timeRange ? [timeRange] : []}
             onValueChange={(value) => {
-              setTimeRange(value[0] ?? "90d")
+              setTimeRange(value[0] ?? "۹۰روز")
             }}
             variant="outline"
             className="hidden *:data-[slot=toggle-group-item]:px-4! @[767px]/card:flex"
             dir="rtl"
           >
-            <ToggleGroupItem value="90d">۳ ماه</ToggleGroupItem>
-            <ToggleGroupItem value="30d">۳۰ روز</ToggleGroupItem>
-            <ToggleGroupItem value="7d">۷ روز</ToggleGroupItem>
+            <ToggleGroupItem value="۹۰روز">۳ ماه</ToggleGroupItem>
+            <ToggleGroupItem value="۳۰روز">۳۰ روز</ToggleGroupItem>
+            <ToggleGroupItem value="۷روز">۷ روز</ToggleGroupItem>
           </ToggleGroup>
           <Select
+            items={[...rangeItems]}
             value={timeRange}
             onValueChange={(value) => {
-              if (value !== null) {
-                setTimeRange(value)
-              }
+              if (typeof value === "string") setTimeRange(value)
             }}
           >
             <SelectTrigger
@@ -206,15 +211,15 @@ export function ChartAreaInteractive() {
               <SelectValue placeholder="۳ ماه اخیر" />
             </SelectTrigger>
             <SelectContent className="rounded-xl" dir="rtl" lang="fa">
-              <SelectItem value="90d" className="rounded-lg">
-                ۳ ماه اخیر
-              </SelectItem>
-              <SelectItem value="30d" className="rounded-lg">
-                ۳۰ روز اخیر
-              </SelectItem>
-              <SelectItem value="7d" className="rounded-lg">
-                ۷ روز اخیر
-              </SelectItem>
+              {rangeItems.map((item) => (
+                <SelectItem
+                  key={item.value}
+                  value={item.value}
+                  className="rounded-lg"
+                >
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </CardAction>

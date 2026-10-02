@@ -582,48 +582,6 @@ export const blocks: Registry["items"] = [
     categories: ["sidebar", "dashboard"],
   },
   {
-    name: "sidebar-08",
-    title: "Sidebar 08",
-    description: "An inset sidebar with secondary navigation.",
-    type: "registry:block",
-    registryDependencies: [
-      "sidebar",
-      "breadcrumb",
-      "separator",
-      "collapsible",
-      "dropdown-menu",
-      "avatar",
-    ],
-    files: [
-      {
-        path: "blocks/sidebar-08/page.tsx",
-        type: "registry:page",
-        target: "app/dashboard/page.tsx",
-      },
-      {
-        path: "blocks/sidebar-08/components/app-sidebar.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/sidebar-08/components/nav-main.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/sidebar-08/components/nav-projects.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/sidebar-08/components/nav-secondary.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/sidebar-08/components/nav-user.tsx",
-        type: "registry:component",
-      },
-    ],
-    categories: ["sidebar", "dashboard"],
-  },
-  {
     name: "sidebar-09",
     title: "Sidebar 09",
     description: "Collapsible nested sidebars.",

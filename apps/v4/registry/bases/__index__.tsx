@@ -4972,9 +4972,9 @@ export const Index: Record<string, Record<string, any>> = {
     "steps-05": {
       name: "steps-05",
       title: "Steps 05",
-      description: "ویزارد کامل با فرم، Select و DropdownMenu.",
+      description: "ویزارد کامل با فرم و انتخابگر.",
       type: "registry:block",
-      registryDependencies: ["badge","button","card","dropdown-menu","field","input","select","textarea"],
+      registryDependencies: ["badge","button","card","field","input","select","textarea"],
       files: [{
         path: "registry/bases/base/blocks/steps-05/page.tsx",
         type: "registry:page",
@@ -4985,7 +4985,7 @@ export const Index: Record<string, Record<string, any>> = {
         target: ""
       }],
       categories: ["steps"],
-      meta: {"iframeHeight":"900px"},
+      meta: {"iframeHeight":"1100px"},
     },
     "comparison-01": {
       name: "comparison-01",
@@ -10731,40 +10731,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["sidebar"],
       meta: undefined,
     },
-    "sidebar-08": {
-      name: "sidebar-08",
-      title: "Sidebar 08",
-      description: "An inset sidebar with secondary navigation.",
-      type: "registry:block",
-      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
-      files: [{
-        path: "registry/bases/base/blocks/sidebar-08/page.tsx",
-        type: "registry:page",
-        target: "app/dashboard/page.tsx"
-      },{
-        path: "registry/bases/base/blocks/sidebar-08/components/app-sidebar.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/base/blocks/sidebar-08/components/nav-main.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/base/blocks/sidebar-08/components/nav-projects.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/base/blocks/sidebar-08/components/nav-secondary.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/base/blocks/sidebar-08/components/nav-user.tsx",
-        type: "registry:component",
-        target: ""
-      }],
-      categories: ["sidebar"],
-      meta: undefined,
-    },
     "sidebar-09": {
       name: "sidebar-09",
       title: "Sidebar 09",
@@ -13201,40 +13167,6 @@ export const Index: Record<string, Record<string, any>> = {
         target: ""
       },{
         path: "registry/bases/aria/blocks/sidebar-07/components/team-switcher.tsx",
-        type: "registry:component",
-        target: ""
-      }],
-      categories: ["sidebar","dashboard"],
-      meta: undefined,
-    },
-    "sidebar-08": {
-      name: "sidebar-08",
-      title: "Sidebar 08",
-      description: "An inset sidebar with secondary navigation.",
-      type: "registry:block",
-      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
-      files: [{
-        path: "registry/bases/aria/blocks/sidebar-08/page.tsx",
-        type: "registry:page",
-        target: "app/dashboard/page.tsx"
-      },{
-        path: "registry/bases/aria/blocks/sidebar-08/components/app-sidebar.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/aria/blocks/sidebar-08/components/nav-main.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/aria/blocks/sidebar-08/components/nav-projects.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/aria/blocks/sidebar-08/components/nav-secondary.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/aria/blocks/sidebar-08/components/nav-user.tsx",
         type: "registry:component",
         target: ""
       }],
@@ -15733,40 +15665,6 @@ export const Index: Record<string, Record<string, any>> = {
         target: ""
       },{
         path: "registry/bases/radix/blocks/sidebar-07/components/team-switcher.tsx",
-        type: "registry:component",
-        target: ""
-      }],
-      categories: ["sidebar","dashboard"],
-      meta: undefined,
-    },
-    "sidebar-08": {
-      name: "sidebar-08",
-      title: "Sidebar 08",
-      description: "An inset sidebar with secondary navigation.",
-      type: "registry:block",
-      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
-      files: [{
-        path: "registry/bases/radix/blocks/sidebar-08/page.tsx",
-        type: "registry:page",
-        target: "app/dashboard/page.tsx"
-      },{
-        path: "registry/bases/radix/blocks/sidebar-08/components/app-sidebar.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/radix/blocks/sidebar-08/components/nav-main.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/radix/blocks/sidebar-08/components/nav-projects.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/radix/blocks/sidebar-08/components/nav-secondary.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/bases/radix/blocks/sidebar-08/components/nav-user.tsx",
         type: "registry:component",
         target: ""
       }],

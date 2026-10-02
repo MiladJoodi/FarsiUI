@@ -1083,40 +1083,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["sidebar","dashboard"],
       meta: undefined,
     },
-    "sidebar-08": {
-      name: "sidebar-08",
-      title: "undefined",
-      description: "An inset sidebar with secondary navigation.",
-      type: "registry:block",
-      registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
-      files: [{
-        path: "registry/new-york-v4/blocks/sidebar-08/page.tsx",
-        type: "registry:page",
-        target: "app/dashboard/page.tsx"
-      },{
-        path: "registry/new-york-v4/blocks/sidebar-08/components/app-sidebar.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/new-york-v4/blocks/sidebar-08/components/nav-main.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/new-york-v4/blocks/sidebar-08/components/nav-projects.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/new-york-v4/blocks/sidebar-08/components/nav-secondary.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/new-york-v4/blocks/sidebar-08/components/nav-user.tsx",
-        type: "registry:component",
-        target: ""
-      }],
-      categories: ["sidebar","dashboard"],
-      meta: undefined,
-    },
     "sidebar-09": {
       name: "sidebar-09",
       title: "undefined",

@@ -40,55 +40,55 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const QUESTIONS = [
   {
     q: "چطور اولین بلاک را نصب کنم؟",
-    a: "از صفحهٔ بلاک دکمهٔ کپی را بزنید، فایل‌ها را در پروژه قرار دهید و registry:build را یک بار اجرا کنید.",
+    a: "از صفحهٔ بلاک دکمهٔ کپی را بزنید، فایل‌ها را در پروژه قرار دهید و یک‌بار ساخت رجیستری را اجرا کنید.",
     category: "شروع",
   },
   {
-    q: "آیا با Tailwind v4 کار می‌کند؟",
-    a: "بله. v4 از Tailwind v4 و متغیرهای @theme استفاده می‌کند.",
+    q: "با ابزارهای استایل جدید کار می‌کند؟",
+    a: "بله. نسخهٔ فعلی با تنظیمات تم مدرن و متغیرهای رنگ هماهنگ است.",
     category: "فنی",
   },
   {
-    q: "ایمیل پشتیبانی چیست؟",
-    a: "برای پاسخ سریع‌تر از فرم پایین استفاده کنید؛ تیم support@farsiui.example را هم می‌بیند.",
+    q: "چطور با پشتیبانی تماس بگیرم؟",
+    a: "از فرم پایین همین صفحه پیام بفرستید؛ معمولاً در کمتر از یک روز کاری پاسخ می‌دهیم.",
     category: "حساب",
   },
   {
     q: "تخفیف سالانه دارید؟",
-    a: "برای پلن سازمانی با پرداخت سالانه تا ۲۰٪ تخفیف اعمال می‌شود.",
+    a: "برای پلن سازمانی با پرداخت سالانه تا بیست درصد تخفیف اعمال می‌شود.",
     category: "صورتحساب",
   },
   {
-    q: "چطور placeholder فارسی بگذارم؟",
-    a: "روی Input فارسی dir=\"rtl\" و className=\"text-start\" بگذارید؛ برای ایمیل dir=\"ltr\".",
+    q: "چطور متن راهنمای فارسی بگذارم؟",
+    a: "برای فیلدهای فارسی جهت راست‌به‌چپ و تراز شروع متن را نگه دارید؛ برای ایمیل جهت چپ‌به‌راست مناسب‌تر است.",
     category: "فنی",
   },
   {
-    q: "آیا SSR و RSC پشتیبانی می‌شود؟",
-    a: "بلاک‌های بدون state سرور‌اند؛ برای تعامل client از \"use client\" در همان فایل استفاده شده.",
+    q: "روی سرور و مرورگر هر دو کار می‌کند؟",
+    a: "بلاک‌های بدون حالت تعاملی روی سرور رندر می‌شوند؛ برای بخش‌های تعاملی همان فایل به‌صورت کلاینت علامت‌گذاری شده است.",
     category: "فنی",
   },
   {
     q: "چند کاربر هم‌زمان در پلن تیمی؟",
-    a: "پلن تیم تا ۱۵ صندلی دارد؛ برای بیشتر با فروش صحبت کنید.",
+    a: "پلن تیم تا پانزده صندلی دارد؛ برای بیشتر با فروش صحبت کنید.",
     category: "صورتحساب",
   },
   {
     q: "داده‌هایم کجا ذخیره می‌شود؟",
-    a: "FarsiUI فقط UI است؛ داده در backend شما می‌ماند. ما محتوای فرم تماس را ذخیره نمی‌کنیم.",
+    a: "این کتابخانه فقط رابط کاربری است؛ داده در سرویس خودتان می‌ماند و محتوای فرم تماس را ذخیره نمی‌کنیم.",
     category: "حساب",
   },
 ] as const
 
 const CATEGORIES = ["همه", "شروع", "حساب", "صورتحساب", "فنی"] as const
 
-type SortKey = "popular" | "newest" | "alpha"
+const SORT_ITEMS = [
+  { value: "popular", label: "پرطرفدار" },
+  { value: "newest", label: "جدیدترین" },
+  { value: "alpha", label: "الفبایی" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  popular: "پرطرفدار",
-  newest: "جدیدترین",
-  alpha: "الفبایی",
-}
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function FaqSearch() {
   const [query, setQuery] = React.useState("")
@@ -144,8 +144,11 @@ export function FaqSearch() {
             />
           </div>
           <Select
+            items={CATEGORIES.map((cat) => ({ value: cat, label: cat }))}
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "همه")}
+            onValueChange={(value) => {
+              if (typeof value === "string") setCategory(value)
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
               <SelectValue placeholder="دسته" />
@@ -171,11 +174,15 @@ export function FaqSearch() {
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup
                 value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "popular")}
+                onValueChange={(v) => {
+                  if (v === "popular" || v === "newest" || v === "alpha") {
+                    setSort(v)
+                  }
+                }}
               >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
+                {SORT_ITEMS.map((item) => (
+                  <DropdownMenuRadioItem key={item.value} value={item.value}>
+                    {item.label}
                   </DropdownMenuRadioItem>
                 ))}
               </DropdownMenuRadioGroup>
@@ -218,7 +225,7 @@ export function FaqSearch() {
         <CardHeader className="text-start">
           <CardTitle className="text-lg">هنوز جواب نگرفتید؟</CardTitle>
           <CardDescription>
-            ایمیل بزنید؛ معمولاً در کمتر از ۲۴ ساعت پاسخ می‌دهیم
+            پیام بفرستید؛ معمولاً در کمتر از یک روز پاسخ می‌دهیم
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -229,7 +236,7 @@ export function FaqSearch() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل شما"
               dir="ltr"
               className="text-start sm:flex-1"
             />

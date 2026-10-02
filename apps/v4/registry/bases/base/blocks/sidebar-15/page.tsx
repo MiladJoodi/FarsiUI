@@ -1,4 +1,4 @@
-import { SidebarLeft } from "@/registry/bases/base/blocks/sidebar-15/components/sidebar-left"
+﻿import { SidebarLeft } from "@/registry/bases/base/blocks/sidebar-15/components/sidebar-left"
 import { SidebarRight } from "@/registry/bases/base/blocks/sidebar-15/components/sidebar-right"
 import {
   Breadcrumb,
@@ -15,7 +15,8 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider dir="rtl" lang="fa">
+    <div dir="rtl" lang="fa" className="min-h-svh">
+      <SidebarProvider>
       <SidebarLeft />
       <SidebarInset>
         <header className="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
@@ -43,5 +44,6 @@ export default function Page() {
       </SidebarInset>
       <SidebarRight />
     </SidebarProvider>
+    </div>
   )
 }

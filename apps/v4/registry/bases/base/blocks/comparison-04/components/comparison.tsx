@@ -13,8 +13,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 
 const OPTIONS = {
-  scratch: {
-    label: "ساخت از صفر",
+  "ساخت از صفر": {
     cells: {
       rtl: false,
       placeholder: false,
@@ -24,8 +23,7 @@ const OPTIONS = {
       docs: false,
     },
   },
-  kit: {
-    label: "کیت عمومی",
+  "کیت عمومی": {
     cells: {
       rtl: true,
       placeholder: false,
@@ -35,8 +33,7 @@ const OPTIONS = {
       docs: true,
     },
   },
-  template: {
-    label: "قالب خارجی",
+  "قالب خارجی": {
     cells: {
       rtl: true,
       placeholder: false,
@@ -46,8 +43,7 @@ const OPTIONS = {
       docs: true,
     },
   },
-  farsiui: {
-    label: "FarsiUI",
+  "فارسی‌یوآی": {
     cells: {
       rtl: true,
       placeholder: true,
@@ -61,18 +57,23 @@ const OPTIONS = {
 
 type OptionKey = keyof typeof OPTIONS
 
+const OPTION_ITEMS = (Object.keys(OPTIONS) as OptionKey[]).map((key) => ({
+  value: key,
+  label: key,
+}))
+
 const FEATURES = [
   { key: "rtl", label: "راست‌چین از ابتدا" },
-  { key: "placeholder", label: "placeholder فارسی" },
-  { key: "dropdown", label: "منوی کشویی RTL" },
+  { key: "placeholder", label: "متن راهنمای فارسی" },
+  { key: "dropdown", label: "منوی کشویی راست‌چین" },
   { key: "digits", label: "اعداد فارسی" },
   { key: "auth", label: "بلاک احراز هویت" },
   { key: "docs", label: "مستندات فارسی" },
 ] as const
 
 export function ComparisonPicker() {
-  const [left, setLeft] = React.useState<OptionKey>("scratch")
-  const [right, setRight] = React.useState<OptionKey>("farsiui")
+  const [left, setLeft] = React.useState<OptionKey>("ساخت از صفر")
+  const [right, setRight] = React.useState<OptionKey>("فارسی‌یوآی")
 
   return (
     <section
@@ -89,31 +90,37 @@ export function ComparisonPicker() {
 
       <div className="mb-6 grid gap-3 sm:grid-cols-2">
         <Select
+          items={OPTION_ITEMS}
           value={left}
-          onValueChange={(value) => setLeft((value as OptionKey) ?? "scratch")}
+          onValueChange={(value) => {
+            if (value && value in OPTIONS) setLeft(value as OptionKey)
+          }}
         >
           <SelectTrigger className="w-full" dir="rtl">
             <SelectValue placeholder="گزینهٔ اول" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            {(Object.keys(OPTIONS) as OptionKey[]).map((key) => (
-              <SelectItem key={key} value={key}>
-                {OPTIONS[key].label}
+            {OPTION_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
         <Select
+          items={OPTION_ITEMS}
           value={right}
-          onValueChange={(value) => setRight((value as OptionKey) ?? "farsiui")}
+          onValueChange={(value) => {
+            if (value && value in OPTIONS) setRight(value as OptionKey)
+          }}
         >
           <SelectTrigger className="w-full" dir="rtl">
             <SelectValue placeholder="گزینهٔ دوم" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            {(Object.keys(OPTIONS) as OptionKey[]).map((key) => (
-              <SelectItem key={key} value={key}>
-                {OPTIONS[key].label}
+            {OPTION_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
               </SelectItem>
             ))}
           </SelectContent>
@@ -123,12 +130,8 @@ export function ComparisonPicker() {
       <div className="overflow-hidden rounded-xl border">
         <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b bg-muted/40 text-sm font-medium">
           <div className="px-4 py-3">قابلیت</div>
-          <div className="border-s px-4 py-3 text-center">
-            {OPTIONS[left].label}
-          </div>
-          <div className="border-s px-4 py-3 text-center">
-            {OPTIONS[right].label}
-          </div>
+          <div className="border-s px-4 py-3 text-center">{left}</div>
+          <div className="border-s px-4 py-3 text-center">{right}</div>
         </div>
         {FEATURES.map((feature) => (
           <div

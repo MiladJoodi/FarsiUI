@@ -1,4 +1,4 @@
-import * as React from "react"
+﻿import * as React from "react"
 
 import { SearchForm } from "@/registry/bases/base/blocks/sidebar-01/components/search-form"
 import { VersionSwitcher } from "@/registry/bases/base/blocks/sidebar-01/components/version-switcher"
@@ -17,7 +17,7 @@ import {
 
 // This is sample data.
 const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
+  versions: ["پایدار ۱٫۰٫۱", "آلفا ۱٫۱٫۰", "بتا ۲٫۰٫۰"],
   navMain: [
     {
       title: "شروع کار",
@@ -166,7 +166,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       isActive={item.isActive}
-                      render={<a href={item.url} />}
+                      render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}
                     >
                       {item.title}
                     </SidebarMenuButton>

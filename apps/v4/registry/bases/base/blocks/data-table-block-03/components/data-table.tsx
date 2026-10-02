@@ -60,14 +60,22 @@ const ROWS = [
   },
 ] as const
 
-type Status = "all" | "فعال" | "در انتظار" | "معلق" | "بسته"
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه وضعیت‌ها" },
+  { value: "فعال", label: "فعال" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "معلق", label: "معلق" },
+  { value: "بسته", label: "بسته" },
+] as const
+
+type Status = (typeof STATUS_ITEMS)[number]["value"]
 
 export function DataTableFilterable() {
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState<Status>("all")
+  const [status, setStatus] = React.useState<Status>("همه")
 
   const filtered = ROWS.filter((row) => {
-    const matchStatus = status === "all" || row.status === status
+    const matchStatus = status === "همه" || row.status === status
     const q = query.trim().toLowerCase()
     const matchQuery =
       !q ||
@@ -103,29 +111,34 @@ export function DataTableFilterable() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as Status) ?? "all")}
+            onValueChange={(value) => {
+              if (STATUS_ITEMS.some((item) => item.value === value)) {
+                setStatus(value as Status)
+              }
+            }}
           >
-            <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="وضعیت" />
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه وضعیت‌ها</SelectItem>
-              <SelectItem value="فعال">فعال</SelectItem>
-              <SelectItem value="در انتظار">در انتظار</SelectItem>
-              <SelectItem value="معلق">معلق</SelectItem>
-              <SelectItem value="بسته">بسته</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           ردیفی با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <Table>
             <TableHeader>
               <TableRow>
@@ -138,14 +151,19 @@ export function DataTableFilterable() {
             <TableBody>
               {filtered.map((row) => (
                 <TableRow key={row.email}>
-                  <TableCell className="font-medium">{row.name}</TableCell>
+                  <TableCell className="text-start font-medium">
+                    {row.name}
+                  </TableCell>
                   <TableCell>
-                    <span dir="ltr" className="inline-block text-start text-sm">
+                    <span
+                      dir="ltr"
+                      className="block text-left text-sm tracking-normal"
+                    >
                       {row.email}
                     </span>
                   </TableCell>
-                  <TableCell>{row.plan}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-start">{row.plan}</TableCell>
+                  <TableCell className="text-start">
                     <Badge variant="secondary">{row.status}</Badge>
                   </TableCell>
                 </TableRow>

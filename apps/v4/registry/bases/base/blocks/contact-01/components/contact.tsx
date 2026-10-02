@@ -1,7 +1,7 @@
-const CHANNELS = [
+﻿const CHANNELS = [
   {
     label: "ایمیل",
-    value: "hello@farsiui.dev",
+    value: "info@farsiui.ir",
     dir: "ltr" as const,
   },
   {

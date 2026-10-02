@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-09/components/app-sidebar"
+﻿import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-09/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,14 +16,15 @@ import {
 
 export default function Page() {
   return (
-    <SidebarProvider dir="rtl" lang="fa"
+    <div dir="rtl" lang="fa" className="min-h-svh">
+      <SidebarProvider 
       style={
         {
           "--sidebar-width": "350px",
         } as React.CSSProperties
       }
     >
-      <AppSidebar />
+      <AppSidebar side="right" />
       <SidebarInset>
         <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b bg-background p-4">
           <SidebarTrigger className="-ms-1" />
@@ -34,7 +35,7 @@ export default function Page() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">همه صندوق‌ها</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={(e) => e.preventDefault()}>همه صندوق‌ها</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
@@ -53,5 +54,6 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
+    </div>
   )
 }

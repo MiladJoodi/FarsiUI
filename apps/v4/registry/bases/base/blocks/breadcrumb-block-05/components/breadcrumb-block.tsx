@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { PlusIcon } from "lucide-react"
 
 import {
@@ -20,6 +21,10 @@ import {
 } from "@/registry/bases/base/ui/dropdown-menu"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function BreadcrumbShowcase() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
@@ -28,7 +33,9 @@ export function BreadcrumbShowcase() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={demoNavClick}>
+                  خانه
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -53,7 +60,9 @@ export function BreadcrumbShowcase() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">فروشگاه آنلاین</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={demoNavClick}>
+                  فروشگاه آنلاین
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>

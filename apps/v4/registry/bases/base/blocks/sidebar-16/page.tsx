@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-16/components/app-sidebar"
+﻿import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-16/components/app-sidebar"
 import { SiteHeader } from "@/registry/bases/base/blocks/sidebar-16/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/registry/bases/base/ui/sidebar"
 
@@ -9,10 +9,10 @@ export const description = "A sidebar with a header and a search form."
 export default function Page() {
   return (
     <div dir="rtl" lang="fa" className="[--header-height:calc(--spacing(14))]">
-      <SidebarProvider dir="rtl" lang="fa" className="flex flex-col">
+      <SidebarProvider className="flex flex-col">
         <SiteHeader />
         <div className="flex flex-1">
-          <AppSidebar />
+          <AppSidebar side="right" />
           <SidebarInset>
             <div className="flex flex-1 flex-col gap-4 p-4">
               <div className="grid auto-rows-min gap-4 md:grid-cols-3">

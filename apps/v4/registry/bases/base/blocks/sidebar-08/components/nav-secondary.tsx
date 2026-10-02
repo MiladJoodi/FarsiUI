@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 
@@ -26,7 +26,7 @@ export function NavSecondary({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton size="sm" render={<a href={item.url} />}>
+              <SidebarMenuButton size="sm" render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}>
                 {item.icon}
                 <span>{item.title}</span>
               </SidebarMenuButton>

@@ -101,13 +101,13 @@ const MEMBERS = [
 
 const DEPTS = ["همه", "محصول", "مهندسی", "طراحی", "رشد", "پشتیبانی"] as const
 
-type SortKey = "name" | "role" | "dept"
+const SORT_ITEMS = [
+  { value: "name", label: "نام" },
+  { value: "role", label: "نقش" },
+  { value: "dept", label: "واحد" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  name: "نام",
-  role: "نقش",
-  dept: "واحد",
-}
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function TeamDirectory() {
   const [query, setQuery] = React.useState("")
@@ -140,7 +140,7 @@ export function TeamDirectory() {
           <Badge variant="secondary" className="mb-3">
             فهرست کارکنان
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight">تیم FarsiUI</h2>
+          <h2 className="text-3xl font-bold tracking-tight">تیم ما</h2>
           <p className="mt-2 text-muted-foreground">
             جستجو، فیلتر واحد و مرتب‌سازی
           </p>
@@ -158,8 +158,11 @@ export function TeamDirectory() {
             />
           </div>
           <Select
+            items={DEPTS.map((item) => ({ value: item, label: item }))}
             value={dept}
-            onValueChange={(value) => setDept((value as string) ?? "همه")}
+            onValueChange={(value) => {
+              if (typeof value === "string") setDept(value)
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
               <SelectValue placeholder="واحد" />
@@ -185,11 +188,15 @@ export function TeamDirectory() {
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup
                 value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "name")}
+                onValueChange={(value) => {
+                  if (value === "name" || value === "role" || value === "dept") {
+                    setSort(value)
+                  }
+                }}
               >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
+                {SORT_ITEMS.map((item) => (
+                  <DropdownMenuRadioItem key={item.value} value={item.value}>
+                    {item.label}
                   </DropdownMenuRadioItem>
                 ))}
               </DropdownMenuRadioGroup>
@@ -255,7 +262,7 @@ export function TeamDirectory() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start sm:flex-1"
             />

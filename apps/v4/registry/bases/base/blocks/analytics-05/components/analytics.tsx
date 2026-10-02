@@ -20,15 +20,6 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/registry/bases/base/ui/chart"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
 import {
   Select,
@@ -39,6 +30,10 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 const PAGES = [
   { path: "/blocks/login", views: 4200, bounce: 32 },
   { path: "/blocks/pricing", views: 3800, bounce: 28 },
@@ -48,30 +43,36 @@ const PAGES = [
 ] as const
 
 const chartByMetric = {
-  views: [
+  بازدید: [
     { name: "ورود", value: 42 },
     { name: "قیمت", value: 38 },
     { name: "مستندات", value: 51 },
     { name: "داشبورد", value: 29 },
-    { name: "FAQ", value: 21 },
+    { name: "پرسش‌ها", value: 21 },
   ],
-  bounce: [
+  بانس: [
     { name: "ورود", value: 32 },
     { name: "قیمت", value: 28 },
     { name: "مستندات", value: 22 },
     { name: "داشبورد", value: 35 },
-    { name: "FAQ", value: 40 },
+    { name: "پرسش‌ها", value: 40 },
   ],
 } as const
 
 type Metric = keyof typeof chartByMetric
-type SortKey = "views" | "bounce" | "path"
 
-const SORT_LABELS: Record<SortKey, string> = {
-  views: "بازدید",
-  bounce: "بانس",
-  path: "مسیر",
-}
+const METRIC_ITEMS = [
+  { value: "بازدید", label: "بازدید" },
+  { value: "بانس", label: "نرخ بانس" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "بازدید", label: "بازدید" },
+  { value: "بانس", label: "بانس" },
+  { value: "مسیر", label: "مسیر" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 const chartConfig = {
   value: { label: "مقدار", color: "var(--primary)" },
@@ -79,16 +80,17 @@ const chartConfig = {
 
 export function AnalyticsExplorer() {
   const [query, setQuery] = React.useState("")
-  const [metric, setMetric] = React.useState<Metric>("views")
-  const [sort, setSort] = React.useState<SortKey>("views")
+  const [metric, setMetric] = React.useState<Metric>("بازدید")
+  const [sort, setSort] = React.useState<SortKey>("بازدید")
 
   const filtered = React.useMemo(() => {
     let list = PAGES.filter(
       (page) => !query || page.path.includes(query)
     )
     list = [...list].sort((a, b) => {
-      if (sort === "path") return a.path.localeCompare(b.path, "fa")
-      return b[sort] - a[sort]
+      if (sort === "مسیر") return a.path.localeCompare(b.path, "fa")
+      if (sort === "بانس") return b.bounce - a.bounce
+      return b.views - a.views
     })
     return list
   }, [query, sort])
@@ -117,43 +119,46 @@ export function AnalyticsExplorer() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="جستجو در مسیر صفحه…"
-              className="ps-9 font-mono text-sm"
-              dir="ltr"
+              className="ps-9"
+              dir="rtl"
             />
           </div>
           <Select
+            items={[...METRIC_ITEMS]}
             value={metric}
-            onValueChange={(value) => setMetric((value as Metric) ?? "views")}
+            onValueChange={(value) => {
+              if (value === "بازدید" || value === "بانس") setMetric(value)
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
               <SelectValue placeholder="متریک" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="views">بازدید</SelectItem>
-              <SelectItem value="bounce">نرخ بانس</SelectItem>
+              {METRIC_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی جدول
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "views")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (typeof value === "string") setSort(value as SortKey)
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -161,7 +166,7 @@ export function AnalyticsExplorer() {
         <Card>
           <CardHeader className="text-start">
             <CardTitle className="text-lg">
-              {metric === "views" ? "بازدید صفحات" : "نرخ بانس"}
+              {metric === "بازدید" ? "بازدید صفحات" : "نرخ بانس"}
             </CardTitle>
             <CardDescription>نمودار مقایسه‌ای</CardDescription>
           </CardHeader>
@@ -178,7 +183,21 @@ export function AnalyticsExplorer() {
                   axisLine={false}
                   tickMargin={8}
                 />
-                <ChartTooltip content={<ChartTooltipContent />} />
+                <ChartTooltip
+                  content={
+                    <ChartTooltipContent
+                      formatter={(value) => (
+                        <span className="font-medium tracking-normal [letter-spacing:0]">
+                          {typeof value === "number"
+                            ? metric === "بانس"
+                              ? `٪${toFa(value)}`
+                              : toFa(value)
+                            : value}
+                        </span>
+                      )}
+                    />
+                  }
+                />
                 <Bar dataKey="value" fill="var(--color-value)" radius={6} />
               </BarChart>
             </ChartContainer>
@@ -189,7 +208,7 @@ export function AnalyticsExplorer() {
           <CardHeader className="text-start">
             <CardTitle className="text-lg">جدول صفحات</CardTitle>
             <CardDescription>
-              {filtered.length.toLocaleString("fa-IR")} مسیر
+              {toFa(filtered.length)} مسیر
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -203,15 +222,16 @@ export function AnalyticsExplorer() {
                   key={page.path}
                   className="flex flex-col gap-1 rounded-lg border px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <code dir="ltr" className="truncate text-xs">
+                  <code dir="ltr" className="truncate text-xs font-mono">
                     {page.path}
                   </code>
                   <div className="flex gap-3 text-muted-foreground">
                     <span>
-                      بازدید <StatNumber value={page.views.toLocaleString("fa-IR")} />
+                      بازدید{" "}
+                      <StatNumber value={page.views.toLocaleString("fa-IR")} />
                     </span>
                     <span>
-                      بانس <StatNumber value={`${page.bounce}٪`} />
+                      بانس <StatNumber value={`٪${toFa(page.bounce)}`} />
                     </span>
                   </div>
                 </div>
@@ -244,7 +264,7 @@ export function AnalyticsExplorer() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start sm:flex-1"
             />

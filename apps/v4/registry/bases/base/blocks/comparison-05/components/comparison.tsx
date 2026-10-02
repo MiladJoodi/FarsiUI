@@ -12,16 +12,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/bases/base/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 type FeatureRow = {
@@ -31,29 +29,29 @@ type FeatureRow = {
 }
 
 const ROWS: FeatureRow[] = [
-  { label: "dir و lang فارسی", category: "rtl", values: [false, true, true] },
+  { label: "جهت و زبان فارسی", category: "rtl", values: [false, true, true] },
   { label: "چینش منوی کشویی", category: "rtl", values: [false, false, true] },
-  { label: "breadcrumb راست‌چین", category: "rtl", values: [false, false, true] },
-  { label: "placeholder فارسی", category: "form", values: [false, false, true] },
-  { label: "ایمیل با dir چپ", category: "form", values: [false, false, true] },
+  { label: "مسیر صفحهٔ راست‌چین", category: "rtl", values: [false, false, true] },
+  { label: "متن راهنمای فارسی", category: "form", values: [false, false, true] },
+  { label: "ایمیل با جهت چپ", category: "form", values: [false, false, true] },
   { label: "فرم پشتیبانی چندمرحله", category: "form", values: [false, false, true] },
   { label: "راهنمای فارسی", category: "docs", values: [false, true, true] },
   { label: "نمونهٔ احراز هویت", category: "docs", values: [false, false, true] },
 ]
 
-const COLS = ["کیت عمومی", "قالب خارجی", "FarsiUI"] as const
+const COLS = ["کیت عمومی", "قالب خارجی", "فارسی‌یوآی"] as const
 
-type SortKey = "default" | "farsiui-first" | "alpha"
+const SORT_ITEMS = [
+  { value: "پیش‌فرض", label: "ترتیب پیش‌فرض" },
+  { value: "تفاوت‌ها", label: "اول تفاوت‌های فارسی‌یوآی" },
+  { value: "الفبایی", label: "الفبایی" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  default: "ترتیب پیش‌فرض",
-  "farsiui-first": "اول تفاوت‌های FarsiUI",
-  alpha: "الفبایی",
-}
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
 export function ComparisonHub() {
   const [query, setQuery] = React.useState("")
-  const [sort, setSort] = React.useState<SortKey>("default")
+  const [sort, setSort] = React.useState<SortKey>("پیش‌فرض")
 
   const filtered = React.useMemo(() => {
     let list = ROWS.filter(
@@ -64,9 +62,9 @@ export function ComparisonHub() {
         (row.category === "form" && "فرم".includes(query)) ||
         (row.category === "docs" && "مستند".includes(query))
     )
-    if (sort === "alpha") {
+    if (sort === "الفبایی") {
       list = [...list].sort((a, b) => a.label.localeCompare(b.label, "fa"))
-    } else if (sort === "farsiui-first") {
+    } else if (sort === "تفاوت‌ها") {
       list = [...list].sort((a, b) => {
         const score = (row: FeatureRow) =>
           Number(row.values[2]) - Number(row.values[0] || row.values[1])
@@ -106,27 +104,24 @@ export function ComparisonHub() {
               dir="rtl"
             />
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-48">
-              <DropdownMenuLabel>نمایش بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "default")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (typeof value === "string") setSort(value as SortKey)
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-52" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -202,7 +197,7 @@ export function ComparisonHub() {
             <Input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start sm:flex-1"
             />

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   Collapsible,
@@ -60,7 +60,7 @@ export function NavMain({
               <SidebarMenuSub>
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
-                    <SidebarMenuSubButton render={<a href={subItem.url} />}>
+                    <SidebarMenuSubButton render={<a href={subItem.url} onClick={(e) => { if (subItem.url === "#") e.preventDefault() }} />}>
                       <span>{subItem.title}</span>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>

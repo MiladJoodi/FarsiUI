@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -9,6 +11,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/registry/bases/base/ui/breadcrumb"
+
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
 
 export function BreadcrumbCollapsed() {
   return (
@@ -20,7 +26,9 @@ export function BreadcrumbCollapsed() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={demoNavClick}>
+              خانه
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -28,7 +36,9 @@ export function BreadcrumbCollapsed() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">کامپوننت‌ها</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={demoNavClick}>
+              کامپوننت‌ها
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

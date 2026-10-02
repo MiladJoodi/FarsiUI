@@ -72,10 +72,19 @@ const PRODUCTS = [
 
 const CATEGORIES = ["صوتی", "پوشیدنی", "خانه", "اکسسوری"] as const
 
+const SORT_ITEMS = [
+  { value: "newest", label: "جدیدترین" },
+  { value: "price-asc", label: "ارزان‌ترین" },
+  { value: "price-desc", label: "گران‌ترین" },
+  { value: "popular", label: "محبوب‌ترین" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
 export function SortFilterHub() {
   const [cats, setCats] = React.useState<string[]>(["صوتی"])
   const [stockOnly, setStockOnly] = React.useState(true)
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState<SortKey>("newest")
   const [query, setQuery] = React.useState("")
 
   const rows = PRODUCTS.filter((p) => {
@@ -98,13 +107,7 @@ export function SortFilterHub() {
   }
 
   const sortLabel =
-    sort === "price-asc"
-      ? "ارزان‌ترین"
-      : sort === "price-desc"
-        ? "گران‌ترین"
-        : sort === "popular"
-          ? "محبوب‌ترین"
-          : "جدیدترین"
+    SORT_ITEMS.find((item) => item.value === sort)?.label ?? "جدیدترین"
 
   return (
     <section
@@ -115,13 +118,13 @@ export function SortFilterHub() {
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <Badge variant="secondary" className="mb-3">
-            مرتب‌سازی · فیلتر
+            مرتب‌سازی و فیلتر
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">
             مرتب‌سازی و فیلتر
           </h2>
           <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> نتیجه · {sortLabel}
+            <bdi>{rows.length}</bdi> نتیجه · {sortLabel}
           </p>
         </div>
         <DropdownMenu>
@@ -191,17 +194,28 @@ export function SortFilterHub() {
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (
+                  value === "newest" ||
+                  value === "price-asc" ||
+                  value === "price-desc" ||
+                  value === "popular"
+                ) {
+                  setSort(value)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
-                <SelectValue placeholder="مرتب‌سازی" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="price-asc">ارزان‌ترین</SelectItem>
-                <SelectItem value="price-desc">گران‌ترین</SelectItem>
-                <SelectItem value="popular">محبوب‌ترین</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -213,23 +227,30 @@ export function SortFilterHub() {
               <ArrowUpDownIcon className="size-3.5" />
               میانبر مرتب‌سازی
             </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-44">
+            <DropdownMenuContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44"
+            >
               <DropdownMenuRadioGroup
                 value={sort}
-                onValueChange={(v) => setSort(v ?? "newest")}
+                onValueChange={(value) => {
+                  if (
+                    value === "newest" ||
+                    value === "price-asc" ||
+                    value === "price-desc" ||
+                    value === "popular"
+                  ) {
+                    setSort(value)
+                  }
+                }}
               >
-                <DropdownMenuRadioItem value="newest">
-                  جدیدترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-asc">
-                  ارزان‌ترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-desc">
-                  گران‌ترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="popular">
-                  محبوب‌ترین
-                </DropdownMenuRadioItem>
+                {SORT_ITEMS.map((item) => (
+                  <DropdownMenuRadioItem key={item.value} value={item.value}>
+                    {item.label}
+                  </DropdownMenuRadioItem>
+                ))}
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -242,7 +263,9 @@ export function SortFilterHub() {
                   <Checkbox
                     id={`sf5-${cat}`}
                     checked={cats.includes(cat)}
-                    onCheckedChange={(v) => toggleCat(cat, Boolean(v))}
+                    onCheckedChange={(checked) =>
+                      toggleCat(cat, checked === true)
+                    }
                   />
                   <Label htmlFor={`sf5-${cat}`}>{cat}</Label>
                 </div>
@@ -278,7 +301,7 @@ export function SortFilterHub() {
             <Input
               id="sf5-email"
               type="email"
-              placeholder="name@example.com"
+              placeholder="ایمیل"
               dir="ltr"
               className="text-start"
             />
@@ -290,7 +313,7 @@ export function SortFilterHub() {
             <Switch
               id="sf5-stock"
               checked={stockOnly}
-              onCheckedChange={setStockOnly}
+              onCheckedChange={(checked) => setStockOnly(checked)}
             />
           </div>
 
@@ -324,7 +347,7 @@ export function SortFilterHub() {
                         ) : null}
                       </div>
                       <p className="mt-1 text-sm tabular-nums text-muted-foreground">
-                        <bdi dir="ltr">{p.price}</bdi> تومان
+                        <bdi>{p.price}</bdi> تومان
                       </p>
                     </div>
                     <DropdownMenu>

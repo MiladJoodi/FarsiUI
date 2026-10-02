@@ -14,15 +14,6 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldGroup,
   FieldLabel,
@@ -45,13 +36,21 @@ const STEPS = [
   { id: 4, title: "تأیید" },
 ] as const
 
-type Priority = "normal" | "high" | "urgent"
+const TOPICS = [
+  { value: "راه‌اندازی", label: "راه‌اندازی" },
+  { value: "طراحی و تم", label: "طراحی و تم" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+  { value: "سازمانی", label: "سازمانی" },
+] as const
 
-const PRIORITY_LABELS: Record<Priority, string> = {
-  normal: "عادی",
-  high: "بالا",
-  urgent: "فوری",
-}
+const PRIORITIES = [
+  { value: "عادی", label: "عادی" },
+  { value: "بالا", label: "بالا" },
+  { value: "فوری", label: "فوری" },
+] as const
+
+type Topic = (typeof TOPICS)[number]["value"]
+type Priority = (typeof PRIORITIES)[number]["value"]
 
 function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
@@ -59,8 +58,8 @@ function toFa(n: number) {
 
 export function StepsWizard() {
   const [step, setStep] = React.useState(1)
-  const [priority, setPriority] = React.useState<Priority>("normal")
-  const [topic, setTopic] = React.useState("setup")
+  const [priority, setPriority] = React.useState<Priority>("عادی")
+  const [topic, setTopic] = React.useState<Topic>("راه‌اندازی")
   const [done, setDone] = React.useState(false)
 
   const progress = (step / STEPS.length) * 100
@@ -70,7 +69,7 @@ export function StepsWizard() {
       <section
         dir="rtl"
         lang="fa"
-        className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16"
+        className="mx-auto flex max-w-lg flex-col px-6 py-10"
       >
         <Card dir="rtl" lang="fa">
           <CardHeader className="text-start">
@@ -103,7 +102,7 @@ export function StepsWizard() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16"
+      className="mx-auto flex max-w-lg flex-col px-6 py-10"
     >
       <Card dir="rtl" lang="fa">
         <CardHeader className="space-y-4 text-start">
@@ -177,7 +176,7 @@ export function StepsWizard() {
                 <Input
                   id="sw-email"
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder="ایمیل"
                   dir="ltr"
                   className="text-start"
                   required
@@ -199,54 +198,44 @@ export function StepsWizard() {
               <Field>
                 <FieldLabel htmlFor="sw-topic">موضوع درخواست</FieldLabel>
                 <Select
+                  items={[...TOPICS]}
                   value={topic}
-                  onValueChange={(value) =>
-                    setTopic((value as string) ?? "setup")
-                  }
+                  onValueChange={(value) => {
+                    if (typeof value === "string") setTopic(value as Topic)
+                  }}
                 >
                   <SelectTrigger id="sw-topic" className="w-full" dir="rtl">
                     <SelectValue placeholder="موضوع را انتخاب کنید" />
                   </SelectTrigger>
                   <SelectContent dir="rtl" lang="fa">
-                    <SelectItem value="setup">راه‌اندازی</SelectItem>
-                    <SelectItem value="design">طراحی و تم</SelectItem>
-                    <SelectItem value="support">پشتیبانی</SelectItem>
-                    <SelectItem value="enterprise">سازمانی</SelectItem>
+                    {TOPICS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </Field>
               <Field>
-                <FieldLabel>اولویت</FieldLabel>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    render={<Button variant="outline" className="w-full" />}
-                  >
-                    اولویت: {PRIORITY_LABELS[priority]}
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    dir="rtl"
-                    lang="fa"
-                    align="end"
-                    className="w-44"
-                  >
-                    <DropdownMenuLabel>سطح اولویت</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuRadioGroup
-                      value={priority}
-                      onValueChange={(v) =>
-                        setPriority((v as Priority) ?? "normal")
-                      }
-                    >
-                      {(Object.keys(PRIORITY_LABELS) as Priority[]).map(
-                        (key) => (
-                          <DropdownMenuRadioItem key={key} value={key}>
-                            {PRIORITY_LABELS[key]}
-                          </DropdownMenuRadioItem>
-                        )
-                      )}
-                    </DropdownMenuRadioGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <FieldLabel htmlFor="sw-priority">اولویت</FieldLabel>
+                <Select
+                  items={[...PRIORITIES]}
+                  value={priority}
+                  onValueChange={(value) => {
+                    if (typeof value === "string") setPriority(value as Priority)
+                  }}
+                >
+                  <SelectTrigger id="sw-priority" className="w-full" dir="rtl">
+                    <SelectValue placeholder="اولویت" />
+                  </SelectTrigger>
+                  <SelectContent dir="rtl" lang="fa">
+                    {PRIORITIES.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </Field>
             </FieldGroup>
           )}
@@ -259,7 +248,7 @@ export function StepsWizard() {
                   id="sw-msg"
                   placeholder="نیاز یا مشکل را شرح دهید…"
                   dir="rtl"
-                  className="min-h-32"
+                  className="min-h-24"
                   required
                 />
               </Field>
@@ -280,18 +269,11 @@ export function StepsWizard() {
             <div className="space-y-3 rounded-xl border bg-muted/40 p-4 text-sm">
               <p>
                 <span className="text-muted-foreground">موضوع: </span>
-                {
-                  {
-                    setup: "راه‌اندازی",
-                    design: "طراحی و تم",
-                    support: "پشتیبانی",
-                    enterprise: "سازمانی",
-                  }[topic]
-                }
+                {topic}
               </p>
               <p>
                 <span className="text-muted-foreground">اولویت: </span>
-                {PRIORITY_LABELS[priority]}
+                {priority}
               </p>
               <p className="leading-relaxed text-muted-foreground">
                 با تأیید، درخواست شما ثبت می‌شود و پاسخ به ایمیل ارسال خواهد شد.

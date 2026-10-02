@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import { cn } from "cn"
@@ -203,7 +203,7 @@ export function ProfileHub() {
                     <div>
                       <dt className="text-muted-foreground">وب‌سایت</dt>
                       <dd>
-                        <bdi dir="ltr">farsiui.dev</bdi>
+                        <bdi dir="ltr">farsiui.ir</bdi>
                       </dd>
                     </div>
                   </dl>
@@ -295,7 +295,7 @@ export function ProfileHub() {
                         id="p5-website"
                         type="url"
                         placeholder="https://example.com"
-                        defaultValue="https://farsiui.dev"
+                        defaultValue="https://farsiui.ir"
                         dir="ltr"
                         className="text-start"
                       />

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   DropdownMenu,
@@ -34,7 +34,7 @@ export function NavDocuments({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton render={<a href={item.url} />}>
+            <SidebarMenuButton render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}>
               {item.icon}
               <span>{item.name}</span>
             </SidebarMenuButton>

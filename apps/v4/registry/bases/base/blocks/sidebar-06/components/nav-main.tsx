@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   DropdownMenu,
@@ -61,7 +61,7 @@ export function NavMain({
                   {item.items.map((item) => (
                     <DropdownMenuItem
                       key={item.title}
-                      render={<a href={item.url} />}
+                      render={<a href={item.url} onClick={(e) => { if (item.url === "#") e.preventDefault() }} />}
                     >
                       {item.title}
                     </DropdownMenuItem>

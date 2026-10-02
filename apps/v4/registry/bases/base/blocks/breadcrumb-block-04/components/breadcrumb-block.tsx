@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -17,6 +19,10 @@ import {
   DropdownMenuTrigger,
 } from "@/registry/bases/base/ui/dropdown-menu"
 
+function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function BreadcrumbDropdown() {
   return (
     <div
@@ -27,7 +33,9 @@ export function BreadcrumbDropdown() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={demoNavClick}>
+              خانه
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -53,7 +61,9 @@ export function BreadcrumbDropdown() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">دکمه</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={demoNavClick}>
+              دکمه
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

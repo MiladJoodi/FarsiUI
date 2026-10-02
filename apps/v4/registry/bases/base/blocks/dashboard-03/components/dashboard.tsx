@@ -50,7 +50,7 @@ export function DashboardActivity() {
           <Card key={item.label}>
             <CardHeader>
               <CardDescription>{item.label}</CardDescription>
-              <CardTitle className="tabular-nums">
+              <CardTitle className="tracking-normal [letter-spacing:0]">
                 <bdi
                   dir="ltr"
                   className="inline-block tracking-normal [letter-spacing:0]"

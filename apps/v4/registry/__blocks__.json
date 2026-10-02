@@ -2975,14 +2975,6 @@
     ]
   },
   {
-    "name": "sidebar-08",
-    "description": "An inset sidebar with secondary navigation.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
     "name": "sidebar-09",
     "description": "Collapsible nested sidebars.",
     "categories": [
@@ -3186,7 +3178,7 @@
   },
   {
     "name": "steps-05",
-    "description": "ویزارد کامل با فرم، Select و DropdownMenu.",
+    "description": "ویزارد کامل با فرم و انتخابگر.",
     "categories": [
       "steps"
     ]

@@ -1,6 +1,8 @@
+import { CheckIcon } from "lucide-react"
+
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import { CheckIcon } from "lucide-react"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const STEPS = [
   {
@@ -14,8 +16,8 @@ const STEPS = [
     status: "done" as const,
   },
   {
-    title: "پیاده‌سازی RTL",
-    desc: "تم، فونت و جهت صفحه را روی استیج اعمال می‌کنیم.",
+    title: "پیاده‌سازی راست‌چین",
+    desc: "تم، فونت و جهت صفحه را روی پیش‌نمایش اعمال می‌کنیم.",
     status: "current" as const,
   },
   {
@@ -45,33 +47,37 @@ export function StepsTimeline() {
         <Button variant="outline">دانلود برنامه</Button>
       </div>
 
-      <ol className="relative space-y-0 border-s border-border ps-6">
-        {STEPS.map((step) => (
-          <li key={step.title} className="relative pb-10 last:pb-0">
-            <span
-              className={
-                step.status === "done"
-                  ? "absolute start-0 top-1 flex size-6 -translate-x-1/2 items-center justify-center rounded-full border border-primary bg-primary text-primary-foreground rtl:translate-x-1/2"
-                  : step.status === "current"
-                    ? "absolute start-0 top-1 flex size-6 -translate-x-1/2 items-center justify-center rounded-full border-2 border-primary bg-background rtl:translate-x-1/2"
-                    : "absolute start-0 top-1 flex size-6 -translate-x-1/2 items-center justify-center rounded-full border bg-muted rtl:translate-x-1/2"
-              }
-            >
-              {step.status === "done" ? (
-                <CheckIcon className="size-3.5" />
-              ) : step.status === "current" ? (
-                <span className="size-2 rounded-full bg-primary" />
+      <ol className="space-y-0">
+        {STEPS.map((step, index) => (
+          <li key={step.title} className="flex gap-4">
+            <div className="flex w-6 shrink-0 flex-col items-center">
+              <span
+                className={cn(
+                  "flex size-6 items-center justify-center rounded-full border",
+                  step.status === "done" &&
+                    "border-primary bg-primary text-primary-foreground",
+                  step.status === "current" &&
+                    "border-2 border-primary bg-background",
+                  step.status === "upcoming" && "border-border bg-muted"
+                )}
+              >
+                {step.status === "done" ? (
+                  <CheckIcon className="size-3.5" />
+                ) : step.status === "current" ? (
+                  <span className="size-2 rounded-full bg-primary" />
+                ) : null}
+              </span>
+              {index < STEPS.length - 1 ? (
+                <span className="mt-1 w-px flex-1 bg-border" aria-hidden />
               ) : null}
-            </span>
-            <div className="space-y-1">
+            </div>
+            <div className={cn("min-w-0 flex-1 space-y-1", index < STEPS.length - 1 && "pb-10")}>
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{step.title}</h3>
                 {step.status === "done" && (
                   <Badge variant="secondary">انجام شد</Badge>
                 )}
-                {step.status === "current" && (
-                  <Badge>در حال انجام</Badge>
-                )}
+                {step.status === "current" && <Badge>در حال انجام</Badge>}
                 {step.status === "upcoming" && (
                   <Badge variant="outline">آینده</Badge>
                 )}

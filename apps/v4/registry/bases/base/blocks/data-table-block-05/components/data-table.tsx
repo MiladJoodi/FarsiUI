@@ -13,17 +13,12 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -92,24 +87,38 @@ const ROWS = [
   },
 ] as const
 
-type SortKey = "name" | "team" | "status" | "joined"
+const TEAM_ITEMS = [
+  { value: "همه", label: "همه تیم‌ها" },
+  { value: "محصول", label: "محصول" },
+  { value: "طراحی", label: "طراحی" },
+  { value: "مهندسی", label: "مهندسی" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+  { value: "فروش", label: "فروش" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  name: "نام",
-  team: "تیم",
-  status: "وضعیت",
-  joined: "تاریخ عضویت",
+const SORT_ITEMS = [
+  { value: "نام", label: "نام" },
+  { value: "تیم", label: "تیم" },
+  { value: "وضعیت", label: "وضعیت" },
+  { value: "عضویت", label: "تاریخ عضویت" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
 export function DataTableHub() {
   const [query, setQuery] = React.useState("")
-  const [team, setTeam] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("name")
+  const [team, setTeam] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("نام")
   const [selected, setSelected] = React.useState<string[]>([])
+  const [openRow, setOpenRow] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = ROWS.filter((row) => {
-      const matchTeam = team === "all" || row.team === team
+      const matchTeam = team === "همه" || row.team === team
       const q = query.trim().toLowerCase()
       const matchQuery =
         !q ||
@@ -119,7 +128,12 @@ export function DataTableHub() {
         row.status.includes(query)
       return matchTeam && matchQuery
     })
-    list = [...list].sort((a, b) => a[sort].localeCompare(b[sort], "fa"))
+    list = [...list].sort((a, b) => {
+      if (sort === "تیم") return a.team.localeCompare(b.team, "fa")
+      if (sort === "وضعیت") return a.status.localeCompare(b.status, "fa")
+      if (sort === "عضویت") return a.joined.localeCompare(b.joined, "fa")
+      return a.name.localeCompare(b.name, "fa")
+    })
     return list
   }, [query, team, sort])
 
@@ -170,57 +184,60 @@ export function DataTableHub() {
             />
           </div>
           <Select
+            items={[...TEAM_ITEMS]}
             value={team}
-            onValueChange={(value) => setTeam((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (TEAM_ITEMS.some((item) => item.value === value)) {
+                setTeam(value as string)
+              }
+            }}
           >
             <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="تیم" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه تیم‌ها</SelectItem>
-              <SelectItem value="محصول">محصول</SelectItem>
-              <SelectItem value="طراحی">طراحی</SelectItem>
-              <SelectItem value="مهندسی">مهندسی</SelectItem>
-              <SelectItem value="پشتیبانی">پشتیبانی</SelectItem>
-              <SelectItem value="فروش">فروش</SelectItem>
+              {TEAM_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "name")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {selected.length > 0 && (
           <p className="text-sm text-muted-foreground">
-            <bdi dir="ltr">{selected.length}</bdi> ردیف انتخاب شده
+            {toFa(selected.length)} ردیف انتخاب شده
           </p>
         )}
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           کاربری با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <Table>
             <TableHeader>
               <TableRow>
@@ -236,14 +253,15 @@ export function DataTableHub() {
                 <TableHead className="text-start">تیم</TableHead>
                 <TableHead className="text-start">وضعیت</TableHead>
                 <TableHead className="text-start">عضویت</TableHead>
-                <TableHead className="w-12">
-                  <span className="sr-only">عملیات</span>
-                </TableHead>
+                <TableHead className="text-start">عملیات</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filtered.map((row) => (
-                <TableRow key={row.id} data-state={selected.includes(row.id) ? "selected" : undefined}>
+                <TableRow
+                  key={row.id}
+                  data-state={selected.includes(row.id) ? "selected" : undefined}
+                >
                   <TableCell>
                     <Checkbox
                       checked={selected.includes(row.id)}
@@ -251,46 +269,79 @@ export function DataTableHub() {
                       aria-label={`انتخاب ${row.name}`}
                     />
                   </TableCell>
-                  <TableCell className="font-medium">{row.name}</TableCell>
+                  <TableCell className="text-start font-medium">
+                    {row.name}
+                  </TableCell>
                   <TableCell>
-                    <span dir="ltr" className="inline-block text-start text-sm">
+                    <span
+                      dir="ltr"
+                      className="block text-left text-sm tracking-normal"
+                    >
                       {row.email}
                     </span>
                   </TableCell>
-                  <TableCell>{row.team}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-start">{row.team}</TableCell>
+                  <TableCell className="text-start">
                     <Badge variant="secondary">{row.status}</Badge>
                   </TableCell>
-                  <TableCell>
-                    <bdi dir="ltr" className="tabular-nums text-sm">
-                      {row.joined}
-                    </bdi>
+                  <TableCell className="text-start tracking-normal">
+                    {row.joined}
                   </TableCell>
                   <TableCell>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
+                    <Popover
+                      open={openRow === row.id}
+                      onOpenChange={(open) =>
+                        setOpenRow(open ? row.id : null)
+                      }
+                    >
+                      <PopoverTrigger
                         render={
-                          <Button variant="ghost" size="icon" className="size-8" />
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="size-8"
+                          />
                         }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">منوی عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent
+                      </PopoverTrigger>
+                      <PopoverContent
                         dir="rtl"
                         lang="fa"
                         align="end"
-                        className="w-40"
+                        className="w-40 space-y-1 p-2"
                       >
-                        <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>ویرایش پروفایل</DropdownMenuItem>
-                        <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                        <DropdownMenuItem variant="destructive">
+                        <p className="px-2 py-1.5 text-sm font-medium">
+                          عملیات
+                        </p>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenRow(null)}
+                        >
+                          ویرایش پروفایل
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenRow(null)}
+                        >
+                          ارسال ایمیل
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                          onClick={() => setOpenRow(null)}
+                        >
                           تعلیق حساب
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </TableCell>
                 </TableRow>
               ))}
@@ -324,7 +375,7 @@ export function DataTableHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال دعوت

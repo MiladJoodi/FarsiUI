@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   HomeIcon,
   LogOutIcon,
@@ -31,13 +32,18 @@ const LINKS = [
 ] as const
 
 export function MobileNavShowcase() {
+  const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
+
   return (
     <div
       dir="rtl"
       lang="fa"
       className="flex min-h-svh items-center justify-center bg-muted/40 p-6"
     >
-      <div className="flex h-[36rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm">
+      <div
+        ref={setFrame}
+        className="relative flex h-[36rem] w-full max-w-sm flex-col overflow-hidden rounded-3xl border bg-background shadow-sm"
+      >
         <header className="flex h-14 items-center justify-between border-b px-4">
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold">FarsiUI</span>
@@ -52,6 +58,7 @@ export function MobileNavShowcase() {
               <MenuIcon className="size-4" />
             </SheetTrigger>
             <SheetContent
+              container={frame}
               side="right"
               className="flex w-[min(100%,19rem)] flex-col"
               dir="rtl"

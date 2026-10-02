@@ -90,6 +90,10 @@ export function BlogGridShowcase() {
   const [sort, setSort] = React.useState("newest")
   const [done, setDone] = React.useState(false)
 
+  const demoNavClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+  }
+
   return (
     <section
       dir="rtl"
@@ -125,7 +129,18 @@ export function BlogGridShowcase() {
             <DropdownMenuContent align="end" className="w-44" dir="rtl" lang="fa">
               <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={sort} onValueChange={setSort}>
+              <DropdownMenuRadioGroup
+                value={sort}
+                onValueChange={(value) => {
+                  if (
+                    value === "newest" ||
+                    value === "popular" ||
+                    value === "read"
+                  ) {
+                    setSort(value)
+                  }
+                }}
+              >
                 <DropdownMenuRadioItem value="newest">
                   جدیدترین
                 </DropdownMenuRadioItem>
@@ -152,7 +167,7 @@ export function BlogGridShowcase() {
               <span>{FEATURED.read}</span>
             </div>
             <h3 className="text-2xl font-bold tracking-tight md:text-3xl">
-              <a href="#" className="hover:underline">
+              <a href="#" onClick={demoNavClick} className="hover:underline">
                 {FEATURED.title}
               </a>
             </h3>
@@ -178,7 +193,7 @@ export function BlogGridShowcase() {
               {post.category}
             </Badge>
             <h3 className="text-base font-semibold leading-snug">
-              <a href="#" className="hover:underline">
+              <a href="#" onClick={demoNavClick} className="hover:underline">
                 {post.title}
               </a>
             </h3>

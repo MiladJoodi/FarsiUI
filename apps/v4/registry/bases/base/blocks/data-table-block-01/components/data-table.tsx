@@ -25,11 +25,11 @@ export function DataTableSimple() {
       <div className="mb-6">
         <h2 className="text-2xl font-bold tracking-tight">جدول سادهٔ کاربران</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          نام، وضعیت و تاریخ — بدون فیلتر
+          نام، وضعیت و تاریخ بدون فیلتر
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-xl border">
+      <div className="overflow-hidden rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -41,12 +41,15 @@ export function DataTableSimple() {
           <TableBody>
             {ROWS.map((row) => (
               <TableRow key={row.name}>
-                <TableCell className="font-medium">{row.name}</TableCell>
-                <TableCell>
+                <TableCell className="text-start font-medium">{row.name}</TableCell>
+                <TableCell className="text-start">
                   <Badge variant="secondary">{row.status}</Badge>
                 </TableCell>
-                <TableCell>
-                  <bdi dir="ltr" className="tabular-nums">
+                <TableCell className="text-start">
+                  <bdi
+                    dir="ltr"
+                    className="inline-block tracking-normal"
+                  >
                     {row.date}
                   </bdi>
                 </TableCell>

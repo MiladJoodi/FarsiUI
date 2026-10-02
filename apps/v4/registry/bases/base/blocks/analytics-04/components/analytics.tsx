@@ -26,14 +26,18 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 const SOURCES = {
-  week: [
+  هفته: [
     { name: "جستجو", key: "search", value: 44 },
     { name: "مستقیم", key: "direct", value: 28 },
     { name: "شبکه اجتماعی", key: "social", value: 18 },
     { name: "ارجاع", key: "referral", value: 10 },
   ],
-  month: [
+  ماه: [
     { name: "جستجو", key: "search", value: 40 },
     { name: "مستقیم", key: "direct", value: 30 },
     { name: "شبکه اجتماعی", key: "social", value: 20 },
@@ -43,6 +47,11 @@ const SOURCES = {
 
 type Range = keyof typeof SOURCES
 
+const RANGE_ITEMS = (Object.keys(SOURCES) as Range[]).map((key) => ({
+  value: key,
+  label: key,
+}))
+
 const chartConfig = {
   search: { label: "جستجو", color: "var(--primary)" },
   direct: { label: "مستقیم", color: "var(--chart-2)" },
@@ -51,7 +60,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function AnalyticsSources() {
-  const [range, setRange] = React.useState<Range>("week")
+  const [range, setRange] = React.useState<Range>("هفته")
   const data = SOURCES[range].map((item) => ({
     ...item,
     fill: `var(--color-${item.key})`,
@@ -74,15 +83,21 @@ export function AnalyticsSources() {
           </p>
         </div>
         <Select
+          items={RANGE_ITEMS}
           value={range}
-          onValueChange={(value) => setRange((value as Range) ?? "week")}
+          onValueChange={(value) => {
+            if (value && value in SOURCES) setRange(value as Range)
+          }}
         >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="بازه" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="week">هفته</SelectItem>
-            <SelectItem value="month">ماه</SelectItem>
+            {RANGE_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
@@ -99,7 +114,23 @@ export function AnalyticsSources() {
               className="aspect-square h-56 w-full max-w-xs"
             >
               <PieChart>
-                <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+                <ChartTooltip
+                  content={
+                    <ChartTooltipContent
+                      hideLabel
+                      formatter={(value, name) => (
+                        <div className="flex w-full items-center justify-between gap-4">
+                          <span className="text-muted-foreground">{name}</span>
+                          <span className="font-mono font-medium tabular-nums tracking-normal [letter-spacing:0]">
+                            {typeof value === "number"
+                              ? `٪${toFa(value)}`
+                              : value}
+                          </span>
+                        </div>
+                      )}
+                    />
+                  }
+                />
                 <Pie
                   data={data}
                   dataKey="value"
@@ -134,7 +165,7 @@ export function AnalyticsSources() {
                   />
                   {item.name}
                 </div>
-                <StatNumber value={`${item.value}٪`} />
+                <StatNumber value={`٪${toFa(item.value)}`} />
               </div>
             ))}
           </CardContent>

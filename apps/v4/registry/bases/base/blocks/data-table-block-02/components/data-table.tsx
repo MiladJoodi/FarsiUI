@@ -23,7 +23,7 @@ const ROWS = [
   {
     name: "علی رضایی",
     email: "ali@example.com",
-    role: "طراح UI",
+    role: "طراح رابط",
     status: "در انتظار",
     initials: "عر",
   },
@@ -57,7 +57,7 @@ export function DataTableWithEmail() {
         </p>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -75,16 +75,19 @@ export function DataTableWithEmail() {
                     <Avatar className="size-8">
                       <AvatarFallback>{row.initials}</AvatarFallback>
                     </Avatar>
-                    <span className="font-medium">{row.name}</span>
+                    <span className="text-start font-medium">{row.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <span dir="ltr" className="inline-block text-start text-sm">
+                  <span
+                    dir="ltr"
+                    className="block text-left text-sm tracking-normal"
+                  >
                     {row.email}
                   </span>
                 </TableCell>
-                <TableCell>{row.role}</TableCell>
-                <TableCell>
+                <TableCell className="text-start">{row.role}</TableCell>
+                <TableCell className="text-start">
                   <Badge
                     variant={row.status === "فعال" ? "default" : "secondary"}
                   >

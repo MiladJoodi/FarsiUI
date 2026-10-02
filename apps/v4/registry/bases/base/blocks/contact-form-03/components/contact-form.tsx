@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import { Card, CardContent } from "@/registry/bases/base/ui/card"
@@ -53,7 +53,7 @@ export function ContactFormSplit() {
           <div>
             <p className="text-sm text-muted-foreground">ایمیل تماس</p>
             <p dir="ltr" className="font-medium">
-              support@farsiui.dev
+              info@farsiui.ir
             </p>
           </div>
           <div>

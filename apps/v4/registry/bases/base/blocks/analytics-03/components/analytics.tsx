@@ -8,12 +8,16 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 const STEPS = [
-  { label: "بازدید صفحهٔ فرود", value: 10000, display: "۱۰٬۰۰۰", width: 100 },
-  { label: "شروع ثبت‌نام", value: 4200, display: "۴٬۲۰۰", width: 42 },
-  { label: "تأیید ایمیل", value: 3100, display: "۳٬۱۰۰", width: 31 },
-  { label: "اولین بلاک", value: 1800, display: "۱٬۸۰۰", width: 18 },
-  { label: "پرداخت", value: 640, display: "۶۴۰", width: 6.4 },
+  { label: "بازدید صفحهٔ فرود", display: "۱۰٬۰۰۰", width: 100, widthLabel: "٪۱۰۰" },
+  { label: "شروع ثبت‌نام", display: "۴٬۲۰۰", width: 42, widthLabel: "٪۴۲" },
+  { label: "تأیید ایمیل", display: "۳٬۱۰۰", width: 31, widthLabel: "٪۳۱" },
+  { label: "اولین بلاک", display: "۱٬۸۰۰", width: 18, widthLabel: "٪۱۸" },
+  { label: "پرداخت", display: "۶۴۰", width: 6.4, widthLabel: "٪۶٫۴" },
 ] as const
 
 export function AnalyticsFunnel() {
@@ -45,7 +49,7 @@ export function AnalyticsFunnel() {
             <div key={step.label} className="space-y-2">
               <div className="flex items-center justify-between gap-3 text-sm">
                 <span className="font-medium">
-                  {["۱", "۲", "۳", "۴", "۵"][i]}. {step.label}
+                  {toFa(i + 1)}. {step.label}
                 </span>
                 <StatNumber
                   value={step.display}
@@ -57,7 +61,7 @@ export function AnalyticsFunnel() {
                   className="flex h-full items-center rounded-lg bg-primary/80 px-3 text-xs font-medium text-primary-foreground"
                   style={{ width: `${Math.max(step.width, 8)}%` }}
                 >
-                  <StatNumber value={`${step.width}٪`} />
+                  <StatNumber value={step.widthLabel} />
                 </div>
               </div>
             </div>

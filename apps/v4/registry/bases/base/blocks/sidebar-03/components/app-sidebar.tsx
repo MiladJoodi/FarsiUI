@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 
@@ -117,7 +117,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton
                           isActive={subItem.isActive}
-                          render={<a href={subItem.url} />}
+                          render={<a href={subItem.url} onClick={(e) => { if (subItem.url === "#") e.preventDefault() }} />}
                         >
                           {subItem.title}
                         </SidebarMenuSubButton>

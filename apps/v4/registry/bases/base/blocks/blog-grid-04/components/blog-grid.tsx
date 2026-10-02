@@ -79,9 +79,19 @@ const POSTS = [
   },
 ] as const
 
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه دسته‌ها" },
+  { value: "شروع", label: "شروع" },
+  { value: "جدول", label: "جدول" },
+  { value: "تم", label: "تم" },
+  { value: "پشتیبانی", label: "پشتیبانی" },
+  { value: "آمار", label: "آمار" },
+  { value: "بازاریابی", label: "بازاریابی" },
+] as const
+
 export function BlogGridFilter() {
   const [query, setQuery] = React.useState("")
-  const [category, setCategory] = React.useState("all")
+  const [category, setCategory] = React.useState("همه")
 
   const filtered = POSTS.filter((post) => {
     const matchQuery =
@@ -90,7 +100,7 @@ export function BlogGridFilter() {
       post.excerpt.includes(query) ||
       post.author.includes(query)
     const matchCategory =
-      category === "all" || post.category === category
+      category === "همه" || post.category === category
     return matchQuery && matchCategory
   })
 
@@ -120,19 +130,18 @@ export function BlogGridFilter() {
           </div>
           <Select
             value={category}
-            onValueChange={(value) => setCategory((value as string) ?? "all")}
+            onValueChange={(value) => setCategory((value as string) ?? "همه")}
+            items={[...CATEGORY_ITEMS]}
           >
             <SelectTrigger className="w-full sm:w-44" dir="rtl">
               <SelectValue placeholder="دسته‌بندی" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه دسته‌ها</SelectItem>
-              <SelectItem value="شروع">شروع</SelectItem>
-              <SelectItem value="جدول">جدول</SelectItem>
-              <SelectItem value="تم">تم</SelectItem>
-              <SelectItem value="پشتیبانی">پشتیبانی</SelectItem>
-              <SelectItem value="آمار">آمار</SelectItem>
-              <SelectItem value="بازاریابی">بازاریابی</SelectItem>
+              {CATEGORY_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>

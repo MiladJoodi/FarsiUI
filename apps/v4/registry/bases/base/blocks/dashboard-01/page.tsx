@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/bases/base/blocks/dashboard-01/components/app-sidebar"
+﻿import { AppSidebar } from "@/registry/bases/base/blocks/dashboard-01/components/app-sidebar"
 import { ChartAreaInteractive } from "@/registry/bases/base/blocks/dashboard-01/components/chart-area-interactive"
 import { DataTable } from "@/registry/bases/base/blocks/dashboard-01/components/data-table"
 import { SectionCards } from "@/registry/bases/base/blocks/dashboard-01/components/section-cards"

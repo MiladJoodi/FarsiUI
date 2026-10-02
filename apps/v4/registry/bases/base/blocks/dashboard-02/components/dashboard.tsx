@@ -33,7 +33,7 @@ export function DashboardSimple() {
                 <CardDescription>{stat.label}</CardDescription>
                 <Badge variant="outline">{stat.delta}</Badge>
               </div>
-              <CardTitle className="text-2xl tabular-nums">
+              <CardTitle className="text-2xl tracking-normal [letter-spacing:0]">
                 <bdi
                   dir="ltr"
                   className="inline-block tracking-normal [letter-spacing:0]"

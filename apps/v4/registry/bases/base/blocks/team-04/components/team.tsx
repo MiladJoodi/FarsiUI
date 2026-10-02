@@ -5,12 +5,7 @@ import * as React from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
+import { Card } from "@/registry/bases/base/ui/card"
 import {
   Select,
   SelectContent,
@@ -34,7 +29,7 @@ const MEMBERS = [
     dept: "مهندسی",
     avatar: "/avatars/02.png",
     fallback: "عم",
-    bio: "کامپوننت و تم RTL.",
+    bio: "کامپوننت و تم راست‌چین.",
   },
   {
     name: "سارا کریمی",
@@ -110,8 +105,11 @@ export function TeamFilter() {
           </p>
         </div>
         <Select
+          items={DEPTS.map((item) => ({ value: item, label: item }))}
           value={dept}
-          onValueChange={(value) => setDept((value as string) ?? "همه")}
+          onValueChange={(value) => {
+            if (typeof value === "string") setDept(value)
+          }}
         >
           <SelectTrigger className="w-full sm:w-44" dir="rtl">
             <SelectValue placeholder="واحد" />
@@ -133,22 +131,22 @@ export function TeamFilter() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filtered.map((member) => (
-            <Card key={member.name}>
-              <CardHeader className="items-center gap-3 text-center">
+            <Card key={member.name} className="p-6">
+              <div className="flex flex-col items-center gap-3 text-center">
                 <Avatar className="size-16">
                   <AvatarImage src={member.avatar} alt={member.name} />
                   <AvatarFallback>{member.fallback}</AvatarFallback>
                 </Avatar>
-                <div>
-                  <CardTitle className="text-base">{member.name}</CardTitle>
-                  <CardDescription>{member.role}</CardDescription>
+                <div className="space-y-1">
+                  <p className="font-semibold tracking-tight">{member.name}</p>
+                  <p className="text-sm text-muted-foreground">{member.role}</p>
                 </div>
                 <Badge variant="outline">{member.dept}</Badge>
                 <p className="text-sm text-muted-foreground">{member.bio}</p>
                 <Button variant="outline" size="sm" className="w-full">
                   پروفایل
                 </Button>
-              </CardHeader>
+              </div>
             </Card>
           ))}
         </div>

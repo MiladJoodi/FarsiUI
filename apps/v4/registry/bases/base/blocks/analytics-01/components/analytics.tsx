@@ -18,13 +18,13 @@ import {
 } from "@/registry/bases/base/ui/chart"
 
 const data = [
-  { day: "ش", visits: 420 },
-  { day: "ی", visits: 580 },
-  { day: "د", visits: 510 },
-  { day: "س", visits: 720 },
-  { day: "چ", visits: 690 },
-  { day: "پ", visits: 860 },
-  { day: "ج", visits: 640 },
+  { day: "ش", fullDay: "شنبه", visits: 420 },
+  { day: "ی", fullDay: "یکشنبه", visits: 580 },
+  { day: "د", fullDay: "دوشنبه", visits: 510 },
+  { day: "س", fullDay: "سه‌شنبه", visits: 720 },
+  { day: "چ", fullDay: "چهارشنبه", visits: 690 },
+  { day: "پ", fullDay: "پنجشنبه", visits: 860 },
+  { day: "ج", fullDay: "جمعه", visits: 640 },
 ]
 
 const chartConfig = {
@@ -60,11 +60,21 @@ export function AnalyticsBars() {
               <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="day"
+                reversed
                 tickLine={false}
                 axisLine={false}
                 tickMargin={8}
               />
-              <ChartTooltip content={<ChartTooltipContent />} />
+              <ChartTooltip
+                content={
+                  <ChartTooltipContent
+                    labelFormatter={(_, payload) => {
+                      const fullDay = payload?.[0]?.payload?.fullDay
+                      return typeof fullDay === "string" ? fullDay : ""
+                    }}
+                  />
+                }
+              />
               <Bar dataKey="visits" fill="var(--color-visits)" radius={6} />
             </BarChart>
           </ChartContainer>

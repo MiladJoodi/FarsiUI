@@ -20,7 +20,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 
 const SERIES = {
-  week: [
+  هفته: [
     { label: "ش", value: 40 },
     { label: "ی", value: 65 },
     { label: "د", value: 52 },
@@ -29,13 +29,13 @@ const SERIES = {
     { label: "پ", value: 90 },
     { label: "ج", value: 58 },
   ],
-  month: [
+  ماه: [
     { label: "ه۱", value: 45 },
     { label: "ه۲", value: 62 },
     { label: "ه۳", value: 55 },
     { label: "ه۴", value: 78 },
   ],
-  year: [
+  سال: [
     { label: "بهار", value: 50 },
     { label: "تابستان", value: 72 },
     { label: "پاییز", value: 64 },
@@ -45,8 +45,13 @@ const SERIES = {
 
 type Period = keyof typeof SERIES
 
+const PERIOD_ITEMS = (Object.keys(SERIES) as Period[]).map((key) => ({
+  value: key,
+  label: key,
+}))
+
 export function DashboardChart() {
-  const [period, setPeriod] = React.useState<Period>("week")
+  const [period, setPeriod] = React.useState<Period>("هفته")
   const bars = SERIES[period]
   const max = Math.max(...bars.map((b) => b.value))
 
@@ -67,16 +72,21 @@ export function DashboardChart() {
           </p>
         </div>
         <Select
+          items={PERIOD_ITEMS}
           value={period}
-          onValueChange={(value) => setPeriod((value as Period) ?? "week")}
+          onValueChange={(value) => {
+            if (value && value in SERIES) setPeriod(value as Period)
+          }}
         >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="بازه" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="week">هفته</SelectItem>
-            <SelectItem value="month">ماه</SelectItem>
-            <SelectItem value="year">سال</SelectItem>
+            {PERIOD_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
