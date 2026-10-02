@@ -51,10 +51,10 @@ const timezones = [
 
 export function ComboboxWithGroupsAndSeparator() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={timezones}>
         <ComboboxInput placeholder="منطقهٔ زمانی را انتخاب کنید" />
-        <ComboboxContent>
+        <ComboboxContent dir="rtl">
           <ComboboxEmpty>منطقهٔ زمانی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(group, index) => (

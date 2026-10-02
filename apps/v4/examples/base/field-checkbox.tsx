@@ -10,10 +10,10 @@ import {
   FieldSet,
 } from "@/styles/base-nova/ui/field"
 
-export function FieldCheckbox() {
+export default function FieldCheckbox() {
   return (
-    <div dir="rtl">
-      <FieldGroup className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <FieldGroup>
         <FieldSet>
           <FieldLegend variant="label">
             این موارد را روی دسکتاپ نشان بده

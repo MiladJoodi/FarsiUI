@@ -88,7 +88,7 @@ Progress
     └── ProgressIndicator
 ```
 
-با `ProgressLabel` و `ProgressValue` برچسب و مقدار را نمایش دهید:
+با `ProgressLabel` و `ProgressValue` برچسب و مقدار را نمایش دهید. مقدار با `locale="fa-IR"` به‌صورت پیش‌فرض فارسی است (مثلاً ۵۶٪):
 
 ```tsx showLineNumbers
 import {
@@ -113,7 +113,7 @@ import {
 
 <DocsCollapsible title="برچسب">
 
-با `ProgressLabel` و `ProgressValue` برچسب و مقدار را به نوار پیشرفت اضافه کنید.
+با `ProgressLabel` و `ProgressValue` برچسب و درصد را کنار نوار پیشرفت بگذارید.
 
 <ComponentPreview
   styleName="base-nova"
@@ -136,24 +136,6 @@ import {
 <ComponentPreview
   styleName="base-nova"
   name="progress-controlled"
-  direction="rtl"
-/>
-
-</DocsCollapsible>
-
-<div className="hidden">
-
-## پشتیبانی RTL
-
-</div>
-
-<DocsCollapsible title="پشتیبانی RTL">
-
-برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="progress-rtl"
   direction="rtl"
 />
 

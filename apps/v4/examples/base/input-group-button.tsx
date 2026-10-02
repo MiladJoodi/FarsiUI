@@ -26,9 +26,14 @@ export default function InputGroupButtonExample() {
   const [isFavorite, setIsFavorite] = React.useState(false)
 
   return (
-    <div dir="rtl" className="grid w-full max-w-sm gap-6">
+    <div className="grid w-full max-w-sm gap-6" dir="rtl" lang="fa">
       <InputGroup>
-        <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
+        <InputGroupInput
+          placeholder="https://x.com/shadcn"
+          readOnly
+          dir="ltr"
+          className="text-start"
+        />
         <InputGroupAddon align="inline-end">
           <InputGroupButton
             aria-label="کپی"
@@ -43,28 +48,33 @@ export default function InputGroupButtonExample() {
         </InputGroupAddon>
       </InputGroup>
       <InputGroup className="[--radius:9999px]">
-        <Popover>
-          <PopoverTrigger render={<InputGroupAddon />}>
-            <InputGroupButton variant="secondary" size="icon-xs">
-              <IconInfoCircle />
-            </InputGroupButton>
-          </PopoverTrigger>
-          <PopoverContent
-            align="start"
-            className="flex flex-col gap-1 rounded-xl text-sm"
-          >
-            <p className="font-medium">اتصال شما امن نیست.</p>
-            <p>اطلاعات حساس را در این سایت وارد نکنید.</p>
-          </PopoverContent>
-        </Popover>
-        <InputGroupAddon className="ps-1.5 text-muted-foreground">
+        <InputGroupAddon align="inline-start" className="ps-1.5 text-muted-foreground">
           https://
         </InputGroupAddon>
-        <InputGroupInput id="input-secure-19" />
+        <InputGroupInput id="input-secure-19" dir="ltr" className="text-start" />
         <InputGroupAddon align="inline-end">
+          <Popover>
+            <PopoverTrigger
+              render={
+                <InputGroupButton variant="secondary" size="icon-xs" />
+              }
+            >
+              <IconInfoCircle />
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="end"
+              className="flex flex-col gap-1 rounded-xl text-sm"
+            >
+              <p className="font-medium">اتصال شما امن نیست.</p>
+              <p>اطلاعات حساس را در این سایت وارد نکنید.</p>
+            </PopoverContent>
+          </Popover>
           <InputGroupButton
             onClick={() => setIsFavorite(!isFavorite)}
             size="icon-xs"
+            aria-label="علاقه‌مندی"
           >
             <IconStar
               data-favorite={isFavorite}

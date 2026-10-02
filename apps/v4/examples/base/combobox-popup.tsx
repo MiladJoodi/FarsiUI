@@ -40,19 +40,19 @@ const countries = [
 
 export function ComboboxPopup() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={countries} defaultValue={countries[0]}>
         <ComboboxTrigger
           render={
             <Button
               variant="outline"
-              className="w-64 justify-between font-normal"
+              className="w-full justify-between font-normal"
             />
           }
         >
           <ComboboxValue />
         </ComboboxTrigger>
-        <ComboboxContent>
+        <ComboboxContent dir="rtl">
           <ComboboxInput showTrigger={false} placeholder="جستجو" />
           <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>

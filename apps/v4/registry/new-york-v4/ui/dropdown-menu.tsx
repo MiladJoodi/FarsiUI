@@ -33,6 +33,7 @@ function DropdownMenuTrigger({
 function DropdownMenuContent({
   className,
   sideOffset = 4,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (

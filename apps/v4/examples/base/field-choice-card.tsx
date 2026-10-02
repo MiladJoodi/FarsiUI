@@ -12,8 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
 export default function FieldChoiceCard() {
   return (
-    <div dir="rtl">
-      <FieldGroup className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <FieldGroup>
         <FieldSet>
           <FieldLegend variant="label">محیط محاسبه</FieldLegend>
           <FieldDescription>

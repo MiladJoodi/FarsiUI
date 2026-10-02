@@ -23,7 +23,7 @@ export function DropdownMenuDemo() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40" align="start">
+        <DropdownMenuContent dir="rtl" className="w-40" align="start">
           <DropdownMenuGroup>
             <DropdownMenuLabel>حساب من</DropdownMenuLabel>
             <DropdownMenuItem>
@@ -45,7 +45,7 @@ export function DropdownMenuDemo() {
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>دعوت کاربران</DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuItem>ایمیل</DropdownMenuItem>
                   <DropdownMenuItem>پیام</DropdownMenuItem>
                   <DropdownMenuSeparator />

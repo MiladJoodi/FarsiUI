@@ -13,9 +13,9 @@ import {
   InputGroupTextarea,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupBlockEnd() {
+export default function InputGroupBlockEnd() {
   return (
-    <FieldGroup dir="rtl" className="max-w-sm">
+    <FieldGroup dir="rtl" lang="fa" className="max-w-sm">
       <Field>
         <FieldLabel htmlFor="block-end-input">ورودی</FieldLabel>
         <InputGroup className="h-auto">

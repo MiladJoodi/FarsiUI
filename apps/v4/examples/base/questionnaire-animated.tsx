@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -27,6 +28,24 @@ const items = [
 const itemClassName =
   "data-active:animate-in data-active:fade-in-0 data-active:slide-in-from-bottom-2 data-active:duration-300 motion-reduce:animate-none"
 
+const taskLabels: Record<string, string> = {
+  implement: "پیاده‌سازی تغییر درخواستی",
+  debug: "اشکال‌زدایی رفتار فعلی",
+  review: "بررسی پیاده‌سازی",
+}
+
+const reviewLabels: Record<string, string> = {
+  targeted: "بررسی‌های هدفمند",
+  complete: "مجموعهٔ کامل تست",
+  manual: "تست‌ها و کنترل کیفیت دستی",
+}
+
+const deliveryLabels: Record<string, string> = {
+  summary: "خلاصهٔ کوتاه",
+  diff: "خلاصه و فایل‌های تغییر یافته",
+  handoff: "تحویل بررسی جزئی",
+}
+
 export function QuestionnaireAnimated() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -34,7 +53,7 @@ export function QuestionnaireAnimated() {
     const formData = new FormData(event.currentTarget)
 
     toast("گردش‌کار عامل ذخیره شد", {
-      description: `وظیفه: ${formData.get("task") ?? "هیچ"} · بررسی: ${formData.get("review") ?? "هیچ"} · تحویل: ${formData.get("delivery") ?? "هیچ"}`,
+      description: `وظیفه: ${answerLabel(formData.get("task"), taskLabels)} · بررسی: ${answerLabel(formData.get("review"), reviewLabels)} · تحویل: ${answerLabel(formData.get("delivery"), deliveryLabels)}`,
     })
   }
 

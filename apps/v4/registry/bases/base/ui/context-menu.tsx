@@ -35,6 +35,7 @@ function ContextMenuContent({
   alignOffset = 4,
   side = "right",
   sideOffset = 0,
+  dir = "rtl",
   ...props
 }: ContextMenuPrimitive.Popup.Props &
   Pick<
@@ -52,6 +53,7 @@ function ContextMenuContent({
       >
         <ContextMenuPrimitive.Popup
           data-slot="context-menu-content"
+          dir={dir}
           className={cn(
             "cn-context-menu-content cn-context-menu-content-logical cn-menu-target cn-menu-translucent z-50 max-h-(--available-height) origin-(--transform-origin) overflow-x-hidden overflow-y-auto outline-none",
             className

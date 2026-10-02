@@ -24,7 +24,6 @@ const SKIP_SLUGS = new Set([
   "identity-check",
   "document-verification",
   "profile-form",
-  "settings-form",
   "contact-form",
   "support-form",
   "newsletter-form",
@@ -55,6 +54,15 @@ const SKIP_SLUGS = new Set([
   "data-table-block",
   "activity",
   "recent-items",
+  "dashboard-settings",
+  "user-management",
+  "product-grid",
+  "product-details",
+  "shopping-cart",
+  "checkout",
+  "order-summary",
+  "order-history",
+  "wishlist",
 ])
 
 const ITEMS = [
@@ -69,7 +77,6 @@ const ITEMS = [
   ["identity-check", "بررسی هویت", "Identity Check", "check"],
   ["document-verification", "تأیید مدارک", "Document Verification", "upload"],
   ["profile-form", "فرم پروفایل", "Profile Form", "form"],
-  ["settings-form", "فرم تنظیمات", "Settings Form", "settings"],
   ["contact-form", "فرم تماس با ما", "Contact Form", "form"],
   ["support-form", "فرم درخواست پشتیبانی", "Support Form", "form"],
   ["newsletter-form", "فرم عضویت در خبرنامه", "Newsletter Form", "inline-form"],
@@ -105,16 +112,6 @@ const ITEMS = [
   ["data-table-block", "جدول داده‌ها", "Data Table", "table"],
   ["activity", "فعالیت‌ها", "Activity", "feed"],
   ["recent-items", "موارد اخیر", "Recent Items", "list"],
-  ["dashboard-settings", "تنظیمات", "Settings", "settings"],
-  ["user-management", "مدیریت کاربران", "User Management", "table"],
-  // commerce
-  ["product-grid", "فهرست محصولات", "Product Grid", "product-grid"],
-  ["product-details", "جزئیات محصول", "Product Details", "product"],
-  ["shopping-cart", "سبد خرید", "Shopping Cart", "cart"],
-  ["checkout", "تسویه‌حساب", "Checkout", "checkout"],
-  ["order-summary", "خلاصه سفارش", "Order Summary", "summary"],
-  ["order-history", "تاریخچه سفارش‌ها", "Order History", "table"],
-  ["wishlist", "علاقه‌مندی‌ها", "Wishlist", "product-grid"],
   // account
   ["profile", "پروفایل", "Profile", "profile"],
   ["account-settings", "تنظیمات حساب", "Account Settings", "settings"],

@@ -7,10 +7,10 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
-export function FieldRadio() {
+export default function FieldRadio() {
   return (
-    <div dir="rtl">
-      <FieldSet className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <FieldSet>
         <FieldLegend variant="label">طرح اشتراک</FieldLegend>
         <FieldDescription>
           طرح‌های سالانه و مادام‌العمر صرفه‌جویی بیشتری دارند.

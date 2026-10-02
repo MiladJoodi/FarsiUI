@@ -8,10 +8,10 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function FieldFieldset() {
+export default function FieldFieldset() {
   return (
-    <div dir="rtl">
-      <FieldSet className="w-full max-w-sm">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <FieldSet>
         <FieldLegend>اطلاعات آدرس</FieldLegend>
         <FieldDescription>
           برای تحویل سفارش به آدرس شما نیاز داریم.

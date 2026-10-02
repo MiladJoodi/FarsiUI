@@ -77,7 +77,7 @@ export default function CalendarWithTime() {
   )
 
   return (
-    <Card size="sm" className="mx-auto w-fit">
+    <Card size="sm" className="mx-auto w-fit max-w-full">
       <CardContent>
         <Calendar
           mode="single"
@@ -86,8 +86,8 @@ export default function CalendarWithTime() {
           className="p-0"
         />
       </CardContent>
-      <CardFooter className="border-t bg-card">
-        <FieldGroup>
+      <CardFooter className="flex-col items-stretch gap-3 border-t bg-card!">
+        <FieldGroup className="gap-3">
           <TimeField id="time-from" label="ساعت شروع" defaultValue="10:30:00" />
           <TimeField id="time-to" label="ساعت پایان" defaultValue="12:30:00" />
         </FieldGroup>

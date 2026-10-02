@@ -18,9 +18,9 @@ component: true
   ]}
 />
 
-کامپوننت `Message` چیدمان یک پیام در گفتگو را می‌سازد؛ آواتار، تراز، هدر و فوتر را اطراف سطح پیام مدیریت می‌کند.
+کامپوننت `Message` چیدمان یک پیام در گفتگو را می‌سازد؛ آواتار، تراز، هدر و فوتر را دور حباب مدیریت می‌کند.
 
-در اپ‌های هوش مصنوعی می‌توانید مراحل استدلال، فراخوانی ابزار و پیام‌های دستیار را با `Message` رندر کنید.
+در اپ‌های هوش مصنوعی می‌توانید مراحل استدلال، فراخوانی ابزار و پیام‌های دستیار را با `Message` نشان دهید.
 
 ## نصب
 
@@ -70,22 +70,21 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 <Message>
   <MessageAvatar>
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarImage src="/avatars/02.png" alt="رضا" />
+      <AvatarFallback>ر</AvatarFallback>
     </Avatar>
   </MessageAvatar>
   <MessageContent>
     <Bubble>
-      <BubbleContent>چطور می‌توانم کمکتان کنم؟</BubbleContent>
+      <BubbleContent>چطور می‌تونم کمکتون کنم؟</BubbleContent>
     </Bubble>
   </MessageContent>
 </Message>
 ```
 
-**توجه:** `Message` مالک چیدمان ردیف است — آواتار، تراز، هدر و فوتر.
-سطح دیده‌شدهٔ پیام را داخل آن با [`حباب`](/docs/components/bubble) رندر کنید.
-برای ظرف اسکرول اطراف گفتگو از
-[`پیمایشگر پیام`](/docs/components/message-scroller) استفاده کنید.
+**توجه:** `Message` چیدمان ردیف را می‌سازد — آواتار، تراز، هدر و فوتر.
+خود حباب را با [`حباب`](/docs/components/bubble) داخلش بگذارید.
+برای اسکرول گفتگو از [`پیمایشگر پیام`](/docs/components/message-scroller) استفاده کنید.
 
 <div className="hidden">
 
@@ -106,7 +105,7 @@ Message
     └── MessageFooter
 ```
 
-با `MessageGroup` پیام‌های پشت‌سرهم یک فرستنده را روی هم بچینید:
+با `MessageGroup` پیام‌های پشت‌سرهم یک نفر را روی هم بچینید:
 
 ```text
 MessageGroup
@@ -124,12 +123,12 @@ MessageGroup
 
 <DocsCollapsible title="قابلیت‌ها">
 
-- تراز شروع و پایان برای ردیف فرستنده و گیرنده با prop به نام `align`
-- اسلات آواتار که به پایین پیام لنگر می‌شود و از فوتر فاصله می‌گیرد
-- اسلات هدر و فوتر برای نام فرستنده، وضعیت و اقدام‌های پیام
-- فوتر سمت پیام را دنبال می‌کند؛ اقدام‌ها روی ردیف‌های `align="end"` تراز می‌مانند
-- ظرف گروه برای چیدن پیام‌های پشت‌سرهم یک فرستنده
-- استایل‌دهی سفارشی از طریق `className` روی هر بخش
+- تراز `start` و `end` برای پیام طرف مقابل و پیام خودتان
+- اسلات آواتار که به پایین پیام می‌چسبد و از فوتر فاصله می‌گیرد
+- هدر و فوتر برای نام فرستنده، وضعیت و اقدام‌ها
+- فوتر سمت همان پیام می‌ماند؛ روی `align="end"` هم درست تراز می‌شود
+- `MessageGroup` برای پیام‌های پشت‌سرهم یک نفر
+- استایل اضافه با `className` روی هر بخش
 
 </DocsCollapsible>
 
@@ -141,7 +140,7 @@ MessageGroup
 
 <DocsCollapsible title="آواتار">
 
-با `MessageAvatar` آواتار کنار پیام بگذارید. با `align="end"` روی پیام، آواتار را به انتهای پیام تراز کنید.
+با `MessageAvatar` آواتار را کنار پیام بگذارید. روی پیام‌های خودتان `align="end"` بگذارید تا آواتار هم به همان سمت برود.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -150,10 +149,10 @@ MessageGroup
   previewClassName="h-auto theme-blue"
 />
 
-| تراز    | توضیح                                          |
-| ------- | ---------------------------------------------- |
-| `start` | پیام را به ابتدای گفتگو تراز می‌کند.         |
-| `end`   | پیام را به انتهای گفتگو تراز می‌کند.         |
+| تراز    | توضیح                                                         |
+| ------- | ------------------------------------------------------------- |
+| `start` | پیام طرف مقابل — در RTL سمت راست.                             |
+| `end`   | پیام شما — در RTL سمت چپ.                                     |
 
 </DocsCollapsible>
 
@@ -165,7 +164,7 @@ MessageGroup
 
 <DocsCollapsible title="گروه">
 
-با `MessageGroup` پیام‌های پشت‌سرهم یک فرستنده را روی هم بچینید. روی پیام‌های قبلی `MessageAvatar` خالی بگذارید تا با آواتار آخرین پیام هم‌تراز بمانند.
+با `MessageGroup` پیام‌های پشت‌سرهم یک نفر را روی هم بچینید. روی پیام‌های قبلی `MessageAvatar` خالی بگذارید تا با آواتار آخرین پیام هم‌ردیف بمانند.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -184,7 +183,7 @@ MessageGroup
 
 <DocsCollapsible title="هدر و فوتر">
 
-از `MessageHeader` برای نام فرستنده و از `MessageFooter` برای متادیتا مثل وضعیت تحویل یا خوانده‌شدن استفاده کنید.
+نام فرستنده را در `MessageHeader` و وضعیت‌هایی مثل تحویل یا خوانده‌شدن را در `MessageFooter` بگذارید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -203,7 +202,7 @@ MessageGroup
 
 <DocsCollapsible title="اقدام‌ها">
 
-اقدام‌های سطح پیام مثل کپی، تلاش مجدد یا بازخورد را در `MessageFooter` بگذارید.
+اقدام‌هایی مثل کپی، تلاش مجدد یا بازخورد را در `MessageFooter` بگذارید.
 
 <ComponentPreview
   styleName="base-rhea"
@@ -239,11 +238,11 @@ MessageGroup
 
 <DocsCollapsible title="دسترس‌پذیری">
 
-`Message` یک ظرف چیدمان نمایشی است. دسترس‌پذیری از محتوایی که داخلش می‌گذارید می‌آید.
+`Message` فقط چیدمان را می‌سازد؛ دسترس‌پذیری از محتوایی که داخلش می‌گذارید می‌آید.
 
 ### برچسب اقدام‌های فقط‌آیکون
 
-دکمه‌های اقدام در `MessageFooter` معمولاً فقط‌آیکون‌اند؛ به هرکدام `aria-label` بدهید.
+دکمه‌های فوتر معمولاً فقط آیکون‌اند؛ به هرکدام `aria-label` بدهید.
 
 ```tsx showLineNumbers
 <MessageFooter>
@@ -255,7 +254,7 @@ MessageGroup
 
 ### به‌روزرسانی وضعیت
 
-برای پیام‌های در حال انجام، از [`نشانگر`](/docs/components/marker) با `role="status"` استفاده کنید تا فناوری کمکی به‌روزرسانی را اعلام کند.
+برای پیام در حال انجام، از [`نشانگر`](/docs/components/marker) با `role="status"` استفاده کنید تا صفحه‌خوان وضعیت را اعلام کند.
 
 ```tsx showLineNumbers
 <Message>
@@ -263,29 +262,10 @@ MessageGroup
     <MarkerIcon>
       <Spinner />
     </MarkerIcon>
-    <MarkerContent>در حال بررسی لاگ‌ها...</MarkerContent>
+    <MarkerContent>در حال چک کردن لاگ‌ها...</MarkerContent>
   </Marker>
 </Message>
 ```
-
-</DocsCollapsible>
-
-<div className="hidden">
-
-## پشتیبانی RTL
-
-</div>
-
-<DocsCollapsible title="پشتیبانی RTL">
-
-برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
-
-<ComponentPreview
-  styleName="base-rhea"
-  name="message-demo"
-  direction="rtl"
-  previewClassName="h-auto theme-blue"
-/>
 
 </DocsCollapsible>
 
@@ -309,7 +289,7 @@ MessageGroup
     },
     {
       name: "className",
-      description: "کلاس‌های اضافی ردیف",
+      description: "کلاس‌های اضافهٔ ردیف",
       values: ["string"],
     },
   ]}
@@ -317,11 +297,11 @@ MessageGroup
 
 <DocsApiProps
   title="MessageGroup"
-  description="گروه پیام‌های پشت‌سرهم یک فرستنده."
+  description="گروه پیام‌های پشت‌سرهم یک نفر."
   props={[
     {
       name: "className",
-      description: "کلاس‌های اضافی ریشهٔ گروه",
+      description: "کلاس‌های اضافهٔ ریشهٔ گروه",
       values: ["string"],
     },
   ]}
@@ -329,11 +309,11 @@ MessageGroup
 
 <DocsApiProps
   title="MessageAvatar"
-  description="اسلات آواتار، تراز با پایین پیام. وقتی MessageFooter هست، آواتار بالا می‌رود تا با سطح پیام هم‌تراز بماند نه فوتر."
+  description="اسلات آواتار، هم‌تراز با پایین پیام. اگر MessageFooter باشد، آواتار کمی بالا می‌آید تا با خود پیام تراز شود نه با فوتر."
   props={[
     {
       name: "className",
-      description: "کلاس‌های اضافی اسلات آواتار",
+      description: "کلاس‌های اضافهٔ اسلات آواتار",
       values: ["string"],
     },
   ]}
@@ -341,11 +321,11 @@ MessageGroup
 
 <DocsApiProps
   title="MessageContent"
-  description="هدر، سطح پیام و فوتر را می‌پوشاند."
+  description="هدر، حباب و فوتر را می‌پوشاند."
   props={[
     {
       name: "className",
-      description: "کلاس‌های اضافی اسلات محتوا",
+      description: "کلاس‌های اضافهٔ محتوا",
       values: ["string"],
     },
   ]}
@@ -353,11 +333,11 @@ MessageGroup
 
 <DocsApiProps
   title="MessageHeader"
-  description="محتوا بالای پیام، مثل نام فرستنده. صرف‌نظر از align به شروع تراز می‌ماند."
+  description="محتوا بالای پیام، مثل نام فرستنده. همیشه به شروع تراز می‌ماند."
   props={[
     {
       name: "className",
-      description: "کلاس‌های اضافی هدر",
+      description: "کلاس‌های اضافهٔ هدر",
       values: ["string"],
     },
   ]}
@@ -365,11 +345,11 @@ MessageGroup
 
 <DocsApiProps
   title="MessageFooter"
-  description="محتوا زیر پیام، مثل وضعیت یا اقدام‌ها. به سمت پیام تراز می‌شود."
+  description="محتوا زیر پیام، مثل وضعیت یا اقدام‌ها. سمت همان پیام می‌ماند."
   props={[
     {
       name: "className",
-      description: "کلاس‌های اضافی فوتر",
+      description: "کلاس‌های اضافهٔ فوتر",
       values: ["string"],
     },
   ]}

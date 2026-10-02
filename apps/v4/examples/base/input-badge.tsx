@@ -14,6 +14,8 @@ export function InputBadge() {
       <Input
         id="input-badge"
         type="url"
+        dir="ltr"
+        className="text-left"
         placeholder="https://api.example.com/webhook"
       />
     </Field>

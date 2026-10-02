@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabels } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -28,6 +29,13 @@ const items = [
   },
 ] as const
 
+const contextLabels: Record<string, string> = {
+  source: "فایل‌های منبع مرتبط",
+  tests: "تست‌های موجود",
+  docs: "مستندات معماری",
+  history: "تاریخچهٔ اخیر کامیت‌ها",
+}
+
 export function QuestionnaireMultiple() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -35,7 +43,7 @@ export function QuestionnaireMultiple() {
     const context = new FormData(event.currentTarget).getAll("context")
 
     toast("زمینه انتخاب شد", {
-      description: `زمینه: ${context.join(", ") || "هیچ"}`,
+      description: `زمینه: ${answerLabels(context, contextLabels)}`,
     })
   }
 

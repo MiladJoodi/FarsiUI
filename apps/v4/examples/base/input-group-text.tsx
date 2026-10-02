@@ -8,12 +8,12 @@ import {
 
 export default function InputGroupTextExample() {
   return (
-    <div dir="rtl" className="grid w-full max-w-sm gap-6">
+    <div className="grid w-full max-w-sm gap-6" dir="rtl" lang="fa">
       <InputGroup>
         <InputGroupAddon>
           <InputGroupText>تومان</InputGroupText>
         </InputGroupAddon>
-        <InputGroupInput placeholder="۰" />
+        <InputGroupInput placeholder="۰" dir="ltr" className="text-start" />
         <InputGroupAddon align="inline-end">
           <InputGroupText>IRT</InputGroupText>
         </InputGroupAddon>
@@ -22,7 +22,11 @@ export default function InputGroupTextExample() {
         <InputGroupAddon>
           <InputGroupText>https://</InputGroupText>
         </InputGroupAddon>
-        <InputGroupInput placeholder="example.com" className="ps-0.5!" />
+        <InputGroupInput
+          placeholder="example.com"
+          dir="ltr"
+          className="ps-0.5! text-start"
+        />
         <InputGroupAddon align="inline-end">
           <InputGroupText>.com</InputGroupText>
         </InputGroupAddon>
@@ -30,7 +34,7 @@ export default function InputGroupTextExample() {
       <InputGroup>
         <InputGroupInput placeholder="نام کاربری را وارد کنید" />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>@company.com</InputGroupText>
+          <InputGroupText dir="ltr">@company.com</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>

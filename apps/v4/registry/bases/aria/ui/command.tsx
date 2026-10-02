@@ -63,13 +63,14 @@ function Command({
 }
 
 function CommandDialog({
-  title = "Command Palette",
-  description = "Search for a command to run...",
+  title = "پالت دستور",
+  description = "دستوری برای اجرا جستجو کنید...",
   children,
   open,
   onOpenChange,
   className,
   showCloseButton = false,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof Dialog>,
@@ -81,6 +82,7 @@ function CommandDialog({
   onOpenChange?: (isOpen: boolean) => void
   className?: string
   showCloseButton?: boolean
+  dir?: "rtl" | "ltr"
   children: React.ReactNode
 }) {
   return (

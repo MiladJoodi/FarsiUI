@@ -10,9 +10,9 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function FieldResponsive() {
+export default function FieldResponsive() {
   return (
-    <div className="w-full max-w-lg" dir="rtl">
+    <div className="w-full max-w-lg" dir="rtl" lang="fa">
       <form>
         <FieldSet>
           <FieldLegend>پروفایل</FieldLegend>

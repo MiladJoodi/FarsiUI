@@ -4,6 +4,7 @@ import * as React from "react"
 import type { QuestionnaireItemStatus } from "@farsiui/react/questionnaire"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -26,6 +27,18 @@ const items = [
 
 type ItemName = "permission" | "verification"
 
+const permissionLabels: Record<string, string> = {
+  files: "فایل‌های پروژه",
+  tests: "فایل‌های پروژه و تست‌ها",
+  config: "فایل‌ها، تست‌ها و پیکربندی",
+}
+
+const verificationLabels: Record<string, string> = {
+  tests: "تست‌ها",
+  types: "تست‌ها و تایپ‌ها",
+  all: "تست‌ها، تایپ‌ها و کنترل کیفیت بصری",
+}
+
 export function QuestionnaireNavigationState() {
   const [item, setItem] = React.useState<ItemName>("permission")
   const [statuses, setStatuses] = React.useState<
@@ -46,7 +59,7 @@ export function QuestionnaireNavigationState() {
     const formData = new FormData(event.currentTarget)
 
     toast("مجوزها ذخیره شد", {
-      description: `مجوز: ${formData.get("permission") ?? "هیچ"} · تأیید: ${formData.get("verification") ?? "هیچ"}`,
+      description: `مجوز: ${answerLabel(formData.get("permission"), permissionLabels)} · تأیید: ${answerLabel(formData.get("verification"), verificationLabels)}`,
     })
   }
 

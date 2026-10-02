@@ -164,7 +164,11 @@ export const columns = columnHelper.columns([
         currency: "USD",
       }).format(amount)
 
-      return <div className="text-end font-medium">{formatted}</div>
+      return (
+        <div dir="ltr" className="text-end font-medium tabular-nums">
+          {formatted}
+        </div>
+      )
     },
   }),
   columnHelper.display({
@@ -228,7 +232,7 @@ export function DataTableDemo() {
   })
 
   return (
-    <div className="w-full" dir="rtl">
+    <div className="w-full max-w-full" dir="rtl" lang="fa">
       <div className="flex items-center gap-2 py-4">
         <Input
           placeholder="فیلتر ایمیل..."
@@ -266,7 +270,7 @@ export function DataTableDemo() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="overflow-hidden rounded-md border">
+      <div className="overflow-x-auto rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -337,3 +341,5 @@ export function DataTableDemo() {
     </div>
   )
 }
+
+export default DataTableDemo

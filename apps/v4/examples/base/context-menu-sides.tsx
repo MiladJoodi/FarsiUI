@@ -8,9 +8,9 @@ import {
 
 export function ContextMenuSides() {
   return (
-    <div dir="rtl" className="grid w-full max-w-sm grid-cols-2 gap-4">
+    <div dir="rtl" className="grid w-full max-w-md grid-cols-2 gap-4">
       <ContextMenu>
-        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+        <ContextMenuTrigger className="flex min-h-28 w-full items-center justify-center rounded-xl border border-dashed p-4 text-sm">
           <span className="hidden pointer-fine:inline-block">
             راست‌کلیک (بالا)
           </span>
@@ -27,7 +27,7 @@ export function ContextMenuSides() {
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
-        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+        <ContextMenuTrigger className="flex min-h-28 w-full items-center justify-center rounded-xl border border-dashed p-4 text-sm">
           <span className="hidden pointer-fine:inline-block">
             راست‌کلیک (راست)
           </span>
@@ -44,7 +44,7 @@ export function ContextMenuSides() {
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
-        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+        <ContextMenuTrigger className="flex min-h-28 w-full items-center justify-center rounded-xl border border-dashed p-4 text-sm">
           <span className="hidden pointer-fine:inline-block">
             راست‌کلیک (پایین)
           </span>
@@ -61,7 +61,7 @@ export function ContextMenuSides() {
         </ContextMenuContent>
       </ContextMenu>
       <ContextMenu>
-        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+        <ContextMenuTrigger className="flex min-h-28 w-full items-center justify-center rounded-xl border border-dashed p-4 text-sm">
           <span className="hidden pointer-fine:inline-block">
             راست‌کلیک (چپ)
           </span>

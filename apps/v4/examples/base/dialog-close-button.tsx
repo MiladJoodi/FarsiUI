@@ -38,7 +38,7 @@ export function DialogCloseButton() {
               />
             </div>
           </div>
-          <DialogFooter className="sm:justify-start">
+          <DialogFooter>
             <DialogClose render={<Button type="button" />}>بستن</DialogClose>
           </DialogFooter>
         </DialogContent>

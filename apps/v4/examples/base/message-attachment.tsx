@@ -29,8 +29,7 @@ export function MessageAttachmentDemo() {
           </Attachment>
           <Bubble>
             <BubbleContent>
-              این تصویر است. می‌توانید به PDF اضافه کنید؟ برای صفحهٔ جلد
-              استفاده کنید.
+              این عکسه. می‌تونی به PDF اضافه کنی؟ برای جلد می‌خوام.
             </BubbleContent>
           </Bubble>
         </MessageContent>
@@ -39,7 +38,7 @@ export function MessageAttachmentDemo() {
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              انجام شد. این PDF با تصویر به‌عنوان صفحهٔ جلد است.
+              انجام شد. PDF با همین عکس به‌عنوان جلد آماده‌ست.
             </BubbleContent>
           </Bubble>
           <Attachment>
@@ -47,8 +46,8 @@ export function MessageAttachmentDemo() {
               <FileTextIcon />
             </AttachmentMedia>
             <AttachmentContent>
-              <AttachmentTitle>sales-dashboard.pdf</AttachmentTitle>
-              <AttachmentDescription>PDF · 2.4 MB</AttachmentDescription>
+              <AttachmentTitle>گزارش-فروش.pdf</AttachmentTitle>
+              <AttachmentDescription>PDF · ۲٫۴ مگابایت</AttachmentDescription>
             </AttachmentContent>
             <AttachmentActions>
               <AttachmentAction
@@ -67,7 +66,7 @@ export function MessageAttachmentDemo() {
       <Message align="end">
         <MessageContent>
           <Bubble>
-            <BubbleContent>ممنون. خوب به نظر می‌رسد.</BubbleContent>
+            <BubbleContent>مرسی، خوبه.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>

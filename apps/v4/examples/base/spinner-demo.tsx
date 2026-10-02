@@ -20,7 +20,7 @@ export function SpinnerDemo() {
           <ItemTitle className="line-clamp-1">در حال پردازش پرداخت...</ItemTitle>
         </ItemContent>
         <ItemContent className="flex-none justify-end">
-          <span className="text-sm tabular-nums">۱۰۰٬۰۰۰ تومان</span>
+          <span className="text-sm">۱۰۰٬۰۰۰ تومان</span>
         </ItemContent>
       </Item>
     </div>

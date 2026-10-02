@@ -30,8 +30,8 @@ function Command({
 }
 
 function CommandDialog({
-  title = "Command Palette",
-  description = "Search for a command to run...",
+  title = "پالت دستور",
+  description = "دستوری برای اجرا جستجو کنید...",
   children,
   className,
   showCloseButton = true,
@@ -49,6 +49,7 @@ function CommandDialog({
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogContent
+        dir={dir}
         className={cn("overflow-hidden p-0", className)}
         showCloseButton={showCloseButton}
       >

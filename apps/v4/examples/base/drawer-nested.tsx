@@ -24,7 +24,7 @@ export function DrawerNested() {
         <DrawerTrigger render={<Button variant="secondary" />}>
           باز کردن کشو
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader>
             <DrawerTitle>کشو</DrawerTitle>
             <DrawerDescription>
@@ -39,7 +39,7 @@ export function DrawerNested() {
               <DrawerTrigger render={<Button variant="outline" />}>
                 باز کردن کشوی تو در تو
               </DrawerTrigger>
-              <DrawerContent>
+              <DrawerContent dir="rtl">
                 <DrawerHeader>
                   <DrawerTitle>کشوی تو در تو</DrawerTitle>
                   <DrawerDescription>
@@ -57,7 +57,7 @@ export function DrawerNested() {
                     <DrawerTrigger render={<Button variant="outline" />}>
                       باز کردن کشوی سوم
                     </DrawerTrigger>
-                    <DrawerContent>
+                    <DrawerContent dir="rtl">
                       <DrawerHeader>
                         <DrawerTitle>کشوی سوم</DrawerTitle>
                         <DrawerDescription>
@@ -75,7 +75,7 @@ export function DrawerNested() {
                           <DrawerTrigger render={<Button variant="outline" />}>
                             باز کردن کشوی چهارم
                           </DrawerTrigger>
-                          <DrawerContent>
+                          <DrawerContent dir="rtl">
                             <DrawerHeader>
                               <DrawerTitle>کشوی چهارم</DrawerTitle>
                               <DrawerDescription>

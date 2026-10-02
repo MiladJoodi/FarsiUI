@@ -1,9 +1,4 @@
-import {
-  IconBrandJavascript,
-  IconCopy,
-  IconCornerDownLeft,
-  IconRefresh,
-} from "@tabler/icons-react"
+import { IconCornerDownLeft, IconRefresh, IconCopy } from "@tabler/icons-react"
 
 import {
   InputGroup,
@@ -15,28 +10,26 @@ import {
 
 export default function InputGroupTextareaExample() {
   return (
-    <div dir="rtl" className="grid w-full max-w-md gap-4">
+    <div className="w-full max-w-md" dir="rtl" lang="fa">
       <InputGroup>
         <InputGroupTextarea
-          id="textarea-code-32"
-          placeholder="console.log('سلام دنیا!');"
-          className="min-h-[200px]"
+          id="textarea-feedback"
+          placeholder="نظر خود را بنویسید..."
+          className="min-h-[180px]"
         />
         <InputGroupAddon align="block-end" className="border-t">
-          <InputGroupText>خط ۱، ستون ۱</InputGroupText>
+          <InputGroupText>۰ / ۲۸۰ کاراکتر</InputGroupText>
           <InputGroupButton size="sm" className="ms-auto" variant="default">
-            اجرا <IconCornerDownLeft />
+            ارسال
+            <IconCornerDownLeft />
           </InputGroupButton>
         </InputGroupAddon>
         <InputGroupAddon align="block-start" className="border-b">
-          <InputGroupText className="font-mono font-medium">
-            <IconBrandJavascript />
-            script.js
-          </InputGroupText>
-          <InputGroupButton className="ms-auto" size="icon-xs">
+          <InputGroupText className="font-medium">بازخورد محصول</InputGroupText>
+          <InputGroupButton className="ms-auto" size="icon-xs" aria-label="بازنشانی">
             <IconRefresh />
           </InputGroupButton>
-          <InputGroupButton variant="ghost" size="icon-xs">
+          <InputGroupButton variant="ghost" size="icon-xs" aria-label="کپی">
             <IconCopy />
           </InputGroupButton>
         </InputGroupAddon>

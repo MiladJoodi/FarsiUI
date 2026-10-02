@@ -48,7 +48,7 @@ const years = [
 
 export default function FieldDemo() {
   return (
-    <div className="w-full max-w-md" dir="rtl">
+    <div className="w-full max-w-md" dir="rtl" lang="fa">
       <form>
         <FieldGroup>
           <FieldSet>
@@ -85,13 +85,13 @@ export default function FieldDemo() {
                 <Field>
                   <FieldLabel htmlFor="checkout-exp-month-ts6">ماه</FieldLabel>
                   <Select items={months}>
-                    <SelectTrigger id="checkout-exp-month-ts6">
+                    <SelectTrigger id="checkout-exp-month-ts6" className="w-full">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent dir="rtl">
                       <SelectGroup>
                         {months.map((item) => (
-                          <SelectItem key={item.value} value={item.value}>
+                          <SelectItem key={String(item.value)} value={item.value}>
                             {item.label}
                           </SelectItem>
                         ))}
@@ -104,13 +104,13 @@ export default function FieldDemo() {
                     سال
                   </FieldLabel>
                   <Select items={years}>
-                    <SelectTrigger id="checkout-7j9-exp-year-f59">
+                    <SelectTrigger id="checkout-7j9-exp-year-f59" className="w-full">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent dir="rtl">
                       <SelectGroup>
                         {years.map((item) => (
-                          <SelectItem key={item.value} value={item.value}>
+                          <SelectItem key={String(item.value)} value={item.value}>
                             {item.label}
                           </SelectItem>
                         ))}

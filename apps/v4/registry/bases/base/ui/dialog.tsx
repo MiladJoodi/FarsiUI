@@ -40,6 +40,7 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  dir = "rtl",
   ...props
 }: DialogPrimitive.Popup.Props & {
   showCloseButton?: boolean
@@ -49,6 +50,7 @@ function DialogContent({
       <DialogOverlay />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
+        dir={dir}
         className={cn(
           "cn-dialog-content fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 outline-none",
           className
@@ -74,7 +76,7 @@ function DialogContent({
               phosphor="XIcon"
               remixicon="RiCloseLine"
             />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">بستن</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Popup>
@@ -112,7 +114,7 @@ function DialogFooter({
       {children}
       {showCloseButton && (
         <DialogPrimitive.Close render={<Button variant="outline" />}>
-          Close
+          بستن
         </DialogPrimitive.Close>
       )}
     </div>

@@ -18,19 +18,19 @@ import {
 
 const people = [
   {
-    username: "shadcn",
+    username: "علی رضایی",
     avatar: "https://github.com/shadcn.png",
-    email: "shadcn@vercel.com",
+    email: "ali@example.com",
   },
   {
-    username: "maxleiter",
+    username: "سارا محمدی",
     avatar: "https://github.com/maxleiter.png",
-    email: "maxleiter@vercel.com",
+    email: "sara@example.com",
   },
   {
-    username: "evilrabbit",
+    username: "رضا کریمی",
     avatar: "https://github.com/evilrabbit.png",
-    email: "evilrabbit@vercel.com",
+    email: "reza@example.com",
   },
 ]
 
@@ -38,14 +38,14 @@ export function ItemGroupExample() {
   return (
     <ItemGroup dir="rtl" className="max-w-sm">
       {people.map((person) => (
-        <Item key={person.username} variant="outline">
+        <Item key={person.email} variant="outline">
           <ItemMedia>
             <Avatar>
               <AvatarImage src={person.avatar} className="grayscale" />
               <AvatarFallback>{person.username.charAt(0)}</AvatarFallback>
             </Avatar>
           </ItemMedia>
-          <ItemContent className="gap-1">
+          <ItemContent className="gap-1 text-start">
             <ItemTitle>{person.username}</ItemTitle>
             <ItemDescription>{person.email}</ItemDescription>
           </ItemContent>

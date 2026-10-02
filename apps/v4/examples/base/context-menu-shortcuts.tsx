@@ -12,7 +12,7 @@ export function ContextMenuShortcuts() {
   return (
     <div dir="rtl">
       <ContextMenu>
-        <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">
+        <ContextMenuTrigger className="flex min-h-48 w-full max-w-lg items-center justify-center rounded-xl border border-dashed p-8 text-sm">
           <span className="hidden pointer-fine:inline-block">
             اینجا راست‌کلیک کنید
           </span>

@@ -111,6 +111,7 @@ function SelectContent({
   placement = "bottom",
   offset = 4,
   crossOffset = 0,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof PopoverPrimitive>,

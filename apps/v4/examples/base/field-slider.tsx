@@ -13,8 +13,8 @@ export default function FieldSlider() {
   const [value, setValue] = React.useState([200, 800])
 
   return (
-    <div dir="rtl">
-      <Field className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <Field>
         <FieldTitle>بازه قیمت</FieldTitle>
         <FieldDescription>
           بودجهٔ خود را تنظیم کنید (

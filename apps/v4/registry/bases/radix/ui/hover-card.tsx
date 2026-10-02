@@ -22,6 +22,7 @@ function HoverCardContent({
   className,
   align = "center",
   sideOffset = 4,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Content>) {
   return (

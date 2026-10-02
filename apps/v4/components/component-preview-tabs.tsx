@@ -78,7 +78,8 @@ export function ComponentPreviewTabs({
               <PopoverContent
                 side="bottom"
                 align="end"
-                className="w-56 text-xs"
+                dir="rtl"
+                className="w-56 text-xs text-start"
               >
                 <div>
                   متن‌های این نمونه برای نمایش RTL ترجمه‌شده‌اند و ممکن است

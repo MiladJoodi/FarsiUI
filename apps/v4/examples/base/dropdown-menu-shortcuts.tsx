@@ -19,7 +19,7 @@ export function DropdownMenuShortcuts() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuLabel>حساب من</DropdownMenuLabel>
             <DropdownMenuItem>

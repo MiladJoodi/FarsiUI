@@ -11,8 +11,10 @@ import {
 export default function InputOTPControlled() {
   const [value, setValue] = React.useState("")
 
+  const persianValue = value.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+
   return (
-    <div dir="rtl" className="space-y-2">
+    <div dir="rtl" lang="fa" className="space-y-2">
       <InputOTP
         maxLength={6}
         value={value}
@@ -31,7 +33,7 @@ export default function InputOTPControlled() {
         {value === "" ? (
           <>رمز یک‌بارمصرف خود را وارد کنید.</>
         ) : (
-          <>مقدار واردشده: {value}</>
+          <>مقدار واردشده: {persianValue}</>
         )}
       </div>
     </div>

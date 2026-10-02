@@ -26,16 +26,16 @@ export function PopoverForm() {
           </PopoverHeader>
           <FieldGroup className="gap-4">
             <Field orientation="horizontal">
-              <FieldLabel htmlFor="width" className="w-1/2">
+              <FieldLabel htmlFor="popover-width" className="w-1/2">
                 عرض
               </FieldLabel>
-              <Input id="width" defaultValue="100%" />
+              <Input id="popover-width" defaultValue="۱۰۰٪" />
             </Field>
             <Field orientation="horizontal">
-              <FieldLabel htmlFor="height" className="w-1/2">
+              <FieldLabel htmlFor="popover-height" className="w-1/2">
                 ارتفاع
               </FieldLabel>
-              <Input id="height" defaultValue="25px" />
+              <Input id="popover-height" defaultValue="۲۵px" />
             </Field>
           </FieldGroup>
         </PopoverContent>

@@ -24,7 +24,7 @@ export function HoverCardSides() {
           >
             {label}
           </HoverCardTrigger>
-          <HoverCardContent side={side}>
+          <HoverCardContent dir="rtl" side={side}>
             <div className="flex flex-col gap-1">
               <h4 className="font-medium">کارت شناور</h4>
               <p>این کارت در سمت {label} تریگر نمایش داده می‌شود.</p>

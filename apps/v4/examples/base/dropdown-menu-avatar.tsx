@@ -36,7 +36,7 @@ export function DropdownMenuAvatar() {
             <AvatarFallback>ار</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
+        <DropdownMenuContent dir="rtl" align="start">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <BadgeCheckIcon />

@@ -13,7 +13,6 @@ links:
   layout="switcher"
   examples={[
     { name: "combobox-demo", label: "پیش‌فرض", sizeable: false },
-    { name: "combobox-basic", label: "پایه", sizeable: false },
     { name: "combobox-multiple", label: "چندتایی", sizeable: false },
     { name: "combobox-clear", label: "پاک کردن", sizeable: false },
     { name: "combobox-groups", label: "گروه", sizeable: false },
@@ -81,7 +80,7 @@ import {
 ```
 
 ```tsx showLineNumbers
-const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]
+const frameworks = ["نکست‌جی‌اس", "سوولت‌کیت", "ناکست‌جی‌اس", "ریمیکس", "آسترو"]
 
 export function ExampleCombobox() {
   return (
@@ -194,9 +193,9 @@ type Framework = {
 }
 
 const frameworks: Framework[] = [
-  { label: "Next.js", value: "next" },
-  { label: "SvelteKit", value: "sveltekit" },
-  { label: "Nuxt", value: "nuxt" },
+  { label: "نکست‌جی‌اس", value: "next" },
+  { label: "سوولت‌کیت", value: "sveltekit" },
+  { label: "ناکست", value: "nuxt" },
 ]
 
 export function ExampleComboboxCustomItems() {
@@ -248,7 +247,7 @@ import {
   ComboboxValue,
 } from "@/components/ui/combobox"
 
-const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]
+const frameworks = ["نکست‌جی‌اس", "سوولت‌کیت", "ناکست‌جی‌اس", "ریمیکس", "آسترو"]
 
 export function ExampleComboboxMultiple() {
   const [value, setValue] = React.useState<string[]>([])

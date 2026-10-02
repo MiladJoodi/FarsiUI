@@ -24,6 +24,7 @@ function DropdownMenuContent({
   side = "bottom",
   sideOffset = 4,
   className,
+  dir = "rtl",
   ...props
 }: MenuPrimitive.Popup.Props &
   Pick<
@@ -41,6 +42,7 @@ function DropdownMenuContent({
       >
         <MenuPrimitive.Popup
           data-slot="dropdown-menu-content"
+          dir={dir}
           className={cn(
             "cn-dropdown-menu-content cn-dropdown-menu-content-logical cn-menu-target cn-menu-translucent z-50 max-h-(--available-height) w-(--anchor-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto outline-none data-closed:overflow-hidden",
             className
@@ -125,7 +127,7 @@ function DropdownMenuSubTrigger({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip ms-auto"
+        className="ms-auto rtl:rotate-180"
       />
     </MenuPrimitive.SubmenuTrigger>
   )

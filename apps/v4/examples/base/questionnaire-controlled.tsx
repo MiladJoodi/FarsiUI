@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -30,6 +31,24 @@ const itemLabels: Record<string, string> = {
   output: "خروجی نهایی",
 }
 
+const scopeLabels: Record<string, string> = {
+  component: "فقط کامپوننت هدف",
+  tests: "کامپوننت و تست‌های مرتبط",
+  feature: "کل محدودهٔ ویژگی",
+}
+
+const checksLabels: Record<string, string> = {
+  targeted: "تست‌های هدفمند",
+  package: "تست‌های پکیج و بررسی نوع",
+  full: "راستی‌آزمایی کامل فضای کاری",
+}
+
+const outputLabels: Record<string, string> = {
+  summary: "خلاصهٔ کوتاه",
+  diff: "خلاصه با فایل‌های تغییر یافته",
+  handoff: "تحویل جزئیات پیاده‌سازی",
+}
+
 export function QuestionnaireControlled() {
   const [item, setItem] = React.useState("scope")
 
@@ -39,7 +58,7 @@ export function QuestionnaireControlled() {
     const formData = new FormData(event.currentTarget)
 
     toast("گردش‌کار عامل پیکربندی شد", {
-      description: `محدوده: ${formData.get("scope") ?? "هیچ"} · تأیید: ${formData.get("checks") ?? "هیچ"} · خروجی: ${formData.get("output") ?? "هیچ"}`,
+      description: `محدوده: ${answerLabel(formData.get("scope"), scopeLabels)} · تأیید: ${answerLabel(formData.get("checks"), checksLabels)} · خروجی: ${answerLabel(formData.get("output"), outputLabels)}`,
     })
   }
 

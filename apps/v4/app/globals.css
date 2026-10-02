@@ -195,9 +195,6 @@
   ::selection {
     @apply bg-selection text-selection-foreground;
   }
-  html {
-    @apply overscroll-y-none;
-  }
   body {
     position: relative;
     font-synthesis-weight: none;
@@ -207,19 +204,10 @@
     @apply font-heading;
   }
 
-  [data-slot="layout"] {
-    @apply overscroll-none;
-  }
-
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     [data-wrapper] {
       @apply min-[1800px]:border-t;
     }
-  }
-
-  a:active,
-  button:active {
-    @apply opacity-60 md:opacity-100;
   }
 
   [data-lang="ar"] {

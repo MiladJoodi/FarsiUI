@@ -52,7 +52,7 @@ export function InputForm() {
               <SelectTrigger id="form-country">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent dir="rtl">
                 <SelectGroup>
                   {countries.map((country) => (
                     <SelectItem key={country.value} value={country.value}>

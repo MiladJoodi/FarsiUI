@@ -69,12 +69,14 @@ function SelectContent({
   children,
   position = "item-aligned",
   align = "center",
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
         data-slot="select-content"
+        dir={dir}
         data-align-trigger={position === "item-aligned"}
         className={cn(
           "cn-select-content cn-menu-target cn-menu-translucent relative z-50 max-h-(--radix-select-content-available-height) origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto data-[align-trigger=true]:animate-none",

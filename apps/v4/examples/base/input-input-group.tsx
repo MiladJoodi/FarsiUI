@@ -12,11 +12,15 @@ export function InputInputGroup() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="input-group-url">آدرس وب‌سایت</FieldLabel>
-      <InputGroup>
-        <InputGroupInput id="input-group-url" placeholder="example.com" />
+      <InputGroup dir="ltr">
         <InputGroupAddon>
           <InputGroupText>https://</InputGroupText>
         </InputGroupAddon>
+        <InputGroupInput
+          id="input-group-url"
+          className="text-left"
+          placeholder="example.com"
+        />
         <InputGroupAddon align="inline-end">
           <InfoIcon />
         </InputGroupAddon>

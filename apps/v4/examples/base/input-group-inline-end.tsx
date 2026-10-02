@@ -11,9 +11,9 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupInlineEnd() {
+export default function InputGroupInlineEnd() {
   return (
-    <Field dir="rtl" className="max-w-sm">
+    <Field dir="rtl" lang="fa" className="max-w-sm">
       <FieldLabel htmlFor="inline-end-input">ورودی</FieldLabel>
       <InputGroup>
         <InputGroupInput

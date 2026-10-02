@@ -47,6 +47,7 @@ function DrawerOverlay({
 function DrawerContent({
   className,
   children,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Content>) {
   return (
@@ -72,7 +73,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="drawer-header"
       className={cn(
-        "cn-drawer-header flex flex-col group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center",
+        "cn-drawer-header flex flex-col group-data-[vaul-drawer-direction=bottom]/drawer-content:text-start group-data-[vaul-drawer-direction=top]/drawer-content:text-start",
         className
       )}
       {...props}

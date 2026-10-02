@@ -191,7 +191,7 @@ function DropdownMenuSubTrigger({
             hugeicons="ArrowRight01Icon"
             phosphor="CaretRightIcon"
             remixicon="RiArrowRightSLine"
-            className="cn-rtl-flip ml-auto"
+            className="ms-auto rtl:rotate-180"
           />
         </>
       ))}

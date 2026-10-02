@@ -35,6 +35,7 @@ function DropdownMenuContent({
   className,
   align = "start",
   sideOffset = 4,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (
@@ -245,7 +246,7 @@ function DropdownMenuSubTrigger({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip ml-auto"
+        className="ms-auto rtl:rotate-180"
       />
     </DropdownMenuPrimitive.SubTrigger>
   )

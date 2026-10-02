@@ -11,9 +11,9 @@ export function MessageHeaderFooterDemo() {
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message>
         <MessageContent>
-          <MessageHeader>اولیویا</MessageHeader>
+          <MessageHeader>مریم</MessageHeader>
           <Bubble variant="muted">
-            <BubbleContent>لاگ‌ها را قبلاً بررسی کردم.</BubbleContent>
+            <BubbleContent>لاگ‌ها رو قبلاً چک کردم.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -21,8 +21,7 @@ export function MessageHeaderFooterDemo() {
         <MessageContent>
           <Bubble>
             <BubbleContent>
-              گزارش را برای تیم بفرستید. اگر کمک لازم داشتید به @shadcn پیام
-              دهید.
+              گزارش رو برای تیم بفرست. اگر کمک خواستی به علی پیام بده.
             </BubbleContent>
           </Bubble>
           <MessageFooter>

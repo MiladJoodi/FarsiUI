@@ -92,7 +92,7 @@ const countries = [
 
 export function ComboboxWithCustomItems() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="w-full max-w-xs">
       <Combobox
         items={countries}
         itemToStringValue={(country: (typeof countries)[number]) =>
@@ -100,7 +100,7 @@ export function ComboboxWithCustomItems() {
         }
       >
         <ComboboxInput placeholder="جستجوی کشورها..." />
-        <ComboboxContent>
+        <ComboboxContent dir="rtl">
           <ComboboxEmpty>کشوری پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(country) => (

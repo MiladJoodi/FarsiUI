@@ -19,6 +19,7 @@ function HoverCardContent({
   sideOffset = 4,
   align = "center",
   alignOffset = 4,
+  dir = "rtl",
   ...props
 }: PreviewCardPrimitive.Popup.Props &
   Pick<
@@ -36,6 +37,7 @@ function HoverCardContent({
       >
         <PreviewCardPrimitive.Popup
           data-slot="hover-card-content"
+          dir={dir}
           className={cn(
             "cn-hover-card-content cn-hover-card-content-logical z-50 origin-(--transform-origin) outline-hidden",
             className

@@ -3,6 +3,10 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import {
+  answerLabel,
+  answerLabels,
+} from "@/examples/base/questionnaire-answer-label"
 import { Button } from "@/styles/base-nova/ui/button"
 import {
   Questionnaire,
@@ -26,6 +30,17 @@ const items = [
   { name: "notes" },
 ] as const
 
+const changeLabels: Record<string, string> = {
+  incremental: "مهاجرت تدریجی",
+  cutover: "قطع‌و‌وصل یک‌مرحله‌ای",
+}
+
+const verificationLabels: Record<string, string> = {
+  tests: "اجرای تست‌های مهاجرت",
+  typecheck: "اجرای بررسی نوع",
+  manual: "تست دودی دستی",
+}
+
 export function QuestionnaireResume() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -38,7 +53,7 @@ export function QuestionnaireResume() {
     }
 
     toast("پیش‌نویس به‌روز شد", {
-      description: `مهاجرت: ${answers.change ?? "هیچ"} · تأیید: ${answers.verification.join(", ") || "هیچ"} · یادداشت: ${answers.notes || "هیچ"}`,
+      description: `مهاجرت: ${answerLabel(answers.change, changeLabels)} · تأیید: ${answerLabels(answers.verification, verificationLabels)} · یادداشت: ${answers.notes || "هیچ"}`,
     })
   }
 

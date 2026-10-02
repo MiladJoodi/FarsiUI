@@ -75,17 +75,21 @@ import {
 ```
 
 ```tsx showLineNumbers
-<Popover>
-  <PopoverTrigger render={<Button variant="outline" />}>
-    باز کردن پاپ‌اور
-  </PopoverTrigger>
-  <PopoverContent>
-    <PopoverHeader>
-      <PopoverTitle>عنوان</PopoverTitle>
-      <PopoverDescription>متن توضیح اینجا.</PopoverDescription>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<div dir="rtl">
+  <Popover>
+    <PopoverTrigger render={<Button variant="outline" />}>
+      باز کردن پاپ‌اور
+    </PopoverTrigger>
+    <PopoverContent>
+      <PopoverHeader>
+        <PopoverTitle>ابعاد</PopoverTitle>
+        <PopoverDescription>
+          ابعاد لایه را تنظیم کنید.
+        </PopoverDescription>
+      </PopoverHeader>
+    </PopoverContent>
+  </Popover>
+</div>
 ```
 
 <div className="hidden">
@@ -162,31 +166,19 @@ Popover
 
 <div className="hidden">
 
-## پشتیبانی RTL
-
-</div>
-
-<DocsCollapsible title="پشتیبانی RTL">
-
-برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
-
-با `side="inline-start"` یا `side="inline-end"` سمت منطقی را نسبت به تریگر تنظیم کنید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="popover-rtl"
-  direction="rtl"
-/>
-
-</DocsCollapsible>
-
-<div className="hidden">
-
 ## مرجع API
 
 </div>
 
 <DocsCollapsible title="مرجع API">
+
+| Prop | نوع | پیش‌فرض | توضیح |
+| --- | --- | --- | --- |
+| `align` | `"start" \| "center" \| "end"` | `"center"` | تراز افقی نسبت به تریگر |
+| `side` | `"top" \| "right" \| "bottom" \| "left" \| "inline-start" \| "inline-end"` | `"bottom"` | سمت باز شدن |
+| `sideOffset` | `number` | `۴` | فاصله از تریگر |
+| `alignOffset` | `number` | `۰` | جابه‌جایی تراز |
+| `dir` | `"rtl" \| "ltr"` | `"rtl"` | جهت متن محتوا |
 
 برای جزئیات بیشتر، [مستندات Base UI Popover](https://base-ui.com/react/components/popover#api-reference) را ببینید.
 

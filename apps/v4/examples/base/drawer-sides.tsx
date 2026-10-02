@@ -17,7 +17,7 @@ export function DrawerWithSides() {
         <DrawerTrigger render={<Button variant="secondary" />}>
           کشو از چپ
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader>
             <DrawerTitle>هدف روزانه</DrawerTitle>
             <DrawerDescription>هدف فعالیت روزانه‌تان را تنظیم کنید.</DrawerDescription>

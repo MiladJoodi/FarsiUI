@@ -51,6 +51,9 @@ function InputOTPSlot({
 }) {
   const inputOTPContext = React.useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
+  const displayChar = char
+    ? char.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+    : char
 
   return (
     <div
@@ -62,7 +65,7 @@ function InputOTPSlot({
       )}
       {...props}
     >
-      {char}
+      {displayChar}
       {hasFakeCaret && (
         <div className="cn-input-otp-caret pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="cn-input-otp-caret-line" />

@@ -16,9 +16,9 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupDropdown() {
+export default function InputGroupDropdown() {
   return (
-    <div dir="rtl" className="grid w-full max-w-sm gap-4">
+    <div className="grid w-full max-w-sm gap-4" dir="rtl" lang="fa">
       <InputGroup>
         <InputGroupInput placeholder="نام فایل را وارد کنید" />
         <InputGroupAddon align="inline-end">
@@ -34,7 +34,13 @@ export function InputGroupDropdown() {
             >
               <MoreHorizontal />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" sideOffset={8} alignOffset={-4}>
+            <DropdownMenuContent
+              dir="rtl"
+              lang="fa"
+              align="end"
+              sideOffset={8}
+              alignOffset={-4}
+            >
               <DropdownMenuGroup>
                 <DropdownMenuItem>تنظیمات</DropdownMenuItem>
                 <DropdownMenuItem>کپی مسیر</DropdownMenuItem>
@@ -55,7 +61,13 @@ export function InputGroupDropdown() {
             >
               جستجو در... <ChevronDownIcon className="size-3" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" sideOffset={8} alignOffset={-4}>
+            <DropdownMenuContent
+              dir="rtl"
+              lang="fa"
+              align="end"
+              sideOffset={8}
+              alignOffset={-4}
+            >
               <DropdownMenuGroup>
                 <DropdownMenuItem>مستندات</DropdownMenuItem>
                 <DropdownMenuItem>نوشته‌های وبلاگ</DropdownMenuItem>

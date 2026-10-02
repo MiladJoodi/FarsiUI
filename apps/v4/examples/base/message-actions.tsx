@@ -20,7 +20,7 @@ export function MessageActionsDemo() {
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              خطای نصب از پکیج workspace می‌آید.
+              ارور نصب از پکیج workspace می‌آد.
             </BubbleContent>
           </Bubble>
           <MessageFooter>
@@ -49,9 +49,7 @@ export function MessageActionsDemo() {
       <Message align="end">
         <MessageContent>
           <Bubble>
-            <BubbleContent>
-              باشه لینک بفرستید. دارم نگاه می‌کنم...
-            </BubbleContent>
+            <BubbleContent>باشه لینک رو بفرست، دارم نگاه می‌کنم...</BubbleContent>
           </Bubble>
           <MessageFooter className="gap-2">
             <span className="font-normal text-destructive">ارسال نشد</span>

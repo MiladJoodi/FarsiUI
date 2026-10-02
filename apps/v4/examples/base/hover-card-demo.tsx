@@ -16,9 +16,9 @@ export default function HoverCardDemo() {
         >
           اینجا نگه دارید
         </HoverCardTrigger>
-        <HoverCardContent className="flex w-64 flex-col gap-0.5">
-          <div className="font-semibold">@nextjs</div>
-          <div>فریم‌ورک ری‌اکت — ساخته و نگهداری‌شده توسط @vercel.</div>
+        <HoverCardContent dir="rtl" className="flex w-64 flex-col gap-0.5">
+          <div className="font-semibold">نکست‌جی‌اس</div>
+          <div>فریم‌ورک ری‌اکت — ساخته و نگهداری‌شده توسط ورسل.</div>
           <div className="mt-1 text-xs text-muted-foreground">
             عضویت از آذر ۱۴۰۰
           </div>

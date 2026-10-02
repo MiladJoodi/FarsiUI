@@ -11,46 +11,22 @@ import {
 
 const invoices = [
   {
-    invoice: "INV001",
+    invoice: "۱",
     paymentStatus: "پرداخت‌شده",
     totalAmount: "۲٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "کارت اعتباری",
   },
   {
-    invoice: "INV002",
+    invoice: "۲",
     paymentStatus: "در انتظار",
     totalAmount: "۱٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "پی‌پال",
   },
   {
-    invoice: "INV003",
+    invoice: "۳",
     paymentStatus: "پرداخت‌نشده",
     totalAmount: "۳٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "انتقال بانکی",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "پرداخت‌شده",
-    totalAmount: "۴٬۵۰۰٬۰۰۰ تومان",
-    paymentMethod: "کارت اعتباری",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "پرداخت‌شده",
-    totalAmount: "۵٬۵۰۰٬۰۰۰ تومان",
-    paymentMethod: "پی‌پال",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "در انتظار",
-    totalAmount: "۲٬۰۰۰٬۰۰۰ تومان",
-    paymentMethod: "انتقال بانکی",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "پرداخت‌نشده",
-    totalAmount: "۳٬۰۰۰٬۰۰۰ تومان",
-    paymentMethod: "کارت اعتباری",
   },
 ]
 
@@ -63,23 +39,23 @@ export function TableFooterExample() {
           <TableHead className="w-[100px]">فاکتور</TableHead>
           <TableHead>وضعیت</TableHead>
           <TableHead>روش</TableHead>
-          <TableHead className="text-end">مبلغ</TableHead>
+          <TableHead>مبلغ</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.slice(0, 3).map((invoice) => (
+        {invoices.map((invoice) => (
           <TableRow key={invoice.invoice}>
             <TableCell className="font-medium">{invoice.invoice}</TableCell>
             <TableCell>{invoice.paymentStatus}</TableCell>
             <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-end">{invoice.totalAmount}</TableCell>
+            <TableCell>{invoice.totalAmount}</TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
           <TableCell colSpan={3}>جمع</TableCell>
-          <TableCell className="text-end">۷٬۵۰۰٬۰۰۰ تومان</TableCell>
+          <TableCell>۷٬۵۰۰٬۰۰۰ تومان</TableCell>
         </TableRow>
       </TableFooter>
     </Table>

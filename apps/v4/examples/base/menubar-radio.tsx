@@ -13,20 +13,20 @@ import {
   MenubarTrigger,
 } from "@/styles/base-nova/ui/menubar"
 
-export function MenubarRadio() {
-  const [user, setUser] = React.useState("benoit")
+export default function MenubarRadio() {
+  const [user, setUser] = React.useState("ali")
   const [theme, setTheme] = React.useState("system")
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Menubar className="w-80">
         <MenubarMenu>
           <MenubarTrigger>پروفایل‌ها</MenubarTrigger>
           <MenubarContent>
             <MenubarRadioGroup value={user} onValueChange={setUser}>
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-              <MenubarRadioItem value="luis">Luis</MenubarRadioItem>
+              <MenubarRadioItem value="sara">سارا</MenubarRadioItem>
+              <MenubarRadioItem value="ali">علی</MenubarRadioItem>
+              <MenubarRadioItem value="reza">رضا</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />
             <MenubarItem inset>ویرایش...</MenubarItem>

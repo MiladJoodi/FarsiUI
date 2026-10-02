@@ -23,7 +23,7 @@ export function DropdownMenuCheckboxes() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40">
+        <DropdownMenuContent dir="rtl" className="w-40">
           <DropdownMenuGroup>
             <DropdownMenuLabel>ظاهر</DropdownMenuLabel>
             <DropdownMenuCheckboxItem

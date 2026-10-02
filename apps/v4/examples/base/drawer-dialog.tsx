@@ -55,7 +55,7 @@ export function DrawerDialogDemo() {
         <DrawerTrigger render={<Button variant="outline" />}>
           ویرایش پروفایل
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader className="text-start">
             <DrawerTitle>ویرایش پروفایل</DrawerTitle>
             <DrawerDescription>

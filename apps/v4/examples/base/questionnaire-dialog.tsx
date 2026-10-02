@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import { Button } from "@/styles/base-nova/ui/button"
 import {
   Dialog,
@@ -34,6 +35,18 @@ const items = [
   { name: "tests", required: true },
 ] as const
 
+const scopeLabels: Record<string, string> = {
+  component: "فقط کامپوننت",
+  feature: "کل پوشهٔ ویژگی",
+  workspace: "هر فایل مرتبط فضای کاری",
+}
+
+const testsLabels: Record<string, string> = {
+  targeted: "تست‌های هدفمند",
+  package: "تست‌های پکیج",
+  full: "راستی‌آزمایی کامل فضای کاری",
+}
+
 export function QuestionnaireDialog() {
   const [open, setOpen] = React.useState(false)
 
@@ -44,7 +57,7 @@ export function QuestionnaireDialog() {
 
     setOpen(false)
     toast("توضیح ارسال شد", {
-      description: `محدوده: ${formData.get("scope") ?? "هیچ"} · تأیید: ${formData.get("tests") ?? "هیچ"}`,
+      description: `محدوده: ${answerLabel(formData.get("scope"), scopeLabels)} · تأیید: ${answerLabel(formData.get("tests"), testsLabels)}`,
     })
   }
 

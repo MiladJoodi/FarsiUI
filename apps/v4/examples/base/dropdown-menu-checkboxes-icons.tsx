@@ -26,7 +26,7 @@ export function DropdownMenuCheckboxesIcons() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           اعلان‌ها
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-48">
+        <DropdownMenuContent dir="rtl" className="w-48">
           <DropdownMenuGroup>
             <DropdownMenuLabel>ترجیحات اعلان</DropdownMenuLabel>
             <DropdownMenuCheckboxItem

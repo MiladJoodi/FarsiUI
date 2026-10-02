@@ -66,30 +66,32 @@ import {
 ```
 
 ```tsx showLineNumbers
-<Pagination>
-  <PaginationContent>
-    <PaginationItem>
-      <PaginationPrevious href="#" text="قبلی" />
-    </PaginationItem>
-    <PaginationItem>
-      <PaginationLink href="#">1</PaginationLink>
-    </PaginationItem>
-    <PaginationItem>
-      <PaginationLink href="#" isActive>
-        2
-      </PaginationLink>
-    </PaginationItem>
-    <PaginationItem>
-      <PaginationLink href="#">3</PaginationLink>
-    </PaginationItem>
-    <PaginationItem>
-      <PaginationEllipsis />
-    </PaginationItem>
-    <PaginationItem>
-      <PaginationNext href="#" text="بعدی" />
-    </PaginationItem>
-  </PaginationContent>
-</Pagination>
+<div dir="rtl">
+  <Pagination>
+    <PaginationContent>
+      <PaginationItem>
+        <PaginationPrevious href="#" />
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#">۱</PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#" isActive>
+          ۲
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#">۳</PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationEllipsis />
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationNext href="#" />
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+</div>
 ```
 
 <div className="hidden">
@@ -143,7 +145,7 @@ Pagination
 
 <DocsCollapsible title="فقط آیکون">
 
-فقط دکمه‌های قبلی و بعدی بدون شمارهٔ صفحه. برای جداول داده با انتخابگر ردیف در صفحه مفید است.
+فقط دکمه‌های قبلی و بعدی، بدون شمارهٔ صفحه. برای جداول داده همراه با انتخاب تعداد ردیف مناسب است.
 
 <ComponentPreview
   styleName="base-nova"
@@ -163,7 +165,7 @@ Pagination
 
 به‌صورت پیش‌فرض `<PaginationLink />` یک تگ `<a />` رندر می‌کند.
 
-برای استفاده از `<Link />` در Next.js، این به‌روزرسانی‌ها را در `pagination.tsx` اعمال کنید.
+برای استفاده از `<Link />` در Next.js، این تغییرات را در `pagination.tsx` اعمال کنید.
 
 ```diff showLineNumbers /typeof Link/ {1}
 + import Link from "next/link"
@@ -193,35 +195,15 @@ const PaginationLink = ({...props }: ) => (
 
 <div className="hidden">
 
-## پشتیبانی RTL
-
-</div>
-
-<DocsCollapsible title="پشتیبانی RTL">
-
-برای پشتیبانی RTL در FarsiUI، [راهنمای پیکربندی RTL](/docs/rtl) را ببینید.
-
-با prop به نام `text` روی `PaginationPrevious` و `PaginationNext` برچسب فارسی بگذارید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="pagination-rtl"
-  direction="rtl"
-/>
-
-</DocsCollapsible>
-
-<div className="hidden">
-
 ## تغییرات
 
 </div>
 
 <DocsCollapsible title="تغییرات">
 
-### پشتیبانی RTL
+### برچسب قبلی و بعدی
 
-اگر از نسخهٔ قبلی کامپوننت `Pagination` ارتقا می‌دهید، این به‌روزرسانی‌ها را برای افزودن prop به نام `text` اعمال کنید:
+اگر از نسخهٔ قبلی `Pagination` ارتقا می‌دهید، این به‌روزرسانی‌ها را برای افزودن prop به نام `text` اعمال کنید:
 
 <Steps>
 
@@ -230,18 +212,18 @@ const PaginationLink = ({...props }: ) => (
 ```diff
   function PaginationPrevious({
     className,
-+   text = "Previous",
++   text = "قبلی",
     ...props
 - }: React.ComponentProps<typeof PaginationLink>) {
 + }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
     return (
       <PaginationLink
-        aria-label="Go to previous page"
+        aria-label="صفحهٔ قبلی"
         size="default"
         className={cn("cn-pagination-previous", className)}
         {...props}
       >
-        <ChevronLeftIcon />
+        <ChevronLeftIcon className="rtl:rotate-180" />
         <span className="cn-pagination-previous-text hidden sm:block">
 -         Previous
 +         {text}
@@ -256,20 +238,20 @@ const PaginationLink = ({...props }: ) => (
 ```diff
   function PaginationNext({
     className,
-+   text = "Next",
++   text = "بعدی",
     ...props
 - }: React.ComponentProps<typeof PaginationLink>) {
 + }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
     return (
       <PaginationLink
-        aria-label="Go to next page"
+        aria-label="صفحهٔ بعدی"
         size="default"
         className={cn("cn-pagination-next", className)}
         {...props}
       >
 -       <span className="cn-pagination-next-text hidden sm:block">Next</span>
 +       <span className="cn-pagination-next-text hidden sm:block">{text}</span>
-        <ChevronRightIcon />
+        <ChevronRightIcon className="rtl:rotate-180" />
       </PaginationLink>
     )
   }

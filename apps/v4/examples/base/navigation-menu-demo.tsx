@@ -56,10 +56,10 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ]
 
-export function NavigationMenuDemo() {
+export default function NavigationMenuDemo() {
   return (
-    <div dir="rtl">
-      <NavigationMenu dir="rtl" align="end">
+    <div dir="rtl" lang="fa">
+      <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>شروع کار</NavigationMenuTrigger>

@@ -6,10 +6,10 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupDemo() {
+export default function InputGroupDemo() {
   return (
-    <div dir="rtl">
-      <InputGroup className="max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <InputGroup>
         <InputGroupInput placeholder="جستجو..." />
         <InputGroupAddon>
           <Search />

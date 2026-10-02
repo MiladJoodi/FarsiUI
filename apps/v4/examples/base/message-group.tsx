@@ -19,21 +19,21 @@ export function MessageGroupDemo() {
           <MessageAvatar />
           <MessageContent>
             <Bubble variant="muted">
-              <BubbleContent>آدرس‌های رجیستری را بررسی کردم.</BubbleContent>
+              <BubbleContent>آدرس‌های رجیستری رو چک کردم.</BubbleContent>
             </Bubble>
           </MessageContent>
         </Message>
         <Message>
           <MessageAvatar>
             <Avatar>
-              <AvatarImage src="/avatars/02.png" alt="@avatar" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="/avatars/02.png" alt="رضا" />
+              <AvatarFallback>ر</AvatarFallback>
             </Avatar>
           </MessageAvatar>
           <MessageContent>
             <Bubble variant="muted">
               <BubbleContent>
-                JSON کامپوننت و مثال حالا زیر رجیستری UI هستند.
+                JSON کامپوننت و مثال الان زیر رجیستری UI هستن.
               </BubbleContent>
             </Bubble>
           </MessageContent>

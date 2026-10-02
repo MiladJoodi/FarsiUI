@@ -1,4 +1,4 @@
-﻿.style-mira {
+.style-mira {
   /* MARK: Accordion */
   .cn-accordion {
     @apply overflow-hidden rounded-md border;
@@ -816,19 +816,19 @@
   }
 
   .cn-menubar-checkbox-item {
-    @apply focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground min-h-7 gap-2 rounded-md py-1.5 pr-2 pl-7.5 text-xs data-inset:ps-7.5;
+    @apply focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground min-h-7 gap-2 rounded-md py-1.5 pe-2 ps-7.5 text-xs data-inset:ps-7.5;
   }
 
   .cn-menubar-checkbox-item-indicator {
-    @apply left-2 size-4 [&_svg:not([class*='size-'])]:size-4;
+    @apply start-2 size-4 [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-menubar-radio-item {
-    @apply focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground min-h-7 gap-2 rounded-md py-1.5 pr-2 pl-7.5 text-xs data-disabled:opacity-50 data-inset:ps-7.5 [&_svg:not([class*='size-'])]:size-3.5;
+    @apply focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground min-h-7 gap-2 rounded-md py-1.5 pe-2 ps-7.5 text-xs data-disabled:opacity-50 data-inset:ps-7.5 [&_svg:not([class*='size-'])]:size-3.5;
   }
 
   .cn-menubar-radio-item-indicator {
-    @apply left-2 size-4 [&_svg:not([class*='size-'])]:size-4;
+    @apply start-2 size-4 [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-menubar-label {
@@ -869,7 +869,7 @@
   }
 
   .cn-navigation-menu-trigger-icon {
-    @apply relative top-px ml-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180;
+    @apply relative top-px ms-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180;
   }
 
   .cn-navigation-menu-content {

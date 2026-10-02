@@ -22,7 +22,7 @@ export function DropdownMenuRadioGroupDemo() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-32">
+        <DropdownMenuContent dir="rtl" className="w-32">
           <DropdownMenuGroup>
             <DropdownMenuLabel>موقعیت پنل</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>

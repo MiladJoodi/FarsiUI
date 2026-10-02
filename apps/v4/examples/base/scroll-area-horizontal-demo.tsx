@@ -1,49 +1,40 @@
-import * as React from "react"
 import Image from "next/image"
 
 import { ScrollArea, ScrollBar } from "@/styles/base-nova/ui/scroll-area"
 
-export interface Artwork {
-  artist: string
-  art: string
-}
-
-export const works: Artwork[] = [
+const places = [
   {
-    artist: "Ornella Binni",
-    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
+    title: "حافظیه شیراز",
+    src: "/farsiui/shiraz.jpg",
   },
   {
-    artist: "Tom Byrom",
-    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
+    title: "برج میلاد",
+    src: "/farsiui/miladtower.jpg",
   },
   {
-    artist: "Vladimir Malyavko",
-    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
+    title: "۳۳ پل اصفهان",
+    src: "/farsiui/isfahan.jpg",
   },
-]
+] as const
 
 export function ScrollAreaHorizontalDemo() {
   return (
-    <div dir="rtl">
-      <ScrollArea className="w-96 rounded-md border whitespace-nowrap">
-        <div className="flex w-max gap-4 p-4">
-          {works.map((artwork) => (
-            <figure key={artwork.artist} className="shrink-0">
-              <div className="overflow-hidden rounded-md">
+    <div dir="rtl" className="w-full max-w-md">
+      <ScrollArea className="overflow-hidden rounded-md border">
+        <div className="flex w-max items-start gap-4 p-4">
+          {places.map((place) => (
+            <figure key={place.src} className="w-36 shrink-0">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-md bg-muted">
                 <Image
-                  src={artwork.art}
-                  alt={`عکس از ${artwork.artist}`}
-                  className="aspect-[3/4] h-fit w-fit object-cover"
-                  width={300}
-                  height={400}
+                  src={place.src}
+                  alt={place.title}
+                  fill
+                  className="object-cover"
+                  sizes="144px"
                 />
               </div>
-              <figcaption className="pt-2 text-xs text-muted-foreground">
-                عکس از{" "}
-                <span className="font-semibold text-foreground">
-                  {artwork.artist}
-                </span>
+              <figcaption className="pt-2 text-center text-xs font-medium text-foreground">
+                {place.title}
               </figcaption>
             </figure>
           ))}

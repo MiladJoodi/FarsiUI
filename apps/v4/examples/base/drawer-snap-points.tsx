@@ -21,7 +21,7 @@ export function DrawerSnapPoints() {
         <DrawerTrigger render={<Button variant="outline" />}>
           باز کردن کشوی اسنپ
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader>
             <DrawerTitle>نقاط اسنپ</DrawerTitle>
             <DrawerDescription>

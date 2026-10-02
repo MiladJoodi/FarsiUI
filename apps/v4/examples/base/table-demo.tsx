@@ -11,43 +11,43 @@ import {
 
 const invoices = [
   {
-    invoice: "INV001",
+    invoice: "۱",
     paymentStatus: "پرداخت‌شده",
     totalAmount: "۲٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "کارت اعتباری",
   },
   {
-    invoice: "INV002",
+    invoice: "۲",
     paymentStatus: "در انتظار",
     totalAmount: "۱٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "پی‌پال",
   },
   {
-    invoice: "INV003",
+    invoice: "۳",
     paymentStatus: "پرداخت‌نشده",
     totalAmount: "۳٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "انتقال بانکی",
   },
   {
-    invoice: "INV004",
+    invoice: "۴",
     paymentStatus: "پرداخت‌شده",
     totalAmount: "۴٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "کارت اعتباری",
   },
   {
-    invoice: "INV005",
+    invoice: "۵",
     paymentStatus: "پرداخت‌شده",
     totalAmount: "۵٬۵۰۰٬۰۰۰ تومان",
     paymentMethod: "پی‌پال",
   },
   {
-    invoice: "INV006",
+    invoice: "۶",
     paymentStatus: "در انتظار",
     totalAmount: "۲٬۰۰۰٬۰۰۰ تومان",
     paymentMethod: "انتقال بانکی",
   },
   {
-    invoice: "INV007",
+    invoice: "۷",
     paymentStatus: "پرداخت‌نشده",
     totalAmount: "۳٬۰۰۰٬۰۰۰ تومان",
     paymentMethod: "کارت اعتباری",
@@ -63,7 +63,7 @@ export function TableDemo() {
           <TableHead className="w-[100px]">فاکتور</TableHead>
           <TableHead>وضعیت</TableHead>
           <TableHead>روش</TableHead>
-          <TableHead className="text-end">مبلغ</TableHead>
+          <TableHead>مبلغ</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -72,14 +72,14 @@ export function TableDemo() {
             <TableCell className="font-medium">{invoice.invoice}</TableCell>
             <TableCell>{invoice.paymentStatus}</TableCell>
             <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-end">{invoice.totalAmount}</TableCell>
+            <TableCell>{invoice.totalAmount}</TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
           <TableCell colSpan={3}>جمع</TableCell>
-          <TableCell className="text-end">۲۵٬۰۰۰٬۰۰۰ تومان</TableCell>
+          <TableCell>۲۵٬۰۰۰٬۰۰۰ تومان</TableCell>
         </TableRow>
       </TableFooter>
     </Table>

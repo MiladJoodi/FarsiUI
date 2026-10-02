@@ -64,6 +64,7 @@ function Dialog({
   className,
   children,
   showCloseButton = true,
+  dir = "rtl",
   isDismissable = true,
   ...props
 }: Omit<ModalOverlayPrimitiveProps, "className" | "children"> &
@@ -76,6 +77,7 @@ function Dialog({
     <DialogOverlay isDismissable={isDismissable} {...props}>
       <ModalPrimitive
         data-slot="dialog-content"
+        dir={dir}
         className={cn(
           "cn-dialog-content-aria fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 outline-none",
           className
@@ -99,7 +101,7 @@ function Dialog({
                 phosphor="XIcon"
                 remixicon="RiCloseLine"
               />
-              <span className="sr-only">Close</span>
+              <span className="sr-only">بستن</span>
             </DialogClose>
           )}
         </DialogPrimitive>
@@ -136,7 +138,7 @@ function DialogFooter({
       {...props}
     >
       {children}
-      {showCloseButton && <DialogClose variant="outline">Close</DialogClose>}
+      {showCloseButton && <DialogClose variant="outline">بستن</DialogClose>}
     </div>
   )
 }

@@ -64,7 +64,7 @@ export function ComboboxRtl() {
             )}
           </ComboboxValue>
         </ComboboxChips>
-        <ComboboxContent anchor={anchor}>
+        <ComboboxContent anchor={anchor} dir="rtl">
           <ComboboxEmpty>دسته‌ای پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (

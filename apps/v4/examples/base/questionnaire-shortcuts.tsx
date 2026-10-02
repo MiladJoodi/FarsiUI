@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   NativeSelect,
   NativeSelectOption,
@@ -27,6 +28,17 @@ const items = [
   },
 ] as const
 
+const actionLabels: Record<string, string> = {
+  inspect: "بررسی پیاده‌سازی",
+  tests: "اجرای تست‌های مرتبط",
+  patch: "آماده‌سازی پچ",
+}
+
+const shortcutLabels: Record<string, string> = {
+  letters: "حروف",
+  numbers: "اعداد",
+}
+
 type ShortcutMode = React.ComponentProps<typeof Questionnaire>["shortcuts"]
 
 export function QuestionnaireShortcuts() {
@@ -38,7 +50,9 @@ export function QuestionnaireShortcuts() {
     const action = new FormData(event.currentTarget).get("action")
 
     toast("اقدام بعدی انتخاب شد", {
-      description: `اقدام: ${action ?? "هیچ"} · میانبرها: ${shortcuts ?? "هیچ"}`,
+      description: `اقدام: ${answerLabel(action, actionLabels)} · میانبرها: ${
+        shortcuts ? answerLabel(shortcuts, shortcutLabels) : "بدون میانبر"
+      }`,
     })
   }
 

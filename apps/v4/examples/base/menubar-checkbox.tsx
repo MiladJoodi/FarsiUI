@@ -9,9 +9,9 @@ import {
   MenubarTrigger,
 } from "@/styles/base-nova/ui/menubar"
 
-export function MenubarCheckbox() {
+export default function MenubarCheckbox() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Menubar className="w-80">
         <MenubarMenu>
           <MenubarTrigger>نمایش</MenubarTrigger>

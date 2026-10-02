@@ -4,10 +4,10 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPDemo() {
+export default function InputOTPDemo() {
   return (
-    <div dir="rtl">
-      <InputOTP maxLength={6} defaultValue="123456">
+    <div dir="rtl" lang="fa">
+      <InputOTP maxLength={6}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />
           <InputOTPSlot index={1} />

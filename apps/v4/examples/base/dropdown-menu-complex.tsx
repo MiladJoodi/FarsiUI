@@ -62,7 +62,7 @@ export function DropdownMenuComplex() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           منوی پیشرفته
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-44">
+        <DropdownMenuContent dir="rtl" className="w-44">
           <DropdownMenuGroup>
             <DropdownMenuLabel>فایل</DropdownMenuLabel>
             <DropdownMenuItem>
@@ -81,7 +81,7 @@ export function DropdownMenuComplex() {
                 باز کردن اخیر
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>پروژه‌های اخیر</DropdownMenuLabel>
                     <DropdownMenuItem>
@@ -98,7 +98,7 @@ export function DropdownMenuComplex() {
                         پروژه‌های بیشتر
                       </DropdownMenuSubTrigger>
                       <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
+                        <DropdownMenuSubContent dir="rtl">
                           <DropdownMenuItem>
                             <FileCodeIcon />
                             پروژه گاما
@@ -160,7 +160,7 @@ export function DropdownMenuComplex() {
                 تم
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>ظاهر</DropdownMenuLabel>
                     <DropdownMenuRadioGroup
@@ -203,7 +203,7 @@ export function DropdownMenuComplex() {
                 تنظیمات
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>ترجیحات</DropdownMenuLabel>
                     <DropdownMenuItem>
@@ -220,7 +220,7 @@ export function DropdownMenuComplex() {
                         اعلان‌ها
                       </DropdownMenuSubTrigger>
                       <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
+                        <DropdownMenuSubContent dir="rtl">
                           <DropdownMenuGroup>
                             <DropdownMenuLabel>نوع اعلان</DropdownMenuLabel>
                             <DropdownMenuCheckboxItem

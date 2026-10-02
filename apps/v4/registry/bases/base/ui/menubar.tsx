@@ -26,6 +26,8 @@ function Menubar({ className, ...props }: MenubarPrimitive.Props) {
   return (
     <MenubarPrimitive
       data-slot="menubar"
+      dir="rtl"
+      lang="fa"
       className={cn("cn-menubar flex items-center", className)}
       {...props}
     />
@@ -69,6 +71,7 @@ function MenubarContent({
   align = "start",
   alignOffset = -4,
   sideOffset = 8,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuContent>) {
   return (
@@ -77,6 +80,8 @@ function MenubarContent({
       align={align}
       alignOffset={alignOffset}
       sideOffset={sideOffset}
+      dir={dir}
+      lang="fa"
       className={cn(
         "cn-menubar-content cn-menubar-content-logical cn-menu-target cn-menu-translucent",
         className
@@ -216,7 +221,7 @@ function MenubarShortcut({
   return (
     <DropdownMenuShortcut
       data-slot="menubar-shortcut"
-      className={cn("cn-menubar-shortcut ml-auto", className)}
+      className={cn("cn-menubar-shortcut ms-auto", className)}
       {...props}
     />
   )
@@ -247,11 +252,14 @@ function MenubarSubTrigger({
 
 function MenubarSubContent({
   className,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuSubContent>) {
   return (
     <DropdownMenuSubContent
       data-slot="menubar-sub-content"
+      dir={dir}
+      lang="fa"
       className={cn(
         "cn-menubar-sub-content cn-menu-target cn-menu-translucent",
         className

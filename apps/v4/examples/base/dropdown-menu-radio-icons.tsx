@@ -23,7 +23,7 @@ export function DropdownMenuRadioIcons() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           روش پرداخت
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="min-w-56">
+        <DropdownMenuContent dir="rtl" className="min-w-56">
           <DropdownMenuGroup>
             <DropdownMenuLabel>انتخاب روش پرداخت</DropdownMenuLabel>
             <DropdownMenuRadioGroup

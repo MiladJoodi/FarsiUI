@@ -4,6 +4,10 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import {
+  answerLabel,
+  answerLabels,
+} from "@/examples/base/questionnaire-answer-label"
+import {
   Questionnaire,
   QuestionnaireActions,
   QuestionnaireChoice,
@@ -74,6 +78,25 @@ const questionnaireItems = [
   },
 ] as const
 
+const directionLabels: Record<string, string> = {
+  "tool-calls": "خط زمانی فراخوانی ابزار",
+  approvals: "نقاط تأیید",
+  handoffs: "تحویل به زیرعامل",
+}
+
+const signalLabels: Record<string, string> = {
+  progress: "پیشرفت",
+  decisions: "تصمیم‌ها",
+  risks: "ریسک‌ها",
+  "next-step": "گام بعدی",
+}
+
+const timingLabels: Record<string, string> = {
+  now: "همین الان شروع شود",
+  "next-cycle": "چرخهٔ توسعهٔ بعدی",
+  backlog: "به بک‌لاگ اضافه شود",
+}
+
 export function QuestionnaireDemo() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -86,7 +109,7 @@ export function QuestionnaireDemo() {
     }
 
     toast("برنامهٔ عامل ذخیره شد", {
-      description: `مسیر: ${answers.direction ?? "هیچ"} · سیگنال‌های پیشرفت: ${answers.signals.join(", ") || "هیچ"} · زمان‌بندی: ${answers.timing ?? "هیچ"}`,
+      description: `مسیر: ${answerLabel(answers.direction, directionLabels)} · سیگنال‌های پیشرفت: ${answerLabels(answers.signals, signalLabels)} · زمان‌بندی: ${answerLabel(answers.timing, timingLabels)}`,
     })
   }
 

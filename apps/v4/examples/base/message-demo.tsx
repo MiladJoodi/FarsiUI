@@ -23,39 +23,39 @@ export function MessageDemo() {
       <Message align="end">
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/10.png" alt="@me" />
-            <AvatarFallback>ME</AvatarFallback>
+            <AvatarImage src="/avatars/10.png" alt="علی" />
+            <AvatarFallback>ع</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>الان سریع روی prod دیپلوی می‌کنم.</BubbleContent>
+            <BubbleContent>الان می‌ذارمش روی پروداکشن.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
       <Message>
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/02.png" alt="@rabbit" />
-            <AvatarFallback>R</AvatarFallback>
+            <AvatarImage src="/avatars/02.png" alt="رضا" />
+            <AvatarFallback>ر</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble variant="muted">
-            <BubbleContent>ساعت ۱۶:۵۵ است. جمعه.</BubbleContent>
+            <BubbleContent>ساعت ۱۶:۵۵ه، جمعه‌ست.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
       <Message align="end">
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/10.png" alt="@me" />
-            <AvatarFallback>ME</AvatarFallback>
+            <AvatarImage src="/avatars/10.png" alt="علی" />
+            <AvatarFallback>ع</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>فقط یک خط تغییر است.</BubbleContent>
+            <BubbleContent>فقط یه خط عوض شده.</BubbleContent>
           </Bubble>
           <MessageFooter>تحویل شد</MessageFooter>
         </MessageContent>
@@ -63,17 +63,17 @@ export function MessageDemo() {
       <Message>
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/02.png" alt="@rabbit" />
-            <AvatarFallback>R</AvatarFallback>
+            <AvatarImage src="/avatars/02.png" alt="رضا" />
+            <AvatarFallback>ر</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <BubbleGroup>
             <Bubble variant="muted">
-              <BubbleContent>همیشه می‌گویند فقط یک خط است 😭.</BubbleContent>
+              <BubbleContent>همیشه می‌گن فقط یه خطه 😭</BubbleContent>
             </Bubble>
             <Bubble variant="muted">
-              <BubbleContent>باشه، بگذارید نگاهی بیندازم.</BubbleContent>
+              <BubbleContent>باشه، بذار یه نگاه بندازم.</BubbleContent>
               <BubbleReactions aria-label="واکنش‌ها: پسند">
                 <span>👍</span>
               </BubbleReactions>
@@ -83,7 +83,7 @@ export function MessageDemo() {
       </Message>
       <Marker role="status">
         <MarkerContent className="shimmer">
-          <span className="font-medium">الیور</span> در حال تایپ است...
+          <span className="font-medium">رضا</span> در حال نوشتن است...
         </MarkerContent>
       </Marker>
     </div>

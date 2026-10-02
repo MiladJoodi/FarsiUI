@@ -4,6 +4,7 @@ import * as React from "react"
 import type { QuestionnaireItemStatus } from "@farsiui/react/questionnaire"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -27,6 +28,24 @@ const items = [
   { name: "review", required: true },
 ] as const
 
+const taskLabels: Record<string, string> = {
+  feature: "ویژگی جدید",
+  fix: "رفع باگ",
+  refactor: "بازآرایی",
+}
+
+const constraintLabels: Record<string, string> = {
+  "no-dependencies": "وابستگی اضافه نشود",
+  "no-migrations": "پایگاه داده تغییر نکند",
+  "preserve-api": "API عمومی حفظ شود",
+}
+
+const reviewLabels: Record<string, string> = {
+  tests: "اجرای مجموعهٔ تست‌ها",
+  diff: "بازبینی دیف نهایی",
+  both: "تست‌ها و بازبینی دیف",
+}
+
 export function QuestionnaireSkipExample() {
   const [constraintStatus, setConstraintStatus] =
     React.useState<QuestionnaireItemStatus>("unanswered")
@@ -43,11 +62,11 @@ export function QuestionnaireSkipExample() {
     }
 
     toast("خلاصهٔ عامل ارسال شد", {
-      description: `کار: ${answers.task ?? "هیچ"} · محدودیت‌ها: ${
+      description: `کار: ${answerLabel(answers.task, taskLabels)} · محدودیت‌ها: ${
         answers.constraintStatus === "skipped"
           ? "رد شده"
-          : (answers.constraints ?? "هیچ")
-      } · بازبینی: ${answers.review ?? "هیچ"}`,
+          : answerLabel(answers.constraints, constraintLabels)
+      } · بازبینی: ${answerLabel(answers.review, reviewLabels)}`,
     })
   }
 

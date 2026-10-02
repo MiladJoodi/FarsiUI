@@ -10,19 +10,19 @@ import {
 } from "@/styles/base-nova/ui/combobox"
 
 const frameworks = [
-  "Next.js",
-  "SvelteKit",
-  "Nuxt.js",
-  "Remix",
-  "Astro",
+  "نکست‌جی‌اس",
+  "سوولت‌کیت",
+  "ناکست‌جی‌اس",
+  "ریمیکس",
+  "آسترو",
 ] as const
 
 export function ComboboxWithClear() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={frameworks} defaultValue={frameworks[0]}>
         <ComboboxInput placeholder="یک فریم‌ورک انتخاب کنید" showClear />
-        <ComboboxContent>
+        <ComboboxContent dir="rtl">
           <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (

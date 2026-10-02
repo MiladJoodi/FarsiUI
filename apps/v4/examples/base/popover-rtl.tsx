@@ -16,8 +16,8 @@ const physicalSides = [
 ]
 
 const logicalSides = [
-  { side: "inline-start" as const, label: "شروع درون‌خطی" },
-  { side: "inline-end" as const, label: "پایان درون‌خطی" },
+  { side: "inline-start" as const, label: "شروع" },
+  { side: "inline-end" as const, label: "پایان" },
 ]
 
 export function PopoverRtl() {

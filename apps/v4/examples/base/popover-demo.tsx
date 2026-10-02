@@ -27,7 +27,7 @@ export function PopoverDemo() {
                 <Label htmlFor="width">عرض</Label>
                 <Input
                   id="width"
-                  defaultValue="100%"
+                  defaultValue="۱۰۰٪"
                   className="col-span-2 h-8"
                 />
               </div>
@@ -35,7 +35,7 @@ export function PopoverDemo() {
                 <Label htmlFor="maxWidth">حداکثر عرض</Label>
                 <Input
                   id="maxWidth"
-                  defaultValue="300px"
+                  defaultValue="۳۰۰px"
                   className="col-span-2 h-8"
                 />
               </div>
@@ -43,7 +43,7 @@ export function PopoverDemo() {
                 <Label htmlFor="height">ارتفاع</Label>
                 <Input
                   id="height"
-                  defaultValue="25px"
+                  defaultValue="۲۵px"
                   className="col-span-2 h-8"
                 />
               </div>
@@ -51,7 +51,7 @@ export function PopoverDemo() {
                 <Label htmlFor="maxHeight">حداکثر ارتفاع</Label>
                 <Input
                   id="maxHeight"
-                  defaultValue="none"
+                  defaultValue="بدون محدودیت"
                   className="col-span-2 h-8"
                 />
               </div>

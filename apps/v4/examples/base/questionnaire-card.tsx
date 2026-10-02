@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Card,
   CardAction,
@@ -40,6 +41,18 @@ const items = [
   },
 ] as const
 
+const taskLabels: Record<string, string> = {
+  fix: "رفع تست‌های ناموفق",
+  refactor: "بازآرایی لایهٔ داده",
+  docs: "به‌روزرسانی راهنمای یکپارچه‌سازی",
+}
+
+const outputLabels: Record<string, string> = {
+  summary: "فقط خلاصه",
+  files: "خلاصه و فایل‌های تغییر یافته",
+  review: "تحویل کامل بررسی",
+}
+
 export function QuestionnaireCard() {
   const taskTitleId = React.useId()
   const outputTitleId = React.useId()
@@ -50,7 +63,7 @@ export function QuestionnaireCard() {
     const formData = new FormData(event.currentTarget)
 
     toast("وظیفهٔ عامل ساخته شد", {
-      description: `وظیفه: ${formData.get("task") ?? "هیچ"} · تحویل: ${formData.get("output") ?? "هیچ"}`,
+      description: `وظیفه: ${answerLabel(formData.get("task"), taskLabels)} · تحویل: ${answerLabel(formData.get("output"), outputLabels)}`,
     })
   }
 

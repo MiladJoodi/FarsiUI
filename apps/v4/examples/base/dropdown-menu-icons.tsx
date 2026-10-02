@@ -23,7 +23,7 @@ export function DropdownMenuIcons() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent dir="rtl">
           <DropdownMenuItem>
             <UserIcon />
             پروفایل

@@ -26,14 +26,14 @@ export function TableActions() {
         <TableRow>
           <TableHead>محصول</TableHead>
           <TableHead>قیمت</TableHead>
-          <TableHead className="text-end">عملیات</TableHead>
+          <TableHead>عملیات</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         <TableRow>
           <TableCell className="font-medium">ماوس بی‌سیم</TableCell>
           <TableCell>۲۹۹٬۰۰۰ تومان</TableCell>
-          <TableCell className="text-end">
+          <TableCell>
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
@@ -55,7 +55,7 @@ export function TableActions() {
         <TableRow>
           <TableCell className="font-medium">کیبورد مکانیکی</TableCell>
           <TableCell>۱٬۲۹۹٬۰۰۰ تومان</TableCell>
-          <TableCell className="text-end">
+          <TableCell>
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
@@ -77,7 +77,7 @@ export function TableActions() {
         <TableRow>
           <TableCell className="font-medium">هاب USB-C</TableCell>
           <TableCell>۴۹۹٬۰۰۰ تومان</TableCell>
-          <TableCell className="text-end">
+          <TableCell>
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={

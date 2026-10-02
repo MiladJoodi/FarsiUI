@@ -20,47 +20,44 @@ export function MessageAvatarDemo() {
       <Message>
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/03.png" alt="@avatar" />
-            <AvatarFallback>R</AvatarFallback>
+            <AvatarImage src="/avatars/03.png" alt="سارا" />
+            <AvatarFallback>س</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble variant="muted">
-            <BubbleContent>
-              بیلد هنگام نصب وابستگی‌ها شکست خورد.
-            </BubbleContent>
+            <BubbleContent>بیلد موقع نصب پکیج‌ها ارور داد.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
       <Message align="end">
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/10.png" alt="@avatar" />
-            <AvatarFallback>R</AvatarFallback>
+            <AvatarImage src="/avatars/10.png" alt="علی" />
+            <AvatarFallback>ع</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>می‌توانید خطای دقیق را بفرستید؟</BubbleContent>
+            <BubbleContent>متن ارور رو می‌فرستی؟</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
       <Message>
         <MessageAvatar>
           <Avatar>
-            <AvatarImage src="/avatars/03.png" alt="@avatar" />
-            <AvatarFallback>R</AvatarFallback>
+            <AvatarImage src="/avatars/03.png" alt="سارا" />
+            <AvatarFallback>س</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <BubbleGroup>
             <Bubble variant="muted">
-              <BubbleContent>این خطا از لاگ‌ها است</BubbleContent>
+              <BubbleContent>این از لاگه:</BubbleContent>
             </Bubble>
             <Bubble variant="muted">
               <BubbleContent>
-                مشکلی در بیلد پیش آمد. کتابخانه‌ها درست نصب نشده‌اند. دوباره
-                بیلد را اجرا کنید.
+                بیلد خراب شده؛ پکیج‌ها درست نصب نشدن. یه بار دیگه بیلد رو بزن.
               </BubbleContent>
             </Bubble>
           </BubbleGroup>

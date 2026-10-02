@@ -1,4 +1,4 @@
-import { CopyIcon, FileCodeIcon } from "lucide-react"
+import { CopyIcon } from "lucide-react"
 
 import {
   Field,
@@ -15,9 +15,9 @@ import {
   InputGroupTextarea,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupBlockStart() {
+export default function InputGroupBlockStart() {
   return (
-    <FieldGroup dir="rtl" className="max-w-sm">
+    <FieldGroup dir="rtl" lang="fa" className="max-w-sm">
       <Field>
         <FieldLabel htmlFor="block-start-input">ورودی</FieldLabel>
         <InputGroup className="h-auto">
@@ -36,15 +36,12 @@ export function InputGroupBlockStart() {
         <InputGroup>
           <InputGroupTextarea
             id="block-start-textarea"
-            placeholder="console.log('سلام دنیا!');"
-            className="font-mono text-sm"
+            placeholder="نظر خود را بنویسید..."
           />
           <InputGroupAddon align="block-start">
-            <FileCodeIcon className="text-muted-foreground" />
-            <InputGroupText className="font-mono">script.js</InputGroupText>
-            <InputGroupButton size="icon-xs" className="ms-auto">
+            <InputGroupText className="font-medium">بازخورد</InputGroupText>
+            <InputGroupButton size="icon-xs" className="ms-auto" aria-label="کپی">
               <CopyIcon />
-              <span className="sr-only">کپی</span>
             </InputGroupButton>
           </InputGroupAddon>
         </InputGroup>

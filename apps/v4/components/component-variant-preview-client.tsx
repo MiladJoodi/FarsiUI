@@ -412,7 +412,7 @@ export function ComponentVariantPreviewClient({
             <DocsPreviewSwitcherStage
               role="tabpanel"
               dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
-              className="w-full text-start [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full [&_[data-slot=card]]:w-full [&_[data-slot=chart]]:w-full [&:has([data-slot=chart])]:items-stretch"
+              className="w-full [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full [&_[data-slot=chart]]:w-full [&:has([data-slot=chart])]:items-stretch"
             >
               <DirectionProvider
                 direction={

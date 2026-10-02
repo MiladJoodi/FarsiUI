@@ -22,19 +22,19 @@ export function DropdownMenuSubmenu() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           باز کردن
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuItem>تیم</DropdownMenuItem>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>دعوت کاربران</DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent dir="rtl">
                   <DropdownMenuItem>ایمیل</DropdownMenuItem>
                   <DropdownMenuItem>پیام</DropdownMenuItem>
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger>گزینه‌های بیشتر</DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
-                      <DropdownMenuSubContent>
+                      <DropdownMenuSubContent dir="rtl">
                         <DropdownMenuItem>Calendly</DropdownMenuItem>
                         <DropdownMenuItem>اسلک</DropdownMenuItem>
                         <DropdownMenuSeparator />

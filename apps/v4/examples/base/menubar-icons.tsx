@@ -18,9 +18,9 @@ import {
   MenubarTrigger,
 } from "@/styles/base-nova/ui/menubar"
 
-export function MenubarIcons() {
+export default function MenubarIcons() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Menubar className="w-80">
         <MenubarMenu>
           <MenubarTrigger>فایل</MenubarTrigger>

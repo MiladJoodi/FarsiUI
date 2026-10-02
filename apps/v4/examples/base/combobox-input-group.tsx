@@ -53,14 +53,14 @@ const timezones = [
 
 export function ComboxboxInputGroup() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={timezones}>
         <ComboboxInput placeholder="منطقهٔ زمانی را انتخاب کنید">
           <InputGroupAddon>
             <GlobeIcon />
           </InputGroupAddon>
         </ComboboxInput>
-        <ComboboxContent alignOffset={-28} className="w-60">
+        <ComboboxContent dir="rtl" alignOffset={-28} className="w-60">
           <ComboboxEmpty>منطقهٔ زمانی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(group) => (

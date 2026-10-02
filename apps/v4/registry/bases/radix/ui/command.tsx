@@ -34,11 +34,12 @@ function Command({
 }
 
 function CommandDialog({
-  title = "Command Palette",
-  description = "Search for a command to run...",
+  title = "پالت دستور",
+  description = "دستوری برای اجرا جستجو کنید...",
   children,
   className,
   showCloseButton = false,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string
@@ -53,6 +54,7 @@ function CommandDialog({
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogContent
+        dir={dir}
         className={cn(
           "cn-command-dialog top-1/3 translate-y-0 overflow-hidden p-0",
           className

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -28,6 +29,12 @@ const items = [
   },
 ] as const
 
+const approachLabels: Record<string, string> = {
+  incremental: "کوچک‌ترین تغییر امن را اعمال کند",
+  module: "هر بار یک ماژول را بازآرایی کند",
+  rewrite: "پیاده‌سازی را به‌طور کامل جایگزین کند",
+}
+
 export function QuestionnaireFreeform() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -35,7 +42,7 @@ export function QuestionnaireFreeform() {
     const approach = new FormData(event.currentTarget).get("approach")
 
     toast("رویکرد انتخاب شد", {
-      description: `رویکرد: ${approach ?? "هیچ"}`,
+      description: `رویکرد: ${answerLabel(approach, approachLabels)}`,
     })
   }
 

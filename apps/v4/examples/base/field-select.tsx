@@ -26,17 +26,17 @@ const items = [
 
 export default function FieldSelect() {
   return (
-    <div dir="rtl">
-      <Field className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <Field>
         <FieldLabel>بخش</FieldLabel>
         <Select items={items}>
-          <SelectTrigger>
+          <SelectTrigger className="w-full">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent dir="rtl" alignItemWithTrigger={false} align="start">
             <SelectGroup>
               {items.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
+                <SelectItem key={String(item.value)} value={item.value}>
                   {item.label}
                 </SelectItem>
               ))}

@@ -11,9 +11,9 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupInlineStart() {
+export default function InputGroupInlineStart() {
   return (
-    <Field dir="rtl" className="max-w-sm">
+    <Field dir="rtl" lang="fa" className="max-w-sm">
       <FieldLabel htmlFor="inline-start-input">ورودی</FieldLabel>
       <InputGroup>
         <InputGroupInput id="inline-start-input" placeholder="جستجو..." />

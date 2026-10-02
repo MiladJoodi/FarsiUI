@@ -7,13 +7,11 @@ links:
   doc: https://tanstack.com/table/latest/docs/overview
 ---
 
-<ComponentVariantPreview
+<ComponentPreview
   styleName="base-nova"
-  layout="switcher"
-  examples={[
-    { name: "data-table-demo", label: "پیش‌فرض", sizeable: false },
-    { name: "data-table-rtl", label: "RTL", sizeable: false },
-  ]}
+  name="data-table-demo"
+  direction="rtl"
+  previewClassName="h-auto! min-h-0 items-start py-4 px-4 md:px-8"
 />
 
 <div className="hidden">
@@ -908,13 +906,5 @@ export const columns = columnHelper.columns([
 روی ظرف جدول `dir="rtl"` بگذارید و به‌جای کلاس‌های فیزیکی (`ml-auto`، `text-right`، `space-x-*`) از معادل منطقی (`ms-auto`، `text-end`، `gap-*`) استفاده کنید.
 
 برای تنظیم سراسری RTL در FarsiUI، [راهنمای RTL](/docs/rtl) را ببینید.
-
-<ComponentPreview
-  styleName="base-nova"
-  name="data-table-rtl"
-  direction="rtl"
-  previewClassName="items-start h-auto px-4 md:px-8"
-  hideCode
-/>
 
 </DocsCollapsible>

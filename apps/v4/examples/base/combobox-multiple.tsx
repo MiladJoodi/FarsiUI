@@ -16,11 +16,11 @@ import {
 } from "@/styles/base-nova/ui/combobox"
 
 const frameworks = [
-  "Next.js",
-  "SvelteKit",
-  "Nuxt.js",
-  "Remix",
-  "Astro",
+  "نکست‌جی‌اس",
+  "سوولت‌کیت",
+  "ناکست‌جی‌اس",
+  "ریمیکس",
+  "آسترو",
 ] as const
 
 export function ComboboxMultiple() {
@@ -46,7 +46,7 @@ export function ComboboxMultiple() {
             )}
           </ComboboxValue>
         </ComboboxChips>
-        <ComboboxContent anchor={anchor}>
+        <ComboboxContent anchor={anchor} dir="rtl">
           <ComboboxEmpty>موردی پیدا نشد.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (

@@ -30,7 +30,7 @@ export function HoverCardRtl() {
             >
               {label}
             </HoverCardTrigger>
-            <HoverCardContent
+            <HoverCardContent dir="rtl"
               side={side}
               className="flex w-64 flex-col gap-1"
             >
@@ -50,7 +50,7 @@ export function HoverCardRtl() {
             >
               {label}
             </HoverCardTrigger>
-            <HoverCardContent
+            <HoverCardContent dir="rtl"
               side={side}
               className="flex w-64 flex-col gap-1"
             >

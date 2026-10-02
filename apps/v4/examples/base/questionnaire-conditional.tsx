@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -17,6 +18,23 @@ import {
   QuestionnaireSubmit,
   QuestionnaireTitle,
 } from "@/styles/base-nova/ui/questionnaire"
+
+const runtimeLabels: Record<string, string> = {
+  local: "فضای کاری محلی",
+  cloud: "فضای کاری ابری",
+}
+
+const environmentLabels: Record<string, string> = {
+  preview: "پیش‌نمایش",
+  staging: "استیجینگ",
+  isolated: "سندباکس ایزوله",
+}
+
+const approvalLabels: Record<string, string> = {
+  writes: "قبل از نوشتن فایل‌ها",
+  commands: "قبل از اجرای دستورها",
+  sensitive: "فقط برای اقدامات حساس",
+}
 
 export function QuestionnaireConditional() {
   const [runtime, setRuntime] = React.useState("local")
@@ -39,7 +57,7 @@ export function QuestionnaireConditional() {
     const formData = new FormData(event.currentTarget)
 
     toast("برنامهٔ اجرا ذخیره شد", {
-      description: `زمان‌اجرا: ${formData.get("runtime") ?? "هیچ"} · محیط: ${formData.get("environment") ?? "غیرمرتبط"} · تأیید: ${formData.get("approval") ?? "هیچ"}`,
+      description: `زمان‌اجرا: ${answerLabel(formData.get("runtime"), runtimeLabels)} · محیط: ${answerLabel(formData.get("environment"), environmentLabels, "غیرمرتبط")} · تأیید: ${answerLabel(formData.get("approval"), approvalLabels)}`,
     })
   }
 

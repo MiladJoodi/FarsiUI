@@ -11,21 +11,21 @@ export function PaginationSimple() {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
+            <PaginationLink href="#">۱</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#" isActive>
-              2
+              ۲
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
+            <PaginationLink href="#">۳</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">4</PaginationLink>
+            <PaginationLink href="#">۴</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">5</PaginationLink>
+            <PaginationLink href="#">۵</PaginationLink>
           </PaginationItem>
         </PaginationContent>
       </Pagination>

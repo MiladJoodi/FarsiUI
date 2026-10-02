@@ -15,9 +15,9 @@ import {
   MenubarTrigger,
 } from "@/styles/base-nova/ui/menubar"
 
-export function MenubarDemo() {
+export default function MenubarDemo() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Menubar className="w-80">
         <MenubarMenu>
           <MenubarTrigger>فایل</MenubarTrigger>
@@ -117,10 +117,10 @@ export function MenubarDemo() {
         <MenubarMenu>
           <MenubarTrigger>پروفایل‌ها</MenubarTrigger>
           <MenubarContent>
-            <MenubarRadioGroup value="benoit">
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+            <MenubarRadioGroup value="ali">
+              <MenubarRadioItem value="sara">سارا</MenubarRadioItem>
+              <MenubarRadioItem value="ali">علی</MenubarRadioItem>
+              <MenubarRadioItem value="reza">رضا</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />
             <MenubarGroup>
@@ -136,3 +136,4 @@ export function MenubarDemo() {
     </div>
   )
 }
+

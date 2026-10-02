@@ -9,7 +9,7 @@ export default function ResizableDemo() {
     <div dir="rtl">
       <ResizablePanelGroup
         orientation="horizontal"
-        className="max-w-sm rounded-lg border"
+        className="max-w-lg rounded-lg border"
       >
         <ResizablePanel defaultSize="50%">
           <div className="flex h-[200px] items-center justify-center p-6">

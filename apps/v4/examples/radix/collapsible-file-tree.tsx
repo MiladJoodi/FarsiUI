@@ -1,4 +1,11 @@
-import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react"
+import {
+  BookTypeIcon,
+  BracesIcon,
+  ChevronRightIcon,
+  Code2Icon,
+  FileIcon,
+  FolderIcon,
+} from "lucide-react"
 
 import { Button } from "@/styles/radix-nova/ui/button"
 import { Card, CardContent, CardHeader } from "@/styles/radix-nova/ui/card"
@@ -7,9 +14,26 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/styles/radix-nova/ui/collapsible"
-import { Tabs, TabsList, TabsTrigger } from "@/styles/radix-nova/ui/tabs"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/styles/radix-nova/ui/tabs"
 
 type FileTreeItem = { name: string } | { name: string; items: FileTreeItem[] }
+
+type OutlineKind = "function" | "type" | "variable"
+
+type OutlineItem =
+  | { name: string; kind: OutlineKind }
+  | { name: string; kind: OutlineKind; items: OutlineItem[] }
+
+function OutlineIcon({ kind }: { kind: OutlineKind }) {
+  if (kind === "function") return <Code2Icon />
+  if (kind === "type") return <BookTypeIcon />
+  return <BracesIcon />
+}
 
 export function CollapsibleFileTree() {
   const fileTree: FileTreeItem[] = [
@@ -64,6 +88,19 @@ export function CollapsibleFileTree() {
     { name: ".gitignore" },
   ]
 
+  const outline: OutlineItem[] = [
+    {
+      name: "CollapsibleFileTree",
+      kind: "function",
+      items: [
+        { name: "fileTree", kind: "variable" },
+        { name: "renderItem", kind: "function" },
+      ],
+    },
+    { name: "FileTreeItem", kind: "type" },
+    { name: "OutlineItem", kind: "type" },
+  ]
+
   const renderItem = (fileItem: FileTreeItem) => {
     if ("items" in fileItem) {
       return (
@@ -100,21 +137,64 @@ export function CollapsibleFileTree() {
     )
   }
 
+  const renderOutlineItem = (item: OutlineItem) => {
+    if ("items" in item) {
+      return (
+        <Collapsible key={item.name} defaultOpen>
+          <CollapsibleTrigger asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="group w-full justify-start transition-none hover:bg-accent hover:text-accent-foreground"
+            >
+              <ChevronRightIcon className="transition-transform group-data-[state=open]:rotate-90" />
+              <OutlineIcon kind={item.kind} />
+              {item.name}
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="mt-1 ml-5 style-lyra:ml-4">
+            <div className="flex flex-col gap-1">
+              {item.items.map((child) => renderOutlineItem(child))}
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+      )
+    }
+    return (
+      <Button
+        key={item.name}
+        variant="link"
+        size="sm"
+        className="w-full justify-start gap-2 text-foreground"
+      >
+        <OutlineIcon kind={item.kind} />
+        <span>{item.name}</span>
+      </Button>
+    )
+  }
+
   return (
     <Card className="mx-auto w-full max-w-[16rem] gap-2" size="sm">
-      <CardHeader>
-        <Tabs defaultValue="explorer">
+      <Tabs defaultValue="explorer" className="gap-2">
+        <CardHeader>
           <TabsList className="w-full">
             <TabsTrigger value="explorer">Explorer</TabsTrigger>
-            <TabsTrigger value="settings">Outline</TabsTrigger>
+            <TabsTrigger value="outline">Outline</TabsTrigger>
           </TabsList>
-        </Tabs>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-col gap-1">
-          {fileTree.map((item) => renderItem(item))}
-        </div>
-      </CardContent>
+        </CardHeader>
+        <CardContent dir="ltr">
+          <TabsContent value="explorer" className="mt-0">
+            <div className="flex flex-col gap-1">
+              {fileTree.map((item) => renderItem(item))}
+            </div>
+          </TabsContent>
+          <TabsContent value="outline" className="mt-0">
+            <div className="flex flex-col gap-1">
+              {outline.map((item) => renderOutlineItem(item))}
+            </div>
+          </TabsContent>
+        </CardContent>
+      </Tabs>
     </Card>
   )
 }

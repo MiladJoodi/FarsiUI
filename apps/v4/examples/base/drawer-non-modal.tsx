@@ -16,7 +16,7 @@ export function DrawerNonModal() {
         <DrawerTrigger render={<Button variant="outline" />}>
           غیرمودال
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent dir="rtl">
           <DrawerHeader>
             <DrawerTitle>کشوی غیرمودال</DrawerTitle>
           </DrawerHeader>

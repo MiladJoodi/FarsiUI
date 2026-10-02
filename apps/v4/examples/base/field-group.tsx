@@ -10,8 +10,8 @@ import {
 
 export default function FieldGroupExample() {
   return (
-    <div dir="rtl">
-      <FieldGroup className="w-full max-w-xs">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
+      <FieldGroup>
         <FieldSet>
           <FieldLabel>پاسخ‌ها</FieldLabel>
           <FieldDescription>

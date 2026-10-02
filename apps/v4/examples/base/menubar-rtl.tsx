@@ -19,11 +19,11 @@ import {
   MenubarTrigger,
 } from "@/styles/base-nova/ui/menubar"
 
-export function MenubarRtl() {
-  const [profile, setProfile] = React.useState("benoit")
+export default function MenubarRtl() {
+  const [profile, setProfile] = React.useState("ali")
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Menubar className="w-80">
         <MenubarMenu>
           <MenubarTrigger>فایل</MenubarTrigger>
@@ -124,9 +124,9 @@ export function MenubarRtl() {
           <MenubarTrigger>پروفایل‌ها</MenubarTrigger>
           <MenubarContent>
             <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+              <MenubarRadioItem value="sara">سارا</MenubarRadioItem>
+              <MenubarRadioItem value="ali">علی</MenubarRadioItem>
+              <MenubarRadioItem value="reza">رضا</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />
             <MenubarGroup>

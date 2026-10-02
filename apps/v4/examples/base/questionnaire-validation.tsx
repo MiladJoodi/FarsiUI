@@ -4,6 +4,7 @@ import * as React from "react"
 import { toast } from "sonner"
 import { z } from "zod"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Card,
   CardAction,
@@ -32,6 +33,16 @@ const items = [
   { name: "detail", required: true },
   { name: "audience", required: true },
 ] as const
+
+const detailLabels: Record<string, string> = {
+  summary: "خلاصهٔ مختصر",
+  complete: "پاسخ کامل",
+}
+
+const audienceLabels: Record<string, string> = {
+  team: "تیم من",
+  public: "مخاطب عمومی",
+}
 
 const questionnaireSchema = z
   .object({
@@ -100,7 +111,7 @@ export function QuestionnaireValidation() {
     if (result.success) {
       setErrors({})
       toast("پاسخ عامل پیکربندی شد", {
-        description: `جزئیات: ${result.data.detail} · مخاطب: ${result.data.audience}`,
+        description: `جزئیات: ${answerLabel(result.data.detail, detailLabels)} · مخاطب: ${answerLabel(result.data.audience, audienceLabels)}`,
       })
       return
     }

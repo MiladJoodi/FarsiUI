@@ -19,7 +19,7 @@ export function DropdownMenuDestructive() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           اقدام‌ها
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent dir="rtl">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <PencilIcon />

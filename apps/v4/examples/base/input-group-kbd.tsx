@@ -7,9 +7,9 @@ import {
 } from "@/styles/base-nova/ui/input-group"
 import { Kbd } from "@/styles/base-nova/ui/kbd"
 
-export function InputGroupKbd() {
+export default function InputGroupKbd() {
   return (
-    <div dir="rtl">
+    <div className="w-full max-w-sm" dir="rtl" lang="fa">
       <InputGroup className="max-w-sm">
         <InputGroupInput placeholder="جستجو..." />
         <InputGroupAddon>

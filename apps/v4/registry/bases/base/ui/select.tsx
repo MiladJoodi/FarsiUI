@@ -71,6 +71,7 @@ function SelectContent({
   align = "center",
   alignOffset = 0,
   alignItemWithTrigger = true,
+  dir = "rtl",
   ...props
 }: SelectPrimitive.Popup.Props &
   Pick<
@@ -89,9 +90,10 @@ function SelectContent({
       >
         <SelectPrimitive.Popup
           data-slot="select-content"
+          dir={dir}
           data-align-trigger={alignItemWithTrigger}
           className={cn(
-            "cn-select-content cn-select-content-logical cn-menu-target cn-menu-translucent relative isolate z-50 max-h-(--available-height) w-(--anchor-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto data-[align-trigger=true]:animate-none",
+            "cn-select-content cn-select-content-logical cn-menu-target cn-menu-translucent relative isolate z-50 max-h-(--available-height) w-(--anchor-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto text-start data-[align-trigger=true]:animate-none",
             className
           )}
           {...props}

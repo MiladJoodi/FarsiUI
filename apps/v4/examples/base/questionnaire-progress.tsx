@@ -3,6 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
+import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -24,6 +25,30 @@ const items = [
   { name: "delivery", required: true },
 ] as const
 
+const scopeLabels: Record<string, string> = {
+  small: "پچ کوچک",
+  medium: "تغییر در مقیاس ویژگی",
+  large: "تغییر بین‌پکیجی",
+}
+
+const strategyLabels: Record<string, string> = {
+  single: "یک کامیت",
+  logical: "کامیت‌های منطقی",
+  squash: "فشرده‌سازی قبل از بازبینی",
+}
+
+const testsLabels: Record<string, string> = {
+  targeted: "تست‌های هدفمند",
+  package: "مجموعهٔ پکیج",
+  workspace: "کل فضای کاری",
+}
+
+const deliveryLabels: Record<string, string> = {
+  patch: "فقط پچ",
+  commit: "کامیت محلی",
+  branch: "پوش شاخهٔ بررسی",
+}
+
 function toPersianDigits(value: number) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
 }
@@ -35,7 +60,7 @@ export function QuestionnaireProgressExample() {
     const formData = new FormData(event.currentTarget)
 
     toast("برنامهٔ درخواست ادغام آماده است", {
-      description: `محدوده: ${formData.get("scope") ?? "هیچ"} · کامیت‌ها: ${formData.get("strategy") ?? "هیچ"} · تست‌ها: ${formData.get("tests") ?? "هیچ"} · تحویل: ${formData.get("delivery") ?? "هیچ"}`,
+      description: `محدوده: ${answerLabel(formData.get("scope"), scopeLabels)} · کامیت‌ها: ${answerLabel(formData.get("strategy"), strategyLabels)} · تست‌ها: ${answerLabel(formData.get("tests"), testsLabels)} · تحویل: ${answerLabel(formData.get("delivery"), deliveryLabels)}`,
     })
   }
 
