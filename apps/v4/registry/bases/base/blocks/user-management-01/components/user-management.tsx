@@ -31,7 +31,7 @@ export function UserManagementSimple() {
         <Button size="sm">افزودن کاربر</Button>
       </div>
 
-      <div className="overflow-hidden rounded-xl border">
+      <div className="overflow-hidden rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -43,14 +43,16 @@ export function UserManagementSimple() {
           <TableBody>
             {USERS.map((user) => (
               <TableRow key={user.name}>
-                <TableCell className="font-medium">{user.name}</TableCell>
-                <TableCell>
-                  <Badge variant="secondary">{user.status}</Badge>
+                <TableCell className="text-start font-medium">
+                  {user.name}
                 </TableCell>
-                <TableCell>
-                  <bdi dir="ltr" className="tabular-nums">
-                    {user.joined}
-                  </bdi>
+                <TableCell className="text-start">
+                  <Badge variant="outline" className="border">
+                    {user.status}
+                  </Badge>
+                </TableCell>
+                <TableCell className="text-start tracking-normal">
+                  {user.joined}
                 </TableCell>
               </TableRow>
             ))}

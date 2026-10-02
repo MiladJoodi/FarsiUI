@@ -11,13 +11,10 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -42,6 +39,12 @@ type User = {
   status: string
   initials: string
 }
+
+const ROLE_ITEMS = [
+  { value: "مدیر", label: "مدیر" },
+  { value: "ویرایشگر", label: "ویرایشگر" },
+  { value: "مشاهده‌گر", label: "مشاهده‌گر" },
+] as const
 
 const INITIAL: User[] = [
   {
@@ -86,10 +89,15 @@ const INITIAL: User[] = [
   },
 ]
 
+function toFa(n: number) {
+  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 export function UserManagementActions() {
   const [users, setUsers] = React.useState(INITIAL)
   const [selected, setSelected] = React.useState<string[]>([])
   const [bulkRole, setBulkRole] = React.useState("ویرایشگر")
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const allIds = users.map((u) => u.id)
   const allSelected =
@@ -130,35 +138,40 @@ export function UserManagementActions() {
         {selected.length > 0 && (
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
             <p className="text-sm text-muted-foreground">
-              <bdi dir="ltr">{selected.length}</bdi> انتخاب‌شده
+              {toFa(selected.length)} انتخاب‌شده
             </p>
             <Select
+              items={[...ROLE_ITEMS]}
               value={bulkRole}
-              onValueChange={(value) =>
-                setBulkRole((value as string) ?? "ویرایشگر")
-              }
+              onValueChange={(value) => {
+                if (ROLE_ITEMS.some((item) => item.value === value)) {
+                  setBulkRole(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
-                <SelectValue placeholder="نقش" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="مدیر">مدیر</SelectItem>
-                <SelectItem value="ویرایشگر">ویرایشگر</SelectItem>
-                <SelectItem value="مشاهده‌گر">مشاهده‌گر</SelectItem>
+                {ROLE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
-            <Button size="sm" onClick={applyBulkRole}>
+            <Button type="button" size="sm" onClick={applyBulkRole}>
               اعمال نقش
             </Button>
           </div>
         )}
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-10">
+              <TableHead className="w-14 ps-4 pe-2">
                 <Checkbox
                   checked={allSelected}
                   onCheckedChange={(v) => toggleAll(!!v)}
@@ -169,9 +182,7 @@ export function UserManagementActions() {
               <TableHead className="text-start">ایمیل</TableHead>
               <TableHead className="text-start">نقش</TableHead>
               <TableHead className="text-start">وضعیت</TableHead>
-              <TableHead className="w-12">
-                <span className="sr-only">عملیات</span>
-              </TableHead>
+              <TableHead className="text-start pe-4">عملیات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -180,7 +191,7 @@ export function UserManagementActions() {
                 key={user.id}
                 data-state={selected.includes(user.id) ? "selected" : undefined}
               >
-                <TableCell>
+                <TableCell className="ps-4 pe-2">
                   <Checkbox
                     checked={selected.includes(user.id)}
                     onCheckedChange={(v) => toggleOne(user.id, !!v)}
@@ -189,45 +200,76 @@ export function UserManagementActions() {
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-3">
-                    <Avatar className="size-8">
+                    <Avatar className="size-8 shrink-0">
                       <AvatarFallback>{user.initials}</AvatarFallback>
                     </Avatar>
-                    <span className="font-medium">{user.name}</span>
+                    <span className="text-start font-medium">{user.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <span dir="ltr" className="inline-block text-start text-sm">
+                  <span
+                    dir="ltr"
+                    className="block text-left text-sm tracking-normal"
+                  >
                     {user.email}
                   </span>
                 </TableCell>
-                <TableCell>
-                  <Badge variant="outline">{user.role}</Badge>
+                <TableCell className="text-start">
+                  <Badge variant="outline" className="border">
+                    {user.role}
+                  </Badge>
                 </TableCell>
-                <TableCell>
-                  <Badge variant="secondary">{user.status}</Badge>
+                <TableCell className="text-start">
+                  <Badge variant="outline" className="border">
+                    {user.status}
+                  </Badge>
                 </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
+                <TableCell className="pe-4">
+                  <Popover
+                    open={openId === user.id}
+                    onOpenChange={(open) => setOpenId(open ? user.id : null)}
+                  >
+                    <PopoverTrigger
                       render={
-                        <Button variant="ghost" size="icon" className="size-8" />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="size-8"
+                        />
                       }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">منوی کاربر</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
+                    </PopoverTrigger>
+                    <PopoverContent
                       dir="rtl"
                       lang="fa"
                       align="end"
-                      className="w-44"
+                      className="w-44 space-y-1 p-2"
                     >
-                      <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>ویرایش پروفایل</DropdownMenuItem>
-                      <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() =>
+                      <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        ویرایش پروفایل
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        ارسال ایمیل
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start"
+                        onClick={() => {
                           setUsers((prev) =>
                             prev.map((u) =>
                               u.id === user.id
@@ -239,22 +281,26 @@ export function UserManagementActions() {
                                 : u
                             )
                           )
-                        }
+                          setOpenId(null)
+                        }}
                       >
                         {user.status === "معلق" ? "فعال‌سازی" : "تعلیق"}
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        variant="destructive"
-                        onClick={() =>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                        onClick={() => {
                           setUsers((prev) =>
                             prev.filter((u) => u.id !== user.id)
                           )
-                        }
+                          setOpenId(null)
+                        }}
                       >
                         حذف کاربر
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </TableCell>
               </TableRow>
             ))}

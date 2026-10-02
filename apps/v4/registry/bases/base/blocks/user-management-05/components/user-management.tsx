@@ -17,17 +17,12 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -130,29 +125,60 @@ const INITIAL: User[] = [
   },
 ]
 
-type SortKey = "name" | "role" | "status" | "joined"
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه وضعیت‌ها" },
+  { value: "فعال", label: "فعال" },
+  { value: "دعوت‌شده", label: "دعوت‌شده" },
+  { value: "معلق", label: "معلق" },
+] as const
 
-const SORT_LABELS: Record<SortKey, string> = {
-  name: "نام",
-  role: "نقش",
-  status: "وضعیت",
-  joined: "تاریخ عضویت",
+const ROLE_FILTER_ITEMS = [
+  { value: "همه", label: "همه نقش‌ها" },
+  { value: "مدیر", label: "مدیر" },
+  { value: "ویرایشگر", label: "ویرایشگر" },
+  { value: "مشاهده‌گر", label: "مشاهده‌گر" },
+] as const
+
+const ROLE_ITEMS = [
+  { value: "مدیر", label: "مدیر" },
+  { value: "ویرایشگر", label: "ویرایشگر" },
+  { value: "مشاهده‌گر", label: "مشاهده‌گر" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "نام", label: "نام" },
+  { value: "نقش", label: "نقش" },
+  { value: "وضعیت", label: "وضعیت" },
+  { value: "عضویت", label: "تاریخ عضویت" },
+] as const
+
+const PAGE_SIZE_ITEMS = [
+  { value: "3", label: "۳ ردیف" },
+  { value: "5", label: "۵ ردیف" },
+  { value: "8", label: "۸ ردیف" },
+] as const
+
+type SortKey = (typeof SORT_ITEMS)[number]["value"]
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 export function UserManagementHub() {
   const [users, setUsers] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState("all")
-  const [role, setRole] = React.useState("all")
-  const [sort, setSort] = React.useState<SortKey>("name")
+  const [status, setStatus] = React.useState("همه")
+  const [role, setRole] = React.useState("همه")
+  const [sort, setSort] = React.useState<SortKey>("نام")
   const [selected, setSelected] = React.useState<string[]>([])
   const [pageSize, setPageSize] = React.useState("5")
   const [page, setPage] = React.useState(0)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const filtered = React.useMemo(() => {
     let list = users.filter((user) => {
-      const matchStatus = status === "all" || user.status === status
-      const matchRole = role === "all" || user.role === role
+      const matchStatus = status === "همه" || user.status === status
+      const matchRole = role === "همه" || user.role === role
       const q = query.trim().toLowerCase()
       const matchQuery =
         !q ||
@@ -161,7 +187,12 @@ export function UserManagementHub() {
         user.role.includes(query)
       return matchStatus && matchRole && matchQuery
     })
-    list = [...list].sort((a, b) => a[sort].localeCompare(b[sort], "fa"))
+    list = [...list].sort((a, b) => {
+      if (sort === "نقش") return a.role.localeCompare(b.role, "fa")
+      if (sort === "وضعیت") return a.status.localeCompare(b.status, "fa")
+      if (sort === "عضویت") return a.joined.localeCompare(b.joined, "fa")
+      return a.name.localeCompare(b.name, "fa")
+    })
     return list
   }, [users, query, status, role, sort])
 
@@ -169,7 +200,7 @@ export function UserManagementHub() {
     setPage(0)
   }, [query, status, role, pageSize])
 
-  const size = Number(pageSize)
+  const size = Number(pageSize) || 5
   const pageCount = Math.max(1, Math.ceil(filtered.length / size))
   const safePage = Math.min(page, pageCount - 1)
   const slice = filtered.slice(safePage * size, safePage * size + size)
@@ -207,27 +238,27 @@ export function UserManagementHub() {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-3">
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>کل کاربران</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{users.length}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(users.length)}
               </CardTitle>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>فعال</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{activeCount}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(activeCount)}
               </CardTitle>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card">
             <CardHeader className="pb-2">
               <CardDescription>دعوت‌شده</CardDescription>
-              <CardTitle className="text-2xl">
-                <bdi dir="ltr">{invitedCount}</bdi>
+              <CardTitle className="text-2xl tracking-normal">
+                {toFa(invitedCount)}
               </CardTitle>
             </CardHeader>
           </Card>
@@ -245,74 +276,85 @@ export function UserManagementHub() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (STATUS_ITEMS.some((item) => item.value === value)) {
+                setStatus(value as string)
+              }
+            }}
           >
-            <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="وضعیت" />
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه وضعیت‌ها</SelectItem>
-              <SelectItem value="فعال">فعال</SelectItem>
-              <SelectItem value="دعوت‌شده">دعوت‌شده</SelectItem>
-              <SelectItem value="معلق">معلق</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <Select
+            items={[...ROLE_FILTER_ITEMS]}
             value={role}
-            onValueChange={(value) => setRole((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (ROLE_FILTER_ITEMS.some((item) => item.value === value)) {
+                setRole(value as string)
+              }
+            }}
           >
-            <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="نقش" />
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه نقش‌ها</SelectItem>
-              <SelectItem value="مدیر">مدیر</SelectItem>
-              <SelectItem value="ویرایشگر">ویرایشگر</SelectItem>
-              <SelectItem value="مشاهده‌گر">مشاهده‌گر</SelectItem>
+              {ROLE_FILTER_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full sm:w-auto" />}
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort((v as SortKey) ?? "name")}
-              >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORT_LABELS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as SortKey)
+              }
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {selected.length > 0 && (
           <p className="text-sm text-muted-foreground">
-            <bdi dir="ltr">{selected.length}</bdi> کاربر انتخاب شده
+            {toFa(selected.length)} کاربر انتخاب شده
           </p>
         )}
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           کاربری با این فیلتر پیدا نشد.
         </p>
       ) : (
         <>
-          <div className="overflow-x-auto rounded-xl border">
+          <div className="overflow-x-auto rounded-xl border bg-card">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-10">
+                  <TableHead className="w-14 ps-4 pe-2">
                     <Checkbox
                       checked={allPageSelected}
                       onCheckedChange={(v) => togglePage(!!v)}
@@ -324,9 +366,7 @@ export function UserManagementHub() {
                   <TableHead className="text-start">نقش</TableHead>
                   <TableHead className="text-start">وضعیت</TableHead>
                   <TableHead className="text-start">عضویت</TableHead>
-                  <TableHead className="w-12">
-                    <span className="sr-only">عملیات</span>
-                  </TableHead>
+                  <TableHead className="text-start pe-4">عملیات</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -337,7 +377,7 @@ export function UserManagementHub() {
                       selected.includes(user.id) ? "selected" : undefined
                     }
                   >
-                    <TableCell>
+                    <TableCell className="ps-4 pe-2">
                       <Checkbox
                         checked={selected.includes(user.id)}
                         onCheckedChange={(v) =>
@@ -352,36 +392,46 @@ export function UserManagementHub() {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        <Avatar className="size-8">
+                        <Avatar className="size-8 shrink-0">
                           <AvatarFallback>{user.initials}</AvatarFallback>
                         </Avatar>
-                        <span className="font-medium">{user.name}</span>
+                        <span className="text-start font-medium">
+                          {user.name}
+                        </span>
                       </div>
                     </TableCell>
                     <TableCell>
                       <span
                         dir="ltr"
-                        className="inline-block text-start text-sm"
+                        className="block text-left text-sm tracking-normal"
                       >
                         {user.email}
                       </span>
                     </TableCell>
-                    <TableCell>
-                      <Badge variant="outline">{user.role}</Badge>
+                    <TableCell className="text-start">
+                      <Badge variant="outline" className="border">
+                        {user.role}
+                      </Badge>
                     </TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">{user.status}</Badge>
+                    <TableCell className="text-start">
+                      <Badge variant="outline" className="border">
+                        {user.status}
+                      </Badge>
                     </TableCell>
-                    <TableCell>
-                      <bdi dir="ltr" className="tabular-nums text-sm">
-                        {user.joined}
-                      </bdi>
+                    <TableCell className="text-start tracking-normal">
+                      {user.joined}
                     </TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                    <TableCell className="pe-4">
+                      <Popover
+                        open={openId === user.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? user.id : null)
+                        }
+                      >
+                        <PopoverTrigger
                           render={
                             <Button
+                              type="button"
                               variant="ghost"
                               size="icon"
                               className="size-8"
@@ -390,29 +440,47 @@ export function UserManagementHub() {
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">منوی کاربر</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        </PopoverTrigger>
+                        <PopoverContent
                           dir="rtl"
                           lang="fa"
                           align="end"
-                          className="w-44"
+                          className="w-44 space-y-1 p-2"
                         >
-                          <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                          <DropdownMenuItem>ارسال ایمیل</DropdownMenuItem>
-                          <DropdownMenuItem
-                            variant="destructive"
-                            onClick={() =>
+                          <p className="px-2 py-1.5 text-sm font-medium">
+                            عملیات
+                          </p>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ویرایش
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ارسال ایمیل
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                            onClick={() => {
                               setUsers((prev) =>
                                 prev.filter((u) => u.id !== user.id)
                               )
-                            }
+                              setOpenId(null)
+                            }}
                           >
                             حذف
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -423,27 +491,37 @@ export function UserManagementHub() {
           <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
               <Select
+                items={[...PAGE_SIZE_ITEMS]}
                 value={pageSize}
-                onValueChange={(value) =>
-                  setPageSize((value as string) ?? "5")
-                }
+                onValueChange={(value) => {
+                  if (PAGE_SIZE_ITEMS.some((item) => item.value === value)) {
+                    setPageSize(value as string)
+                  }
+                }}
               >
-                <SelectTrigger className="w-32" dir="rtl">
-                  <SelectValue placeholder="تعداد" />
+                <SelectTrigger className="w-36" dir="rtl">
+                  <SelectValue>
+                    {(value: string | null) =>
+                      PAGE_SIZE_ITEMS.find((item) => item.value === value)
+                        ?.label ?? "۵ ردیف"
+                    }
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="3">۳ ردیف</SelectItem>
-                  <SelectItem value="5">۵ ردیف</SelectItem>
-                  <SelectItem value="8">۸ ردیف</SelectItem>
+                  {PAGE_SIZE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
-              <p className="text-sm text-muted-foreground">
-                صفحه <bdi dir="ltr">{safePage + 1}</bdi> از{" "}
-                <bdi dir="ltr">{pageCount}</bdi>
+              <p className="text-sm text-muted-foreground tracking-normal">
+                صفحه {toFa(safePage + 1)} از {toFa(pageCount)}
               </p>
             </div>
             <div className="flex gap-2">
               <Button
+                type="button"
                 variant="outline"
                 size="sm"
                 disabled={safePage === 0}
@@ -452,6 +530,7 @@ export function UserManagementHub() {
                 قبلی
               </Button>
               <Button
+                type="button"
                 variant="outline"
                 size="sm"
                 disabled={safePage >= pageCount - 1}
@@ -466,7 +545,7 @@ export function UserManagementHub() {
 
       <Separator className="my-10" />
 
-      <Card dir="rtl" lang="fa">
+      <Card dir="rtl" lang="fa" className="bg-card">
         <CardHeader className="text-start">
           <CardTitle className="text-lg">دعوت کاربر جدید</CardTitle>
           <CardDescription>
@@ -489,16 +568,18 @@ export function UserManagementHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start sm:flex-1"
+              className="text-left sm:flex-1"
             />
-            <Select defaultValue="مشاهده‌گر">
+            <Select items={[...ROLE_ITEMS]} defaultValue="مشاهده‌گر">
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نقش" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="مدیر">مدیر</SelectItem>
-                <SelectItem value="ویرایشگر">ویرایشگر</SelectItem>
-                <SelectItem value="مشاهده‌گر">مشاهده‌گر</SelectItem>
+                {ROLE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             <Button type="submit" className="sm:shrink-0">

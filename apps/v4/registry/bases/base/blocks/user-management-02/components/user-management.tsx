@@ -57,7 +57,7 @@ export function UserManagementWithRoles() {
         </p>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border bg-card">
         <Table>
           <TableHeader>
             <TableRow>
@@ -72,24 +72,27 @@ export function UserManagementWithRoles() {
               <TableRow key={user.email}>
                 <TableCell>
                   <div className="flex items-center gap-3">
-                    <Avatar className="size-8">
+                    <Avatar className="size-8 shrink-0">
                       <AvatarFallback>{user.initials}</AvatarFallback>
                     </Avatar>
-                    <span className="font-medium">{user.name}</span>
+                    <span className="text-start font-medium">{user.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <span dir="ltr" className="inline-block text-start text-sm">
+                  <span
+                    dir="ltr"
+                    className="block text-left text-sm tracking-normal"
+                  >
                     {user.email}
                   </span>
                 </TableCell>
-                <TableCell>
-                  <Badge variant="outline">{user.role}</Badge>
+                <TableCell className="text-start">
+                  <Badge variant="outline" className="border">
+                    {user.role}
+                  </Badge>
                 </TableCell>
-                <TableCell>
-                  <Badge
-                    variant={user.status === "فعال" ? "default" : "secondary"}
-                  >
+                <TableCell className="text-start">
+                  <Badge variant="outline" className="border">
                     {user.status}
                   </Badge>
                 </TableCell>

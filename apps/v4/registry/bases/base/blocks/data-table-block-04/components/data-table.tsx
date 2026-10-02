@@ -98,17 +98,17 @@ const COL_LABELS: Record<ColKey, string> = {
 }
 
 const PAGE_SIZE_ITEMS = [
-  { value: "۳", label: "۳ ردیف", size: 3 },
-  { value: "۵", label: "۵ ردیف", size: 5 },
-  { value: "۸", label: "۸ ردیف", size: 8 },
+  { value: "3", label: "۳ ردیف" },
+  { value: "5", label: "۵ ردیف" },
+  { value: "8", label: "۸ ردیف" },
 ] as const
 
 function toFa(n: number) {
-  return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+  return n.toLocaleString("fa-IR")
 }
 
 export function DataTablePaginated() {
-  const [pageSize, setPageSize] = React.useState("۵")
+  const [pageSize, setPageSize] = React.useState("5")
   const [page, setPage] = React.useState(0)
   const [colsOpen, setColsOpen] = React.useState(false)
   const [visible, setVisible] = React.useState<Record<ColKey, boolean>>({
@@ -119,8 +119,7 @@ export function DataTablePaginated() {
     status: true,
   })
 
-  const size =
-    PAGE_SIZE_ITEMS.find((item) => item.value === pageSize)?.size ?? 5
+  const size = Number(pageSize) || 5
   const pageCount = Math.max(1, Math.ceil(ROWS.length / size))
   const safePage = Math.min(page, pageCount - 1)
   const slice = ROWS.slice(safePage * size, safePage * size + size)
@@ -189,7 +188,12 @@ export function DataTablePaginated() {
             }}
           >
             <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue />
+              <SelectValue>
+                {(value: string | null) =>
+                  PAGE_SIZE_ITEMS.find((item) => item.value === value)?.label ??
+                  "۵ ردیف"
+                }
+              </SelectValue>
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
               {PAGE_SIZE_ITEMS.map((item) => (
@@ -261,7 +265,7 @@ export function DataTablePaginated() {
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-3">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground tracking-normal">
           صفحه {toFa(safePage + 1)} از {toFa(pageCount)}
         </p>
         <div className="flex gap-2">

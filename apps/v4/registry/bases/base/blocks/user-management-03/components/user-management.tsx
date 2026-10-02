@@ -70,14 +70,28 @@ const USERS = [
   },
 ] as const
 
+const STATUS_ITEMS = [
+  { value: "همه", label: "همه وضعیت‌ها" },
+  { value: "فعال", label: "فعال" },
+  { value: "دعوت‌شده", label: "دعوت‌شده" },
+  { value: "معلق", label: "معلق" },
+] as const
+
+const ROLE_ITEMS = [
+  { value: "همه", label: "همه نقش‌ها" },
+  { value: "مدیر", label: "مدیر" },
+  { value: "ویرایشگر", label: "ویرایشگر" },
+  { value: "مشاهده‌گر", label: "مشاهده‌گر" },
+] as const
+
 export function UserManagementFilterable() {
   const [query, setQuery] = React.useState("")
-  const [status, setStatus] = React.useState("all")
-  const [role, setRole] = React.useState("all")
+  const [status, setStatus] = React.useState("همه")
+  const [role, setRole] = React.useState("همه")
 
   const filtered = USERS.filter((user) => {
-    const matchStatus = status === "all" || user.status === status
-    const matchRole = role === "all" || user.role === role
+    const matchStatus = status === "همه" || user.status === status
+    const matchRole = role === "همه" || user.role === role
     const q = query.trim().toLowerCase()
     const matchQuery =
       !q ||
@@ -113,42 +127,54 @@ export function UserManagementFilterable() {
             />
           </div>
           <Select
+            items={[...STATUS_ITEMS]}
             value={status}
-            onValueChange={(value) => setStatus((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (STATUS_ITEMS.some((item) => item.value === value)) {
+                setStatus(value as string)
+              }
+            }}
           >
-            <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="وضعیت" />
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه وضعیت‌ها</SelectItem>
-              <SelectItem value="فعال">فعال</SelectItem>
-              <SelectItem value="دعوت‌شده">دعوت‌شده</SelectItem>
-              <SelectItem value="معلق">معلق</SelectItem>
+              {STATUS_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <Select
+            items={[...ROLE_ITEMS]}
             value={role}
-            onValueChange={(value) => setRole((value as string) ?? "all")}
+            onValueChange={(value) => {
+              if (ROLE_ITEMS.some((item) => item.value === value)) {
+                setRole(value as string)
+              }
+            }}
           >
-            <SelectTrigger className="w-full sm:w-36" dir="rtl">
-              <SelectValue placeholder="نقش" />
+            <SelectTrigger className="w-full sm:w-40" dir="rtl">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه نقش‌ها</SelectItem>
-              <SelectItem value="مدیر">مدیر</SelectItem>
-              <SelectItem value="ویرایشگر">ویرایشگر</SelectItem>
-              <SelectItem value="مشاهده‌گر">مشاهده‌گر</SelectItem>
+              {ROLE_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-6 py-16 text-center text-sm text-muted-foreground">
           کاربری با این فیلتر پیدا نشد.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <Table>
             <TableHeader>
               <TableRow>
@@ -163,22 +189,29 @@ export function UserManagementFilterable() {
                 <TableRow key={user.email}>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <Avatar className="size-8">
+                      <Avatar className="size-8 shrink-0">
                         <AvatarFallback>{user.initials}</AvatarFallback>
                       </Avatar>
-                      <span className="font-medium">{user.name}</span>
+                      <span className="text-start font-medium">{user.name}</span>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <span dir="ltr" className="inline-block text-start text-sm">
+                    <span
+                      dir="ltr"
+                      className="block text-left text-sm tracking-normal"
+                    >
                       {user.email}
                     </span>
                   </TableCell>
-                  <TableCell>
-                    <Badge variant="outline">{user.role}</Badge>
+                  <TableCell className="text-start">
+                    <Badge variant="outline" className="border">
+                      {user.role}
+                    </Badge>
                   </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">{user.status}</Badge>
+                  <TableCell className="text-start">
+                    <Badge variant="outline" className="border">
+                      {user.status}
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))}
