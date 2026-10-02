@@ -27,7 +27,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${skill.title} — مهارت‌ها`,
+    title: skill.title,
     description: skill.summary,
     alternates: {
       canonical: `/skills/${skill.slug}`,
@@ -48,9 +48,5 @@ export default async function SkillPage({
     notFound()
   }
 
-  return (
-    <div className="mx-auto mt-8 flex w-full max-w-3xl flex-col px-2 md:mt-10 md:px-4">
-      <SkillDetail skill={skill} markdown={markdown} />
-    </div>
-  )
+  return <SkillDetail skill={skill} markdown={markdown} />
 }

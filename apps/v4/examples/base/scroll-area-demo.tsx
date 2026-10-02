@@ -3,8 +3,8 @@ import * as React from "react"
 import { ScrollArea } from "@/styles/base-nova/ui/scroll-area"
 import { Separator } from "@/styles/base-nova/ui/separator"
 
-const tags = Array.from({ length: 50 }, (_, i, list) => {
-  const n = list.length - i
+const tags = Array.from({ length: 50 }, (_, i) => {
+  const n = 50 - i
   return `نسخه ۱.۲.۰ — بتا ${n.toLocaleString("fa-IR")}`
 })
 

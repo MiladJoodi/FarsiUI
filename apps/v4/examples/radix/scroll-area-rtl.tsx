@@ -9,9 +9,7 @@ import {
 import { ScrollArea } from "@/styles/radix-nova/ui-rtl/scroll-area"
 import { Separator } from "@/styles/radix-nova/ui-rtl/separator"
 
-const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-)
+const tags = Array.from({ length: 50 }, (_, i) => `v1.2.0-beta.${50 - i}`)
 
 const translations: Translations = {
   en: {

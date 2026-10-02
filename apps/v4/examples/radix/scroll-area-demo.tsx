@@ -3,9 +3,7 @@ import * as React from "react"
 import { ScrollArea } from "@/styles/radix-nova/ui/scroll-area"
 import { Separator } from "@/styles/radix-nova/ui/separator"
 
-const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-)
+const tags = Array.from({ length: 50 }, (_, i) => `v1.2.0-beta.${50 - i}`)
 
 export function ScrollAreaDemo() {
   return (
