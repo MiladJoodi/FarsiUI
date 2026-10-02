@@ -90,7 +90,7 @@ export function LoginForm({
           </form>
           <div className="relative hidden bg-muted md:block">
             <img
-              src="/iran/parsian.jpg"
+              src="/farsiui/parsian.jpg"
               alt="Parsian"
               className="absolute inset-0 h-full w-full object-cover"
             />

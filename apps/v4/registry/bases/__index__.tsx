@@ -1881,314 +1881,6 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["otp"],
       meta: undefined,
     },
-    "hero-01": {
-      name: "hero-01",
-      title: "Hero 01",
-      description: "معرفی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/hero-01/page.tsx",
-        type: "registry:page",
-        target: "app/hero/page.tsx"
-      }],
-      categories: ["hero"],
-      meta: undefined,
-    },
-    "hero-02": {
-      name: "hero-02",
-      title: "Hero 02",
-      description: "معرفی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/hero-02/page.tsx",
-        type: "registry:page",
-        target: "app/hero/page.tsx"
-      }],
-      categories: ["hero"],
-      meta: undefined,
-    },
-    "features-01": {
-      name: "features-01",
-      title: "Features 01",
-      description: "ویژگی‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/features-01/page.tsx",
-        type: "registry:page",
-        target: "app/features/page.tsx"
-      }],
-      categories: ["features"],
-      meta: undefined,
-    },
-    "features-02": {
-      name: "features-02",
-      title: "Features 02",
-      description: "ویژگی‌ها — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/features-02/page.tsx",
-        type: "registry:page",
-        target: "app/features/page.tsx"
-      }],
-      categories: ["features"],
-      meta: undefined,
-    },
-    "feature-split-01": {
-      name: "feature-split-01",
-      title: "Feature Split 01",
-      description: "ویژگی دو بخشی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/feature-split-01/page.tsx",
-        type: "registry:page",
-        target: "app/feature-split/page.tsx"
-      }],
-      categories: ["feature-split"],
-      meta: undefined,
-    },
-    "feature-split-02": {
-      name: "feature-split-02",
-      title: "Feature Split 02",
-      description: "ویژگی دو بخشی — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/feature-split-02/page.tsx",
-        type: "registry:page",
-        target: "app/feature-split/page.tsx"
-      }],
-      categories: ["feature-split"],
-      meta: undefined,
-    },
-    "bento-01": {
-      name: "bento-01",
-      title: "Bento 01",
-      description: "بنتو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/bento-01/page.tsx",
-        type: "registry:page",
-        target: "app/bento/page.tsx"
-      }],
-      categories: ["bento"],
-      meta: undefined,
-    },
-    "bento-02": {
-      name: "bento-02",
-      title: "Bento 02",
-      description: "بنتو — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/bento-02/page.tsx",
-        type: "registry:page",
-        target: "app/bento/page.tsx"
-      }],
-      categories: ["bento"],
-      meta: undefined,
-    },
-    "pricing-01": {
-      name: "pricing-01",
-      title: "Pricing 01",
-      description: "قیمت‌گذاری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/pricing-01/page.tsx",
-        type: "registry:page",
-        target: "app/pricing/page.tsx"
-      }],
-      categories: ["pricing"],
-      meta: undefined,
-    },
-    "pricing-02": {
-      name: "pricing-02",
-      title: "Pricing 02",
-      description: "قیمت‌گذاری — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/pricing-02/page.tsx",
-        type: "registry:page",
-        target: "app/pricing/page.tsx"
-      }],
-      categories: ["pricing"],
-      meta: undefined,
-    },
-    "cta-01": {
-      name: "cta-01",
-      title: "CTA 01",
-      description: "فراخوان اقدام — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/cta-01/page.tsx",
-        type: "registry:page",
-        target: "app/cta/page.tsx"
-      }],
-      categories: ["cta"],
-      meta: undefined,
-    },
-    "cta-02": {
-      name: "cta-02",
-      title: "CTA 02",
-      description: "فراخوان اقدام — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/cta-02/page.tsx",
-        type: "registry:page",
-        target: "app/cta/page.tsx"
-      }],
-      categories: ["cta"],
-      meta: undefined,
-    },
-    "banner-01": {
-      name: "banner-01",
-      title: "Banner 01",
-      description: "بنر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/banner-01/page.tsx",
-        type: "registry:page",
-        target: "app/banner/page.tsx"
-      }],
-      categories: ["banner"],
-      meta: undefined,
-    },
-    "banner-02": {
-      name: "banner-02",
-      title: "Banner 02",
-      description: "بنر — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/banner-02/page.tsx",
-        type: "registry:page",
-        target: "app/banner/page.tsx"
-      }],
-      categories: ["banner"],
-      meta: undefined,
-    },
-    "stats-01": {
-      name: "stats-01",
-      title: "Stats 01",
-      description: "آمار — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/stats-01/page.tsx",
-        type: "registry:page",
-        target: "app/stats/page.tsx"
-      }],
-      categories: ["stats"],
-      meta: undefined,
-    },
-    "stats-02": {
-      name: "stats-02",
-      title: "Stats 02",
-      description: "آمار — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/stats-02/page.tsx",
-        type: "registry:page",
-        target: "app/stats/page.tsx"
-      }],
-      categories: ["stats"],
-      meta: undefined,
-    },
-    "testimonials-01": {
-      name: "testimonials-01",
-      title: "Testimonials 01",
-      description: "نظرات کاربران — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/testimonials-01/page.tsx",
-        type: "registry:page",
-        target: "app/testimonials/page.tsx"
-      }],
-      categories: ["testimonials"],
-      meta: undefined,
-    },
-    "testimonials-02": {
-      name: "testimonials-02",
-      title: "Testimonials 02",
-      description: "نظرات کاربران — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/testimonials-02/page.tsx",
-        type: "registry:page",
-        target: "app/testimonials/page.tsx"
-      }],
-      categories: ["testimonials"],
-      meta: undefined,
-    },
-    "logo-cloud-01": {
-      name: "logo-cloud-01",
-      title: "Logo Cloud 01",
-      description: "لوگوی مشتریان — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/logo-cloud-01/page.tsx",
-        type: "registry:page",
-        target: "app/logo-cloud/page.tsx"
-      }],
-      categories: ["logo-cloud"],
-      meta: undefined,
-    },
-    "logo-cloud-02": {
-      name: "logo-cloud-02",
-      title: "Logo Cloud 02",
-      description: "لوگوی مشتریان — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/logo-cloud-02/page.tsx",
-        type: "registry:page",
-        target: "app/logo-cloud/page.tsx"
-      }],
-      categories: ["logo-cloud"],
-      meta: undefined,
-    },
-    "newsletter-01": {
-      name: "newsletter-01",
-      title: "Newsletter 01",
-      description: "خبرنامه — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/newsletter-01/page.tsx",
-        type: "registry:page",
-        target: "app/newsletter/page.tsx"
-      }],
-      categories: ["newsletter"],
-      meta: undefined,
-    },
-    "newsletter-02": {
-      name: "newsletter-02",
-      title: "Newsletter 02",
-      description: "خبرنامه — نمونهٔ راست‌چین فارسی",
-      type: "registry:block",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/bases/base/blocks/newsletter-02/page.tsx",
-        type: "registry:page",
-        target: "app/newsletter/page.tsx"
-      }],
-      categories: ["newsletter"],
-      meta: undefined,
-    },
     "navbar-01": {
       name: "navbar-01",
       title: "Navbar 01",
@@ -4798,7 +4490,7 @@ export const Index: Record<string, Record<string, any>> = {
     "settings-form-01": {
       name: "settings-form-01",
       title: "Settings Form 01",
-      description: "تنظیمات اعلان با سوئیچ‌های راست‌چین.",
+      description: "شروع ساده: سوئیچ‌های اعلان ایمیل، پیامک و مرورگر.",
       type: "registry:block",
       registryDependencies: ["button","card","label","separator","switch"],
       files: [{
@@ -4816,7 +4508,7 @@ export const Index: Record<string, Record<string, any>> = {
     "settings-form-02": {
       name: "settings-form-02",
       title: "Settings Form 02",
-      description: "تنظیمات حساب با تب حساب، امنیت و اعلان.",
+      description: "متوسط: تب‌های حساب، امنیت و اعلان در یک کارت.",
       type: "registry:block",
       registryDependencies: ["button","card","field","input","label","separator","switch","tabs"],
       files: [{
@@ -4834,7 +4526,7 @@ export const Index: Record<string, Record<string, any>> = {
     "settings-form-03": {
       name: "settings-form-03",
       title: "Settings Form 03",
-      description: "تغییر رمز عبور و منطقه خطر حذف حساب.",
+      description: "امنیت: تغییر رمز عبور و منطقه خطر حذف حساب.",
       type: "registry:block",
       registryDependencies: ["button","card","field","input","separator"],
       files: [{
@@ -4852,7 +4544,7 @@ export const Index: Record<string, Record<string, any>> = {
     "settings-form-04": {
       name: "settings-form-04",
       title: "Settings Form 04",
-      description: "ظاهر، زبان و سوئیچ‌های نمایش RTL.",
+      description: "ظاهر و زبان با Select و سوئیچ‌های نمایش.",
       type: "registry:block",
       registryDependencies: ["button","card","field","input","label","select","separator","switch"],
       files: [{
@@ -4861,6 +4553,78 @@ export const Index: Record<string, Record<string, any>> = {
         target: "app/settings-form/page.tsx"
       },{
         path: "registry/bases/base/blocks/settings-form-04/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-05": {
+      name: "settings-form-05",
+      title: "Settings Form 05",
+      description: "مدیریت نشست‌ها و دستگاه‌های فعال.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-05/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-05/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-06": {
+      name: "settings-form-06",
+      title: "Settings Form 06",
+      description: "حریم خصوصی روزمره: وضعیت آنلاین، جستجو و دعوت به گروه.",
+      type: "registry:block",
+      registryDependencies: ["button","card","label","radio-group","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-06/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-06/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-07": {
+      name: "settings-form-07",
+      title: "Settings Form 07",
+      description: "اعضای تیم، دعوت و سیاست‌های فضای کاری.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","card","field","input","label","select","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-07/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-07/components/settings-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["settings-form"],
+      meta: undefined,
+    },
+    "settings-form-08": {
+      name: "settings-form-08",
+      title: "Settings Form 08",
+      description: "کنسول پیشرفته: API، وب‌هوک و تنظیمات امنیتی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","checkbox","field","input","label","separator","switch","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/settings-form-08/page.tsx",
+        type: "registry:page",
+        target: "app/settings-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/settings-form-08/components/settings-form.tsx",
         type: "registry:component",
         target: ""
       }],
@@ -4888,7 +4652,7 @@ export const Index: Record<string, Record<string, any>> = {
     "contact-form-02": {
       name: "contact-form-02",
       title: "Contact Form 02",
-      description: "درخواست پشتیبانی با انتخاب موضوع.",
+      description: "فرم ارسال بازخورد با انتخاب نوع.",
       type: "registry:block",
       registryDependencies: ["button","card","field","input","select","textarea"],
       files: [{
@@ -4906,7 +4670,7 @@ export const Index: Record<string, Record<string, any>> = {
     "contact-form-03": {
       name: "contact-form-03",
       title: "Contact Form 03",
-      description: "فرم تماس دو ستونه با اطلاعات پشتیبانی.",
+      description: "فرم تماس دو ستونه با اطلاعات تماس.",
       type: "registry:block",
       registryDependencies: ["button","card","field","input","textarea"],
       files: [{
@@ -4937,6 +4701,78 @@ export const Index: Record<string, Record<string, any>> = {
         target: ""
       }],
       categories: ["contact-form"],
+      meta: undefined,
+    },
+    "support-form-01": {
+      name: "support-form-01",
+      title: "Support Form 01",
+      description: "درخواست پشتیبانی با انتخاب موضوع و شماره پیگیری.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-01/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-01/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["support-form"],
+      meta: undefined,
+    },
+    "support-form-02": {
+      name: "support-form-02",
+      title: "Support Form 02",
+      description: "تیکت پشتیبانی با انتخاب اولویت.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","label","radio-group","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-02/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-02/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["support-form"],
+      meta: undefined,
+    },
+    "support-form-03": {
+      name: "support-form-03",
+      title: "Support Form 03",
+      description: "درخواست پشتیبانی چندمرحله‌ای با بازبینی نهایی.",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","select","textarea"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-03/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-03/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["support-form"],
+      meta: undefined,
+    },
+    "support-form-04": {
+      name: "support-form-04",
+      title: "Support Form 04",
+      description: "وضعیت تیکت پشتیبانی با تب‌های باز / در انتظار / حل‌شده.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/support-form-04/page.tsx",
+        type: "registry:page",
+        target: "app/support-form/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/support-form-04/components/support-form.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["support-form"],
       meta: undefined,
     },
     "newsletter-form-01": {
@@ -5010,6 +4846,1036 @@ export const Index: Record<string, Record<string, any>> = {
       }],
       categories: ["newsletter-form"],
       meta: undefined,
+    },
+    "hero-01": {
+      name: "hero-01",
+      title: "Hero 01",
+      description: "معرفی سادهٔ مرکزی با برند، عنوان و یک دکمه.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-01/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-01/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["hero"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "hero-02": {
+      name: "hero-02",
+      title: "Hero 02",
+      description: "معرفی با بج، دو CTA و پس‌زمینهٔ ملایم.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-02/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-02/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["hero"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "hero-03": {
+      name: "hero-03",
+      title: "Hero 03",
+      description: "معرفی دو ستونه با تصویر تمام‌ارتفاع.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-03/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-03/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["hero"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "hero-04": {
+      name: "hero-04",
+      title: "Hero 04",
+      description: "معرفی تمام‌عرض با تصویر پس‌زمینه و پوشش گرادیان.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-04/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-04/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["hero"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "hero-05": {
+      name: "hero-05",
+      title: "Hero 05",
+      description: "معرفی کامل با ناوبری، اثبات اجتماعی و تصویر محصول.",
+      type: "registry:block",
+      registryDependencies: ["avatar","button"],
+      files: [{
+        path: "registry/bases/base/blocks/hero-05/page.tsx",
+        type: "registry:page",
+        target: "app/hero/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/hero-05/components/hero.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["hero"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "features-01": {
+      name: "features-01",
+      title: "Features 01",
+      description: "شبکهٔ سادهٔ سه ستونه با آیکون و توضیح کوتاه.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/features-01/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-01/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["features"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "features-02": {
+      name: "features-02",
+      title: "Features 02",
+      description: "کارت‌های ویژگی با آیکون، توضیح و لینک جزئیات.",
+      type: "registry:block",
+      registryDependencies: ["button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/features-02/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-02/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["features"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "features-03": {
+      name: "features-03",
+      title: "Features 03",
+      description: "ردیف‌های متناوب متن و تصویر برای معرفی قابلیت‌ها.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/features-03/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-03/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["features"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "features-04": {
+      name: "features-04",
+      title: "Features 04",
+      description: "شبکهٔ بنتویی با کارت بزرگ تصویر و کارت‌های کوچک.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/features-04/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-04/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["features"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "features-05": {
+      name: "features-05",
+      title: "Features 05",
+      description: "نمایش کامل با تب دسته‌ها، لیست قابلیت و تصویر محصول.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/features-05/page.tsx",
+        type: "registry:page",
+        target: "app/features/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/features-05/components/features.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["features"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "feature-split-01": {
+      name: "feature-split-01",
+      title: "Feature Split 01",
+      description: "دو بخشی ساده: عنوان، توضیح و یک تصویر.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-01/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-01/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["feature-split"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "feature-split-02": {
+      name: "feature-split-02",
+      title: "Feature Split 02",
+      description: "دو بخشی با بج، چک‌لیست و دو CTA.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-02/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-02/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["feature-split"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "feature-split-03": {
+      name: "feature-split-03",
+      title: "Feature Split 03",
+      description: "تصویر تمام‌ارتفاع لبه‌به‌لبه در کنار متن.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-03/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-03/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["feature-split"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "feature-split-04": {
+      name: "feature-split-04",
+      title: "Feature Split 04",
+      description: "دو بخشی با آمار، نکات کلیدی و پیش‌نمایش محصول.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-04/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-04/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["feature-split"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "feature-split-05": {
+      name: "feature-split-05",
+      title: "Feature Split 05",
+      description: "دو بخشی تعاملی: انتخاب قابلیت و تعویض پیش‌نمایش.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/feature-split-05/page.tsx",
+        type: "registry:page",
+        target: "app/feature-split/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/feature-split-05/components/feature-split.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["feature-split"],
+      meta: {"iframeHeight":"950px"},
+    },
+    "bento-01": {
+      name: "bento-01",
+      title: "Bento 01",
+      description: "شبکهٔ سادهٔ ۲×۲ با کاشی‌های متنی هم‌اندازه.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/bento-01/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-01/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["bento"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "bento-02": {
+      name: "bento-02",
+      title: "Bento 02",
+      description: "بنتو با کاشی بزرگ دو در دو و کاشی‌های آیکون‌دار.",
+      type: "registry:block",
+      registryDependencies: ["badge"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-02/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-02/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["bento"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "bento-03": {
+      name: "bento-03",
+      title: "Bento 03",
+      description: "بنتو با کاشی تصویر داشبورد و کاشی‌های متنی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-03/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-03/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["bento"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "bento-04": {
+      name: "bento-04",
+      title: "Bento 04",
+      description: "بنتو با آمار، آواتار تیم و کاشی‌های قابلیت.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-04/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-04/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["bento"],
+      meta: {"iframeHeight":"950px"},
+    },
+    "bento-05": {
+      name: "bento-05",
+      title: "Bento 05",
+      description: "بنتو کامل تعاملی با تصویر، CTA، آمار و انتخاب‌گر.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/bento-05/page.tsx",
+        type: "registry:page",
+        target: "app/bento/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/bento-05/components/bento.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["bento"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "pricing-01": {
+      name: "pricing-01",
+      title: "Pricing 01",
+      description: "دو پلن ساده با قیمت و دکمه.",
+      type: "registry:block",
+      registryDependencies: ["button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-01/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-01/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["pricing"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "pricing-02": {
+      name: "pricing-02",
+      title: "Pricing 02",
+      description: "سه کارت پلن با لیست امکانات و پلن پیشنهادی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-02/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-02/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["pricing"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "pricing-03": {
+      name: "pricing-03",
+      title: "Pricing 03",
+      description: "قیمت‌گذاری با سوئیچ ماهانه / سالانه.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","label","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-03/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-03/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["pricing"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "pricing-04": {
+      name: "pricing-04",
+      title: "Pricing 04",
+      description: "جدول مقایسهٔ قابلیت‌های پلن‌ها.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-04/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-04/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["pricing"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "pricing-05": {
+      name: "pricing-05",
+      title: "Pricing 05",
+      description: "صفحهٔ کامل قیمت با سوئیچ، اثبات اجتماعی و پرسش‌های رایج.",
+      type: "registry:block",
+      registryDependencies: ["accordion","avatar","badge","button","card","label","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/pricing-05/page.tsx",
+        type: "registry:page",
+        target: "app/pricing/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/pricing-05/components/pricing.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["pricing"],
+      meta: {"iframeHeight":"1200px"},
+    },
+    "cta-01": {
+      name: "cta-01",
+      title: "CTA 01",
+      description: "فراخوان سادهٔ مرکزی با یک دکمه.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-01/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-01/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["cta"],
+      meta: {"iframeHeight":"600px"},
+    },
+    "cta-02": {
+      name: "cta-02",
+      title: "CTA 02",
+      description: "فراخوان با بج و دو دکمهٔ اصلی / فرعی.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-02/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-02/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["cta"],
+      meta: {"iframeHeight":"650px"},
+    },
+    "cta-03": {
+      name: "cta-03",
+      title: "CTA 03",
+      description: "کارت فراخوان با فرم ایمیل و وضعیت تأیید.",
+      type: "registry:block",
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-03/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-03/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["cta"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "cta-04": {
+      name: "cta-04",
+      title: "CTA 04",
+      description: "فراخوان دو ستونه با تصویر داشبورد.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-04/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-04/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["cta"],
+      meta: {"iframeHeight":"750px"},
+    },
+    "cta-05": {
+      name: "cta-05",
+      title: "CTA 05",
+      description: "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/cta-05/page.tsx",
+        type: "registry:page",
+        target: "app/cta/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/cta-05/components/cta.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["cta"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "banner-01": {
+      name: "banner-01",
+      title: "Banner 01",
+      description: "نوار اطلاع‌رسانی ساده با لینک.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/banner-01/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-01/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["banner"],
+      meta: {"iframeHeight":"500px"},
+    },
+    "banner-02": {
+      name: "banner-02",
+      title: "Banner 02",
+      description: "بنر تخفیف با آیکون، بج و دکمه.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-02/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-02/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["banner"],
+      meta: {"iframeHeight":"550px"},
+    },
+    "banner-03": {
+      name: "banner-03",
+      title: "Banner 03",
+      description: "بنر هشدار قابل‌بستن برای نگهداری سیستم.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-03/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-03/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["banner"],
+      meta: {"iframeHeight":"550px"},
+    },
+    "banner-04": {
+      name: "banner-04",
+      title: "Banner 04",
+      description: "بنر رویداد دو ستونه با تصویر.",
+      type: "registry:block",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-04/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-04/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["banner"],
+      meta: {"iframeHeight":"650px"},
+    },
+    "banner-05": {
+      name: "banner-05",
+      title: "Banner 05",
+      description: "بنر پروموی تمام‌عرض با تصویر، کد تخفیف و بستن.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/banner-05/page.tsx",
+        type: "registry:page",
+        target: "app/banner/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/banner-05/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["banner"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "stats-01": {
+      name: "stats-01",
+      title: "Stats 01",
+      description: "سه عدد بزرگ مرکزی با برچسب فارسی.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/stats-01/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["stats"],
+      meta: {"iframeHeight":"650px"},
+    },
+    "stats-02": {
+      name: "stats-02",
+      title: "Stats 02",
+      description: "کارت‌های KPI با روند صعودی/نزولی فارسی.",
+      type: "registry:block",
+      registryDependencies: ["card"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-02/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-02/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["stats"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "stats-03": {
+      name: "stats-03",
+      title: "Stats 03",
+      description: "اهداف ماه شمسی با نوار پیشرفت.",
+      type: "registry:block",
+      registryDependencies: ["badge","progress"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-03/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-03/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["stats"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "stats-04": {
+      name: "stats-04",
+      title: "Stats 04",
+      description: "نمودار میله‌ای هفتهٔ شمسی با آمار کناری.",
+      type: "registry:block",
+      registryDependencies: ["badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-04/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-04/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["stats"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "stats-05": {
+      name: "stats-05",
+      title: "Stats 05",
+      description: "داشبورد کامل با تب دوره، شهرها و گزارش.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","progress","separator","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/stats-05/page.tsx",
+        type: "registry:page",
+        target: "app/stats/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/stats-05/components/stats.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/stats-01/components/stat-number.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["stats"],
+      meta: {"iframeHeight":"1000px"},
+    },
+    "testimonials-01": {
+      name: "testimonials-01",
+      title: "Testimonials 01",
+      description: "یک نقل‌قول مرکزی با آواتار و نقش.",
+      type: "registry:block",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-01/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-01/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["testimonials"],
+      meta: {"iframeHeight":"650px"},
+    },
+    "testimonials-02": {
+      name: "testimonials-02",
+      title: "Testimonials 02",
+      description: "سه کارت نظر با ستاره و عکس پروفایل.",
+      type: "registry:block",
+      registryDependencies: ["avatar","card"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-02/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-02/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["testimonials"],
+      meta: {"iframeHeight":"800px"},
+    },
+    "testimonials-03": {
+      name: "testimonials-03",
+      title: "Testimonials 03",
+      description: "داستان ویژه با تصویر بزرگ و دو نظر کناری.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-03/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-03/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["testimonials"],
+      meta: {"iframeHeight":"900px"},
+    },
+    "testimonials-04": {
+      name: "testimonials-04",
+      title: "Testimonials 04",
+      description: "تعویض نظر با تب و آواتار مشتریان.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","tabs"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-04/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-04/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["testimonials"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "testimonials-05": {
+      name: "testimonials-05",
+      title: "Testimonials 05",
+      description: "گالری کامل نظرات با امتیاز، تصویر و CTA.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/testimonials-05/page.tsx",
+        type: "registry:page",
+        target: "app/testimonials/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/testimonials-05/components/testimonials.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["testimonials"],
+      meta: {"iframeHeight":"1100px"},
+    },
+    "logo-cloud-01": {
+      name: "logo-cloud-01",
+      title: "Logo Cloud 01",
+      description: "ردیف سادهٔ لوگو با خاکستری‌سازی و هاور.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-01/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["logo-cloud"],
+      meta: {"iframeHeight":"550px"},
+    },
+    "logo-cloud-02": {
+      name: "logo-cloud-02",
+      title: "Logo Cloud 02",
+      description: "شبکهٔ کارت‌دار برای نمایش لوگوهای مشتریان.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-02/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-02/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["logo-cloud"],
+      meta: {"iframeHeight":"750px"},
+    },
+    "logo-cloud-03": {
+      name: "logo-cloud-03",
+      title: "Logo Cloud 03",
+      description: "دو ردیف مارکی متحرک از لوگوها.",
+      type: "registry:block",
+      registryDependencies: [],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-03/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-03/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["logo-cloud"],
+      meta: {"iframeHeight":"700px"},
+    },
+    "logo-cloud-04": {
+      name: "logo-cloud-04",
+      title: "Logo Cloud 04",
+      description: "ویترین لوگو با آمار تیم و راهنمای جایگزینی فایل.",
+      type: "registry:block",
+      registryDependencies: ["badge"],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-04/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-04/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["logo-cloud"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "logo-cloud-05": {
+      name: "logo-cloud-05",
+      title: "Logo Cloud 05",
+      description: "ویترین کامل لوگو با شبکه، اثبات اجتماعی و CTA.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button"],
+      files: [{
+        path: "registry/bases/base/blocks/logo-cloud-05/page.tsx",
+        type: "registry:page",
+        target: "app/logo-cloud/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-05/components/logo-cloud.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/bases/base/blocks/logo-cloud-01/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["logo-cloud"],
+      meta: {"iframeHeight":"950px"},
+    },
+    "newsletter-01": {
+      name: "newsletter-01",
+      title: "Newsletter 01",
+      description: "عضویت سادهٔ مرکزی با ایمیل و وضعیت تأیید.",
+      type: "registry:block",
+      registryDependencies: ["button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-01/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-01/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter"],
+      meta: {"iframeHeight":"600px"},
+    },
+    "newsletter-02": {
+      name: "newsletter-02",
+      title: "Newsletter 02",
+      description: "کارت خبرنامه با لیست مزایا و عضویت.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-02/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-02/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter"],
+      meta: {"iframeHeight":"750px"},
+    },
+    "newsletter-03": {
+      name: "newsletter-03",
+      title: "Newsletter 03",
+      description: "خبرنامه دو ستونه با پیش‌نمایش شماره‌های اخیر.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-03/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-03/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter"],
+      meta: {"iframeHeight":"750px"},
+    },
+    "newsletter-04": {
+      name: "newsletter-04",
+      title: "Newsletter 04",
+      description: "انتخاب موضوع‌های خبرنامه با سوئیچ.",
+      type: "registry:block",
+      registryDependencies: ["badge","button","input","label","separator","switch"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-04/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-04/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter"],
+      meta: {"iframeHeight":"850px"},
+    },
+    "newsletter-05": {
+      name: "newsletter-05",
+      title: "Newsletter 05",
+      description: "بخش کامل خبرنامه با مزایا، عضویت و اثبات اجتماعی.",
+      type: "registry:block",
+      registryDependencies: ["avatar","badge","button","input"],
+      files: [{
+        path: "registry/bases/base/blocks/newsletter-05/page.tsx",
+        type: "registry:page",
+        target: "app/newsletter/page.tsx"
+      },{
+        path: "registry/bases/base/blocks/newsletter-05/components/newsletter.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["newsletter"],
+      meta: {"iframeHeight":"900px"},
     },
     "personal-info-01": {
       name: "personal-info-01",

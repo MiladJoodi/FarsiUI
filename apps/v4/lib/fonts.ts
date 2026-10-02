@@ -4,10 +4,10 @@ import { cn } from "cn"
 
 /**
  * Change this to set the UI font for the whole docs site.
- * Options: "estedad" | "vazirmatn"
+ * Options: "estedad" | "vazirmatn" | "iransans"
  */
-export type UiFontName = "estedad" | "vazirmatn"
-export const ACTIVE_UI_FONT: UiFontName = "estedad"
+export type UiFontName = "estedad" | "vazirmatn" | "iransans"
+export const ACTIVE_UI_FONT: UiFontName = "iransans"
 
 // Self-hosted: next/font/google cannot reach fonts.googleapis.com on many networks.
 const fontEstedad = localFont({
@@ -26,6 +26,25 @@ const fontVazirmatn = localFont({
   adjustFontFallback: false,
 })
 
+/** IRANSansWeb FaNum — Bold only (copied from IRANSansWeb(FaNum)_Bold). */
+const fontIranSans = localFont({
+  src: [
+    {
+      path: "../app/fonts/iransans-fanum-bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../app/fonts/iransans-fanum-bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-iransans",
+  display: "swap",
+  adjustFontFallback: false,
+})
+
 const fontMono = localFont({
   src: "../app/fonts/geist-mono-400.woff2",
   variable: "--font-geist-mono",
@@ -37,6 +56,7 @@ const fontMono = localFont({
 const uiFontVariable: Record<UiFontName, string> = {
   estedad: "--font-estedad",
   vazirmatn: "--font-vazirmatn",
+  iransans: "--font-iransans",
 }
 
 const activeFontVar = uiFontVariable[ACTIVE_UI_FONT]
@@ -55,5 +75,6 @@ export const activeUiFontStyle = {
 export const fontVariables = cn(
   fontEstedad.variable,
   fontVazirmatn.variable,
+  fontIranSans.variable,
   fontMono.variable
 )

@@ -51,7 +51,7 @@ export function ContactFormSplit() {
         </form>
         <div className="relative hidden space-y-4 bg-muted p-8 md:flex md:flex-col md:justify-center">
           <div>
-            <p className="text-sm text-muted-foreground">ایمیل پشتیبانی</p>
+            <p className="text-sm text-muted-foreground">ایمیل تماس</p>
             <p dir="ltr" className="font-medium">
               support@farsiui.dev
             </p>
@@ -62,8 +62,13 @@ export function ContactFormSplit() {
           </div>
           <div>
             <p className="text-sm text-muted-foreground">تلفن</p>
-            <p dir="ltr" className="font-medium tabular-nums">
-              ۰۲۱-۹۱۰۰۰۰۰۰
+            <p className="font-medium">
+              <bdi
+                dir="ltr"
+                className="inline-block whitespace-nowrap tracking-normal [letter-spacing:0]"
+              >
+                ۰۲۱-۹۱۰۰۰۰۰۰
+              </bdi>
             </p>
           </div>
         </div>

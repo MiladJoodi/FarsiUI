@@ -127,28 +127,70 @@
   },
   {
     "name": "banner-01",
-    "description": "بنر — نمونهٔ راست‌چین فارسی",
+    "description": "نوار اطلاع‌رسانی ساده با لینک.",
     "categories": [
       "banner"
     ]
   },
   {
     "name": "banner-02",
-    "description": "بنر — نمونهٔ راست‌چین فارسی",
+    "description": "بنر تخفیف با آیکون، بج و دکمه.",
+    "categories": [
+      "banner"
+    ]
+  },
+  {
+    "name": "banner-03",
+    "description": "بنر هشدار قابل‌بستن برای نگهداری سیستم.",
+    "categories": [
+      "banner"
+    ]
+  },
+  {
+    "name": "banner-04",
+    "description": "بنر رویداد دو ستونه با تصویر.",
+    "categories": [
+      "banner"
+    ]
+  },
+  {
+    "name": "banner-05",
+    "description": "بنر پروموی تمام‌عرض با تصویر، کد تخفیف و بستن.",
     "categories": [
       "banner"
     ]
   },
   {
     "name": "bento-01",
-    "description": "بنتو — نمونهٔ راست‌چین فارسی",
+    "description": "شبکهٔ سادهٔ ۲×۲ با کاشی‌های متنی هم‌اندازه.",
     "categories": [
       "bento"
     ]
   },
   {
     "name": "bento-02",
-    "description": "بنتو — نمونهٔ راست‌چین فارسی",
+    "description": "بنتو با کاشی بزرگ دو در دو و کاشی‌های آیکون‌دار.",
+    "categories": [
+      "bento"
+    ]
+  },
+  {
+    "name": "bento-03",
+    "description": "بنتو با کاشی تصویر داشبورد و کاشی‌های متنی.",
+    "categories": [
+      "bento"
+    ]
+  },
+  {
+    "name": "bento-04",
+    "description": "بنتو با آمار، آواتار تیم و کاشی‌های قابلیت.",
+    "categories": [
+      "bento"
+    ]
+  },
+  {
+    "name": "bento-05",
+    "description": "بنتو کامل تعاملی با تصویر، CTA، آمار و انتخاب‌گر.",
     "categories": [
       "bento"
     ]
@@ -316,14 +358,14 @@
   },
   {
     "name": "contact-form-02",
-    "description": "درخواست پشتیبانی با انتخاب موضوع.",
+    "description": "فرم ارسال بازخورد با انتخاب نوع.",
     "categories": [
       "contact-form"
     ]
   },
   {
     "name": "contact-form-03",
-    "description": "فرم تماس دو ستونه با اطلاعات پشتیبانی.",
+    "description": "فرم تماس دو ستونه با اطلاعات تماس.",
     "categories": [
       "contact-form"
     ]
@@ -351,14 +393,35 @@
   },
   {
     "name": "cta-01",
-    "description": "فراخوان اقدام — نمونهٔ راست‌چین فارسی",
+    "description": "فراخوان سادهٔ مرکزی با یک دکمه.",
     "categories": [
       "cta"
     ]
   },
   {
     "name": "cta-02",
-    "description": "فراخوان اقدام — نمونهٔ راست‌چین فارسی",
+    "description": "فراخوان با بج و دو دکمهٔ اصلی / فرعی.",
+    "categories": [
+      "cta"
+    ]
+  },
+  {
+    "name": "cta-03",
+    "description": "کارت فراخوان با فرم ایمیل و وضعیت تأیید.",
+    "categories": [
+      "cta"
+    ]
+  },
+  {
+    "name": "cta-04",
+    "description": "فراخوان دو ستونه با تصویر داشبورد.",
+    "categories": [
+      "cta"
+    ]
+  },
+  {
+    "name": "cta-05",
+    "description": "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
     "categories": [
       "cta"
     ]
@@ -547,28 +610,70 @@
   },
   {
     "name": "feature-split-01",
-    "description": "ویژگی دو بخشی — نمونهٔ راست‌چین فارسی",
+    "description": "دو بخشی ساده: عنوان، توضیح و یک تصویر.",
     "categories": [
       "feature-split"
     ]
   },
   {
     "name": "feature-split-02",
-    "description": "ویژگی دو بخشی — نمونهٔ راست‌چین فارسی",
+    "description": "دو بخشی با بج، چک‌لیست و دو CTA.",
+    "categories": [
+      "feature-split"
+    ]
+  },
+  {
+    "name": "feature-split-03",
+    "description": "تصویر تمام‌ارتفاع لبه‌به‌لبه در کنار متن.",
+    "categories": [
+      "feature-split"
+    ]
+  },
+  {
+    "name": "feature-split-04",
+    "description": "دو بخشی با آمار، نکات کلیدی و پیش‌نمایش محصول.",
+    "categories": [
+      "feature-split"
+    ]
+  },
+  {
+    "name": "feature-split-05",
+    "description": "دو بخشی تعاملی: انتخاب قابلیت و تعویض پیش‌نمایش.",
     "categories": [
       "feature-split"
     ]
   },
   {
     "name": "features-01",
-    "description": "ویژگی‌ها — نمونهٔ راست‌چین فارسی",
+    "description": "شبکهٔ سادهٔ سه ستونه با آیکون و توضیح کوتاه.",
     "categories": [
       "features"
     ]
   },
   {
     "name": "features-02",
-    "description": "ویژگی‌ها — نمونهٔ راست‌چین فارسی",
+    "description": "کارت‌های ویژگی با آیکون، توضیح و لینک جزئیات.",
+    "categories": [
+      "features"
+    ]
+  },
+  {
+    "name": "features-03",
+    "description": "ردیف‌های متناوب متن و تصویر برای معرفی قابلیت‌ها.",
+    "categories": [
+      "features"
+    ]
+  },
+  {
+    "name": "features-04",
+    "description": "شبکهٔ بنتویی با کارت بزرگ تصویر و کارت‌های کوچک.",
+    "categories": [
+      "features"
+    ]
+  },
+  {
+    "name": "features-05",
+    "description": "نمایش کامل با تب دسته‌ها، لیست قابلیت و تصویر محصول.",
     "categories": [
       "features"
     ]
@@ -680,14 +785,35 @@
   },
   {
     "name": "hero-01",
-    "description": "معرفی — نمونهٔ راست‌چین فارسی",
+    "description": "معرفی سادهٔ مرکزی با برند، عنوان و یک دکمه.",
     "categories": [
       "hero"
     ]
   },
   {
     "name": "hero-02",
-    "description": "معرفی — نمونهٔ راست‌چین فارسی",
+    "description": "معرفی با بج، دو CTA و پس‌زمینهٔ ملایم.",
+    "categories": [
+      "hero"
+    ]
+  },
+  {
+    "name": "hero-03",
+    "description": "معرفی دو ستونه با تصویر تمام‌ارتفاع.",
+    "categories": [
+      "hero"
+    ]
+  },
+  {
+    "name": "hero-04",
+    "description": "معرفی تمام‌عرض با تصویر پس‌زمینه و پوشش گرادیان.",
+    "categories": [
+      "hero"
+    ]
+  },
+  {
+    "name": "hero-05",
+    "description": "معرفی کامل با ناوبری، اثبات اجتماعی و تصویر محصول.",
     "categories": [
       "hero"
     ]
@@ -874,14 +1000,35 @@
   },
   {
     "name": "logo-cloud-01",
-    "description": "لوگوی مشتریان — نمونهٔ راست‌چین فارسی",
+    "description": "ردیف سادهٔ لوگو با خاکستری‌سازی و هاور.",
     "categories": [
       "logo-cloud"
     ]
   },
   {
     "name": "logo-cloud-02",
-    "description": "لوگوی مشتریان — نمونهٔ راست‌چین فارسی",
+    "description": "شبکهٔ کارت‌دار برای نمایش لوگوهای مشتریان.",
+    "categories": [
+      "logo-cloud"
+    ]
+  },
+  {
+    "name": "logo-cloud-03",
+    "description": "دو ردیف مارکی متحرک از لوگوها.",
+    "categories": [
+      "logo-cloud"
+    ]
+  },
+  {
+    "name": "logo-cloud-04",
+    "description": "ویترین لوگو با آمار تیم و راهنمای جایگزینی فایل.",
+    "categories": [
+      "logo-cloud"
+    ]
+  },
+  {
+    "name": "logo-cloud-05",
+    "description": "ویترین کامل لوگو با شبکه، اثبات اجتماعی و CTA.",
     "categories": [
       "logo-cloud"
     ]
@@ -993,14 +1140,35 @@
   },
   {
     "name": "newsletter-01",
-    "description": "خبرنامه — نمونهٔ راست‌چین فارسی",
+    "description": "عضویت سادهٔ مرکزی با ایمیل و وضعیت تأیید.",
     "categories": [
       "newsletter"
     ]
   },
   {
     "name": "newsletter-02",
-    "description": "خبرنامه — نمونهٔ راست‌چین فارسی",
+    "description": "کارت خبرنامه با لیست مزایا و عضویت.",
+    "categories": [
+      "newsletter"
+    ]
+  },
+  {
+    "name": "newsletter-03",
+    "description": "خبرنامه دو ستونه با پیش‌نمایش شماره‌های اخیر.",
+    "categories": [
+      "newsletter"
+    ]
+  },
+  {
+    "name": "newsletter-04",
+    "description": "انتخاب موضوع‌های خبرنامه با سوئیچ.",
+    "categories": [
+      "newsletter"
+    ]
+  },
+  {
+    "name": "newsletter-05",
+    "description": "بخش کامل خبرنامه با مزایا، عضویت و اثبات اجتماعی.",
     "categories": [
       "newsletter"
     ]
@@ -1191,14 +1359,35 @@
   },
   {
     "name": "pricing-01",
-    "description": "قیمت‌گذاری — نمونهٔ راست‌چین فارسی",
+    "description": "دو پلن ساده با قیمت و دکمه.",
     "categories": [
       "pricing"
     ]
   },
   {
     "name": "pricing-02",
-    "description": "قیمت‌گذاری — نمونهٔ راست‌چین فارسی",
+    "description": "سه کارت پلن با لیست امکانات و پلن پیشنهادی.",
+    "categories": [
+      "pricing"
+    ]
+  },
+  {
+    "name": "pricing-03",
+    "description": "قیمت‌گذاری با سوئیچ ماهانه / سالانه.",
+    "categories": [
+      "pricing"
+    ]
+  },
+  {
+    "name": "pricing-04",
+    "description": "جدول مقایسهٔ قابلیت‌های پلن‌ها.",
+    "categories": [
+      "pricing"
+    ]
+  },
+  {
+    "name": "pricing-05",
+    "description": "صفحهٔ کامل قیمت با سوئیچ، اثبات اجتماعی و پرسش‌های رایج.",
     "categories": [
       "pricing"
     ]
@@ -1373,28 +1562,56 @@
   },
   {
     "name": "settings-form-01",
-    "description": "تنظیمات اعلان با سوئیچ‌های راست‌چین.",
+    "description": "شروع ساده: سوئیچ‌های اعلان ایمیل، پیامک و مرورگر.",
     "categories": [
       "settings-form"
     ]
   },
   {
     "name": "settings-form-02",
-    "description": "تنظیمات حساب با تب حساب، امنیت و اعلان.",
+    "description": "متوسط: تب‌های حساب، امنیت و اعلان در یک کارت.",
     "categories": [
       "settings-form"
     ]
   },
   {
     "name": "settings-form-03",
-    "description": "تغییر رمز عبور و منطقه خطر حذف حساب.",
+    "description": "امنیت: تغییر رمز عبور و منطقه خطر حذف حساب.",
     "categories": [
       "settings-form"
     ]
   },
   {
     "name": "settings-form-04",
-    "description": "ظاهر، زبان و سوئیچ‌های نمایش RTL.",
+    "description": "ظاهر و زبان با Select و سوئیچ‌های نمایش.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-05",
+    "description": "مدیریت نشست‌ها و دستگاه‌های فعال.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-06",
+    "description": "حریم خصوصی روزمره: وضعیت آنلاین، جستجو و دعوت به گروه.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-07",
+    "description": "اعضای تیم، دعوت و سیاست‌های فضای کاری.",
+    "categories": [
+      "settings-form"
+    ]
+  },
+  {
+    "name": "settings-form-08",
+    "description": "کنسول پیشرفته: API، وب‌هوک و تنظیمات امنیتی.",
     "categories": [
       "settings-form"
     ]
@@ -1597,14 +1814,35 @@
   },
   {
     "name": "stats-01",
-    "description": "آمار — نمونهٔ راست‌چین فارسی",
+    "description": "سه عدد بزرگ مرکزی با برچسب فارسی.",
     "categories": [
       "stats"
     ]
   },
   {
     "name": "stats-02",
-    "description": "آمار — نمونهٔ راست‌چین فارسی",
+    "description": "کارت‌های KPI با روند صعودی/نزولی فارسی.",
+    "categories": [
+      "stats"
+    ]
+  },
+  {
+    "name": "stats-03",
+    "description": "اهداف ماه شمسی با نوار پیشرفت.",
+    "categories": [
+      "stats"
+    ]
+  },
+  {
+    "name": "stats-04",
+    "description": "نمودار میله‌ای هفتهٔ شمسی با آمار کناری.",
+    "categories": [
+      "stats"
+    ]
+  },
+  {
+    "name": "stats-05",
+    "description": "داشبورد کامل با تب دوره، شهرها و گزارش.",
     "categories": [
       "stats"
     ]
@@ -1652,6 +1890,34 @@
     ]
   },
   {
+    "name": "support-form-01",
+    "description": "درخواست پشتیبانی با انتخاب موضوع و شماره پیگیری.",
+    "categories": [
+      "support-form"
+    ]
+  },
+  {
+    "name": "support-form-02",
+    "description": "تیکت پشتیبانی با انتخاب اولویت.",
+    "categories": [
+      "support-form"
+    ]
+  },
+  {
+    "name": "support-form-03",
+    "description": "درخواست پشتیبانی چندمرحله‌ای با بازبینی نهایی.",
+    "categories": [
+      "support-form"
+    ]
+  },
+  {
+    "name": "support-form-04",
+    "description": "وضعیت تیکت پشتیبانی با تب‌های باز / در انتظار / حل‌شده.",
+    "categories": [
+      "support-form"
+    ]
+  },
+  {
     "name": "team-01",
     "description": "تیم — نمونهٔ راست‌چین فارسی",
     "categories": [
@@ -1667,14 +1933,35 @@
   },
   {
     "name": "testimonials-01",
-    "description": "نظرات کاربران — نمونهٔ راست‌چین فارسی",
+    "description": "یک نقل‌قول مرکزی با آواتار و نقش.",
     "categories": [
       "testimonials"
     ]
   },
   {
     "name": "testimonials-02",
-    "description": "نظرات کاربران — نمونهٔ راست‌چین فارسی",
+    "description": "سه کارت نظر با ستاره و عکس پروفایل.",
+    "categories": [
+      "testimonials"
+    ]
+  },
+  {
+    "name": "testimonials-03",
+    "description": "داستان ویژه با تصویر بزرگ و دو نظر کناری.",
+    "categories": [
+      "testimonials"
+    ]
+  },
+  {
+    "name": "testimonials-04",
+    "description": "تعویض نظر با تب و آواتار مشتریان.",
+    "categories": [
+      "testimonials"
+    ]
+  },
+  {
+    "name": "testimonials-05",
+    "description": "گالری کامل نظرات با امتیاز، تصویر و CTA.",
     "categories": [
       "testimonials"
     ]

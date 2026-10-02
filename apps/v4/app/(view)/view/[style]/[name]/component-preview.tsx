@@ -27,7 +27,7 @@ export function ComponentPreview({
     <>
       <style>
         {embed
-          ? `html,body{height:100%;margin:0;background:var(--muted)}.min-h-svh{min-height:100%!important}`
+          ? `html,body{height:100%;margin:0;background:var(--muted);overscroll-behavior:none}.min-h-svh{min-height:100%!important}`
           : `html,body{margin:0;min-height:100%;background:var(--muted)}`}
       </style>
       <div

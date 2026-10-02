@@ -26,7 +26,19 @@ const SKIP_SLUGS = new Set([
   "profile-form",
   "settings-form",
   "contact-form",
+  "support-form",
   "newsletter-form",
+  "hero",
+  "features",
+  "feature-split",
+  "bento",
+  "pricing",
+  "cta",
+  "banner",
+  "stats",
+  "testimonials",
+  "logo-cloud",
+  "newsletter",
 ])
 
 const ITEMS = [
@@ -42,7 +54,8 @@ const ITEMS = [
   ["document-verification", "تأیید مدارک", "Document Verification", "upload"],
   ["profile-form", "فرم پروفایل", "Profile Form", "form"],
   ["settings-form", "فرم تنظیمات", "Settings Form", "settings"],
-  ["contact-form", "فرم تماس", "Contact Form", "form"],
+  ["contact-form", "فرم تماس با ما", "Contact Form", "form"],
+  ["support-form", "فرم درخواست پشتیبانی", "Support Form", "form"],
   ["newsletter-form", "فرم عضویت در خبرنامه", "Newsletter Form", "inline-form"],
   // marketing
   ["hero", "معرفی", "Hero", "hero"],

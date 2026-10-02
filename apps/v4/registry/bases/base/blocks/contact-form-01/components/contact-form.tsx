@@ -80,9 +80,12 @@ export function ContactFormSimple() {
             </Button>
             <FieldDescription className="text-center">
               یا با پشتیبانی در{" "}
-              <span dir="ltr" className="tabular-nums">
+              <bdi
+                dir="ltr"
+                className="inline-block whitespace-nowrap tracking-normal [letter-spacing:0]"
+              >
                 ۰۲۱-۹۱۰۰۰۰۰۰
-              </span>{" "}
+              </bdi>{" "}
               تماس بگیرید
             </FieldDescription>
           </FieldGroup>

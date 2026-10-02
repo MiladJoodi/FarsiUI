@@ -28,6 +28,7 @@ import {
   type FileTree,
 } from "@/lib/registry"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -245,54 +246,7 @@ function BlockViewerIframe({
   const { item, iframeKey } = useBlockViewer()
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
 
-  React.useEffect(() => {
-    const iframe = iframeRef.current
-    if (!iframe) return
-
-    let detach: (() => void) | undefined
-
-    const attachWheelPassthrough = () => {
-      detach?.()
-      const win = iframe.contentWindow
-      const doc = iframe.contentDocument
-      if (!win || !doc) return
-
-      const onWheel = (event: WheelEvent) => {
-        const scrollingElement =
-          (doc.scrollingElement as HTMLElement | null) ?? doc.documentElement
-        const canScrollY = scrollingElement.scrollHeight > scrollingElement.clientHeight + 1
-        const atTop = scrollingElement.scrollTop <= 0
-        const atBottom =
-          scrollingElement.scrollTop + scrollingElement.clientHeight >=
-          scrollingElement.scrollHeight - 1
-
-        const goingDown = event.deltaY > 0
-        const goingUp = event.deltaY < 0
-        const shouldPassToParent =
-          !canScrollY || (goingDown && atBottom) || (goingUp && atTop)
-
-        if (!shouldPassToParent) return
-
-        event.preventDefault()
-        window.scrollBy({ top: event.deltaY, left: event.deltaX })
-      }
-
-      doc.addEventListener("wheel", onWheel, { passive: false })
-      detach = () => doc.removeEventListener("wheel", onWheel)
-    }
-
-    const onLoad = () => attachWheelPassthrough()
-    iframe.addEventListener("load", onLoad)
-    // Already loaded (cached) — try immediately.
-    if (iframe.contentDocument?.readyState === "complete") {
-      attachWheelPassthrough()
-    }
-
-    return () => {
-      iframe.removeEventListener("load", onLoad)
-      detach?.()
-    }
-  }, [iframeKey, item.name, styleName])
+  useIframeScrollPassthrough(iframeRef, [iframeKey, item.name, styleName])
 
   return (
     <iframe

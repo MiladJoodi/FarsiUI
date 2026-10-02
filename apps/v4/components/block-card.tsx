@@ -13,6 +13,8 @@ import { type z } from "zod"
 import { trackEvent } from "@/lib/events"
 import { type FileTree } from "@/lib/registry"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
+import { useMediaQuery } from "@/hooks/use-media-query"
 import { useThemeConfig } from "@/components/active-theme"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
@@ -29,6 +31,16 @@ type HighlightedFile = z.infer<typeof registryItemFileSchema> & {
 }
 
 type Viewport = "100%" | "60%" | "30%"
+
+function resolvePreviewViewport(
+  viewport: Viewport,
+  isPhone: boolean,
+  isTablet: boolean
+): Viewport {
+  if (isPhone) return "100%"
+  if (isTablet && viewport === "30%") return "100%"
+  return viewport
+}
 
 function resolveCardIframeHeight(metaHeight?: string) {
   const raw = metaHeight ?? "520px"
@@ -99,6 +111,9 @@ export function BlockCard({
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
   const { activeTheme } = useThemeConfig()
+  const isPhone = useMediaQuery("(max-width: 767px)")
+  const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)")
+  const previewViewport = resolvePreviewViewport(viewport, isPhone, isTablet)
 
   const activeFile =
     files.find((file) => getInstallPath(file) === activePath) ?? files[0]
@@ -131,30 +146,15 @@ export function BlockCard({
     syncIframeTheme()
   }, [syncIframeTheme])
 
+  useIframeScrollPassthrough(iframeRef, [styleName, item.name, syncIframeTheme])
+
   React.useEffect(() => {
     const iframe = iframeRef.current
     if (!iframe) return
 
-    let detach: (() => void) | undefined
-
-    const attachWheelPassthrough = () => {
-      detach?.()
-      const doc = iframe.contentDocument
-      if (!doc) return
-
-      const onWheel = (event: WheelEvent) => {
-        event.preventDefault()
-        window.scrollBy({ top: event.deltaY, left: event.deltaX })
-      }
-
-      doc.addEventListener("wheel", onWheel, { passive: false })
-      detach = () => doc.removeEventListener("wheel", onWheel)
-      syncIframeTheme()
-    }
-
     const onLoad = () => {
       setPreviewLoaded(true)
-      attachWheelPassthrough()
+      syncIframeTheme()
     }
     iframe.addEventListener("load", onLoad)
     if (iframe.contentDocument?.readyState === "complete") {
@@ -163,7 +163,6 @@ export function BlockCard({
 
     return () => {
       iframe.removeEventListener("load", onLoad)
-      detach?.()
     }
   }, [styleName, item.name, syncIframeTheme])
 
@@ -206,13 +205,13 @@ export function BlockCard({
           <div className="flex h-8 items-center gap-1 rounded-md border p-[3px]">
             <ToggleGroup
               type="single"
-              value={viewport}
+              value={previewViewport}
               onValueChange={(value) => {
                 if (!value || value === viewport) return
                 setViewport(value as Viewport)
                 setTab("preview")
               }}
-              className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:cursor-pointer! *:data-[slot=toggle-group-item]:rounded-sm!"
+              className="hidden gap-1 md:flex *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:cursor-pointer! *:data-[slot=toggle-group-item]:rounded-sm!"
             >
               <ToggleGroupItem value="100%" title="دسکتاپ">
                 <Monitor className="size-3.5" />
@@ -220,7 +219,11 @@ export function BlockCard({
               <ToggleGroupItem value="60%" title="تبلت">
                 <Tablet className="size-3.5" />
               </ToggleGroupItem>
-              <ToggleGroupItem value="30%" title="موبایل">
+              <ToggleGroupItem
+                value="30%"
+                title="موبایل"
+                className="hidden lg:inline-flex!"
+              >
                 <Smartphone className="size-3.5" />
               </ToggleGroupItem>
             </ToggleGroup>
@@ -252,7 +255,7 @@ export function BlockCard({
             <div
               className={cn(
                 "flex size-full justify-center overflow-hidden rounded-xl border border-border/80",
-                viewport === "100%"
+                previewViewport === "100%"
                   ? "bg-muted"
                   : cn(
                       "bg-[#fafafa] dark:bg-[#1a1a1a]",
@@ -265,7 +268,7 @@ export function BlockCard({
             >
               <div
                 className="relative h-full overflow-hidden rounded-lg border bg-background shadow-sm transition-[width] duration-200 ease-out"
-                style={{ width: viewport }}
+                style={{ width: previewViewport }}
               >
                 {!previewLoaded ? (
                   <div className="absolute inset-0 z-10">

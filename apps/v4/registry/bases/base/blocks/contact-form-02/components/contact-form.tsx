@@ -10,6 +10,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import {
   Field,
+  FieldDescription,
   FieldGroup,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
@@ -24,13 +25,13 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactFormSubject() {
+export function ContactFormFeedback() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>
-        <CardTitle>درخواست پشتیبانی</CardTitle>
+        <CardTitle>ارسال بازخورد</CardTitle>
         <CardDescription>
-          موضوع را انتخاب کنید تا سریع‌تر به تیم مربوط برسیم
+          نظر یا پیشنهاد خود دربارهٔ محصول را با ما در میان بگذارید
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -42,57 +43,50 @@ export function ContactFormSubject() {
                 <Input id="cf2-name" placeholder="مریم حسینی" required />
               </Field>
               <Field>
-                <FieldLabel htmlFor="cf2-phone">موبایل</FieldLabel>
+                <FieldLabel htmlFor="cf2-email">ایمیل</FieldLabel>
                 <Input
-                  id="cf2-phone"
-                  type="tel"
-                  placeholder="۰۹۱۲۱۲۳۴۵۶۷"
+                  id="cf2-email"
+                  type="email"
+                  placeholder="name@example.com"
                   dir="ltr"
                   className="text-start"
+                  required
                 />
               </Field>
             </Field>
             <Field>
-              <FieldLabel htmlFor="cf2-subject">موضوع</FieldLabel>
+              <FieldLabel htmlFor="cf2-type">نوع بازخورد</FieldLabel>
               <Select
                 items={[
-                  { value: "billing", label: "صورتحساب" },
-                  { value: "tech", label: "مشکل فنی" },
-                  { value: "account", label: "حساب کاربری" },
+                  { value: "idea", label: "پیشنهاد" },
+                  { value: "bug", label: "گزارش باگ" },
+                  { value: "praise", label: "تشکر" },
                   { value: "other", label: "سایر" },
                 ]}
-                defaultValue="tech"
+                defaultValue="idea"
               >
-                <SelectTrigger id="cf2-subject" className="w-full">
-                  <SelectValue placeholder="انتخاب موضوع" />
+                <SelectTrigger id="cf2-type" className="w-full">
+                  <SelectValue placeholder="انتخاب کنید" />
                 </SelectTrigger>
                 <SelectContent dir="rtl">
                   <SelectGroup>
-                    <SelectItem value="billing">صورتحساب</SelectItem>
-                    <SelectItem value="tech">مشکل فنی</SelectItem>
-                    <SelectItem value="account">حساب کاربری</SelectItem>
+                    <SelectItem value="idea">پیشنهاد</SelectItem>
+                    <SelectItem value="bug">گزارش باگ</SelectItem>
+                    <SelectItem value="praise">تشکر</SelectItem>
                     <SelectItem value="other">سایر</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </Field>
             <Field>
-              <FieldLabel htmlFor="cf2-email">ایمیل</FieldLabel>
-              <Input
-                id="cf2-email"
-                type="email"
-                placeholder="name@example.com"
-                dir="ltr"
-                className="text-start"
-                required
-              />
-            </Field>
-            <Field>
-              <FieldLabel htmlFor="cf2-msg">توضیحات</FieldLabel>
+              <FieldLabel htmlFor="cf2-msg">متن بازخورد</FieldLabel>
               <Textarea id="cf2-msg" className="min-h-28" required />
+              <FieldDescription>
+                جزئیات بیشتر به ما کمک می‌کند بهتر پاسخ دهیم
+              </FieldDescription>
             </Field>
             <Button type="submit" className="w-full">
-              ثبت درخواست
+              ارسال بازخورد
             </Button>
           </FieldGroup>
         </form>

@@ -31,7 +31,7 @@ export default function LoginPage() {
         </div>
         <div className="relative hidden min-h-80 bg-muted md:block">
           <img
-            src="/iran/parsian.jpg"
+            src="/farsiui/parsian.jpg"
             alt="Parsian"
             className="absolute inset-0 h-full w-full object-cover"
           />

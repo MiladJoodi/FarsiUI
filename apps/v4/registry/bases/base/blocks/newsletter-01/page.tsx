@@ -1,40 +1,5 @@
-import { cn } from "cn"
-import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
-import { Input } from "@/registry/bases/base/ui/input"
-import { Label } from "@/registry/bases/base/ui/label"
+import { NewsletterSimple } from "@/registry/bases/base/blocks/newsletter-01/components/newsletter"
 
-export default function Page({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      dir="rtl"
-      lang="fa"
-      className={cn("bg-muted text-foreground flex min-h-[520px] items-center justify-center p-6", className)}
-      {...props}
-    >
-      <div className="w-full max-w-md">
-        <Card>
-          <CardHeader>
-            <CardTitle>خبرنامه</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="field-a">ایمیل</Label>
-              <Input id="field-a" type="email" placeholder="name@example.com" dir="ltr" className="text-start" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="field-b">جزئیات</Label>
-              <Input id="field-b" placeholder="اینجا بنویسید…" dir="rtl" className="text-start" />
-            </div>
-            <Button className="w-full">ادامه</Button>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
-  )
+export default function Page() {
+  return <NewsletterSimple />
 }

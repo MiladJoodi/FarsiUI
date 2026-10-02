@@ -1,4 +1,4 @@
-import { ContactFormSubject } from "@/registry/bases/base/blocks/contact-form-02/components/contact-form"
+import { ContactFormFeedback } from "@/registry/bases/base/blocks/contact-form-02/components/contact-form"
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
       <div className="w-full max-w-lg">
-        <ContactFormSubject />
+        <ContactFormFeedback />
       </div>
     </div>
   )
