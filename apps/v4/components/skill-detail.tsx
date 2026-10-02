@@ -146,8 +146,15 @@ export function SkillDetail({
 
 function SkillSamplePreview({ skill }: { skill: Skill }) {
   const isCodeSample =
-    /className|<html|og:locale|<\/?[A-Za-z]/.test(skill.sample.without) ||
-    /className|<html|og:locale|<\/?[A-Za-z]/.test(skill.sample.with)
+    skill.sample.without.includes("className") ||
+    skill.sample.with.includes("className") ||
+    skill.sample.without.includes("<html") ||
+    skill.sample.with.includes("<html") ||
+    skill.sample.without.includes("og:locale") ||
+    skill.sample.with.includes("og:locale")
+
+  const codeClassName =
+    "overflow-x-auto rounded-lg border px-3 py-3 text-start font-[family-name:var(--font-mono),var(--font-sans),ui-monospace,monospace] text-[12px] leading-6 whitespace-pre"
 
   return (
     <div className="space-y-4" dir="rtl" lang="fa">
@@ -165,7 +172,7 @@ function SkillSamplePreview({ skill }: { skill: Skill }) {
             lang={isCodeSample ? "en" : "fa"}
             className={
               isCodeSample
-                ? "overflow-x-auto rounded-lg border bg-muted/25 px-3 py-3 text-start font-mono text-[12px] leading-5 whitespace-pre text-muted-foreground"
+                ? `${codeClassName} border-border bg-muted/25 text-muted-foreground`
                 : "rounded-lg border bg-muted/25 px-3 py-3 text-sm leading-7 text-muted-foreground"
             }
           >
@@ -181,7 +188,7 @@ function SkillSamplePreview({ skill }: { skill: Skill }) {
             lang={isCodeSample ? "en" : "fa"}
             className={
               isCodeSample
-                ? "overflow-x-auto rounded-lg border border-foreground/12 bg-background px-3 py-3 text-start font-mono text-[12px] leading-5 whitespace-pre"
+                ? `${codeClassName} border-foreground/12 bg-background`
                 : "rounded-lg border border-foreground/12 bg-background px-3 py-3 text-sm leading-7"
             }
           >

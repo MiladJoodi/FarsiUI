@@ -445,6 +445,209 @@ description: "توضیح کوتاه و طبیعی دربارهٔ محصول به
       with: `<button className="ms-2">خرید</button>`,
     },
   },
+  {
+    slug: "ui-craft-rules",
+    title: "قوانین Craft رابط",
+    summary:
+      "چرا خروجی وایب‌کدینگ شبیه بقیه می‌شود و چطور جلویش را بگیرید: به‌جای «قشنگش کن»، تکنیک مشخص بگویید، به مدل اجازهٔ انتخاب‌های دلخواه ندهید، فاصلهٔ خط و اندازهٔ فونت را محدود کنید، جای تصاویر را قبل از لود رزرو کنید و اندازهٔ هدف دکمه‌ها را حداقل ۴۴ پیکسل نگه دارید. همراه با یک بلوک آماده برای فایل‌های قوانین Agent و چک‌لیست پایان کار.",
+    useCases: [
+      "شروع هر پروژه‌ای که با مدل ساخته می‌شود",
+      "وقتی خروجی مدل شبیه سایت‌های تکراری و قالبی شده",
+      "بازبینی رابط قبل از تحویل",
+      "وقتی مدل بدون دلیل padding، رنگ، سایه یا اندازه‌های جدید اضافه می‌کند",
+      "وقتی می‌خواهید رابط از نظر spacing، typography، motion و responsive منظم‌تر باشد",
+    ],
+    tags: ["راهنما", "UI", "طراحی"],
+    activationDescription:
+      "Craft and quality rules for AI-built interfaces. Use when designing, implementing, reviewing, or refining UI to prevent arbitrary styling, inconsistent spacing, poor typography, layout shift, excessive motion, weak responsive behavior, and generic AI-generated visual patterns.",
+    activationNote:
+      "مدل با همین چند خط تصمیم می‌گیرد مهارت را بخواند یا نه. اگر می‌خواهید در موقعیت‌های دیگری هم فعال شود، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add ui-craft-rules",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: ["docs/ui-craft-rules.md"],
+        note: "سپس در CLAUDE.md بنویسید: @docs/ui-craft-rules.md",
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/rules/ui-craft-rules.mdc"],
+        note: "در ابتدای فایل alwaysApply: true بگذارید",
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: ["AGENTS.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: ["AGENTS.md"],
+      },
+    ],
+    agentsHint:
+      "For UI craft quality, apply the rules from docs/ui-craft-rules.md.",
+    sample: {
+      prompt: "این کارت‌ها را قشنگ‌تر کن.",
+      without:
+        "کارت‌ها با گرادیان جدید، سایهٔ بزرگ، چند اندازهٔ فونت جدید و فاصله‌هایی مثل p-[13px].",
+      with: "کارت‌ها با فاصله‌های مشخص روی شبکهٔ ۴ پیکسلی، یک رنگ تأکید از توکن‌های طراحی، aspect-ratio برای تصاویر و انیمیشن‌های محدود و هدفمند ساخته می‌شوند.",
+    },
+  },
+  {
+    slug: "persian-typography",
+    title: "راهنمای تایپوگرافی فارسی",
+    summary:
+      "کدام فونت‌ها رایگان‌اند و کدام به لایسنس نیاز دارند، چه اندازه و فاصلهٔ خطی برای فارسی مناسب است، چطور اعداد را در جدول‌ها درست نمایش دهیم، با متن ترکیبی فارسی و انگلیسی چه کنیم و نیم‌فاصله را در HTML چطور مدیریت کنیم. این راهنما هم برای Agentهاست، هم برای توسعه‌دهنده‌ها.",
+    useCases: [
+      "انتخاب و لود فونت در Next.js",
+      "متن‌های ترکیبی فارسی و لاتین",
+      "جدول‌های عددی و قیمت",
+      "وقتی حروف درست به هم نمی‌چسبند",
+      "وقتی اعداد فارسی به لاتین تبدیل می‌شوند",
+      "تنظیم اندازه و فاصلهٔ خط برای رابط فارسی",
+      "بررسی تایپوگرافی قبل از انتشار محصول",
+    ],
+    tags: ["راهنما", "تایپوگرافی", "فونت"],
+    activationDescription:
+      "Persian typography guidance for coding agents and developers. Use when choosing or loading Persian fonts, styling Persian interfaces, handling Persian digits, mixed Persian and Latin text, ZWNJ, line height, tables, prices, and typography-related RTL issues.",
+    activationNote:
+      "مدل با همین چند خط تصمیم می‌گیرد مهارت را بخواند یا نه. اگر می‌خواهید در موقعیت‌های دیگری هم فعال شود، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add persian-typography",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: ["docs/persian-typography.md"],
+        note: "سپس در CLAUDE.md بنویسید: @docs/persian-typography.md",
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/rules/persian-typography.mdc"],
+        note: "در ابتدای فایل alwaysApply: true بگذارید",
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: ["AGENTS.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: ["AGENTS.md"],
+      },
+    ],
+    agentsHint:
+      "For Persian typography, apply the rules from docs/persian-typography.md.",
+    sample: {
+      prompt: "تیتر صفحهٔ اصلی را بزرگ و فشرده کن.",
+      without: `className="text-5xl tracking-tight uppercase"`,
+      with: `className="text-5xl leading-[1.2]"`,
+    },
+  },
+  {
+    slug: "parspack-s3-upload",
+    title: "آپلود تصویر به پارس‌پک",
+    summary:
+      "آپلود سرورساید تصویر به فضای ابری پارس‌پک با AWS SDK، path-style URL، اعتبارسنجی MIME و مسیر API در Next.js App Router. آماده برای تحویل به مدل یا توسعه‌دهنده.",
+    useCases: [
+      "آپلود تصویر پروفایل، محصول یا گالری",
+      "اتصال به S3 سازگار با پارس‌پک",
+      "وقتی URL عمومی اشتباه ساخته می‌شود",
+      "تنظیم next/image برای هاست پارس‌پک",
+    ],
+    tags: ["راهنما", "آپلود", "S3"],
+    activationDescription:
+      "Upload images to ParsPack S3-compatible object storage from a Next.js App Router application. Use when implementing server-side image uploads, S3 client configuration, public or presigned object URLs, upload validation, authenticated API routes, or ParsPack-specific path-style addressing.",
+    activationNote:
+      "مدل با همین چند خط تصمیم می‌گیرد مهارت را بخواند یا نه. اگر می‌خواهید در موقعیت‌های دیگری هم فعال شود، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add parspack-s3-upload",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: ["docs/parspack-s3-upload.md"],
+        note: "سپس در CLAUDE.md بنویسید: @docs/parspack-s3-upload.md",
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/rules/parspack-s3-upload.mdc"],
+        note: "در ابتدای فایل alwaysApply: true بگذارید",
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: ["AGENTS.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: ["AGENTS.md"],
+      },
+    ],
+    agentsHint:
+      "For ParsPack image uploads, apply the rules from docs/parspack-s3-upload.md.",
+    sample: {
+      prompt: "آپلود تصویر را به پارس‌پک وصل کن",
+      without:
+        "آپلود مستقیم از مرورگر به bucket با virtual-host URL",
+      with: "آپلود از طریق API احرازهویت‌شدهٔ Next.js با forcePathStyle و URL به شکل endpoint/bucket/key",
+    },
+  },
+  {
+    slug: "zarinpal-payment",
+    title: "درگاه پرداخت زرین‌پال",
+    summary:
+      "پیاده‌سازی کامل زرین‌پال از request تا verify: تبدیل تومان به ریال، سند پرداخت pending، کال‌بک idempotent و چک‌لیست امنیتی. برای Next.js و هر بک‌اند Node.",
+    useCases: [
+      "خرید اشتراک، اعتبار یا محصول",
+      "اتصال درگاه بانکی ایرانی",
+      "کال‌بک و تأیید پرداخت",
+      "تست در سندباکس زرین‌پال",
+    ],
+    tags: ["راهنما", "پرداخت", "زرین‌پال"],
+    activationDescription:
+      "Integrate the Zarinpal payment gateway into Next.js or Node.js applications. Use when implementing payment requests, authority handling, callbacks, verification, billing records, Toman-to-Rial conversion, sandbox testing, idempotency, or secure payment flows for Iranian products.",
+    activationNote:
+      "مدل با همین چند خط تصمیم می‌گیرد مهارت را بخواند یا نه. اگر می‌خواهید در موقعیت‌های دیگری هم فعال شود، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add zarinpal-payment",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: ["docs/zarinpal-payment.md"],
+        note: "سپس در CLAUDE.md بنویسید: @docs/zarinpal-payment.md",
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/rules/zarinpal-payment.mdc"],
+        note: "در ابتدای فایل alwaysApply: true بگذارید",
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: ["AGENTS.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: ["AGENTS.md"],
+      },
+    ],
+    agentsHint:
+      "For Zarinpal payments, apply the rules from docs/zarinpal-payment.md.",
+    sample: {
+      prompt: "پرداخت زرین‌پال را پیاده کن",
+      without:
+        "مبلغ را از کلاینت بگیر و بعد از Status=OK محصول را فعال کن",
+      with: "مبلغ سرورساید، authority در DB، verify با code ۱۰۰/۱۰۱، بعد grant",
+    },
+  },
 ]
 
 export function getSkills() {
