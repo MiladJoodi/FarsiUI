@@ -14,8 +14,8 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const ITEMS = [
   { kind: "folder" as const, name: "اسناد", meta: "۱۲ مورد" },
   { kind: "folder" as const, name: "تصاویر", meta: "۳۴ مورد" },
-  { kind: "file" as const, name: "readme.md", meta: "12 KB" },
-  { kind: "file" as const, name: "invoice.pdf", meta: "1.2 MB" },
+  { kind: "file" as const, name: "readme.md", meta: "۱۲ کیلوبایت" },
+  { kind: "file" as const, name: "invoice.pdf", meta: "۱٫۲ مگابایت" },
 ]
 
 export function FileManagerSimple() {
@@ -49,12 +49,8 @@ export function FileManagerSimple() {
                         item.name
                       )}
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      {item.kind === "file" ? (
-                        <bdi dir="ltr">{item.meta}</bdi>
-                      ) : (
-                        item.meta
-                      )}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.meta}
                     </p>
                   </div>
                 </div>

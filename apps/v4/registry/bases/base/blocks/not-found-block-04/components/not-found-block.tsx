@@ -1,7 +1,7 @@
 "use client"
 
 import {
-  ChevronLeftIcon,
+  ArrowLeftIcon,
   FileQuestionIcon,
   HomeIcon,
   PackageIcon,
@@ -60,8 +60,8 @@ export function NotFoundInContext() {
         <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0 text-start">
           <div>
             <CardTitle className="text-base">محصول</CardTitle>
-            <CardDescription>
-              شناسه <bdi dir="ltr">SKU-88421</bdi>
+            <CardDescription className="tracking-normal">
+              شناسه کالا-۸۸۴۲۱
             </CardDescription>
           </div>
           <Badge variant="outline">پیدا نشد</Badge>
@@ -79,7 +79,7 @@ export function NotFoundInContext() {
             </EmptyHeader>
             <EmptyContent className="mt-4 flex-row justify-center gap-2">
               <Button>
-                <ChevronLeftIcon data-icon="inline-start" />
+                <ArrowLeftIcon data-icon="inline-start" />
                 فهرست محصولات
               </Button>
               <Button variant="outline">
@@ -93,7 +93,7 @@ export function NotFoundInContext() {
 
       <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
         <FileQuestionIcon className="size-3.5" />
-        کد وضعیت <bdi dir="ltr">۴۰۴</bdi>
+        کد وضعیت <span className="tracking-normal">۴۰۴</span>
       </p>
     </section>
   )

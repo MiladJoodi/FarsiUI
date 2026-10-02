@@ -16,22 +16,17 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import {
   Select,
@@ -42,6 +37,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const SUGGESTIONS = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
@@ -50,11 +46,22 @@ const SUGGESTIONS = [
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
 ] as const
 
+const CROP_ITEMS = [
+  { value: "دایره", label: "دایره" },
+  { value: "مربع", label: "مربع" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function AvatarUploadHub() {
   const [preview, setPreview] = React.useState<string>(SUGGESTIONS[0])
   const [fileName, setFileName] = React.useState("avatar.jpg")
   const [progress, setProgress] = React.useState(100)
-  const [crop, setCrop] = React.useState("circle")
+  const [crop, setCrop] = React.useState("دایره")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [cropOpen, setCropOpen] = React.useState(false)
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function onFile(event: React.ChangeEvent<HTMLInputElement>) {
@@ -90,29 +97,56 @@ export function AvatarUploadHub() {
             برش، پیش‌نمایش و تنظیمات نمایش
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => inputRef.current?.click()}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 p-1"
+          >
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => {
+                inputRef.current?.click()
+                setHeaderOpen(false)
+              }}
+            >
               بارگذاری جدید
-            </DropdownMenuItem>
-            <DropdownMenuItem>دانلود فعلی</DropdownMenuItem>
-            <DropdownMenuItem
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => setHeaderOpen(false)}
+            >
+              دانلود فعلی
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
               onClick={() => {
                 setPreview("")
                 setFileName("")
                 setProgress(0)
+                setHeaderOpen(false)
               }}
             >
               حذف تصویر
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[1fr_14rem]">
@@ -121,7 +155,9 @@ export function AvatarUploadHub() {
             <div className="relative">
               <Avatar
                 className={
-                  crop === "circle" ? "size-32" : "size-32 rounded-xl after:rounded-xl"
+                  crop === "دایره"
+                    ? "size-32"
+                    : "size-32 rounded-xl after:rounded-xl"
                 }
               >
                 {preview ? <AvatarImage src={preview} alt="پروفایل" /> : null}
@@ -161,8 +197,8 @@ export function AvatarUploadHub() {
               {fileName && progress < 100 ? (
                 <div className="space-y-1">
                   <Progress value={progress} />
-                  <p className="text-xs text-muted-foreground">
-                    <bdi dir="ltr">{progress}%</bdi> تکمیل‌شده
+                  <p className="text-xs tracking-normal text-muted-foreground">
+                    {toFa(progress)}٪ تکمیل‌شده
                   </p>
                 </div>
               ) : null}
@@ -209,7 +245,7 @@ export function AvatarUploadHub() {
                   }}
                 >
                   <Avatar className="size-14">
-                    <AvatarImage src={src} alt={`پیشنهاد ${i + 1}`} />
+                    <AvatarImage src={src} alt={`پیشنهاد ${toFa(i + 1)}`} />
                     <AvatarFallback>پ</AvatarFallback>
                   </Avatar>
                 </button>
@@ -220,9 +256,7 @@ export function AvatarUploadHub() {
           <label className="flex h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-sm text-muted-foreground transition-colors hover:bg-muted/40">
             <UploadIcon className="size-5" />
             <span>رها کردن تصویر اینجا</span>
-            <span className="text-xs">
-              حداکثر <bdi dir="ltr">۵ MB</bdi> · JPG یا PNG
-            </span>
+            <span className="text-xs">حداکثر ۵ مگابایت · JPG یا PNG</span>
             <input
               type="file"
               accept="image/*"
@@ -238,39 +272,61 @@ export function AvatarUploadHub() {
           <Field>
             <FieldLabel>شکل برش</FieldLabel>
             <Select
+              items={[...CROP_ITEMS]}
               value={crop}
-              onValueChange={(v) => setCrop((v as string) ?? "circle")}
+              onValueChange={(value) => {
+                if (CROP_ITEMS.some((item) => item.value === value)) {
+                  setCrop(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="شکل" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="circle">دایره</SelectItem>
-                <SelectItem value="square">مربع</SelectItem>
+                {CROP_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full" />}
+          <Popover open={cropOpen} onOpenChange={setCropOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" className="w-full" />
+              }
             >
               میانبر شکل
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-40">
-              <DropdownMenuRadioGroup
-                value={crop}
-                onValueChange={(v) => setCrop(v ?? "circle")}
-              >
-                <DropdownMenuRadioItem value="circle">
-                  دایره
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="square">
-                  مربع
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-40 p-1"
+            >
+              {CROP_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    crop === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setCrop(opt.value)
+                    setCropOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </PopoverContent>
+          </Popover>
 
           <Field>
             <FieldLabel htmlFor="au5-email">ایمیل تأیید</FieldLabel>

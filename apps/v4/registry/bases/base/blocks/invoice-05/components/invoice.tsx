@@ -35,13 +35,17 @@ const PAID_DATE = new Date()
 PAID_DATE.setDate(PAID_DATE.getDate() - 1)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -88,11 +92,11 @@ export function InvoiceFancy() {
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
             <Badge>پرداخت‌شده</Badge>
-            <Badge variant="outline">
-              <bdi dir="ltr">INV-1042</bdi>
+            <Badge variant="outline" className="tracking-normal">
+              فاکتور-۱۰۴۲
             </Badge>
-            <Badge variant="secondary">
-              <bdi dir="ltr">{formatJalaliCompact(ISSUE_DATE)}</bdi>
+            <Badge variant="secondary" className="tracking-normal">
+              {formatJalaliCompact(ISSUE_DATE)}
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">فاکتور</h1>
@@ -132,31 +136,33 @@ export function InvoiceFancy() {
               <CardHeader className="flex-row flex-wrap justify-between gap-4 space-y-0 text-start">
                 <div>
                   <CardTitle>فاکتور فروش</CardTitle>
-                  <CardDescription>
-                    صادرکننده: FarsiUI · شناسه ملی{" "}
-                    <bdi dir="ltr">۱۰۱۰۱۲۳۴۵۶۷</bdi>
+                  <CardDescription className="tracking-normal">
+                    صادرکننده: FarsiUI · شناسه ملی ۱۰۱۰۱۲۳۴۵۶۷
                   </CardDescription>
                 </div>
                 <div className="text-sm">
                   <p className="text-muted-foreground">خریدار</p>
                   <p className="font-medium">شرکت نوآوران</p>
-                  <bdi
-                    dir="ltr"
-                    className="text-xs text-muted-foreground"
-                  >
-                    billing@novaran.example
-                  </bdi>
+                  <p className="text-xs text-muted-foreground">
+                    <span dir="ltr" className="inline-block">
+                      billing@novaran.example
+                    </span>
+                  </p>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid gap-3 text-sm sm:grid-cols-2">
                   <div className="rounded-lg border p-3">
                     <p className="text-xs text-muted-foreground">تاریخ صدور</p>
-                    <p className="mt-1 font-medium">{formatJalali(ISSUE_DATE)}</p>
+                    <p className="mt-1 font-medium tracking-normal">
+                      {formatJalali(ISSUE_DATE)}
+                    </p>
                   </div>
                   <div className="rounded-lg border p-3">
                     <p className="text-xs text-muted-foreground">سررسید</p>
-                    <p className="mt-1 font-medium">{formatJalali(DUE_DATE)}</p>
+                    <p className="mt-1 font-medium tracking-normal">
+                      {formatJalali(DUE_DATE)}
+                    </p>
                   </div>
                 </div>
 
@@ -174,14 +180,14 @@ export function InvoiceFancy() {
                       {LINES.map((line) => (
                         <tr key={line.name} className="border-b last:border-0">
                           <td className="px-3 py-2.5">{line.name}</td>
-                          <td className="px-3 py-2.5">
-                            <bdi dir="ltr">{line.qty}</bdi>
+                          <td className="px-3 py-2.5 tracking-normal">
+                            {line.qty}
                           </td>
-                          <td className="px-3 py-2.5">
-                            <bdi dir="ltr">{line.unit}</bdi>
+                          <td className="px-3 py-2.5 tracking-normal">
+                            {line.unit}
                           </td>
-                          <td className="px-3 py-2.5 font-medium">
-                            <bdi dir="ltr">{line.amount}</bdi>
+                          <td className="px-3 py-2.5 font-medium tracking-normal">
+                            {line.amount}
                           </td>
                         </tr>
                       ))}
@@ -189,21 +195,19 @@ export function InvoiceFancy() {
                   </table>
                 </div>
 
-                <div className="ms-auto max-w-xs space-y-2 text-sm">
+                <div className="ms-auto max-w-xs space-y-2 text-sm tracking-normal">
                   <div className="flex justify-between gap-4">
                     <span className="text-muted-foreground">جمع جزء</span>
-                    <bdi dir="ltr">۸۴۹٬۰۰۰</bdi>
+                    <span>۸۴۹٬۰۰۰</span>
                   </div>
                   <div className="flex justify-between gap-4">
                     <span className="text-muted-foreground">مالیات ۹٪</span>
-                    <bdi dir="ltr">۷۶٬۴۱۰</bdi>
+                    <span>۷۶٬۴۱۰</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between gap-4 text-base font-semibold">
                     <span>جمع کل</span>
-                    <span>
-                      <bdi dir="ltr">۹۲۵٬۴۱۰</bdi> تومان
-                    </span>
+                    <span>۹۲۵٬۴۱۰ تومان</span>
                   </div>
                 </div>
               </CardContent>
@@ -215,12 +219,9 @@ export function InvoiceFancy() {
               <Card key={a.label}>
                 <CardContent className="flex items-center justify-between gap-3 py-4 text-sm">
                   <span>{a.label}</span>
-                  <bdi
-                    dir="ltr"
-                    className="text-xs text-muted-foreground"
-                  >
+                  <span className="text-xs text-muted-foreground tracking-normal">
                     {formatJalaliCompact(a.date)}
-                  </bdi>
+                  </span>
                 </CardContent>
               </Card>
             ))}
@@ -237,16 +238,14 @@ export function InvoiceFancy() {
                 <span className="text-muted-foreground">وضعیت</span>
                 <Badge variant="secondary">پرداخت‌شده</Badge>
               </div>
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between gap-2 tracking-normal">
                 <span className="text-muted-foreground">تاریخ پرداخت</span>
-                <bdi dir="ltr">{formatJalaliCompact(PAID_DATE)}</bdi>
+                <span>{formatJalaliCompact(PAID_DATE)}</span>
               </div>
               <Separator />
-              <div className="flex justify-between gap-2 font-medium">
+              <div className="flex justify-between gap-2 font-medium tracking-normal">
                 <span>مبلغ</span>
-                <span>
-                  <bdi dir="ltr">۹۲۵٬۴۱۰</bdi> تومان
-                </span>
+                <span>۹۲۵٬۴۱۰ تومان</span>
               </div>
             </CardContent>
             <CardFooter className="flex-col gap-2 border-t">

@@ -40,8 +40,8 @@ export function NotFoundAnimated() {
               <span className="flex size-16 animate-bounce items-center justify-center rounded-2xl border bg-background shadow-sm [animation-duration:1.8s]">
                 <MapPinOffIcon className="size-7 text-muted-foreground" />
               </span>
-              <span className="absolute -bottom-1 rounded-full border bg-background px-2 py-0.5 text-[10px] font-semibold tabular-nums tracking-wider animate-pulse">
-                <bdi dir="ltr">۴۰۴</bdi>
+              <span className="absolute -bottom-1 rounded-full border bg-background px-2 py-0.5 text-[10px] font-semibold tracking-normal animate-pulse">
+                ۴۰۴
               </span>
             </span>
           </EmptyMedia>
@@ -59,7 +59,7 @@ export function NotFoundAnimated() {
             خانه
           </Button>
           <Button variant="outline">
-            <SearchIcon data-icon="inline-start" />
+            <SearchIcon data-icon="inline-start" className="-scale-x-100" />
             جستجو
           </Button>
         </EmptyContent>

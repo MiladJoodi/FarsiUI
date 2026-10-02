@@ -142,7 +142,7 @@ export function BlocksListIndex() {
     pathname === "/blocks" ? "ویژه" : (match?.item.title ?? null)
 
   return (
-    <ListIndexNav title="فهرست بلاک‌ها" current={current}>
+    <ListIndexNav title="فهرست بلوک‌ها" current={current}>
       <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
         <BlocksNavList />
       </SidebarProvider>

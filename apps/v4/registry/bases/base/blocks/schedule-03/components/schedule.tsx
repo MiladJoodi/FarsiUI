@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -29,14 +31,36 @@ import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 const TODAY = new Date()
 
+const TYPE_ITEMS = [
+  { value: "جلسه", label: "جلسه" },
+  { value: "تمرکز", label: "تمرکز" },
+  { value: "شخصی", label: "شخصی" },
+  { value: "استراحت", label: "استراحت" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -49,6 +73,10 @@ function formatJalaliCompact(date: Date) {
 }
 
 export function ScheduleSlotForm() {
+  const [type, setType] = React.useState("جلسه")
+  const [start, setStart] = React.useState("۱۰:۰۰")
+  const [end, setEnd] = React.useState("۱۱:۰۰")
+
   return (
     <section
       dir="rtl"
@@ -58,9 +86,8 @@ export function ScheduleSlotForm() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>افزودن به برنامه</CardTitle>
-          <CardDescription>
-            {formatJalali(TODAY)} ·{" "}
-            <bdi dir="ltr">{formatJalaliCompact(TODAY)}</bdi>
+          <CardDescription className="tracking-normal">
+            {formatJalali(TODAY)} · {formatJalaliCompact(TODAY)}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -75,39 +102,74 @@ export function ScheduleSlotForm() {
 
           <Field>
             <FieldLabel>نوع</FieldLabel>
-            <Select defaultValue="meeting">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="meeting">جلسه</SelectItem>
-                <SelectItem value="focus">تمرکز</SelectItem>
-                <SelectItem value="personal">شخصی</SelectItem>
-                <SelectItem value="break">استراحت</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
             <Field>
-              <FieldLabel htmlFor="sch3-start">شروع</FieldLabel>
-              <Input
-                id="sch3-start"
-                type="time"
-                defaultValue="10:00"
-                dir="ltr"
-                className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+              <FieldLabel>شروع</FieldLabel>
+              <Select
+                items={[...TIME_ITEMS]}
+                value={start}
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setStart(value as string)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full" dir="rtl">
+                  <SelectValue placeholder="شروع" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
             <Field>
-              <FieldLabel htmlFor="sch3-end">پایان</FieldLabel>
-              <Input
-                id="sch3-end"
-                type="time"
-                defaultValue="11:00"
-                dir="ltr"
-                className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+              <FieldLabel>پایان</FieldLabel>
+              <Select
+                items={[...TIME_ITEMS]}
+                value={end}
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setEnd(value as string)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full" dir="rtl">
+                  <SelectValue placeholder="پایان" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
           </div>
 

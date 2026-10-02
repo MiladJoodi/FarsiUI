@@ -61,7 +61,7 @@ export function LoadingButtonsInline() {
           </div>
         </CardContent>
         <CardFooter className="border-t text-xs text-muted-foreground">
-          وضعیت: <bdi dir="ltr" className="ms-1">pending</bdi>
+          وضعیت: در انتظار
         </CardFooter>
       </Card>
     </section>

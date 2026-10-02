@@ -24,24 +24,18 @@ export function PaymentSimple() {
           <CardDescription>خلاصه مبلغ قابل پرداخت</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3 text-sm">
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">جمع کالا</span>
-            <span>
-              <bdi dir="ltr">۱٬۲۵۰٬۰۰۰</bdi> تومان
-            </span>
+            <span>۱٬۲۵۰٬۰۰۰ تومان</span>
           </div>
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">ارسال</span>
-            <span>
-              <bdi dir="ltr">۴۵٬۰۰۰</bdi> تومان
-            </span>
+            <span>۴۵٬۰۰۰ تومان</span>
           </div>
           <Separator />
-          <div className="flex justify-between gap-3 font-medium">
+          <div className="flex justify-between gap-3 font-medium tracking-normal">
             <span>قابل پرداخت</span>
-            <span>
-              <bdi dir="ltr">۱٬۲۹۵٬۰۰۰</bdi> تومان
-            </span>
+            <span>۱٬۲۹۵٬۰۰۰ تومان</span>
           </div>
         </CardContent>
         <CardFooter className="border-t">

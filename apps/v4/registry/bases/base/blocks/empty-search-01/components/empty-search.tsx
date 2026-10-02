@@ -31,7 +31,7 @@ export function EmptySearchSimple() {
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
-          <Button>بازگشت</Button>
+          <Button type="button">بازگشت</Button>
         </EmptyContent>
       </Empty>
     </section>

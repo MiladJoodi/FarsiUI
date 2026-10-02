@@ -19,12 +19,10 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 type Method = {
@@ -63,6 +61,10 @@ const INITIAL: Method[] = [
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function PaymentMethodsDashboard() {
   const [methods, setMethods] = React.useState(INITIAL)
 
@@ -82,6 +84,9 @@ export function PaymentMethodsDashboard() {
     })
   }
 
+  const cardCount = methods.filter((m) => m.kind === "card").length
+  const walletCount = methods.filter((m) => m.kind === "wallet").length
+
   return (
     <section
       dir="rtl"
@@ -93,8 +98,8 @@ export function PaymentMethodsDashboard() {
           <h1 className="text-2xl font-semibold tracking-tight">
             روش‌های پرداخت
           </h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            <bdi dir="ltr">{methods.length}</bdi> روش ذخیره‌شده
+          <p className="mt-1 text-sm text-muted-foreground tracking-normal">
+            {toFa(methods.length)} روش ذخیره‌شده
           </p>
         </div>
         <Button size="sm">
@@ -131,20 +136,17 @@ export function PaymentMethodsDashboard() {
                     ) : null}
                   </div>
                   {m.kind === "card" ? (
-                    <bdi
-                      dir="ltr"
-                      className="text-xs text-muted-foreground"
-                    >
+                    <p className="text-xs text-muted-foreground tracking-normal">
                       **** {m.last4} · {m.exp}
-                    </bdi>
+                    </p>
                   ) : (
-                    <p className="text-xs text-muted-foreground">
-                      موجودی <bdi dir="ltr">{m.balance}</bdi> تومان
+                    <p className="text-xs text-muted-foreground tracking-normal">
+                      موجودی {m.balance} تومان
                     </p>
                   )}
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
+                <Popover>
+                  <PopoverTrigger
                     render={
                       <Button
                         variant="ghost"
@@ -154,23 +156,32 @@ export function PaymentMethodsDashboard() {
                     }
                   >
                     <MoreHorizontalIcon />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" dir="rtl" lang="fa">
+                  </PopoverTrigger>
+                  <PopoverContent align="start" className="w-48 p-1" dir="rtl">
                     {!m.isDefault ? (
-                      <DropdownMenuItem onClick={() => setDefault(m.id)}>
+                      <button
+                        type="button"
+                        className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                        onClick={() => setDefault(m.id)}
+                      >
                         تنظیم به‌عنوان پیش‌فرض
-                      </DropdownMenuItem>
+                      </button>
                     ) : null}
-                    <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      variant="destructive"
+                    <button
+                      type="button"
+                      className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                    >
+                      ویرایش
+                    </button>
+                    <button
+                      type="button"
+                      className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
                       onClick={() => remove(m.id)}
                     >
                       حذف
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </button>
+                  </PopoverContent>
+                </Popover>
               </div>
             ))}
             {methods.length === 0 ? (
@@ -186,17 +197,13 @@ export function PaymentMethodsDashboard() {
             <CardTitle className="text-base">خلاصه</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">کارت‌ها</span>
-              <bdi dir="ltr">
-                {methods.filter((m) => m.kind === "card").length}
-              </bdi>
+              <span>{toFa(cardCount)}</span>
             </div>
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">کیف پول</span>
-              <bdi dir="ltr">
-                {methods.filter((m) => m.kind === "wallet").length}
-              </bdi>
+              <span>{toFa(walletCount)}</span>
             </div>
             <Separator />
             <p className="text-muted-foreground">

@@ -15,9 +15,9 @@ import { Input } from "@/registry/bases/base/ui/input"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const FILES = [
-  { name: "contract.pdf", size: "2.1 MB", date: "دیروز" },
-  { name: "brief.docx", size: "340 KB", date: "۳ روز پیش" },
-  { name: "logo.svg", size: "18 KB", date: "هفتهٔ پیش" },
+  { name: "contract.pdf", size: "۲٫۱ مگابایت", date: "دیروز" },
+  { name: "brief.docx", size: "۳۴۰ کیلوبایت", date: "۳ روز پیش" },
+  { name: "logo.svg", size: "۱۸ کیلوبایت", date: "هفتهٔ پیش" },
 ] as const
 
 export function FileManagerBrowse() {
@@ -64,8 +64,8 @@ export function FileManagerBrowse() {
                     <p className="truncate text-sm font-medium">
                       <bdi dir="ltr">{file.name}</bdi>
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{file.size}</bdi> · {file.date}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {file.size} · {file.date}
                     </p>
                   </div>
                 </div>

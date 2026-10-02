@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { CalendarIcon, ClockIcon, MapPinIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
@@ -26,20 +27,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/registry/bases/base/ui/select"
-import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 const EVENT_DATE = new Date()
 
+const TYPE_ITEMS = [
+  { value: "جلسه", label: "جلسه" },
+  { value: "ددلاین", label: "ددلاین" },
+  { value: "شخصی", label: "شخصی" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۰:۳۰", label: "۱۰:۳۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۱:۳۰", label: "۱۱:۳۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -52,6 +73,10 @@ function formatJalaliCompact(date: Date) {
 }
 
 export function EventDetailsForm() {
+  const [type, setType] = React.useState("جلسه")
+  const [start, setStart] = React.useState("۱۰:۰۰")
+  const [end, setEnd] = React.useState("۱۱:۳۰")
+
   return (
     <section
       dir="rtl"
@@ -72,12 +97,14 @@ export function EventDetailsForm() {
           <div className="rounded-lg border bg-muted/30 p-3 text-sm">
             <div className="flex items-center gap-2">
               <CalendarIcon className="size-4 text-muted-foreground" />
-              <span className="font-medium">{formatJalali(EVENT_DATE)}</span>
+              <span className="font-medium tracking-normal">
+                {formatJalali(EVENT_DATE)}
+              </span>
             </div>
-            <p className="mt-1 text-xs text-muted-foreground">
-              <bdi dir="ltr">{formatJalaliCompact(EVENT_DATE)}</bdi>
+            <p className="mt-1 text-xs tracking-normal text-muted-foreground">
+              {formatJalaliCompact(EVENT_DATE)}
               {" · "}
-              ساعت <bdi dir="ltr">۱۰:۰۰ – ۱۱:۳۰</bdi>
+              ساعت {start} – {end}
             </p>
           </div>
 
@@ -90,17 +117,27 @@ export function EventDetailsForm() {
             />
           </Field>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
             <Field>
               <FieldLabel>نوع</FieldLabel>
-              <Select defaultValue="meeting">
+              <Select
+                items={[...TYPE_ITEMS]}
+                value={type}
+                onValueChange={(value) => {
+                  if (TYPE_ITEMS.some((item) => item.value === value)) {
+                    setType(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="نوع" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="meeting">جلسه</SelectItem>
-                  <SelectItem value="deadline">ددلاین</SelectItem>
-                  <SelectItem value="personal">شخصی</SelectItem>
+                  {TYPE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -110,26 +147,52 @@ export function EventDetailsForm() {
             </Field>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
             <Field>
-              <FieldLabel htmlFor="ed3-start">شروع</FieldLabel>
-              <Input
-                id="ed3-start"
-                type="time"
-                defaultValue="10:00"
-                dir="ltr"
-                className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+              <FieldLabel>شروع</FieldLabel>
+              <Select
+                items={[...TIME_ITEMS]}
+                value={start}
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setStart(value as string)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full" dir="rtl">
+                  <SelectValue placeholder="شروع" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
             <Field>
-              <FieldLabel htmlFor="ed3-end">پایان</FieldLabel>
-              <Input
-                id="ed3-end"
-                type="time"
-                defaultValue="11:30"
-                dir="ltr"
-                className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+              <FieldLabel>پایان</FieldLabel>
+              <Select
+                items={[...TIME_ITEMS]}
+                value={end}
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setEnd(value as string)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full" dir="rtl">
+                  <SelectValue placeholder="پایان" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
           </div>
 
@@ -160,10 +223,10 @@ export function EventDetailsForm() {
             <Switch id="ed3-online" />
           </div>
 
-          <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+          <div className="flex flex-wrap gap-3 text-xs tracking-normal text-muted-foreground">
             <span className="inline-flex items-center gap-1">
               <ClockIcon className="size-3.5" />
-              <bdi dir="ltr">۹۰ دقیقه</bdi>
+              ۹۰ دقیقه
             </span>
             <span className="inline-flex items-center gap-1">
               <MapPinIcon className="size-3.5" />

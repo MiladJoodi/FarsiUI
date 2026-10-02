@@ -21,36 +21,36 @@ import {
 } from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
-    calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-}
-
 const SERVICES = [
-  { id: "consult", title: "مشاوره", duration: "۳۰ دقیقه", price: "۳۵۰٬۰۰۰" },
-  { id: "checkup", title: "معاینه", duration: "۴۵ دقیقه", price: "۴۸۰٬۰۰۰" },
-  { id: "follow", title: "پیگیری", duration: "۲۰ دقیقه", price: "۲۲۰٬۰۰۰" },
+  { id: "مشاوره", title: "مشاوره", duration: "۳۰ دقیقه", price: "۳۵۰٬۰۰۰" },
+  { id: "معاینه", title: "معاینه", duration: "۴۵ دقیقه", price: "۴۸۰٬۰۰۰" },
+  { id: "پیگیری", title: "پیگیری", duration: "۲۰ دقیقه", price: "۲۲۰٬۰۰۰" },
 ] as const
 
-const SLOTS = [
-  { label: "۰۹:۰۰", value: "09:00" },
-  { label: "۱۰:۳۰", value: "10:30" },
-  { label: "۱۴:۰۰", value: "14:00" },
-  { label: "۱۵:۳۰", value: "15:30" },
-  { label: "۱۷:۰۰", value: "17:00" },
-] as const
+const SLOTS = ["۰۹:۰۰", "۱۰:۳۰", "۱۴:۰۰", "۱۵:۳۰", "۱۷:۰۰"] as const
+
+type ServiceId = (typeof SERVICES)[number]["id"]
+type SlotValue = (typeof SLOTS)[number]
+
+function formatJalali(date: Date) {
+  const weekday = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    weekday: "long",
+  })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
+}
 
 export function BookingServiceCard() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [service, setService] = React.useState<(typeof SERVICES)[number]["id"]>(
-    "consult"
-  )
-  const [slot, setSlot] = React.useState("10:30")
+  const [service, setService] = React.useState<ServiceId>("مشاوره")
+  const [slot, setSlot] = React.useState<SlotValue>("۱۰:۳۰")
   const selected = SERVICES.find((s) => s.id === service)!
 
   return (
@@ -88,10 +88,12 @@ export function BookingServiceCard() {
               >
                 <div>
                   <p className="font-medium">{s.title}</p>
-                  <p className="text-xs text-muted-foreground">{s.duration}</p>
+                  <p className="text-xs text-muted-foreground tracking-normal">
+                    {s.duration}
+                  </p>
                 </div>
-                <span className="tabular-nums">
-                  <bdi dir="ltr">{s.price}</bdi> تومان
+                <span className="tracking-normal">
+                  {s.price} تومان
                 </span>
               </button>
             ))}
@@ -134,12 +136,13 @@ export function BookingServiceCard() {
             <div className="flex flex-wrap gap-2">
               {SLOTS.map((s) => (
                 <Button
-                  key={s.value}
-                  variant={slot === s.value ? "default" : "outline"}
+                  key={s}
+                  variant={slot === s ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setSlot(s.value)}
+                  className="tracking-normal"
+                  onClick={() => setSlot(s)}
                 >
-                  <bdi dir="ltr">{s.label}</bdi>
+                  {s}
                 </Button>
               ))}
             </div>
@@ -148,8 +151,8 @@ export function BookingServiceCard() {
         <CardFooter className="flex-col items-stretch gap-2 border-t">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">{selected.title}</span>
-            <span className="font-medium">
-              <bdi dir="ltr">{selected.price}</bdi> تومان
+            <span className="font-medium tracking-normal">
+              {selected.price} تومان
             </span>
           </div>
           <Button>ادامه رزرو</Button>

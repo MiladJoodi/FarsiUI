@@ -29,19 +29,39 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const CYCLE_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه" },
+] as const
+
+const CURRENCY_ITEMS = [
+  { value: "تومان", label: "تومان" },
+  { value: "دلار", label: "دلار" },
+] as const
+
+type CycleValue = (typeof CYCLE_ITEMS)[number]["value"]
+type CurrencyValue = (typeof CURRENCY_ITEMS)[number]["value"]
+
 const PERIOD_END = new Date()
 PERIOD_END.setDate(PERIOD_END.getDate() + 12)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function BillingSettingsForm() {
+  const [cycle, setCycle] = React.useState<CycleValue>("ماهانه")
+  const [currency, setCurrency] = React.useState<CurrencyValue>("تومان")
   const [autoPay, setAutoPay] = React.useState(true)
 
   return (
@@ -56,35 +76,55 @@ export function BillingSettingsForm() {
             تنظیمات دوره
           </Badge>
           <CardTitle>صورتحساب</CardTitle>
-          <CardDescription>
+          <CardDescription className="tracking-normal">
             دوره بعد در {formatJalali(PERIOD_END)} بسته می‌شود
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
             <FieldLabel>چرخه صورت‌حساب</FieldLabel>
-            <Select defaultValue="monthly">
+            <Select
+              items={[...CYCLE_ITEMS]}
+              value={cycle}
+              onValueChange={(value) => {
+                if (CYCLE_ITEMS.some((item) => item.value === value)) {
+                  setCycle(value as CycleValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="monthly">ماهانه</SelectItem>
-                <SelectItem value="yearly">سالانه</SelectItem>
+                {CYCLE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
           <Field>
             <FieldLabel>ارز نمایش</FieldLabel>
-            <Select defaultValue="irr">
+            <Select
+              items={[...CURRENCY_ITEMS]}
+              value={currency}
+              onValueChange={(value) => {
+                if (CURRENCY_ITEMS.some((item) => item.value === value)) {
+                  setCurrency(value as CurrencyValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="irr">تومان</SelectItem>
-                <SelectItem value="usd">
-                  دلار (<bdi dir="ltr">USD</bdi>)
-                </SelectItem>
+                {CURRENCY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -106,8 +146,8 @@ export function BillingSettingsForm() {
             <Input
               id="bill3-tax"
               placeholder="۱۴۰۰۱۲۳۴۵۶۷"
-              dir="ltr"
-              className="text-start"
+              dir="rtl"
+              className="text-end tracking-normal"
             />
           </Field>
 
@@ -121,11 +161,9 @@ export function BillingSettingsForm() {
           </div>
 
           <Separator />
-          <div className="flex justify-between text-sm">
+          <div className="flex justify-between text-sm tracking-normal">
             <span className="text-muted-foreground">برآورد دوره بعد</span>
-            <span className="font-medium">
-              <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-            </span>
+            <span className="font-medium">۵۷۹٬۰۰۰ تومان</span>
           </div>
         </CardContent>
         <CardFooter className="gap-2 border-t">

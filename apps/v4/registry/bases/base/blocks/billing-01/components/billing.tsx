@@ -15,12 +15,17 @@ const PERIOD_END = new Date()
 PERIOD_END.setDate(PERIOD_END.getDate() + 12)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function BillingPeriodSimple() {
@@ -33,25 +38,23 @@ export function BillingPeriodSimple() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>صورتحساب دوره</CardTitle>
-          <CardDescription>
+          <CardDescription className="tracking-normal">
             پایان دوره: {formatJalali(PERIOD_END)}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3 text-sm">
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">طرح حرفه‌ای</span>
-            <bdi dir="ltr">۴۹۹٬۰۰۰</bdi>
+            <span>۴۹۹٬۰۰۰</span>
           </div>
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">مصرف اضافه</span>
-            <bdi dir="ltr">۸۰٬۰۰۰</bdi>
+            <span>۸۰٬۰۰۰</span>
           </div>
           <Separator />
-          <div className="flex justify-between gap-3 font-medium">
+          <div className="flex justify-between gap-3 font-medium tracking-normal">
             <span>مبلغ دوره</span>
-            <span>
-              <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-            </span>
+            <span>۵۷۹٬۰۰۰ تومان</span>
           </div>
         </CardContent>
         <CardFooter className="border-t">

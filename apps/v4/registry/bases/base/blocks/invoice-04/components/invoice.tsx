@@ -13,12 +13,10 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -27,6 +25,16 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
+
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+  { value: "در انتظار", label: "در انتظار" },
+  { value: "سررسید گذشته", label: "سررسید گذشته" },
+  { value: "پیش‌نویس", label: "پیش‌نویس" },
+] as const
+
+type FilterValue = (typeof FILTER_ITEMS)[number]["value"]
 
 function formatJalali(date: Date) {
   return date.toLocaleDateString("fa-IR", {
@@ -37,30 +45,34 @@ function formatJalali(date: Date) {
   })
 }
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 const INVOICES = [
   {
-    id: "INV-1042",
+    id: "فاکتور-۱۰۴۲",
     customer: "شرکت نوآوران",
     amount: "۹۲۵٬۴۱۰",
     status: "پرداخت‌شده" as const,
     date: new Date(Date.now() - 3 * 86400000),
   },
   {
-    id: "INV-1041",
+    id: "فاکتور-۱۰۴۱",
     customer: "استودیو پگاه",
     amount: "۴۹۹٬۰۰۰",
     status: "در انتظار" as const,
     date: new Date(Date.now() - 8 * 86400000),
   },
   {
-    id: "INV-1040",
+    id: "فاکتور-۱۰۴۰",
     customer: "گروه آریا",
     amount: "۱٬۲۰۰٬۰۰۰",
     status: "سررسید گذشته" as const,
     date: new Date(Date.now() - 20 * 86400000),
   },
   {
-    id: "INV-1039",
+    id: "فاکتور-۱۰۳۹",
     customer: "مریم رضایی",
     amount: "۱۹۹٬۰۰۰",
     status: "پیش‌نویس" as const,
@@ -78,9 +90,9 @@ function statusVariant(
 }
 
 export function InvoiceList() {
-  const [filter, setFilter] = React.useState("all")
+  const [filter, setFilter] = React.useState<FilterValue>("همه")
   const visible =
-    filter === "all"
+    filter === "همه"
       ? INVOICES
       : INVOICES.filter((i) => i.status === filter)
 
@@ -98,16 +110,24 @@ export function InvoiceList() {
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Select value={filter} onValueChange={setFilter}>
+          <Select
+            items={[...FILTER_ITEMS]}
+            value={filter}
+            onValueChange={(value) => {
+              if (FILTER_ITEMS.some((item) => item.value === value)) {
+                setFilter(value as FilterValue)
+              }
+            }}
+          >
             <SelectTrigger className="w-[150px]" dir="rtl" size="sm">
               <SelectValue placeholder="وضعیت" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="پرداخت‌شده">پرداخت‌شده</SelectItem>
-              <SelectItem value="در انتظار">در انتظار</SelectItem>
-              <SelectItem value="سررسید گذشته">سررسید گذشته</SelectItem>
-              <SelectItem value="پیش‌نویس">پیش‌نویس</SelectItem>
+              {FILTER_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <Button size="sm">
@@ -120,8 +140,8 @@ export function InvoiceList() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle className="text-base">فهرست</CardTitle>
-          <CardDescription>
-            <bdi dir="ltr">{visible.length}</bdi> مورد
+          <CardDescription className="tracking-normal">
+            {toFa(visible.length)} مورد
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-0 p-0">
@@ -131,9 +151,7 @@ export function InvoiceList() {
               <div className="flex flex-wrap items-center gap-3 px-6 py-4">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <bdi dir="ltr" className="font-medium">
-                      {inv.id}
-                    </bdi>
+                    <span className="font-medium tracking-normal">{inv.id}</span>
                     <Badge
                       variant={statusVariant(inv.status)}
                       className="text-[10px]"
@@ -141,20 +159,19 @@ export function InvoiceList() {
                       {inv.status}
                     </Badge>
                   </div>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    {inv.customer} ·{" "}
-                    <bdi dir="ltr">{formatJalali(inv.date)}</bdi>
+                  <p className="mt-0.5 text-sm text-muted-foreground tracking-normal">
+                    {inv.customer} · {formatJalali(inv.date)}
                   </p>
                 </div>
-                <span className="text-sm font-medium tabular-nums">
-                  <bdi dir="ltr">{inv.amount}</bdi> تومان
+                <span className="text-sm font-medium tracking-normal">
+                  {inv.amount} تومان
                 </span>
                 <div className="flex gap-1">
                   <Button variant="outline" size="icon-sm" aria-label="دانلود">
                     <DownloadIcon />
                   </Button>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
+                  <Popover>
+                    <PopoverTrigger
                       render={
                         <Button
                           variant="ghost"
@@ -164,16 +181,28 @@ export function InvoiceList() {
                       }
                     >
                       <MoreHorizontalIcon />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" dir="rtl" lang="fa">
-                      <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                      <DropdownMenuItem>ارسال مجدد</DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem variant="destructive">
+                    </PopoverTrigger>
+                    <PopoverContent align="start" className="w-40 p-1" dir="rtl">
+                      <button
+                        type="button"
+                        className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                      >
+                        مشاهده
+                      </button>
+                      <button
+                        type="button"
+                        className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                      >
+                        ارسال مجدد
+                      </button>
+                      <button
+                        type="button"
+                        className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
+                      >
                         حذف
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </div>
             </div>

@@ -19,17 +19,16 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
@@ -53,9 +52,35 @@ const ORDER = [
   { name: "کاور سیلیکونی", price: "۱۲۰٬۰۰۰" },
 ] as const
 
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatCardNumber(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 16)
+  const fa = toFaDigits(digits)
+  return fa.match(/.{1,4}/g)?.join("-") ?? fa
+}
+
+function formatExp(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 4)
+  const fa = toFaDigits(digits)
+  if (fa.length <= 2) return fa
+  return `${fa.slice(0, 2)}/${fa.slice(2)}`
+}
+
 export function PaymentDashboard() {
   const [method, setMethod] = React.useState("saved")
   const [cardId, setCardId] = React.useState("c1")
+  const [card, setCard] = React.useState("")
+  const [exp, setExp] = React.useState("")
+  const [cvv, setCvv] = React.useState("")
 
   return (
     <section
@@ -66,8 +91,8 @@ export function PaymentDashboard() {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">پرداخت</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            سفارش <bdi dir="ltr">#ORD-1842</bdi>
+          <p className="mt-1 text-sm text-muted-foreground tracking-normal">
+            سفارش #۱۸۴۲
           </p>
         </div>
         <Badge variant="secondary">درگاه امن</Badge>
@@ -129,16 +154,13 @@ export function PaymentDashboard() {
                         <CreditCardIcon className="size-4 shrink-0 text-muted-foreground" />
                         <div>
                           <p className="font-medium">{c.label}</p>
-                          <bdi
-                            dir="ltr"
-                            className="text-xs text-muted-foreground"
-                          >
+                          <p className="text-xs text-muted-foreground tracking-normal">
                             **** {c.last4} · {c.exp}
-                          </bdi>
+                          </p>
                         </div>
                       </button>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
+                      <Popover>
+                        <PopoverTrigger
                           render={
                             <Button
                               variant="ghost"
@@ -148,14 +170,26 @@ export function PaymentDashboard() {
                           }
                         >
                           <MoreHorizontalIcon />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start" dir="rtl" lang="fa">
-                          <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                          <DropdownMenuItem variant="destructive">
+                        </PopoverTrigger>
+                        <PopoverContent
+                          align="start"
+                          className="w-40 p-1"
+                          dir="rtl"
+                        >
+                          <button
+                            type="button"
+                            className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                          >
+                            ویرایش
+                          </button>
+                          <button
+                            type="button"
+                            className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
+                          >
                             حذف
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   ))}
                 </div>
@@ -167,9 +201,11 @@ export function PaymentDashboard() {
                     <FieldLabel htmlFor="pay4-card">شماره کارت</FieldLabel>
                     <Input
                       id="pay4-card"
-                      placeholder="6037-****-****-****"
-                      dir="ltr"
-                      className="text-start tracking-wider"
+                      value={card}
+                      onChange={(e) => setCard(formatCardNumber(e.target.value))}
+                      placeholder="۶۰۳۷-****-****-****"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                       inputMode="numeric"
                     />
                   </Field>
@@ -178,18 +214,33 @@ export function PaymentDashboard() {
                       <FieldLabel htmlFor="pay4-exp">انقضا</FieldLabel>
                       <Input
                         id="pay4-exp"
-                        placeholder="MM/YY"
-                        dir="ltr"
-                        className="text-start"
+                        value={exp}
+                        onChange={(e) => setExp(formatExp(e.target.value))}
+                        placeholder="ماه/سال"
+                        dir="rtl"
+                        className="text-end tracking-normal"
                       />
                     </Field>
                     <Field>
                       <FieldLabel htmlFor="pay4-cvv">CVV</FieldLabel>
                       <Input
                         id="pay4-cvv"
-                        placeholder="***"
-                        dir="ltr"
-                        className="text-start"
+                        value={cvv}
+                        onChange={(e) =>
+                          setCvv(
+                            toFaDigits(
+                              e.target.value
+                                .replace(/[۰-۹]/g, (d) =>
+                                  String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                                )
+                                .replace(/\D/g, "")
+                                .slice(0, 4)
+                            )
+                          )
+                        }
+                        placeholder="۰۰۰"
+                        dir="rtl"
+                        className="text-end tracking-normal"
                         inputMode="numeric"
                       />
                     </Field>
@@ -198,12 +249,9 @@ export function PaymentDashboard() {
               ) : null}
 
               {method === "wallet" ? (
-                <p className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
+                <p className="rounded-lg border bg-muted/30 px-3 py-2 text-sm tracking-normal">
                   موجودی کیف پول:{" "}
-                  <bdi dir="ltr" className="font-medium">
-                    ۵۲۰٬۰۰۰
-                  </bdi>{" "}
-                  تومان
+                  <span className="font-medium">۵۲۰٬۰۰۰</span> تومان
                 </p>
               ) : null}
             </CardContent>
@@ -216,25 +264,22 @@ export function PaymentDashboard() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             {ORDER.map((item) => (
-              <div key={item.name} className="flex justify-between gap-2">
+              <div
+                key={item.name}
+                className="flex justify-between gap-2 tracking-normal"
+              >
                 <span className="text-muted-foreground">{item.name}</span>
-                <span>
-                  <bdi dir="ltr">{item.price}</bdi>
-                </span>
+                <span>{item.price}</span>
               </div>
             ))}
             <Separator />
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">ارسال</span>
-              <span>
-                <bdi dir="ltr">۴۵٬۰۰۰</bdi>
-              </span>
+              <span>۴۵٬۰۰۰</span>
             </div>
-            <div className="flex justify-between gap-2 font-medium">
+            <div className="flex justify-between gap-2 font-medium tracking-normal">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr">۱٬۰۵۵٬۰۰۰</bdi> تومان
-              </span>
+              <span>۱٬۰۵۵٬۰۰۰ تومان</span>
             </div>
           </CardContent>
           <CardFooter className="border-t">

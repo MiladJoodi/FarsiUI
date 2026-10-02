@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -20,7 +22,34 @@ import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatCardNumber(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 16)
+  const fa = toFaDigits(digits)
+  return fa.match(/.{1,4}/g)?.join("-") ?? fa
+}
+
+function formatExp(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 4)
+  const fa = toFaDigits(digits)
+  if (fa.length <= 2) return fa
+  return `${fa.slice(0, 2)}/${fa.slice(2)}`
+}
+
 export function PaymentCardForm() {
+  const [card, setCard] = React.useState("")
+  const [exp, setExp] = React.useState("")
+  const [cvv, setCvv] = React.useState("")
+
   return (
     <section
       dir="rtl"
@@ -31,9 +60,7 @@ export function PaymentCardForm() {
         <CardHeader className="text-start">
           <Badge className="mb-2 w-fit">درگاه امن</Badge>
           <CardTitle>اطلاعات کارت</CardTitle>
-          <CardDescription>
-            شماره کارت، CVV و تاریخ انقضا LTR
-          </CardDescription>
+          <CardDescription>شماره کارت و تاریخ انقضا فارسی</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
@@ -50,13 +77,17 @@ export function PaymentCardForm() {
             <FieldLabel htmlFor="pay3-card">شماره کارت</FieldLabel>
             <Input
               id="pay3-card"
-              placeholder="6037-****-****-****"
-              dir="ltr"
-              className="text-start tracking-wider"
+              value={card}
+              onChange={(e) => setCard(formatCardNumber(e.target.value))}
+              placeholder="۶۰۳۷-****-****-****"
+              dir="rtl"
+              className="text-end tracking-normal"
               inputMode="numeric"
               autoComplete="cc-number"
             />
-            <FieldDescription>۱۶ رقم · بدون فاصله</FieldDescription>
+            <FieldDescription className="tracking-normal">
+              ۱۶ رقم · بدون فاصله
+            </FieldDescription>
           </Field>
 
           <FieldGroup className="grid grid-cols-2 gap-4">
@@ -64,9 +95,11 @@ export function PaymentCardForm() {
               <FieldLabel htmlFor="pay3-exp">انقضا</FieldLabel>
               <Input
                 id="pay3-exp"
-                placeholder="MM/YY"
-                dir="ltr"
-                className="text-start"
+                value={exp}
+                onChange={(e) => setExp(formatExp(e.target.value))}
+                placeholder="ماه/سال"
+                dir="rtl"
+                className="text-end tracking-normal"
                 autoComplete="cc-exp"
               />
             </Field>
@@ -74,9 +107,22 @@ export function PaymentCardForm() {
               <FieldLabel htmlFor="pay3-cvv">CVV</FieldLabel>
               <Input
                 id="pay3-cvv"
-                placeholder="***"
-                dir="ltr"
-                className="text-start"
+                value={cvv}
+                onChange={(e) =>
+                  setCvv(
+                    toFaDigits(
+                      e.target.value
+                        .replace(/[۰-۹]/g, (d) =>
+                          String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                        )
+                        .replace(/\D/g, "")
+                        .slice(0, 4)
+                    )
+                  )
+                }
+                placeholder="۰۰۰"
+                dir="rtl"
+                className="text-end tracking-normal"
                 inputMode="numeric"
                 autoComplete="cc-csc"
               />
@@ -100,11 +146,9 @@ export function PaymentCardForm() {
           </div>
 
           <div className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
-            <div className="flex justify-between gap-2 font-medium">
+            <div className="flex justify-between gap-2 font-medium tracking-normal">
               <span>مبلغ</span>
-              <span>
-                <bdi dir="ltr">۱٬۲۹۵٬۰۰۰</bdi> تومان
-              </span>
+              <span>۱٬۲۹۵٬۰۰۰ تومان</span>
             </div>
           </div>
         </CardContent>

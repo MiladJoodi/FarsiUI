@@ -14,22 +14,17 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import {
   Select,
@@ -40,6 +35,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type Attachment = {
   id: string
@@ -52,65 +48,90 @@ type Attachment = {
 }
 
 const SOURCES = [
-  { id: "all", label: "همه", count: "۵" },
-  { id: "ticket", label: "تیکت", count: "۲" },
-  { id: "message", label: "پیام", count: "۲" },
-  { id: "form", label: "فرم", count: "۱" },
+  { id: "همه", label: "همه", count: "۵" },
+  { id: "تیکت", label: "تیکت", count: "۲" },
+  { id: "پیام", label: "پیام", count: "۲" },
+  { id: "فرم", label: "فرم", count: "۱" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "نام", label: "نام" },
+  { value: "اندازه", label: "اندازه" },
+] as const
+
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "PDF", label: "PDF" },
+  { value: "تصویر", label: "تصویر" },
+  { value: "آرشیو", label: "آرشیو" },
 ] as const
 
 const ITEMS: Attachment[] = [
   {
     id: "1",
     name: "invoice-1405.pdf",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     type: "PDF",
     status: "ready",
-    source: "ticket",
+    source: "تیکت",
   },
   {
     id: "2",
     name: "brief.docx",
-    size: "420 KB",
+    size: "۴۲۰ کیلوبایت",
     type: "DOCX",
     status: "ready",
-    source: "message",
+    source: "پیام",
   },
   {
     id: "3",
     name: "photo-cover.jpg",
-    size: "3.1 MB",
+    size: "۳٫۱ مگابایت",
     type: "JPG",
     status: "uploading",
     progress: 54,
-    source: "form",
+    source: "فرم",
   },
   {
     id: "4",
     name: "assets.zip",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     type: "ZIP",
     status: "ready",
-    source: "ticket",
+    source: "تیکت",
   },
   {
     id: "5",
     name: "notes.txt",
-    size: "8 KB",
+    size: "۸ کیلوبایت",
     type: "TXT",
     status: "ready",
-    source: "message",
+    source: "پیام",
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function AttachmentListHub() {
-  const [source, setSource] = React.useState("all")
+  const [source, setSource] = React.useState("همه")
   const [query, setQuery] = React.useState("")
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [type, setType] = React.useState("همه")
   const [selected, setSelected] = React.useState<string[]>(["1"])
   const [chips, setChips] = React.useState(["PDF"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [sortOpen, setSortOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = ITEMS.filter((item) => {
-    if (source !== "all" && item.source !== source) return false
+    if (source !== "همه" && item.source !== source) return false
+    if (type === "PDF" && item.type !== "PDF") return false
+    if (type === "تصویر" && !["JPG", "PNG", "JPEG"].includes(item.type))
+      return false
+    if (type === "آرشیو" && item.type !== "ZIP") return false
     if (query && !item.name.toLowerCase().includes(query.toLowerCase()))
       return false
     return true
@@ -134,9 +155,8 @@ export function AttachmentListHub() {
             پیوست‌ها
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">پیوست‌ها</h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> فایل ·{" "}
-            <bdi dir="ltr">{selected.length}</bdi> انتخاب‌شده
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(rows.length)} فایل · {toFa(selected.length)} انتخاب‌شده
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -144,23 +164,54 @@ export function AttachmentListHub() {
             <UploadIcon className="size-3.5" />
             افزودن پیوست
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={<Button type="button" variant="outline" size="sm" />}
+            >
               <MoreHorizontalIcon className="size-4" />
               بیشتر
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>دانلود انتخاب‌ها</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setSelected([])}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                دانلود انتخاب‌ها
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setSelected([])
+                  setHeaderOpen(false)
+                }}
+              >
                 لغو انتخاب
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setChips([])}>
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -198,8 +249,8 @@ export function AttachmentListHub() {
                 }
               >
                 <span>{s.label}</span>
-                <span className="text-xs text-muted-foreground">
-                  <bdi dir="ltr">{s.count}</bdi>
+                <span className="text-xs tracking-normal text-muted-foreground">
+                  {s.count}
                 </span>
               </button>
             ))}
@@ -210,41 +261,61 @@ export function AttachmentListHub() {
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="name">نام</SelectItem>
-                <SelectItem value="size">اندازه</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full" />}
+          <Popover open={sortOpen} onOpenChange={setSortOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" className="w-full" />
+              }
             >
               میانبر مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-40">
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "newest")}
-              >
-                <DropdownMenuRadioItem value="newest">
-                  جدیدترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="size">
-                  اندازه
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-40 p-1"
+            >
+              {SORT_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    sort === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setSort(opt.value)
+                    setSortOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </PopoverContent>
+          </Popover>
 
           <Field>
             <FieldLabel htmlFor="al5-email">اطلاع‌رسانی</FieldLabel>
@@ -276,15 +347,24 @@ export function AttachmentListHub() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="all">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-32" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="pdf">PDF</SelectItem>
-                <SelectItem value="image">تصویر</SelectItem>
-                <SelectItem value="zip">آرشیو</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -320,18 +400,16 @@ export function AttachmentListHub() {
                           {item.status === "ready" ? "آماده" : "در حال بارگذاری"}
                         </Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">
-                        <bdi dir="ltr">{item.size}</bdi>
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        {item.size}
                         {" · "}
-                        {
-                          SOURCES.find((s) => s.id === item.source)?.label
-                        }
+                        {item.source}
                       </p>
                       {item.status === "uploading" && item.progress != null ? (
                         <div className="space-y-1">
                           <Progress value={item.progress} />
-                          <p className="text-xs text-muted-foreground">
-                            <bdi dir="ltr">{item.progress}%</bdi>
+                          <p className="text-xs tracking-normal text-muted-foreground">
+                            {toFa(item.progress)}٪
                           </p>
                         </div>
                       ) : null}
@@ -339,20 +417,68 @@ export function AttachmentListHub() {
                     <Button variant="ghost" size="icon-sm" aria-label="دانلود">
                       <DownloadIcon className="size-4" />
                     </Button>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === item.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? item.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                        <DropdownMenuItem>دانلود</DropdownMenuItem>
-                        <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-                        <DropdownMenuItem>حذف</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-36 p-1"
+                      >
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          باز کردن
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          دانلود
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          کپی لینک
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          حذف
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))

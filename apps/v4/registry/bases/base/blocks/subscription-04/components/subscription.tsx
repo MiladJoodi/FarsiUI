@@ -16,12 +16,10 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
@@ -29,13 +27,17 @@ const NEXT_BILLING = new Date()
 NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const USAGE = [
@@ -64,21 +66,35 @@ export function SubscriptionDashboard() {
         </div>
         <div className="flex gap-2">
           <Button>ارتقا</Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger
+          <Popover>
+            <PopoverTrigger
               render={
                 <Button variant="outline" size="icon" aria-label="بیشتر" />
               }
             >
               <MoreHorizontalIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" dir="rtl" lang="fa">
-              <DropdownMenuItem>تغییر دوره</DropdownMenuItem>
-              <DropdownMenuItem>دانلود فاکتور</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive">لغو اشتراک</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-44 p-1" dir="rtl">
+              <button
+                type="button"
+                className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+              >
+                تغییر دوره
+              </button>
+              <button
+                type="button"
+                className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+              >
+                دانلود فاکتور
+              </button>
+              <button
+                type="button"
+                className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
+              >
+                لغو اشتراک
+              </button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -91,11 +107,9 @@ export function SubscriptionDashboard() {
           <CardContent className="space-y-5">
             {USAGE.map((u) => (
               <div key={u.label} className="space-y-2">
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between text-sm tracking-normal">
                   <span>{u.label}</span>
-                  <bdi dir="ltr" className="text-muted-foreground">
-                    {u.detail}
-                  </bdi>
+                  <span className="text-muted-foreground">{u.detail}</span>
                 </div>
                 <Progress value={u.value} />
               </div>
@@ -114,19 +128,19 @@ export function SubscriptionDashboard() {
                 <span>
                   تمدید بعدی
                   <br />
-                  <span className="font-medium">{formatJalali(NEXT_BILLING)}</span>
+                  <span className="font-medium tracking-normal">
+                    {formatJalali(NEXT_BILLING)}
+                  </span>
                 </span>
               </p>
               <Separator />
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between gap-2 tracking-normal">
                 <span className="text-muted-foreground">مبلغ</span>
-                <span className="font-medium">
-                  <bdi dir="ltr">۴۹۹٬۰۰۰</bdi> تومان
-                </span>
+                <span className="font-medium">۴۹۹٬۰۰۰ تومان</span>
               </div>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-2 tracking-normal">
                 <CreditCardIcon className="size-4 text-muted-foreground" />
-                <bdi dir="ltr">**** ۴۲۱۸</bdi>
+                **** ۴۲۱۸
               </p>
             </CardContent>
           </Card>

@@ -2,24 +2,11 @@
 
 import * as React from "react"
 import { addDays, isSameDay } from "date-fns"
-import {
-  MoreHorizontalIcon,
-  XIcon,
-} from "lucide-react"
+import { MoreHorizontalIcon, XIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Calendar } from "@/registry/bases/base/ui/calendar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Field,
   FieldDescription,
@@ -27,6 +14,11 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -36,15 +28,20 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
     weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -56,13 +53,40 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
+type Kind = "جلسه" | "ددلاین" | "شخصی"
+
 type EventItem = {
   id: string
   title: string
   time: string
   date: Date
-  kind: "meeting" | "deadline" | "personal"
+  kind: Kind
 }
+
+const KIND_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "جلسه", label: "جلسه" },
+  { value: "ددلاین", label: "ددلاین" },
+  { value: "شخصی", label: "شخصی" },
+] as const
+
+const VIEW_ITEMS = [
+  { value: "ماه", label: "ماه" },
+  { value: "هفته", label: "هفته" },
+  { value: "روز", label: "روز" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
 
 function buildEvents(): EventItem[] {
   const base = new Date()
@@ -72,57 +96,54 @@ function buildEvents(): EventItem[] {
       title: "جلسهٔ تیم محصول",
       time: "۱۰:۰۰",
       date: base,
-      kind: "meeting",
+      kind: "جلسه",
     },
     {
       id: "2",
       title: "بازبینی طراحی",
       time: "۱۴:۳۰",
       date: addDays(base, 1),
-      kind: "meeting",
+      kind: "جلسه",
     },
     {
       id: "3",
       title: "ددلاین نسخهٔ بتا",
       time: "۱۸:۰۰",
       date: addDays(base, 2),
-      kind: "deadline",
+      kind: "ددلاین",
     },
     {
       id: "4",
       title: "ویزیت پزشک",
       time: "۰۹:۱۵",
       date: addDays(base, 4),
-      kind: "personal",
+      kind: "شخصی",
     },
     {
       id: "5",
       title: "هماهنگ با فروش",
       time: "۱۱:۳۰",
       date: addDays(base, 5),
-      kind: "meeting",
+      kind: "جلسه",
     },
   ]
 }
-
-const KIND_LABEL = {
-  meeting: "جلسه",
-  deadline: "ددلاین",
-  personal: "شخصی",
-} as const
 
 export function CalendarBlockHub() {
   const [events] = React.useState(buildEvents)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [month, setMonth] = React.useState<Date>(new Date())
-  const [view, setView] = React.useState("month")
-  const [kind, setKind] = React.useState("all")
+  const [view, setView] = React.useState("ماه")
+  const [kind, setKind] = React.useState("همه")
+  const [remindAt, setRemindAt] = React.useState("۰۹:۰۰")
   const [chips, setChips] = React.useState(["جلسات"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const booked = events.map((e) => e.date)
   const dayEvents = events.filter((e) => {
     if (!date || !isSameDay(e.date, date)) return false
-    if (kind !== "all" && e.kind !== kind) return false
+    if (kind !== "همه" && e.kind !== kind) return false
     return true
   })
 
@@ -138,10 +159,10 @@ export function CalendarBlockHub() {
             تقویم شمسی
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">تقویم</h2>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 tracking-normal text-muted-foreground">
             {date ? formatJalali(date) : "روزی انتخاب نشده"}
             {" · "}
-            <bdi dir="ltr">{formatJalaliCompact(date ?? new Date())}</bdi>
+            {formatJalaliCompact(date ?? new Date())}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -156,29 +177,62 @@ export function CalendarBlockHub() {
           >
             امروز
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={<Button type="button" variant="outline" size="sm" />}
+            >
               <MoreHorizontalIcon className="size-4" />
               بیشتر
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>نمایش</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={view}
-                onValueChange={(v) => setView(v ?? "month")}
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <p className="px-2 py-1.5 text-xs text-muted-foreground">نمایش</p>
+              {VIEW_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    view === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setView(opt.value)
+                    setHeaderOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+              <Separator className="my-1" />
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
               >
-                <DropdownMenuRadioItem value="month">ماه</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="week">هفته</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="day">روز</DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>رویداد جدید</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setChips([])}>
+                رویداد جدید
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -220,8 +274,8 @@ export function CalendarBlockHub() {
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <p className="text-sm font-medium">رویدادهای این روز</p>
-              <Badge variant="outline">
-                <bdi dir="ltr">{dayEvents.length}</bdi>
+              <Badge variant="outline" className="tracking-normal">
+                {toFa(dayEvents.length)}
               </Badge>
             </div>
             {dayEvents.length === 0 ? (
@@ -239,27 +293,65 @@ export function CalendarBlockHub() {
                           <p className="truncate text-sm font-medium">
                             {ev.title}
                           </p>
-                          <Badge variant="secondary">
-                            {KIND_LABEL[ev.kind]}
-                          </Badge>
+                          <Badge variant="secondary">{ev.kind}</Badge>
                         </div>
-                        <p className="text-xs text-muted-foreground">
-                          ساعت <bdi dir="ltr">{ev.time}</bdi>
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          ساعت {ev.time}
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === ev.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? ev.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                          <DropdownMenuItem>اشتراک</DropdownMenuItem>
-                          <DropdownMenuItem>حذف</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-36 p-1"
+                        >
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ویرایش
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            اشتراک
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            حذف
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </li>
                 ))}
@@ -274,17 +366,23 @@ export function CalendarBlockHub() {
           <Field>
             <FieldLabel>نوع رویداد</FieldLabel>
             <Select
+              items={[...KIND_ITEMS]}
               value={kind}
-              onValueChange={(v) => setKind((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (KIND_ITEMS.some((item) => item.value === value)) {
+                  setKind(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="meeting">جلسه</SelectItem>
-                <SelectItem value="deadline">ددلاین</SelectItem>
-                <SelectItem value="personal">شخصی</SelectItem>
+                {KIND_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -292,30 +390,50 @@ export function CalendarBlockHub() {
           <Field>
             <FieldLabel>نمای تقویم</FieldLabel>
             <Select
+              items={[...VIEW_ITEMS]}
               value={view}
-              onValueChange={(v) => setView((v as string) ?? "month")}
+              onValueChange={(value) => {
+                if (VIEW_ITEMS.some((item) => item.value === value)) {
+                  setView(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="نما" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="month">ماه</SelectItem>
-                <SelectItem value="week">هفته</SelectItem>
-                <SelectItem value="day">روز</SelectItem>
+                {VIEW_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="cal5-time">ساعت یادآوری</FieldLabel>
-            <Input
-              id="cal5-time"
-              type="time"
-              defaultValue="09:00"
-              dir="ltr"
-              className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-            />
-            <FieldDescription>زمان به‌صورت LTR</FieldDescription>
+            <FieldLabel>ساعت یادآوری</FieldLabel>
+            <Select
+              items={[...TIME_ITEMS]}
+              value={remindAt}
+              onValueChange={(value) => {
+                if (TIME_ITEMS.some((item) => item.value === value)) {
+                  setRemindAt(value as string)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="ساعت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {TIME_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <FieldDescription>زمان یادآوری روزانه</FieldDescription>
           </Field>
 
           <Field>

@@ -32,8 +32,8 @@ export function PaymentMethodsCard() {
             امن
           </Badge>
           <CardTitle>روش پرداخت</CardTitle>
-          <CardDescription>
-            مبلغ: <bdi dir="ltr">۱٬۲۹۵٬۰۰۰</bdi> تومان
+          <CardDescription className="tracking-normal">
+            مبلغ: ۱٬۲۹۵٬۰۰۰ تومان
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -74,8 +74,8 @@ export function PaymentMethodsCard() {
                 <WalletIcon className="mt-0.5 size-4 text-muted-foreground" />
                 <div>
                   <p className="font-medium">کیف پول</p>
-                  <p className="text-xs text-muted-foreground">
-                    موجودی: <bdi dir="ltr">۵۲۰٬۰۰۰</bdi> تومان
+                  <p className="text-xs text-muted-foreground tracking-normal">
+                    موجودی: ۵۲۰٬۰۰۰ تومان
                   </p>
                 </div>
               </div>
@@ -96,11 +96,9 @@ export function PaymentMethodsCard() {
             </Label>
           </RadioGroup>
           <Separator />
-          <div className="flex justify-between text-sm font-medium">
+          <div className="flex justify-between text-sm font-medium tracking-normal">
             <span>قابل پرداخت</span>
-            <span>
-              <bdi dir="ltr">۱٬۲۹۵٬۰۰۰</bdi> تومان
-            </span>
+            <span>۱٬۲۹۵٬۰۰۰ تومان</span>
           </div>
         </CardContent>
         <CardFooter className="border-t">

@@ -16,12 +16,17 @@ const NEXT_BILLING = new Date()
 NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function SubscriptionStatusSimple() {
@@ -41,13 +46,11 @@ export function SubscriptionStatusSimple() {
           <CardDescription>طرح حرفه‌ای</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3 text-sm">
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">مبلغ دوره</span>
-            <span>
-              <bdi dir="ltr">۴۹۹٬۰۰۰</bdi> تومان
-            </span>
+            <span>۴۹۹٬۰۰۰ تومان</span>
           </div>
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 tracking-normal">
             <span className="text-muted-foreground">تمدید بعدی</span>
             <span>{formatJalali(NEXT_BILLING)}</span>
           </div>

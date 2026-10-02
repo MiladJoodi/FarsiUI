@@ -12,13 +12,17 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const EVENT_DATE = new Date()
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function EventDetailsSimple() {
@@ -36,14 +40,14 @@ export function EventDetailsSimple() {
         <CardContent className="space-y-3 text-sm">
           <div>
             <p className="text-muted-foreground">تاریخ</p>
-            <p className="font-medium">{formatJalali(EVENT_DATE)}</p>
+            <p className="font-medium tracking-normal">
+              {formatJalali(EVENT_DATE)}
+            </p>
           </div>
           <Separator />
           <div>
             <p className="text-muted-foreground">ساعت</p>
-            <p className="font-medium">
-              <bdi dir="ltr">۱۰:۰۰ – ۱۱:۳۰</bdi>
-            </p>
+            <p className="font-medium tracking-normal">۱۰:۰۰ – ۱۱:۳۰</p>
           </div>
           <Separator />
           <div>

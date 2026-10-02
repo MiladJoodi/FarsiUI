@@ -36,9 +36,27 @@ const PLANS = [
   { id: "team", name: "تیم", monthly: "۸۹۹٬۰۰۰", yearly: "۸٬۶۳۰٬۰۰۰" },
 ] as const
 
+const SEAT_ITEMS = [
+  { value: "۱", label: "۱" },
+  { value: "۲", label: "۲" },
+  { value: "۳", label: "۳" },
+  { value: "۵", label: "۵" },
+  { value: "۱۰", label: "۱۰" },
+] as const
+
+const START_ITEMS = [
+  { value: "همین حالا", label: "همین حالا" },
+  { value: "پایان دورهٔ جاری", label: "پایان دورهٔ جاری" },
+] as const
+
+type SeatValue = (typeof SEAT_ITEMS)[number]["value"]
+type StartValue = (typeof START_ITEMS)[number]["value"]
+
 export function PlanSelectionConfigForm() {
   const [plan, setPlan] = React.useState("pro")
   const [yearly, setYearly] = React.useState(false)
+  const [seats, setSeats] = React.useState<SeatValue>("۳")
+  const [start, setStart] = React.useState<StartValue>("همین حالا")
   const selected = PLANS.find((p) => p.id === plan)!
   const price = yearly ? selected.yearly : selected.monthly
 
@@ -81,36 +99,59 @@ export function PlanSelectionConfigForm() {
                     <RadioGroupItem value={p.id} id={`ps3-${p.id}`} />
                     <span className="font-medium">{p.name}</span>
                   </div>
-                  <bdi dir="ltr" className="text-sm tabular-nums">
+                  <span className="text-sm tracking-normal">
                     {yearly ? p.yearly : p.monthly}
-                  </bdi>
+                  </span>
                 </Label>
               ))}
             </RadioGroup>
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="ps3-seats">تعداد صندلی</FieldLabel>
-            <Input
-              id="ps3-seats"
-              type="number"
-              min={1}
-              defaultValue={3}
-              dir="ltr"
-              className="text-start"
-            />
+            <FieldLabel>تعداد صندلی</FieldLabel>
+            <Select
+              items={[...SEAT_ITEMS]}
+              value={seats}
+              onValueChange={(value) => {
+                if (SEAT_ITEMS.some((item) => item.value === value)) {
+                  setSeats(value as SeatValue)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="تعداد" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {SEAT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             <FieldDescription>برای طرح تیم</FieldDescription>
           </Field>
 
           <Field>
             <FieldLabel>شروع از</FieldLabel>
-            <Select defaultValue="now">
+            <Select
+              items={[...START_ITEMS]}
+              value={start}
+              onValueChange={(value) => {
+                if (START_ITEMS.some((item) => item.value === value)) {
+                  setStart(value as StartValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="now">همین حالا</SelectItem>
-                <SelectItem value="period">پایان دورهٔ جاری</SelectItem>
+                {START_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -127,11 +168,10 @@ export function PlanSelectionConfigForm() {
           </Field>
 
           <Separator />
-          <div className="flex justify-between text-sm font-medium">
+          <div className="flex justify-between text-sm font-medium tracking-normal">
             <span>جمع انتخاب</span>
             <span>
-              <bdi dir="ltr">{price}</bdi> تومان /{" "}
-              {yearly ? "سال" : "ماه"}
+              {price} تومان / {yearly ? "سال" : "ماه"}
             </span>
           </div>
         </CardContent>

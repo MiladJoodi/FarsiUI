@@ -21,12 +21,17 @@ const PERIOD_END = new Date()
 PERIOD_END.setDate(PERIOD_END.getDate() + 12)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -52,45 +57,41 @@ export function BillingPeriodCard() {
             <Badge variant="outline">در انتظار پرداخت</Badge>
           </div>
           <CardTitle>صورتحساب</CardTitle>
-          <CardDescription>
+          <CardDescription className="tracking-normal">
             از {formatJalali(PERIOD_START)} تا {formatJalali(PERIOD_END)}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-5">
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-sm tracking-normal">
               <span>پیشرفت دوره</span>
-              <bdi dir="ltr" className="text-muted-foreground">
-                ۱۸ / ۳۰ روز
-              </bdi>
+              <span className="text-muted-foreground">۱۸ / ۳۰ روز</span>
             </div>
             <Progress value={60} />
           </div>
           <Separator />
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm tracking-normal">
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">طرح پایه</span>
-              <bdi dir="ltr">۴۹۹٬۰۰۰</bdi>
+              <span>۴۹۹٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">API اضافه</span>
-              <bdi dir="ltr">۸۰٬۰۰۰</bdi>
+              <span>۸۰٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-2 font-medium">
               <span>جمع دوره</span>
-              <span>
-                <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-              </span>
+              <span>۵۷۹٬۰۰۰ تومان</span>
             </div>
           </div>
           <div className="space-y-2 rounded-lg border bg-muted/30 p-3 text-sm">
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 tracking-normal">
               <CalendarIcon className="size-4 text-muted-foreground" />
-              سررسید <bdi dir="ltr">{formatJalaliCompact(PERIOD_END)}</bdi>
+              سررسید {formatJalaliCompact(PERIOD_END)}
             </p>
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 tracking-normal">
               <CreditCardIcon className="size-4 text-muted-foreground" />
-              کارت <bdi dir="ltr">**** ۴۲۱۸</bdi>
+              کارت **** ۴۲۱۸
             </p>
           </div>
         </CardContent>

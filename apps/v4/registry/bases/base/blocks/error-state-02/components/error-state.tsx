@@ -39,9 +39,9 @@ export function ErrorStateIconCard() {
               <EmptyTitle>اتصال برقرار نشد</EmptyTitle>
               <EmptyDescription>
                 سرور پاسخ نداد. کد خطا:{" "}
-                <bdi dir="ltr" className="font-medium text-foreground">
-                  503
-                </bdi>
+                <span className="font-medium text-foreground tracking-normal">
+                  ۵۰۳
+                </span>
                 . می‌توانید دوباره تلاش کنید یا با پشتیبانی تماس بگیرید.
               </EmptyDescription>
             </EmptyHeader>
@@ -57,8 +57,8 @@ export function ErrorStateIconCard() {
             </EmptyContent>
           </Empty>
         </CardContent>
-        <CardFooter className="justify-center border-t text-xs text-muted-foreground">
-          شناسه رهگیری: <bdi dir="ltr" className="ms-1">ERR-9F2A</bdi>
+        <CardFooter className="justify-center border-t text-xs text-muted-foreground tracking-normal">
+          شناسه رهگیری: خطا-۹۴۲۱
         </CardFooter>
       </Card>
     </section>

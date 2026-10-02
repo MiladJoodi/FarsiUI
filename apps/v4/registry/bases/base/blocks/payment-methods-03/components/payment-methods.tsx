@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -26,7 +28,42 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const TYPE_ITEMS = [
+  { value: "کارت بانکی", label: "کارت بانکی" },
+  { value: "کیف پول", label: "کیف پول" },
+] as const
+
+type TypeValue = (typeof TYPE_ITEMS)[number]["value"]
+
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatCardNumber(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 16)
+  const fa = toFaDigits(digits)
+  return fa.match(/.{1,4}/g)?.join("-") ?? fa
+}
+
+function formatExp(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 4)
+  const fa = toFaDigits(digits)
+  if (fa.length <= 2) return fa
+  return `${fa.slice(0, 2)}/${fa.slice(2)}`
+}
+
 export function PaymentMethodsAddForm() {
+  const [type, setType] = React.useState<TypeValue>("کارت بانکی")
+  const [card, setCard] = React.useState("")
+  const [exp, setExp] = React.useState("")
+  const [cvv, setCvv] = React.useState("")
+
   return (
     <section
       dir="rtl"
@@ -39,20 +76,29 @@ export function PaymentMethodsAddForm() {
             جدید
           </Badge>
           <CardTitle>افزودن روش پرداخت</CardTitle>
-          <CardDescription>
-            شماره کارت و انقضا به‌صورت LTR
-          </CardDescription>
+          <CardDescription>شماره کارت و انقضا فارسی</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
             <FieldLabel>نوع</FieldLabel>
-            <Select defaultValue="card">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as TypeValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="card">کارت بانکی</SelectItem>
-                <SelectItem value="wallet">کیف پول</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -66,42 +112,65 @@ export function PaymentMethodsAddForm() {
             />
           </Field>
 
-          <Field>
-            <FieldLabel htmlFor="pm3-card">شماره کارت</FieldLabel>
-            <Input
-              id="pm3-card"
-              placeholder="6037-****-****-****"
-              dir="ltr"
-              className="text-start tracking-wider"
-              inputMode="numeric"
-              autoComplete="cc-number"
-            />
-            <FieldDescription>۱۶ رقم</FieldDescription>
-          </Field>
+          {type === "کارت بانکی" ? (
+            <>
+              <Field>
+                <FieldLabel htmlFor="pm3-card">شماره کارت</FieldLabel>
+                <Input
+                  id="pm3-card"
+                  value={card}
+                  onChange={(e) => setCard(formatCardNumber(e.target.value))}
+                  placeholder="۶۰۳۷-****-****-****"
+                  dir="rtl"
+                  className="text-end tracking-normal"
+                  inputMode="numeric"
+                  autoComplete="cc-number"
+                />
+                <FieldDescription className="tracking-normal">
+                  ۱۶ رقم
+                </FieldDescription>
+              </Field>
 
-          <div className="grid grid-cols-2 gap-4">
-            <Field>
-              <FieldLabel htmlFor="pm3-exp">انقضا</FieldLabel>
-              <Input
-                id="pm3-exp"
-                placeholder="MM/YY"
-                dir="ltr"
-                className="text-start"
-                autoComplete="cc-exp"
-              />
-            </Field>
-            <Field>
-              <FieldLabel htmlFor="pm3-cvv">CVV</FieldLabel>
-              <Input
-                id="pm3-cvv"
-                placeholder="***"
-                dir="ltr"
-                className="text-start"
-                inputMode="numeric"
-                autoComplete="cc-csc"
-              />
-            </Field>
-          </div>
+              <div className="grid grid-cols-2 gap-4">
+                <Field>
+                  <FieldLabel htmlFor="pm3-exp">انقضا</FieldLabel>
+                  <Input
+                    id="pm3-exp"
+                    value={exp}
+                    onChange={(e) => setExp(formatExp(e.target.value))}
+                    placeholder="ماه/سال"
+                    dir="rtl"
+                    className="text-end tracking-normal"
+                    autoComplete="cc-exp"
+                  />
+                </Field>
+                <Field>
+                  <FieldLabel htmlFor="pm3-cvv">CVV</FieldLabel>
+                  <Input
+                    id="pm3-cvv"
+                    value={cvv}
+                    onChange={(e) =>
+                      setCvv(
+                        toFaDigits(
+                          e.target.value
+                            .replace(/[۰-۹]/g, (d) =>
+                              String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                            )
+                            .replace(/\D/g, "")
+                            .slice(0, 4)
+                        )
+                      )
+                    }
+                    placeholder="۰۰۰"
+                    dir="rtl"
+                    className="text-end tracking-normal"
+                    inputMode="numeric"
+                    autoComplete="cc-csc"
+                  />
+                </Field>
+              </div>
+            </>
+          ) : null}
 
           <Field>
             <FieldLabel htmlFor="pm3-email">ایمیل رسید</FieldLabel>

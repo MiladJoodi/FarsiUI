@@ -35,10 +35,21 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const RATIO_ITEMS = [
+  { value: "مربع ۱:۱", label: "مربع ۱:۱" },
+  { value: "۴:۵", label: "۴:۵" },
+  { value: "دایره", label: "دایره" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function AvatarUploadForm() {
   const [preview, setPreview] = React.useState<string | null>(null)
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [progress, setProgress] = React.useState(0)
+  const [ratio, setRatio] = React.useState("مربع ۱:۱")
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function onFile(event: React.ChangeEvent<HTMLInputElement>) {
@@ -119,20 +130,37 @@ export function AvatarUploadForm() {
                     "هنوز تصویری انتخاب نشده"
                   )}
                 </p>
-                {fileName ? <Progress value={progress} /> : null}
+                {fileName ? (
+                  <div className="space-y-1">
+                    <Progress value={progress} />
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {toFa(progress)}٪
+                    </p>
+                  </div>
+                ) : null}
               </div>
             </div>
 
             <Field>
               <FieldLabel>نسبت تصویر</FieldLabel>
-              <Select defaultValue="1-1">
+              <Select
+                items={[...RATIO_ITEMS]}
+                value={ratio}
+                onValueChange={(value) => {
+                  if (RATIO_ITEMS.some((item) => item.value === value)) {
+                    setRatio(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="نسبت" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="1-1">مربع ۱:۱</SelectItem>
-                  <SelectItem value="4-5">۴:۵</SelectItem>
-                  <SelectItem value="circle">دایره</SelectItem>
+                  {RATIO_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>

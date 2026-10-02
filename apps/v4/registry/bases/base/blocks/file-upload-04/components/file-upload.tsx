@@ -11,13 +11,10 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
@@ -33,32 +30,48 @@ const INITIAL: UploadItem[] = [
   {
     id: "1",
     name: "invoice-1405.pdf",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     progress: 100,
     status: "done",
   },
   {
     id: "2",
     name: "brief.docx",
-    size: "420 KB",
+    size: "۴۲۰ کیلوبایت",
     progress: 62,
     status: "uploading",
   },
   {
     id: "3",
     name: "photo-cover.jpg",
-    size: "3.1 MB",
+    size: "۳٫۱ مگابایت",
     progress: 18,
     status: "error",
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
+function formatSize(bytes: number) {
+  if (bytes >= 1024 * 1024) {
+    const mb = bytes / (1024 * 1024)
+    return `${mb.toLocaleString("fa-IR", { maximumFractionDigits: 1 })} مگابایت`
+  }
+  const kb = Math.max(1, Math.round(bytes / 1024))
+  return `${toFa(kb)} کیلوبایت`
+}
+
 export function FileUploadList() {
   const [files, setFiles] = React.useState(INITIAL)
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function remove(id: string) {
     setFiles((prev) => prev.filter((f) => f.id !== id))
+    setOpenId(null)
   }
 
   function onPick(event: React.ChangeEvent<HTMLInputElement>) {
@@ -67,7 +80,7 @@ export function FileUploadList() {
     const next: UploadItem[] = Array.from(picked).map((file, i) => ({
       id: `${Date.now()}-${i}`,
       name: file.name,
-      size: `${Math.max(1, Math.round(file.size / 1024))} KB`,
+      size: formatSize(file.size),
       progress: 0,
       status: "uploading" as const,
     }))
@@ -105,30 +118,52 @@ export function FileUploadList() {
               className="sr-only"
               onChange={onPick}
             />
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="ghost" size="icon-sm" />}
+            <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="ghost" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => setFiles([])}>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-44 p-1"
+              >
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    setFiles([])
+                    setHeaderOpen(false)
+                  }}
+                >
                   پاک کردن همه
-                </DropdownMenuItem>
-                <DropdownMenuItem>توقف همه</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="w-full justify-start"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  توقف همه
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 
         <div className="flex flex-wrap gap-2 border-b px-4 py-3">
-          <Badge variant="secondary">
-            <bdi dir="ltr">{files.length}</bdi> فایل
+          <Badge variant="secondary" className="tracking-normal">
+            {toFa(files.length)} فایل
           </Badge>
-          <Badge variant="outline">حداکثر <bdi dir="ltr">۲۵ MB</bdi></Badge>
+          <Badge variant="outline">حداکثر ۲۵ مگابایت</Badge>
         </div>
 
         {files.length === 0 ? (
@@ -163,28 +198,69 @@ export function FileUploadList() {
                             : "در حال بارگذاری"}
                       </Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{file.size}</bdi>
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {file.size}
+                      {file.status !== "done" ? (
+                        <> · {toFa(file.progress)}٪</>
+                      ) : null}
                     </p>
                     {file.status !== "done" ? (
                       <Progress value={file.progress} />
                     ) : null}
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === file.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? file.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon-sm"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                      <DropdownMenuItem>تلاش دوباره</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => remove(file.id)}>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-40 p-1"
+                    >
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        باز کردن
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        تلاش دوباره
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => remove(file.id)}
+                      >
                         حذف
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                   <Button
                     type="button"
                     variant="ghost"

@@ -36,10 +36,36 @@ import {
 
 const AMOUNT = "۱٬۲۹۵٬۰۰۰"
 
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatCardNumber(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 16)
+  const fa = toFaDigits(digits)
+  return fa.match(/.{1,4}/g)?.join("-") ?? fa
+}
+
+function formatExp(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 4)
+  const fa = toFaDigits(digits)
+  if (fa.length <= 2) return fa
+  return `${fa.slice(0, 2)}/${fa.slice(2)}`
+}
+
 export function PaymentFancy() {
   const [paid, setPaid] = React.useState(false)
   const [saveCard, setSaveCard] = React.useState(true)
   const [otp, setOtp] = React.useState("")
+  const [card, setCard] = React.useState("")
+  const [exp, setExp] = React.useState("")
+  const [cvv, setCvv] = React.useState("")
 
   if (paid) {
     return (
@@ -54,17 +80,13 @@ export function PaymentFancy() {
               <CheckIcon className="size-6" />
             </div>
             <CardTitle>پرداخت موفق</CardTitle>
-            <CardDescription>
-              مبلغ <bdi dir="ltr">{AMOUNT}</bdi> تومان
+            <CardDescription className="tracking-normal">
+              مبلغ {AMOUNT} تومان
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2 text-center text-sm text-muted-foreground">
-            <p>
-              کد پیگیری: <bdi dir="ltr">PAY-938271</bdi>
-            </p>
-            <p>
-              رسید به <bdi dir="ltr">name@example.com</bdi> ارسال شد
-            </p>
+            <p className="tracking-normal">کد پیگیری: پرداخت-۹۳۸۲۷۱</p>
+            <p>رسید به ایمیل شما ارسال شد</p>
           </CardContent>
           <CardFooter>
             <Button className="w-full" onClick={() => setPaid(false)}>
@@ -96,16 +118,16 @@ export function PaymentFancy() {
             </Badge>
             <Badge variant="outline">
               <LockIcon className="size-3" />
-              SSL
+              امن
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">پرداخت</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            کارت، کیف پول یا رمز پویا — مبالغ و شماره کارت LTR
+            کارت، کیف پول یا رمز پویا
           </p>
         </div>
-        <p className="text-lg font-semibold tabular-nums">
-          <bdi dir="ltr">{AMOUNT}</bdi>{" "}
+        <p className="text-lg font-semibold tracking-normal">
+          {AMOUNT}{" "}
           <span className="text-sm font-normal text-muted-foreground">
             تومان
           </span>
@@ -127,9 +149,7 @@ export function PaymentFancy() {
                   <CreditCardIcon className="size-4" />
                   کارت بانکی
                 </CardTitle>
-                <CardDescription>
-                  مسیر: <bdi dir="ltr">/payment/gateway</bdi>
-                </CardDescription>
+                <CardDescription>اطلاعات کارت فارسی</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Field>
@@ -140,9 +160,11 @@ export function PaymentFancy() {
                   <FieldLabel htmlFor="pay5-card">شماره کارت</FieldLabel>
                   <Input
                     id="pay5-card"
-                    placeholder="6037-****-****-****"
-                    dir="ltr"
-                    className="text-start tracking-wider"
+                    value={card}
+                    onChange={(e) => setCard(formatCardNumber(e.target.value))}
+                    placeholder="۶۰۳۷-****-****-****"
+                    dir="rtl"
+                    className="text-end tracking-normal"
                     inputMode="numeric"
                   />
                 </Field>
@@ -151,18 +173,33 @@ export function PaymentFancy() {
                     <FieldLabel htmlFor="pay5-exp">انقضا</FieldLabel>
                     <Input
                       id="pay5-exp"
-                      placeholder="MM/YY"
-                      dir="ltr"
-                      className="text-start"
+                      value={exp}
+                      onChange={(e) => setExp(formatExp(e.target.value))}
+                      placeholder="ماه/سال"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                     />
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="pay5-cvv">CVV</FieldLabel>
                     <Input
                       id="pay5-cvv"
-                      placeholder="***"
-                      dir="ltr"
-                      className="text-start"
+                      value={cvv}
+                      onChange={(e) =>
+                        setCvv(
+                          toFaDigits(
+                            e.target.value
+                              .replace(/[۰-۹]/g, (d) =>
+                                String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                              )
+                              .replace(/\D/g, "")
+                              .slice(0, 4)
+                          )
+                        )
+                      }
+                      placeholder="۰۰۰"
+                      dir="rtl"
+                      className="text-end tracking-normal"
                       inputMode="numeric"
                     />
                   </Field>
@@ -187,8 +224,11 @@ export function PaymentFancy() {
                 </div>
               </CardContent>
               <CardFooter className="border-t">
-                <Button className="w-full" onClick={() => setPaid(true)}>
-                  پرداخت <bdi dir="ltr">{AMOUNT}</bdi> تومان
+                <Button
+                  className="w-full tracking-normal"
+                  onClick={() => setPaid(true)}
+                >
+                  پرداخت {AMOUNT} تومان
                 </Button>
               </CardFooter>
             </Card>
@@ -201,24 +241,18 @@ export function PaymentFancy() {
                 <CardDescription>پرداخت از موجودی</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
-                <div className="flex justify-between gap-2 rounded-lg border bg-muted/30 px-3 py-3">
+                <div className="flex justify-between gap-2 rounded-lg border bg-muted/30 px-3 py-3 tracking-normal">
                   <span className="text-muted-foreground">موجودی</span>
-                  <span className="font-medium">
-                    <bdi dir="ltr">۲٬۴۰۰٬۰۰۰</bdi> تومان
-                  </span>
+                  <span className="font-medium">۲٬۴۰۰٬۰۰۰ تومان</span>
                 </div>
-                <div className="flex justify-between gap-2">
+                <div className="flex justify-between gap-2 tracking-normal">
                   <span className="text-muted-foreground">کسر می‌شود</span>
-                  <span>
-                    <bdi dir="ltr">{AMOUNT}</bdi> تومان
-                  </span>
+                  <span>{AMOUNT} تومان</span>
                 </div>
                 <Separator />
-                <div className="flex justify-between gap-2 font-medium">
+                <div className="flex justify-between gap-2 font-medium tracking-normal">
                   <span>مانده پس از پرداخت</span>
-                  <span>
-                    <bdi dir="ltr">۱٬۱۰۵٬۰۰۰</bdi> تومان
-                  </span>
+                  <span>۱٬۱۰۵٬۰۰۰ تومان</span>
                 </div>
               </CardContent>
               <CardFooter className="border-t">
@@ -243,15 +277,26 @@ export function PaymentFancy() {
                   <Input
                     id="pay5-otp"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
+                    onChange={(e) =>
+                      setOtp(
+                        toFaDigits(
+                          e.target.value
+                            .replace(/[۰-۹]/g, (d) =>
+                              String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                            )
+                            .replace(/\D/g, "")
+                            .slice(0, 6)
+                        )
+                      )
+                    }
                     placeholder="------"
-                    dir="ltr"
-                    className="text-center text-lg tracking-[0.4em]"
+                    dir="rtl"
+                    className="text-center text-lg tracking-normal"
                     inputMode="numeric"
                     maxLength={6}
                   />
-                  <FieldDescription>
-                    موبایل: <bdi dir="ltr">0912***7841</bdi>
+                  <FieldDescription className="tracking-normal">
+                    موبایل: ۰۹۱۲***۷۸۴۱
                   </FieldDescription>
                 </Field>
                 <Button variant="outline" className="w-full" size="sm">
@@ -275,14 +320,14 @@ export function PaymentFancy() {
           <CardHeader className="text-start">
             <CardTitle className="text-base">جزئیات مبلغ</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-sm">
+          <CardContent className="space-y-3 text-sm tracking-normal">
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">جمع کالا</span>
-              <bdi dir="ltr">۱٬۲۵۰٬۰۰۰</bdi>
+              <span>۱٬۲۵۰٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">ارسال</span>
-              <bdi dir="ltr">۴۵٬۰۰۰</bdi>
+              <span>۴۵٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">تخفیف</span>
@@ -291,9 +336,7 @@ export function PaymentFancy() {
             <Separator />
             <div className="flex justify-between gap-2 text-base font-semibold">
               <span>قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr">{AMOUNT}</bdi> تومان
-              </span>
+              <span>{AMOUNT} تومان</span>
             </div>
           </CardContent>
         </Card>

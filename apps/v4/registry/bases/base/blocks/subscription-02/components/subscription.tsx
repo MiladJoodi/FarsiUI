@@ -19,12 +19,17 @@ const NEXT_BILLING = new Date()
 NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -54,35 +59,31 @@ export function SubscriptionUsageCard() {
         </CardHeader>
         <CardContent className="space-y-5">
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-sm tracking-normal">
               <span>پروژه‌ها</span>
-              <bdi dir="ltr" className="text-muted-foreground">
-                ۷ / ۱۰
-              </bdi>
+              <span className="text-muted-foreground">۷ / ۱۰</span>
             </div>
             <Progress value={70} />
           </div>
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-sm tracking-normal">
               <span>فضای ذخیره</span>
-              <bdi dir="ltr" className="text-muted-foreground">
-                ۱۲ / ۲۰ گیگابایت
-              </bdi>
+              <span className="text-muted-foreground">۱۲ / ۲۰ گیگابایت</span>
             </div>
             <Progress value={60} />
           </div>
           <Separator />
           <div className="space-y-2 text-sm">
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 tracking-normal">
               <CalendarIcon className="size-4 text-muted-foreground" />
               تمدید: {formatJalali(NEXT_BILLING)}
             </p>
-            <bdi dir="ltr" className="block text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground tracking-normal">
               {formatJalaliCompact(NEXT_BILLING)}
-            </bdi>
-            <p className="flex items-center gap-2">
+            </p>
+            <p className="flex items-center gap-2 tracking-normal">
               <CreditCardIcon className="size-4 text-muted-foreground" />
-              کارت <bdi dir="ltr">**** ۴۲۱۸</bdi>
+              کارت **** ۴۲۱۸
             </p>
           </div>
         </CardContent>

@@ -29,13 +29,24 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
+const TYPE_ITEMS = [
+  { value: "سفر", label: "سفر" },
+  { value: "مرخصی", label: "مرخصی" },
+  { value: "رویداد", label: "رویداد" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliShort(date: Date) {
@@ -53,6 +64,7 @@ export function CalendarBlockRange() {
     from: today,
     to: addDays(today, 6),
   })
+  const [type, setType] = React.useState("سفر")
 
   return (
     <section
@@ -72,21 +84,32 @@ export function CalendarBlockRange() {
           <Badge variant="secondary">شمسی</Badge>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
-            <Field className="flex-1">
+          <div className="grid gap-3 sm:grid-cols-2 sm:items-start">
+            <Field>
               <FieldLabel>نوع بازه</FieldLabel>
-              <Select defaultValue="trip">
+              <Select
+                items={[...TYPE_ITEMS]}
+                value={type}
+                onValueChange={(value) => {
+                  if (TYPE_ITEMS.some((item) => item.value === value)) {
+                    setType(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="نوع" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="trip">سفر</SelectItem>
-                  <SelectItem value="leave">مرخصی</SelectItem>
-                  <SelectItem value="event">رویداد</SelectItem>
+                  {TYPE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
+              <FieldDescription>نوع استفاده از بازه</FieldDescription>
             </Field>
-            <Field className="flex-1">
+            <Field>
               <FieldLabel htmlFor="cal3-email">ایمیل اطلاع‌رسانی</FieldLabel>
               <Input
                 id="cal3-email"
@@ -112,19 +135,26 @@ export function CalendarBlockRange() {
             {range?.from ? (
               range.to ? (
                 <p>
-                  از <span className="font-medium">{formatJalali(range.from)}</span>
+                  از{" "}
+                  <span className="font-medium tracking-normal">
+                    {formatJalali(range.from)}
+                  </span>
                   {" تا "}
-                  <span className="font-medium">{formatJalali(range.to)}</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">
-                    <bdi dir="ltr">{formatJalaliShort(range.from)}</bdi>
+                  <span className="font-medium tracking-normal">
+                    {formatJalali(range.to)}
+                  </span>
+                  <span className="mt-1 block text-xs tracking-normal text-muted-foreground">
+                    {formatJalaliShort(range.from)}
                     {" — "}
-                    <bdi dir="ltr">{formatJalaliShort(range.to)}</bdi>
+                    {formatJalaliShort(range.to)}
                   </span>
                 </p>
               ) : (
                 <p>
                   شروع:{" "}
-                  <span className="font-medium">{formatJalali(range.from)}</span>
+                  <span className="font-medium tracking-normal">
+                    {formatJalali(range.from)}
+                  </span>
                 </p>
               )
             ) : (

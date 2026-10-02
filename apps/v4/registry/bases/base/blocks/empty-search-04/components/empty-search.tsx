@@ -11,14 +11,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Empty,
   EmptyContent,
   EmptyDescription,
@@ -27,6 +19,11 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -38,8 +35,20 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 
 const RECENT = ["هدفون بی‌سیم", "کیف چرم", "ساعت نور"] as const
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "مرتبط‌ترین", label: "مرتبط‌ترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function EmptySearchRecent() {
   const [chips, setChips] = React.useState(["موجود", "تهران"])
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   return (
     <section
@@ -51,26 +60,47 @@ export function EmptySearchRecent() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-b p-4">
           <div>
             <h2 className="text-lg font-semibold">نتایج جستجو</h2>
-            <p className="text-sm text-muted-foreground">
-              <bdi dir="ltr">۰</bdi> نتیجه
+            <p className="text-sm tracking-normal text-muted-foreground">
+              {toFa(0)} نتیجه
             </p>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-sm" />}
+          <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" size="sm" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setChips([])}>
+              بیشتر
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-48 space-y-1 p-2"
+            >
+              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setMoreOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-              <DropdownMenuItem>ذخیره جستجو</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="h-8 w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                ذخیره جستجو
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
 
         <div className="space-y-3 border-b p-4">
@@ -84,14 +114,24 @@ export function EmptySearchRecent() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="newest">
+            <Select
+              items={[...SORT_ITEMS]}
+              value={sort}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-40" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="relevant">مرتبط‌ترین</SelectItem>
-                <SelectItem value="price-asc">ارزان‌ترین</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -136,7 +176,12 @@ export function EmptySearchRecent() {
                   </Button>
                 ))}
               </div>
-              <Button variant="ghost" size="sm" onClick={() => setChips([])}>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => setChips([])}
+              >
                 پاک کردن همه فیلترها
               </Button>
             </EmptyContent>
@@ -144,8 +189,11 @@ export function EmptySearchRecent() {
         </div>
 
         <Separator />
-        <p className="px-4 py-3 text-center text-xs text-muted-foreground">
-          مسیر: <bdi dir="ltr">/search?q=…</bdi>
+        <p className="px-4 py-3 text-center text-xs tracking-normal text-muted-foreground">
+          مسیر:{" "}
+          <span dir="ltr" className="inline-block text-left">
+            /search?q=…
+          </span>
         </p>
       </div>
     </section>

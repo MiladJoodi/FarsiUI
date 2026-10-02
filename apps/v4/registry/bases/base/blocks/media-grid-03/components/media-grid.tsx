@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { FileIcon, FilmIcon, ImageIcon, MusicIcon, SearchIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
@@ -18,12 +19,26 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "تصویر", label: "تصویر" },
+  { value: "ویدیو", label: "ویدیو" },
+  { value: "صوت", label: "صوت" },
+  { value: "سند", label: "سند" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "نام", label: "نام" },
+  { value: "اندازه", label: "اندازه" },
+] as const
+
 const ITEMS = [
   {
     kind: "image" as const,
     title: "کاور محصول",
     file: "cover.jpg",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
   },
@@ -31,28 +46,28 @@ const ITEMS = [
     kind: "video" as const,
     title: "معرفی کوتاه",
     file: "intro.mp4",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     tag: "ویدیو",
   },
   {
     kind: "audio" as const,
     title: "پادکست ۱",
     file: "ep-01.mp3",
-    size: "8.4 MB",
+    size: "۸٫۴ مگابایت",
     tag: "صوت",
   },
   {
     kind: "file" as const,
     title: "بروشور",
     file: "brochure.pdf",
-    size: "640 KB",
+    size: "۶۴۰ کیلوبایت",
     tag: "سند",
   },
   {
     kind: "image" as const,
     title: "بنر فروش",
     file: "banner.png",
-    size: "890 KB",
+    size: "۸۹۰ کیلوبایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop&q=80",
   },
@@ -60,7 +75,7 @@ const ITEMS = [
     kind: "video" as const,
     title: "دمو محصول",
     file: "demo.webm",
-    size: "24 MB",
+    size: "۲۴ مگابایت",
     tag: "ویدیو",
   },
 ]
@@ -73,6 +88,9 @@ const ICONS = {
 } as const
 
 export function MediaGridFilter() {
+  const [type, setType] = React.useState("همه")
+  const [sort, setSort] = React.useState("جدیدترین")
+
   return (
     <section
       dir="rtl"
@@ -91,26 +109,44 @@ export function MediaGridFilter() {
           <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
           <Input placeholder="جستجو در رسانه‌ها…" dir="rtl" className="ps-8" />
         </div>
-        <Select defaultValue="all">
+        <Select
+          items={[...TYPE_ITEMS]}
+          value={type}
+          onValueChange={(value) => {
+            if (TYPE_ITEMS.some((item) => item.value === value)) {
+              setType(value as string)
+            }
+          }}
+        >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="نوع" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="all">همه</SelectItem>
-            <SelectItem value="image">تصویر</SelectItem>
-            <SelectItem value="video">ویدیو</SelectItem>
-            <SelectItem value="audio">صوت</SelectItem>
-            <SelectItem value="file">سند</SelectItem>
+            {TYPE_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
-        <Select defaultValue="newest">
+        <Select
+          items={[...SORT_ITEMS]}
+          value={sort}
+          onValueChange={(value) => {
+            if (SORT_ITEMS.some((item) => item.value === value)) {
+              setSort(value as string)
+            }
+          }}
+        >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="مرتب‌سازی" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="newest">جدیدترین</SelectItem>
-            <SelectItem value="name">نام</SelectItem>
-            <SelectItem value="size">اندازه</SelectItem>
+            {SORT_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
@@ -141,10 +177,10 @@ export function MediaGridFilter() {
               </div>
               <div className="space-y-1 p-3">
                 <p className="truncate text-sm font-medium">{item.title}</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs tracking-normal text-muted-foreground">
                   <bdi dir="ltr">{item.file}</bdi>
                   {" · "}
-                  <bdi dir="ltr">{item.size}</bdi>
+                  {item.size}
                 </p>
               </div>
             </article>

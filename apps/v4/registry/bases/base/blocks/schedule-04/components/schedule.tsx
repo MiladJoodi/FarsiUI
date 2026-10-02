@@ -1,7 +1,11 @@
 "use client"
 
-import { useState } from "react"
-import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
+import * as React from "react"
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MoreHorizontalIcon,
+} from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -13,17 +17,15 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 function startOfWeek(date: Date) {
   const d = new Date(date)
   const day = d.getDay()
-  // Saturday start for Iranian week feel: Sat=6 → 0 offset from Sat
   const diff = day === 6 ? 0 : day + 1
   d.setDate(d.getDate() - diff)
   d.setHours(0, 0, 0, 0)
@@ -85,7 +87,10 @@ const WEEK_EVENTS: Record<
 }
 
 export function ScheduleWeekBoard() {
-  const [weekStart, setWeekStart] = useState(() => startOfWeek(new Date()))
+  const [weekStart, setWeekStart] = React.useState(() =>
+    startOfWeek(new Date())
+  )
+  const [openKey, setOpenKey] = React.useState<string | null>(null)
   const days = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
   const weekEnd = addDays(weekStart, 6)
   const todayKey = new Date().toDateString()
@@ -99,7 +104,7 @@ export function ScheduleWeekBoard() {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">برنامه هفتگی</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-sm tracking-normal text-muted-foreground">
             {formatJalaliRange(weekStart, weekEnd)}
           </p>
         </div>
@@ -138,13 +143,15 @@ export function ScheduleWeekBoard() {
           return (
             <Card
               key={day.toISOString()}
-              className={isToday ? "border-primary/40 ring-1 ring-primary/20" : undefined}
+              className={
+                isToday ? "border-primary/40 ring-1 ring-primary/20" : undefined
+              }
             >
               <CardHeader className="pb-2 text-start">
                 <div className="flex items-start justify-between gap-1">
                   <div>
                     <CardDescription>{formatJalaliDayName(day)}</CardDescription>
-                    <CardTitle className="text-lg tabular-nums">
+                    <CardTitle className="text-lg tracking-normal">
                       {formatJalaliDay(day)}
                     </CardTitle>
                   </div>
@@ -155,41 +162,69 @@ export function ScheduleWeekBoard() {
                 {events.length === 0 ? (
                   <p className="text-xs text-muted-foreground">بدون برنامه</p>
                 ) : (
-                  events.map((ev) => (
-                    <div
-                      key={`${ev.time}-${ev.title}`}
-                      className="rounded-md border bg-muted/30 px-2 py-1.5 text-xs"
-                    >
-                      <div className="flex items-center justify-between gap-1">
-                        <Badge variant="outline" className="text-[10px]">
-                          {ev.type}
-                        </Badge>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger
-                            render={
-                              <Button
-                                variant="ghost"
-                                size="icon-xs"
-                                aria-label="عملیات"
-                              />
+                  events.map((ev) => {
+                    const key = `${idx}-${ev.time}-${ev.title}`
+                    return (
+                      <div
+                        key={key}
+                        className="rounded-md border bg-muted/30 px-2 py-1.5 text-xs"
+                      >
+                        <div className="flex items-center justify-between gap-1">
+                          <Badge variant="outline" className="text-[10px]">
+                            {ev.type}
+                          </Badge>
+                          <Popover
+                            open={openKey === key}
+                            onOpenChange={(open) =>
+                              setOpenKey(open ? key : null)
                             }
                           >
-                            <MoreHorizontalIcon />
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="start" dir="rtl" lang="fa">
-                            <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                            <DropdownMenuItem variant="destructive">
-                              حذف
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                            <PopoverTrigger
+                              render={
+                                <Button
+                                  type="button"
+                                  variant="ghost"
+                                  size="icon-xs"
+                                  aria-label="عملیات"
+                                />
+                              }
+                            >
+                              <MoreHorizontalIcon />
+                            </PopoverTrigger>
+                            <PopoverContent
+                              dir="rtl"
+                              lang="fa"
+                              align="start"
+                              className="w-32 p-1"
+                            >
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="sm"
+                                className="w-full justify-start"
+                                onClick={() => setOpenKey(null)}
+                              >
+                                ویرایش
+                              </Button>
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="sm"
+                                className="w-full justify-start text-destructive"
+                                onClick={() => setOpenKey(null)}
+                              >
+                                حذف
+                              </Button>
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+                        <p className="mt-1 font-medium">{ev.title}</p>
+                        <p className="tracking-normal text-muted-foreground">
+                          {ev.time}
+                        </p>
                       </div>
-                      <p className="mt-1 font-medium">{ev.title}</p>
-                      <bdi dir="ltr" className="text-muted-foreground">
-                        {ev.time}
-                      </bdi>
-                    </div>
-                  ))
+                    )
+                  })
                 )}
               </CardContent>
             </Card>

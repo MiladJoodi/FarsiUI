@@ -15,21 +15,49 @@ import {
   Field,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
+
+const TIME_ITEMS = [
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۰:۳۰", label: "۱۰:۳۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۴:۳۰", label: "۱۴:۳۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function DatetimePickerSimple() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [time, setTime] = React.useState("10:00")
+  const [time, setTime] = React.useState<TimeValue>("۱۰:۰۰")
 
   return (
     <section
@@ -50,23 +78,35 @@ export function DatetimePickerSimple() {
             className="mx-auto"
           />
           <Field>
-            <FieldLabel htmlFor="dt1-time">ساعت</FieldLabel>
-            <Input
-              id="dt1-time"
-              type="time"
+            <FieldLabel>ساعت</FieldLabel>
+            <Select
+              items={[...TIME_ITEMS]}
               value={time}
-              onChange={(e) => setTime(e.target.value)}
-              dir="ltr"
-              className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-            />
+              onValueChange={(value) => {
+                if (TIME_ITEMS.some((item) => item.value === value)) {
+                  setTime(value as TimeValue)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="ساعت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {TIME_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </Field>
         </CardContent>
         <CardFooter className="flex-col items-start gap-1 border-t text-sm">
-          <p className="font-medium">
+          <p className="font-medium tracking-normal">
             {date ? formatJalali(date) : "تاریخی انتخاب نشده"}
           </p>
-          <p className="text-muted-foreground">
-            ساعت <bdi dir="ltr">{time || "—"}</bdi>
+          <p className="text-muted-foreground tracking-normal">
+            ساعت {time}
           </p>
         </CardFooter>
       </Card>

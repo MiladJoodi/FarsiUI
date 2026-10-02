@@ -30,9 +30,20 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const TYPE_ITEMS = [
+  { value: "سند", label: "سند" },
+  { value: "تصویر", label: "تصویر" },
+  { value: "آرشیو", label: "آرشیو" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function FileUploadForm() {
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [progress, setProgress] = React.useState(0)
+  const [fileType, setFileType] = React.useState("سند")
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function onFile(event: React.ChangeEvent<HTMLInputElement>) {
@@ -69,14 +80,24 @@ export function FileUploadForm() {
           <FieldGroup className="gap-4">
             <Field>
               <FieldLabel>نوع فایل</FieldLabel>
-              <Select defaultValue="doc">
+              <Select
+                items={[...TYPE_ITEMS]}
+                value={fileType}
+                onValueChange={(value) => {
+                  if (TYPE_ITEMS.some((item) => item.value === value)) {
+                    setFileType(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="نوع" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="doc">سند</SelectItem>
-                  <SelectItem value="image">تصویر</SelectItem>
-                  <SelectItem value="archive">آرشیو</SelectItem>
+                  {TYPE_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -123,8 +144,8 @@ export function FileUploadForm() {
             {fileName ? (
               <div className="space-y-2">
                 <Progress value={progress} />
-                <p className="text-xs text-muted-foreground">
-                  <bdi dir="ltr">{progress}%</bdi>
+                <p className="text-xs tracking-normal text-muted-foreground">
+                  {toFa(progress)}٪
                 </p>
               </div>
             ) : null}

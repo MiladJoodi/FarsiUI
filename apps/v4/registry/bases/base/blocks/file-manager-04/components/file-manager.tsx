@@ -12,17 +12,13 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Separator } from "@/registry/bases/base/ui/separator"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type Item = {
   id: string
@@ -34,19 +30,33 @@ type Item = {
 const ITEMS: Item[] = [
   { id: "1", kind: "folder", name: "پروژه‌ها", meta: "۸ مورد" },
   { id: "2", kind: "folder", name: "بک‌آپ", meta: "۳ مورد" },
-  { id: "3", kind: "file", name: "design.fig", meta: "12 MB" },
-  { id: "4", kind: "file", name: "spec.pdf", meta: "890 KB" },
-  { id: "5", kind: "file", name: "notes.md", meta: "4 KB" },
+  { id: "3", kind: "file", name: "design.fig", meta: "۱۲ مگابایت" },
+  { id: "4", kind: "file", name: "spec.pdf", meta: "۸۹۰ کیلوبایت" },
+  { id: "5", kind: "file", name: "notes.md", meta: "۴ کیلوبایت" },
+]
+
+const VIEW_OPTIONS = [
+  { value: "list" as const, label: "فهرست" },
+  { value: "grid" as const, label: "شبکه" },
+]
+
+const SORT_OPTIONS = [
+  { value: "نام", label: "نام" },
+  { value: "تاریخ", label: "تاریخ" },
+  { value: "اندازه", label: "اندازه" },
 ]
 
 export function FileManagerActions() {
   const [items, setItems] = React.useState(ITEMS)
   const [chips, setChips] = React.useState(["اسناد", "PDF"])
-  const [sort, setSort] = React.useState("name")
+  const [sort, setSort] = React.useState("نام")
   const [view, setView] = React.useState<"list" | "grid">("list")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function remove(id: string) {
     setItems((prev) => prev.filter((x) => x.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -64,45 +74,66 @@ export function FileManagerActions() {
                 مسیر <bdi dir="ltr">/drive/team</bdi>
               </p>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant="ghost" size="icon-sm" />}
+            <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="ghost" size="icon-sm" />
+                }
               >
                 <MoreHorizontalIcon className="size-4" />
                 <span className="sr-only">بیشتر</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                <DropdownMenuLabel>نمایش</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup
-                  value={view}
-                  onValueChange={(v) =>
-                    setView((v as "list" | "grid") ?? "list")
-                  }
-                >
-                  <DropdownMenuRadioItem value="list">
-                    فهرست
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="grid">
-                    شبکه
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-                <DropdownMenuRadioGroup
-                  value={sort}
-                  onValueChange={(v) => setSort(v ?? "name")}
-                >
-                  <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="date">
-                    تاریخ
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="size">
-                    اندازه
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-44 p-1"
+              >
+                <p className="px-2 py-1.5 text-xs text-muted-foreground">
+                  نمایش
+                </p>
+                {VIEW_OPTIONS.map((opt) => (
+                  <Button
+                    key={opt.value}
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className={cn(
+                      "w-full justify-start",
+                      view === opt.value && "bg-muted"
+                    )}
+                    onClick={() => {
+                      setView(opt.value)
+                      setHeaderOpen(false)
+                    }}
+                  >
+                    {opt.label}
+                  </Button>
+                ))}
+                <Separator className="my-1" />
+                <p className="px-2 py-1.5 text-xs text-muted-foreground">
+                  مرتب‌سازی
+                </p>
+                {SORT_OPTIONS.map((opt) => (
+                  <Button
+                    key={opt.value}
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className={cn(
+                      "w-full justify-start",
+                      sort === opt.value && "bg-muted"
+                    )}
+                    onClick={() => {
+                      setSort(opt.value)
+                      setHeaderOpen(false)
+                    }}
+                  >
+                    {opt.label}
+                  </Button>
+                ))}
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="relative">
@@ -172,30 +203,72 @@ export function FileManagerActions() {
                         item.name
                       )}
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      {item.kind === "file" ? (
-                        <bdi dir="ltr">{item.meta}</bdi>
-                      ) : (
-                        item.meta
-                      )}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.meta}
                     </p>
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === item.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? item.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon-sm"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                      <DropdownMenuItem>تغییر نام</DropdownMenuItem>
-                      <DropdownMenuItem>دانلود</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => remove(item.id)}>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-40 p-1"
+                    >
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        باز کردن
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        تغییر نام
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        دانلود
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => remove(item.id)}
+                      >
                         حذف
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </li>
             ))}

@@ -24,12 +24,17 @@ const PERIOD_END = new Date()
 PERIOD_END.setDate(PERIOD_END.getDate() + 12)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -49,8 +54,8 @@ const CHARGES = [
 ] as const
 
 const RECENT = [
-  { id: "INV-1041", amount: "۴۹۹٬۰۰۰", status: "پرداخت‌شده" },
-  { id: "INV-1038", amount: "۴۹۹٬۰۰۰", status: "پرداخت‌شده" },
+  { id: "فاکتور-۱۰۴۱", amount: "۴۹۹٬۰۰۰", status: "پرداخت‌شده" },
+  { id: "فاکتور-۱۰۳۸", amount: "۴۹۹٬۰۰۰", status: "پرداخت‌شده" },
 ] as const
 
 export function BillingDashboard() {
@@ -64,11 +69,9 @@ export function BillingDashboard() {
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
             <Badge>دوره جاری</Badge>
-            <Badge variant="outline">
-              <bdi dir="ltr">
-                {formatJalaliCompact(PERIOD_START)} –{" "}
-                {formatJalaliCompact(PERIOD_END)}
-              </bdi>
+            <Badge variant="outline" className="tracking-normal">
+              {formatJalaliCompact(PERIOD_START)} –{" "}
+              {formatJalaliCompact(PERIOD_END)}
             </Badge>
           </div>
           <h1 className="text-2xl font-semibold tracking-tight">صورتحساب</h1>
@@ -76,26 +79,22 @@ export function BillingDashboard() {
             هزینه و سررسید دوره جاری
           </p>
         </div>
-        <Button>
-          پرداخت <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-        </Button>
+        <Button className="tracking-normal">پرداخت ۵۷۹٬۰۰۰ تومان</Button>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
         <Card>
           <CardHeader className="text-start">
             <CardTitle>ریز هزینه‌ها</CardTitle>
-            <CardDescription>
+            <CardDescription className="tracking-normal">
               تا {formatJalali(PERIOD_END)}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <div className="flex justify-between text-sm">
+              <div className="flex justify-between text-sm tracking-normal">
                 <span>پیشرفت دوره</span>
-                <bdi dir="ltr" className="text-muted-foreground">
-                  ۶۰٪
-                </bdi>
+                <span className="text-muted-foreground">۶۰٪</span>
               </div>
               <Progress value={60} />
             </div>
@@ -103,20 +102,16 @@ export function BillingDashboard() {
             {CHARGES.map((c) => (
               <div
                 key={c.label}
-                className="flex justify-between gap-3 text-sm"
+                className="flex justify-between gap-3 text-sm tracking-normal"
               >
                 <span className="text-muted-foreground">{c.label}</span>
-                <bdi dir="ltr" className="font-medium tabular-nums">
-                  {c.amount}
-                </bdi>
+                <span className="font-medium">{c.amount}</span>
               </div>
             ))}
             <Separator />
-            <div className="flex justify-between gap-3 font-semibold">
+            <div className="flex justify-between gap-3 font-semibold tracking-normal">
               <span>جمع قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-              </span>
+              <span>۵۷۹٬۰۰۰ تومان</span>
             </div>
           </CardContent>
         </Card>
@@ -127,13 +122,13 @@ export function BillingDashboard() {
               <CardTitle className="text-base">پرداخت بعدی</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-2 tracking-normal">
                 <CalendarIcon className="size-4 text-muted-foreground" />
                 {formatJalali(PERIOD_END)}
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-2 tracking-normal">
                 <CreditCardIcon className="size-4 text-muted-foreground" />
-                <bdi dir="ltr">**** ۴۲۱۸</bdi>
+                **** ۴۲۱۸
               </p>
             </CardContent>
           </Card>
@@ -149,12 +144,10 @@ export function BillingDashboard() {
               {RECENT.map((r) => (
                 <div
                   key={r.id}
-                  className="flex items-center justify-between gap-2"
+                  className="flex items-center justify-between gap-2 tracking-normal"
                 >
-                  <bdi dir="ltr">{r.id}</bdi>
-                  <span>
-                    <bdi dir="ltr">{r.amount}</bdi>
-                  </span>
+                  <span>{r.id}</span>
+                  <span>{r.amount}</span>
                 </div>
               ))}
               <Button variant="outline" size="sm" className="mt-2 w-full">

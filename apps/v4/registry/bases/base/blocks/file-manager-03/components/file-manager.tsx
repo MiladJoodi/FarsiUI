@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { FileIcon, FolderIcon, SearchIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -28,13 +29,22 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
 const FOLDERS = ["اسناد", "تصاویر", "آرشیو"] as const
+
+const SORT_ITEMS = [
+  { value: "نام", label: "نام" },
+  { value: "تاریخ", label: "تاریخ" },
+  { value: "اندازه", label: "اندازه" },
+] as const
+
 const FILES = [
-  { name: "report-q1.pdf", size: "4.2 MB" },
-  { name: "notes.txt", size: "8 KB" },
-  { name: "budget.xlsx", size: "512 KB" },
+  { name: "report-q1.pdf", size: "۴٫۲ مگابایت" },
+  { name: "notes.txt", size: "۸ کیلوبایت" },
+  { name: "budget.xlsx", size: "۵۱۲ کیلوبایت" },
 ] as const
 
 export function FileManagerPanel() {
+  const [sort, setSort] = React.useState("نام")
+
   return (
     <section
       dir="rtl"
@@ -54,14 +64,24 @@ export function FileManagerPanel() {
               <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
               <Input placeholder="جستجو…" dir="rtl" className="ps-8" />
             </div>
-            <Select defaultValue="name">
+            <Select
+              items={[...SORT_ITEMS]}
+              value={sort}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-40" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="name">نام</SelectItem>
-                <SelectItem value="date">تاریخ</SelectItem>
-                <SelectItem value="size">اندازه</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -89,8 +109,8 @@ export function FileManagerPanel() {
                       <p className="truncate text-sm font-medium">
                         <bdi dir="ltr">{file.name}</bdi>
                       </p>
-                      <p className="text-xs text-muted-foreground">
-                        <bdi dir="ltr">{file.size}</bdi>
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        {file.size}
                       </p>
                     </div>
                   </div>

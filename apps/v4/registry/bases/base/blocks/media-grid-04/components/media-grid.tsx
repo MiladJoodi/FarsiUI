@@ -13,15 +13,12 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
+import { Separator } from "@/registry/bases/base/ui/separator"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type MediaItem = {
   id: string
@@ -39,7 +36,7 @@ const INITIAL: MediaItem[] = [
     kind: "image",
     title: "کاور محصول",
     file: "cover.jpg",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
   },
@@ -48,7 +45,7 @@ const INITIAL: MediaItem[] = [
     kind: "video",
     title: "معرفی کوتاه",
     file: "intro.mp4",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     tag: "ویدیو",
   },
   {
@@ -56,7 +53,7 @@ const INITIAL: MediaItem[] = [
     kind: "audio",
     title: "پادکست ۱",
     file: "ep-01.mp3",
-    size: "8.4 MB",
+    size: "۸٫۴ مگابایت",
     tag: "صوت",
   },
   {
@@ -64,7 +61,7 @@ const INITIAL: MediaItem[] = [
     kind: "file",
     title: "بروشور",
     file: "brochure.pdf",
-    size: "640 KB",
+    size: "۶۴۰ کیلوبایت",
     tag: "سند",
   },
   {
@@ -72,7 +69,7 @@ const INITIAL: MediaItem[] = [
     kind: "image",
     title: "بنر فروش",
     file: "banner.png",
-    size: "890 KB",
+    size: "۸۹۰ کیلوبایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
   },
@@ -81,7 +78,7 @@ const INITIAL: MediaItem[] = [
     kind: "video",
     title: "دمو محصول",
     file: "demo.webm",
-    size: "24 MB",
+    size: "۲۴ مگابایت",
     tag: "ویدیو",
   },
 ]
@@ -93,13 +90,22 @@ const ICONS = {
   file: FileIcon,
 } as const
 
+const SORT_OPTIONS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "نام", label: "نام" },
+  { value: "اندازه", label: "اندازه" },
+]
+
 export function MediaGridActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [chips, setChips] = React.useState(["ویدیو", "تصویر"])
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   function remove(id: string) {
     setItems((prev) => prev.filter((x) => x.id !== id))
+    setOpenId(null)
   }
 
   return (
@@ -115,30 +121,55 @@ export function MediaGridActions() {
             چیپ فیلتر و منوی عملیات RTL
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={sort}
-              onValueChange={(v) => setSort(v ?? "newest")}
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 p-1"
+          >
+            <p className="px-2 py-1.5 text-xs text-muted-foreground">
+              مرتب‌سازی
+            </p>
+            {SORT_OPTIONS.map((opt) => (
+              <Button
+                key={opt.value}
+                type="button"
+                variant="ghost"
+                size="sm"
+                className={cn(
+                  "w-full justify-start",
+                  sort === opt.value && "bg-muted"
+                )}
+                onClick={() => {
+                  setSort(opt.value)
+                  setHeaderOpen(false)
+                }}
+              >
+                {opt.label}
+              </Button>
+            ))}
+            <Separator className="my-1" />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => {
+                setChips([])
+                setHeaderOpen(false)
+              }}
             >
-              <DropdownMenuRadioItem value="newest">
-                جدیدترین
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="size">اندازه</DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setChips([])}>
               پاک کردن فیلترها
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       {chips.length > 0 ? (
@@ -186,26 +217,70 @@ export function MediaGridActions() {
               <div className="flex items-center gap-2 p-2.5">
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">{item.title}</p>
-                  <p className="truncate text-xs text-muted-foreground">
+                  <p className="truncate text-xs tracking-normal text-muted-foreground">
                     <bdi dir="ltr">{item.file}</bdi>
+                    {" · "}
+                    {item.size}
                   </p>
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
+                <Popover
+                  open={openId === item.id}
+                  onOpenChange={(open) =>
+                    setOpenId(open ? item.id : null)
+                  }
+                >
+                  <PopoverTrigger
+                    render={
+                      <Button type="button" variant="ghost" size="icon-sm" />
+                    }
                   >
                     <MoreHorizontalIcon className="size-4" />
                     <span className="sr-only">عملیات</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                    <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                    <DropdownMenuItem>دانلود</DropdownMenuItem>
-                    <DropdownMenuItem>اشتراک</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => remove(item.id)}>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    dir="rtl"
+                    lang="fa"
+                    align="start"
+                    className="w-36 p-1"
+                  >
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      باز کردن
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      دانلود
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      اشتراک
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start"
+                      onClick={() => remove(item.id)}
+                    >
                       حذف
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    </Button>
+                  </PopoverContent>
+                </Popover>
               </div>
             </article>
           )

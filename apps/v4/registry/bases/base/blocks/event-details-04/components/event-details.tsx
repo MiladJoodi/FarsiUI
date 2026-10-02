@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   CalendarIcon,
   ClockIcon,
@@ -24,23 +25,26 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const EVENT_DATE = new Date()
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliDay(date: Date) {
@@ -55,6 +59,10 @@ function formatJalaliMonth(date: Date) {
     calendar: "persian",
     month: "short",
   })
+}
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 const ATTENDEES = [
@@ -95,6 +103,8 @@ const AGENDA = [
 ] as const
 
 export function EventDetailsDashboard() {
+  const [moreOpen, setMoreOpen] = React.useState(false)
+
   return (
     <section
       dir="rtl"
@@ -116,20 +126,54 @@ export function EventDetailsDashboard() {
         </div>
         <div className="flex gap-2">
           <Button>ویرایش</Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger
+          <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+            <PopoverTrigger
               render={
-                <Button variant="outline" size="icon" aria-label="بیشتر" />
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon"
+                  aria-label="بیشتر"
+                />
               }
             >
               <MoreHorizontalIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" dir="rtl" lang="fa">
-              <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-              <DropdownMenuItem>افزودن به تقویم</DropdownMenuItem>
-              <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                کپی لینک
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                افزودن به تقویم
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start text-destructive"
+                onClick={() => setMoreOpen(false)}
+              >
+                حذف
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -146,18 +190,18 @@ export function EventDetailsDashboard() {
                   <span className="text-xs text-muted-foreground">
                     {formatJalaliMonth(EVENT_DATE)}
                   </span>
-                  <span className="text-2xl font-semibold tabular-nums">
+                  <span className="text-2xl font-semibold tracking-normal">
                     {formatJalaliDay(EVENT_DATE)}
                   </span>
                 </div>
                 <div className="space-y-2">
-                  <p className="flex items-center gap-2 font-medium">
+                  <p className="flex items-center gap-2 font-medium tracking-normal">
                     <CalendarIcon className="size-4 text-muted-foreground" />
                     {formatJalali(EVENT_DATE)}
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-center gap-2 tracking-normal">
                     <ClockIcon className="size-4 text-muted-foreground" />
-                    <bdi dir="ltr">۱۰:۰۰ – ۱۱:۳۰</bdi>
+                    ۱۰:۰۰ – ۱۱:۳۰
                   </p>
                   <p className="flex items-center gap-2">
                     <MapPinIcon className="size-4 text-muted-foreground" />
@@ -189,12 +233,9 @@ export function EventDetailsDashboard() {
                   key={item.time}
                   className="flex items-start gap-3 rounded-lg border px-3 py-2 text-sm"
                 >
-                  <bdi
-                    dir="ltr"
-                    className="shrink-0 font-medium tabular-nums text-muted-foreground"
-                  >
+                  <span className="shrink-0 font-medium tracking-normal text-muted-foreground">
                     {item.time}
-                  </bdi>
+                  </span>
                   <span>{item.title}</span>
                 </div>
               ))}
@@ -208,8 +249,8 @@ export function EventDetailsDashboard() {
               <UsersIcon className="size-4" />
               شرکت‌کنندگان
             </CardTitle>
-            <CardDescription>
-              <bdi dir="ltr">{ATTENDEES.length}</bdi> نفر
+            <CardDescription className="tracking-normal">
+              {toFa(ATTENDEES.length)} نفر
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">

@@ -18,22 +18,58 @@ import {
   Field,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/bases/base/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const TIME_ITEMS = [
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۴:۳۰", label: "۱۴:۳۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۶:۳۰", label: "۱۶:۳۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
+
+const PRESETS = [
+  { label: "امروز", days: 0 },
+  { label: "فردا", days: 1 },
+  { label: "هفتهٔ بعد", days: 7 },
+] as const
+
+const TIME_PRESETS = ["۰۹:۰۰", "۱۰:۰۰", "۱۴:۰۰", "۱۶:۳۰"] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -45,20 +81,10 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-const PRESETS = [
-  { label: "امروز", days: 0 },
-  { label: "فردا", days: 1 },
-  { label: "هفتهٔ بعد", days: 7 },
-] as const
-
-const TIME_PRESETS = ["۰۹:۰۰", "۱۰:۰۰", "۱۴:۰۰", "۱۶:۳۰"] as const
-
-const TIME_PRESET_VALUES = ["09:00", "10:00", "14:00", "16:30"] as const
-
 export function DatetimePickerDashboard() {
   const [dateOpen, setDateOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [time, setTime] = React.useState("10:00")
+  const [time, setTime] = React.useState<TimeValue>("۱۰:۰۰")
 
   return (
     <section
@@ -129,31 +155,42 @@ export function DatetimePickerDashboard() {
             <div>
               <p className="mb-2 text-sm font-medium">میان‌بر ساعت</p>
               <div className="flex flex-wrap gap-2">
-                {TIME_PRESETS.map((label, i) => (
+                {TIME_PRESETS.map((label) => (
                   <Button
                     key={label}
-                    variant={
-                      time === TIME_PRESET_VALUES[i] ? "default" : "outline"
-                    }
+                    variant={time === label ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setTime(TIME_PRESET_VALUES[i])}
+                    className="tracking-normal"
+                    onClick={() => setTime(label as TimeValue)}
                   >
-                    <bdi dir="ltr">{label}</bdi>
+                    {label}
                   </Button>
                 ))}
               </div>
             </div>
 
             <Field>
-              <FieldLabel htmlFor="dt4-time">ساعت دقیق</FieldLabel>
-              <Input
-                id="dt4-time"
-                type="time"
+              <FieldLabel>ساعت دقیق</FieldLabel>
+              <Select
+                items={[...TIME_ITEMS]}
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
-                dir="ltr"
-                className="max-w-xs text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setTime(value as TimeValue)
+                  }
+                }}
+              >
+                <SelectTrigger className="max-w-xs w-full" dir="rtl">
+                  <SelectValue placeholder="ساعت" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
           </CardContent>
         </Card>
@@ -166,25 +203,20 @@ export function DatetimePickerDashboard() {
             <div className="flex items-start gap-2">
               <CalendarIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
               <div>
-                <p className="font-medium">
+                <p className="font-medium tracking-normal">
                   {date ? formatJalali(date) : "—"}
                 </p>
                 {date ? (
-                  <bdi
-                    dir="ltr"
-                    className="text-xs text-muted-foreground"
-                  >
+                  <p className="text-xs text-muted-foreground tracking-normal">
                     {formatJalaliCompact(date)}
-                  </bdi>
+                  </p>
                 ) : null}
               </div>
             </div>
             <Separator />
             <div className="flex items-center gap-2">
               <ClockIcon className="size-4 text-muted-foreground" />
-              <bdi dir="ltr" className="font-medium tabular-nums">
-                {time}
-              </bdi>
+              <span className="font-medium tracking-normal">{time}</span>
             </div>
             <Separator />
             <div className="flex flex-wrap gap-2">

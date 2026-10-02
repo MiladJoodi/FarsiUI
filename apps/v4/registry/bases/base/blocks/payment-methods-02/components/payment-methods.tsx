@@ -18,7 +18,7 @@ const METHODS = [
     type: "card" as const,
     title: "ملت",
     detail: "**** ۴۲۱۸",
-    meta: "انقضا ۰۸/۰۷",
+    meta: "۰۸/۰۷",
     default: true,
   },
   {
@@ -26,7 +26,7 @@ const METHODS = [
     type: "card" as const,
     title: "سامان",
     detail: "**** ۹۱۰۳",
-    meta: "انقضا ۱۲/۰۶",
+    meta: "۱۲/۰۶",
     default: false,
   },
   {
@@ -69,8 +69,8 @@ export function PaymentMethodsCards() {
                 )}
                 <div>
                   <CardTitle className="text-base">{m.title}</CardTitle>
-                  <CardDescription>
-                    <bdi dir="ltr">{m.detail}</bdi>
+                  <CardDescription className="tracking-normal">
+                    {m.detail}
                   </CardDescription>
                 </div>
               </div>
@@ -86,14 +86,8 @@ export function PaymentMethodsCards() {
               )}
             </CardHeader>
             <CardContent className="flex items-center justify-between gap-2 pt-0">
-              <p className="text-xs text-muted-foreground">
-                {m.type === "card" ? (
-                  <>
-                    انقضا <bdi dir="ltr">{m.meta.replace("انقضا ", "")}</bdi>
-                  </>
-                ) : (
-                  m.meta
-                )}
+              <p className="text-xs text-muted-foreground tracking-normal">
+                {m.type === "card" ? <>انقضا {m.meta}</> : m.meta}
               </p>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm">

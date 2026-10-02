@@ -28,13 +28,21 @@ function formatJalaliMonth(date: Date) {
 }
 
 function formatJalaliFull(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
+}
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 const today = new Date()
@@ -80,8 +88,8 @@ export function EventListCards() {
         <CardHeader className="flex-row items-start justify-between gap-3 space-y-0 text-start">
           <div>
             <CardTitle>فهرست رویدادها</CardTitle>
-            <CardDescription>
-              <bdi dir="ltr">{EVENTS.length}</bdi> رویداد پیش‌رو
+            <CardDescription className="tracking-normal">
+              {toFa(EVENTS.length)} رویداد پیش‌رو
             </CardDescription>
           </div>
           <Button size="sm">رویداد جدید</Button>
@@ -93,7 +101,7 @@ export function EventListCards() {
                 {i > 0 && <Separator />}
                 <div className="flex items-start gap-3 px-6 py-3">
                   <div className="flex size-12 shrink-0 flex-col items-center justify-center rounded-lg border bg-muted/40 text-center">
-                    <span className="text-sm font-semibold leading-none">
+                    <span className="text-sm font-semibold leading-none tracking-normal">
                       {formatJalaliDay(ev.date)}
                     </span>
                     <span className="mt-0.5 text-[0.65rem] text-muted-foreground">
@@ -105,11 +113,11 @@ export function EventListCards() {
                       <p className="truncate text-sm font-medium">{ev.title}</p>
                       <Badge variant="secondary">{ev.kind}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs tracking-normal text-muted-foreground">
                       {formatJalaliFull(ev.date)}
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      ساعت <bdi dir="ltr">{ev.time}</bdi> · {ev.place}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      ساعت {ev.time} · {ev.place}
                     </p>
                   </div>
                 </div>

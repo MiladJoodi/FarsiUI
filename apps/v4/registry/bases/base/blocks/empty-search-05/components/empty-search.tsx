@@ -11,14 +11,6 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Empty,
   EmptyContent,
   EmptyDescription,
@@ -34,6 +26,11 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -44,21 +41,42 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
 const CATEGORIES = [
-  { title: "صوتی", count: "۱۲۸" },
-  { title: "پوشیدنی", count: "۶۴" },
-  { title: "خانه", count: "۹۱" },
-  { title: "اکسسوری", count: "۴۲" },
+  { title: "صوتی", count: 128 },
+  { title: "پوشیدنی", count: 64 },
+  { title: "خانه", count: 91 },
+  { title: "اکسسوری", count: 42 },
 ] as const
+
+const SORT_ITEMS = [
+  { value: "مرتبط‌ترین", label: "مرتبط‌ترین" },
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+] as const
+
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function EmptySearchHub() {
   const [query, setQuery] = React.useState("محصول ناموجود خیلی خاص")
   const [chips, setChips] = React.useState(["موجود", "ارسال سریع"])
   const [stockOnly, setStockOnly] = React.useState(true)
+  const [sort, setSort] = React.useState("مرتبط‌ترین")
+  const [category, setCategory] = React.useState("همه")
+  const [moreOpen, setMoreOpen] = React.useState(false)
 
   function clearAll() {
     setChips([])
     setStockOnly(false)
     setQuery("")
+    setMoreOpen(false)
   }
 
   return (
@@ -75,23 +93,42 @@ export function EmptySearchHub() {
           <h2 className="text-3xl font-bold tracking-tight">
             نتیجه‌ای پیدا نشد
           </h2>
-          <p className="mt-2 text-muted-foreground">
-            برای «{query || "…"}» چیزی پیدا نشد ·{" "}
-            <bdi dir="ltr">۰</bdi> نتیجه
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            برای «{query || "…"}» چیزی پیدا نشد · {toFa(0)} نتیجه
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={clearAll}>پاک کردن همه</DropdownMenuItem>
-            <DropdownMenuItem>گزارش مشکل جستجو</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-52 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={clearAll}
+            >
+              پاک کردن همه
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              گزارش مشکل جستجو
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[14rem_1fr]">
@@ -99,28 +136,47 @@ export function EmptySearchHub() {
           <p className="text-sm font-medium">تنظیمات جستجو</p>
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
-            <Select defaultValue="relevant">
+            <Select
+              items={[...SORT_ITEMS]}
+              value={sort}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="relevant">مرتبط‌ترین</SelectItem>
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="price-asc">ارزان‌ترین</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
           <Field>
             <FieldLabel>دسته</FieldLabel>
-            <Select defaultValue="all">
+            <Select
+              items={[...CATEGORY_ITEMS]}
+              value={category}
+              onValueChange={(value) => {
+                if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                  setCategory(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="دسته" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="audio">صوتی</SelectItem>
-                <SelectItem value="wearable">پوشیدنی</SelectItem>
-                <SelectItem value="home">خانه</SelectItem>
+                {CATEGORY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -131,8 +187,8 @@ export function EmptySearchHub() {
                 id="es5-min"
                 inputMode="numeric"
                 placeholder="۱٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
             <Field>
@@ -141,8 +197,8 @@ export function EmptySearchHub() {
                 id="es5-max"
                 inputMode="numeric"
                 placeholder="۱۰٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </div>
@@ -154,7 +210,12 @@ export function EmptySearchHub() {
               onCheckedChange={setStockOnly}
             />
           </div>
-          <Button variant="outline" className="w-full" onClick={clearAll}>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={clearAll}
+          >
             پاک کردن فیلترها
           </Button>
         </aside>
@@ -171,7 +232,7 @@ export function EmptySearchHub() {
                 className="ps-8"
               />
             </div>
-            <Button>جستجو</Button>
+            <Button type="button">جستجو</Button>
           </div>
 
           {chips.length > 0 ? (
@@ -215,8 +276,8 @@ export function EmptySearchHub() {
                       className="rounded-lg border bg-background px-3 py-2.5 text-start hover:bg-muted/50"
                     >
                       <p className="text-sm font-medium">{cat.title}</p>
-                      <p className="text-xs text-muted-foreground">
-                        <bdi dir="ltr">{cat.count}</bdi> محصول
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        {toFa(cat.count)} محصول
                       </p>
                     </button>
                   ))}
@@ -229,17 +290,17 @@ export function EmptySearchHub() {
                     type="email"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-start"
+                    className="text-left"
                   />
                   <FieldDescription>
                     وقتی محصولی اضافه شد خبرتان می‌کنیم
                   </FieldDescription>
                 </Field>
-                <div className="flex w-full gap-2">
-                  <Button className="flex-1" onClick={clearAll}>
+                <div className="flex w-full gap-3">
+                  <Button type="button" className="flex-1" onClick={clearAll}>
                     پاک کردن و ادامه
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button type="button" variant="outline" className="flex-1">
                     پشتیبانی
                   </Button>
                 </div>

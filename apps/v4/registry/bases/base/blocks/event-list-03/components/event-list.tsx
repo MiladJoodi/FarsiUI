@@ -29,13 +29,25 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const KIND_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "جلسه", label: "جلسه" },
+  { value: "طراحی", label: "طراحی" },
+  { value: "تحقیق", label: "تحقیق" },
+  { value: "ددلاین", label: "ددلاین" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "short",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const today = new Date()
@@ -44,38 +56,34 @@ const EVENTS = [
     title: "جلسهٔ تیم محصول",
     time: "۱۰:۰۰",
     date: today,
-    kind: "meeting",
-    kindFa: "جلسه",
+    kind: "جلسه",
   },
   {
     title: "بازبینی طراحی",
     time: "۱۴:۳۰",
     date: addDays(today, 1),
-    kind: "design",
-    kindFa: "طراحی",
+    kind: "طراحی",
   },
   {
     title: "مصاحبهٔ کاربری",
     time: "۱۱:۰۰",
     date: addDays(today, 2),
-    kind: "research",
-    kindFa: "تحقیق",
+    kind: "تحقیق",
   },
   {
     title: "تحویل نسخهٔ بتا",
     time: "۱۶:۰۰",
     date: addDays(today, 5),
-    kind: "deadline",
-    kindFa: "ددلاین",
+    kind: "ددلاین",
   },
 ] as const
 
 export function EventListFilter() {
   const [query, setQuery] = React.useState("")
-  const [kind, setKind] = React.useState("all")
+  const [kind, setKind] = React.useState("همه")
 
   const rows = EVENTS.filter((ev) => {
-    if (kind !== "all" && ev.kind !== kind) return false
+    if (kind !== "همه" && ev.kind !== kind) return false
     if (query && !ev.title.includes(query)) return false
     return true
   })
@@ -106,18 +114,23 @@ export function EventListFilter() {
               />
             </div>
             <Select
+              items={[...KIND_ITEMS]}
               value={kind}
-              onValueChange={(v) => setKind((v as string) ?? "all")}
+              onValueChange={(value) => {
+                if (KIND_ITEMS.some((item) => item.value === value)) {
+                  setKind(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="meeting">جلسه</SelectItem>
-                <SelectItem value="design">طراحی</SelectItem>
-                <SelectItem value="research">تحقیق</SelectItem>
-                <SelectItem value="deadline">ددلاین</SelectItem>
+                {KIND_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -138,11 +151,10 @@ export function EventListFilter() {
                         <p className="truncate text-sm font-medium">
                           {ev.title}
                         </p>
-                        <Badge variant="outline">{ev.kindFa}</Badge>
+                        <Badge variant="outline">{ev.kind}</Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">
-                        {formatJalali(ev.date)} · ساعت{" "}
-                        <bdi dir="ltr">{ev.time}</bdi>
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        {formatJalali(ev.date)} · ساعت {ev.time}
                       </p>
                     </div>
                   </div>

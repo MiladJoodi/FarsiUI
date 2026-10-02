@@ -36,13 +36,38 @@ import {
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const SERVICE_ITEMS = [
+  { value: "مشاوره", label: "مشاوره" },
+  { value: "معاینه", label: "معاینه" },
+  { value: "پیگیری", label: "پیگیری" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۰:۳۰", label: "۱۰:۳۰" },
+  { value: "۱۱:۳۰", label: "۱۱:۳۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۵:۳۰", label: "۱۵:۳۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+] as const
+
+type ServiceValue = (typeof SERVICE_ITEMS)[number]["value"]
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -57,6 +82,8 @@ function formatJalaliCompact(date: Date) {
 export function BookingForm() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [service, setService] = React.useState<ServiceValue>("مشاوره")
+  const [time, setTime] = React.useState<TimeValue>("۱۰:۳۰")
   const [remind, setRemind] = React.useState(true)
 
   return (
@@ -69,9 +96,7 @@ export function BookingForm() {
         <CardHeader className="text-start">
           <Badge className="mb-2 w-fit">فرم رزرو</Badge>
           <CardTitle>جزئیات نوبت</CardTitle>
-          <CardDescription>
-            ایمیل و ساعت LTR · تاریخ شمسی
-          </CardDescription>
+          <CardDescription>تاریخ شمسی و ساعت فارسی</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
@@ -95,23 +120,33 @@ export function BookingForm() {
             <Input
               id="bk3-phone"
               type="tel"
-              placeholder="0912xxxxxxx"
-              dir="ltr"
-              className="text-start"
+              placeholder="۰۹۱۲xxxxxxx"
+              dir="rtl"
+              className="text-start tracking-normal"
             />
             <FieldDescription>برای ارسال پیامک تأیید</FieldDescription>
           </Field>
 
           <Field>
             <FieldLabel>خدمت</FieldLabel>
-            <Select defaultValue="consult">
+            <Select
+              items={[...SERVICE_ITEMS]}
+              value={service}
+              onValueChange={(value) => {
+                if (SERVICE_ITEMS.some((item) => item.value === value)) {
+                  setService(value as ServiceValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="consult">مشاوره</SelectItem>
-                <SelectItem value="checkup">معاینه</SelectItem>
-                <SelectItem value="follow">پیگیری</SelectItem>
+                {SERVICE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -143,21 +178,34 @@ export function BookingForm() {
               </PopoverContent>
             </Popover>
             {date ? (
-              <FieldDescription>
-                <bdi dir="ltr">{formatJalaliCompact(date)}</bdi>
+              <FieldDescription className="tracking-normal">
+                {formatJalaliCompact(date)}
               </FieldDescription>
             ) : null}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="bk3-time">ساعت</FieldLabel>
-            <Input
-              id="bk3-time"
-              type="time"
-              defaultValue="10:30"
-              dir="ltr"
-              className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-            />
+            <FieldLabel>ساعت</FieldLabel>
+            <Select
+              items={[...TIME_ITEMS]}
+              value={time}
+              onValueChange={(value) => {
+                if (TIME_ITEMS.some((item) => item.value === value)) {
+                  setTime(value as TimeValue)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="ساعت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {TIME_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </Field>
 
           <Field>

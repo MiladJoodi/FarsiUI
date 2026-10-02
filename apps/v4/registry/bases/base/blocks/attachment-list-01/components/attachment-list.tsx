@@ -12,9 +12,9 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const ITEMS = [
-  { name: "invoice-1405.pdf", size: "1.2 MB" },
-  { name: "brief.docx", size: "420 KB" },
-  { name: "photo-cover.jpg", size: "3.1 MB" },
+  { name: "invoice-1405.pdf", size: "۱٫۲ مگابایت" },
+  { name: "brief.docx", size: "۴۲۰ کیلوبایت" },
+  { name: "photo-cover.jpg", size: "۳٫۱ مگابایت" },
 ] as const
 
 export function AttachmentListSimple() {
@@ -40,8 +40,8 @@ export function AttachmentListSimple() {
                     <p className="truncate text-sm font-medium">
                       <bdi dir="ltr">{item.name}</bdi>
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{item.size}</bdi>
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.size}
                     </p>
                   </div>
                 </div>

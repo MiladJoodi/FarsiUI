@@ -6,7 +6,7 @@ import {
 } from "@/components/blocks-sidebar"
 import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
 
-const title = "بلاک‌ها"
+const title = "بلوک‌ها"
 const description = "بلوک‌های آمادهٔ UI برای کپی در پروژه‌های فارسی و راست‌چین."
 
 export const metadata: Metadata = {

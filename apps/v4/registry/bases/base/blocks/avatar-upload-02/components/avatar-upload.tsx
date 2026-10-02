@@ -19,6 +19,10 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Progress } from "@/registry/bases/base/ui/progress"
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function AvatarUploadProgress() {
   const [preview, setPreview] = React.useState<string | null>(
     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
@@ -105,8 +109,8 @@ export function AvatarUploadProgress() {
                 <bdi dir="ltr">{fileName}</bdi>
               </p>
               <Progress value={progress} />
-              <p className="text-center text-xs text-muted-foreground">
-                <bdi dir="ltr">{progress}%</bdi>
+              <p className="text-center text-xs tracking-normal text-muted-foreground">
+                {toFa(progress)}٪
               </p>
             </div>
           ) : null}

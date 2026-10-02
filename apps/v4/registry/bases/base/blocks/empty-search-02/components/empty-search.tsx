@@ -28,11 +28,11 @@ export function EmptySearchCard() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="items-center text-center">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="items-center border-b py-4 text-center">
           <Badge variant="secondary">جستجو</Badge>
         </CardHeader>
-        <CardContent>
+        <CardContent className="py-6">
           <Empty>
             <EmptyHeader>
               <EmptyMedia variant="icon">
@@ -41,9 +41,9 @@ export function EmptySearchCard() {
               <EmptyTitle>نتیجه‌ای پیدا نشد</EmptyTitle>
               <EmptyDescription>
                 هیچ نتیجه‌ای برای{" "}
-                <bdi dir="ltr" className="font-medium text-foreground">
-                  wireless headphones
-                </bdi>{" "}
+                <span className="font-medium text-foreground">
+                  هدفون بی‌سیم
+                </span>{" "}
                 پیدا نشد.
               </EmptyDescription>
             </EmptyHeader>
@@ -59,8 +59,10 @@ export function EmptySearchCard() {
             </EmptyContent>
           </Empty>
         </CardContent>
-        <CardFooter className="justify-center border-t">
-          <Button variant="ghost">پاک کردن جستجو</Button>
+        <CardFooter className="justify-center gap-3 border-t py-4">
+          <Button type="button" variant="ghost">
+            پاک کردن جستجو
+          </Button>
         </CardFooter>
       </Card>
     </section>

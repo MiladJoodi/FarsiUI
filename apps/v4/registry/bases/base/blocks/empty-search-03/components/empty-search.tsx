@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { SearchIcon, SearchXIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -26,7 +27,16 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const CATEGORY_ITEMS = [
+  { value: "همه دسته‌ها", label: "همه دسته‌ها" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
 export function EmptySearchForm() {
+  const [category, setCategory] = React.useState("همه دسته‌ها")
+
   return (
     <section
       dir="rtl"
@@ -45,18 +55,27 @@ export function EmptySearchForm() {
             />
           </div>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <Select defaultValue="all">
+            <Select
+              items={[...CATEGORY_ITEMS]}
+              value={category}
+              onValueChange={(value) => {
+                if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                  setCategory(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:flex-1" dir="rtl">
                 <SelectValue placeholder="دسته" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه دسته‌ها</SelectItem>
-                <SelectItem value="audio">صوتی</SelectItem>
-                <SelectItem value="wearable">پوشیدنی</SelectItem>
-                <SelectItem value="home">خانه</SelectItem>
+                {CATEGORY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
-            <Button variant="outline" className="sm:w-auto">
+            <Button type="button" variant="outline" className="sm:w-auto">
               پاک کردن فیلتر
             </Button>
           </div>
@@ -82,13 +101,15 @@ export function EmptySearchForm() {
                   type="email"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-start"
+                  className="text-left"
                 />
                 <FieldDescription>اختیاری</FieldDescription>
               </Field>
-              <div className="flex w-full gap-2">
-                <Button className="flex-1">جستجوی دوباره</Button>
-                <Button variant="outline" className="flex-1">
+              <div className="flex w-full gap-3">
+                <Button type="button" className="flex-1">
+                  جستجوی دوباره
+                </Button>
+                <Button type="button" variant="outline" className="flex-1">
                   بازگشت
                 </Button>
               </div>
@@ -97,8 +118,8 @@ export function EmptySearchForm() {
         </div>
 
         <Separator />
-        <p className="px-4 py-3 text-center text-xs text-muted-foreground">
-          قیمت‌ها از <bdi dir="ltr">۱٬۰۰۰٬۰۰۰</bdi> تومان شروع می‌شوند
+        <p className="px-4 py-3 text-center text-xs tracking-normal text-muted-foreground">
+          قیمت‌ها از ۱٬۰۰۰٬۰۰۰ تومان شروع می‌شوند
         </p>
       </div>
     </section>

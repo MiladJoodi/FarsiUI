@@ -11,20 +11,17 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import {
   Select,
@@ -44,26 +41,47 @@ type UploadItem = {
   status: "uploading" | "done" | "queued"
 }
 
+const FOLDER_ITEMS = [
+  { value: "اسناد", label: "اسناد" },
+  { value: "تصاویر", label: "تصاویر" },
+  { value: "آرشیو", label: "آرشیو" },
+] as const
+
 const INITIAL: UploadItem[] = [
   {
     id: "1",
     name: "contract-v2.pdf",
-    size: "2.4 MB",
+    size: "۲٫۴ مگابایت",
     progress: 100,
     status: "done",
   },
   {
     id: "2",
     name: "assets.zip",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     progress: 54,
     status: "uploading",
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
+function formatSize(bytes: number) {
+  if (bytes >= 1024 * 1024) {
+    const mb = bytes / (1024 * 1024)
+    return `${mb.toLocaleString("fa-IR", { maximumFractionDigits: 1 })} مگابایت`
+  }
+  const kb = Math.max(1, Math.round(bytes / 1024))
+  return `${toFa(kb)} کیلوبایت`
+}
+
 export function FileUploadHub() {
   const [files, setFiles] = React.useState(INITIAL)
-  const [folder, setFolder] = React.useState("docs")
+  const [folder, setFolder] = React.useState("اسناد")
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   const uploading = files.filter((f) => f.status === "uploading").length
@@ -71,6 +89,7 @@ export function FileUploadHub() {
 
   function remove(id: string) {
     setFiles((prev) => prev.filter((f) => f.id !== id))
+    setOpenId(null)
   }
 
   function onPick(event: React.ChangeEvent<HTMLInputElement>) {
@@ -79,7 +98,7 @@ export function FileUploadHub() {
     const next: UploadItem[] = Array.from(picked).map((file, i) => ({
       id: `${Date.now()}-${i}`,
       name: file.name,
-      size: `${Math.max(1, Math.round(file.size / 1024))} KB`,
+      size: formatSize(file.size),
       progress: 8,
       status: "uploading" as const,
     }))
@@ -99,26 +118,55 @@ export function FileUploadHub() {
             رسانه
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">بارگذاری فایل</h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{done}</bdi> تمام ·{" "}
-            <bdi dir="ltr">{uploading}</bdi> در حال بارگذاری
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(done)} تمام · {toFa(uploading)} در حال بارگذاری
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setFiles([])}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 p-1"
+          >
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => {
+                setFiles([])
+                setHeaderOpen(false)
+              }}
+            >
               پاک کردن همه
-            </DropdownMenuItem>
-            <DropdownMenuItem>توقف همه</DropdownMenuItem>
-            <DropdownMenuItem>دانلود گزارش</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => setHeaderOpen(false)}
+            >
+              توقف همه
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => setHeaderOpen(false)}
+            >
+              دانلود گزارش
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card shadow-sm md:grid md:grid-cols-[15rem_1fr]">
@@ -127,16 +175,23 @@ export function FileUploadHub() {
           <Field>
             <FieldLabel>پوشه مقصد</FieldLabel>
             <Select
+              items={[...FOLDER_ITEMS]}
               value={folder}
-              onValueChange={(v) => setFolder((v as string) ?? "docs")}
+              onValueChange={(value) => {
+                if (FOLDER_ITEMS.some((item) => item.value === value)) {
+                  setFolder(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="پوشه" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="docs">اسناد</SelectItem>
-                <SelectItem value="images">تصاویر</SelectItem>
-                <SelectItem value="archive">آرشیو</SelectItem>
+                {FOLDER_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -174,9 +229,7 @@ export function FileUploadHub() {
           <label className="mb-4 flex h-36 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-sm text-muted-foreground transition-colors hover:bg-muted/40">
             <UploadIcon className="size-6" />
             <span>فایل‌ها را اینجا رها کنید یا کلیک کنید</span>
-            <span className="text-xs">
-              حداکثر <bdi dir="ltr">۲۵ MB</bdi> برای هر فایل
-            </span>
+            <span className="text-xs">حداکثر ۲۵ مگابایت برای هر فایل</span>
             <input
               ref={inputRef}
               type="file"
@@ -227,35 +280,73 @@ export function FileUploadHub() {
                               : "در حال بارگذاری"}
                         </Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">
-                        <bdi dir="ltr">{file.size}</bdi>
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        {file.size}
                         {" · "}
-                        <bdi dir="ltr">/{folder}/</bdi>
+                        {folder}
                       </p>
                       {file.status !== "done" ? (
                         <div className="space-y-1">
                           <Progress value={file.progress} />
-                          <p className="text-xs text-muted-foreground">
-                            <bdi dir="ltr">{file.progress}%</bdi>
+                          <p className="text-xs tracking-normal text-muted-foreground">
+                            {toFa(file.progress)}٪
                           </p>
                         </div>
                       ) : null}
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === file.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? file.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                        <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => remove(file.id)}>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-40 p-1"
+                      >
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          باز کردن
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          کپی لینک
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => remove(file.id)}
+                        >
                           حذف
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                     <Button
                       type="button"
                       variant="ghost"

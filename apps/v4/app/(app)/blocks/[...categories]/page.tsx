@@ -59,7 +59,7 @@ export default async function BlocksPage({
         className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center text-muted-foreground"
       >
         <p className="text-sm font-medium text-foreground">
-          بلاکی برای این دسته پیدا نشد
+          بلوکی برای این دسته پیدا نشد
         </p>
         <p className="text-xs">
           استایل فعال: <span dir="ltr">{activeStyle.name}</span>

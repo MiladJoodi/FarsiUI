@@ -40,18 +40,30 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
+const CYCLE_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه" },
+] as const
+
+type CycleValue = (typeof CYCLE_ITEMS)[number]["value"]
+
 const PERIOD_START = new Date()
 PERIOD_START.setDate(PERIOD_START.getDate() - 18)
 const PERIOD_END = new Date()
 PERIOD_END.setDate(PERIOD_END.getDate() + 12)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -77,6 +89,7 @@ const USAGE = [
 
 export function BillingFancy() {
   const [autoPay, setAutoPay] = React.useState(true)
+  const [cycle, setCycle] = React.useState<CycleValue>("ماهانه")
 
   return (
     <section
@@ -93,15 +106,13 @@ export function BillingFancy() {
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
             <Badge>صورتحساب دوره</Badge>
-            <Badge variant="outline">
-              <bdi dir="ltr">
-                {formatJalaliCompact(PERIOD_START)} –{" "}
-                {formatJalaliCompact(PERIOD_END)}
-              </bdi>
+            <Badge variant="outline" className="tracking-normal">
+              {formatJalaliCompact(PERIOD_START)} –{" "}
+              {formatJalaliCompact(PERIOD_END)}
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">صورتحساب</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-muted-foreground tracking-normal">
             هزینه و مصرف دوره جاری · سررسید {formatJalali(PERIOD_END)}
           </p>
         </div>
@@ -132,20 +143,16 @@ export function BillingFancy() {
                 {CHARGES.map((c) => (
                   <div
                     key={c.label}
-                    className="flex justify-between gap-3"
+                    className="flex justify-between gap-3 tracking-normal"
                   >
                     <span className="text-muted-foreground">{c.label}</span>
-                    <bdi dir="ltr" className="font-medium">
-                      {c.amount}
-                    </bdi>
+                    <span className="font-medium">{c.amount}</span>
                   </div>
                 ))}
                 <Separator />
-                <div className="flex justify-between gap-3 text-base font-semibold">
+                <div className="flex justify-between gap-3 text-base font-semibold tracking-normal">
                   <span>جمع</span>
-                  <span>
-                    <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-                  </span>
+                  <span>۵۷۹٬۰۰۰ تومان</span>
                 </div>
               </CardContent>
             </Card>
@@ -159,11 +166,9 @@ export function BillingFancy() {
               <CardContent className="space-y-5">
                 {USAGE.map((u) => (
                   <div key={u.label} className="space-y-2">
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-sm tracking-normal">
                       <span>{u.label}</span>
-                      <bdi dir="ltr" className="text-muted-foreground">
-                        {u.detail}
-                      </bdi>
+                      <span className="text-muted-foreground">{u.detail}</span>
                     </div>
                     <Progress value={u.value} />
                   </div>
@@ -181,13 +186,24 @@ export function BillingFancy() {
               <CardContent className="space-y-4">
                 <Field>
                   <FieldLabel>چرخه</FieldLabel>
-                  <Select defaultValue="monthly">
+                  <Select
+                    items={[...CYCLE_ITEMS]}
+                    value={cycle}
+                    onValueChange={(value) => {
+                      if (CYCLE_ITEMS.some((item) => item.value === value)) {
+                        setCycle(value as CycleValue)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="monthly">ماهانه</SelectItem>
-                      <SelectItem value="yearly">سالانه</SelectItem>
+                      {CYCLE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -222,24 +238,19 @@ export function BillingFancy() {
             <CardTitle className="text-base">پرداخت بعدی</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 tracking-normal">
               <CalendarIcon className="size-4 text-muted-foreground" />
               {formatJalali(PERIOD_END)}
             </p>
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 tracking-normal">
               <CreditCardIcon className="size-4 text-muted-foreground" />
-              <bdi dir="ltr">**** ۴۲۱۸</bdi>
+              **** ۴۲۱۸
             </p>
             <Separator />
-            <div className="flex justify-between gap-2 font-semibold">
+            <div className="flex justify-between gap-2 font-semibold tracking-normal">
               <span>مبلغ</span>
-              <span>
-                <bdi dir="ltr">۵۷۹٬۰۰۰</bdi> تومان
-              </span>
+              <span>۵۷۹٬۰۰۰ تومان</span>
             </div>
-            <p className="text-xs text-muted-foreground">
-              مسیر: <bdi dir="ltr">/billing/current</bdi>
-            </p>
           </CardContent>
           <CardFooter className="border-t">
             <Button className="w-full">پرداخت اکنون</Button>

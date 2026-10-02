@@ -53,12 +53,8 @@ export function SuccessInContext() {
                   <CheckCircle2Icon className="size-6 text-emerald-600 dark:text-emerald-400" />
                 </EmptyMedia>
                 <EmptyTitle>انتشار با موفقیت انجام شد</EmptyTitle>
-                <EmptyDescription>
-                  نسخه{" "}
-                  <bdi dir="ltr" className="font-medium text-foreground">
-                    v2.4.1
-                  </bdi>{" "}
-                  روی محیط production قرار گرفت.
+                <EmptyDescription className="tracking-normal">
+                  نسخه ۲٫۴٫۱ روی محیط تولید قرار گرفت.
                 </EmptyDescription>
               </EmptyHeader>
               <EmptyContent className="mt-4 flex-row justify-center gap-2">
@@ -83,17 +79,17 @@ export function SuccessInContext() {
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">شاخه</span>
-              <bdi dir="ltr">main</bdi>
+              <span>اصلی</span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-2">
-              <span className="text-muted-foreground">Commit</span>
-              <bdi dir="ltr">a3f9c2e</bdi>
+            <div className="flex justify-between gap-2 tracking-normal">
+              <span className="text-muted-foreground">شناسه انتشار</span>
+              <span>کد-۸۴۲۹</span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">مدت</span>
-              <bdi dir="ltr">۱م ۴۲ث</bdi>
+              <span>۱ دقیقه و ۴۲ ثانیه</span>
             </div>
           </CardContent>
         </Card>

@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -27,7 +29,40 @@ import {
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const STATUS_ITEMS = [
+  { value: "پیش‌نویس", label: "پیش‌نویس" },
+  { value: "ارسال‌شده", label: "ارسال‌شده" },
+  { value: "پرداخت‌شده", label: "پرداخت‌شده" },
+] as const
+
+const QTY_ITEMS = [
+  { value: "۱", label: "۱" },
+  { value: "۲", label: "۲" },
+  { value: "۳", label: "۳" },
+  { value: "۵", label: "۵" },
+  { value: "۱۰", label: "۱۰" },
+] as const
+
+type StatusValue = (typeof STATUS_ITEMS)[number]["value"]
+type QtyValue = (typeof QTY_ITEMS)[number]["value"]
+
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatAmount(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+  if (!digits) return ""
+  return toFaDigits(Number(digits).toLocaleString("en-US")).replace(/,/g, "٬")
+}
+
 export function InvoiceCreateForm() {
+  const [status, setStatus] = React.useState<StatusValue>("پیش‌نویس")
+  const [qty, setQty] = React.useState<QtyValue>("۱")
+  const [amount, setAmount] = React.useState("")
+
   return (
     <section
       dir="rtl"
@@ -40,18 +75,16 @@ export function InvoiceCreateForm() {
             جدید
           </Badge>
           <CardTitle>صدور فاکتور</CardTitle>
-          <CardDescription>
-            شماره، ایمیل و مبالغ به‌صورت LTR
-          </CardDescription>
+          <CardDescription>شماره، تاریخ و مبالغ فارسی</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
             <FieldLabel htmlFor="inv3-no">شماره فاکتور</FieldLabel>
             <Input
               id="inv3-no"
-              defaultValue="INV-1043"
-              dir="ltr"
-              className="text-start"
+              defaultValue="فاکتور-۱۰۴۳"
+              dir="rtl"
+              className="text-end tracking-normal"
             />
           </Field>
 
@@ -81,8 +114,8 @@ export function InvoiceCreateForm() {
               <Input
                 id="inv3-issue"
                 placeholder="۱۴۰۵/۰۷/۱۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
               <FieldDescription>تاریخ شمسی</FieldDescription>
             </Field>
@@ -91,22 +124,32 @@ export function InvoiceCreateForm() {
               <Input
                 id="inv3-due"
                 placeholder="۱۴۰۵/۰۷/۲۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </div>
 
           <Field>
             <FieldLabel>وضعیت</FieldLabel>
-            <Select defaultValue="draft">
+            <Select
+              items={[...STATUS_ITEMS]}
+              value={status}
+              onValueChange={(value) => {
+                if (STATUS_ITEMS.some((item) => item.value === value)) {
+                  setStatus(value as StatusValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="draft">پیش‌نویس</SelectItem>
-                <SelectItem value="sent">ارسال‌شده</SelectItem>
-                <SelectItem value="paid">پرداخت‌شده</SelectItem>
+                {STATUS_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -122,22 +165,37 @@ export function InvoiceCreateForm() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Field>
-              <FieldLabel htmlFor="inv3-qty">تعداد</FieldLabel>
-              <Input
-                id="inv3-qty"
-                type="number"
-                defaultValue={1}
-                dir="ltr"
-                className="text-start"
-              />
+              <FieldLabel>تعداد</FieldLabel>
+              <Select
+                items={[...QTY_ITEMS]}
+                value={qty}
+                onValueChange={(value) => {
+                  if (QTY_ITEMS.some((item) => item.value === value)) {
+                    setQty(value as QtyValue)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full" dir="rtl">
+                  <SelectValue placeholder="تعداد" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {QTY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="inv3-amount">مبلغ (تومان)</FieldLabel>
               <Input
                 id="inv3-amount"
-                placeholder="499000"
-                dir="ltr"
-                className="text-start"
+                value={amount}
+                onChange={(e) => setAmount(formatAmount(e.target.value))}
+                placeholder="۴۹۹٬۰۰۰"
+                dir="rtl"
+                className="text-end tracking-normal"
                 inputMode="numeric"
               />
             </Field>

@@ -16,29 +16,33 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const ITEMS = [
   {
     name: "invoice-1405.pdf",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     type: "PDF",
     date: "دیروز",
   },
   {
     name: "brief.docx",
-    size: "420 KB",
+    size: "۴۲۰ کیلوبایت",
     type: "DOCX",
     date: "۳ روز پیش",
   },
   {
     name: "photo-cover.jpg",
-    size: "3.1 MB",
+    size: "۳٫۱ مگابایت",
     type: "JPG",
     date: "هفتهٔ پیش",
   },
   {
     name: "assets.zip",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     type: "ZIP",
     date: "امروز",
   },
 ] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function AttachmentListCards() {
   return (
@@ -51,8 +55,8 @@ export function AttachmentListCards() {
         <CardHeader className="flex-row items-start justify-between gap-3 space-y-0 text-start">
           <div>
             <CardTitle>پیوست‌ها</CardTitle>
-            <CardDescription>
-              <bdi dir="ltr">{ITEMS.length}</bdi> فایل پیوست‌شده
+            <CardDescription className="tracking-normal">
+              {toFa(ITEMS.length)} فایل پیوست‌شده
             </CardDescription>
           </div>
           <Badge variant="secondary">تیکت #۴۲۱</Badge>
@@ -71,8 +75,8 @@ export function AttachmentListCards() {
                       </p>
                       <Badge variant="outline">{item.type}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{item.size}</bdi> · {item.date}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.size} · {item.date}
                     </p>
                   </div>
                   <Button variant="ghost" size="icon-sm" aria-label="دانلود">

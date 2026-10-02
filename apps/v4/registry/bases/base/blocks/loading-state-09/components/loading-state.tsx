@@ -12,6 +12,10 @@ import {
 import { Progress } from "@/registry/bases/base/ui/progress"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function LoadingProgress() {
   const [value, setValue] = React.useState(12)
 
@@ -32,19 +36,13 @@ export function LoadingProgress() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>بارگذاری فایل</CardTitle>
-          <CardDescription>
-            پیشرفت آپلود · مسیر <bdi dir="ltr">/uploads</bdi>
-          </CardDescription>
+          <CardDescription>پیشرفت آپلود</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">
-                <bdi dir="ltr">report-q3.pdf</bdi>
-              </span>
-              <bdi dir="ltr" className="tabular-nums">
-                {value}٪
-              </bdi>
+            <div className="flex justify-between text-sm tracking-normal">
+              <span className="text-muted-foreground">گزارش-فصل۳.pdf</span>
+              <span>{toFa(value)}٪</span>
             </div>
             <Progress value={value} />
           </div>

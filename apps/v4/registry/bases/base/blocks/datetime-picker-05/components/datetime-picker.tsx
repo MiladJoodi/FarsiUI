@@ -26,7 +26,6 @@ import {
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
 import {
   Popover,
@@ -49,14 +48,49 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
+const TIME_ITEMS = [
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۰:۳۰", label: "۱۰:۳۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۱:۳۰", label: "۱۱:۳۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
+const TZ_ITEMS = [
+  { value: "تهران", label: "تهران (یوتی‌سی ۳:۳۰+)" },
+  { value: "جهانی", label: "جهانی (یوتی‌سی)" },
+] as const
+
+const REPEAT_END_ITEMS = [
+  { value: "۴ هفته", label: "۴ هفته" },
+  { value: "۸ هفته", label: "۸ هفته" },
+  { value: "بدون پایان", label: "بدون پایان" },
+] as const
+
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
+type TzValue = (typeof TZ_ITEMS)[number]["value"]
+type RepeatEndValue = (typeof REPEAT_END_ITEMS)[number]["value"]
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliShort(date: Date) {
@@ -85,10 +119,12 @@ export function DatetimePickerFancy() {
     from: today,
     to: addDays(today, 3),
   })
-  const [startTime, setStartTime] = React.useState("10:00")
-  const [endTime, setEndTime] = React.useState("11:30")
+  const [startTime, setStartTime] = React.useState<TimeValue>("۱۰:۰۰")
+  const [endTime, setEndTime] = React.useState<TimeValue>("۱۱:۳۰")
+  const [tz, setTz] = React.useState<TzValue>("تهران")
   const [remind, setRemind] = React.useState(true)
   const [repeat, setRepeat] = React.useState(false)
+  const [repeatEnd, setRepeatEnd] = React.useState<RepeatEndValue>("۴ هفته")
 
   return (
     <section
@@ -128,7 +164,7 @@ export function DatetimePickerFancy() {
             <Card>
               <CardHeader className="text-start">
                 <CardTitle>تاریخ و ساعت</CardTitle>
-                <CardDescription>پاپ‌اور شمسی + زمان LTR</CardDescription>
+                <CardDescription>پاپ‌اور شمسی + انتخاب ساعت</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Field>
@@ -160,46 +196,74 @@ export function DatetimePickerFancy() {
                 </Field>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field>
-                    <FieldLabel htmlFor="dt5-start">شروع</FieldLabel>
-                    <Input
-                      id="dt5-start"
-                      type="time"
+                    <FieldLabel>شروع</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
                       value={startTime}
-                      onChange={(e) => setStartTime(e.target.value)}
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setStartTime(value as TimeValue)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="شروع" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="dt5-end">پایان</FieldLabel>
-                    <Input
-                      id="dt5-end"
-                      type="time"
+                    <FieldLabel>پایان</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
                       value={endTime}
-                      onChange={(e) => setEndTime(e.target.value)}
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setEndTime(value as TimeValue)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="پایان" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                 </div>
                 <Field>
                   <FieldLabel>منطقه زمانی</FieldLabel>
-                  <Select defaultValue="tehran">
+                  <Select
+                    items={[...TZ_ITEMS]}
+                    value={tz}
+                    onValueChange={(value) => {
+                      if (TZ_ITEMS.some((item) => item.value === value)) {
+                        setTz(value as TzValue)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="tehran">
-                        تهران (<bdi dir="ltr">UTC+3:30</bdi>)
-                      </SelectItem>
-                      <SelectItem value="utc">
-                        جهانی (<bdi dir="ltr">UTC</bdi>)
-                      </SelectItem>
+                      {TZ_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
-                  <FieldDescription>
-                    مسیر نمونه: <bdi dir="ltr">/datetime-picker</bdi>
-                  </FieldDescription>
                 </Field>
               </CardContent>
               <CardFooter className="border-t">
@@ -254,14 +318,9 @@ export function DatetimePickerFancy() {
                     </PopoverContent>
                   </Popover>
                   {range?.from ? (
-                    <FieldDescription>
-                      <bdi dir="ltr">{formatJalaliCompact(range.from)}</bdi>
-                      {range.to ? (
-                        <>
-                          {" – "}
-                          <bdi dir="ltr">{formatJalaliCompact(range.to)}</bdi>
-                        </>
-                      ) : null}
+                    <FieldDescription className="tracking-normal">
+                      {formatJalaliCompact(range.from)}
+                      {range.to ? ` – ${formatJalaliCompact(range.to)}` : null}
                     </FieldDescription>
                   ) : null}
                 </Field>
@@ -303,7 +362,7 @@ export function DatetimePickerFancy() {
                   className="mx-auto"
                 />
               </CardContent>
-              <CardFooter className="border-t text-sm text-muted-foreground">
+              <CardFooter className="border-t text-sm text-muted-foreground tracking-normal">
                 {date ? formatJalali(date) : "روزی انتخاب نشده"}
               </CardFooter>
             </Card>
@@ -318,22 +377,22 @@ export function DatetimePickerFancy() {
             <CardContent className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <CalendarIcon className="mt-0.5 size-4 text-muted-foreground" />
-                <p className="font-medium">
+                <p className="font-medium tracking-normal">
                   {date ? formatJalali(date) : "—"}
                 </p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 tracking-normal">
                 <ClockIcon className="size-4 text-muted-foreground" />
                 <span>
-                  <bdi dir="ltr">{startTime}</bdi>
+                  {startTime}
                   {" – "}
-                  <bdi dir="ltr">{endTime}</bdi>
+                  {endTime}
                 </span>
               </div>
               {range?.from && range?.to ? (
                 <>
                   <Separator />
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground tracking-normal">
                     بازه: {formatJalaliShort(range.from)} تا{" "}
                     {formatJalaliShort(range.to)}
                   </p>
@@ -372,14 +431,24 @@ export function DatetimePickerFancy() {
               {repeat ? (
                 <Field>
                   <FieldLabel>پایان تکرار</FieldLabel>
-                  <Select defaultValue="4">
+                  <Select
+                    items={[...REPEAT_END_ITEMS]}
+                    value={repeatEnd}
+                    onValueChange={(value) => {
+                      if (REPEAT_END_ITEMS.some((item) => item.value === value)) {
+                        setRepeatEnd(value as RepeatEndValue)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="4">۴ هفته</SelectItem>
-                      <SelectItem value="8">۸ هفته</SelectItem>
-                      <SelectItem value="never">بدون پایان</SelectItem>
+                      {REPEAT_END_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>

@@ -16,13 +16,10 @@ import {
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Progress } from "@/registry/bases/base/ui/progress"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
@@ -47,10 +44,16 @@ const HISTORY = [
   },
 ] as const
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function AvatarUploadHistory() {
   const [preview, setPreview] = React.useState<string>(HISTORY[0].src)
   const [fileName, setFileName] = React.useState("avatar-v3.jpg")
   const [progress, setProgress] = React.useState(100)
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function onFile(event: React.ChangeEvent<HTMLInputElement>) {
@@ -82,31 +85,58 @@ export function AvatarUploadHistory() {
               تاریخچه و منوی عملیات
             </p>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="ghost" size="icon-sm" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
               <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => inputRef.current?.click()}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  inputRef.current?.click()
+                  setHeaderOpen(false)
+                }}
+              >
                 بارگذاری جدید
-              </DropdownMenuItem>
-              <DropdownMenuItem>دانلود فعلی</DropdownMenuItem>
-              <DropdownMenuItem
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                دانلود فعلی
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
                 onClick={() => {
                   setPreview("")
                   setFileName("")
                   setProgress(0)
+                  setHeaderOpen(false)
                 }}
               >
                 حذف تصویر
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
 
         <div className="flex flex-col items-center gap-4 p-6">
@@ -142,8 +172,8 @@ export function AvatarUploadHistory() {
               {progress < 100 ? (
                 <>
                   <Progress value={progress} />
-                  <p className="text-xs text-muted-foreground">
-                    <bdi dir="ltr">{progress}%</bdi>
+                  <p className="text-xs tracking-normal text-muted-foreground">
+                    {toFa(progress)}٪
                   </p>
                 </>
               ) : null}
@@ -192,27 +222,64 @@ export function AvatarUploadHistory() {
                     </p>
                     <p className="text-xs text-muted-foreground">{item.date}</p>
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="ghost" size="icon-sm" />}
+                  <Popover
+                    open={openId === item.id}
+                    onOpenChange={(open) =>
+                      setOpenId(open ? item.id : null)
+                    }
+                  >
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon-sm"
+                        />
+                      }
                     >
                       <MoreHorizontalIcon className="size-4" />
                       <span className="sr-only">عملیات</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                      <DropdownMenuItem
+                    </PopoverTrigger>
+                    <PopoverContent
+                      dir="rtl"
+                      lang="fa"
+                      align="start"
+                      className="w-36 p-1"
+                    >
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
                         onClick={() => {
                           setPreview(item.src)
                           setFileName(item.name)
                           setProgress(100)
+                          setOpenId(null)
                         }}
                       >
                         بازیابی
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>دانلود</DropdownMenuItem>
-                      <DropdownMenuItem>حذف</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        دانلود
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start"
+                        onClick={() => setOpenId(null)}
+                      >
+                        حذف
+                      </Button>
+                    </PopoverContent>
+                  </Popover>
                 </div>
               </li>
             ))}

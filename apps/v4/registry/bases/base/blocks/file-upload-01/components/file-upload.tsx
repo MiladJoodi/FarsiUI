@@ -30,9 +30,7 @@ export function FileUploadSimple() {
           <label className="flex h-36 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-sm text-muted-foreground transition-colors hover:bg-muted/40">
             <UploadIcon className="size-6" />
             <span>رها کردن فایل‌ها اینجا</span>
-            <span className="text-xs">
-              حداکثر <bdi dir="ltr">۱۰ MB</bdi>
-            </span>
+            <span className="text-xs">حداکثر ۱۰ مگابایت</span>
             <input type="file" className="sr-only" />
           </label>
         </CardContent>

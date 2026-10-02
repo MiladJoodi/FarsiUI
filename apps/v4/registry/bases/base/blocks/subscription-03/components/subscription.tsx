@@ -29,19 +29,48 @@ import {
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const ACTION_ITEMS = [
+  { value: "تغییر طرح", label: "تغییر طرح" },
+  { value: "توقف موقت", label: "توقف موقت" },
+  { value: "لغو اشتراک", label: "لغو اشتراک" },
+] as const
+
+const PLAN_ITEMS = [
+  { value: "شروع", label: "شروع" },
+  { value: "حرفه‌ای (فعلی)", label: "حرفه‌ای (فعلی)" },
+  { value: "تیم", label: "تیم" },
+] as const
+
+const PERIOD_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه" },
+] as const
+
+type ActionValue = (typeof ACTION_ITEMS)[number]["value"]
+type PlanValue = (typeof PLAN_ITEMS)[number]["value"]
+type PeriodValue = (typeof PERIOD_ITEMS)[number]["value"]
+
 const NEXT_BILLING = new Date()
 NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function SubscriptionManageForm() {
+  const [action, setAction] = React.useState<ActionValue>("تغییر طرح")
+  const [plan, setPlan] = React.useState<PlanValue>("تیم")
+  const [period, setPeriod] = React.useState<PeriodValue>("ماهانه")
   const [cancelAtPeriodEnd, setCancelAtPeriodEnd] = React.useState(true)
 
   return (
@@ -56,51 +85,80 @@ export function SubscriptionManageForm() {
             مدیریت
           </Badge>
           <CardTitle>تغییر یا لغو اشتراک</CardTitle>
-          <CardDescription>
+          <CardDescription className="tracking-normal">
             طرح فعلی: حرفه‌ای · تمدید {formatJalali(NEXT_BILLING)}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
             <FieldLabel>عملیات</FieldLabel>
-            <Select defaultValue="change">
+            <Select
+              items={[...ACTION_ITEMS]}
+              value={action}
+              onValueChange={(value) => {
+                if (ACTION_ITEMS.some((item) => item.value === value)) {
+                  setAction(value as ActionValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="change">تغییر طرح</SelectItem>
-                <SelectItem value="pause">توقف موقت</SelectItem>
-                <SelectItem value="cancel">لغو اشتراک</SelectItem>
+                {ACTION_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
-            <FieldDescription>
-              تغییر از طرح فعلی به طرح جدید
-            </FieldDescription>
+            <FieldDescription>تغییر از طرح فعلی به طرح جدید</FieldDescription>
           </Field>
 
           <Field>
             <FieldLabel>طرح مقصد</FieldLabel>
-            <Select defaultValue="team">
+            <Select
+              items={[...PLAN_ITEMS]}
+              value={plan}
+              onValueChange={(value) => {
+                if (PLAN_ITEMS.some((item) => item.value === value)) {
+                  setPlan(value as PlanValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="starter">شروع</SelectItem>
-                <SelectItem value="pro">حرفه‌ای (فعلی)</SelectItem>
-                <SelectItem value="team">تیم</SelectItem>
+                {PLAN_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
           <Field>
             <FieldLabel>دوره صورت‌حساب</FieldLabel>
-            <Select defaultValue="monthly">
+            <Select
+              items={[...PERIOD_ITEMS]}
+              value={period}
+              onValueChange={(value) => {
+                if (PERIOD_ITEMS.some((item) => item.value === value)) {
+                  setPeriod(value as PeriodValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="monthly">ماهانه</SelectItem>
-                <SelectItem value="yearly">سالانه</SelectItem>
+                {PERIOD_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>

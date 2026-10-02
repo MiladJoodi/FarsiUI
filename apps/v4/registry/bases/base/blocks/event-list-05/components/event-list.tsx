@@ -12,22 +12,17 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -37,6 +32,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 function formatJalaliDay(date: Date) {
   return date.toLocaleDateString("fa-IR", {
@@ -53,13 +49,17 @@ function formatJalaliMonth(date: Date) {
 }
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -71,20 +71,48 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
+type Kind = "جلسه" | "ددلاین" | "شخصی"
+
 type EventItem = {
   id: string
   title: string
   time: string
   date: Date
-  kind: "meeting" | "deadline" | "personal"
+  kind: Kind
   place: string
 }
 
-const KIND_FA = {
-  meeting: "جلسه",
-  deadline: "ددلاین",
-  personal: "شخصی",
-} as const
+const SORT_ITEMS = [
+  { value: "تاریخ", label: "تاریخ" },
+  { value: "نام", label: "نام" },
+  { value: "نوع", label: "نوع" },
+] as const
+
+const TYPE_ITEMS = [
+  { value: "همه انواع", label: "همه انواع" },
+  { value: "جلسه", label: "جلسه" },
+  { value: "ددلاین", label: "ددلاین" },
+  { value: "شخصی", label: "شخصی" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
+const GROUPS = [
+  { id: "همه", label: "همه", count: "۵" },
+  { id: "امروز", label: "امروز", count: "۱" },
+  { id: "این هفته", label: "این هفته", count: "۵" },
+  { id: "جلسات", label: "جلسات", count: "۳" },
+] as const
 
 function buildEvents(): EventItem[] {
   const today = startOfDay(new Date())
@@ -94,7 +122,7 @@ function buildEvents(): EventItem[] {
       title: "جلسهٔ تیم محصول",
       time: "۱۰:۰۰",
       date: today,
-      kind: "meeting",
+      kind: "جلسه",
       place: "اتاق آبی",
     },
     {
@@ -102,7 +130,7 @@ function buildEvents(): EventItem[] {
       title: "بازبینی طراحی",
       time: "۱۴:۳۰",
       date: addDays(today, 1),
-      kind: "meeting",
+      kind: "جلسه",
       place: "آنلاین",
     },
     {
@@ -110,7 +138,7 @@ function buildEvents(): EventItem[] {
       title: "ددلاین نسخهٔ بتا",
       time: "۱۸:۰۰",
       date: addDays(today, 2),
-      kind: "deadline",
+      kind: "ددلاین",
       place: "—",
     },
     {
@@ -118,7 +146,7 @@ function buildEvents(): EventItem[] {
       title: "ویزیت پزشک",
       time: "۰۹:۱۵",
       date: addDays(today, 4),
-      kind: "personal",
+      kind: "شخصی",
       place: "کلینیک نور",
     },
     {
@@ -126,32 +154,31 @@ function buildEvents(): EventItem[] {
       title: "هماهنگ با فروش",
       time: "۱۱:۳۰",
       date: addDays(today, 5),
-      kind: "meeting",
+      kind: "جلسه",
       place: "اتاق سبز",
     },
   ]
 }
 
-const GROUPS = [
-  { id: "all", label: "همه", count: "۵" },
-  { id: "today", label: "امروز", count: "۱" },
-  { id: "week", label: "این هفته", count: "۵" },
-  { id: "meeting", label: "جلسات", count: "۳" },
-] as const
-
 export function EventListHub() {
   const [events] = React.useState(buildEvents)
-  const [group, setGroup] = React.useState("all")
+  const [group, setGroup] = React.useState("همه")
   const [query, setQuery] = React.useState("")
-  const [sort, setSort] = React.useState("date")
+  const [sort, setSort] = React.useState("تاریخ")
+  const [type, setType] = React.useState("همه انواع")
+  const [remindAt, setRemindAt] = React.useState("۰۹:۰۰")
   const [selected, setSelected] = React.useState<string[]>(["1"])
   const [chips, setChips] = React.useState(["پیش‌رو"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [sortOpen, setSortOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const today = startOfDay(new Date())
 
   const rows = events.filter((ev) => {
-    if (group === "today" && !isSameDay(ev.date, today)) return false
-    if (group === "meeting" && ev.kind !== "meeting") return false
+    if (group === "امروز" && !isSameDay(ev.date, today)) return false
+    if (group === "جلسات" && ev.kind !== "جلسه") return false
+    if (type !== "همه انواع" && ev.kind !== type) return false
     if (query && !ev.title.includes(query)) return false
     return true
   })
@@ -174,30 +201,62 @@ export function EventListHub() {
             رویدادها · شمسی
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">فهرست رویدادها</h2>
-          <p className="mt-2 text-muted-foreground">
-            {formatJalali(today)} ·{" "}
-            <bdi dir="ltr">{formatJalaliCompact(today)}</bdi>
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {formatJalali(today)} · {formatJalaliCompact(today)}
+            {" · "}
+            {toFa(rows.length)} رویداد · {toFa(selected.length)} انتخاب‌شده
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button size="sm">رویداد جدید</Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={<Button type="button" variant="outline" size="sm" />}
+            >
               <MoreHorizontalIcon className="size-4" />
               بیشتر
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>صدور تقویم</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setSelected([])}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                صدور تقویم
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setSelected([])
+                  setHeaderOpen(false)
+                }}
+              >
                 لغو انتخاب
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setChips([])}>
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -235,8 +294,8 @@ export function EventListHub() {
                 }
               >
                 <span>{g.label}</span>
-                <span className="text-xs text-muted-foreground">
-                  <bdi dir="ltr">{g.count}</bdi>
+                <span className="text-xs tracking-normal text-muted-foreground">
+                  {g.count}
                 </span>
               </button>
             ))}
@@ -247,48 +306,85 @@ export function EventListHub() {
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "date")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="date">تاریخ</SelectItem>
-                <SelectItem value="name">نام</SelectItem>
-                <SelectItem value="kind">نوع</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full" />}
+          <Popover open={sortOpen} onOpenChange={setSortOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" className="w-full" />
+              }
             >
               میانبر مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-40">
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "date")}
-              >
-                <DropdownMenuRadioItem value="date">تاریخ</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="kind">نوع</DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-40 p-1"
+            >
+              {SORT_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    sort === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setSort(opt.value)
+                    setSortOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </PopoverContent>
+          </Popover>
 
           <Field>
-            <FieldLabel htmlFor="el5-time">ساعت یادآوری</FieldLabel>
-            <Input
-              id="el5-time"
-              type="time"
-              defaultValue="09:00"
-              dir="ltr"
-              className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-            />
-            <FieldDescription>زمان LTR</FieldDescription>
+            <FieldLabel>ساعت یادآوری</FieldLabel>
+            <Select
+              items={[...TIME_ITEMS]}
+              value={remindAt}
+              onValueChange={(value) => {
+                if (TIME_ITEMS.some((item) => item.value === value)) {
+                  setRemindAt(value as string)
+                }
+              }}
+            >
+              <SelectTrigger className="w-full" dir="rtl">
+                <SelectValue placeholder="ساعت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {TIME_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <FieldDescription>زمان یادآوری روزانه</FieldDescription>
           </Field>
 
           <Field>
@@ -320,15 +416,24 @@ export function EventListHub() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="all">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه انواع</SelectItem>
-                <SelectItem value="meeting">جلسه</SelectItem>
-                <SelectItem value="deadline">ددلاین</SelectItem>
-                <SelectItem value="personal">شخصی</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -350,7 +455,7 @@ export function EventListHub() {
                       aria-label={`انتخاب ${ev.title}`}
                     />
                     <div className="flex size-12 shrink-0 flex-col items-center justify-center rounded-lg border bg-muted/40 text-center">
-                      <span className="text-sm font-semibold leading-none">
+                      <span className="text-sm font-semibold leading-none tracking-normal">
                         {formatJalaliDay(ev.date)}
                       </span>
                       <span className="mt-0.5 text-[0.65rem] text-muted-foreground">
@@ -362,29 +467,77 @@ export function EventListHub() {
                         <p className="truncate text-sm font-medium">
                           {ev.title}
                         </p>
-                        <Badge variant="secondary">{KIND_FA[ev.kind]}</Badge>
+                        <Badge variant="secondary">{ev.kind}</Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs tracking-normal text-muted-foreground">
                         {formatJalali(ev.date)}
                       </p>
-                      <p className="text-xs text-muted-foreground">
-                        ساعت <bdi dir="ltr">{ev.time}</bdi> · {ev.place}
+                      <p className="text-xs tracking-normal text-muted-foreground">
+                        ساعت {ev.time} · {ev.place}
                       </p>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === ev.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? ev.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                        <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                        <DropdownMenuItem>دعوت</DropdownMenuItem>
-                        <DropdownMenuItem>حذف</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-36 p-1"
+                      >
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          مشاهده
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          ویرایش
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          دعوت
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          حذف
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))

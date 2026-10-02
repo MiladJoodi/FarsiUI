@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import * as React from "react"
 import {
   BellIcon,
   CalendarIcon,
@@ -30,19 +30,17 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -62,14 +60,35 @@ import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 const EVENT_DATE = new Date()
 
+const TYPE_ITEMS = [
+  { value: "جلسه", label: "جلسه" },
+  { value: "ددلاین", label: "ددلاین" },
+  { value: "شخصی", label: "شخصی" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۰:۳۰", label: "۱۰:۳۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۱:۳۰", label: "۱۱:۳۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -79,6 +98,10 @@ function formatJalaliCompact(date: Date) {
     month: "2-digit",
     day: "2-digit",
   })
+}
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 const ATTENDEES = [
@@ -111,9 +134,13 @@ const FILES = [
 ] as const
 
 export function EventDetailsFancy() {
-  const [remind, setRemind] = useState(true)
-  const [online, setOnline] = useState(true)
-  const [copied, setCopied] = useState(false)
+  const [remind, setRemind] = React.useState(true)
+  const [online, setOnline] = React.useState(true)
+  const [copied, setCopied] = React.useState(false)
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [type, setType] = React.useState("جلسه")
+  const [start, setStart] = React.useState("۱۰:۰۰")
+  const [end, setEnd] = React.useState("۱۱:۳۰")
 
   function handleCopy() {
     setCopied(true)
@@ -136,8 +163,8 @@ export function EventDetailsFancy() {
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <Badge>جلسه محصول</Badge>
             <Badge variant="secondary">تأیید شده</Badge>
-            <Badge variant="outline">
-              <bdi dir="ltr">{formatJalaliCompact(EVENT_DATE)}</bdi>
+            <Badge variant="outline" className="tracking-normal">
+              {formatJalaliCompact(EVENT_DATE)}
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">
@@ -149,28 +176,66 @@ export function EventDetailsFancy() {
         </div>
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={handleCopy}>
-            {copied ? <CheckIcon data-icon="inline-start" /> : <CopyIcon data-icon="inline-start" />}
+            {copied ? (
+              <CheckIcon data-icon="inline-start" />
+            ) : (
+              <CopyIcon data-icon="inline-start" />
+            )}
             {copied ? "کپی شد" : "کپی لینک"}
           </Button>
           <Button size="sm">
             <ShareIcon data-icon="inline-start" />
             اشتراک‌گذاری
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger
+          <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+            <PopoverTrigger
               render={
-                <Button variant="outline" size="icon-sm" aria-label="بیشتر" />
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon-sm"
+                  aria-label="بیشتر"
+                />
               }
             >
               <MoreHorizontalIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" dir="rtl" lang="fa">
-              <DropdownMenuItem>افزودن به تقویم</DropdownMenuItem>
-              <DropdownMenuItem>تکرار رویداد</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive">حذف رویداد</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                افزودن به تقویم
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setMoreOpen(false)}
+              >
+                تکرار رویداد
+              </Button>
+              <Separator className="my-1" />
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start text-destructive"
+                onClick={() => setMoreOpen(false)}
+              >
+                حذف رویداد
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -189,15 +254,17 @@ export function EventDetailsFancy() {
                   <CalendarIcon className="mt-0.5 size-4 text-muted-foreground" />
                   <div>
                     <p className="text-xs text-muted-foreground">تاریخ</p>
-                    <p className="text-sm font-medium">{formatJalali(EVENT_DATE)}</p>
+                    <p className="text-sm font-medium tracking-normal">
+                      {formatJalali(EVENT_DATE)}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 rounded-lg border p-3">
                   <ClockIcon className="mt-0.5 size-4 text-muted-foreground" />
                   <div>
                     <p className="text-xs text-muted-foreground">ساعت</p>
-                    <p className="text-sm font-medium">
-                      <bdi dir="ltr">۱۰:۰۰ – ۱۱:۳۰</bdi>
+                    <p className="text-sm font-medium tracking-normal">
+                      {start} – {end}
                     </p>
                   </div>
                 </div>
@@ -236,7 +303,7 @@ export function EventDetailsFancy() {
               <CardHeader className="text-start">
                 <CardTitle>ویرایش رویداد</CardTitle>
                 <CardDescription>
-                  ایمیل و زمان به‌صورت LTR
+                  ایمیل LTR · ساعت و نوع فارسی
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -248,17 +315,27 @@ export function EventDetailsFancy() {
                     dir="rtl"
                   />
                 </Field>
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
                   <Field>
                     <FieldLabel>نوع</FieldLabel>
-                    <Select defaultValue="meeting">
+                    <Select
+                      items={[...TYPE_ITEMS]}
+                      value={type}
+                      onValueChange={(value) => {
+                        if (TYPE_ITEMS.some((item) => item.value === value)) {
+                          setType(value as string)
+                        }
+                      }}
+                    >
                       <SelectTrigger className="w-full" dir="rtl">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent dir="rtl" lang="fa">
-                        <SelectItem value="meeting">جلسه</SelectItem>
-                        <SelectItem value="deadline">ددلاین</SelectItem>
-                        <SelectItem value="personal">شخصی</SelectItem>
+                        {TYPE_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </Field>
@@ -267,26 +344,52 @@ export function EventDetailsFancy() {
                     <Input id="ed5-place" defaultValue="اتاق آبی" dir="rtl" />
                   </Field>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
                   <Field>
-                    <FieldLabel htmlFor="ed5-start">شروع</FieldLabel>
-                    <Input
-                      id="ed5-start"
-                      type="time"
-                      defaultValue="10:00"
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                    <FieldLabel>شروع</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
+                      value={start}
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setStart(value as string)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="شروع" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="ed5-end">پایان</FieldLabel>
-                    <Input
-                      id="ed5-end"
-                      type="time"
-                      defaultValue="11:30"
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                    <FieldLabel>پایان</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
+                      value={end}
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setEnd(value as string)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="پایان" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                 </div>
                 <Field>
@@ -356,7 +459,9 @@ export function EventDetailsFancy() {
                     <bdi dir="ltr" className="font-medium">
                       {f.name}
                     </bdi>
-                    <span className="text-xs text-muted-foreground">{f.size}</span>
+                    <span className="text-xs tracking-normal text-muted-foreground">
+                      {f.size}
+                    </span>
                   </div>
                 ))}
                 <Button variant="outline" className="mt-2 w-full" size="sm">
@@ -374,8 +479,8 @@ export function EventDetailsFancy() {
                 <UsersIcon className="size-4" />
                 شرکت‌کنندگان
               </CardTitle>
-              <CardDescription>
-                <bdi dir="ltr">{ATTENDEES.length}</bdi> نفر دعوت‌شده
+              <CardDescription className="tracking-normal">
+                {toFa(ATTENDEES.length)} نفر دعوت‌شده
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">

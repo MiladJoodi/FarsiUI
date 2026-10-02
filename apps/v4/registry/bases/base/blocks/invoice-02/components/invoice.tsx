@@ -20,12 +20,17 @@ const DUE_DATE = new Date()
 DUE_DATE.setDate(DUE_DATE.getDate() + 7)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const LINES = [
@@ -46,8 +51,8 @@ export function InvoiceDocument() {
           <div>
             <div className="mb-2 flex flex-wrap gap-2">
               <Badge>پرداخت‌شده</Badge>
-              <Badge variant="outline">
-                <bdi dir="ltr">INV-1042</bdi>
+              <Badge variant="outline" className="tracking-normal">
+                فاکتور-۱۰۴۲
               </Badge>
             </div>
             <CardTitle>فاکتور فروش</CardTitle>
@@ -62,11 +67,15 @@ export function InvoiceDocument() {
           <div className="grid gap-2 text-sm sm:grid-cols-2">
             <div>
               <p className="text-muted-foreground">تاریخ صدور</p>
-              <p className="font-medium">{formatJalali(ISSUE_DATE)}</p>
+              <p className="font-medium tracking-normal">
+                {formatJalali(ISSUE_DATE)}
+              </p>
             </div>
             <div>
               <p className="text-muted-foreground">سررسید</p>
-              <p className="font-medium">{formatJalali(DUE_DATE)}</p>
+              <p className="font-medium tracking-normal">
+                {formatJalali(DUE_DATE)}
+              </p>
             </div>
           </div>
           <Separator />
@@ -78,36 +87,36 @@ export function InvoiceDocument() {
               >
                 <div>
                   <p className="font-medium">{line.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    تعداد <bdi dir="ltr">{line.qty}</bdi>
+                  <p className="text-xs text-muted-foreground tracking-normal">
+                    تعداد {line.qty}
                   </p>
                 </div>
-                <span className="shrink-0 tabular-nums">
-                  <bdi dir="ltr">{line.amount}</bdi>
-                </span>
+                <span className="shrink-0 tracking-normal">{line.amount}</span>
               </div>
             ))}
           </div>
           <Separator />
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm tracking-normal">
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">جمع جزء</span>
-              <bdi dir="ltr">۸۴۹٬۰۰۰</bdi>
+              <span>۸۴۹٬۰۰۰</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">مالیات</span>
-              <bdi dir="ltr">۷۶٬۴۱۰</bdi>
+              <span>۷۶٬۴۱۰</span>
             </div>
             <div className="flex justify-between gap-2 font-semibold">
               <span>مبلغ قابل پرداخت</span>
-              <span>
-                <bdi dir="ltr">۹۲۵٬۴۱۰</bdi> تومان
-              </span>
+              <span>۹۲۵٬۴۱۰ تومان</span>
             </div>
           </div>
         </CardContent>
         <CardFooter className="border-t text-xs text-muted-foreground">
-          رسید به <bdi dir="ltr">billing@example.com</bdi> ارسال شد
+          رسید به{" "}
+          <span dir="ltr" className="mx-1 inline-block">
+            billing@example.com
+          </span>{" "}
+          ارسال شد
         </CardFooter>
       </Card>
     </section>

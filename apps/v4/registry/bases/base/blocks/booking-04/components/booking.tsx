@@ -31,14 +31,50 @@ import {
 } from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const STAFF = [
+  {
+    id: "۱",
+    name: "دکتر مریم رضایی",
+    role: "مشاور",
+    src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&auto=format&fit=crop&q=80",
+    fallback: "مر",
+  },
+  {
+    id: "۲",
+    name: "دکتر علی محمدی",
+    role: "متخصص",
+    src: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&auto=format&fit=crop&q=80",
+    fallback: "عل",
+  },
+] as const
+
+const SLOTS = [
+  { label: "۰۹:۰۰", free: true },
+  { label: "۱۰:۰۰", free: false },
+  { label: "۱۱:۳۰", free: true },
+  { label: "۱۴:۰۰", free: true },
+  { label: "۱۵:۳۰", free: true },
+  { label: "۱۷:۰۰", free: false },
+] as const
+
+const STEPS = ["متخصص", "زمان", "تأیید"] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -50,40 +86,12 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-const STAFF = [
-  {
-    id: "1",
-    name: "دکتر مریم رضایی",
-    role: "مشاور",
-    src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&auto=format&fit=crop&q=80",
-    fallback: "مر",
-  },
-  {
-    id: "2",
-    name: "دکتر علی محمدی",
-    role: "متخصص",
-    src: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&auto=format&fit=crop&q=80",
-    fallback: "عل",
-  },
-] as const
-
-const SLOTS = [
-  { label: "۰۹:۰۰", value: "09:00", free: true },
-  { label: "۱۰:۰۰", value: "10:00", free: false },
-  { label: "۱۱:۳۰", value: "11:30", free: true },
-  { label: "۱۴:۰۰", value: "14:00", free: true },
-  { label: "۱۵:۳۰", value: "15:30", free: true },
-  { label: "۱۷:۰۰", value: "17:00", free: false },
-] as const
-
-const STEPS = ["متخصص", "زمان", "تأیید"] as const
-
 export function BookingDashboard() {
   const [step, setStep] = React.useState(0)
-  const [staffId, setStaffId] = React.useState("1")
+  const [staffId, setStaffId] = React.useState<(typeof STAFF)[number]["id"]>("۱")
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [slot, setSlot] = React.useState("11:30")
+  const [slot, setSlot] = React.useState("۱۱:۳۰")
   const staff = STAFF.find((s) => s.id === staffId)!
 
   return (
@@ -104,10 +112,10 @@ export function BookingDashboard() {
           <Badge
             key={label}
             variant={i === step ? "default" : i < step ? "secondary" : "outline"}
-            className="gap-1"
+            className="gap-1 tracking-normal"
           >
             {i < step ? <CheckIcon className="size-3" /> : null}
-            {i + 1}. {label}
+            {toFa(i + 1)}. {label}
           </Badge>
         ))}
       </div>
@@ -184,13 +192,14 @@ export function BookingDashboard() {
                 <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                   {SLOTS.map((s) => (
                     <Button
-                      key={s.value}
-                      variant={slot === s.value ? "default" : "outline"}
+                      key={s.label}
+                      variant={slot === s.label ? "default" : "outline"}
                       size="sm"
                       disabled={!s.free}
-                      onClick={() => setSlot(s.value)}
+                      className="tracking-normal"
+                      onClick={() => setSlot(s.label)}
                     >
-                      <bdi dir="ltr">{s.label}</bdi>
+                      {s.label}
                     </Button>
                   ))}
                 </div>
@@ -223,11 +232,13 @@ export function BookingDashboard() {
                 </div>
                 <div className="flex items-center gap-3">
                   <CalendarIcon className="size-4 text-muted-foreground" />
-                  <span>{date ? formatJalali(date) : "—"}</span>
+                  <span className="tracking-normal">
+                    {date ? formatJalali(date) : "—"}
+                  </span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 tracking-normal">
                   <ClockIcon className="size-4 text-muted-foreground" />
-                  <bdi dir="ltr">{slot}</bdi>
+                  <span>{slot}</span>
                 </div>
               </CardContent>
               <CardFooter className="gap-2 border-t">
@@ -260,20 +271,16 @@ export function BookingDashboard() {
               </div>
             </div>
             <Separator />
-            <p>
+            <p className="tracking-normal">
               {date ? formatJalali(date) : "تاریخ انتخاب نشده"}
             </p>
             {date ? (
-              <bdi dir="ltr" className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground tracking-normal">
                 {formatJalaliCompact(date)}
-              </bdi>
+              </p>
             ) : null}
-            <p>
-              ساعت <bdi dir="ltr">{slot}</bdi>
-            </p>
-            <p className="font-medium">
-              <bdi dir="ltr">۳۵۰٬۰۰۰</bdi> تومان
-            </p>
+            <p className="tracking-normal">ساعت {slot}</p>
+            <p className="font-medium tracking-normal">۳۵۰٬۰۰۰ تومان</p>
           </CardContent>
         </Card>
       </div>

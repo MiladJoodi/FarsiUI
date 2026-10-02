@@ -13,13 +13,10 @@ import {
   DialogTitle,
 } from "@/registry/bases/base/ui/dialog"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 
 const IMAGES = [
   {
@@ -71,6 +68,8 @@ export function ImageGalleryLightbox() {
     null
   )
   const [chips, setChips] = React.useState(["محصولات", "جدید"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   return (
     <section
@@ -85,21 +84,51 @@ export function ImageGalleryLightbox() {
             پیش‌نمایش Dialog و منوی عملیات
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>بارگذاری تصویر</DropdownMenuItem>
-            <DropdownMenuItem>دانلود همه</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setChips([])}>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-44 p-1"
+          >
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => setHeaderOpen(false)}
+            >
+              بارگذاری تصویر
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => setHeaderOpen(false)}
+            >
+              دانلود همه
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => {
+                setChips([])
+                setHeaderOpen(false)
+              }}
+            >
               پاک کردن فیلترها
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       {chips.length > 0 ? (
@@ -141,21 +170,56 @@ export function ImageGalleryLightbox() {
             </button>
             <div className="flex items-center justify-between gap-2 p-2.5">
               <p className="truncate text-sm font-medium">{img.title}</p>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={<Button variant="ghost" size="icon-sm" />}
+              <Popover
+                open={openId === img.id}
+                onOpenChange={(open) => setOpenId(open ? img.id : null)}
+              >
+                <PopoverTrigger
+                  render={
+                    <Button type="button" variant="ghost" size="icon-sm" />
+                  }
                 >
                   <MoreHorizontalIcon className="size-4" />
                   <span className="sr-only">عملیات</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                  <DropdownMenuItem onClick={() => setActive(img)}>
+                </PopoverTrigger>
+                <PopoverContent
+                  dir="rtl"
+                  lang="fa"
+                  align="start"
+                  className="w-36 p-1"
+                >
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      setActive(img)
+                      setOpenId(null)
+                    }}
+                  >
                     پیش‌نمایش
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>دانلود</DropdownMenuItem>
-                  <DropdownMenuItem>اشتراک</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-start"
+                    onClick={() => setOpenId(null)}
+                  >
+                    دانلود
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-start"
+                    onClick={() => setOpenId(null)}
+                  >
+                    اشتراک
+                  </Button>
+                </PopoverContent>
+              </Popover>
             </div>
           </article>
         ))}

@@ -17,8 +17,14 @@ import {
   Field,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import {
@@ -28,13 +34,29 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
+const SEAT_ITEMS = [
+  { value: "۱", label: "۱" },
+  { value: "۲", label: "۲" },
+  { value: "۳", label: "۳" },
+  { value: "۵", label: "۵" },
+  { value: "۱۰", label: "۱۰" },
+  { value: "۲۰", label: "۲۰" },
+] as const
+
+type SeatValue = (typeof SEAT_ITEMS)[number]["value"]
+
+const PLAN_SEATS: Record<string, SeatValue> = {
+  starter: "۱",
+  pro: "۳",
+  team: "۵",
+}
+
 const PLANS = [
   {
     id: "starter",
     name: "شروع",
     monthly: "۱۹۹٬۰۰۰",
     yearly: "۱٬۹۰۰٬۰۰۰",
-    seats: 1,
     features: ["۱ پروژه", "پشتیبانی ایمیلی"],
   },
   {
@@ -42,7 +64,6 @@ const PLANS = [
     name: "حرفه‌ای",
     monthly: "۴۹۹٬۰۰۰",
     yearly: "۴٬۷۹۰٬۰۰۰",
-    seats: 3,
     features: ["پروژه نامحدود", "اولویت پشتیبانی", "تم سفارشی"],
   },
   {
@@ -50,7 +71,6 @@ const PLANS = [
     name: "تیم",
     monthly: "۸۹۹٬۰۰۰",
     yearly: "۸٬۶۳۰٬۰۰۰",
-    seats: 5,
     features: ["۵ عضو پایه", "نقش‌ها", "گزارش استفاده", "SSO"],
   },
 ] as const
@@ -58,7 +78,7 @@ const PLANS = [
 export function PlanSelectionFancy() {
   const [plan, setPlan] = React.useState("pro")
   const [yearly, setYearly] = React.useState(true)
-  const [seats, setSeats] = React.useState(3)
+  const [seats, setSeats] = React.useState<SeatValue>("۳")
   const [done, setDone] = React.useState(false)
   const selected = PLANS.find((p) => p.id === plan)!
   const price = yearly ? selected.yearly : selected.monthly
@@ -76,13 +96,12 @@ export function PlanSelectionFancy() {
               <CheckIcon className="size-6" />
             </div>
             <CardTitle>طرح انتخاب شد</CardTitle>
-            <CardDescription>
-              {selected.name} · <bdi dir="ltr">{price}</bdi> تومان
+            <CardDescription className="tracking-normal">
+              {selected.name} · {price} تومان
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center text-sm text-muted-foreground">
-            مرحله بعد: پرداخت — مسیر{" "}
-            <bdi dir="ltr">/onboarding/payment</bdi>
+            مرحله بعد: پرداخت
           </CardContent>
           <CardFooter className="gap-2">
             <Button
@@ -114,8 +133,8 @@ export function PlanSelectionFancy() {
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
             <Badge variant="secondary">فلو راه‌اندازی</Badge>
-            <Badge variant="outline">
-              مرحله <bdi dir="ltr">۲</bdi> / <bdi dir="ltr">۳</bdi>
+            <Badge variant="outline" className="tracking-normal">
+              مرحله ۲ / ۳
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">انتخاب طرح</h1>
@@ -153,7 +172,7 @@ export function PlanSelectionFancy() {
                   type="button"
                   onClick={() => {
                     setPlan(p.id)
-                    setSeats(p.seats)
+                    setSeats(PLAN_SEATS[p.id] ?? "۳")
                   }}
                   className={`flex w-full items-start gap-3 rounded-xl border p-4 text-start ${
                     active
@@ -173,11 +192,11 @@ export function PlanSelectionFancy() {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
                       <p className="font-semibold">{p.name}</p>
-                      <p className="tabular-nums">
-                        <bdi dir="ltr">{yearly ? p.yearly : p.monthly}</bdi>
+                      <p className="tracking-normal">
+                        {yearly ? p.yearly : p.monthly}
                       </p>
                     </div>
-                    <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                    <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground tracking-normal">
                       {p.features.map((f) => (
                         <li key={f}>{f}</li>
                       ))}
@@ -201,22 +220,33 @@ export function PlanSelectionFancy() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <Field>
-                  <FieldLabel htmlFor="ps5-seats">تعداد عضو</FieldLabel>
-                  <Input
-                    id="ps5-seats"
-                    type="number"
-                    min={1}
-                    max={50}
+                  <FieldLabel>تعداد عضو</FieldLabel>
+                  <Select
+                    items={[...SEAT_ITEMS]}
                     value={seats}
-                    onChange={(e) =>
-                      setSeats(Math.max(1, Number(e.target.value) || 1))
-                    }
-                    dir="ltr"
-                    className="text-start"
-                  />
+                    onValueChange={(value) => {
+                      if (SEAT_ITEMS.some((item) => item.value === value)) {
+                        setSeats(value as SeatValue)
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="w-full" dir="rtl">
+                      <SelectValue placeholder="تعداد" />
+                    </SelectTrigger>
+                    <SelectContent dir="rtl" lang="fa">
+                      {SEAT_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </Field>
                 <p className="text-sm text-muted-foreground">
-                  طرح انتخاب‌شده: <span className="font-medium text-foreground">{selected.name}</span>
+                  طرح انتخاب‌شده:{" "}
+                  <span className="font-medium text-foreground">
+                    {selected.name}
+                  </span>
                 </p>
               </CardContent>
             </Card>
@@ -233,20 +263,18 @@ export function PlanSelectionFancy() {
               <span className="text-muted-foreground">طرح</span>
               <span className="font-medium">{selected.name}</span>
             </div>
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">اعضا</span>
-              <bdi dir="ltr">{seats}</bdi>
+              <span>{seats}</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">دوره</span>
               <span>{yearly ? "سالانه" : "ماهانه"}</span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-2 text-base font-semibold">
+            <div className="flex justify-between gap-2 text-base font-semibold tracking-normal">
               <span>مبلغ</span>
-              <span>
-                <bdi dir="ltr">{price}</bdi> تومان
-              </span>
+              <span>{price} تومان</span>
             </div>
           </CardContent>
           <CardFooter className="border-t">

@@ -44,7 +44,7 @@ export function ComingSoonInContext() {
         <Card className="overflow-hidden">
           <div className="border-b bg-muted/30">
             <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&auto=format&fit=crop&q=80"
+              src="/farsiui/dashboard.png"
               alt="پیش‌نمایش داشبورد تحلیل"
               className="aspect-[21/9] w-full object-cover opacity-80"
             />

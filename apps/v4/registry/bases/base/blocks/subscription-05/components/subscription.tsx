@@ -43,16 +43,35 @@ import {
 } from "@/registry/bases/base/ui/tabs"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const PLAN_ITEMS = [
+  { value: "شروع", label: "شروع" },
+  { value: "حرفه‌ای", label: "حرفه‌ای" },
+  { value: "تیم", label: "تیم" },
+] as const
+
+const PERIOD_ITEMS = [
+  { value: "ماهانه", label: "ماهانه" },
+  { value: "سالانه", label: "سالانه" },
+] as const
+
+type PlanValue = (typeof PLAN_ITEMS)[number]["value"]
+type PeriodValue = (typeof PERIOD_ITEMS)[number]["value"]
+
 const NEXT_BILLING = new Date()
 NEXT_BILLING.setDate(NEXT_BILLING.getDate() + 18)
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -67,6 +86,8 @@ function formatJalaliCompact(date: Date) {
 export function SubscriptionFancy() {
   const [autoRenew, setAutoRenew] = React.useState(true)
   const [cancelled, setCancelled] = React.useState(false)
+  const [plan, setPlan] = React.useState<PlanValue>("تیم")
+  const [period, setPeriod] = React.useState<PeriodValue>("ماهانه")
 
   if (cancelled) {
     return (
@@ -81,7 +102,7 @@ export function SubscriptionFancy() {
               <CheckIcon className="size-6" />
             </div>
             <CardTitle>لغو زمان‌بندی شد</CardTitle>
-            <CardDescription>
+            <CardDescription className="tracking-normal">
               تا {formatJalali(NEXT_BILLING)} دسترسی دارید
             </CardDescription>
           </CardHeader>
@@ -110,8 +131,8 @@ export function SubscriptionFancy() {
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
             <Badge>اشتراک فعال</Badge>
-            <Badge variant="outline">
-              تمدید <bdi dir="ltr">{formatJalaliCompact(NEXT_BILLING)}</bdi>
+            <Badge variant="outline" className="tracking-normal">
+              تمدید {formatJalaliCompact(NEXT_BILLING)}
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">اشتراک</h1>
@@ -143,26 +164,24 @@ export function SubscriptionFancy() {
             <Card>
               <CardHeader className="text-start">
                 <CardTitle>طرح حرفه‌ای</CardTitle>
-                <CardDescription>
-                  <bdi dir="ltr">۴۹۹٬۰۰۰</bdi> تومان / ماه
+                <CardDescription className="tracking-normal">
+                  ۴۹۹٬۰۰۰ تومان / ماه
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm tracking-normal">
                     <span>پروژه‌ها</span>
-                    <bdi dir="ltr" className="text-muted-foreground">
-                      ۷ / ۱۰
-                    </bdi>
+                    <span className="text-muted-foreground">۷ / ۱۰</span>
                   </div>
                   <Progress value={70} />
                 </div>
                 <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm tracking-normal">
                     <span>فضا</span>
-                    <bdi dir="ltr" className="text-muted-foreground">
+                    <span className="text-muted-foreground">
                       ۱۲ / ۲۰ گیگابایت
-                    </bdi>
+                    </span>
                   </div>
                   <Progress value={60} />
                 </div>
@@ -170,13 +189,13 @@ export function SubscriptionFancy() {
             </Card>
             <Card>
               <CardContent className="flex flex-wrap items-center justify-between gap-3 py-4 text-sm">
-                <span className="flex items-center gap-2">
+                <span className="flex items-center gap-2 tracking-normal">
                   <CalendarIcon className="size-4 text-muted-foreground" />
                   {formatJalali(NEXT_BILLING)}
                 </span>
-                <span className="flex items-center gap-2">
+                <span className="flex items-center gap-2 tracking-normal">
                   <CreditCardIcon className="size-4 text-muted-foreground" />
-                  <bdi dir="ltr">**** ۴۲۱۸</bdi>
+                  **** ۴۲۱۸
                 </span>
               </CardContent>
             </Card>
@@ -193,14 +212,24 @@ export function SubscriptionFancy() {
               <CardContent className="space-y-4">
                 <Field>
                   <FieldLabel>طرح جدید</FieldLabel>
-                  <Select defaultValue="team">
+                  <Select
+                    items={[...PLAN_ITEMS]}
+                    value={plan}
+                    onValueChange={(value) => {
+                      if (PLAN_ITEMS.some((item) => item.value === value)) {
+                        setPlan(value as PlanValue)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="starter">شروع</SelectItem>
-                      <SelectItem value="pro">حرفه‌ای</SelectItem>
-                      <SelectItem value="team">تیم</SelectItem>
+                      {PLAN_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FieldDescription>
@@ -209,13 +238,24 @@ export function SubscriptionFancy() {
                 </Field>
                 <Field>
                   <FieldLabel>دوره</FieldLabel>
-                  <Select defaultValue="monthly">
+                  <Select
+                    items={[...PERIOD_ITEMS]}
+                    value={period}
+                    onValueChange={(value) => {
+                      if (PERIOD_ITEMS.some((item) => item.value === value)) {
+                        setPeriod(value as PeriodValue)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="monthly">ماهانه</SelectItem>
-                      <SelectItem value="yearly">سالانه</SelectItem>
+                      {PERIOD_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -285,11 +325,9 @@ export function SubscriptionFancy() {
               <Badge variant="secondary">فعال</Badge>
             </div>
             <Separator />
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 tracking-normal">
               <span className="text-muted-foreground">مبلغ</span>
-              <span>
-                <bdi dir="ltr">۴۹۹٬۰۰۰</bdi> تومان
-              </span>
+              <span>۴۹۹٬۰۰۰ تومان</span>
             </div>
             <div className="flex justify-between gap-2">
               <span className="text-muted-foreground">تمدید خودکار</span>

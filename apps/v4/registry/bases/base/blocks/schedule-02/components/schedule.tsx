@@ -15,12 +15,16 @@ import {
 const TODAY = new Date()
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const SLOTS = [
@@ -60,7 +64,7 @@ export function ScheduleDayCards() {
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
           <h1 className="text-xl font-semibold tracking-tight">برنامه زمانی</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-sm tracking-normal text-muted-foreground">
             {formatJalali(TODAY)}
           </p>
         </div>
@@ -75,9 +79,9 @@ export function ScheduleDayCards() {
               </div>
               <CardTitle className="text-base">{slot.title}</CardTitle>
               <CardDescription className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-center gap-1 tracking-normal">
                   <ClockIcon className="size-3.5" />
-                  <bdi dir="ltr">{slot.time}</bdi>
+                  {slot.time}
                 </span>
                 <span className="inline-flex items-center gap-1">
                   <MapPinIcon className="size-3.5" />

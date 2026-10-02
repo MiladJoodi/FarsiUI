@@ -14,22 +14,27 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const SLOTS = ["۰۹:۰۰", "۱۰:۳۰", "۱۴:۰۰", "۱۶:۰۰"] as const
+
+type SlotValue = (typeof SLOTS)[number]
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
-
-const SLOTS = ["۰۹:۰۰", "۱۰:۳۰", "۱۴:۰۰", "۱۶:۰۰"] as const
-const SLOT_VALUES = ["09:00", "10:30", "14:00", "16:00"] as const
 
 export function BookingSimple() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [slot, setSlot] = React.useState(SLOT_VALUES[0])
+  const [slot, setSlot] = React.useState<SlotValue>(SLOTS[0])
 
   return (
     <section
@@ -51,23 +56,24 @@ export function BookingSimple() {
           />
           <Separator />
           <div className="grid grid-cols-2 gap-2">
-            {SLOTS.map((label, i) => (
+            {SLOTS.map((label) => (
               <Button
                 key={label}
-                variant={slot === SLOT_VALUES[i] ? "default" : "outline"}
+                variant={slot === label ? "default" : "outline"}
                 size="sm"
-                onClick={() => setSlot(SLOT_VALUES[i])}
+                className="tracking-normal"
+                onClick={() => setSlot(label)}
               >
-                <bdi dir="ltr">{label}</bdi>
+                {label}
               </Button>
             ))}
           </div>
         </CardContent>
         <CardFooter className="flex-col items-stretch gap-3 border-t">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground tracking-normal">
             {date ? formatJalali(date) : "تاریخی انتخاب نشده"}
             {" · "}
-            <bdi dir="ltr">{slot}</bdi>
+            {slot}
           </p>
           <Button>تأیید رزرو</Button>
         </CardFooter>

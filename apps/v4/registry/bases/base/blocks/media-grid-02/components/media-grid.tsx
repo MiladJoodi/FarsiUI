@@ -10,7 +10,7 @@ const ITEMS = [
     kind: "image" as const,
     title: "کاور محصول",
     file: "cover.jpg",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
   },
@@ -18,28 +18,28 @@ const ITEMS = [
     kind: "video" as const,
     title: "معرفی کوتاه",
     file: "intro.mp4",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     tag: "ویدیو",
   },
   {
     kind: "audio" as const,
     title: "پادکست ۱",
     file: "ep-01.mp3",
-    size: "8.4 MB",
+    size: "۸٫۴ مگابایت",
     tag: "صوت",
   },
   {
     kind: "file" as const,
     title: "بروشور",
     file: "brochure.pdf",
-    size: "640 KB",
+    size: "۶۴۰ کیلوبایت",
     tag: "سند",
   },
   {
     kind: "image" as const,
     title: "بنر فروش",
     file: "banner.png",
-    size: "890 KB",
+    size: "۸۹۰ کیلوبایت",
     tag: "تصویر",
     src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
   },
@@ -47,7 +47,7 @@ const ITEMS = [
     kind: "video" as const,
     title: "دمو محصول",
     file: "demo.webm",
-    size: "24 MB",
+    size: "۲۴ مگابایت",
     tag: "ویدیو",
   },
 ]
@@ -70,7 +70,7 @@ export function MediaGridCards() {
         <div>
           <h2 className="text-3xl font-bold tracking-tight">فهرست رسانه‌ها</h2>
           <p className="mt-2 text-muted-foreground">
-            کارت با بج نوع و اندازه LTR
+            کارت با بج نوع و اندازه
           </p>
         </div>
         <Button variant="outline" size="sm">
@@ -106,10 +106,10 @@ export function MediaGridCards() {
               </div>
               <div className="space-y-1 p-3">
                 <p className="truncate text-sm font-medium">{item.title}</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs tracking-normal text-muted-foreground">
                   <bdi dir="ltr">{item.file}</bdi>
                   {" · "}
-                  <bdi dir="ltr">{item.size}</bdi>
+                  {item.size}
                 </p>
               </div>
             </article>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import * as React from "react"
 import {
   BellIcon,
   CalendarIcon,
@@ -42,14 +42,43 @@ import {
 
 const TODAY = new Date()
 
+const FILTER_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "جلسه", label: "جلسه" },
+  { value: "طراحی", label: "طراحی" },
+  { value: "مشتری", label: "مشتری" },
+  { value: "اسپرینت", label: "اسپرینت" },
+] as const
+
+const TYPE_ITEMS = [
+  { value: "جلسه", label: "جلسه" },
+  { value: "تمرکز", label: "تمرکز" },
+  { value: "شخصی", label: "شخصی" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -59,6 +88,10 @@ function formatJalaliCompact(date: Date) {
     month: "2-digit",
     day: "2-digit",
   })
+}
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 const HOURS = [
@@ -114,13 +147,16 @@ const INITIAL: Slot[] = [
 ]
 
 export function ScheduleFancy() {
-  const [slots, setSlots] = useState(INITIAL)
-  const [filter, setFilter] = useState("all")
-  const [busy, setBusy] = useState(true)
-  const [remind, setRemind] = useState(true)
+  const [slots, setSlots] = React.useState(INITIAL)
+  const [filter, setFilter] = React.useState("همه")
+  const [busy, setBusy] = React.useState(true)
+  const [remind, setRemind] = React.useState(true)
+  const [type, setType] = React.useState("جلسه")
+  const [start, setStart] = React.useState("۱۳:۰۰")
+  const [end, setEnd] = React.useState("۱۴:۰۰")
 
   const visible =
-    filter === "all" ? slots : slots.filter((s) => s.type === filter)
+    filter === "همه" ? slots : slots.filter((s) => s.type === filter)
 
   function removeSlot(id: string) {
     setSlots((prev) => prev.filter((s) => s.id !== id))
@@ -141,26 +177,34 @@ export function ScheduleFancy() {
         <div>
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <Badge>امروز</Badge>
-            <Badge variant="outline">
-              <bdi dir="ltr">{formatJalaliCompact(TODAY)}</bdi>
+            <Badge variant="outline" className="tracking-normal">
+              {formatJalaliCompact(TODAY)}
             </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">برنامه زمانی</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm tracking-normal text-muted-foreground">
             {formatJalali(TODAY)}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Select value={filter} onValueChange={setFilter}>
+          <Select
+            items={[...FILTER_ITEMS]}
+            value={filter}
+            onValueChange={(value) => {
+              if (FILTER_ITEMS.some((item) => item.value === value)) {
+                setFilter(value as string)
+              }
+            }}
+          >
             <SelectTrigger className="w-[140px]" dir="rtl" size="sm">
               <SelectValue placeholder="فیلتر" />
             </SelectTrigger>
             <SelectContent dir="rtl" lang="fa">
-              <SelectItem value="all">همه</SelectItem>
-              <SelectItem value="جلسه">جلسه</SelectItem>
-              <SelectItem value="طراحی">طراحی</SelectItem>
-              <SelectItem value="مشتری">مشتری</SelectItem>
-              <SelectItem value="اسپرینت">اسپرینت</SelectItem>
+              {FILTER_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <Button size="sm">
@@ -185,8 +229,8 @@ export function ScheduleFancy() {
                   <ClockIcon className="size-4" />
                   محور روز
                 </CardTitle>
-                <CardDescription>
-                  <bdi dir="ltr">{visible.length}</bdi> مورد در برنامه
+                <CardDescription className="tracking-normal">
+                  {toFa(visible.length)} مورد در برنامه
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-0">
@@ -199,12 +243,9 @@ export function ScheduleFancy() {
                       key={hour}
                       className="grid grid-cols-[4.5rem_1fr] gap-3 border-t py-3 first:border-t-0"
                     >
-                      <bdi
-                        dir="ltr"
-                        className="pt-1 text-xs tabular-nums text-muted-foreground"
-                      >
+                      <span className="pt-1 text-xs tracking-normal text-muted-foreground">
                         {hour}
-                      </bdi>
+                      </span>
                       <div className="min-h-8">
                         {atHour.length === 0 ? (
                           <div className="h-8 rounded-md border border-dashed bg-muted/20" />
@@ -216,10 +257,8 @@ export function ScheduleFancy() {
                             >
                               <div>
                                 <p className="font-medium">{s.title}</p>
-                                <p className="text-xs text-muted-foreground">
-                                  <bdi dir="ltr">{s.hour}</bdi>
-                                  {" · "}
-                                  {s.duration}
+                                <p className="text-xs tracking-normal text-muted-foreground">
+                                  {s.hour} · {s.duration}
                                 </p>
                               </div>
                               <Badge variant="secondary">{s.type}</Badge>
@@ -240,8 +279,8 @@ export function ScheduleFancy() {
                 <CardContent className="flex items-center justify-between gap-3 py-4">
                   <div>
                     <p className="font-medium">{s.title}</p>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{s.hour}</bdi> · {s.duration}
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {s.hour} · {s.duration}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -268,45 +307,81 @@ export function ScheduleFancy() {
             <Card>
               <CardHeader className="text-start">
                 <CardTitle>افزودن اسلات</CardTitle>
-                <CardDescription>زمان به‌صورت LTR</CardDescription>
+                <CardDescription>ساعت و نوع فارسی</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Field>
                   <FieldLabel htmlFor="sch5-title">عنوان</FieldLabel>
                   <Input id="sch5-title" placeholder="عنوان برنامه" dir="rtl" />
                 </Field>
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 sm:items-start">
                   <Field>
-                    <FieldLabel htmlFor="sch5-start">شروع</FieldLabel>
-                    <Input
-                      id="sch5-start"
-                      type="time"
-                      defaultValue="13:00"
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                    <FieldLabel>شروع</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
+                      value={start}
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setStart(value as string)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="شروع" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="sch5-end">پایان</FieldLabel>
-                    <Input
-                      id="sch5-end"
-                      type="time"
-                      defaultValue="14:00"
-                      dir="ltr"
-                      className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                    />
+                    <FieldLabel>پایان</FieldLabel>
+                    <Select
+                      items={[...TIME_ITEMS]}
+                      value={end}
+                      onValueChange={(value) => {
+                        if (TIME_ITEMS.some((item) => item.value === value)) {
+                          setEnd(value as string)
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full" dir="rtl">
+                        <SelectValue placeholder="پایان" />
+                      </SelectTrigger>
+                      <SelectContent dir="rtl" lang="fa">
+                        {TIME_ITEMS.map((item) => (
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                 </div>
                 <Field>
                   <FieldLabel>نوع</FieldLabel>
-                  <Select defaultValue="meeting">
+                  <Select
+                    items={[...TYPE_ITEMS]}
+                    value={type}
+                    onValueChange={(value) => {
+                      if (TYPE_ITEMS.some((item) => item.value === value)) {
+                        setType(value as string)
+                      }
+                    }}
+                  >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="meeting">جلسه</SelectItem>
-                      <SelectItem value="focus">تمرکز</SelectItem>
-                      <SelectItem value="personal">شخصی</SelectItem>
+                      {TYPE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -329,18 +404,22 @@ export function ScheduleFancy() {
             <CardContent className="space-y-3 text-sm">
               <div className="flex justify-between gap-2">
                 <span className="text-muted-foreground">تعداد اسلات</span>
-                <bdi dir="ltr" className="font-medium tabular-nums">
-                  {slots.length}
-                </bdi>
+                <span className="font-medium tracking-normal">
+                  {toFa(slots.length)}
+                </span>
               </div>
               <Separator />
               <div className="flex justify-between gap-2">
                 <span className="text-muted-foreground">اولین</span>
-                <bdi dir="ltr">{slots[0]?.hour ?? "—"}</bdi>
+                <span className="tracking-normal">
+                  {slots[0]?.hour ?? "—"}
+                </span>
               </div>
               <div className="flex justify-between gap-2">
                 <span className="text-muted-foreground">آخرین</span>
-                <bdi dir="ltr">{slots[slots.length - 1]?.hour ?? "—"}</bdi>
+                <span className="tracking-normal">
+                  {slots[slots.length - 1]?.hour ?? "—"}
+                </span>
               </div>
             </CardContent>
           </Card>

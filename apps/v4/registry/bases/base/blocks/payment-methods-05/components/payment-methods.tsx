@@ -71,12 +71,49 @@ const INITIAL: Method[] = [
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
+function toFaDigits(value: string) {
+  return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
+function formatCardNumber(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 16)
+  const fa = toFaDigits(digits)
+  return fa.match(/.{1,4}/g)?.join("-") ?? fa
+}
+
+function formatExp(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+    .slice(0, 4)
+  const fa = toFaDigits(digits)
+  if (fa.length <= 2) return fa
+  return `${fa.slice(0, 2)}/${fa.slice(2)}`
+}
+
+function last4FromCard(value: string) {
+  const digits = value
+    .replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)))
+    .replace(/\D/g, "")
+  const last = digits.slice(-4) || "0000"
+  return toFaDigits(last)
+}
+
 export function PaymentMethodsFancy() {
   const [methods, setMethods] = React.useState(INITIAL)
   const [filter, setFilter] = React.useState<"all" | "card" | "wallet">("all")
   const [autoPay, setAutoPay] = React.useState(true)
   const [label, setLabel] = React.useState("")
   const [card, setCard] = React.useState("")
+  const [exp, setExp] = React.useState("")
+  const [cvv, setCvv] = React.useState("")
 
   const visible =
     filter === "all" ? methods : methods.filter((m) => m.kind === filter)
@@ -99,20 +136,21 @@ export function PaymentMethodsFancy() {
 
   function addCard() {
     if (!card.trim()) return
-    const last4 = card.replace(/\D/g, "").slice(-4) || "۰۰۰۰"
     setMethods((prev) => [
       ...prev,
       {
         id: `c-${Date.now()}`,
         kind: "card",
         title: label.trim() || "کارت جدید",
-        last4,
-        exp: "۰۱/۰۹",
+        last4: last4FromCard(card),
+        exp: exp || "۰۱/۰۹",
         isDefault: prev.length === 0,
       },
     ])
     setLabel("")
     setCard("")
+    setExp("")
+    setCvv("")
   }
 
   return (
@@ -133,15 +171,13 @@ export function PaymentMethodsFancy() {
               <ShieldCheckIcon className="size-3" />
               امن
             </Badge>
-            <Badge variant="outline">
-              مسیر <bdi dir="ltr">/account/payment-methods</bdi>
-            </Badge>
+            <Badge variant="outline">روش‌های پرداخت</Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">
             روش‌های پرداخت
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            کارت و کیف پول — شماره کارت LTR
+            کارت و کیف پول — شماره کارت فارسی
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -188,15 +224,12 @@ export function PaymentMethodsFancy() {
                       ) : null}
                     </div>
                     {m.kind === "card" ? (
-                      <bdi
-                        dir="ltr"
-                        className="text-xs text-muted-foreground"
-                      >
+                      <p className="text-xs text-muted-foreground tracking-normal">
                         **** {m.last4} · {m.exp}
-                      </bdi>
+                      </p>
                     ) : (
-                      <p className="text-xs text-muted-foreground">
-                        موجودی <bdi dir="ltr">{m.balance}</bdi> تومان
+                      <p className="text-xs text-muted-foreground tracking-normal">
+                        موجودی {m.balance} تومان
                       </p>
                     )}
                   </div>
@@ -236,7 +269,7 @@ export function PaymentMethodsFancy() {
                 <PlusIcon className="size-4" />
                 افزودن کارت
               </CardTitle>
-              <CardDescription>فیلدهای عددی LTR</CardDescription>
+              <CardDescription>شماره کارت و انقضا فارسی</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <Field>
@@ -254,31 +287,48 @@ export function PaymentMethodsFancy() {
                 <Input
                   id="pm5-card"
                   value={card}
-                  onChange={(e) => setCard(e.target.value)}
-                  placeholder="6037-****-****-****"
-                  dir="ltr"
-                  className="text-start tracking-wider"
+                  onChange={(e) => setCard(formatCardNumber(e.target.value))}
+                  placeholder="۶۰۳۷-****-****-****"
+                  dir="rtl"
+                  className="text-end tracking-normal"
                   inputMode="numeric"
                 />
-                <FieldDescription>حداقل ۴ رقم آخر</FieldDescription>
+                <FieldDescription className="tracking-normal">
+                  حداقل ۴ رقم آخر
+                </FieldDescription>
               </Field>
               <div className="grid grid-cols-2 gap-3">
                 <Field>
                   <FieldLabel htmlFor="pm5-exp">انقضا</FieldLabel>
                   <Input
                     id="pm5-exp"
-                    placeholder="MM/YY"
-                    dir="ltr"
-                    className="text-start"
+                    value={exp}
+                    onChange={(e) => setExp(formatExp(e.target.value))}
+                    placeholder="ماه/سال"
+                    dir="rtl"
+                    className="text-end tracking-normal"
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="pm5-cvv">CVV</FieldLabel>
                   <Input
                     id="pm5-cvv"
-                    placeholder="***"
-                    dir="ltr"
-                    className="text-start"
+                    value={cvv}
+                    onChange={(e) =>
+                      setCvv(
+                        toFaDigits(
+                          e.target.value
+                            .replace(/[۰-۹]/g, (d) =>
+                              String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                            )
+                            .replace(/\D/g, "")
+                            .slice(0, 4)
+                        )
+                      )
+                    }
+                    placeholder="۰۰۰"
+                    dir="rtl"
+                    className="text-end tracking-normal"
                     inputMode="numeric"
                   />
                 </Field>
@@ -296,9 +346,9 @@ export function PaymentMethodsFancy() {
               <CardTitle className="text-base">آمار</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between gap-2 tracking-normal">
                 <span className="text-muted-foreground">کل</span>
-                <bdi dir="ltr">{methods.length}</bdi>
+                <span>{toFa(methods.length)}</span>
               </div>
               <Separator />
               <div className="flex justify-between gap-2">

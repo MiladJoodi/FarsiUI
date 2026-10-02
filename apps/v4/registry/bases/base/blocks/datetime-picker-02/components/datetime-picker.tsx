@@ -17,20 +17,48 @@ import {
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
-import { Input } from "@/registry/bases/base/ui/input"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/bases/base/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
+
+const TIME_ITEMS = [
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۴:۳۰", label: "۱۴:۳۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+] as const
+
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -45,7 +73,7 @@ function formatJalaliCompact(date: Date) {
 export function DatetimePickerPopover() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [time, setTime] = React.useState("14:30")
+  const [time, setTime] = React.useState<TimeValue>("۱۴:۳۰")
 
   return (
     <section
@@ -56,9 +84,7 @@ export function DatetimePickerPopover() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>انتخاب تاریخ و زمان</CardTitle>
-          <CardDescription>
-            پاپ‌اور تقویم شمسی · ساعت LTR
-          </CardDescription>
+          <CardDescription>پاپ‌اور تقویم شمسی · انتخاب ساعت</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
@@ -88,33 +114,45 @@ export function DatetimePickerPopover() {
               </PopoverContent>
             </Popover>
             {date ? (
-              <FieldDescription>
-                <bdi dir="ltr">{formatJalaliCompact(date)}</bdi>
+              <FieldDescription className="tracking-normal">
+                {formatJalaliCompact(date)}
               </FieldDescription>
             ) : null}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="dt2-time">ساعت</FieldLabel>
+            <FieldLabel>ساعت</FieldLabel>
             <div className="relative">
-              <ClockIcon className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                id="dt2-time"
-                type="time"
+              <ClockIcon className="pointer-events-none absolute start-3 top-1/2 z-10 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Select
+                items={[...TIME_ITEMS]}
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
-                dir="ltr"
-                className="ps-9 text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-              />
+                onValueChange={(value) => {
+                  if (TIME_ITEMS.some((item) => item.value === value)) {
+                    setTime(value as TimeValue)
+                  }
+                }}
+              >
+                <SelectTrigger className="w-full ps-9" dir="rtl">
+                  <SelectValue placeholder="ساعت" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" lang="fa">
+                  {TIME_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </Field>
 
           <div className="rounded-lg border bg-muted/30 p-3 text-sm">
             <p className="text-muted-foreground">انتخاب شما</p>
-            <p className="mt-1 font-medium">
+            <p className="mt-1 font-medium tracking-normal">
               {date ? formatJalali(date) : "—"}
               {" · "}
-              <bdi dir="ltr">{time}</bdi>
+              {time}
             </p>
           </div>
 

@@ -13,14 +13,12 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 const FILTERS = ["موجود", "تخفیف‌دار", "ارسال سریع"] as const
@@ -31,9 +29,16 @@ const ITEMS = [
   { name: "لامپ رومیزی مینیمال", meta: "خانه" },
 ] as const
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "محبوب‌ترین", label: "محبوب‌ترین" },
+] as const
+
 export function SortFilterChips() {
   const [active, setActive] = React.useState<string[]>(["موجود"])
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
 
   function toggle(label: string) {
     setActive((prev) =>
@@ -49,41 +54,33 @@ export function SortFilterChips() {
       lang="fa"
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
+      <Card className="bg-card">
         <CardHeader className="flex-row items-start justify-between gap-3 space-y-0 text-start">
           <div>
             <CardTitle>مرتب‌سازی و فیلتر</CardTitle>
-            <CardDescription>چیپ فیلتر + منوی مرتب‌سازی</CardDescription>
+            <CardDescription>چیپ فیلتر + انتخابگر مرتب‌سازی</CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" size="sm" className="gap-2" />}
-            >
+          <Select
+            items={[...SORT_ITEMS]}
+            value={sort}
+            onValueChange={(value) => {
+              if (SORT_ITEMS.some((item) => item.value === value)) {
+                setSort(value as string)
+              }
+            }}
+          >
+            <SelectTrigger className="w-40 shrink-0" dir="rtl">
               <ArrowUpDownIcon className="size-3.5" />
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-44">
-              <DropdownMenuLabel>مرتب‌سازی</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "newest")}
-              >
-                <DropdownMenuRadioItem value="newest">
-                  جدیدترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-asc">
-                  ارزان‌ترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="price-desc">
-                  گران‌ترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="popular">
-                  محبوب‌ترین
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              <SelectValue placeholder="مرتب‌سازی" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {SORT_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">

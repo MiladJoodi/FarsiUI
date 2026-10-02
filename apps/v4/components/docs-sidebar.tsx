@@ -264,9 +264,12 @@ function getDocsCurrentLabel(
 function DocsSidebarBody({
   tree,
   persistScroll = true,
+  showSearch = true,
 }: {
   tree: typeof source.pageTree
   persistScroll?: boolean
+  /** Desktop sidebar keeps search; mobile فهرست matches blocks/skills index. */
+  showSearch?: boolean
 }) {
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
@@ -412,13 +415,15 @@ function DocsSidebarBody({
 
   return (
     <>
-      <div className="shrink-0 pe-2 pt-2 pb-3">
-        <DocsSidebarSearch
-          value={searchValue}
-          onValueChange={setSearchValue}
-          onClear={clearSearch}
-        />
-      </div>
+      {showSearch ? (
+        <div className="shrink-0 pe-2 pt-2 pb-3">
+          <DocsSidebarSearch
+            value={searchValue}
+            onValueChange={setSearchValue}
+            onClear={clearSearch}
+          />
+        </div>
+      ) : null}
       <SidebarContent
         ref={contentRef}
         data-docs-sidebar-content=""
@@ -597,11 +602,18 @@ export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
     () => getDocsCurrentLabel(tree, pathname, currentBase),
     [tree, pathname, currentBase]
   )
+  const title = pathname.startsWith("/docs/components")
+    ? "فهرست کامپوننت‌ها"
+    : "فهرست مستندات"
 
   return (
-    <ListIndexNav title="فهرست" current={current}>
+    <ListIndexNav title={title} current={current}>
       <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
-        <DocsSidebarBody tree={tree} persistScroll={false} />
+        <DocsSidebarBody
+          tree={tree}
+          persistScroll={false}
+          showSearch={false}
+        />
       </SidebarProvider>
     </ListIndexNav>
   )

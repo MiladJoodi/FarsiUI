@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "cn"
 import {
   ArrowUpDownIcon,
   FilterIcon,
@@ -13,22 +12,17 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -38,6 +32,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 const PRODUCTS = [
   {
@@ -73,19 +68,23 @@ const PRODUCTS = [
 const CATEGORIES = ["صوتی", "پوشیدنی", "خانه", "اکسسوری"] as const
 
 const SORT_ITEMS = [
-  { value: "newest", label: "جدیدترین" },
-  { value: "price-asc", label: "ارزان‌ترین" },
-  { value: "price-desc", label: "گران‌ترین" },
-  { value: "popular", label: "محبوب‌ترین" },
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "محبوب‌ترین", label: "محبوب‌ترین" },
 ] as const
 
-type SortKey = (typeof SORT_ITEMS)[number]["value"]
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function SortFilterHub() {
   const [cats, setCats] = React.useState<string[]>(["صوتی"])
   const [stockOnly, setStockOnly] = React.useState(true)
-  const [sort, setSort] = React.useState<SortKey>("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
   const [query, setQuery] = React.useState("")
+  const [moreOpen, setMoreOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = PRODUCTS.filter((p) => {
     if (stockOnly && !p.stock) return false
@@ -104,10 +103,8 @@ export function SortFilterHub() {
     setCats([])
     setStockOnly(false)
     setQuery("")
+    setMoreOpen(false)
   }
-
-  const sortLabel =
-    SORT_ITEMS.find((item) => item.value === sort)?.label ?? "جدیدترین"
 
   return (
     <section
@@ -123,28 +120,48 @@ export function SortFilterHub() {
           <h2 className="text-3xl font-bold tracking-tight">
             مرتب‌سازی و فیلتر
           </h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi>{rows.length}</bdi> نتیجه · {sortLabel}
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(rows.length)} نتیجه · {sort}
           </p>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+        <Popover open={moreOpen} onOpenChange={setMoreOpen}>
+          <PopoverTrigger
+            render={<Button type="button" variant="outline" size="sm" />}
+          >
             <MoreHorizontalIcon className="size-4" />
             بیشتر
-          </DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl" lang="fa" align="start">
-            <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={clearAll}>پاک کردن همه</DropdownMenuItem>
-            <DropdownMenuItem>ذخیره نمای فعلی</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </PopoverTrigger>
+          <PopoverContent
+            dir="rtl"
+            lang="fa"
+            align="start"
+            className="w-48 space-y-1 p-2"
+          >
+            <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={clearAll}
+            >
+              پاک کردن همه
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-8 w-full justify-start"
+              onClick={() => setMoreOpen(false)}
+            >
+              ذخیره نمای فعلی
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <Badge variant="outline" className="gap-1">
+        <Badge variant="outline" className="gap-1 border">
           <ArrowUpDownIcon className="size-3" />
-          {sortLabel}
+          {sort}
         </Badge>
         {cats.map((c) => (
           <Badge key={c} variant="secondary" className="gap-1 pe-1">
@@ -197,18 +214,13 @@ export function SortFilterHub() {
               items={[...SORT_ITEMS]}
               value={sort}
               onValueChange={(value) => {
-                if (
-                  value === "newest" ||
-                  value === "price-asc" ||
-                  value === "price-desc" ||
-                  value === "popular"
-                ) {
-                  setSort(value)
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
                 }
               }}
             >
               <SelectTrigger className="w-full" dir="rtl">
-                <SelectValue />
+                <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
                 {SORT_ITEMS.map((item) => (
@@ -219,41 +231,6 @@ export function SortFilterHub() {
               </SelectContent>
             </Select>
           </Field>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full gap-2" />}
-            >
-              <ArrowUpDownIcon className="size-3.5" />
-              میانبر مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              dir="rtl"
-              lang="fa"
-              align="start"
-              className="w-44"
-            >
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(value) => {
-                  if (
-                    value === "newest" ||
-                    value === "price-asc" ||
-                    value === "price-desc" ||
-                    value === "popular"
-                  ) {
-                    setSort(value)
-                  }
-                }}
-              >
-                {SORT_ITEMS.map((item) => (
-                  <DropdownMenuRadioItem key={item.value} value={item.value}>
-                    {item.label}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
 
           <div>
             <p className="mb-2 text-sm font-medium">دسته</p>
@@ -280,8 +257,8 @@ export function SortFilterHub() {
                 id="sf5-min"
                 inputMode="numeric"
                 placeholder="۱٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
             <Field>
@@ -290,8 +267,8 @@ export function SortFilterHub() {
                 id="sf5-max"
                 inputMode="numeric"
                 placeholder="۱۰٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </div>
@@ -301,9 +278,9 @@ export function SortFilterHub() {
             <Input
               id="sf5-email"
               type="email"
-              placeholder="ایمیل"
+              placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>اختیاری</FieldDescription>
           </Field>
@@ -317,7 +294,12 @@ export function SortFilterHub() {
             />
           </div>
 
-          <Button className="w-full" variant="outline" onClick={clearAll}>
+          <Button
+            type="button"
+            className="w-full"
+            variant="outline"
+            onClick={clearAll}
+          >
             پاک کردن همه
           </Button>
         </aside>
@@ -341,28 +323,71 @@ export function SortFilterHub() {
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="text-sm font-medium">{p.name}</p>
-                        <Badge variant="outline">{p.category}</Badge>
+                        <Badge variant="outline" className="border">
+                          {p.category}
+                        </Badge>
                         {!p.stock ? (
                           <Badge variant="destructive">ناموجود</Badge>
                         ) : null}
                       </div>
-                      <p className="mt-1 text-sm tabular-nums text-muted-foreground">
-                        <bdi>{p.price}</bdi> تومان
+                      <p className="mt-1 text-sm tracking-normal text-muted-foreground">
+                        {p.price} تومان
                       </p>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === p.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? p.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            className="shrink-0"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
-                        <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>مشاهده</DropdownMenuItem>
-                        <DropdownMenuItem>مقایسه</DropdownMenuItem>
-                        <DropdownMenuItem>علاقه‌مندی</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        عملیات
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-40 space-y-1 p-2"
+                      >
+                        <p className="px-2 py-1.5 text-sm font-medium">
+                          عملیات
+                        </p>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          مشاهده
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          مقایسه
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          className="h-8 w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          علاقه‌مندی
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))

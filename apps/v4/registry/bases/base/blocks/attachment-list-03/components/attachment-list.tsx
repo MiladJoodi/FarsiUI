@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { DownloadIcon, FileIcon, SearchIcon, UploadIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
@@ -27,30 +28,39 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "PDF", label: "PDF" },
+  { value: "تصویر", label: "تصویر" },
+  { value: "آرشیو", label: "آرشیو" },
+] as const
+
 const ITEMS = [
   {
     name: "invoice-1405.pdf",
-    size: "1.2 MB",
+    size: "۱٫۲ مگابایت",
     type: "PDF",
   },
   {
     name: "brief.docx",
-    size: "420 KB",
+    size: "۴۲۰ کیلوبایت",
     type: "DOCX",
   },
   {
     name: "photo-cover.jpg",
-    size: "3.1 MB",
+    size: "۳٫۱ مگابایت",
     type: "JPG",
   },
   {
     name: "assets.zip",
-    size: "18 MB",
+    size: "۱۸ مگابایت",
     type: "ZIP",
   },
 ] as const
 
 export function AttachmentListToolbar() {
+  const [type, setType] = React.useState("همه")
+
   return (
     <section
       dir="rtl"
@@ -74,15 +84,24 @@ export function AttachmentListToolbar() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="all">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-32" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="pdf">PDF</SelectItem>
-                <SelectItem value="image">تصویر</SelectItem>
-                <SelectItem value="zip">آرشیو</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -110,8 +129,8 @@ export function AttachmentListToolbar() {
                       </p>
                       <Badge variant="outline">{item.type}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      <bdi dir="ltr">{item.size}</bdi>
+                    <p className="text-xs tracking-normal text-muted-foreground">
+                      {item.size}
                     </p>
                   </div>
                   <Button variant="ghost" size="icon-sm" aria-label="دانلود">

@@ -12,12 +12,16 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "short",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const today = new Date()
@@ -46,9 +50,8 @@ export function EventListSimple() {
                 {i > 0 && <Separator />}
                 <div className="px-6 py-3">
                   <p className="text-sm font-medium">{ev.title}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {formatJalali(ev.date)} · ساعت{" "}
-                    <bdi dir="ltr">{ev.time}</bdi>
+                  <p className="text-xs tracking-normal text-muted-foreground">
+                    {formatJalali(ev.date)} · ساعت {ev.time}
                   </p>
                 </div>
               </li>

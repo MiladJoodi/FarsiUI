@@ -13,13 +13,17 @@ import {
 } from "@/registry/bases/base/ui/card"
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
     weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 export function CalendarBlockSimple() {
@@ -44,7 +48,7 @@ export function CalendarBlockSimple() {
             className="mx-auto"
           />
         </CardContent>
-        <CardFooter className="border-t text-sm text-muted-foreground">
+        <CardFooter className="border-t text-sm tracking-normal text-muted-foreground">
           {date ? formatJalali(date) : "روزی انتخاب نشده"}
         </CardFooter>
       </Card>

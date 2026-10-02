@@ -14,22 +14,17 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -39,6 +34,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type Item = {
   id: string
@@ -49,17 +45,29 @@ type Item = {
 }
 
 const FOLDERS = [
-  { id: "docs", label: "اسناد", count: "۲۴" },
-  { id: "images", label: "تصاویر", count: "۵۸" },
-  { id: "archive", label: "آرشیو", count: "۱۱" },
-  { id: "shared", label: "اشتراکی", count: "۷" },
+  { id: "اسناد", label: "اسناد", count: "۲۴" },
+  { id: "تصاویر", label: "تصاویر", count: "۵۸" },
+  { id: "آرشیو", label: "آرشیو", count: "۱۱" },
+  { id: "اشتراکی", label: "اشتراکی", count: "۷" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "نام", label: "نام" },
+  { value: "تاریخ", label: "تاریخ" },
+  { value: "اندازه", label: "اندازه" },
+] as const
+
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "پوشه", label: "پوشه" },
+  { value: "فایل", label: "فایل" },
 ] as const
 
 const FILES: Item[] = [
   {
     id: "1",
     kind: "folder",
-    name: "Q1",
+    name: "فصل اول",
     size: "—",
     updated: "دیروز",
   },
@@ -67,35 +75,48 @@ const FILES: Item[] = [
     id: "2",
     kind: "file",
     name: "proposal.pdf",
-    size: "1.8 MB",
+    size: "۱٫۸ مگابایت",
     updated: "۲ ساعت پیش",
   },
   {
     id: "3",
     kind: "file",
     name: "sheet.xlsx",
-    size: "640 KB",
+    size: "۶۴۰ کیلوبایت",
     updated: "۳ روز پیش",
   },
   {
     id: "4",
     kind: "file",
     name: "cover.png",
-    size: "2.2 MB",
+    size: "۲٫۲ مگابایت",
     updated: "هفتهٔ پیش",
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function FileManagerHub() {
-  const [folder, setFolder] = React.useState("docs")
-  const [sort, setSort] = React.useState("date")
+  const [folder, setFolder] = React.useState("اسناد")
+  const [sort, setSort] = React.useState("تاریخ")
+  const [type, setType] = React.useState("همه")
   const [query, setQuery] = React.useState("")
   const [selected, setSelected] = React.useState<string[]>(["2"])
   const [chips, setChips] = React.useState(["PDF", "اخیر"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [sortOpen, setSortOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = FILES.filter((f) => {
+    if (type === "پوشه" && f.kind !== "folder") return false
+    if (type === "فایل" && f.kind !== "file") return false
     if (!query) return true
-    return f.name.includes(query) || f.name.toLowerCase().includes(query.toLowerCase())
+    return (
+      f.name.includes(query) ||
+      f.name.toLowerCase().includes(query.toLowerCase())
+    )
   })
 
   function toggle(id: string, on: boolean) {
@@ -116,9 +137,8 @@ export function FileManagerHub() {
             فضای ابری
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">مدیریت فایل‌ها</h2>
-          <p className="mt-2 text-muted-foreground">
-            مسیر <bdi dir="ltr">/drive/{folder}</bdi> ·{" "}
-            <bdi dir="ltr">{selected.length}</bdi> انتخاب‌شده
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            مسیر {folder} · {toFa(selected.length)} انتخاب‌شده
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -126,21 +146,51 @@ export function FileManagerHub() {
             <UploadIcon className="size-3.5" />
             بارگذاری
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={<Button type="button" variant="outline" size="sm" />}
+            >
               <MoreHorizontalIcon className="size-4" />
               بیشتر
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>پوشه جدید</DropdownMenuItem>
-              <DropdownMenuItem>دانلود انتخاب‌ها</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setSelected([])}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                پوشه جدید
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                دانلود انتخاب‌ها
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setSelected([])
+                  setHeaderOpen(false)
+                }}
+              >
                 لغو انتخاب
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -181,8 +231,8 @@ export function FileManagerHub() {
                   <FolderIcon className="size-3.5 text-muted-foreground" />
                   {f.label}
                 </span>
-                <span className="text-xs text-muted-foreground">
-                  <bdi dir="ltr">{f.count}</bdi>
+                <span className="text-xs tracking-normal text-muted-foreground">
+                  {f.count}
                 </span>
               </button>
             ))}
@@ -193,37 +243,61 @@ export function FileManagerHub() {
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "date")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="name">نام</SelectItem>
-                <SelectItem value="date">تاریخ</SelectItem>
-                <SelectItem value="size">اندازه</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full" />}
+          <Popover open={sortOpen} onOpenChange={setSortOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" className="w-full" />
+              }
             >
               میانبر مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-40">
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "date")}
-              >
-                <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="date">تاریخ</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="size">اندازه</DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-40 p-1"
+            >
+              {SORT_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    sort === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setSort(opt.value)
+                    setSortOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </PopoverContent>
+          </Popover>
 
           <Field>
             <FieldLabel htmlFor="fm5-email">اشتراک</FieldLabel>
@@ -255,14 +329,24 @@ export function FileManagerHub() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="all">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="folder">پوشه</SelectItem>
-                <SelectItem value="file">فایل</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -271,7 +355,7 @@ export function FileManagerHub() {
             <div className="grid grid-cols-[auto_1fr_auto_auto_auto] items-center gap-2 border-b bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
               <span className="w-4" />
               <span>نام</span>
-              <span className="hidden w-20 text-end sm:block">اندازه</span>
+              <span className="hidden w-24 text-end sm:block">اندازه</span>
               <span className="hidden w-24 text-end md:block">به‌روزرسانی</span>
               <span className="w-8" />
             </div>
@@ -303,30 +387,74 @@ export function FileManagerHub() {
                         )}
                       </p>
                     </div>
-                    <p className="hidden w-20 text-end text-xs text-muted-foreground sm:block">
-                      {item.kind === "file" ? (
-                        <bdi dir="ltr">{item.size}</bdi>
-                      ) : (
-                        item.size
-                      )}
+                    <p className="hidden w-24 text-end text-xs tracking-normal text-muted-foreground sm:block">
+                      {item.size}
                     </p>
                     <p className="hidden w-24 text-end text-xs text-muted-foreground md:block">
                       {item.updated}
                     </p>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === item.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? item.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem>باز کردن</DropdownMenuItem>
-                        <DropdownMenuItem>اشتراک‌گذاری</DropdownMenuItem>
-                        <DropdownMenuItem>دانلود</DropdownMenuItem>
-                        <DropdownMenuItem>حذف</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-40 p-1"
+                      >
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          باز کردن
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          اشتراک‌گذاری
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          دانلود
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          حذف
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))

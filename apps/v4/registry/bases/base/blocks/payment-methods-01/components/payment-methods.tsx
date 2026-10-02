@@ -38,9 +38,9 @@ export function PaymentMethodsSimple() {
                 <CreditCardIcon className="size-4 shrink-0 text-muted-foreground" />
                 <div className="min-w-0 flex-1">
                   <p className="font-medium">{m.bank}</p>
-                  <bdi dir="ltr" className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground tracking-normal">
                     **** {m.last4} · {m.exp}
-                  </bdi>
+                  </p>
                 </div>
               </div>
             </div>

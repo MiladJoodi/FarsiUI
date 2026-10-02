@@ -32,7 +32,6 @@ const PLANS = [
     monthly: "۴۹۹٬۰۰۰",
     yearly: "۴٬۷۹۰٬۰۰۰",
     features: ["پروژه نامحدود", "اولویت پشتیبانی", "تم سفارشی"],
-    current: false,
   },
   {
     id: "team",
@@ -42,6 +41,10 @@ const PLANS = [
     features: ["۵ عضو", "نقش‌ها", "گزارش استفاده"],
   },
 ] as const
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
 
 export function PlanSelectionWizard() {
   const [plan, setPlan] = React.useState("pro")
@@ -61,8 +64,11 @@ export function PlanSelectionWizard() {
             {i > 0 ? (
               <span className="text-muted-foreground">←</span>
             ) : null}
-            <Badge variant={i === 1 ? "default" : "outline"}>
-              {i + 1}. {label}
+            <Badge
+              variant={i === 1 ? "default" : "outline"}
+              className="tracking-normal"
+            >
+              {toFa(i + 1)}. {label}
             </Badge>
           </React.Fragment>
         ))}
@@ -127,8 +133,8 @@ export function PlanSelectionWizard() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="font-semibold">{p.name}</p>
-                    <p className="tabular-nums">
-                      <bdi dir="ltr">{price}</bdi>
+                    <p className="tracking-normal">
+                      {price}
                       <span className="text-xs text-muted-foreground">
                         {" "}
                         / {yearly ? "سال" : "ماه"}
@@ -136,7 +142,7 @@ export function PlanSelectionWizard() {
                     </p>
                   </div>
                   {compare ? (
-                    <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                    <ul className="mt-2 space-y-1 text-sm text-muted-foreground tracking-normal">
                       {p.features.map((f) => (
                         <li key={f} className="flex items-center gap-1.5">
                           <CheckIcon className="size-3.5 shrink-0" />
@@ -166,11 +172,10 @@ export function PlanSelectionWizard() {
               <span>{yearly ? "سالانه" : "ماهانه"}</span>
             </div>
             <Separator />
-            <div className="flex justify-between gap-2 font-medium">
+            <div className="flex justify-between gap-2 font-medium tracking-normal">
               <span>مبلغ</span>
               <span>
-                <bdi dir="ltr">{yearly ? selected.yearly : selected.monthly}</bdi>{" "}
-                تومان
+                {yearly ? selected.yearly : selected.monthly} تومان
               </span>
             </div>
             <Button className="w-full">ادامه به پرداخت</Button>

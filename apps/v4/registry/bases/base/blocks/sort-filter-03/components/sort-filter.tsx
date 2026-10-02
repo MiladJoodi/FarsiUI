@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { SearchIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -28,21 +29,38 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "ارزان‌ترین", label: "ارزان‌ترین" },
+  { value: "گران‌ترین", label: "گران‌ترین" },
+  { value: "امتیاز", label: "امتیاز" },
+] as const
+
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "پوشیدنی", label: "پوشیدنی" },
+  { value: "خانه", label: "خانه" },
+] as const
+
 export function SortFilterToolbar() {
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [category, setCategory] = React.useState("همه")
+
   return (
     <section
       dir="rtl"
       lang="fa"
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
-      <Card>
-        <CardHeader className="text-start">
+      <Card className="gap-0 bg-card py-0">
+        <CardHeader className="border-b py-4 text-start">
           <CardTitle>مرتب‌سازی و فیلتر</CardTitle>
           <CardDescription>
-            جستجو، محدوده قیمت و ایمیل LTR
+            جستجو، محدوده قیمت و ایمیل چپ‌چین
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 py-4">
           <Field>
             <FieldLabel>جستجو</FieldLabel>
             <div className="relative">
@@ -58,29 +76,47 @@ export function SortFilterToolbar() {
           <div className="grid gap-4 sm:grid-cols-2">
             <Field>
               <FieldLabel>مرتب‌سازی</FieldLabel>
-              <Select defaultValue="newest">
+              <Select
+                items={[...SORT_ITEMS]}
+                value={sort}
+                onValueChange={(value) => {
+                  if (SORT_ITEMS.some((item) => item.value === value)) {
+                    setSort(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="مرتب‌سازی" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="newest">جدیدترین</SelectItem>
-                  <SelectItem value="price-asc">ارزان‌ترین</SelectItem>
-                  <SelectItem value="price-desc">گران‌ترین</SelectItem>
-                  <SelectItem value="rating">امتیاز</SelectItem>
+                  {SORT_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field>
               <FieldLabel>دسته</FieldLabel>
-              <Select defaultValue="all">
+              <Select
+                items={[...CATEGORY_ITEMS]}
+                value={category}
+                onValueChange={(value) => {
+                  if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+                    setCategory(value as string)
+                  }
+                }}
+              >
                 <SelectTrigger className="w-full" dir="rtl">
                   <SelectValue placeholder="دسته" />
                 </SelectTrigger>
                 <SelectContent dir="rtl" lang="fa">
-                  <SelectItem value="all">همه</SelectItem>
-                  <SelectItem value="audio">صوتی</SelectItem>
-                  <SelectItem value="wearable">پوشیدنی</SelectItem>
-                  <SelectItem value="home">خانه</SelectItem>
+                  {CATEGORY_ITEMS.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </Field>
@@ -93,8 +129,8 @@ export function SortFilterToolbar() {
                 id="sf3-min"
                 inputMode="numeric"
                 placeholder="۱٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
             <Field>
@@ -103,8 +139,8 @@ export function SortFilterToolbar() {
                 id="sf3-max"
                 inputMode="numeric"
                 placeholder="۱۰٬۰۰۰٬۰۰۰"
-                dir="ltr"
-                className="text-start"
+                dir="rtl"
+                className="text-end tracking-normal"
               />
             </Field>
           </div>
@@ -116,7 +152,7 @@ export function SortFilterToolbar() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-start"
+              className="text-left"
             />
             <FieldDescription>اختیاری</FieldDescription>
           </Field>
@@ -128,9 +164,11 @@ export function SortFilterToolbar() {
             <Switch id="sf3-stock" defaultChecked />
           </div>
         </CardContent>
-        <CardFooter className="gap-2 border-t">
-          <Button className="flex-1">اعمال</Button>
-          <Button variant="outline" className="flex-1">
+        <CardFooter className="gap-3 border-t py-4">
+          <Button type="button" className="flex-1">
+            اعمال
+          </Button>
+          <Button type="button" variant="outline" className="flex-1">
             پاک کردن
           </Button>
         </CardFooter>

@@ -2,10 +2,7 @@
 
 import * as React from "react"
 import { addDays, isSameDay } from "date-fns"
-import {
-  MoreHorizontalIcon,
-  XIcon,
-} from "lucide-react"
+import { MoreHorizontalIcon, XIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -18,23 +15,24 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
     weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliDay(date: Date) {
@@ -42,6 +40,10 @@ function formatJalaliDay(date: Date) {
     calendar: "persian",
     day: "numeric",
   })
+}
+
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
 }
 
 type EventItem = {
@@ -85,6 +87,8 @@ export function CalendarBlockEvents() {
   const [events] = React.useState(buildEvents)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [chips, setChips] = React.useState(["جلسات", "تحویل"])
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const booked = events.map((e) => e.date)
   const dayEvents = events.filter(
@@ -105,23 +109,56 @@ export function CalendarBlockEvents() {
               رویدادهای روز انتخاب‌شده (شمسی)
             </CardDescription>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-sm" />}
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="ghost" size="icon-sm" />
+              }
             >
               <MoreHorizontalIcon className="size-4" />
               <span className="sr-only">بیشتر</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>رویداد جدید</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setChips([])}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                رویداد جدید
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-              <DropdownMenuItem>رفتن به امروز</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setDate(new Date())
+                  setHeaderOpen(false)
+                }}
+              >
+                رفتن به امروز
+              </Button>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
         <CardContent className="space-y-4">
           {chips.length > 0 ? (
@@ -157,11 +194,11 @@ export function CalendarBlockEvents() {
 
           <div className="rounded-lg border">
             <div className="border-b px-4 py-3">
-              <p className="text-sm font-medium">
+              <p className="text-sm font-medium tracking-normal">
                 {date ? formatJalali(date) : "روزی انتخاب نشده"}
               </p>
-              <p className="text-xs text-muted-foreground">
-                <bdi dir="ltr">{dayEvents.length}</bdi> رویداد
+              <p className="text-xs tracking-normal text-muted-foreground">
+                {toFa(dayEvents.length)} رویداد
               </p>
             </div>
             {dayEvents.length === 0 ? (
@@ -174,30 +211,70 @@ export function CalendarBlockEvents() {
                   <li key={ev.id}>
                     {i > 0 && <Separator />}
                     <div className="flex items-center gap-3 px-4 py-3">
-                      <div className="flex size-9 shrink-0 flex-col items-center justify-center rounded-md bg-muted text-xs font-medium">
+                      <div className="flex size-9 shrink-0 flex-col items-center justify-center rounded-md bg-muted text-xs font-medium tracking-normal">
                         {formatJalaliDay(ev.date)}
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-medium">
                           {ev.title}
                         </p>
-                        <p className="text-xs text-muted-foreground">
-                          ساعت <bdi dir="ltr">{ev.time}</bdi>
+                        <p className="text-xs tracking-normal text-muted-foreground">
+                          ساعت {ev.time}
                         </p>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          render={<Button variant="ghost" size="icon-sm" />}
+                      <Popover
+                        open={openId === ev.id}
+                        onOpenChange={(open) =>
+                          setOpenId(open ? ev.id : null)
+                        }
+                      >
+                        <PopoverTrigger
+                          render={
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                            />
+                          }
                         >
                           <MoreHorizontalIcon className="size-4" />
                           <span className="sr-only">عملیات</span>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                          <DropdownMenuItem>ویرایش</DropdownMenuItem>
-                          <DropdownMenuItem>به تعویق انداختن</DropdownMenuItem>
-                          <DropdownMenuItem>حذف</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          dir="rtl"
+                          lang="fa"
+                          align="start"
+                          className="w-40 p-1"
+                        >
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            ویرایش
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            به تعویق انداختن
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start"
+                            onClick={() => setOpenId(null)}
+                          >
+                            حذف
+                          </Button>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </li>
                 ))}

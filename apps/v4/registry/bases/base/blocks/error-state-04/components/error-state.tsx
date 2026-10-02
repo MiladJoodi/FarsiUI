@@ -16,12 +16,6 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Empty,
   EmptyContent,
   EmptyDescription,
@@ -29,6 +23,11 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
 export function ErrorStateInContext() {
@@ -49,19 +48,33 @@ export function ErrorStateInContext() {
           <Button variant="outline" size="sm" disabled>
             خروجی
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger
+          <Popover>
+            <PopoverTrigger
               render={
-                <Button variant="outline" size="icon-sm" aria-label="بیشتر" />
+                <Button
+                  variant="outline"
+                  size="icon-sm"
+                  aria-label="عملیات"
+                />
               }
             >
               <MoreHorizontalIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" dir="rtl" lang="fa">
-              <DropdownMenuItem>بازه زمانی</DropdownMenuItem>
-              <DropdownMenuItem>اشتراک‌گذاری</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-40 p-1" dir="rtl">
+              <button
+                type="button"
+                className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+              >
+                بازه زمانی
+              </button>
+              <button
+                type="button"
+                className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+              >
+                اشتراک‌گذاری
+              </button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -83,7 +96,7 @@ export function ErrorStateInContext() {
                 <EmptyTitle>دریافت داده ناموفق بود</EmptyTitle>
                 <EmptyDescription>
                   سرویس گزارش موقتاً در دسترس نیست. کد{" "}
-                  <bdi dir="ltr">HTTP 502</bdi>
+                  <span className="tracking-normal">۵۰۲</span>
                 </EmptyDescription>
               </EmptyHeader>
               <EmptyContent className="mt-4 flex-row justify-center gap-2">

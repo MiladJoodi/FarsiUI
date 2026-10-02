@@ -12,13 +12,17 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 const TODAY = new Date()
 
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 const SLOTS = [
@@ -38,7 +42,9 @@ export function ScheduleSimple() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>برنامه امروز</CardTitle>
-          <CardDescription>{formatJalali(TODAY)}</CardDescription>
+          <CardDescription className="tracking-normal">
+            {formatJalali(TODAY)}
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
           {SLOTS.map((slot, i) => (
@@ -46,9 +52,9 @@ export function ScheduleSimple() {
               {i > 0 ? <Separator className="mb-3" /> : null}
               <div className="flex items-baseline justify-between gap-3 text-sm">
                 <span className="font-medium">{slot.title}</span>
-                <bdi dir="ltr" className="shrink-0 tabular-nums text-muted-foreground">
+                <span className="shrink-0 tracking-normal text-muted-foreground">
                   {slot.time}
-                </bdi>
+                </span>
               </div>
             </div>
           ))}

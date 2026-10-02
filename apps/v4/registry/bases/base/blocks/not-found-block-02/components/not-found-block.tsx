@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRightIcon, HomeIcon, SearchIcon } from "lucide-react"
+import { HomeIcon, SearchIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -28,15 +28,15 @@ export function NotFoundCard() {
     >
       <Card>
         <CardHeader className="items-center pb-2 text-center">
-          <Badge variant="secondary">
-            <bdi dir="ltr">۴۰۴</bdi>
+          <Badge variant="secondary" className="tracking-normal">
+            ۴۰۴
           </Badge>
         </CardHeader>
         <CardContent>
           <Empty>
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <SearchIcon className="size-6" />
+                <SearchIcon className="size-6 -scale-x-100" />
               </EmptyMedia>
               <EmptyTitle>موردی پیدا نشد</EmptyTitle>
               <EmptyDescription>
@@ -50,14 +50,14 @@ export function NotFoundCard() {
                 خانه
               </Button>
               <Button variant="outline">
+                <SearchIcon data-icon="inline-start" className="-scale-x-100" />
                 جستجو
-                <ArrowRightIcon data-icon="inline-end" />
               </Button>
             </EmptyContent>
           </Empty>
         </CardContent>
         <CardFooter className="justify-center border-t text-xs text-muted-foreground">
-          مسیر: <bdi dir="ltr" className="ms-1">/docs/missing-page</bdi>
+          مسیر پیدا نشد
         </CardFooter>
       </Card>
     </section>

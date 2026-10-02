@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { SearchIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
@@ -17,6 +18,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/registry/bases/base/ui/select"
+
+const CATEGORY_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "صوتی", label: "صوتی" },
+  { value: "خانه", label: "خانه" },
+  { value: "مد", label: "مد" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "نام", label: "نام" },
+] as const
 
 const IMAGES = [
   {
@@ -58,6 +71,9 @@ const IMAGES = [
 ] as const
 
 export function ImageGalleryFilter() {
+  const [category, setCategory] = React.useState("همه")
+  const [sort, setSort] = React.useState("جدیدترین")
+
   return (
     <section
       dir="rtl"
@@ -76,24 +92,44 @@ export function ImageGalleryFilter() {
           <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
           <Input placeholder="جستجو در گالری…" dir="rtl" className="ps-8" />
         </div>
-        <Select defaultValue="all">
+        <Select
+          items={[...CATEGORY_ITEMS]}
+          value={category}
+          onValueChange={(value) => {
+            if (CATEGORY_ITEMS.some((item) => item.value === value)) {
+              setCategory(value as string)
+            }
+          }}
+        >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="دسته" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="all">همه</SelectItem>
-            <SelectItem value="audio">صوتی</SelectItem>
-            <SelectItem value="home">خانه</SelectItem>
-            <SelectItem value="fashion">مد</SelectItem>
+            {CATEGORY_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
-        <Select defaultValue="newest">
+        <Select
+          items={[...SORT_ITEMS]}
+          value={sort}
+          onValueChange={(value) => {
+            if (SORT_ITEMS.some((item) => item.value === value)) {
+              setSort(value as string)
+            }
+          }}
+        >
           <SelectTrigger className="w-full sm:w-40" dir="rtl">
             <SelectValue placeholder="مرتب‌سازی" />
           </SelectTrigger>
           <SelectContent dir="rtl" lang="fa">
-            <SelectItem value="newest">جدیدترین</SelectItem>
-            <SelectItem value="name">نام</SelectItem>
+            {SORT_ITEMS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>

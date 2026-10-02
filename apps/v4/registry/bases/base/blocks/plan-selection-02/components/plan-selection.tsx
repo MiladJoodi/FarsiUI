@@ -5,14 +5,6 @@ import { CheckIcon } from "lucide-react"
 
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/registry/bases/base/ui/card"
 
 const PLANS = [
   {
@@ -83,11 +75,11 @@ export function PlanSelectionCards() {
                   </Badge>
                 ) : null}
               </div>
-              <p className="text-xl font-semibold tabular-nums">
-                <bdi dir="ltr">{p.price}</bdi>
-              </p>
+              <p className="text-xl font-semibold tracking-normal">{p.price}</p>
               <p className="mt-1 text-xs text-muted-foreground">تومان / ماه</p>
-              <p className="mt-3 text-sm text-muted-foreground">{p.blurb}</p>
+              <p className="mt-3 text-sm text-muted-foreground tracking-normal">
+                {p.blurb}
+              </p>
             </button>
           )
         })}

@@ -80,7 +80,7 @@ export function SkillsListIndex() {
   const current = getSkillsNavCurrent(pathname)
 
   return (
-    <ListIndexNav title="فهرست" current={current}>
+    <ListIndexNav title="فهرست مهارت‌ها" current={current}>
       <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
         <SkillsNavList />
       </SidebarProvider>

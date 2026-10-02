@@ -327,7 +327,7 @@ function SampleCard({
               {sample.item.en}
             </span>
             <span className="mx-1.5 text-border">·</span>
-            <span>{countLabel} بلاک</span>
+            <span>{countLabel} بلوک</span>
           </p>
         </div>
 
@@ -370,11 +370,11 @@ export function BlocksShowcase({
             ویژه
           </p>
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            بلاک‌های آماده
+            بلوک‌های آماده
           </h1>
           <p className="max-w-2xl text-pretty text-sm leading-7 text-muted-foreground sm:text-[0.95rem]">
             نمونه‌ای از هر دسته کنار هم. روی کارت یا «مشاهده» بزنید تا همهٔ
-            بلاک‌های همان دسته را ببینید و کپی کنید.
+            بلوک‌های همان دسته را ببینید و کپی کنید.
           </p>
           <p className="text-xs text-muted-foreground/80">
             {totalCategories.toLocaleString("fa-IR")} دسته

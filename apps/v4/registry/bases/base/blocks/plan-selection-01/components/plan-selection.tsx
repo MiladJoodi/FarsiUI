@@ -33,8 +33,8 @@ export function PlanSelectionSimple() {
     >
       <Card>
         <CardHeader className="text-start">
-          <p className="text-xs text-muted-foreground">
-            مرحله <bdi dir="ltr">۲</bdi> از <bdi dir="ltr">۳</bdi>
+          <p className="text-xs text-muted-foreground tracking-normal">
+            مرحله ۲ از ۳
           </p>
           <CardTitle>انتخاب طرح</CardTitle>
           <CardDescription>
@@ -55,16 +55,13 @@ export function PlanSelectionSimple() {
                   <RadioGroupItem value={p.id} id={`ps1-${p.id}`} />
                   <span className="font-medium">{p.name}</span>
                 </div>
-                <span className="text-sm tabular-nums">
-                  <bdi dir="ltr">{p.price}</bdi>
-                </span>
+                <span className="text-sm tracking-normal">{p.price}</span>
               </Label>
             ))}
           </RadioGroup>
           <Separator />
-          <p className="text-sm text-muted-foreground">
-            انتخاب‌شده: {selected.name} ·{" "}
-            <bdi dir="ltr">{selected.price}</bdi> تومان / ماه
+          <p className="text-sm text-muted-foreground tracking-normal">
+            انتخاب‌شده: {selected.name} · {selected.price} تومان / ماه
           </p>
         </CardContent>
         <CardFooter className="gap-2 border-t">

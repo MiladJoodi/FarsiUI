@@ -37,13 +37,42 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
+const TYPE_ITEMS = [
+  { value: "مرخصی", label: "مرخصی" },
+  { value: "سفر کاری", label: "سفر کاری" },
+  { value: "رویداد", label: "رویداد" },
+] as const
+
+const TIME_ITEMS = [
+  { value: "۰۸:۰۰", label: "۰۸:۰۰" },
+  { value: "۰۹:۰۰", label: "۰۹:۰۰" },
+  { value: "۱۰:۰۰", label: "۱۰:۰۰" },
+  { value: "۱۱:۰۰", label: "۱۱:۰۰" },
+  { value: "۱۲:۰۰", label: "۱۲:۰۰" },
+  { value: "۱۳:۰۰", label: "۱۳:۰۰" },
+  { value: "۱۴:۰۰", label: "۱۴:۰۰" },
+  { value: "۱۵:۰۰", label: "۱۵:۰۰" },
+  { value: "۱۶:۰۰", label: "۱۶:۰۰" },
+  { value: "۱۷:۰۰", label: "۱۷:۰۰" },
+  { value: "۱۸:۰۰", label: "۱۸:۰۰" },
+  { value: "۱۹:۰۰", label: "۱۹:۰۰" },
+] as const
+
+type TimeValue = (typeof TIME_ITEMS)[number]["value"]
+type TypeValue = (typeof TYPE_ITEMS)[number]["value"]
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: "long",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -62,8 +91,9 @@ export function DatetimePickerRangeForm() {
     from: today,
     to: addDays(today, 2),
   })
-  const [startTime, setStartTime] = React.useState("09:00")
-  const [endTime, setEndTime] = React.useState("18:00")
+  const [type, setType] = React.useState<TypeValue>("مرخصی")
+  const [startTime, setStartTime] = React.useState<TimeValue>("۰۹:۰۰")
+  const [endTime, setEndTime] = React.useState<TimeValue>("۱۸:۰۰")
   const [allDay, setAllDay] = React.useState(false)
 
   const rangeLabel =
@@ -86,21 +116,29 @@ export function DatetimePickerRangeForm() {
             <Badge variant="outline">شمسی</Badge>
           </div>
           <CardTitle>رزرو بازه زمانی</CardTitle>
-          <CardDescription>
-            تاریخ شمسی و ساعت به‌صورت LTR
-          </CardDescription>
+          <CardDescription>تاریخ شمسی و ساعت فارسی</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Field>
             <FieldLabel>نوع</FieldLabel>
-            <Select defaultValue="leave">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as TypeValue)
+                }
+              }}
+            >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="leave">مرخصی</SelectItem>
-                <SelectItem value="trip">سفر کاری</SelectItem>
-                <SelectItem value="event">رویداد</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -131,14 +169,9 @@ export function DatetimePickerRangeForm() {
               </PopoverContent>
             </Popover>
             {range?.from ? (
-              <FieldDescription>
-                <bdi dir="ltr">{formatJalaliCompact(range.from)}</bdi>
-                {range.to ? (
-                  <>
-                    {" – "}
-                    <bdi dir="ltr">{formatJalaliCompact(range.to)}</bdi>
-                  </>
-                ) : null}
+              <FieldDescription className="tracking-normal">
+                {formatJalaliCompact(range.from)}
+                {range.to ? ` – ${formatJalaliCompact(range.to)}` : null}
               </FieldDescription>
             ) : null}
           </Field>
@@ -155,26 +188,50 @@ export function DatetimePickerRangeForm() {
           {!allDay ? (
             <div className="grid gap-4 sm:grid-cols-2">
               <Field>
-                <FieldLabel htmlFor="dt3-start">شروع</FieldLabel>
-                <Input
-                  id="dt3-start"
-                  type="time"
+                <FieldLabel>شروع</FieldLabel>
+                <Select
+                  items={[...TIME_ITEMS]}
                   value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                  dir="ltr"
-                  className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                />
+                  onValueChange={(value) => {
+                    if (TIME_ITEMS.some((item) => item.value === value)) {
+                      setStartTime(value as TimeValue)
+                    }
+                  }}
+                >
+                  <SelectTrigger className="w-full" dir="rtl">
+                    <SelectValue placeholder="شروع" />
+                  </SelectTrigger>
+                  <SelectContent dir="rtl" lang="fa">
+                    {TIME_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </Field>
               <Field>
-                <FieldLabel htmlFor="dt3-end">پایان</FieldLabel>
-                <Input
-                  id="dt3-end"
-                  type="time"
+                <FieldLabel>پایان</FieldLabel>
+                <Select
+                  items={[...TIME_ITEMS]}
                   value={endTime}
-                  onChange={(e) => setEndTime(e.target.value)}
-                  dir="ltr"
-                  className="text-start appearance-none [&::-webkit-calendar-picker-indicator]:hidden"
-                />
+                  onValueChange={(value) => {
+                    if (TIME_ITEMS.some((item) => item.value === value)) {
+                      setEndTime(value as TimeValue)
+                    }
+                  }}
+                >
+                  <SelectTrigger className="w-full" dir="rtl">
+                    <SelectValue placeholder="پایان" />
+                  </SelectTrigger>
+                  <SelectContent dir="rtl" lang="fa">
+                    {TIME_ITEMS.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </Field>
             </div>
           ) : null}

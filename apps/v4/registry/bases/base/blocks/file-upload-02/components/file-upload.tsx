@@ -14,6 +14,10 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Progress } from "@/registry/bases/base/ui/progress"
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function FileUploadProgress() {
   const [fileName, setFileName] = React.useState<string | null>("report.pdf")
   const [progress, setProgress] = React.useState(45)
@@ -46,7 +50,7 @@ export function FileUploadProgress() {
       <Card>
         <CardHeader className="text-start">
           <CardTitle>بارگذاری فایل</CardTitle>
-          <CardDescription>پیشرفت بارگذاری و نام فایل LTR</CardDescription>
+          <CardDescription>پیشرفت بارگذاری و نام فایل</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <label className="flex h-32 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-sm text-muted-foreground transition-colors hover:bg-muted/40">
@@ -82,8 +86,8 @@ export function FileUploadProgress() {
                 </Button>
               </div>
               <Progress value={progress} />
-              <p className="text-xs text-muted-foreground">
-                <bdi dir="ltr">{progress}%</bdi> تکمیل شده
+              <p className="text-xs tracking-normal text-muted-foreground">
+                {toFa(progress)}٪ تکمیل شده
               </p>
             </div>
           ) : null}

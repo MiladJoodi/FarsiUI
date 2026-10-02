@@ -27,7 +27,6 @@ import {
 } from "@/registry/bases/base/ui/card"
 import {
   Field,
-  FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
@@ -54,14 +53,35 @@ import {
 } from "@/registry/bases/base/ui/tabs"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
+const SERVICES = [
+  { id: "مشاوره", title: "مشاوره", price: "۳۵۰٬۰۰۰", duration: "۳۰ دقیقه" },
+  { id: "معاینه", title: "معاینه", price: "۴۸۰٬۰۰۰", duration: "۴۵ دقیقه" },
+  { id: "پیگیری", title: "پیگیری", price: "۲۲۰٬۰۰۰", duration: "۲۰ دقیقه" },
+] as const
+
+const SLOTS = ["۰۹:۰۰", "۱۰:۳۰", "۱۴:۰۰", "۱۶:۰۰"] as const
+
+const PLACE_ITEMS = [
+  { value: "حضوری · کلینیک", label: "حضوری · کلینیک" },
+  { value: "آنلاین", label: "آنلاین" },
+] as const
+
+type ServiceId = (typeof SERVICES)[number]["id"]
+type SlotValue = (typeof SLOTS)[number]
+type PlaceValue = (typeof PLACE_ITEMS)[number]["value"]
+
 function formatJalali(date: Date) {
-  return date.toLocaleDateString("fa-IR", {
+  const weekday = date.toLocaleDateString("fa-IR", {
     calendar: "persian",
     weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   })
+  const rest = date.toLocaleDateString("fa-IR", {
+    calendar: "persian",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+  return `${weekday}، ${rest}`
 }
 
 function formatJalaliCompact(date: Date) {
@@ -73,24 +93,12 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-const SERVICES = [
-  { id: "consult", title: "مشاوره", price: "۳۵۰٬۰۰۰", duration: "۳۰ دقیقه" },
-  { id: "checkup", title: "معاینه", price: "۴۸۰٬۰۰۰", duration: "۴۵ دقیقه" },
-  { id: "follow", title: "پیگیری", price: "۲۲۰٬۰۰۰", duration: "۲۰ دقیقه" },
-] as const
-
-const SLOTS = [
-  { label: "۰۹:۰۰", value: "09:00" },
-  { label: "۱۰:۳۰", value: "10:30" },
-  { label: "۱۴:۰۰", value: "14:00" },
-  { label: "۱۶:۰۰", value: "16:00" },
-] as const
-
 export function BookingFancy() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  const [service, setService] = React.useState("consult")
-  const [slot, setSlot] = React.useState("10:30")
+  const [service, setService] = React.useState<ServiceId>("مشاوره")
+  const [slot, setSlot] = React.useState<SlotValue>("۱۰:۳۰")
+  const [place, setPlace] = React.useState<PlaceValue>("حضوری · کلینیک")
   const [remind, setRemind] = React.useState(true)
   const [online, setOnline] = React.useState(false)
   const [done, setDone] = React.useState(false)
@@ -109,16 +117,13 @@ export function BookingFancy() {
               <CheckIcon className="size-6" />
             </div>
             <CardTitle>رزرو ثبت شد</CardTitle>
-            <CardDescription>
-              {date ? formatJalali(date) : ""} ·{" "}
-              <bdi dir="ltr">{slot}</bdi>
+            <CardDescription className="tracking-normal">
+              {date ? formatJalali(date) : ""} · {slot}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2 text-center text-sm text-muted-foreground">
             <p>{selected.title}</p>
-            <p>
-              کد پیگیری: <bdi dir="ltr">BK-48291</bdi>
-            </p>
+            <p className="tracking-normal">کد پیگیری: ب‌ک-۴۸۲۹۱</p>
           </CardContent>
           <CardFooter>
             <Button className="w-full" onClick={() => setDone(false)}>
@@ -152,7 +157,7 @@ export function BookingFancy() {
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">رزرو نوبت</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            تاریخ شمسی · ایمیل و ساعت LTR
+            تاریخ شمسی · ساعت فارسی
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -211,8 +216,8 @@ export function BookingFancy() {
                   </PopoverContent>
                 </Popover>
                 {date ? (
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    <bdi dir="ltr">{formatJalaliCompact(date)}</bdi>
+                  <p className="mt-2 text-xs text-muted-foreground tracking-normal">
+                    {formatJalaliCompact(date)}
                   </p>
                 ) : null}
               </CardContent>
@@ -227,12 +232,13 @@ export function BookingFancy() {
               <CardContent className="flex flex-wrap gap-2">
                 {SLOTS.map((s) => (
                   <Button
-                    key={s.value}
-                    variant={slot === s.value ? "default" : "outline"}
+                    key={s}
+                    variant={slot === s ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setSlot(s.value)}
+                    className="tracking-normal"
+                    onClick={() => setSlot(s)}
                   >
-                    <bdi dir="ltr">{s.label}</bdi>
+                    {s}
                   </Button>
                 ))}
               </CardContent>
@@ -259,13 +265,11 @@ export function BookingFancy() {
                   >
                     <div>
                       <p className="font-medium">{s.title}</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground tracking-normal">
                         {s.duration}
                       </p>
                     </div>
-                    <span>
-                      <bdi dir="ltr">{s.price}</bdi> تومان
-                    </span>
+                    <span className="tracking-normal">{s.price} تومان</span>
                   </button>
                 ))}
               </CardContent>
@@ -297,26 +301,32 @@ export function BookingFancy() {
                   <Input
                     id="bk5-phone"
                     type="tel"
-                    placeholder="0912xxxxxxx"
-                    dir="ltr"
-                    className="text-start"
+                    placeholder="۰۹۱۲xxxxxxx"
+                    dir="rtl"
+                    className="text-start tracking-normal"
                   />
-                  <FieldDescription>
-                    مسیر تأیید: <bdi dir="ltr">/booking/confirm</bdi>
-                  </FieldDescription>
                 </Field>
                 <Field>
                   <FieldLabel>محل</FieldLabel>
                   <Select
-                    value={online ? "online" : "clinic"}
-                    onValueChange={(v) => setOnline(v === "online")}
+                    items={[...PLACE_ITEMS]}
+                    value={place}
+                    onValueChange={(value) => {
+                      if (PLACE_ITEMS.some((item) => item.value === value)) {
+                        setPlace(value as PlaceValue)
+                        setOnline(value === "آنلاین")
+                      }
+                    }}
                   >
                     <SelectTrigger className="w-full" dir="rtl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent dir="rtl" lang="fa">
-                      <SelectItem value="clinic">حضوری · کلینیک</SelectItem>
-                      <SelectItem value="online">آنلاین</SelectItem>
+                      {PLACE_ITEMS.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </Field>
@@ -346,19 +356,17 @@ export function BookingFancy() {
               </div>
               <div className="flex justify-between gap-2">
                 <span className="text-muted-foreground">مدت</span>
-                <span>{selected.duration}</span>
+                <span className="tracking-normal">{selected.duration}</span>
               </div>
               <Separator />
-              <p>{date ? formatJalali(date) : "—"}</p>
-              <p>
-                ساعت <bdi dir="ltr">{slot}</bdi>
+              <p className="tracking-normal">
+                {date ? formatJalali(date) : "—"}
               </p>
+              <p className="tracking-normal">ساعت {slot}</p>
               <Separator />
               <div className="flex justify-between gap-2 font-medium">
                 <span>مبلغ</span>
-                <span>
-                  <bdi dir="ltr">{selected.price}</bdi> تومان
-                </span>
+                <span className="tracking-normal">{selected.price} تومان</span>
               </div>
             </CardContent>
             <CardFooter className="border-t">
@@ -386,7 +394,10 @@ export function BookingFancy() {
                 <Switch
                   id="bk5-online"
                   checked={online}
-                  onCheckedChange={setOnline}
+                  onCheckedChange={(checked) => {
+                    setOnline(checked)
+                    setPlace(checked ? "آنلاین" : "حضوری · کلینیک")
+                  }}
                 />
               </div>
             </CardContent>

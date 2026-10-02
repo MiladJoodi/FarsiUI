@@ -18,22 +18,17 @@ import {
   DialogTitle,
 } from "@/registry/bases/base/ui/dialog"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/bases/base/ui/dropdown-menu"
-import {
   Field,
   FieldDescription,
   FieldLabel,
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 import { Label } from "@/registry/bases/base/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Select,
   SelectContent,
@@ -43,6 +38,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
+import { cn } from "@/registry/bases/base/lib/utils"
 
 type ImageItem = {
   id: string
@@ -54,9 +50,21 @@ type ImageItem = {
 }
 
 const ALBUMS = [
-  { id: "all", label: "همه", count: "۶" },
-  { id: "product", label: "محصولات", count: "۴" },
-  { id: "lifestyle", label: "سبک زندگی", count: "۲" },
+  { id: "همه", label: "همه", count: "۶" },
+  { id: "محصولات", label: "محصولات", count: "۴" },
+  { id: "سبک زندگی", label: "سبک زندگی", count: "۲" },
+] as const
+
+const SORT_ITEMS = [
+  { value: "جدیدترین", label: "جدیدترین" },
+  { value: "نام", label: "نام" },
+  { value: "اندازه", label: "اندازه" },
+] as const
+
+const TYPE_ITEMS = [
+  { value: "همه", label: "همه" },
+  { value: "JPG", label: "JPG" },
+  { value: "PNG", label: "PNG" },
 ] as const
 
 const IMAGES: ImageItem[] = [
@@ -65,7 +73,7 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
     title: "هدفون بی‌سیم",
     file: "headphones.jpg",
-    album: "product",
+    album: "محصولات",
     tag: "صوتی",
   },
   {
@@ -73,7 +81,7 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
     title: "ساعت هوشمند",
     file: "watch.jpg",
-    album: "product",
+    album: "محصولات",
     tag: "پوشیدنی",
   },
   {
@@ -81,7 +89,7 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop&q=80",
     title: "کیف چرم",
     file: "bag.jpg",
-    album: "product",
+    album: "محصولات",
     tag: "اکسسوری",
   },
   {
@@ -89,7 +97,7 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
     title: "لامپ رومیزی",
     file: "lamp.jpg",
-    album: "lifestyle",
+    album: "سبک زندگی",
     tag: "خانه",
   },
   {
@@ -97,7 +105,7 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80",
     title: "عینک آفتابی",
     file: "glasses.jpg",
-    album: "product",
+    album: "محصولات",
     tag: "مد",
   },
   {
@@ -105,20 +113,30 @@ const IMAGES: ImageItem[] = [
     src: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=800&auto=format&fit=crop&q=80",
     title: "کفش اسپرت",
     file: "shoes.jpg",
-    album: "lifestyle",
+    album: "سبک زندگی",
     tag: "پوشاک",
   },
 ]
 
+function toFa(n: number) {
+  return n.toLocaleString("fa-IR")
+}
+
 export function ImageGalleryHub() {
-  const [album, setAlbum] = React.useState("all")
+  const [album, setAlbum] = React.useState("همه")
   const [query, setQuery] = React.useState("")
-  const [sort, setSort] = React.useState("newest")
+  const [sort, setSort] = React.useState("جدیدترین")
+  const [type, setType] = React.useState("همه")
   const [chips, setChips] = React.useState(["محصولات"])
   const [active, setActive] = React.useState<ImageItem | null>(null)
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [sortOpen, setSortOpen] = React.useState(false)
+  const [openId, setOpenId] = React.useState<string | null>(null)
 
   const rows = IMAGES.filter((img) => {
-    if (album !== "all" && img.album !== album) return false
+    if (album !== "همه" && img.album !== album) return false
+    if (type === "JPG" && !img.file.toLowerCase().endsWith(".jpg")) return false
+    if (type === "PNG" && !img.file.toLowerCase().endsWith(".png")) return false
     if (query && !img.title.includes(query) && !img.file.includes(query))
       return false
     return true
@@ -136,9 +154,8 @@ export function ImageGalleryHub() {
             رسانه
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight">گالری تصاویر</h2>
-          <p className="mt-2 text-muted-foreground">
-            <bdi dir="ltr">{rows.length}</bdi> تصویر · مسیر{" "}
-            <bdi dir="ltr">/gallery/{album}</bdi>
+          <p className="mt-2 tracking-normal text-muted-foreground">
+            {toFa(rows.length)} تصویر · مسیر {album}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -146,21 +163,51 @@ export function ImageGalleryHub() {
             <UploadIcon className="size-3.5" />
             بارگذاری
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+            <PopoverTrigger
+              render={<Button type="button" variant="outline" size="sm" />}
+            >
               <MoreHorizontalIcon className="size-4" />
               بیشتر
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start">
-              <DropdownMenuLabel>عملیات</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>آلبوم جدید</DropdownMenuItem>
-              <DropdownMenuItem>دانلود انتخاب‌ها</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setChips([])}>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-44 p-1"
+            >
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                آلبوم جدید
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setHeaderOpen(false)}
+              >
+                دانلود انتخاب‌ها
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => {
+                  setChips([])
+                  setHeaderOpen(false)
+                }}
+              >
                 پاک کردن فیلترها
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </Button>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -198,8 +245,8 @@ export function ImageGalleryHub() {
                 }
               >
                 <span>{a.label}</span>
-                <span className="text-xs text-muted-foreground">
-                  <bdi dir="ltr">{a.count}</bdi>
+                <span className="text-xs tracking-normal text-muted-foreground">
+                  {a.count}
                 </span>
               </button>
             ))}
@@ -210,41 +257,61 @@ export function ImageGalleryHub() {
           <Field>
             <FieldLabel>مرتب‌سازی</FieldLabel>
             <Select
+              items={[...SORT_ITEMS]}
               value={sort}
-              onValueChange={(v) => setSort((v as string) ?? "newest")}
+              onValueChange={(value) => {
+                if (SORT_ITEMS.some((item) => item.value === value)) {
+                  setSort(value as string)
+                }
+              }}
             >
               <SelectTrigger className="w-full" dir="rtl">
                 <SelectValue placeholder="مرتب‌سازی" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="newest">جدیدترین</SelectItem>
-                <SelectItem value="name">نام</SelectItem>
-                <SelectItem value="size">اندازه</SelectItem>
+                {SORT_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-full" />}
+          <Popover open={sortOpen} onOpenChange={setSortOpen}>
+            <PopoverTrigger
+              render={
+                <Button type="button" variant="outline" className="w-full" />
+              }
             >
               میانبر مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="start" className="w-40">
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => setSort(v ?? "newest")}
-              >
-                <DropdownMenuRadioItem value="newest">
-                  جدیدترین
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="name">نام</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="size">
-                  اندازه
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </PopoverTrigger>
+            <PopoverContent
+              dir="rtl"
+              lang="fa"
+              align="start"
+              className="w-40 p-1"
+            >
+              {SORT_ITEMS.map((opt) => (
+                <Button
+                  key={opt.value}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "w-full justify-start",
+                    sort === opt.value && "bg-muted"
+                  )}
+                  onClick={() => {
+                    setSort(opt.value)
+                    setSortOpen(false)
+                  }}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </PopoverContent>
+          </Popover>
 
           <Field>
             <FieldLabel htmlFor="ig5-email">اشتراک آلبوم</FieldLabel>
@@ -276,14 +343,24 @@ export function ImageGalleryHub() {
                 className="ps-8"
               />
             </div>
-            <Select defaultValue="all">
+            <Select
+              items={[...TYPE_ITEMS]}
+              value={type}
+              onValueChange={(value) => {
+                if (TYPE_ITEMS.some((item) => item.value === value)) {
+                  setType(value as string)
+                }
+              }}
+            >
               <SelectTrigger className="w-full sm:w-36" dir="rtl">
                 <SelectValue placeholder="نوع" />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه</SelectItem>
-                <SelectItem value="jpg">JPG</SelectItem>
-                <SelectItem value="png">PNG</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -319,22 +396,71 @@ export function ImageGalleryHub() {
                         <bdi dir="ltr">{img.file}</bdi>
                       </p>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={<Button variant="ghost" size="icon-sm" />}
+                    <Popover
+                      open={openId === img.id}
+                      onOpenChange={(open) =>
+                        setOpenId(open ? img.id : null)
+                      }
+                    >
+                      <PopoverTrigger
+                        render={
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                          />
+                        }
                       >
                         <MoreHorizontalIcon className="size-4" />
                         <span className="sr-only">عملیات</span>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent dir="rtl" lang="fa" align="start">
-                        <DropdownMenuItem onClick={() => setActive(img)}>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        lang="fa"
+                        align="start"
+                        className="w-40 p-1"
+                      >
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => {
+                            setActive(img)
+                            setOpenId(null)
+                          }}
+                        >
                           پیش‌نمایش
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>دانلود</DropdownMenuItem>
-                        <DropdownMenuItem>جابه‌جایی آلبوم</DropdownMenuItem>
-                        <DropdownMenuItem>حذف</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          دانلود
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          جابه‌جایی آلبوم
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="w-full justify-start"
+                          onClick={() => setOpenId(null)}
+                        >
+                          حذف
+                        </Button>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               ))}
