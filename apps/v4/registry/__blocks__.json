@@ -21,12 +21,27 @@
   },
   {
     "name": "account-settings-01",
-    "description": "تنظیمات حساب — نمونهٔ راست‌چین فارسی",
+    "description": "سوئیچ‌های ساده برای ترجیحات پایهٔ حساب.",
     "categories": ["account-settings"]
   },
   {
     "name": "account-settings-02",
-    "description": "تنظیمات حساب — نمونهٔ راست‌چین فارسی",
+    "description": "تب‌های حساب، امنیت و اعلان با ایمیل LTR.",
+    "categories": ["account-settings"]
+  },
+  {
+    "name": "account-settings-03",
+    "description": "ظاهر، زبان و شهر با Select راست‌چین.",
+    "categories": ["account-settings"]
+  },
+  {
+    "name": "account-settings-04",
+    "description": "نشست‌ها با منوی عملیات RTL و ایمیل بازیابی.",
+    "categories": ["account-settings"]
+  },
+  {
+    "name": "account-settings-05",
+    "description": "مرکز کامل با ناوبری، منوی RTL و منطقه خطر.",
     "categories": ["account-settings"]
   },
   {
@@ -1320,12 +1335,27 @@
   },
   {
     "name": "profile-01",
-    "description": "پروفایل — نمونهٔ راست‌چین فارسی",
+    "description": "نمای سادهٔ پروفایل با آواتار و بیو.",
     "categories": ["profile"]
   },
   {
     "name": "profile-02",
-    "description": "پروفایل — نمونهٔ راست‌چین فارسی",
+    "description": "کارت پروفایل با آمار، نشان و دکمه‌های تعامل.",
+    "categories": ["profile"]
+  },
+  {
+    "name": "profile-03",
+    "description": "فرم ویرایش با پلیس‌هولدر فارسی و ایمیل LTR.",
+    "categories": ["profile"]
+  },
+  {
+    "name": "profile-04",
+    "description": "کاور، منوی عملیات RTL و تب نمای کلی/فعالیت.",
+    "categories": ["profile"]
+  },
+  {
+    "name": "profile-05",
+    "description": "مرکز کامل با ناوبری، ویرایش، حریم خصوصی و منوهای RTL.",
     "categories": ["profile"]
   },
   {

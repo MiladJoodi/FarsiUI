@@ -63,6 +63,9 @@ const SKIP_SLUGS = new Set([
   "order-summary",
   "order-history",
   "wishlist",
+  "profile",
+  "account-settings",
+  "security-settings",
 ])
 
 const ITEMS = [
@@ -113,9 +116,6 @@ const ITEMS = [
   ["activity", "فعالیت‌ها", "Activity", "feed"],
   ["recent-items", "موارد اخیر", "Recent Items", "list"],
   // account
-  ["profile", "پروفایل", "Profile", "profile"],
-  ["account-settings", "تنظیمات حساب", "Account Settings", "settings"],
-  ["security-settings", "تنظیمات امنیتی", "Security Settings", "settings"],
   ["account-notifications", "اعلان‌ها", "Notifications", "list"],
   ["account-billing", "صورتحساب", "Billing", "billing"],
   ["sessions", "نشست‌ها", "Sessions", "list"],
