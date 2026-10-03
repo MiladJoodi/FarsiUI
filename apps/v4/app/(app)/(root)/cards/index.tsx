@@ -109,7 +109,17 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
   event.preventDefault()
 }
 
-export function CardsDemo() {
+export function CardsDemo({
+  /** Show the multi-column collage even below desktop breakpoints (for scaled mobile preview). */
+  forceColumns = false,
+}: {
+  forceColumns?: boolean
+} = {}) {
+  const col = (visibleFrom: string) =>
+    forceColumns
+      ? "flex h-full flex-col gap-(--gap)"
+      : `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
+
   return (
     <div
       data-slot="demo"
@@ -118,8 +128,14 @@ export function CardsDemo() {
       onClickCapture={preventDemoHashNavigation}
       className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
-      <CardsSkeletonRails />
-      <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">
+      {!forceColumns ? <CardsSkeletonRails /> : null}
+      <div
+        className={
+          forceColumns
+            ? "relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-3 items-stretch gap-(--gap) **:data-[slot=card]:w-full"
+            : "relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]"
+        }
+      >
         {/* Col 1 — always */}
         <div className="flex h-full flex-col gap-(--gap)">
           <UIElements />
@@ -133,7 +149,7 @@ export function CardsDemo() {
           </FadeTail>
         </div>
         {/* Col 2 — lg+ */}
-        <div className="hidden h-full flex-col gap-(--gap) lg:flex">
+        <div className={col("lg:flex")}>
           <ContributionHistory />
           <ClaimableBalance />
           <DividendIncome />
@@ -144,7 +160,7 @@ export function CardsDemo() {
           </FadeTail>
         </div>
         {/* Col 3 — 1400+ */}
-        <div className="hidden h-full flex-col gap-(--gap) min-[1400px]:flex">
+        <div className={col("min-[1400px]:flex")}>
           <NewMilestone />
           <SavingsTargets />
           <AccountAccess />
@@ -156,7 +172,7 @@ export function CardsDemo() {
           </FadeTail>
         </div>
         {/* Col 4 — md+ */}
-        <div className="hidden h-full flex-col gap-(--gap) md:flex">
+        <div className={col("md:flex")}>
           <div className="**:[.text-center.text-xs]:hidden">
             <MessageScrollerDemo />
           </div>
@@ -170,7 +186,7 @@ export function CardsDemo() {
           </FadeTail>
         </div>
         {/* Col 5 — 1900+ */}
-        <div className="hidden h-full flex-col gap-(--gap) min-[1900px]:flex">
+        <div className={col("min-[1900px]:flex")}>
           <EmptyDistributeTrack />
           <AnalyticsCard />
           <NotificationSettings />
