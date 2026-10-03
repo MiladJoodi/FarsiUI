@@ -105,7 +105,7 @@ export function DashboardSettingsTeam() {
                   defaultValue="farsiui-product"
                   placeholder="workspace-slug"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
               </Field>
             </FieldGroup>
@@ -148,7 +148,7 @@ export function DashboardSettingsTeam() {
                     <p className="text-xs text-muted-foreground">
                       <span
                         dir="ltr"
-                        className="inline-block text-left tracking-normal"
+                        className="inline-block text-start tracking-normal"
                       >
                         {member.email}
                       </span>
@@ -259,7 +259,7 @@ export function DashboardSettingsTeam() {
                 required
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left sm:flex-1"
+                className="text-start sm:flex-1"
               />
               <Button type="submit" className="sm:shrink-0">
                 ارسال دعوت

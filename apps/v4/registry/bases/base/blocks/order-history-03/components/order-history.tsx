@@ -155,7 +155,7 @@ export function OrderHistoryFilterable() {
                   <TableCell>
                     <span
                       dir="ltr"
-                      className="block text-left text-sm tracking-normal"
+                      className="block text-start text-sm tracking-normal"
                     >
                       {order.email}
                     </span>

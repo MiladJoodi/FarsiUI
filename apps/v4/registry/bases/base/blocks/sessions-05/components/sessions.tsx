@@ -282,7 +282,7 @@ export function SessionsHub() {
                     defaultValue="reza@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                   <FieldDescription>
                     لینک تأیید اعتماد به این آدرس می‌رود

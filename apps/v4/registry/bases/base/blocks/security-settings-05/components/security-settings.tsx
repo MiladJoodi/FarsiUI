@@ -285,7 +285,7 @@ export function SecuritySettingsHub() {
                     defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                     placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                     dir="ltr"
-                    className="text-left tracking-normal"
+                    className="text-start tracking-normal"
                   />
                 </Field>
                 <Field>
@@ -296,7 +296,7 @@ export function SecuritySettingsHub() {
                     defaultValue="reza@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                 </Field>
               </FieldGroup>
@@ -338,7 +338,7 @@ export function SecuritySettingsHub() {
                       key={code}
                       className="rounded-md border bg-background px-3 py-2 text-sm tracking-normal"
                     >
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         {code}
                       </span>
                     </li>
@@ -355,7 +355,7 @@ export function SecuritySettingsHub() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
                 <FieldDescription>
                   کدهای پشتیبان به این آدرس هم ارسال می‌شوند

@@ -105,7 +105,7 @@ export function ConversationThread() {
                   {r.text.includes("@") ? (
                     <>
                       عالی. رسید را به{" "}
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         sara@example.com
                       </span>{" "}
                       بفرستید.

@@ -89,7 +89,7 @@ export function DashboardSettingsAppearance() {
                 defaultValue="Asia/Tehran"
                 placeholder="Asia/Tehran"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
             </Field>
           </FieldGroup>

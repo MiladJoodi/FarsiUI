@@ -115,7 +115,7 @@ export function DashboardSettingsConsole() {
                     defaultValue="farsiui-product"
                     placeholder="workspace-slug"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                   <FieldDescription>
                     در آدرس‌ها و وب‌هوک‌ها استفاده می‌شود
@@ -156,7 +156,7 @@ export function DashboardSettingsConsole() {
                     defaultValue="ops@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                 </Field>
               </FieldGroup>
@@ -245,7 +245,7 @@ export function DashboardSettingsConsole() {
                     id="ds5-hook"
                     placeholder="https://api.example.com/hooks"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                 </Field>
                 <Field>
@@ -255,7 +255,7 @@ export function DashboardSettingsConsole() {
                     type="password"
                     defaultValue="whsec_demo"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                 </Field>
                 <Field>

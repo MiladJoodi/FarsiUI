@@ -166,7 +166,7 @@ export function SearchResultsSort() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
             <FieldDescription>اختیاری · چپ‌چین</FieldDescription>
           </Field>
@@ -192,7 +192,7 @@ export function SearchResultsSort() {
                       </Badge>
                     </div>
                     <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         {r.path}
                       </span>
                     </p>

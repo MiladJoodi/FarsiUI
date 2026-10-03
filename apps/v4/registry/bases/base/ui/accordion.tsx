@@ -3,7 +3,11 @@ import { cn } from "cn"
 
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-function Accordion({ className, dir, ...props }: AccordionPrimitive.Root.Props) {
+function Accordion({
+  className,
+  dir = "rtl",
+  ...props
+}: AccordionPrimitive.Root.Props) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"

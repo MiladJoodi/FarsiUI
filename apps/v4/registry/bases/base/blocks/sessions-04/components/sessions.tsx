@@ -180,7 +180,7 @@ export function SessionsList() {
                       </div>
                       <p className="text-xs tracking-normal text-muted-foreground">
                         {s.place} · {s.lastActive} ·{" "}
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           {s.ip}
                         </span>
                       </p>

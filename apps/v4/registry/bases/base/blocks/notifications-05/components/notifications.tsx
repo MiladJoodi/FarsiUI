@@ -230,7 +230,7 @@ export function NotificationsHub() {
                 defaultValue="sara@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>خلاصهٔ روزانه به این آدرس</FieldDescription>
             </Field>

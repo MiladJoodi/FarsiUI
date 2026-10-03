@@ -77,7 +77,7 @@ export function CheckoutSplit() {
                     type="tel"
                     placeholder="۰۹۱۲•••••••"
                     dir="ltr"
-                    className="text-left tracking-normal"
+                    className="text-start tracking-normal"
                   />
                 </Field>
                 <Field>

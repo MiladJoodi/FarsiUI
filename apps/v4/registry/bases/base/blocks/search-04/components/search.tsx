@@ -183,7 +183,7 @@ export function SearchCommand() {
                           {hit.title}
                         </p>
                         <p className="truncate text-xs tracking-normal text-muted-foreground">
-                          <span dir="ltr" className="inline-block text-left">
+                          <span dir="ltr" className="inline-block text-start">
                             {hit.path}
                           </span>
                         </p>

@@ -211,7 +211,7 @@ export function CommentsActions() {
                       <div>
                         <p className="text-sm font-medium">{c.name}</p>
                         <p className="text-xs tracking-normal text-muted-foreground">
-                          <span dir="ltr" className="inline-block text-left">
+                          <span dir="ltr" className="inline-block text-start">
                             {c.email}
                           </span>
                           {" · "}
@@ -310,7 +310,7 @@ export function CommentsActions() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="max-w-xs text-left"
+              className="max-w-xs text-start"
               aria-label="ایمیل (اختیاری)"
             />
             <Button type="button">ارسال</Button>

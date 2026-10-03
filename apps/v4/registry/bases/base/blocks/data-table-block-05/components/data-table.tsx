@@ -275,7 +275,7 @@ export function DataTableHub() {
                   <TableCell>
                     <span
                       dir="ltr"
-                      className="block text-left text-sm tracking-normal"
+                      className="block text-start text-sm tracking-normal"
                     >
                       {row.email}
                     </span>
@@ -375,7 +375,7 @@ export function DataTableHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left sm:flex-1"
+              className="text-start sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال دعوت

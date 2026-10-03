@@ -79,7 +79,7 @@ export function ProfileEdit() {
                   placeholder="sara.m"
                   defaultValue="sara.m"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
                 <FieldDescription>فقط حروف انگلیسی، عدد و نقطه</FieldDescription>
               </Field>
@@ -91,7 +91,7 @@ export function ProfileEdit() {
                   placeholder="name@example.com"
                   defaultValue="sara@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
               </Field>
               <Field>

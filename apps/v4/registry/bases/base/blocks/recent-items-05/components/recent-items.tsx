@@ -247,14 +247,14 @@ export function RecentItemsHub() {
                   <p className="text-xs text-muted-foreground">
                     <span
                       dir="ltr"
-                      className="inline-block text-left font-mono tracking-normal"
+                      className="inline-block text-start font-mono tracking-normal"
                     >
                       {item.path}
                     </span>
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {item.owner} ·{" "}
-                    <span dir="ltr" className="inline-block text-left tracking-normal">
+                    <span dir="ltr" className="inline-block text-start tracking-normal">
                       {item.email}
                     </span>
                   </p>
@@ -351,7 +351,7 @@ export function RecentItemsHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left sm:flex-1"
+              className="text-start sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ارسال لینک

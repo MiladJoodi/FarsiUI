@@ -60,13 +60,23 @@ function ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {
   )
 }
 
-function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
+function ProgressValue({
+  className,
+  children,
+  ...props
+}: ProgressPrimitive.Value.Props) {
   return (
     <ProgressPrimitive.Value
       className={cn("cn-progress-value", className)}
       data-slot="progress-value"
       {...props}
-    />
+    >
+      {children ??
+        ((formattedValue, value) =>
+          typeof value === "number"
+            ? `${value.toLocaleString("fa-IR")}%`
+            : formattedValue)}
+    </ProgressPrimitive.Value>
   )
 }
 

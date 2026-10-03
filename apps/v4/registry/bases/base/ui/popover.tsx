@@ -18,6 +18,7 @@ function PopoverContent({
   alignOffset = 0,
   side = "bottom",
   sideOffset = 4,
+  dir = "rtl",
   ...props
 }: PopoverPrimitive.Popup.Props &
   Pick<
@@ -35,8 +36,9 @@ function PopoverContent({
       >
         <PopoverPrimitive.Popup
           data-slot="popover-content"
+          dir={dir}
           className={cn(
-            "cn-popover-content cn-popover-content-logical z-50 w-72 origin-(--transform-origin) outline-hidden",
+            "cn-popover-content cn-popover-content-logical z-50 w-72 origin-(--transform-origin) text-start outline-hidden",
             className
           )}
           {...props}

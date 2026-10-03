@@ -110,7 +110,7 @@ export function ChatActions() {
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold">علی رضایی</p>
             <p className="text-xs tracking-normal text-muted-foreground">
-              <span dir="ltr" className="inline-block text-left">
+              <span dir="ltr" className="inline-block text-start">
                 ali@example.com
               </span>
             </p>
@@ -250,7 +250,7 @@ export function ChatActions() {
                     {m.text.includes("@") ? (
                       <>
                         اگر سوالی بود به{" "}
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           design@example.com
                         </span>{" "}
                         بفرستید.

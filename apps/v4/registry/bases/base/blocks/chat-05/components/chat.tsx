@@ -205,7 +205,7 @@ export function ChatHub() {
             <div className="min-w-0 flex-1">
               <p className="truncate font-semibold">{contact.name}</p>
               <p className="truncate text-xs tracking-normal text-muted-foreground">
-                <span dir="ltr" className="inline-block text-left">
+                <span dir="ltr" className="inline-block text-start">
                   {contact.email}
                 </span>
                 {contact.online ? " · آنلاین" : " · آفلاین"}
@@ -272,7 +272,7 @@ export function ChatHub() {
             </Bubble>
             <Bubble me={false} time="۱۰:۲۷">
               ممنون. اگر لازم شد به{" "}
-              <span dir="ltr" className="inline-block text-left">
+              <span dir="ltr" className="inline-block text-start">
                 {contact.email}
               </span>{" "}
               هم بفرستید.

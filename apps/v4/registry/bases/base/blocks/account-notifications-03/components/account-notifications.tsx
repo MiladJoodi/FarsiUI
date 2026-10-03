@@ -102,7 +102,7 @@ export function AccountNotificationsSchedule() {
                 defaultValue="sara@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>
                 خلاصه‌ها به این آدرس ارسال می‌شوند

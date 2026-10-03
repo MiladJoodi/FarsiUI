@@ -145,7 +145,7 @@ export function CheckoutAddressBook() {
                     id="c4-card"
                     placeholder="۶۰۳۷-••••-••••-••••"
                     dir="ltr"
-                    className="text-left font-mono tracking-normal"
+                    className="text-start font-mono tracking-normal"
                   />
                 </Field>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -164,7 +164,7 @@ export function CheckoutAddressBook() {
                       id="c4-cvv"
                       placeholder="•••"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                     />
                   </Field>
                 </div>

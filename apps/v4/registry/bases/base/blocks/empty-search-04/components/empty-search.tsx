@@ -191,7 +191,7 @@ export function EmptySearchRecent() {
         <Separator />
         <p className="px-4 py-3 text-center text-xs tracking-normal text-muted-foreground">
           مسیر:{" "}
-          <span dir="ltr" className="inline-block text-left">
+          <span dir="ltr" className="inline-block text-start">
             /search?q=…
           </span>
         </p>

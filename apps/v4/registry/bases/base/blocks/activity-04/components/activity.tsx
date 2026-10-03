@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import { MoreHorizontalIcon } from "lucide-react"
@@ -131,7 +131,7 @@ export function ActivityGrouped() {
                         <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
                           <span
                             dir="ltr"
-                            className="block text-left tracking-normal"
+                            className="block text-start tracking-normal"
                           >
                             {item.email}
                           </span>

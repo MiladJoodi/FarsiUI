@@ -94,7 +94,7 @@ export function SessionsPreferences() {
                 defaultValue="reza@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>برای ورود از مکان ناآشنا</FieldDescription>
             </Field>

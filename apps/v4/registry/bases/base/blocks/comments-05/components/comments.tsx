@@ -218,7 +218,7 @@ export function CommentsHub() {
                 defaultValue="mod@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>اعلان دیدگاه جدید</FieldDescription>
             </Field>
@@ -301,7 +301,7 @@ export function CommentsHub() {
                           </span>
                         </div>
                         <p className="text-xs tracking-normal text-muted-foreground">
-                          <span dir="ltr" className="inline-block text-left">
+                          <span dir="ltr" className="inline-block text-start">
                             {c.email}
                           </span>
                         </p>

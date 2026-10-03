@@ -80,7 +80,7 @@ export function SecuritySettingsMethods() {
                 defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                 placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                 dir="ltr"
-                className="text-left tracking-normal"
+                className="text-start tracking-normal"
               />
             </Field>
             <Field>
@@ -91,7 +91,7 @@ export function SecuritySettingsMethods() {
                 defaultValue="reza@example.com"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>
                 برای بازیابی حساب در صورت از دست رفتن موبایل

@@ -94,7 +94,7 @@ export function SearchSuggestions() {
                     <span className="flex items-center gap-2">
                       <SearchIcon className="size-3.5 text-muted-foreground" />
                       {"ltr" in item && item.ltr ? (
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           {item.label}
                         </span>
                       ) : (

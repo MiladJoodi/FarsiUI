@@ -87,7 +87,7 @@ export function AccountBillingTabs() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                     />
                     <FieldDescription>
                       فاکتورها به این آدرس ارسال می‌شوند

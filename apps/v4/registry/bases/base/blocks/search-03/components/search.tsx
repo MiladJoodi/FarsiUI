@@ -116,7 +116,7 @@ export function SearchFilters() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
           </Field>
 

@@ -346,7 +346,7 @@ export function ProductDetailsHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left sm:flex-1"
+              className="text-start sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               ثبت اطلاع

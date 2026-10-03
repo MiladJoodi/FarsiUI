@@ -429,7 +429,7 @@ export function ShoppingCartHub() {
                   required
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
                 <Button type="submit" variant="outline" className="w-full">
                   ذخیره ایمیل رسید

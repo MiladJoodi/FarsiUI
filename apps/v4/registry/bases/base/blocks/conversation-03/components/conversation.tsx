@@ -112,7 +112,7 @@ export function ConversationStatus() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
             <FieldDescription>
               همکار را با ایمیل به این مکالمه اضافه کنید

@@ -105,6 +105,7 @@ function ComboboxContent({
   align = "start",
   alignOffset = 0,
   anchor,
+  dir = "rtl",
   ...props
 }: ComboboxPrimitive.Popup.Props &
   Pick<
@@ -124,6 +125,7 @@ function ComboboxContent({
         <ComboboxPrimitive.Popup
           data-slot="combobox-content"
           data-chips={!!anchor}
+          dir={dir}
           className={cn(
             "cn-combobox-content cn-combobox-content-logical cn-menu-target cn-menu-translucent group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] origin-(--transform-origin) data-[chips=true]:min-w-(--anchor-width)",
             className

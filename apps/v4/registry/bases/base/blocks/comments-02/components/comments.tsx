@@ -90,7 +90,7 @@ export function CommentsThread() {
                       </span>
                     </div>
                     <p className="text-xs tracking-normal text-muted-foreground">
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         {c.email}
                       </span>
                     </p>

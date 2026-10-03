@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import {
@@ -121,7 +121,7 @@ export function ProfileHub() {
             <div className="pb-1">
               <h3 className="text-xl font-semibold">سارا محمدی</h3>
               <p className="text-sm tracking-normal text-muted-foreground">
-                <span dir="ltr" className="inline-block text-left">
+                <span dir="ltr" className="inline-block text-start">
                   sara@example.com
                 </span>
               </p>
@@ -253,7 +253,7 @@ export function ProfileHub() {
                     <div>
                       <dt className="text-muted-foreground">نام کاربری</dt>
                       <dd className="tracking-normal">
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           @sara.m
                         </span>
                       </dd>
@@ -261,7 +261,7 @@ export function ProfileHub() {
                     <div>
                       <dt className="text-muted-foreground">وب‌سایت</dt>
                       <dd className="tracking-normal">
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           farsiui.ir
                         </span>
                       </dd>
@@ -306,7 +306,7 @@ export function ProfileHub() {
                         placeholder="sara.m"
                         defaultValue="sara.m"
                         dir="ltr"
-                        className="text-left"
+                        className="text-start"
                       />
                     </Field>
                     <Field>
@@ -317,7 +317,7 @@ export function ProfileHub() {
                         placeholder="name@example.com"
                         defaultValue="sara@example.com"
                         dir="ltr"
-                        className="text-left"
+                        className="text-start"
                       />
                       <FieldDescription>
                         برای ورود و اعلان‌های مهم استفاده می‌شود
@@ -332,7 +332,7 @@ export function ProfileHub() {
                         placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                         defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                         dir="ltr"
-                        className="text-left tracking-normal"
+                        className="text-start tracking-normal"
                       />
                     </Field>
                     <Field>
@@ -358,7 +358,7 @@ export function ProfileHub() {
                         placeholder="https://example.com"
                         defaultValue="https://farsiui.ir"
                         dir="ltr"
-                        className="text-left"
+                        className="text-start"
                       />
                     </Field>
                     <Field>

@@ -48,7 +48,7 @@ export function CheckoutSimple() {
                   type="email"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
               </Field>
               <Field>

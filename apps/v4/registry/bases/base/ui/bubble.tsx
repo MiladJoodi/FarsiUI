@@ -64,7 +64,7 @@ function BubbleContent({
     props: mergeProps<"div">(
       {
         className: cn(
-          "cn-bubble-content w-fit max-w-full min-w-0 overflow-hidden wrap-break-word [button]:text-left [button,a]:transition-colors",
+          "cn-bubble-content w-fit max-w-full min-w-0 overflow-hidden wrap-break-word [button]:text-start [button,a]:transition-colors",
           className
         ),
       },

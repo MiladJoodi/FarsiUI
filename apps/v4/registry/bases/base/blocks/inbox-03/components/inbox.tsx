@@ -170,7 +170,7 @@ export function InboxFilter() {
                         </span>
                       </div>
                       <p className="truncate text-xs tracking-normal text-muted-foreground">
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           {m.email}
                         </span>
                       </p>

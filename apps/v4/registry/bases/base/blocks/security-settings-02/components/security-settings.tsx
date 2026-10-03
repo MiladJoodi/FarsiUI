@@ -110,7 +110,7 @@ export function SecuritySettingsTabs() {
                   defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                   placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                   dir="ltr"
-                  className="text-left tracking-normal"
+                  className="text-start tracking-normal"
                 />
               </Field>
               <Field>
@@ -121,7 +121,7 @@ export function SecuritySettingsTabs() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
               </Field>
               <Button type="button" className="w-full">

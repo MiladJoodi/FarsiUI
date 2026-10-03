@@ -18,7 +18,7 @@
 
   /* MARK: Alert */
   .cn-alert {
-    @apply grid gap-0.5 rounded-none border px-2.5 py-2 text-left text-xs has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
+    @apply grid gap-0.5 rounded-none border px-2.5 py-2 text-start text-xs has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
   }
 
   .cn-alert-variant-default {
@@ -51,7 +51,7 @@
   }
 
   .cn-alert-dialog-header {
-    @apply grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
+    @apply grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-start sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
   }
 
   .cn-alert-dialog-media {
@@ -452,7 +452,7 @@
   }
 
   .cn-dialog-header {
-    @apply gap-1 text-left;
+    @apply gap-1 text-start;
   }
 
   .cn-dialog-title {
@@ -485,11 +485,11 @@
   }
 
   .cn-drawer-header {
-    @apply gap-0.5 p-4 md:gap-0.5 md:text-left;
+    @apply gap-0.5 p-4 md:gap-0.5 md:text-start;
   }
 
   .cn-drawer-header-base {
-    @apply gap-0.5 p-4 pb-0 md:gap-0.5 md:text-left;
+    @apply gap-0.5 p-4 pb-0 md:gap-0.5 md:text-start;
   }
 
   .cn-drawer-title {
@@ -624,7 +624,7 @@
   }
 
   .cn-field-description {
-    @apply text-muted-foreground text-left text-xs/relaxed [[data-variant=legend]+&]:-mt-1.5;
+    @apply text-muted-foreground text-start text-xs/relaxed [[data-variant=legend]+&]:-mt-1.5;
   }
 
   .cn-field-separator {
@@ -728,7 +728,7 @@
   }
 
   .cn-item-description {
-    @apply text-muted-foreground text-left text-xs/relaxed group-data-[size=xs]/item:text-xs/relaxed;
+    @apply text-muted-foreground text-start text-xs/relaxed group-data-[size=xs]/item:text-xs/relaxed;
   }
 
   .cn-item-actions {
@@ -980,7 +980,7 @@
   }
 
   .cn-select-value {
-    @apply flex flex-1 text-left;
+    @apply flex flex-1 text-start;
   }
 
   .cn-select-value-aria {
@@ -1268,7 +1268,7 @@
   }
 
   .cn-table-head {
-    @apply text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+    @apply text-foreground h-10 px-2 text-start align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0;
   }
 
   .cn-table-head-aria {
@@ -1550,7 +1550,7 @@
 
   /* MARK: Marker */
   .cn-marker {
-    @apply gap-2 text-xs text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-3.5 min-h-4 text-left;
+    @apply gap-2 text-xs text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-3.5 min-h-4 text-start;
   }
 
   .cn-marker-variant-separator {

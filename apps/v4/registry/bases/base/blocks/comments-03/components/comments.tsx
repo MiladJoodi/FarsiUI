@@ -182,7 +182,7 @@ export function CommentsFilter() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
             <FieldDescription>
               وقتی به دیدگاه‌تان پاسخ داده شد خبر می‌دهیم

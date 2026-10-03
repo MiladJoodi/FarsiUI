@@ -118,7 +118,7 @@ export function AccountSettingsSessions() {
                   defaultValue="reza@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
                 <FieldDescription>
                   کدهای امنیتی به این آدرس ارسال می‌شوند

@@ -251,7 +251,7 @@ export function SearchResultsHub() {
                 type="email"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>فیلتر اختیاری</FieldDescription>
             </Field>
@@ -284,7 +284,7 @@ export function SearchResultsHub() {
                         </Badge>
                       </div>
                       <p className="mt-0.5 text-xs tracking-normal text-muted-foreground">
-                        <span dir="ltr" className="inline-block text-left">
+                        <span dir="ltr" className="inline-block text-start">
                           {r.path}
                         </span>
                       </p>

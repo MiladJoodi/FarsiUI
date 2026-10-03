@@ -290,7 +290,7 @@ export function EmptySearchHub() {
                     type="email"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                   <FieldDescription>
                     وقتی محصولی اضافه شد خبرتان می‌کنیم

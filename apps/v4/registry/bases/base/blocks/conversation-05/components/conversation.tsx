@@ -214,7 +214,7 @@ export function ConversationHub() {
               <p className="truncate font-semibold">پیگیری سفارش</p>
               <p className="truncate text-xs tracking-normal text-muted-foreground">
                 سارا محمدی ·{" "}
-                <span dir="ltr" className="inline-block text-left">
+                <span dir="ltr" className="inline-block text-start">
                   sara@example.com
                 </span>
               </p>
@@ -272,7 +272,7 @@ export function ConversationHub() {
             </Bubble>
             <Bubble who="سارا محمدی" time="۰۹:۱۶">
               رسید را به{" "}
-              <span dir="ltr" className="inline-block text-left">
+              <span dir="ltr" className="inline-block text-start">
                 sara@example.com
               </span>{" "}
               بفرستید.
@@ -339,7 +339,7 @@ export function ConversationHub() {
                 type="email"
                 placeholder="name@example.com"
                 dir="ltr"
-                className="text-left"
+                className="text-start"
               />
               <FieldDescription>دسترسی فقط به این مکالمه</FieldDescription>
             </Field>

@@ -147,7 +147,7 @@ export function NotificationsFilter() {
               defaultValue="security@example.com"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
             <FieldDescription>
               ورودهای مشکوک به این آدرس اطلاع داده می‌شود
@@ -188,7 +188,7 @@ export function NotificationsFilter() {
                               مرورگر کروم · تهران — هشدار به{" "}
                               <span
                                 dir="ltr"
-                                className="inline-block text-left"
+                                className="inline-block text-start"
                               >
                                 security@example.com
                               </span>

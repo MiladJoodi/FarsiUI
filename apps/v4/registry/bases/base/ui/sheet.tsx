@@ -42,6 +42,7 @@ function SheetContent({
   side = "right",
   showCloseButton = true,
   container,
+  dir = "rtl",
   ...props
 }: SheetPrimitive.Popup.Props & {
   side?: "top" | "right" | "bottom" | "left"
@@ -56,6 +57,7 @@ function SheetContent({
       <SheetPrimitive.Popup
         data-slot="sheet-content"
         data-side={side}
+        dir={dir}
         className={cn(
           "cn-sheet-content data-ending-style:opacity-0 data-starting-style:opacity-0 data-[side=bottom]:data-ending-style:translate-y-[2.5rem] data-[side=bottom]:data-starting-style:translate-y-[2.5rem] data-[side=left]:data-ending-style:translate-x-[-2.5rem] data-[side=left]:data-starting-style:translate-x-[-2.5rem] data-[side=right]:data-ending-style:translate-x-[2.5rem] data-[side=right]:data-starting-style:translate-x-[2.5rem] data-[side=top]:data-ending-style:translate-y-[-2.5rem] data-[side=top]:data-starting-style:translate-y-[-2.5rem]",
           contained && "!absolute",
@@ -82,7 +84,7 @@ function SheetContent({
               phosphor="XIcon"
               remixicon="RiCloseLine"
             />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">بستن</span>
           </SheetPrimitive.Close>
         )}
       </SheetPrimitive.Popup>

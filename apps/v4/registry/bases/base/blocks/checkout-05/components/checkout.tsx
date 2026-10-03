@@ -118,7 +118,7 @@ export function CheckoutHub() {
                       type="email"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                       defaultValue="sara@example.com"
                     />
                   </Field>
@@ -129,7 +129,7 @@ export function CheckoutHub() {
                       type="tel"
                       placeholder="۰۹۱۲•••••••"
                       dir="ltr"
-                      className="text-left tracking-normal"
+                      className="text-start tracking-normal"
                       defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                     />
                   </Field>
@@ -205,7 +205,7 @@ export function CheckoutHub() {
                     id="c5-postal"
                     placeholder="۱۲۳۴۵۶۷۸۹۰"
                     dir="ltr"
-                    className="text-left tracking-normal"
+                    className="text-start tracking-normal"
                   />
                 </Field>
               </FieldGroup>

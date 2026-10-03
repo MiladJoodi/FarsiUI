@@ -510,11 +510,11 @@
   }
 
   .cn-drawer-header {
-    @apply gap-0.5 p-4 md:gap-0.5 md:text-left;
+    @apply gap-0.5 p-4 md:gap-0.5 md:text-start;
   }
 
   .cn-drawer-header-base {
-    @apply gap-0.5 p-4 pb-0 md:gap-0.5 md:text-left;
+    @apply gap-0.5 p-4 pb-0 md:gap-0.5 md:text-start;
   }
 
   .cn-drawer-title {
@@ -1293,7 +1293,7 @@
   }
 
   .cn-table-head {
-    @apply text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+    @apply text-foreground h-10 px-2 text-start align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0;
   }
 
   .cn-table-head-aria {
@@ -1575,7 +1575,7 @@
 
   /* MARK: Marker */
   .cn-marker {
-    @apply gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-4 min-h-4 text-left;
+    @apply gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-4 min-h-4 text-start;
   }
 
   .cn-marker-variant-separator {

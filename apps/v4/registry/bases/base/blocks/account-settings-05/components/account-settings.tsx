@@ -182,7 +182,7 @@ export function AccountSettingsHub() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                     />
                   </Field>
                   <Field>
@@ -192,7 +192,7 @@ export function AccountSettingsHub() {
                       defaultValue="reza.k"
                       placeholder="username"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                     />
                   </Field>
                   <div className="grid gap-4 sm:grid-cols-2">

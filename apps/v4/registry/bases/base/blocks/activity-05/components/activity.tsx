@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import { MoreHorizontalIcon, SearchIcon } from "lucide-react"
@@ -288,7 +288,7 @@ export function ActivityHub() {
                     {item.title}
                   </p>
                   <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    <span dir="ltr" className="block text-left tracking-normal">
+                    <span dir="ltr" className="block text-start tracking-normal">
                       {item.email}
                     </span>
                     <span>{item.time}</span>
@@ -383,7 +383,7 @@ export function ActivityHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left sm:flex-1"
+              className="text-start sm:flex-1"
             />
             <Button type="submit" className="sm:shrink-0">
               فعال‌سازی

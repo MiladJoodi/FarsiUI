@@ -31,6 +31,7 @@ function TooltipContent({
   align = "center",
   alignOffset = 0,
   children,
+  dir = "rtl",
   ...props
 }: TooltipPrimitive.Popup.Props &
   Pick<
@@ -48,6 +49,7 @@ function TooltipContent({
       >
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
+          dir={dir}
           className={cn(
             "cn-tooltip-content cn-tooltip-content-logical z-50 w-fit max-w-xs origin-(--transform-origin) bg-foreground text-background",
             className

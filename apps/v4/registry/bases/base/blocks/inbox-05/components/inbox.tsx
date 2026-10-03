@@ -258,7 +258,7 @@ export function InboxHub() {
               type="email"
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left"
+              className="text-start"
             />
           </Field>
         </aside>
@@ -367,7 +367,7 @@ export function InboxHub() {
                       ) : null}
                     </div>
                     <p className="truncate text-xs tracking-normal text-muted-foreground">
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         {m.email}
                       </span>
                     </p>

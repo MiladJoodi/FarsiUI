@@ -73,7 +73,7 @@ export function ActivityTimeline() {
               </div>
               <p className="mt-1 text-sm text-muted-foreground">{item.action}</p>
               <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                <span dir="ltr" className="block text-left tracking-normal">
+                <span dir="ltr" className="block text-start tracking-normal">
                   {item.email}
                 </span>
                 <span>{item.time}</span>

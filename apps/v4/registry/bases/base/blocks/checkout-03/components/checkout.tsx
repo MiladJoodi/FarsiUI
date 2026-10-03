@@ -99,7 +99,7 @@ export function CheckoutSteps() {
                   type="email"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
               </Field>
               <Field>
@@ -109,7 +109,7 @@ export function CheckoutSteps() {
                   type="tel"
                   placeholder="۰۹۱۲•••••••"
                   dir="ltr"
-                  className="text-left tracking-normal"
+                  className="text-start tracking-normal"
                 />
               </Field>
             </FieldGroup>
@@ -146,7 +146,7 @@ export function CheckoutSteps() {
                   id="c3-postal"
                   placeholder="۱۲۳۴۵۶۷۸۹۰"
                   dir="ltr"
-                  className="text-left tracking-normal"
+                  className="text-start tracking-normal"
                 />
               </Field>
               <div className="space-y-2">

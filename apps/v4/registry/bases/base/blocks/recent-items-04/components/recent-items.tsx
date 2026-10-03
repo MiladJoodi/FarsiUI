@@ -102,7 +102,7 @@ export function RecentItemsPinned() {
                 <p className="text-xs text-muted-foreground">
                   <span
                     dir="ltr"
-                    className="inline-block text-left font-mono tracking-normal"
+                    className="inline-block text-start font-mono tracking-normal"
                   >
                     {item.path}
                   </span>

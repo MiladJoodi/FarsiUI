@@ -403,7 +403,7 @@ export function UserManagementHub() {
                     <TableCell>
                       <span
                         dir="ltr"
-                        className="block text-left text-sm tracking-normal"
+                        className="block text-start text-sm tracking-normal"
                       >
                         {user.email}
                       </span>
@@ -568,7 +568,7 @@ export function UserManagementHub() {
               required
               placeholder="name@example.com"
               dir="ltr"
-              className="text-left sm:flex-1"
+              className="text-start sm:flex-1"
             />
             <Select items={[...ROLE_ITEMS]} defaultValue="مشاهده‌گر">
               <SelectTrigger className="w-full sm:w-36" dir="rtl">

@@ -83,14 +83,14 @@ export function RecentItemsCards() {
                   <CardDescription>
                     <span
                       dir="ltr"
-                      className="block text-left font-mono text-xs tracking-normal"
+                      className="block text-start font-mono text-xs tracking-normal"
                     >
                       {item.path}
                     </span>
                   </CardDescription>
                   <p className="text-xs text-muted-foreground">
                     {item.owner} ·{" "}
-                    <span dir="ltr" className="inline-block text-left tracking-normal">
+                    <span dir="ltr" className="inline-block text-start tracking-normal">
                       {item.email}
                     </span>
                   </p>

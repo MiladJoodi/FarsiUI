@@ -157,7 +157,7 @@ export function DataTableFilterable() {
                   <TableCell>
                     <span
                       dir="ltr"
-                      className="block text-left text-sm tracking-normal"
+                      className="block text-start text-sm tracking-normal"
                     >
                       {row.email}
                     </span>

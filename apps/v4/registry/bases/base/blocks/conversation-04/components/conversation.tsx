@@ -120,7 +120,7 @@ export function ConversationActions() {
               مکالمه · اصلاح فاکتور
             </p>
             <p className="text-xs tracking-normal text-muted-foreground">
-              <span dir="ltr" className="inline-block text-left">
+              <span dir="ltr" className="inline-block text-start">
                 sara@example.com
               </span>
             </p>
@@ -232,7 +232,7 @@ export function ConversationActions() {
                   {r.invoice ? (
                     <>
                       شماره: فاکتور-۱۴۰۵-۰۷-۱۲ — ایمیل صورتحساب{" "}
-                      <span dir="ltr" className="inline-block text-left">
+                      <span dir="ltr" className="inline-block text-start">
                         sara@example.com
                       </span>
                     </>

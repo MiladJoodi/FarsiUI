@@ -225,7 +225,7 @@ export function AccountNotificationsHub() {
                   defaultValue="sara@example.com"
                   placeholder="name@example.com"
                   dir="ltr"
-                  className="text-left"
+                  className="text-start"
                 />
                 <FieldDescription>
                   اعلان‌های ایمیلی به این آدرس می‌روند
@@ -399,7 +399,7 @@ export function AccountNotificationsHub() {
                     defaultValue="sara@example.com"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                 </Field>
                 <Field>

@@ -67,7 +67,7 @@ export function AccountSettingsTabs() {
                       defaultValue="reza@example.com"
                       placeholder="name@example.com"
                       dir="ltr"
-                      className="text-left"
+                      className="text-start"
                     />
                     <FieldDescription>
                       برای ورود و بازیابی رمز استفاده می‌شود
@@ -82,7 +82,7 @@ export function AccountSettingsTabs() {
                       defaultValue="۰۹۱۲۱۲۳۴۵۶۷"
                       placeholder="۰۹۱۲۱۲۳۴۵۶۷"
                       dir="ltr"
-                      className="text-left tracking-normal"
+                      className="text-start tracking-normal"
                     />
                   </Field>
                   <Button type="submit">ذخیره حساب</Button>

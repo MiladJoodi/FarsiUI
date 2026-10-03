@@ -271,7 +271,7 @@ export function AdvancedFiltersHub() {
                     type="email"
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="text-left"
+                    className="text-start"
                   />
                   <FieldDescription>اختیاری</FieldDescription>
                 </Field>
