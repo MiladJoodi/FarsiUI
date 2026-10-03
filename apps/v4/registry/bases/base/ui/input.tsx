@@ -10,8 +10,9 @@ import { usePersianDigitsInput } from "@/registry/bases/base/hooks/use-persian-d
 type InputProps = React.ComponentProps<"input"> & {
   /**
    * Display Persian digits while keeping the logical/submitted value in ASCII.
-   * - `"auto"` (default): enabled for numeric inputs (`type="number"|"tel"` or
-   *   `inputMode="numeric"|"decimal"`) in a Persian/RTL locale context
+   * - `"auto"` (default): enabled in Persian contexts for text/numeric/tel.
+   *   Skipped for email/password/url/file and when `data-persian-digits="false"`
+   *   or `lang="en"`. `dir="ltr"` does NOT disable Persian digits.
    * - `true` / `false`: force on or off
    */
   persianDigits?: PersianDigitsMode
@@ -34,8 +35,14 @@ function Input({
   ref,
   ...props
 }: InputProps & { ref?: React.Ref<HTMLElement> }) {
+  const dataPersianDigits =
+    typeof props["data-persian-digits"] === "string"
+      ? props["data-persian-digits"]
+      : null
+
   const {
     enabled,
+    isNumeric,
     setInputRef,
     inputProps,
     hiddenInput,
@@ -51,6 +58,7 @@ function Input({
     value,
     defaultValue,
     onChange,
+    "data-persian-digits": dataPersianDigits,
   })
 
   const composedRef = React.useCallback(
@@ -79,9 +87,10 @@ function Input({
         placeholder={formatPlaceholder(placeholder)}
         ref={composedRef}
         onValueChange={(next, eventDetails) => {
-          const latin = enabled
-            ? toLatinValue(String(next ?? ""))
-            : String(next ?? "")
+          const latin =
+            enabled || isNumeric
+              ? toLatinValue(String(next ?? ""))
+              : String(next ?? "")
           onValueChange?.(latin, eventDetails)
         }}
       />

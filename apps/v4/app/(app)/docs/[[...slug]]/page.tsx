@@ -12,6 +12,7 @@ import { absoluteUrl } from "@/lib/utils"
 import { splitDocTitle } from "@/lib/docs"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
@@ -118,6 +119,7 @@ export default async function Page(props: {
     : findDocsNeighbour(source.pageTree, page.url)
 
   return (
+    <PersianDigits>
     <div
       data-slot="docs"
       data-docs-kind={isComponentDoc ? "component" : "docs"}
@@ -273,5 +275,6 @@ export default async function Page(props: {
         </div>
       ) : null}
     </div>
+    </PersianDigits>
   )
 }

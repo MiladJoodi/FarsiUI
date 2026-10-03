@@ -7108,7 +7108,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-nova/ui/calendar.tsx",
@@ -7176,7 +7176,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-nova/ui/chart.tsx",
@@ -7624,6 +7624,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-nova/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -7652,7 +7668,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-nova/ui/progress.tsx",
@@ -8001,7 +8017,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-nova/ui/textarea.tsx",
@@ -8228,7 +8244,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-nova/ui/questionnaire.tsx",
@@ -8486,7 +8502,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-nova/ui/calendar.tsx",
@@ -8554,7 +8570,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-nova/ui/chart.tsx",
@@ -9002,6 +9018,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-nova/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -9379,7 +9411,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-nova/ui/textarea.tsx",
@@ -9583,7 +9615,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-nova/ui/questionnaire.tsx",
@@ -9909,7 +9941,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-nova/ui/chart.tsx",
@@ -10314,6 +10346,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-nova/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -10691,7 +10739,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-nova/ui/textarea.tsx",
@@ -10914,7 +10962,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-nova/ui/questionnaire.tsx",
@@ -11183,7 +11231,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-vega/ui/calendar.tsx",
@@ -11251,7 +11299,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-vega/ui/chart.tsx",
@@ -11699,6 +11747,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-vega/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -11727,7 +11791,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-vega/ui/progress.tsx",
@@ -12076,7 +12140,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-vega/ui/textarea.tsx",
@@ -12303,7 +12367,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-vega/ui/questionnaire.tsx",
@@ -12560,7 +12624,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-maia/ui/calendar.tsx",
@@ -12628,7 +12692,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-maia/ui/chart.tsx",
@@ -13076,6 +13140,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-maia/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -13104,7 +13184,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-maia/ui/progress.tsx",
@@ -13453,7 +13533,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-maia/ui/textarea.tsx",
@@ -13680,7 +13760,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-maia/ui/questionnaire.tsx",
@@ -13937,7 +14017,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-lyra/ui/calendar.tsx",
@@ -14005,7 +14085,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-lyra/ui/chart.tsx",
@@ -14453,6 +14533,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-lyra/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -14481,7 +14577,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-lyra/ui/progress.tsx",
@@ -14830,7 +14926,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-lyra/ui/textarea.tsx",
@@ -15057,7 +15153,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-lyra/ui/questionnaire.tsx",
@@ -15314,7 +15410,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-mira/ui/calendar.tsx",
@@ -15382,7 +15478,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-mira/ui/chart.tsx",
@@ -15830,6 +15926,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-mira/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -15858,7 +15970,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-mira/ui/progress.tsx",
@@ -16207,7 +16319,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-mira/ui/textarea.tsx",
@@ -16434,7 +16546,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-mira/ui/questionnaire.tsx",
@@ -16691,7 +16803,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-luma/ui/calendar.tsx",
@@ -16759,7 +16871,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-luma/ui/chart.tsx",
@@ -17207,6 +17319,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-luma/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -17235,7 +17363,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-luma/ui/progress.tsx",
@@ -17584,7 +17712,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-luma/ui/textarea.tsx",
@@ -17811,7 +17939,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-luma/ui/questionnaire.tsx",
@@ -18068,7 +18196,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-sera/ui/calendar.tsx",
@@ -18136,7 +18264,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-sera/ui/chart.tsx",
@@ -18584,6 +18712,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-sera/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -18612,7 +18756,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-sera/ui/progress.tsx",
@@ -18961,7 +19105,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-sera/ui/textarea.tsx",
@@ -19188,7 +19332,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-sera/ui/questionnaire.tsx",
@@ -19445,7 +19589,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-rhea/ui/calendar.tsx",
@@ -19513,7 +19657,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/base-rhea/ui/chart.tsx",
@@ -19961,6 +20105,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/base-rhea/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -19989,7 +20149,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-rhea/ui/progress.tsx",
@@ -20338,7 +20498,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-rhea/ui/textarea.tsx",
@@ -20565,7 +20725,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/base-rhea/ui/questionnaire.tsx",
@@ -20891,7 +21051,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-vega/ui/chart.tsx",
@@ -21296,6 +21456,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-vega/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -21673,7 +21849,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-vega/ui/textarea.tsx",
@@ -21896,7 +22072,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-vega/ui/questionnaire.tsx",
@@ -22234,7 +22410,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-maia/ui/chart.tsx",
@@ -22639,6 +22815,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-maia/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -23016,7 +23208,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-maia/ui/textarea.tsx",
@@ -23239,7 +23431,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-maia/ui/questionnaire.tsx",
@@ -23577,7 +23769,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-lyra/ui/chart.tsx",
@@ -23982,6 +24174,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-lyra/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -24359,7 +24567,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-lyra/ui/textarea.tsx",
@@ -24582,7 +24790,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-lyra/ui/questionnaire.tsx",
@@ -24920,7 +25128,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-mira/ui/chart.tsx",
@@ -25325,6 +25533,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-mira/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -25702,7 +25926,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-mira/ui/textarea.tsx",
@@ -25925,7 +26149,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-mira/ui/questionnaire.tsx",
@@ -26263,7 +26487,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-luma/ui/chart.tsx",
@@ -26668,6 +26892,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-luma/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -27045,7 +27285,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-luma/ui/textarea.tsx",
@@ -27268,7 +27508,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-luma/ui/questionnaire.tsx",
@@ -27606,7 +27846,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-sera/ui/chart.tsx",
@@ -28011,6 +28251,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-sera/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -28388,7 +28644,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-sera/ui/textarea.tsx",
@@ -28611,7 +28867,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-sera/ui/questionnaire.tsx",
@@ -28949,7 +29205,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["card"],
+      registryDependencies: ["card", "digits"],
       files: [
         {
           path: "styles/aria-rhea/ui/chart.tsx",
@@ -29354,6 +29610,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/aria-rhea/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -29731,7 +30003,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-rhea/ui/textarea.tsx",
@@ -29954,7 +30226,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/aria-rhea/ui/questionnaire.tsx",
@@ -30224,7 +30496,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-vega/ui/calendar.tsx",
@@ -30292,7 +30564,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-vega/ui/chart.tsx",
@@ -30740,6 +31012,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-vega/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -31117,7 +31405,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-vega/ui/textarea.tsx",
@@ -31321,7 +31609,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-vega/ui/questionnaire.tsx",
@@ -31579,7 +31867,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-maia/ui/calendar.tsx",
@@ -31647,7 +31935,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-maia/ui/chart.tsx",
@@ -32095,6 +32383,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-maia/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -32472,7 +32776,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-maia/ui/textarea.tsx",
@@ -32676,7 +32980,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-maia/ui/questionnaire.tsx",
@@ -32934,7 +33238,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-lyra/ui/calendar.tsx",
@@ -33002,7 +33306,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-lyra/ui/chart.tsx",
@@ -33450,6 +33754,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-lyra/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -33827,7 +34147,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-lyra/ui/textarea.tsx",
@@ -34031,7 +34351,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-lyra/ui/questionnaire.tsx",
@@ -34289,7 +34609,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-mira/ui/calendar.tsx",
@@ -34357,7 +34677,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-mira/ui/chart.tsx",
@@ -34805,6 +35125,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-mira/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -35182,7 +35518,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-mira/ui/textarea.tsx",
@@ -35386,7 +35722,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-mira/ui/questionnaire.tsx",
@@ -35644,7 +35980,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-luma/ui/calendar.tsx",
@@ -35712,7 +36048,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-luma/ui/chart.tsx",
@@ -36160,6 +36496,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-luma/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -36537,7 +36889,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-luma/ui/textarea.tsx",
@@ -36741,7 +37093,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-luma/ui/questionnaire.tsx",
@@ -36999,7 +37351,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-sera/ui/calendar.tsx",
@@ -37067,7 +37419,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-sera/ui/chart.tsx",
@@ -37515,6 +37867,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-sera/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -37892,7 +38260,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-sera/ui/textarea.tsx",
@@ -38096,7 +38464,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-sera/ui/questionnaire.tsx",
@@ -38354,7 +38722,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-rhea/ui/calendar.tsx",
@@ -38422,7 +38790,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-rhea/ui/chart.tsx",
@@ -38870,6 +39238,22 @@ export const Index: Record<string, Record<string, any>> = {
         },
       },
     },
+    "persian-digits": {
+      name: "persian-digits",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "styles/radix-rhea/ui/persian-digits.tsx",
+          type: "registry:ui",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     popover: {
       name: "popover",
       title: "undefined",
@@ -39247,7 +39631,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-rhea/ui/textarea.tsx",
@@ -39451,7 +39835,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["button", "digits"],
       files: [
         {
           path: "styles/radix-rhea/ui/questionnaire.tsx",

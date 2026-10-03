@@ -109,16 +109,60 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
   event.preventDefault()
 }
 
-export function CardsDemo({
-  /** Show the multi-column collage even below desktop breakpoints (for scaled mobile preview). */
-  forceColumns = false,
-}: {
-  forceColumns?: boolean
-} = {}) {
+/** Mobile: real 2-column stack with every demo card, fully scrollable. */
+function CardsDemoMobile() {
+  return (
+    <div
+      data-slot="demo"
+      dir="rtl"
+      lang="fa"
+      onClickCapture={preventDemoHashNavigation}
+      className="theme-container relative w-full bg-muted px-3 pt-4 pb-8 [--gap:--spacing(4)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+    >
+      <div className="relative z-10 grid grid-cols-2 items-start gap-(--gap) **:data-[slot=card]:w-full">
+        <div className="flex min-w-0 flex-col gap-(--gap)">
+          <UIElements />
+          <ContributionHistory />
+          <div className="**:[.text-center.text-xs]:hidden">
+            <MessageScrollerDemo />
+          </div>
+          <CalendarCard />
+          <SavingsTargets />
+          <SidebarNav />
+          <ClaimableBalance />
+          <Payments />
+          <MenubarCard />
+          <AccountAccess />
+          <DividendIncome />
+          <SyncingStateCard />
+          <TabsCard />
+          <PayoutThreshold />
+          <FaqCard />
+        </div>
+        <div className="flex min-w-0 flex-col gap-(--gap)">
+          <NewMilestone />
+          <EmptyDistributeTrack />
+          <AnalyticsCard />
+          <PopoverSliderToastToggle />
+          <NotificationSettings />
+          <ContextMenuCard />
+          <PowerUsage />
+          <AttachmentCard />
+          <MarkerAvatarAlert />
+          <InviteTeamCard />
+          <NavigationMenuCard />
+          <DropdownDrawerHover />
+          <ShortcutsCard />
+          <SocialLinksCard />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CardsDemoDesktop() {
   const col = (visibleFrom: string) =>
-    forceColumns
-      ? "flex h-full flex-col gap-(--gap)"
-      : `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
+    `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
 
   return (
     <div
@@ -128,15 +172,8 @@ export function CardsDemo({
       onClickCapture={preventDemoHashNavigation}
       className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
-      {!forceColumns ? <CardsSkeletonRails /> : null}
-      <div
-        className={
-          forceColumns
-            ? "relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-3 items-stretch gap-(--gap) **:data-[slot=card]:w-full"
-            : "relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]"
-        }
-      >
-        {/* Col 1 — always */}
+      <CardsSkeletonRails />
+      <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">
         <div className="flex h-full flex-col gap-(--gap)">
           <UIElements />
           <CalendarCard />
@@ -148,7 +185,6 @@ export function CardsDemo({
             <PayoutThreshold />
           </FadeTail>
         </div>
-        {/* Col 2 — lg+ */}
         <div className={col("lg:flex")}>
           <ContributionHistory />
           <ClaimableBalance />
@@ -159,7 +195,6 @@ export function CardsDemo({
             <ClaimableBalance />
           </FadeTail>
         </div>
-        {/* Col 3 — 1400+ */}
         <div className={col("min-[1400px]:flex")}>
           <NewMilestone />
           <SavingsTargets />
@@ -171,7 +206,6 @@ export function CardsDemo({
             <AccountAccess />
           </FadeTail>
         </div>
-        {/* Col 4 — md+ */}
         <div className={col("md:flex")}>
           <div className="**:[.text-center.text-xs]:hidden">
             <MessageScrollerDemo />
@@ -185,7 +219,6 @@ export function CardsDemo({
             <Payments />
           </FadeTail>
         </div>
-        {/* Col 5 — 1900+ */}
         <div className={col("min-[1900px]:flex")}>
           <EmptyDistributeTrack />
           <AnalyticsCard />
@@ -201,5 +234,18 @@ export function CardsDemo({
       <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 dark:via-background/80" />
     </div>
+  )
+}
+
+export function CardsDemo() {
+  return (
+    <>
+      <div className="md:hidden">
+        <CardsDemoMobile />
+      </div>
+      <div className="hidden md:block">
+        <CardsDemoDesktop />
+      </div>
+    </>
   )
 }

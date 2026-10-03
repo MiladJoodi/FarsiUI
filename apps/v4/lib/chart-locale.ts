@@ -1,10 +1,9 @@
 /** Persian digits, Jalali dates, and shared chart copy for FarsiUI demos. */
 
-export { toPersianDigits } from "@/lib/digits"
-
-export function formatPersianNumber(value: number) {
-  return value.toLocaleString("fa-IR")
-}
+export {
+  formatPersianNumber,
+  toPersianDigits,
+} from "@/lib/digits"
 
 export function formatJalaliDate(
   value: string | number | Date,

@@ -4,6 +4,7 @@ import * as React from "react"
 import { IconMenu3 } from "@tabler/icons-react"
 import { cn } from "cn"
 
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   DropdownMenu,
@@ -73,39 +74,42 @@ export function DocsTableOfContents({
 
   if (variant === "dropdown") {
     return (
-      <DropdownMenu open={open} onOpenChange={setOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            className={cn("h-8 md:h-7", className)}
-          >
-            <IconMenu3 /> در این صفحه
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="start"
-          className="no-scrollbar max-h-[70svh]"
-        >
-          {toc.map((item) => (
-            <DropdownMenuItem
-              key={item.url}
-              asChild
-              onClick={() => {
-                setOpen(false)
-              }}
-              data-depth={item.depth}
-              className="data-[depth=3]:pl-6 data-[depth=4]:pl-8"
+      <PersianDigits>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className={cn("h-8 md:h-7", className)}
             >
-              <a href={item.url}>{item.title}</a>
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+              <IconMenu3 /> در این صفحه
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            align="start"
+            className="no-scrollbar max-h-[70svh]"
+          >
+            {toc.map((item) => (
+              <DropdownMenuItem
+                key={item.url}
+                asChild
+                onClick={() => {
+                  setOpen(false)
+                }}
+                data-depth={item.depth}
+                className="data-[depth=3]:pl-6 data-[depth=4]:pl-8"
+              >
+                <a href={item.url}>{item.title}</a>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </PersianDigits>
     )
   }
 
   return (
+    <PersianDigits>
     <div className={cn("flex flex-col gap-2 p-4 pt-0 text-sm", className)}>
       <p className="h-6 bg-background text-xs font-medium text-muted-foreground">
         در این صفحه
@@ -114,7 +118,7 @@ export function DocsTableOfContents({
         <a
           key={item.url}
           href={item.url}
-          className="text-[14px] text-muted-foreground no-underline transition-colors hover:text-foreground data-[active=true]:font-medium data-[active=true]:text-foreground data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+          className="text-[14px] text-muted-foreground no-underline transition-colors hover:text-foreground data-[active=true]:font-medium data-[active=true]:text-primary data-[depth=3]:pl-4 data-[depth=4]:pl-6"
           data-active={item.url === `#${activeHeading}`}
           data-depth={item.depth}
         >
@@ -122,5 +126,6 @@ export function DocsTableOfContents({
         </a>
       ))}
     </div>
+    </PersianDigits>
   )
 }

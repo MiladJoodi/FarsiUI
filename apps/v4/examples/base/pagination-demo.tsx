@@ -1,3 +1,4 @@
+import { formatNumber } from "@/lib/digits"
 import {
   Pagination,
   PaginationContent,
@@ -10,22 +11,22 @@ import {
 
 export function PaginationDemo() {
   return (
-    <div dir="rtl">
+    <div dir="rtl" lang="fa">
       <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href="#" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">۱</PaginationLink>
+            <PaginationLink href="#">{formatNumber(1, "fa")}</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#" isActive>
-              ۲
+              {formatNumber(2, "fa")}
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">۳</PaginationLink>
+            <PaginationLink href="#">{formatNumber(3, "fa")}</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationEllipsis />

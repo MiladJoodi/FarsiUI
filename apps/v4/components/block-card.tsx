@@ -13,6 +13,7 @@ import { type z } from "zod"
 import { trackEvent } from "@/lib/events"
 import { type FileTree } from "@/lib/registry"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { useThemeConfig } from "@/components/active-theme"
@@ -187,6 +188,7 @@ export function BlockCard({
   }, [files, activePath])
 
   return (
+    <PersianDigits>
     <article
       id={item.name}
       dir="rtl"
@@ -304,6 +306,8 @@ export function BlockCard({
 
           <TabsContent
             value="code"
+            data-slot="code"
+            data-not-typeset
             forceMount
             className="absolute inset-0 mt-0 data-[state=inactive]:pointer-events-none data-[state=inactive]:invisible"
           >
@@ -381,5 +385,6 @@ export function BlockCard({
         </div>
       </Tabs>
     </article>
+    </PersianDigits>
   )
 }

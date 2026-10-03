@@ -3,6 +3,8 @@
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress"
 import { cn } from "cn"
 
+import { formatPersianNumber } from "@/registry/bases/base/lib/digits"
+
 function Progress({
   className,
   children,
@@ -74,7 +76,7 @@ function ProgressValue({
       {children ??
         ((formattedValue, value) =>
           typeof value === "number"
-            ? `${value.toLocaleString("fa-IR")}%`
+            ? `${formatPersianNumber(value, { useGrouping: false })}٪`
             : formattedValue)}
     </ProgressPrimitive.Value>
   )

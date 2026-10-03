@@ -58,7 +58,13 @@ export function LoginForm({
                     فراموشی رمز؟
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  dir="ltr"
+                  className="text-start"
+                  required
+                />
               </Field>
               <Field>
                 <Button type="submit">ورود</Button>

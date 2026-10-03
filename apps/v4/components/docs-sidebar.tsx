@@ -16,6 +16,7 @@ import {
   normalizeNavSearch,
   SidebarNavSearch,
 } from "@/components/sidebar-nav-search"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import {
   Collapsible,
   CollapsibleContent,
@@ -395,7 +396,7 @@ function DocsSidebarBody({
                         {name}
                         {PAGES_NEW.includes(href) && (
                           <span
-                            className="flex size-2 rounded-full bg-blue-500"
+                            className="flex size-2 rounded-full bg-primary"
                             title="New"
                           />
                         )}
@@ -432,7 +433,7 @@ function DocsSidebarBody({
                             <span className="truncate">{fa}</span>
                             {isNew ? (
                               <span
-                                className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                className="flex size-2 shrink-0 rounded-full bg-primary"
                                 title="New"
                               />
                             ) : null}
@@ -492,7 +493,7 @@ function DocsSidebarBody({
                                 <span className="truncate">{fa}</span>
                                 {isNew ? (
                                   <span
-                                    className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                    className="flex size-2 shrink-0 rounded-full bg-primary"
                                     title="New"
                                   />
                                 ) : null}
@@ -535,16 +536,18 @@ export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
   const title = isComponents ? "فهرست کامپوننت‌ها" : "فهرست مستندات"
 
   return (
-    <ListIndexNav title={title} current={current}>
-      <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
-        <DocsSidebarBody
-          tree={tree}
-          persistScroll={false}
-          showSearch={isComponents}
-          scope={isComponents ? "components" : "all"}
-        />
-      </SidebarProvider>
-    </ListIndexNav>
+    <PersianDigits>
+      <ListIndexNav title={title} current={current}>
+        <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
+          <DocsSidebarBody
+            tree={tree}
+            persistScroll={false}
+            showSearch={isComponents}
+            scope={isComponents ? "components" : "all"}
+          />
+        </SidebarProvider>
+      </ListIndexNav>
+    </PersianDigits>
   )
 }
 
@@ -553,15 +556,17 @@ export function DocsSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
   return (
-    <Sidebar
-      className="sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
-      collapsible="none"
-      {...props}
-    >
-      <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
-      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <DocsSidebarBody tree={tree} />
-      </div>
-    </Sidebar>
+    <PersianDigits>
+      <Sidebar
+        className="sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
+        collapsible="none"
+        {...props}
+      >
+        <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          <DocsSidebarBody tree={tree} />
+        </div>
+      </Sidebar>
+    </PersianDigits>
   )
 }

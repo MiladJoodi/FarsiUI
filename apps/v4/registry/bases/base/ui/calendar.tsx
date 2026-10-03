@@ -10,6 +10,10 @@ import {
 import { DayPicker } from "react-day-picker/persian"
 
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
+import {
+  formatNumber,
+  resolveNumericLocale,
+} from "@/registry/bases/base/lib/digits"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Calendar({
@@ -53,7 +57,10 @@ function Calendar({
         },
         formatWeekNumberHeader: () => "هـ",
         formatWeekNumber: (weekNumber) =>
-          weekNumber.toLocaleString(locale?.code ?? "fa-IR"),
+          formatNumber(
+            weekNumber,
+            resolveNumericLocale({ lang: locale?.code ?? "fa-IR" })
+          ),
         ...formatters,
       }}
       classNames={{

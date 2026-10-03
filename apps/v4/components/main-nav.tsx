@@ -18,24 +18,35 @@ export function MainNav({
 
   return (
     <nav className={cn("items-center gap-0", className)} {...props}>
-      {items.map((item) => (
-        <Button
-          key={item.href}
-          variant="ghost"
-          asChild
-          size="sm"
-          className="px-2.5"
-        >
-          <Link
-            href={item.href}
-            data-active={pathname === item.href}
-            data-new={PAGES_NEW.includes(item.href)}
-            className="relative items-center"
+      {items.map((item) => {
+        const isNew = PAGES_NEW.includes(item.href)
+
+        return (
+          <Button
+            key={item.href}
+            variant="ghost"
+            asChild
+            size="sm"
+            className="px-2.5 text-muted-foreground hover:text-primary data-[active=true]:bg-transparent data-[active=true]:text-primary data-[active=true]:hover:bg-transparent data-[active=true]:hover:text-primary"
           >
-            {item.label}
-          </Link>
-        </Button>
-      ))}
+            <Link
+              href={item.href}
+              data-active={pathname === item.href || undefined}
+              data-new={isNew || undefined}
+              className="relative inline-flex items-center gap-1.5 font-medium"
+            >
+              {item.label}
+              {isNew ? (
+                <span
+                  className="size-1.5 shrink-0 rounded-full bg-primary"
+                  title="New"
+                  aria-hidden
+                />
+              ) : null}
+            </Link>
+          </Button>
+        )
+      })}
     </nav>
   )
 }

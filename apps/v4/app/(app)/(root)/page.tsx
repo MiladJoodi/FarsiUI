@@ -93,24 +93,8 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
-        <div className="container overflow-hidden md:px-0 lg:max-w-none">
-          {/* Mobile: same Persian collage, scaled to keep the multi-column look.
-              Inline transform — Tailwind `scale-[0.38]` was not applying, so the
-              263%-wide collage sat off-screen and the section looked blank. */}
-          <section className="relative h-[min(72vh,680px)] overflow-hidden md:hidden">
-            <div
-              className="absolute top-0 right-0 w-[263%] origin-top-right"
-              style={{
-                transform: "scale(0.38)",
-                transformOrigin: "top right",
-              }}
-            >
-              <CardsDemo forceColumns />
-            </div>
-          </section>
-          <section className="hidden md:block">
-            <CardsDemo />
-          </section>
+        <div className="w-full overflow-x-hidden md:container md:overflow-hidden md:px-0 lg:max-w-none">
+          <CardsDemo />
         </div>
       </div>
     </div>

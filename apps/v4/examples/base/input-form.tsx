@@ -43,8 +43,14 @@ export function InputForm() {
         </Field>
         <div className="grid grid-cols-2 gap-4">
           <Field>
-            <FieldLabel htmlFor="form-phone">تلفن</FieldLabel>
-            <Input id="form-phone" type="tel" placeholder="۰۹۱۲۱۲۳۴۵۶۷" />
+            <FieldLabel htmlFor="form-age">سن</FieldLabel>
+            <Input
+              id="form-age"
+              type="number"
+              inputMode="numeric"
+              name="age"
+              placeholder="31"
+            />
           </Field>
           <Field>
             <FieldLabel htmlFor="form-country">کشور</FieldLabel>
@@ -64,6 +70,23 @@ export function InputForm() {
             </Select>
           </Field>
         </div>
+        <Field>
+          <FieldLabel htmlFor="form-phone">تلفن</FieldLabel>
+          <Input
+            id="form-phone"
+            type="tel"
+            dir="ltr"
+            placeholder="+98 912 123 4567"
+          />
+        </Field>
+        <Field>
+          <FieldLabel htmlFor="form-about">درباره شما</FieldLabel>
+          <Input
+            id="form-about"
+            type="text"
+            placeholder="من 31 سال دارم"
+          />
+        </Field>
         <Field>
           <FieldLabel htmlFor="form-address">آدرس</FieldLabel>
           <Input id="form-address" type="text" placeholder="تهران، خیابان ولیعصر" />

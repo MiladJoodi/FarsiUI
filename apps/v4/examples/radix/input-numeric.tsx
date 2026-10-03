@@ -7,7 +7,8 @@ import { Input } from "@/styles/radix-nova/ui/input"
 
 export function InputNumeric() {
   const [amount, setAmount] = React.useState("123456")
-  const [phone, setPhone] = React.useState("09121234567")
+  const [decimal, setDecimal] = React.useState("123.50")
+  const [negative, setNegative] = React.useState("-123")
 
   return (
     <div className="mx-auto grid w-full max-w-xs gap-4" dir="rtl" lang="fa">
@@ -15,48 +16,78 @@ export function InputNumeric() {
         <FieldLabel htmlFor="amount">مبلغ</FieldLabel>
         <Input
           id="amount"
-          inputMode="decimal"
+          type="number"
+          name="amount"
           lang="fa"
           value={amount}
           onChange={(event) => setAmount(event.target.value)}
           placeholder="0"
         />
         <FieldDescription>
-          نمایش: ارقام فارسی — مقدار منطقی:{" "}
+          نمایش فارسی — مقدار منطقی / FormData:{" "}
           <span className="font-mono" dir="ltr">
             {amount || "—"}
           </span>
         </FieldDescription>
       </Field>
       <Field>
-        <FieldLabel htmlFor="phone">تلفن</FieldLabel>
+        <FieldLabel htmlFor="decimal">اعشار</FieldLabel>
         <Input
-          id="phone"
-          type="tel"
-          dir="ltr"
+          id="decimal"
+          inputMode="decimal"
           lang="fa"
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-          placeholder="09121234567"
+          value={decimal}
+          onChange={(event) => setDecimal(event.target.value)}
         />
         <FieldDescription>
-          type=&quot;tel&quot; در زمینهٔ فارسی ارقام فارسی نشان می‌دهد؛ state
-          همچنان ASCII است.
+          نمایش:{" "}
+          <span className="font-mono" dir="ltr">
+            {decimal || "—"}
+          </span>{" "}
+          (ASCII)
+        </FieldDescription>
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="negative">منفی</FieldLabel>
+        <Input
+          id="negative"
+          inputMode="numeric"
+          lang="fa"
+          value={negative}
+          onChange={(event) => setNegative(event.target.value)}
+        />
+        <FieldDescription>
+          <span className="font-mono" dir="ltr">
+            {negative || "—"}
+          </span>
         </FieldDescription>
       </Field>
       <Field>
         <FieldLabel htmlFor="english">English / LTR</FieldLabel>
         <Input
           id="english"
-          inputMode="numeric"
+          type="number"
           dir="ltr"
           lang="en"
-          persianDigits={false}
           defaultValue="123456"
           placeholder="123456"
         />
         <FieldDescription>
-          با persianDigits=false نمایش لاتین می‌ماند.
+          locale=en — نمایش لاتین؛ Paste فارسی هم به ASCII نرمال می‌شود.
+        </FieldDescription>
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="phone">تلفن (متن آزاد)</FieldLabel>
+        <Input
+          id="phone"
+          type="tel"
+          dir="ltr"
+          lang="fa"
+          defaultValue="+98 912 123 4567"
+          placeholder="+98 912 123 4567"
+        />
+        <FieldDescription>
+          type=&quot;tel&quot; بدون digit formatting.
         </FieldDescription>
       </Field>
     </div>

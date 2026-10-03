@@ -4,12 +4,9 @@ import * as React from "react"
 import { Questionnaire as QuestionnairePrimitive } from "@farsiui/react/questionnaire"
 import { cn } from "cn"
 
+import { toPersianDigits } from "@/registry/bases/base/lib/digits"
 import { buttonVariants, type Button } from "@/registry/bases/base/ui/button"
 import { IconPlaceholder } from "@/components/icon-placeholder"
-
-function toPersianDigits(value: number) {
-  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
-}
 
 function Questionnaire({
   className,

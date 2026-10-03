@@ -5,6 +5,8 @@ import { cn } from "cn"
 import * as RechartsPrimitive from "recharts"
 import type { TooltipValueType } from "recharts"
 
+import { formatPersianNumber } from "@/registry/bases/radix/lib/digits"
+
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
 
@@ -251,7 +253,7 @@ function ChartTooltipContent({
                       {item.value != null && (
                         <span className="font-medium tracking-normal text-foreground">
                           {typeof item.value === "number"
-                            ? item.value.toLocaleString("fa-IR")
+                            ? formatPersianNumber(item.value)
                             : String(item.value)}
                         </span>
                       )}

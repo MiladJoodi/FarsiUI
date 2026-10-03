@@ -4,6 +4,7 @@ import type { JSX, ReactNode } from "react"
 import Link from "next/link"
 
 import type { FeaturedBlockSample } from "@/lib/blocks-featured"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 
 /** Soft wireframe fills — readable without looking heavy. */
 const fill = "bg-muted-foreground/8"
@@ -441,14 +442,16 @@ export function BlocksShowcase({
   styleName?: string
 }) {
   return (
-    <div
-      dir="rtl"
-      lang="fa"
-      className="grid grid-cols-1 gap-5 pb-10 sm:grid-cols-2 lg:grid-cols-4"
-    >
-      {samples.map((sample) => (
-        <SampleCard key={sample.categorySlug} sample={sample} />
-      ))}
-    </div>
+    <PersianDigits>
+      <div
+        dir="rtl"
+        lang="fa"
+        className="grid grid-cols-1 gap-5 pb-10 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {samples.map((sample) => (
+          <SampleCard key={sample.categorySlug} sample={sample} />
+        ))}
+      </div>
+    </PersianDigits>
   )
 }

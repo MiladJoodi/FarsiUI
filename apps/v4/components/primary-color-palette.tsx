@@ -86,9 +86,7 @@ export function PrimaryColorPalette({
               title={currentLabel}
               className="h-8 gap-1.5 rounded-full border-border/80 pe-2 ps-1.5 shadow-none"
             >
-              <span className="flex size-5 items-center justify-center rounded-full border-2 border-foreground">
-                <ColorDot themeName={current} size="sm" />
-              </span>
+              <ColorDot themeName={current} size="sm" />
               <ChevronUpIcon
                 className={cn(
                   "size-3.5 text-muted-foreground transition-transform",
@@ -129,18 +127,11 @@ export function PrimaryColorPalette({
                       setOpen(false)
                     }}
                   >
-                    <span
-                      className={cn(
-                        "flex size-6 items-center justify-center rounded-full border-2",
-                        isActive ? "border-foreground" : "border-transparent"
-                      )}
-                    >
-                      <ColorDot
-                        themeName={theme.name}
-                        size="sm"
-                        checked={isActive}
-                      />
-                    </span>
+                    <ColorDot
+                      themeName={theme.name}
+                      size="sm"
+                      checked={isActive}
+                    />
                     <span className="flex-1 text-start">{label}</span>
                   </button>
                 )

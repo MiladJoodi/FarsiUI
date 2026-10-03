@@ -43,7 +43,6 @@ export function ComponentPreviewTabs({
   return (
     <div
       data-slot="component-preview"
-      data-not-typeset
       dir={direction}
       className={cn(
         "group relative mt-4 mb-12 flex flex-col overflow-hidden rounded-2xl border",
@@ -78,6 +77,7 @@ export function ComponentPreviewTabs({
       {!hideCode && (
         <div
           data-slot="code"
+          data-not-typeset
           data-mobile-code-visible={isMobileCodeVisible}
           className="relative overflow-hidden **:data-[slot=copy-button]:right-4 **:data-[slot=copy-button]:hidden data-[mobile-code-visible=true]:**:data-[slot=copy-button]:flex [&_[data-rehype-pretty-code-figure]]:m-0! [&_[data-rehype-pretty-code-figure]]:rounded-t-none [&_[data-rehype-pretty-code-figure]]:border-t [&_pre]:max-h-72"
         >
@@ -150,9 +150,9 @@ function PreviewWrapper({
   const translation = useTranslation(directionTranslations, "ar")
   const dir = explicitDir ?? translation.dir
 
-  // FarsiUI RTL previews use Language="ar" internally; expose lang="fa" so
-  // Input persian-digit auto mode (and assistive tech) see a Persian locale.
-  const lang = dir === "rtl" ? "fa" : "en"
+  // Digit style is independent of direction: keep fa so LTR phone fields
+  // can still show Persian digits unless explicitly opted out.
+  const lang = "fa"
 
   return (
     <div data-slot="preview" dir={dir} lang={lang} data-lang={lang}>

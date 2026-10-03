@@ -149,7 +149,7 @@ export function CopyCodeButton({
             </span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="rounded-2xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 outline-none md:max-w-2xl dark:bg-neutral-800 dark:ring-neutral-900">
+        <DialogContent className="rounded-2xl border-none bg-clip-padding shadow-2xl ring-4 ring-border/80 outline-none md:max-w-2xl dark:bg-background dark:ring-border">
           <DialogHeader>
             <DialogTitle className="capitalize">{activeThemeName}</DialogTitle>
             <DialogDescription>

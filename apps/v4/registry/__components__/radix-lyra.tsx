@@ -262,6 +262,14 @@ export const Components: Record<string, any> = {
       ) || "pagination"
     return { default: mod.default || mod[exportName] }
   }),
+  "persian-digits": React.lazy(async () => {
+    const mod = await import("@/styles/radix-lyra/ui/persian-digits")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "persian-digits"
+    return { default: mod.default || mod[exportName] }
+  }),
   popover: React.lazy(async () => {
     const mod = await import("@/styles/radix-lyra/ui/popover")
     const exportName =

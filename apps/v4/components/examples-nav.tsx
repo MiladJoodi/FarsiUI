@@ -87,7 +87,7 @@ function ExampleLink({
     >
       {example.name}
       {example.name === "RTL" && (
-        <span className="flex size-2 rounded-full bg-blue-500" title="New" />
+        <span className="flex size-2 rounded-full bg-primary" title="New" />
       )}
     </Link>
   )

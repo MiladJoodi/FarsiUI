@@ -76,7 +76,9 @@ import { Input } from "@/components/ui/input"
 
 ### اعداد فارسی
 
-برای ورودی‌های عددی در زمینهٔ فارسی/RTL، `Input` ارقام را فارسی **نمایش** می‌دهد و مقدار منطقی را ASCII نگه می‌دارد:
+در زمینهٔ فارسی، `Input` ارقام را فارسی **نمایش** می‌دهد و مقدار منطقی را ASCII نگه می‌دارد. جهت (`dir`) از سبک ارقام جداست — مثلاً شماره تلفن می‌تواند `dir="ltr"` باشد و همچنان ارقام فارسی نشان دهد. برای ارقام لاتین صریح از `data-persian-digits="false"` یا `persianDigits={false}` استفاده کنید.
+
+قوانین سراسری (متن، کد، URL، تلفن و opt-out) را در [ارقام فارسی](/docs/persian-digits) ببینید.
 
 ```tsx
 const [value, setValue] = React.useState("123456")
@@ -88,8 +90,9 @@ const [value, setValue] = React.useState("123456")
 />
 ```
 
-- پیش‌فرض: `persianDigits="auto"` — برای `type="tel"|"number"` یا `inputMode="numeric"|"decimal"` در locale فارسی/RTL فعال می‌شود.
-- `persianDigits={true}` / `{false}` برای اجبار روشن/خاموش.
+- پیش‌فرض: `persianDigits="auto"` — برای متن و اعداد در زمینهٔ فارسی فعال است؛ برای `email` / `password` / `url` / `file` خاموش می‌ماند.
+- `dir="ltr"` به‌تنهایی ارقام فارسی را غیرفعال **نمی‌کند** (مناسب شماره تلفن).
+- `persianDigits={true}` / `{false}` یا `data-persian-digits="false"` برای اجبار روشن/خاموش.
 - Paste و تایپ فارسی یا انگلیسی پذیرفته می‌شود؛ `event.target.value` و مقدار submit همیشه لاتین است.
 
 <div className="hidden">

@@ -108,7 +108,7 @@ function MobileLink({
       }}
       className={cn(
         "flex h-9 items-center gap-2 rounded-md px-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-muted hover:text-foreground",
-        active && "bg-accent text-foreground",
+        active && "bg-primary/10 text-primary",
         className
       )}
       {...props}

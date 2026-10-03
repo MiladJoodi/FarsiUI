@@ -4,13 +4,16 @@ import * as React from "react"
 
 import {
   type PersianDigitsMode,
+  isNumericInputHint,
+  normalizeDigits,
   readLocaleContext,
   resolvePersianDigitsEnabled,
-  toLatinDigits,
   toPersianDigits,
 } from "@/registry/bases/radix/lib/digits"
 
 type Selection = { start: number | null; end: number | null }
+
+type DigitFieldElement = HTMLInputElement | HTMLTextAreaElement
 
 export type UsePersianDigitsInputOptions = {
   persianDigits?: PersianDigitsMode
@@ -18,10 +21,12 @@ export type UsePersianDigitsInputOptions = {
   inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"]
   dir?: string
   lang?: string
+  locale?: string
   name?: string
   value?: string | number | readonly string[]
   defaultValue?: string | number | readonly string[]
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  onChange?: React.ChangeEventHandler<DigitFieldElement>
+  "data-persian-digits"?: string | null
 }
 
 function toStringValue(
@@ -36,10 +41,10 @@ function toStringValue(
   return value.join(",")
 }
 
-function patchChangeEvent(
-  event: React.ChangeEvent<HTMLInputElement>,
+function patchChangeEvent<T extends DigitFieldElement>(
+  event: React.ChangeEvent<T>,
   latinValue: string
-): React.ChangeEvent<HTMLInputElement> {
+): React.ChangeEvent<T> {
   const targetProxy = new Proxy(event.target, {
     get(target, prop, receiver) {
       if (prop === "value") {
@@ -57,7 +62,7 @@ function patchChangeEvent(
       }
       return Reflect.get(target, prop, receiver)
     },
-  }) as React.ChangeEvent<HTMLInputElement>
+  }) as React.ChangeEvent<T>
 }
 
 export function usePersianDigitsInput({
@@ -66,85 +71,99 @@ export function usePersianDigitsInput({
   inputMode,
   dir,
   lang,
+  locale,
   name,
   value,
   defaultValue,
   onChange,
+  "data-persian-digits": dataPersianDigits,
 }: UsePersianDigitsInputOptions) {
-  const inputRef = React.useRef<HTMLInputElement | null>(null)
+  const fieldRef = React.useRef<DigitFieldElement | null>(null)
   const selectionRef = React.useRef<Selection | null>(null)
   const isControlled = value !== undefined
+  const isNumeric = isNumericInputHint(type, inputMode)
 
-  const [uncontrolledLatin, setUncontrolledLatin] = React.useState(() =>
-    toLatinDigits(toStringValue(defaultValue))
-  )
-
-  const [enabled, setEnabled] = React.useState(() =>
+  const [displayPersian, setDisplayPersian] = React.useState(() =>
     resolvePersianDigitsEnabled({
       persianDigits,
       type,
       inputMode,
       dir,
       lang,
+      locale,
+      "data-persian-digits": dataPersianDigits,
     })
   )
 
-  const resolveEnabled = React.useCallback(
+  const [uncontrolledLatin, setUncontrolledLatin] = React.useState(() => {
+    const raw = toStringValue(defaultValue)
+    return displayPersian || isNumeric ? normalizeDigits(raw) : raw
+  })
+
+  const resolveDisplayPersian = React.useCallback(
     (node: HTMLElement | null) => {
-      const context = readLocaleContext(node, { dir, lang })
+      const context = readLocaleContext(node, { dir, lang, locale })
       return resolvePersianDigitsEnabled({
         persianDigits,
         type,
         inputMode,
         dir: context.dir,
         lang: context.lang,
+        locale: context.locale,
+        "data-persian-digits": dataPersianDigits,
       })
     },
-    [persianDigits, type, inputMode, dir, lang]
+    [persianDigits, type, inputMode, dir, lang, locale, dataPersianDigits]
   )
 
-  // Resolve ancestor dir/lang after mount so SSR markup stays stable.
   React.useEffect(() => {
-    setEnabled(resolveEnabled(inputRef.current))
-  }, [resolveEnabled])
+    setDisplayPersian(resolveDisplayPersian(fieldRef.current))
+  }, [resolveDisplayPersian])
 
   const latinValue = isControlled
-    ? toLatinDigits(toStringValue(value))
+    ? displayPersian || isNumeric
+      ? normalizeDigits(toStringValue(value))
+      : toStringValue(value)
     : uncontrolledLatin
 
   React.useLayoutEffect(() => {
-    if (!enabled || !selectionRef.current || !inputRef.current) {
+    if (!displayPersian || !selectionRef.current || !fieldRef.current) {
       return
     }
     const { start, end } = selectionRef.current
     if (start == null) {
       return
     }
-    inputRef.current.setSelectionRange(start, end ?? start)
+    fieldRef.current.setSelectionRange(start, end ?? start)
     selectionRef.current = null
   })
 
-  const setInputRef = React.useCallback(
-    (node: HTMLInputElement | null) => {
-      inputRef.current = node
+  const setFieldRef = React.useCallback(
+    (node: DigitFieldElement | null) => {
+      fieldRef.current = node
       if (node) {
-        setEnabled(resolveEnabled(node))
+        setDisplayPersian(resolveDisplayPersian(node))
       }
     },
-    [resolveEnabled]
+    [resolveDisplayPersian]
   )
 
+  // Back-compat alias used by Input.
+  const setInputRef = setFieldRef
+
   const handleChange = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (!enabled) {
+    (event: React.ChangeEvent<DigitFieldElement>) => {
+      if (!displayPersian && !isNumeric) {
         onChange?.(event)
         return
       }
 
-      const latin = toLatinDigits(event.target.value)
-      selectionRef.current = {
-        start: event.target.selectionStart,
-        end: event.target.selectionEnd,
+      const latin = normalizeDigits(event.target.value)
+      if (displayPersian) {
+        selectionRef.current = {
+          start: event.target.selectionStart,
+          end: event.target.selectionEnd,
+        }
       }
 
       if (!isControlled) {
@@ -153,31 +172,71 @@ export function usePersianDigitsInput({
 
       onChange?.(patchChangeEvent(event, latin))
     },
-    [enabled, isControlled, onChange]
+    [displayPersian, isNumeric, isControlled, onChange]
   )
 
-  const resolvedType = enabled && type === "number" ? "text" : type
+  const resolvedType = isNumeric && type === "number" ? "text" : type
   const resolvedInputMode =
-    enabled && type === "number" ? (inputMode ?? "decimal") : inputMode
+    isNumeric && type === "number" ? (inputMode ?? "decimal") : inputMode
 
-  const displayValue = enabled ? toPersianDigits(latinValue) : undefined
+  // Live typing: digit-map only (no grouping) to preserve caret.
+  const displayValue = displayPersian
+    ? toPersianDigits(latinValue)
+    : isNumeric
+      ? latinValue
+      : undefined
+
+  const fieldProps: Record<string, unknown> = {
+    dir,
+    lang,
+    onChange: handleChange,
+  }
+
+  if (type !== undefined) {
+    fieldProps.type = resolvedType
+  }
+  if (inputMode !== undefined || (isNumeric && type === "number")) {
+    fieldProps.inputMode = resolvedInputMode
+  }
+
+  if (displayPersian || isNumeric) {
+    fieldProps.value = displayValue ?? latinValue
+    fieldProps.defaultValue = undefined
+    if (isNumeric && name) {
+      // Visible control must not submit Persian digits.
+      fieldProps.name = undefined
+    } else if (name != null) {
+      fieldProps.name = name
+    }
+  } else {
+    if (isControlled) {
+      fieldProps.value = value
+    } else {
+      fieldProps.defaultValue = defaultValue
+    }
+    if (name != null) {
+      fieldProps.name = name
+    }
+  }
+
+  // Keep submitted FormData in ASCII while the visible field shows Persian.
+  const useHiddenName = Boolean(name && displayPersian)
+
+  if (useHiddenName) {
+    fieldProps.name = undefined
+  }
 
   return {
-    enabled,
+    enabled: displayPersian,
+    isNumeric,
     latinValue,
+    setFieldRef,
     setInputRef,
-    inputProps: {
-      type: resolvedType,
-      inputMode: resolvedInputMode,
-      dir,
-      lang,
-      name: enabled && name ? undefined : name,
-      value: enabled ? displayValue : isControlled ? value : undefined,
-      defaultValue: enabled || isControlled ? undefined : defaultValue,
-      onChange: handleChange,
-    } satisfies Partial<React.ComponentProps<"input">>,
+    inputProps: fieldProps as Partial<React.ComponentProps<"input">>,
+    textareaProps: fieldProps as Partial<React.ComponentProps<"textarea">>,
+    fieldProps,
     hiddenInput:
-      enabled && name
+      useHiddenName && name
         ? ({
             type: "hidden" as const,
             name,
@@ -185,13 +244,13 @@ export function usePersianDigitsInput({
           } satisfies React.ComponentProps<"input">)
         : null,
     formatPlaceholder(placeholder?: string) {
-      if (!enabled || placeholder == null) {
+      if (!displayPersian || placeholder == null) {
         return placeholder
       }
       return toPersianDigits(placeholder)
     },
     toLatinValue(next: string) {
-      return toLatinDigits(next)
+      return displayPersian || isNumeric ? normalizeDigits(next) : next
     },
   }
 }

@@ -9,6 +9,10 @@ import {
 } from "react-day-picker"
 import { DayPicker } from "react-day-picker/persian"
 
+import {
+  formatNumber,
+  resolveNumericLocale,
+} from "@/registry/bases/radix/lib/digits"
 import { Button, buttonVariants } from "@/registry/bases/radix/ui/button"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
@@ -53,7 +57,7 @@ function Calendar({
         },
         formatWeekNumberHeader: () => "هـ",
         formatWeekNumber: (weekNumber) =>
-          weekNumber.toLocaleString(locale?.code ?? "fa-IR"),
+          formatNumber(weekNumber, resolveNumericLocale({ lang: locale?.code ?? "fa-IR" })),
         ...formatters,
       }}
       classNames={{

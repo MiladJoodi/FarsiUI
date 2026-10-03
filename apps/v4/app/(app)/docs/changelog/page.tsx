@@ -5,6 +5,7 @@ import { IconRss } from "@tabler/icons-react"
 import { getChangelogPages, type ChangelogPageData } from "@/lib/changelog"
 import { absoluteUrl } from "@/lib/utils"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { Button } from "@/styles/radix-nova/ui/button"
 
 export const revalidate = false
@@ -40,6 +41,7 @@ export default function ChangelogPage() {
   const olderPages = pages.slice(NUMBER_OF_LATEST_PAGES)
 
   return (
+    <PersianDigits>
     <div
       data-slot="docs"
       dir="rtl"
@@ -150,5 +152,6 @@ export default function ChangelogPage() {
         </div>
       </div>
     </div>
+    </PersianDigits>
   )
 }

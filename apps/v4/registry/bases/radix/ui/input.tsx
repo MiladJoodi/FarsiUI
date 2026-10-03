@@ -9,8 +9,9 @@ import { usePersianDigitsInput } from "@/registry/bases/radix/hooks/use-persian-
 type InputProps = React.ComponentProps<"input"> & {
   /**
    * Display Persian digits while keeping the logical/submitted value in ASCII.
-   * - `"auto"` (default): enabled for numeric inputs (`type="number"|"tel"` or
-   *   `inputMode="numeric"|"decimal"`) in a Persian/RTL locale context
+   * - `"auto"` (default): enabled in Persian contexts for text/numeric/tel.
+   *   Skipped for email/password/url/file and when `data-persian-digits="false"`
+   *   or `lang="en"`. `dir="ltr"` does NOT disable Persian digits.
    * - `true` / `false`: force on or off
    */
   persianDigits?: PersianDigitsMode
@@ -31,6 +32,11 @@ function Input({
   ref,
   ...props
 }: InputProps) {
+  const dataPersianDigits =
+    typeof props["data-persian-digits"] === "string"
+      ? props["data-persian-digits"]
+      : null
+
   const { setInputRef, inputProps, hiddenInput, formatPlaceholder } =
     usePersianDigitsInput({
       persianDigits,
@@ -42,6 +48,7 @@ function Input({
       value,
       defaultValue,
       onChange,
+      "data-persian-digits": dataPersianDigits,
     })
 
   const composedRef = React.useCallback(

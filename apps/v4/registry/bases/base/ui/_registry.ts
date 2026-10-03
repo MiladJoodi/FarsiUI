@@ -163,7 +163,7 @@ export const ui: Registry["items"] = [
     name: "calendar",
     type: "registry:ui",
     dependencies: ["react-day-picker@latest", "date-fns"],
-    registryDependencies: ["button"],
+    registryDependencies: ["button", "digits"],
     files: [
       {
         path: "ui/calendar.tsx",
@@ -225,7 +225,7 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
     ],
-    registryDependencies: ["card"],
+    registryDependencies: ["card", "digits"],
     dependencies: ["recharts@3.8.0"],
     meta: {
       links: {
@@ -590,6 +590,17 @@ export const ui: Registry["items"] = [
     },
   },
   {
+    name: "persian-digits",
+    type: "registry:ui",
+    registryDependencies: ["digits"],
+    files: [
+      {
+        path: "ui/persian-digits.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "popover",
     type: "registry:ui",
     files: [
@@ -610,6 +621,7 @@ export const ui: Registry["items"] = [
   {
     name: "progress",
     type: "registry:ui",
+    registryDependencies: ["digits"],
     files: [
       {
         path: "ui/progress.tsx",
@@ -888,6 +900,7 @@ export const ui: Registry["items"] = [
   {
     name: "textarea",
     type: "registry:ui",
+    registryDependencies: ["digits", "use-persian-digits-input"],
     files: [
       {
         path: "ui/textarea.tsx",
@@ -1081,7 +1094,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "questionnaire",
     type: "registry:ui",
     dependencies: ["@farsiui/react"],
-    registryDependencies: ["button"],
+    registryDependencies: ["button", "digits"],
     files: [
       {
         path: "ui/questionnaire.tsx",

@@ -17,6 +17,7 @@ import {
   normalizeNavSearch,
   SidebarNavSearch,
 } from "@/components/sidebar-nav-search"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import {
   Collapsible,
   CollapsibleContent,
@@ -230,11 +231,13 @@ export function BlocksListIndex() {
     pathname === "/blocks" ? "معرفی" : (match?.item.title ?? null)
 
   return (
-    <ListIndexNav title="فهرست بلوک‌ها" current={current}>
-      <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
-        <BlocksNavBody showSearch />
-      </SidebarProvider>
-    </ListIndexNav>
+    <PersianDigits>
+      <ListIndexNav title="فهرست بلوک‌ها" current={current}>
+        <SidebarProvider className="min-h-0! flex h-full w-full flex-col">
+          <BlocksNavBody showSearch />
+        </SidebarProvider>
+      </ListIndexNav>
+    </PersianDigits>
   )
 }
 
@@ -242,16 +245,18 @@ export function BlocksSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar
-      className={SIDEBAR_CLASS}
-      collapsible="none"
-      dir="rtl"
-      lang="fa"
-      {...props}
-    >
-      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <BlocksNavBody showSearch />
-      </div>
-    </Sidebar>
+    <PersianDigits>
+      <Sidebar
+        className={SIDEBAR_CLASS}
+        collapsible="none"
+        dir="rtl"
+        lang="fa"
+        {...props}
+      >
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          <BlocksNavBody showSearch />
+        </div>
+      </Sidebar>
+    </PersianDigits>
   )
 }
