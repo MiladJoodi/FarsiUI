@@ -25,13 +25,18 @@ export async function StarsCount() {
   })
   const json = await data.json()
 
+  const count = Number(json.stargazers_count) || 0
   const formattedCount =
-    json.stargazers_count >= 1000
-      ? `${Math.round(json.stargazers_count / 1000)}k`
-      : json.stargazers_count?.toLocaleString()
+    count >= 1000
+      ? `${Math.round(count / 1000)}k`
+      : count.toLocaleString("en-US")
 
   return (
-    <span className="hidden w-fit text-xs text-muted-foreground tabular-nums sm:inline">
+    <span
+      dir="ltr"
+      lang="en"
+      className="hidden w-fit font-mono text-xs tracking-normal text-muted-foreground tabular-nums sm:inline"
+    >
       {formattedCount}
     </span>
   )

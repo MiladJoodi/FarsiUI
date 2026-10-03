@@ -93,8 +93,16 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
-        <div className="container overflow-hidden px-0 lg:max-w-none">
-          <CardsDemo />
+        <div className="container overflow-hidden md:px-0 lg:max-w-none">
+          {/* Mobile: same Persian collage, scaled to keep the multi-column look. */}
+          <section className="relative h-[min(72vh,680px)] overflow-hidden md:hidden">
+            <div className="origin-top-right scale-[0.38] w-[263%]">
+              <CardsDemo forceColumns />
+            </div>
+          </section>
+          <section className="hidden md:block">
+            <CardsDemo />
+          </section>
         </div>
       </div>
     </div>
