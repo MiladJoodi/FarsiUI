@@ -326,23 +326,3 @@ export function CalendarWithTimezone() {
 برای مشاهده جزئیات API کامپوننت `Calendar`، به مستندات [React DayPicker](https://react-day-picker.js.org/) مراجعه کنید.
 
 </DocsCollapsible>
-
-<div className="hidden">
-
-## پشتیبانی از RTL
-
-</div>
-
-<DocsCollapsible title="پشتیبانی از RTL">
-
-`Calendar` در FarsiUI به‌صورت پیش‌فرض برای رابط‌های راست‌به‌چپ آماده است و از تقویم شمسی پشتیبانی می‌کند.
-
-اگر `Calendar` را از نسخه قبلی FarsiUI به‌روزرسانی می‌کنید، مطمئن شوید `locale` به `DayPicker` و `CalendarDayButton` منتقل می‌شود و کلاس‌های مربوط به `range_start`، `range_end` و حالت‌های انتخاب‌شده با نسخه RTL هماهنگ هستند.
-
-همچنین برای تقویم شمسی، `DayPicker` را از `react-day-picker/persian` دریافت کنید:
-
-```tsx showLineNumbers
-import { DayPicker } from "react-day-picker/persian"
-```
-
-</DocsCollapsible>
