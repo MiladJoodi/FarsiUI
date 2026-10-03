@@ -6,7 +6,7 @@ import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I'm looking at this shadcn/ui documentation: ${url}.
+    `I'm looking at this FarsiUI documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `
   )}`

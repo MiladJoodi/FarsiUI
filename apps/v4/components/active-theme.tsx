@@ -71,6 +71,48 @@ export function ActiveThemeProvider({
     window.localStorage.setItem(STORAGE_KEY, activeTheme)
   }, [activeTheme, hydrated])
 
+  // Sync theme onto lazy-loaded same-origin preview iframes.
+  useEffect(() => {
+    if (!hydrated) return
+    const seen = new WeakSet<HTMLIFrameElement>()
+    const controller = new AbortController()
+    const { signal } = controller
+
+    const track = (iframe: HTMLIFrameElement) => {
+      if (seen.has(iframe)) return
+      seen.add(iframe)
+      const onLoad = () => applyThemeClass(activeTheme)
+      iframe.addEventListener("load", onLoad, { signal })
+      try {
+        if (iframe.contentDocument?.readyState === "complete") onLoad()
+      } catch {
+        // Ignore cross-origin frames.
+      }
+    }
+
+    const scan = (root: ParentNode | Node) => {
+      if (root instanceof HTMLIFrameElement) {
+        track(root)
+        return
+      }
+      if (root instanceof Element || root instanceof Document) {
+        root.querySelectorAll("iframe").forEach(track)
+      }
+    }
+
+    scan(document)
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        mutation.addedNodes.forEach(scan)
+      }
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => {
+      controller.abort()
+      observer.disconnect()
+    }
+  }, [activeTheme, hydrated])
+
   const setActiveTheme = useCallback((theme: string) => {
     setActiveThemeState(theme === "default" ? DEFAULT_THEME : theme)
   }, [])

@@ -31,8 +31,9 @@ function HoverCardContent({
         data-slot="hover-card-content"
         align={align}
         sideOffset={sideOffset}
+        dir={dir}
         className={cn(
-          "cn-hover-card-content z-50 origin-(--radix-hover-card-content-transform-origin) outline-hidden",
+          "cn-hover-card-content cn-hover-card-content-logical z-50 origin-(--radix-hover-card-content-transform-origin) outline-hidden",
           className
         )}
         {...props}

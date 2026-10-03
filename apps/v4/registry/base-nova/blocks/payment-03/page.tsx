@@ -1,0 +1,5 @@
+import { PaymentCardForm } from "@/registry/base-nova/blocks/payment-03/components/payment"
+
+export default function Page() {
+  return <PaymentCardForm />
+}

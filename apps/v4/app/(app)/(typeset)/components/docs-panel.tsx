@@ -121,7 +121,7 @@ Then import them in the main CSS file:
 
 ${getFontsourceCss(pickedFonts)}`
 
-  const prompt = `Install shadcn/typeset in this project.
+  const prompt = `Install FarsiUI typeset in this project.
 
 Typeset is a single stylesheet that styles rendered markdown: wrap the output in a \`typeset\` container and everything inside (headings, lists, tables, code, blockquotes, math) is styled. Everything outside is untouched.
 

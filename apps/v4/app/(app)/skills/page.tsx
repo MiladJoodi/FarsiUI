@@ -10,7 +10,7 @@ export default function SkillsPage() {
     >
       <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-foreground md:px-0 lg:py-8">
         <header className="flex flex-col gap-2">
-          <h1 className="scroll-m-24 text-3xl font-semibold tracking-tight">
+          <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
             مهارت‌ها
           </h1>
           <div className="space-y-3 text-pretty text-[1.05rem] text-muted-foreground sm:text-base sm:leading-7">

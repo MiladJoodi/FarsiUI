@@ -25,7 +25,7 @@ const websiteJsonLd = {
   alternateName: ["FarsiUI"],
   description: siteConfig.description,
   inLanguage: "fa-IR",
-  sameAs: [siteConfig.links.github, siteConfig.links.twitter],
+  sameAs: [siteConfig.links.github],
 }
 
 export const dynamic = "force-static"

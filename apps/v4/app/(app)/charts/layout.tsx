@@ -1,19 +1,10 @@
 import { type Metadata } from "next"
-import Link from "next/link"
 
 import { ChartsNav } from "@/components/charts-nav"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { PageNav } from "@/components/page-nav"
-import { Button } from "@/styles/radix-luma/ui/button"
 
-const title = "نمودارهای زیبا و کاربردی"
+const title = "نمودارها"
 const description =
-  "مجموعه‌ای از نمودارهای آماده برای نمایش داده‌ها، ساخته‌شده با Recharts و قابل استفاده در پروژه‌های شما."
+  "نمودارهای آماده برای نمایش داده، ساخته‌شده با Recharts."
 
 export const metadata: Metadata = {
   title,
@@ -45,27 +36,24 @@ export default function ChartsLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <PageHeader dir="rtl" lang="fa">
-        <PageHeaderHeading>{title}</PageHeaderHeading>
-        <PageHeaderDescription>{description}</PageHeaderDescription>
-        <PageActions>
-          <Button asChild className="h-[35px]">
-            <a href="#charts">مرور نمودارها</a>
-          </Button>
-          <Button asChild variant="secondary">
-            <Link href="/docs/components/chart">مستندات</Link>
-          </Button>
-        </PageActions>
-      </PageHeader>
-      <PageNav id="charts" dir="rtl" lang="fa">
-        <ChartsNav />
-      </PageNav>
-      <div className="container-wrapper flex-1">
-        <div className="container pb-6">
-          <section className="theme-container">{children}</section>
+    <div
+      data-slot="docs"
+      className="flex flex-1 flex-col"
+      dir="rtl"
+      lang="fa"
+      id="charts"
+    >
+      <div className="container-wrapper flex flex-1 flex-col px-2">
+        <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-1 flex-col gap-6 px-4 py-6 md:px-6 lg:py-8">
+          <div className="flex flex-col gap-4">
+            <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
+              {title}
+            </h1>
+            <ChartsNav />
+          </div>
+          <section className="theme-container min-w-0 pb-6">{children}</section>
         </div>
       </div>
-    </>
+    </div>
   )
 }

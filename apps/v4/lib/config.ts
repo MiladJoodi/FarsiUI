@@ -31,7 +31,6 @@ export const siteConfig = {
   description:
     "کامپوننت‌های مدرن و قابل شخصی‌سازی برای ساخت محصولات فارسی",
   links: {
-    twitter: "https://twitter.com/shadcn",
     github: "https://github.com/MiladJoodi/FarsiUI",
   },
   navItems: [

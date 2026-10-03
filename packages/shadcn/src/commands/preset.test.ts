@@ -273,7 +273,7 @@ describe("preset commands", () => {
     expect(logger.log).toHaveBeenCalledWith("  version      b")
     expect(logger.log).toHaveBeenCalledWith(expect.stringContaining("b123"))
     expect(logger.log).toHaveBeenCalledWith(
-      expect.stringContaining("https://ui.shadcn.com/create?preset=b123")
+      expect.stringContaining("https://farsiui.ir/create?preset=b123")
     )
     expect(resolveProjectPreset).toHaveBeenCalledWith({}, {})
   })

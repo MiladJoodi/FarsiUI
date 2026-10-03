@@ -80,7 +80,7 @@ function MenubarContent({
         sideOffset={sideOffset}
         lang="fa"
         className={cn(
-          "cn-menubar-content cn-menu-target cn-menu-translucent z-50 origin-(--radix-menubar-content-transform-origin) overflow-hidden",
+          "cn-menubar-content cn-menubar-content-logical cn-menu-target cn-menu-translucent z-50 origin-(--radix-menubar-content-transform-origin) overflow-hidden",
           className
         )}
         {...props}

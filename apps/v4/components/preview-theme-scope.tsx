@@ -14,6 +14,9 @@ export function getPreviewStyleRootClass(styleName = "base-nova") {
 /**
  * Scopes the live site Primary Color + visual style to a docs preview only.
  * Keep outside of Copy / ComponentSource so copied registry code stays theme-agnostic.
+ *
+ * Structure must match legacy-themes.css: ancestor `.theme-*` → descendant
+ * `.theme-container` (same-node classes do not activate the palette overrides).
  */
 export function PreviewThemeScope({
   styleName = "base-nova",
@@ -29,15 +32,11 @@ export function PreviewThemeScope({
   return (
     <div
       data-slot="preview-theme"
-      className={cn(
-        "theme-container",
-        `theme-${theme}`,
-        getPreviewStyleRootClass(styleName),
-        className
-      )}
-      {...props}
+      className={cn(`theme-${theme}`, getPreviewStyleRootClass(styleName))}
     >
-      {children}
+      <div className={cn("theme-container", className)} {...props}>
+        {children}
+      </div>
     </div>
   )
 }

@@ -199,7 +199,7 @@ export async function promptForPreset(options: {
       createUrl,
       followUp: `Then ${highlighter.info(
         "copy and run the command"
-      )} from ui.shadcn.com.`,
+      )} from farsiui.ir.`,
     })
 
     process.exit(0)

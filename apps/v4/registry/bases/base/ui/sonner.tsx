@@ -13,6 +13,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       dir="rtl"
+      lang="fa"
       icons={{
         success: (
           <IconPlaceholder

@@ -1158,14 +1158,6 @@ export const Components: Record<string, any> = {
       ) || "signup-05"
     return { default: mod.default || mod[exportName] }
   }),
-  "dashboard-01": React.lazy(async () => {
-    const mod = await import("@/registry/bases/aria/blocks/dashboard-01/page")
-    const exportName =
-      Object.keys(mod).find(
-        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
-      ) || "dashboard-01"
-    return { default: mod.default || mod[exportName] }
-  }),
   "sidebar-01": React.lazy(async () => {
     const mod = await import("@/registry/bases/aria/blocks/sidebar-01/page")
     const exportName =

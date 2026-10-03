@@ -141,7 +141,7 @@ export const apply = new Command()
           createUrl,
           followUp: `Then run ${highlighter.info(
             "farsiui apply --preset <preset>"
-          )} with the preset code or preset URL from ui.shadcn.com.`,
+          )} with the preset code or preset URL from farsiui.ir.`,
           prompt: !options.yes,
         })
 

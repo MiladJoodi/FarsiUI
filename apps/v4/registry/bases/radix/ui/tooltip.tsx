@@ -43,7 +43,7 @@ function TooltipContent({
         sideOffset={sideOffset}
         dir={dir}
         className={cn(
-          "cn-tooltip-content z-50 w-fit max-w-xs origin-(--radix-tooltip-content-transform-origin) bg-foreground text-background",
+          "cn-tooltip-content cn-tooltip-content-logical z-50 w-fit max-w-xs origin-(--radix-tooltip-content-transform-origin) bg-foreground text-background",
           className
         )}
         {...props}

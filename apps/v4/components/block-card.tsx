@@ -45,10 +45,10 @@ function resolvePreviewViewport(
 }
 
 function resolveCardIframeHeight(metaHeight?: string) {
-  const raw = metaHeight ?? "520px"
+  const raw = metaHeight ?? "400px"
   const value = Number.parseInt(raw, 10)
-  if (!Number.isFinite(value)) return "520px"
-  return `${Math.min(value, 520)}px`
+  if (!Number.isFinite(value)) return "400px"
+  return `${Math.min(value, 400)}px`
 }
 
 function getInstallPath(file: HighlightedFile) {
@@ -278,7 +278,7 @@ export function BlockCard({
               className={cn(
                 "flex size-full justify-center overflow-hidden rounded-xl border border-border/80",
                 previewViewport === "100%"
-                  ? "bg-muted"
+                  ? "bg-muted/40"
                   : cn(
                       "bg-[#fafafa] dark:bg-[#1a1a1a]",
                       "[background-image:linear-gradient(45deg,#e5e5e5_25%,transparent_25%),linear-gradient(-45deg,#e5e5e5_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e5e5e5_75%),linear-gradient(-45deg,transparent_75%,#e5e5e5_75%)]",

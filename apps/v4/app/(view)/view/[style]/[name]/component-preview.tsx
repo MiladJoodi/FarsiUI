@@ -50,14 +50,14 @@ export function ComponentPreview({
 
   const embedCss = staticPreview
     ? `html,body{height:100%;margin:0;overflow:hidden!important;overscroll-behavior:none;background:transparent;pointer-events:none}.min-h-svh{min-height:100%!important}`
-    : `html,body{height:100%;margin:0;background:var(--muted);overscroll-behavior-y:contain}.min-h-svh{min-height:100%!important}`
+    : `html,body{height:100%;margin:0;background:color-mix(in oklab,var(--muted) 45%,transparent);overscroll-behavior-y:contain}.min-h-svh{min-height:100%!important}`
 
   return (
     <>
       <style>
         {embed
           ? embedCss
-          : `html,body{margin:0;min-height:100%;background:var(--muted)}`}
+          : `html,body{margin:0;min-height:100%;background:color-mix(in oklab,var(--muted) 45%,transparent)}`}
       </style>
       <div
         className={cn(
@@ -65,12 +65,20 @@ export function ComponentPreview({
           embed
             ? staticPreview
               ? "h-full min-h-full bg-transparent"
-              : "h-full min-h-full bg-muted"
-            : "min-h-svh bg-muted",
+              : "h-full min-h-full bg-muted/40"
+            : "min-h-svh bg-muted/40",
           "*:data-[slot=card]:has-[[data-slot=chart]]:shadow-none"
         )}
       >
-        {children}
+        {/* Rebind --color-primary under body.theme-* for Tailwind utilities. */}
+        <div
+          className={cn(
+            "theme-container",
+            embed ? "h-full min-h-full" : "min-h-svh"
+          )}
+        >
+          {children}
+        </div>
       </div>
     </>
   )

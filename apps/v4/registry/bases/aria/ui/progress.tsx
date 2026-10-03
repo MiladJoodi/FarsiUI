@@ -9,6 +9,8 @@ import {
   type ProgressBarProps as ProgressPrimitiveProps,
 } from "react-aria-components"
 
+import { formatPersianNumber } from "@/registry/bases/aria/lib/digits"
+
 type ProgressContextValue = {
   percentage?: number
   isIndeterminate: boolean
@@ -126,14 +128,21 @@ function ProgressValue({
 }: Omit<React.ComponentProps<"span">, "children"> & {
   children?: (value: string) => React.ReactNode
 }) {
-  const { valueText } = useProgress()
+  const { valueText, percentage } = useProgress()
+  const persianValueText =
+    typeof percentage === "number"
+      ? `${formatPersianNumber(percentage, { useGrouping: false })}٪`
+      : valueText
+
   return (
     <span
       className={cn("cn-progress-value", className)}
       data-slot="progress-value"
       {...props}
     >
-      {children && valueText != null ? children(valueText) : valueText}
+      {children && persianValueText != null
+        ? children(persianValueText)
+        : persianValueText}
     </span>
   )
 }

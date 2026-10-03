@@ -59,7 +59,7 @@ function Popover({
       offset={sideOffset ?? offset}
       crossOffset={crossOffset}
       className={cn(
-        "cn-popover-content-aria z-50 w-72 origin-(--trigger-anchor-point) outline-hidden",
+        "cn-popover-content-aria z-50 w-72 origin-(--trigger-anchor-point) text-start outline-hidden",
         className
       )}
       {...props}

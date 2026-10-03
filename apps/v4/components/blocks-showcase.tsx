@@ -13,16 +13,16 @@ const fillBold = "bg-muted-foreground/18"
 const surface =
   "rounded-lg border border-border/70 bg-background shadow-sm"
 
-/** Outer shell shared by every category: grey stage + white card. */
+/** Outer shell shared by every category: light stage + white card. */
 function WireStage({
   children,
-  className = "w-[78%]",
+  className = "w-[88%]",
 }: {
   children: ReactNode
   className?: string
 }) {
   return (
-    <div className="flex size-full items-center justify-center bg-muted p-3">
+    <div className="flex size-full items-center justify-center bg-muted/50 p-1.5">
       <div className={`flex flex-col overflow-hidden ${surface} ${className}`}>
         {children}
       </div>
@@ -33,7 +33,7 @@ function WireStage({
 /** login-01 — کارت ورود روی پس‌زمینهٔ خاکستری */
 function WireframeFormsAuth() {
   return (
-    <WireStage className="w-[78%] gap-2 p-2.5">
+    <WireStage className="w-[90%] gap-1.5 p-2">
       <div className={`h-2.5 w-1/2 rounded-sm ${fillBold}`} />
       <div className={`h-1.5 w-3/4 rounded-sm ${fill}`} />
       <div className="mt-1 space-y-1">
@@ -55,12 +55,12 @@ function WireframeFormsAuth() {
 /** hero-01 — تیتر درشت + CTA داخل کارت */
 function WireframeMarketing() {
   return (
-    <WireStage className="w-[86%] items-center gap-2 px-4 py-5">
+    <WireStage className="w-[92%] items-center gap-1.5 px-3 py-3">
       <div className={`h-1.5 w-10 rounded-full ${fillMid}`} />
-      <div className={`h-3.5 w-[85%] rounded-sm ${fillBold}`} />
-      <div className={`h-3.5 w-[62%] rounded-sm ${fillBold}`} />
+      <div className={`h-3 w-[85%] rounded-sm ${fillBold}`} />
+      <div className={`h-3 w-[62%] rounded-sm ${fillBold}`} />
       <div className={`h-1.5 w-[52%] rounded-sm ${fill}`} />
-      <div className={`mt-1.5 h-7 w-[4.5rem] rounded-md ${fillBold}`} />
+      <div className={`mt-1 h-6 w-[4.5rem] rounded-md ${fillBold}`} />
     </WireStage>
   )
 }
@@ -208,7 +208,7 @@ function WireframeCommerce() {
 /** profile-01 — آواتار داخل کارت */
 function WireframeAccount() {
   return (
-    <WireStage className="w-[78%] items-center gap-2 px-4 py-4">
+    <WireStage className="w-[90%] items-center gap-1.5 px-3 py-3">
       <div
         className={`size-14 rounded-full border-2 border-muted ${fillBold} shadow-sm`}
       />
@@ -364,14 +364,14 @@ function WireframeBilling() {
 /** empty-state-01 — empty state داخل کارت */
 function WireframeStates() {
   return (
-    <WireStage className="w-[78%] items-center gap-2 px-4 py-5">
-      <div className="flex size-12 items-center justify-center rounded-xl border border-border/60 bg-muted">
-        <div className={`size-5 rounded-md ${fillMid}`} />
+    <WireStage className="w-[90%] items-center gap-1.5 px-3 py-3">
+      <div className="flex size-10 items-center justify-center rounded-xl border border-border/60 bg-muted/60">
+        <div className={`size-4 rounded-md ${fillMid}`} />
       </div>
-      <div className={`mt-1 h-2.5 w-24 rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-32 rounded-sm ${fill}`} />
-      <div className={`h-1.5 w-24 rounded-sm ${fill}`} />
-      <div className={`mt-1.5 h-7 w-[4.5rem] rounded-md ${fillBold}`} />
+      <div className={`mt-0.5 h-2 w-20 rounded-sm ${fillBold}`} />
+      <div className={`h-1.5 w-28 rounded-sm ${fill}`} />
+      <div className={`h-1.5 w-20 rounded-sm ${fill}`} />
+      <div className={`mt-1 h-6 w-[4.5rem] rounded-md ${fillBold}`} />
     </WireStage>
   )
 }
@@ -395,7 +395,7 @@ const WIREFRAMES: Record<string, () => JSX.Element> = {
 function CategoryWireframe({ slug }: { slug: string }) {
   const Frame = WIREFRAMES[slug] ?? WireframeStates
   return (
-    <div aria-hidden className="relative aspect-16/10 overflow-hidden">
+    <div aria-hidden className="relative aspect-16/9 overflow-hidden">
       <Frame />
     </div>
   )
@@ -403,7 +403,7 @@ function CategoryWireframe({ slug }: { slug: string }) {
 
 function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
   return (
-    <section className="flex min-w-0 flex-col gap-2">
+    <section className="flex min-w-0 flex-col gap-1.5">
       <div className="flex min-w-0 items-baseline gap-2">
         <h2
           data-block-title=""
@@ -446,7 +446,7 @@ export function BlocksShowcase({
       <div
         dir="rtl"
         lang="fa"
-        className="grid grid-cols-1 gap-5 pb-10 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid grid-cols-1 gap-3 pb-8 sm:grid-cols-2 lg:grid-cols-4"
       >
         {samples.map((sample) => (
           <SampleCard key={sample.categorySlug} sample={sample} />

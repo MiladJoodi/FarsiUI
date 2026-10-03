@@ -51,7 +51,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       images: [siteConfig.ogImage],
-      creator: "@shadcn",
+      creator: "@FarsiUI",
     },
   }
 }

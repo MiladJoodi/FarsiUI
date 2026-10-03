@@ -126,6 +126,7 @@ function SelectContent({
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}
+      dir={dir}
       {...props}
     >
       <SelectList>{children}</SelectList>
@@ -154,7 +155,7 @@ function SelectPopover({
       offset={offset}
       crossOffset={crossOffset}
       className={cn(
-        "cn-select-content-aria cn-menu-target cn-menu-translucent cn-menu-translucent-aria relative isolate z-50 w-(--trigger-width) origin-(--trigger-anchor-point) overflow-hidden",
+        "cn-select-content-aria cn-menu-target cn-menu-translucent cn-menu-translucent-aria relative isolate z-50 w-(--trigger-width) origin-(--trigger-anchor-point) overflow-hidden text-start",
         className
       )}
       {...props}

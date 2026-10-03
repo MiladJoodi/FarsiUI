@@ -31,7 +31,7 @@ function PopoverContent({
         sideOffset={sideOffset}
         dir={dir}
         className={cn(
-          "cn-popover-content z-50 w-72 origin-(--radix-popover-content-transform-origin) outline-hidden",
+          "cn-popover-content cn-popover-content-logical z-50 w-72 origin-(--radix-popover-content-transform-origin) text-start outline-hidden",
           className
         )}
         {...props}

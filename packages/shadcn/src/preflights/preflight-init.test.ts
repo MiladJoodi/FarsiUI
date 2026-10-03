@@ -64,7 +64,7 @@ const baseProjectInfo = {
     name: "next-app",
     label: "Next.js",
     links: {
-      installation: "https://ui.shadcn.com/docs/installation",
+      installation: "https://farsiui.ir/docs/installation",
       tailwind: "https://tailwindcss.com/docs/installation",
     },
   },
@@ -132,7 +132,7 @@ describe("preFlightInit", () => {
       "Configure path aliases in tsconfig.json or imports in package.json, then run init again."
     )
     expect(mockedLogger.error).toHaveBeenCalledWith(
-      "Learn more at https://ui.shadcn.com/docs/installation/manual#configure-import-aliases."
+      "Learn more at https://farsiui.ir/docs/installation/manual#configure-import-aliases."
     )
 
     exitSpy.mockRestore()
