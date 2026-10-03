@@ -552,7 +552,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "registry/bases/base/ui/input.tsx",
@@ -596,7 +596,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "registry/bases/base/ui/input-otp.tsx",
@@ -2672,6 +2672,22 @@ export const Index: Record<string, Record<string, any>> = {
       files: [
         {
           path: "registry/bases/base/lib/utils.ts",
+          type: "registry:lib",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    digits: {
+      name: "digits",
+      title: "undefined",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [
+        {
+          path: "registry/bases/base/lib/digits.ts",
           type: "registry:lib",
           target: "",
         },
@@ -14695,7 +14711,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-06": {
       name: "sidebar-06",
       title: "Sidebar 06",
-      description: "لایوت معکوس؛ سایدبار سمت چپ.",
+      description: "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -14728,6 +14744,22 @@ export const Index: Record<string, Record<string, any>> = {
       files: [
         {
           path: "registry/bases/base/hooks/use-mobile.ts",
+          type: "registry:hook",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "use-persian-digits-input": {
+      name: "use-persian-digits-input",
+      title: "undefined",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "registry/bases/base/hooks/use-persian-digits-input.ts",
           type: "registry:hook",
           target: "",
         },
@@ -15285,7 +15317,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "registry/bases/aria/ui/input.tsx",
@@ -15331,7 +15363,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "registry/bases/aria/ui/input-otp.tsx",
@@ -17329,6 +17361,22 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    digits: {
+      name: "digits",
+      title: "undefined",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [
+        {
+          path: "registry/bases/aria/lib/digits.ts",
+          type: "registry:lib",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     example: {
       name: "example",
       title: "Example",
@@ -17455,7 +17503,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-01": {
       name: "login-01",
       title: "Login 01",
-      description: "A simple login form.",
+      description: "فرم ورود ساده.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -17476,7 +17524,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-02": {
       name: "login-02",
       title: "Login 02",
-      description: "A two column login page with a cover image.",
+      description: "صفحه ورود دو ستونه با تصویر کاور.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -17497,7 +17545,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-03": {
       name: "login-03",
       title: "Login 03",
-      description: "A login page with a muted background color.",
+      description: "صفحه ورود با پس‌زمینه ملایم.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -17518,7 +17566,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-04": {
       name: "login-04",
       title: "Login 04",
-      description: "A login page with form and image.",
+      description: "صفحه ورود با فرم و تصویر.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -17539,7 +17587,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-05": {
       name: "login-05",
       title: "Login 05",
-      description: "A simple email-only login page.",
+      description: "صفحه ورود فقط با ایمیل.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -17560,7 +17608,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-01": {
       name: "signup-01",
       title: "Signup 01",
-      description: "A simple signup form.",
+      description: "فرم ثبت‌نام ساده.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label"],
       files: [
@@ -17581,7 +17629,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-02": {
       name: "signup-02",
       title: "Signup 02",
-      description: "A two column signup page with a cover image.",
+      description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -17602,7 +17650,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-03": {
       name: "signup-03",
       title: "Signup 03",
-      description: "A signup page with a muted background color.",
+      description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -17623,7 +17671,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-04": {
       name: "signup-04",
       title: "Signup 04",
-      description: "A signup page with form and image.",
+      description: "صفحه ثبت‌نام با فرم و تصویر.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -17644,7 +17692,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-05": {
       name: "signup-05",
       title: "Signup 05",
-      description: "A simple signup form with social providers.",
+      description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label"],
       files: [
@@ -17665,7 +17713,7 @@ export const Index: Record<string, Record<string, any>> = {
     "dashboard-01": {
       name: "dashboard-01",
       title: "Dashboard 01",
-      description: "A dashboard with sidebar, charts and data table.",
+      description: "داشبورد کامل با سایدبار راست، نمودار و جدول فارسی.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -17751,7 +17799,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-01": {
       name: "sidebar-01",
       title: "Sidebar 01",
-      description: "A simple sidebar with navigation grouped by section.",
+      description: "سایدبار با آیکن، offcanvas راست‌چین.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -17788,7 +17836,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-02": {
       name: "sidebar-02",
       title: "Sidebar 02",
-      description: "A sidebar with collapsible sections.",
+      description: "سایدبار متنی بدون آیکن.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -17825,7 +17873,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-03": {
       name: "sidebar-03",
       title: "Sidebar 03",
-      description: "A sidebar with submenus.",
+      description: "منوی تو در تو با گروه‌های جمع‌شونده.",
       type: "registry:block",
       registryDependencies: ["sidebar", "breadcrumb"],
       files: [
@@ -17846,7 +17894,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-04": {
       name: "sidebar-04",
       title: "Sidebar 04",
-      description: "A floating sidebar with submenus.",
+      description: "سایدبار شناور با کشوی نرم Popover.",
       type: "registry:block",
       registryDependencies: ["sidebar", "breadcrumb", "separator"],
       files: [
@@ -17867,7 +17915,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-05": {
       name: "sidebar-05",
       title: "Sidebar 05",
-      description: "A sidebar with collapsible submenus.",
+      description: "جمع‌شونده به نوار آیکن (inset).",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -17899,7 +17947,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-06": {
       name: "sidebar-06",
       title: "Sidebar 06",
-      description: "A sidebar with submenus as dropdowns.",
+      description: "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -17942,6 +17990,22 @@ export const Index: Record<string, Record<string, any>> = {
       files: [
         {
           path: "registry/bases/aria/hooks/use-mobile.ts",
+          type: "registry:hook",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "use-persian-digits-input": {
+      name: "use-persian-digits-input",
+      title: "undefined",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "registry/bases/aria/hooks/use-persian-digits-input.ts",
           type: "registry:hook",
           target: "",
         },
@@ -18499,7 +18563,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "registry/bases/radix/ui/input.tsx",
@@ -18543,7 +18607,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "registry/bases/radix/ui/input-otp.tsx",
@@ -20587,6 +20651,22 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    digits: {
+      name: "digits",
+      title: "undefined",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [
+        {
+          path: "registry/bases/radix/lib/digits.ts",
+          type: "registry:lib",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     example: {
       name: "example",
       title: "Example",
@@ -20712,7 +20792,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-01": {
       name: "login-01",
       title: "Login 01",
-      description: "A simple login form.",
+      description: "فرم ورود ساده.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -20733,7 +20813,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-02": {
       name: "login-02",
       title: "Login 02",
-      description: "A two column login page with a cover image.",
+      description: "صفحه ورود دو ستونه با تصویر کاور.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -20754,7 +20834,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-03": {
       name: "login-03",
       title: "Login 03",
-      description: "A login page with a muted background color.",
+      description: "صفحه ورود با پس‌زمینه ملایم.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -20775,7 +20855,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-04": {
       name: "login-04",
       title: "Login 04",
-      description: "A login page with form and image.",
+      description: "صفحه ورود با فرم و تصویر.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -20796,7 +20876,7 @@ export const Index: Record<string, Record<string, any>> = {
     "login-05": {
       name: "login-05",
       title: "Login 05",
-      description: "A simple email-only login page.",
+      description: "صفحه ورود فقط با ایمیل.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -20817,7 +20897,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-01": {
       name: "signup-01",
       title: "Signup 01",
-      description: "A simple signup form.",
+      description: "فرم ثبت‌نام ساده.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label"],
       files: [
@@ -20838,7 +20918,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-02": {
       name: "signup-02",
       title: "Signup 02",
-      description: "A two column signup page with a cover image.",
+      description: "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label", "field"],
       files: [
@@ -20859,7 +20939,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-03": {
       name: "signup-03",
       title: "Signup 03",
-      description: "A signup page with a muted background color.",
+      description: "صفحه ثبت‌نام با پس‌زمینه ملایم.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -20880,7 +20960,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-04": {
       name: "signup-04",
       title: "Signup 04",
-      description: "A signup page with form and image.",
+      description: "صفحه ثبت‌نام با فرم و تصویر.",
       type: "registry:block",
       registryDependencies: ["button", "card", "input", "label", "field"],
       files: [
@@ -20901,7 +20981,7 @@ export const Index: Record<string, Record<string, any>> = {
     "signup-05": {
       name: "signup-05",
       title: "Signup 05",
-      description: "A simple signup form with social providers.",
+      description: "فرم ثبت‌نام ساده با ورود اجتماعی.",
       type: "registry:block",
       registryDependencies: ["button", "input", "label"],
       files: [
@@ -20922,7 +21002,7 @@ export const Index: Record<string, Record<string, any>> = {
     "dashboard-01": {
       name: "dashboard-01",
       title: "Dashboard 01",
-      description: "A dashboard with sidebar, charts and data table.",
+      description: "داشبورد کامل با سایدبار راست، نمودار و جدول فارسی.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -21008,7 +21088,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-01": {
       name: "sidebar-01",
       title: "Sidebar 01",
-      description: "A simple sidebar with navigation grouped by section.",
+      description: "سایدبار با آیکن، offcanvas راست‌چین.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -21045,7 +21125,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-02": {
       name: "sidebar-02",
       title: "Sidebar 02",
-      description: "A sidebar with collapsible sections.",
+      description: "سایدبار متنی بدون آیکن.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -21082,7 +21162,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-03": {
       name: "sidebar-03",
       title: "Sidebar 03",
-      description: "A sidebar with submenus.",
+      description: "منوی تو در تو با گروه‌های جمع‌شونده.",
       type: "registry:block",
       registryDependencies: ["sidebar", "breadcrumb"],
       files: [
@@ -21103,7 +21183,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-04": {
       name: "sidebar-04",
       title: "Sidebar 04",
-      description: "A floating sidebar with submenus.",
+      description: "سایدبار شناور با کشوی نرم Popover.",
       type: "registry:block",
       registryDependencies: ["sidebar", "breadcrumb", "separator"],
       files: [
@@ -21124,7 +21204,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-05": {
       name: "sidebar-05",
       title: "Sidebar 05",
-      description: "A sidebar with collapsible submenus.",
+      description: "جمع‌شونده به نوار آیکن (inset).",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -21156,7 +21236,7 @@ export const Index: Record<string, Record<string, any>> = {
     "sidebar-06": {
       name: "sidebar-06",
       title: "Sidebar 06",
-      description: "A sidebar with submenus as dropdowns.",
+      description: "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
       type: "registry:block",
       registryDependencies: [
         "sidebar",
@@ -21199,6 +21279,22 @@ export const Index: Record<string, Record<string, any>> = {
       files: [
         {
           path: "registry/bases/radix/hooks/use-mobile.ts",
+          type: "registry:hook",
+          target: "",
+        },
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "use-persian-digits-input": {
+      name: "use-persian-digits-input",
+      title: "undefined",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: ["digits"],
+      files: [
+        {
+          path: "registry/bases/radix/hooks/use-persian-digits-input.ts",
           type: "registry:hook",
           target: "",
         },

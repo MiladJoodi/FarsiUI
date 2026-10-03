@@ -144,6 +144,7 @@ const shards: Record<
       "marker-example",
       "message-example",
       "utils",
+      "digits",
       "example",
       "reset-password-01",
       "reset-password-02",
@@ -639,6 +640,7 @@ const shards: Record<
       "sidebar-05",
       "sidebar-06",
       "use-mobile",
+      "use-persian-digits-input",
     ]),
   },
   aria: {
@@ -767,6 +769,7 @@ const shards: Record<
       "marker-example",
       "message-example",
       "utils",
+      "digits",
       "example",
       "preview",
       "preview-02",
@@ -789,6 +792,7 @@ const shards: Record<
       "sidebar-05",
       "sidebar-06",
       "use-mobile",
+      "use-persian-digits-input",
     ]),
   },
   radix: {
@@ -921,6 +925,7 @@ const shards: Record<
       "marker-example",
       "message-example",
       "utils",
+      "digits",
       "example",
       "preview",
       "preview-02",
@@ -943,6 +948,7 @@ const shards: Record<
       "sidebar-05",
       "sidebar-06",
       "use-mobile",
+      "use-persian-digits-input",
     ]),
   },
 }

@@ -753,6 +753,7 @@
   {
     "name": "input",
     "type": "registry:ui",
+    "registryDependencies": ["digits", "use-persian-digits-input"],
     "files": [
       {
         "path": "ui/input.tsx",
@@ -809,6 +810,7 @@
     "name": "input-otp",
     "type": "registry:ui",
     "dependencies": ["input-otp"],
+    "registryDependencies": ["digits"],
     "files": [
       {
         "path": "ui/input-otp.tsx",

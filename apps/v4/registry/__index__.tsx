@@ -7449,7 +7449,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-nova/ui/input.tsx",
@@ -7493,7 +7493,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-nova/ui/input-otp.tsx",
@@ -8827,7 +8827,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-nova/ui/input.tsx",
@@ -8871,7 +8871,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-nova/ui/input-otp.tsx",
@@ -10182,7 +10182,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-nova/ui/input.tsx",
@@ -10228,7 +10228,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-nova/ui/input-otp.tsx",
@@ -11524,7 +11524,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-vega/ui/input.tsx",
@@ -11568,7 +11568,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-vega/ui/input-otp.tsx",
@@ -12901,7 +12901,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-maia/ui/input.tsx",
@@ -12945,7 +12945,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-maia/ui/input-otp.tsx",
@@ -14278,7 +14278,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-lyra/ui/input.tsx",
@@ -14322,7 +14322,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-lyra/ui/input-otp.tsx",
@@ -15655,7 +15655,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-mira/ui/input.tsx",
@@ -15699,7 +15699,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-mira/ui/input-otp.tsx",
@@ -17032,7 +17032,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-luma/ui/input.tsx",
@@ -17076,7 +17076,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-luma/ui/input-otp.tsx",
@@ -18409,7 +18409,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-sera/ui/input.tsx",
@@ -18453,7 +18453,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-sera/ui/input-otp.tsx",
@@ -19786,7 +19786,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/base-rhea/ui/input.tsx",
@@ -19830,7 +19830,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/base-rhea/ui/input-otp.tsx",
@@ -21164,7 +21164,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-vega/ui/input.tsx",
@@ -21210,7 +21210,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-vega/ui/input-otp.tsx",
@@ -22507,7 +22507,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-maia/ui/input.tsx",
@@ -22553,7 +22553,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-maia/ui/input-otp.tsx",
@@ -23850,7 +23850,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-lyra/ui/input.tsx",
@@ -23896,7 +23896,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-lyra/ui/input-otp.tsx",
@@ -25193,7 +25193,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-mira/ui/input.tsx",
@@ -25239,7 +25239,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-mira/ui/input-otp.tsx",
@@ -26536,7 +26536,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-luma/ui/input.tsx",
@@ -26582,7 +26582,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-luma/ui/input-otp.tsx",
@@ -27879,7 +27879,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-sera/ui/input.tsx",
@@ -27925,7 +27925,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-sera/ui/input-otp.tsx",
@@ -29222,7 +29222,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/aria-rhea/ui/input.tsx",
@@ -29268,7 +29268,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/aria-rhea/ui/input-otp.tsx",
@@ -30565,7 +30565,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-vega/ui/input.tsx",
@@ -30609,7 +30609,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-vega/ui/input-otp.tsx",
@@ -31920,7 +31920,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-maia/ui/input.tsx",
@@ -31964,7 +31964,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-maia/ui/input-otp.tsx",
@@ -33275,7 +33275,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-lyra/ui/input.tsx",
@@ -33319,7 +33319,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-lyra/ui/input-otp.tsx",
@@ -34630,7 +34630,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-mira/ui/input.tsx",
@@ -34674,7 +34674,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-mira/ui/input-otp.tsx",
@@ -35985,7 +35985,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-luma/ui/input.tsx",
@@ -36029,7 +36029,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-luma/ui/input-otp.tsx",
@@ -37340,7 +37340,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-sera/ui/input.tsx",
@@ -37384,7 +37384,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-sera/ui/input-otp.tsx",
@@ -38695,7 +38695,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits", "use-persian-digits-input"],
       files: [
         {
           path: "styles/radix-rhea/ui/input.tsx",
@@ -38739,7 +38739,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["digits"],
       files: [
         {
           path: "styles/radix-rhea/ui/input-otp.tsx",

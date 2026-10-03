@@ -621,7 +621,7 @@
   },
   {
     "name": "dashboard-01",
-    "description": "A dashboard with sidebar, charts and data table.",
+    "description": "داشبورد کامل با سایدبار راست، نمودار و جدول فارسی.",
     "categories": ["dashboard"]
   },
   {
@@ -1331,27 +1331,27 @@
   },
   {
     "name": "login-01",
-    "description": "A simple login form.",
+    "description": "فرم ورود ساده.",
     "categories": ["authentication", "login"]
   },
   {
     "name": "login-02",
-    "description": "A two column login page with a cover image.",
+    "description": "صفحه ورود دو ستونه با تصویر کاور.",
     "categories": ["authentication", "login"]
   },
   {
     "name": "login-03",
-    "description": "A login page with a muted background color.",
+    "description": "صفحه ورود با پس‌زمینه ملایم.",
     "categories": ["authentication", "login"]
   },
   {
     "name": "login-04",
-    "description": "A login page with form and image.",
+    "description": "صفحه ورود با فرم و تصویر.",
     "categories": ["authentication", "login"]
   },
   {
     "name": "login-05",
-    "description": "A simple email-only login page.",
+    "description": "صفحه ورود فقط با ایمیل.",
     "categories": ["authentication", "login"]
   },
   {
@@ -2100,57 +2100,57 @@
   },
   {
     "name": "sidebar-01",
-    "description": "A simple sidebar with navigation grouped by section.",
+    "description": "سایدبار با آیکن، offcanvas راست‌چین.",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-02",
-    "description": "A sidebar with collapsible sections.",
+    "description": "سایدبار متنی بدون آیکن.",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-03",
-    "description": "A sidebar with submenus.",
+    "description": "منوی تو در تو با گروه‌های جمع‌شونده.",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-04",
-    "description": "A floating sidebar with submenus.",
+    "description": "سایدبار شناور با کشوی نرم Popover.",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-05",
-    "description": "A sidebar with collapsible submenus.",
+    "description": "جمع‌شونده به نوار آیکن (inset).",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-06",
-    "description": "A sidebar with submenus as dropdowns.",
+    "description": "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
     "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "signup-01",
-    "description": "A simple signup form.",
+    "description": "فرم ثبت‌نام ساده.",
     "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-02",
-    "description": "A two column signup page with a cover image.",
+    "description": "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
     "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-03",
-    "description": "A signup page with a muted background color.",
+    "description": "صفحه ثبت‌نام با پس‌زمینه ملایم.",
     "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-04",
-    "description": "A signup page with form and image.",
+    "description": "صفحه ثبت‌نام با فرم و تصویر.",
     "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-05",
-    "description": "A simple signup form with social providers.",
+    "description": "فرم ثبت‌نام ساده با ورود اجتماعی.",
     "categories": ["authentication", "signup"]
   },
   {

@@ -4,7 +4,7 @@
 import "server-only"
 
 export const ExamplesIndex: Record<string, Record<string, any>> = {
-  "base": {
+  base: {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/base/accordion-basic.tsx",
@@ -2086,7 +2086,7 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       filePath: "examples/base/typography-table.tsx",
     },
   },
-  "aria": {
+  aria: {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/aria/accordion-basic.tsx",
@@ -4096,7 +4096,7 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       filePath: "examples/aria/typography-table.tsx",
     },
   },
-  "radix": {
+  radix: {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/radix/accordion-basic.tsx",

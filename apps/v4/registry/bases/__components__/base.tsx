@@ -1080,6 +1080,14 @@ export const Components: Record<string, any> = {
       ) || "utils"
     return { default: mod.default || mod[exportName] }
   }),
+  digits: React.lazy(async () => {
+    const mod = await import("@/registry/bases/base/lib/digits")
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "digits"
+    return { default: mod.default || mod[exportName] }
+  }),
   example: React.lazy(async () => {
     const mod = await import("@/registry/bases/base/components/example")
     const exportName =
@@ -5516,6 +5524,16 @@ export const Components: Record<string, any> = {
       Object.keys(mod).find(
         (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
       ) || "use-mobile"
+    return { default: mod.default || mod[exportName] }
+  }),
+  "use-persian-digits-input": React.lazy(async () => {
+    const mod = await import(
+      "@/registry/bases/base/hooks/use-persian-digits-input"
+    )
+    const exportName =
+      Object.keys(mod).find(
+        (key) => typeof mod[key] === "function" || typeof mod[key] === "object"
+      ) || "use-persian-digits-input"
     return { default: mod.default || mod[exportName] }
   }),
 }
