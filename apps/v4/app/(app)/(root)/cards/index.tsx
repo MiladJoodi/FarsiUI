@@ -1,6 +1,12 @@
 "use client"
 
-import type { MouseEvent, ReactNode } from "react"
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+} from "react"
 import { MessageScrollerDemo } from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
@@ -46,9 +52,7 @@ import { UIElements as SkeletonUIElements } from "./skeleton/ui-elements"
 import { UIElements } from "./ui-elements"
 
 /** Design width of the mobile collage before it is scaled into 140vw (shadcn pattern). */
-const MOBILE_DESIGN_WIDTH = 1400
-/** Approximate unscaled collage height used to size the scaled viewport. */
-const MOBILE_DESIGN_HEIGHT = 1680
+const MOBILE_DESIGN_WIDTH = 1600
 
 /**
  * Decorative strip pinned to the bottom fade only.
@@ -114,20 +118,115 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
   event.preventDefault()
 }
 
+/** Same five columns / same cards as desktop — always fully visible in the mobile collage. */
+function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
+  const col = (visibleFrom: string) =>
+    forceAll
+      ? "flex h-full min-w-0 flex-col gap-(--gap)"
+      : `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
+
+  return (
+    <div
+      className={
+        forceAll
+          ? "relative z-10 grid grid-cols-5 items-stretch gap-(--gap) **:data-[slot=card]:w-full"
+          : "relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]"
+      }
+    >
+      <div className="flex h-full min-w-0 flex-col gap-(--gap)">
+        <UIElements />
+        <CalendarCard />
+        <SidebarNav />
+        <MenubarCard />
+        <SyncingStateCard />
+        <PayoutThreshold />
+        <FadeTail>
+          <PayoutThreshold />
+        </FadeTail>
+      </div>
+      <div className={col("lg:flex")}>
+        <ContributionHistory />
+        <ClaimableBalance />
+        <DividendIncome />
+        <TabsCard />
+        <FaqCard />
+        <FadeTail>
+          <ClaimableBalance />
+        </FadeTail>
+      </div>
+      <div className={col("min-[1400px]:flex")}>
+        <NewMilestone />
+        <SavingsTargets />
+        <AccountAccess />
+        <NavigationMenuCard />
+        <DropdownDrawerHover />
+        <ShortcutsCard />
+        <FadeTail>
+          <AccountAccess />
+        </FadeTail>
+      </div>
+      <div className={col("md:flex")}>
+        <div className="**:[.text-center.text-xs]:hidden">
+          <MessageScrollerDemo />
+        </div>
+        <Payments />
+        <PopoverSliderToastToggle />
+        <ContextMenuCard />
+        <AttachmentCard />
+        <InviteTeamCard />
+        <FadeTail>
+          <Payments />
+        </FadeTail>
+      </div>
+      <div className={col("min-[1900px]:flex")}>
+        <EmptyDistributeTrack />
+        <AnalyticsCard />
+        <NotificationSettings />
+        <PowerUsage />
+        <MarkerAvatarAlert />
+        <SocialLinksCard />
+        <FadeTail>
+          <NotificationSettings />
+        </FadeTail>
+      </div>
+    </div>
+  )
+}
+
 /**
- * Mobile: same idea as shadcn's full-light/full-dark screenshots —
- * a desktop-width multi-column collage scaled into 140vw so cards look dense
- * and bleed off-screen. Live Persian components; nothing removed.
+ * Mobile: desktop collage scaled into 140vw (shadcn pattern).
+ * Same cards/columns as desktop; only a bottom fade (no top wash).
  */
 export function CardsDemoMobile() {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [frameHeight, setFrameHeight] = useState<number>()
+
+  useLayoutEffect(() => {
+    const inner = innerRef.current
+    if (!inner) return
+
+    const update = () => {
+      const scale = (window.innerWidth * 1.4) / MOBILE_DESIGN_WIDTH
+      setFrameHeight(inner.offsetHeight * scale)
+    }
+
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(inner)
+    window.addEventListener("resize", update)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener("resize", update)
+    }
+  }, [])
+
   return (
     <div
       className="relative w-full overflow-hidden bg-muted dark:bg-background"
-      style={{
-        height: `calc(${MOBILE_DESIGN_HEIGHT} * 140vw / ${MOBILE_DESIGN_WIDTH})`,
-      }}
+      style={frameHeight ? { height: frameHeight } : undefined}
     >
       <div
+        ref={innerRef}
         data-slot="demo"
         dir="rtl"
         lang="fa"
@@ -139,71 +238,15 @@ export function CardsDemoMobile() {
           transformOrigin: "top right",
         }}
       >
-        <div className="relative z-10 grid grid-cols-4 items-start gap-(--gap) **:data-[slot=card]:w-full">
-          <div className="flex min-w-0 flex-col gap-(--gap)">
-            <UIElements />
-            <CalendarCard />
-            <SidebarNav />
-            <MenubarCard />
-            <SyncingStateCard />
-            <PayoutThreshold />
-            <FadeTail>
-              <PayoutThreshold />
-            </FadeTail>
-          </div>
-          <div className="flex min-w-0 flex-col gap-(--gap)">
-            <ContributionHistory />
-            <ClaimableBalance />
-            <DividendIncome />
-            <TabsCard />
-            <FaqCard />
-            <FadeTail>
-              <ClaimableBalance />
-            </FadeTail>
-          </div>
-          <div className="flex min-w-0 flex-col gap-(--gap)">
-            <div className="**:[.text-center.text-xs]:hidden">
-              <MessageScrollerDemo />
-            </div>
-            <Payments />
-            <PopoverSliderToastToggle />
-            <ContextMenuCard />
-            <AttachmentCard />
-            <InviteTeamCard />
-            <FadeTail>
-              <Payments />
-            </FadeTail>
-          </div>
-          <div className="flex min-w-0 flex-col gap-(--gap)">
-            <NewMilestone />
-            <SavingsTargets />
-            <AccountAccess />
-            <EmptyDistributeTrack />
-            <AnalyticsCard />
-            <NotificationSettings />
-            <PowerUsage />
-            <MarkerAvatarAlert />
-            <NavigationMenuCard />
-            <DropdownDrawerHover />
-            <ShortcutsCard />
-            <SocialLinksCard />
-            <FadeTail>
-              <NotificationSettings />
-            </FadeTail>
-          </div>
-        </div>
+        <CardsColumns forceAll />
       </div>
-      {/* Fades sit on the unscaled clip frame so they match desktop (not crushed by transform). */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+      {/* Bottom fade only — same idea as desktop end wash, not scaled away. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
 }
 
 export function CardsDemo() {
-  const col = (visibleFrom: string) =>
-    `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
-
   return (
     <div
       data-slot="demo"
@@ -213,64 +256,7 @@ export function CardsDemo() {
       className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
       <CardsSkeletonRails />
-      <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">
-        <div className="flex h-full flex-col gap-(--gap)">
-          <UIElements />
-          <CalendarCard />
-          <SidebarNav />
-          <MenubarCard />
-          <SyncingStateCard />
-          <PayoutThreshold />
-          <FadeTail>
-            <PayoutThreshold />
-          </FadeTail>
-        </div>
-        <div className={col("lg:flex")}>
-          <ContributionHistory />
-          <ClaimableBalance />
-          <DividendIncome />
-          <TabsCard />
-          <FaqCard />
-          <FadeTail>
-            <ClaimableBalance />
-          </FadeTail>
-        </div>
-        <div className={col("min-[1400px]:flex")}>
-          <NewMilestone />
-          <SavingsTargets />
-          <AccountAccess />
-          <NavigationMenuCard />
-          <DropdownDrawerHover />
-          <ShortcutsCard />
-          <FadeTail>
-            <AccountAccess />
-          </FadeTail>
-        </div>
-        <div className={col("md:flex")}>
-          <div className="**:[.text-center.text-xs]:hidden">
-            <MessageScrollerDemo />
-          </div>
-          <Payments />
-          <PopoverSliderToastToggle />
-          <ContextMenuCard />
-          <AttachmentCard />
-          <InviteTeamCard />
-          <FadeTail>
-            <Payments />
-          </FadeTail>
-        </div>
-        <div className={col("min-[1900px]:flex")}>
-          <EmptyDistributeTrack />
-          <AnalyticsCard />
-          <NotificationSettings />
-          <PowerUsage />
-          <MarkerAvatarAlert />
-          <SocialLinksCard />
-          <FadeTail>
-            <NotificationSettings />
-          </FadeTail>
-        </div>
-      </div>
+      <CardsColumns />
       <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 dark:via-background/80" />
     </div>
