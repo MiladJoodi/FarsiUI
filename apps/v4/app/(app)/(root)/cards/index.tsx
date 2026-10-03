@@ -122,7 +122,7 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
 export function CardsDemoMobile() {
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden bg-muted dark:bg-background"
       style={{
         height: `calc(${MOBILE_DESIGN_HEIGHT} * 140vw / ${MOBILE_DESIGN_WIDTH})`,
       }}
@@ -192,9 +192,10 @@ export function CardsDemoMobile() {
             </FadeTail>
           </div>
         </div>
-        <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
-        <div className="absolute inset-x-0 bottom-0 z-20 h-48 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
       </div>
+      {/* Fades sit on the unscaled clip frame so they match desktop (not crushed by transform). */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
 }

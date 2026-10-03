@@ -50,7 +50,7 @@ export function PricingCards() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center bg-background px-6 py-16 md:px-10"
     >
       <div className="mb-10 text-center">
         <h2 className="text-3xl font-bold tracking-tight">پلن مناسب خود را انتخاب کنید</h2>
@@ -90,10 +90,10 @@ export function PricingCards() {
                 ))}
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="border-t-0 bg-transparent">
               <Button
                 className="w-full"
-                variant={plan.popular ? "default" : "secondary"}
+                variant={plan.popular ? "default" : "outline"}
               >
                 {plan.cta}
               </Button>

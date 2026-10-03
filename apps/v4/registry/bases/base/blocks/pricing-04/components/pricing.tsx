@@ -21,7 +21,7 @@ export function PricingCompare() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center bg-background px-6 py-16 md:px-10"
     >
       <div className="mb-10 text-center">
         <Badge variant="outline" className="mb-3">
@@ -87,7 +87,7 @@ export function PricingCompare() {
                 >
                   <Button
                     size="sm"
-                    variant={index === 1 ? "default" : "secondary"}
+                    variant={index === 1 ? "default" : "outline"}
                     className="w-full max-w-36"
                   >
                     {label}

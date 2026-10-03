@@ -75,7 +75,7 @@ export function PricingShowcase() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center gap-14 px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center gap-14 bg-background px-6 py-16 md:px-10"
     >
       <div className="text-center">
         <Badge className="mb-3">قیمت‌گذاری</Badge>
@@ -131,11 +131,11 @@ export function PricingShowcase() {
                 ))}
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="border-t-0 bg-transparent">
               <Button
                 className="w-full"
                 variant={
-                  "popular" in plan && plan.popular ? "default" : "secondary"
+                  "popular" in plan && plan.popular ? "default" : "outline"
                 }
               >
                 {plan.monthly === "سفارشی" ? "گفتگو با فروش" : "شروع کنید"}

@@ -15,7 +15,7 @@ const PLANS = [
     price: "۰",
     period: "رایگان برای همیشه",
     cta: "شروع کنید",
-    variant: "secondary" as const,
+    variant: "outline" as const,
   },
   {
     name: "حرفه‌ای",
@@ -31,7 +31,7 @@ export function PricingSimple() {
     <section
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center bg-background px-6 py-16 md:px-10"
     >
       <div className="mb-10 text-center">
         <h2 className="text-3xl font-bold tracking-tight">قیمت‌گذاری ساده</h2>
@@ -49,7 +49,7 @@ export function PricingSimple() {
                 <span>{plan.period}</span>
               </CardDescription>
             </CardHeader>
-            <CardFooter>
+            <CardFooter className="border-t-0 bg-transparent">
               <Button className="w-full" variant={plan.variant}>
                 {plan.cta}
               </Button>

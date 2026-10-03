@@ -132,11 +132,23 @@ export function BlockCard({
   const syncIframeTheme = React.useCallback(() => {
     const body = iframeRef.current?.contentDocument?.body
     if (!body) return
+    const theme =
+      activeTheme === "default" ? "neutral" : activeTheme
+    const styleMatch = styleName.match(/^(?:base|radix|aria)-(.+)$/)
+    const styleRoot = styleMatch ? `style-${styleMatch[1]}` : "style-nova"
+
     Array.from(body.classList)
-      .filter((className) => className.startsWith("theme-"))
+      .filter(
+        (className) =>
+          className.startsWith("theme-") || className.startsWith("style-")
+      )
       .forEach((className) => body.classList.remove(className))
-    body.classList.add(`theme-${activeTheme}`)
-  }, [activeTheme])
+
+    body.classList.add(`theme-${theme}`, styleRoot)
+    if (theme.endsWith("-scaled")) {
+      body.classList.add("theme-scaled")
+    }
+  }, [activeTheme, styleName])
 
   const handleIframeLoad = React.useCallback(() => {
     setPreviewLoaded(true)
