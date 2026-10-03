@@ -20,12 +20,6 @@
 - [Installation](https://farsiui.ir/docs/installation): Choose a framework and set up FarsiUI.
 - [Next.js](https://farsiui.ir/docs/installation/next): Install FarsiUI in a Next.js project.
 - [Vite](https://farsiui.ir/docs/installation/vite): Install FarsiUI in a Vite project.
-- [Laravel](https://farsiui.ir/docs/installation/laravel): Install FarsiUI in a Laravel project.
-- [React Router](https://farsiui.ir/docs/installation/react-router): Install FarsiUI in a React Router project.
-- [Remix](https://farsiui.ir/docs/installation/remix): Install FarsiUI in a Remix project.
-- [Astro](https://farsiui.ir/docs/installation/astro): Install FarsiUI in an Astro project.
-- [TanStack Start](https://farsiui.ir/docs/installation/tanstack): Install FarsiUI in a TanStack Start project.
-- [TanStack Router](https://farsiui.ir/docs/installation/tanstack-router): Install FarsiUI in a TanStack Router project.
 - [Manual Installation](https://farsiui.ir/docs/installation/manual): Install FarsiUI without the CLI.
 
 ## Components

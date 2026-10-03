@@ -1,66 +1,66 @@
 ---
 title: Next.js
-description: Install and configure shadcn/ui for Next.js.
+description: نصب و پیکربندی FarsiUI برای Next.js.
 ---
 
-Choose the setup that matches your starting point.
+بسته به نقطه شروع پروژه، یکی از روش‌های زیر را انتخاب کنید.
 
 <div className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-6">
   <LinkedCard
     href="#scaffold-with-cli"
     className="items-start gap-1 p-6 text-sm md:p-6"
   >
-    <div className="font-medium">Use the CLI</div>
+    <div className="font-medium">استفاده از CLI</div>
     <div className="leading-relaxed text-muted-foreground">
-      Scaffold a new Next.js project directly from the terminal.
+      ساخت یک پروژه جدید Next.js مستقیماً از طریق ترمینال.
     </div>
   </LinkedCard>
   <LinkedCard
     href="#existing-next-project"
     className="items-start gap-1 p-6 text-sm md:p-6"
   >
-    <div className="font-medium">Existing Project</div>
+    <div className="font-medium">پروژه موجود</div>
     <div className="leading-relaxed text-muted-foreground">
-      Configure shadcn/ui manually in an existing Next.js project.
+      پیکربندی FarsiUI در یک پروژه موجود Next.js.
     </div>
   </LinkedCard>
 </div>
 
+<div id="scaffold-with-cli" className="scroll-mt-24" />
 
-
-## Use the CLI
+## استفاده از CLI
 
 <Steps>
 
-### Create Project
+### ساخت پروژه
 
-Run the `init` command to scaffold a new Next.js project. Follow the prompts to configure your project: base, preset, monorepo, and more.
-
-```bash
-npx shadcn@latest init -t next
-```
-
-**For a monorepo project, use `--monorepo` flag:**
+دستور **`init`** را اجرا کنید تا یک پروژه جدید Next.js ساخته شود. در ادامه می‌توانید تنظیمات پروژه مانند base، preset، monorepo و موارد دیگر را انتخاب کنید.
 
 ```bash
-npx shadcn@latest init -t next --monorepo
+npx farsiui@latest init -t next
 ```
 
-### Add Components
-
-Add the `Card` component to your project:
+**برای پروژه‌های monorepo از فلگ `--monorepo` استفاده کنید:**
 
 ```bash
-npx shadcn@latest add card
+npx farsiui@latest init -t next --monorepo
 ```
 
-If you created a monorepo, run the command from `apps/web` or specify the workspace from the repo root:
+### افزودن کامپوننت‌ها
+
+کامپوننت **`Card`** را به پروژه خود اضافه کنید:
 
 ```bash
-npx shadcn@latest add card -c apps/web
+npx farsiui@latest add card
 ```
 
-The command above will add the `Card` component to your project. You can then import it like this:
+اگر پروژه را به‌صورت monorepo ساخته‌اید، دستور را از مسیر **`apps/web`** اجرا کنید یا workspace را از ریشه پروژه مشخص کنید:
+
+```bash
+npx farsiui@latest add card -c apps/web
+```
+
+دستور بالا کامپوننت **`Card`** را به پروژه اضافه می‌کند. سپس می‌توانید آن را به شکل زیر import کنید:
 
 ```tsx showLineNumbers title="app/page.tsx"
 import {
@@ -75,53 +75,54 @@ export default function Home() {
   return (
     <Card className="max-w-sm">
       <CardHeader>
-        <CardTitle>Project Overview</CardTitle>
+        <CardTitle>نمای کلی پروژه</CardTitle>
         <CardDescription>
-          Track progress and recent activity for your Next.js app.
+          پیشرفت و فعالیت‌های اخیر اپلیکیشن Next.js خود را دنبال کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        Your design system is ready. Start building your next component.
+        سیستم طراحی شما آماده است. ساخت کامپوننت بعدی را شروع کنید.
       </CardContent>
     </Card>
   )
 }
 ```
 
-If you created a monorepo, update `apps/web/app/page.tsx` and import from `@workspace/ui/components/card` instead.
+اگر پروژه را به‌صورت monorepo ساخته‌اید، فایل **`apps/web/app/page.tsx`** را ویرایش کنید و کامپوننت را از **`@workspace/ui/components/card`** import کنید.
 
 </Steps>
 
 <div id="existing-next-project" className="scroll-mt-24" />
-## Existing Project
+
+## پروژه موجود
 
 <Steps>
 
-### Create Project
+### ساخت پروژه
 
-If you need a new Next.js project, create one with `create-next-app`. Otherwise, skip this step.
+اگر به یک پروژه جدید Next.js نیاز دارید، آن را با **`create-next-app`** بسازید. در غیر این صورت، از این مرحله عبور کنید.
 
 ```bash
 npx create-next-app@latest
 ```
 
-Choose the recommended defaults so Tailwind CSS, the App Router, and the default `@/*` import alias are configured for you.
+تنظیمات پیشنهادی را انتخاب کنید تا Tailwind CSS، App Router و alias پیش‌فرض **`@/*`** برای شما پیکربندی شوند.
 
-If you prefer a `src/` directory, use `--src-dir` or choose `Yes` when prompted:
+اگر ترجیح می‌دهید از دایرکتوری **`src/`** استفاده کنید، فلگ **`--src-dir`** را اضافه کنید یا هنگام ایجاد پروژه گزینه **Yes** را انتخاب کنید:
 
 ```bash
 npx create-next-app@latest --src-dir
 ```
 
-With `--src-dir`, Next.js places your app in `src/app` and configures the `@/*` alias to point to `./src/*`.
+با استفاده از **`--src-dir`**، Next.js اپلیکیشن شما را در **`src/app`** قرار می‌دهد و alias **`@/*`** را به **`./src/*`** تنظیم می‌کند.
 
-### Configure Tailwind CSS and Import Aliases
+### پیکربندی Tailwind CSS و Import Alias
 
-If you created your project with the recommended `create-next-app` defaults, you can skip this step.
+اگر پروژه را با تنظیمات پیشنهادی **`create-next-app`** ساخته‌اید، می‌توانید از این مرحله عبور کنید.
 
-If you're adding shadcn/ui to an older or custom Next.js app, make sure Tailwind CSS is installed first. You can follow the official [Next.js installation guide](https://nextjs.org/docs/app/getting-started).
+اگر FarsiUI را به یک پروژه قدیمی یا سفارشی Next.js اضافه می‌کنید، ابتدا مطمئن شوید Tailwind CSS نصب شده است. می‌توانید راهنمای رسمی [نصب Next.js](https://nextjs.org/docs/app/getting-started) را دنبال کنید.
 
-Then make sure your `tsconfig.json` includes the `@/*` import alias:
+سپس مطمئن شوید فایل **`tsconfig.json`** شامل alias مربوط به **`@/*`** است:
 
 ```json title="tsconfig.json" showLineNumbers
 {
@@ -133,25 +134,25 @@ Then make sure your `tsconfig.json` includes the `@/*` import alias:
 }
 ```
 
-If you used `--src-dir`, point the alias to `./src/*` instead.
+اگر از **`--src-dir`** استفاده کرده‌اید، alias را به **`./src/*`** تغییر دهید.
 
-### Run the CLI
+### اجرای CLI
 
-Run the `shadcn` init command to set up shadcn/ui in your project.
-
-```bash
-npx shadcn@latest init
-```
-
-### Add Components
-
-You can now start adding components to your project.
+دستور **`init`** مربوط به FarsiUI را اجرا کنید تا FarsiUI در پروژه شما پیکربندی شود.
 
 ```bash
-npx shadcn@latest add button
+npx farsiui@latest init
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+### افزودن کامپوننت‌ها
+
+حالا می‌توانید کامپوننت‌های موردنیاز خود را به پروژه اضافه کنید.
+
+```bash
+npx farsiui@latest add button
+```
+
+دستور بالا کامپوننت **`Button`** را به پروژه اضافه می‌کند. سپس می‌توانید آن را به شکل زیر import کنید:
 
 ```tsx showLineNumbers title="app/page.tsx"
 import { Button } from "@/components/ui/button"
@@ -159,12 +160,12 @@ import { Button } from "@/components/ui/button"
 export default function Home() {
   return (
     <div className="flex min-h-svh items-center justify-center">
-      <Button>Click me</Button>
+      <Button>کلیک کنید</Button>
     </div>
   )
 }
 ```
 
-If you used `--src-dir`, add the component to `src/app/page.tsx` instead.
+اگر از **`--src-dir`** استفاده کرده‌اید، کامپوننت را در فایل **`src/app/page.tsx`** اضافه کنید.
 
 </Steps>

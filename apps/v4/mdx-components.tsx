@@ -51,7 +51,7 @@ function getComponentsFolder() {
 }
 
 // This is only used on /docs/components/ index page, so default to base.
-function ComponentsListWrapper({ variant }: { variant?: "all" | "new" }) {
+function ComponentsListWrapper() {
   const componentsFolder = getComponentsFolder()
 
   if (!componentsFolder) {
@@ -59,11 +59,7 @@ function ComponentsListWrapper({ variant }: { variant?: "all" | "new" }) {
   }
 
   return (
-    <ComponentsList
-      componentsFolder={componentsFolder}
-      currentBase="base"
-      variant={variant}
-    />
+    <ComponentsList componentsFolder={componentsFolder} currentBase="base" />
   )
 }
 

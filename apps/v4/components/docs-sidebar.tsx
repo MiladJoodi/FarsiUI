@@ -36,10 +36,13 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const ACTIVE_ITEM_CLASS =
-  "relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+  "relative h-6 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
 
 const ACTIVE_SECTION_CLASS =
-  "relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+  "relative h-6 w-fit overflow-visible border border-transparent py-0 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+
+const GROUP_TRIGGER_CLASS =
+  "flex h-6 w-full cursor-pointer items-center gap-1 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "مقدمه", href: "/docs" },
@@ -361,14 +364,23 @@ function DocsSidebarBody({
     ? []
     : filteredGroups.filter((group) => !group.isComponents)
 
-  const isComponentsPath = pathname.startsWith("/docs/components")
-  const [componentsOpen, setComponentsOpen] = React.useState(true)
+  const [openGroups, setOpenGroups] = React.useState<Record<string, boolean>>(
+    {}
+  )
 
-  React.useEffect(() => {
-    if (isComponentsPath) {
-      setComponentsOpen(true)
-    }
-  }, [isComponentsPath])
+  const isGroupOpen = React.useCallback(
+    (id: string) => {
+      if (debouncedQuery) {
+        return true
+      }
+      return openGroups[id] ?? false
+    },
+    [debouncedQuery, openGroups]
+  )
+
+  const setGroupOpen = React.useCallback((id: string, open: boolean) => {
+    setOpenGroups((prev) => ({ ...prev, [id]: open }))
+  }, [])
 
   const hasResults =
     filteredSections.length > 0 || filteredGroups.length > 0
@@ -450,15 +462,16 @@ function DocsSidebarBody({
           </div>
         ) : null}
         {filteredSections.length > 0 ? (
-          <SidebarGroup className="pt-1">
-            <SidebarGroupLabel className="font-medium text-muted-foreground">
+          <SidebarGroup className="p-1 pt-1">
+            <SidebarGroupLabel className="h-6 font-medium text-muted-foreground">
               بخش‌ها
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu>
+              <SidebarMenu className="gap-0">
                 {filteredSections.map(({ name, href }) => (
                   <SidebarMenuItem key={name}>
                     <SidebarMenuButton
+                      size="sm"
                       asChild
                       isActive={
                         href === "/docs"
@@ -486,10 +499,10 @@ function DocsSidebarBody({
         ) : null}
 
         {componentGroup ? (
-          <SidebarGroup className={componentsOnly ? "pt-1" : undefined}>
+          <SidebarGroup className={componentsOnly ? "p-1 pt-1" : "p-1"}>
             {componentsOnly ? (
               <SidebarGroupContent>
-                <SidebarMenu className="gap-0.5">
+                <SidebarMenu className="gap-0">
                   {componentGroup.pages.map((page) => {
                     const { fa, en } = splitDocTitle(String(page.name))
                     const isNew = PAGES_NEW.includes(page.url)
@@ -497,6 +510,7 @@ function DocsSidebarBody({
                     return (
                       <SidebarMenuItem key={page.url}>
                         <SidebarMenuButton
+                          size="sm"
                           asChild
                           isActive={page.url === pathname}
                           className={ACTIVE_ITEM_CLASS}
@@ -538,17 +552,17 @@ function DocsSidebarBody({
               </SidebarGroupContent>
             ) : (
               <Collapsible
-                open={componentsOpen}
-                onOpenChange={setComponentsOpen}
+                open={isGroupOpen("components")}
+                onOpenChange={(open) => setGroupOpen("components", open)}
                 className="group/components-root"
               >
-                <CollapsibleTrigger className="flex h-8 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground">
+                <CollapsibleTrigger className={GROUP_TRIGGER_CLASS}>
                   <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/components-root:rotate-90" />
                   <span>کامپوننت‌ها</span>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <SidebarGroupContent>
-                    <SidebarMenu className="gap-0.5">
+                    <SidebarMenu className="gap-0">
                       {componentGroup.pages.map((page) => {
                         const { fa, en } = splitDocTitle(String(page.name))
                         const isNew = PAGES_NEW.includes(page.url)
@@ -556,6 +570,7 @@ function DocsSidebarBody({
                         return (
                           <SidebarMenuItem key={page.url}>
                             <SidebarMenuButton
+                              size="sm"
                               asChild
                               isActive={page.url === pathname}
                               className={ACTIVE_ITEM_CLASS}
@@ -602,58 +617,68 @@ function DocsSidebarBody({
         ) : null}
 
         {otherGroups.map((group) => (
-          <SidebarGroup key={group.id}>
-            <SidebarGroupLabel className="font-medium text-muted-foreground">
-              {group.name}
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu className="gap-0.5">
-                {group.pages.map((page) => {
-                  const { fa, en } = splitDocTitle(String(page.name))
-                  const isNew = PAGES_NEW.includes(page.url)
+          <SidebarGroup key={group.id} className="p-1">
+            <Collapsible
+              open={isGroupOpen(group.id)}
+              onOpenChange={(open) => setGroupOpen(group.id, open)}
+              className="group/docs-folder"
+            >
+              <CollapsibleTrigger className={GROUP_TRIGGER_CLASS}>
+                <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/docs-folder:rotate-90" />
+                <span>{group.name}</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <SidebarGroupContent>
+                  <SidebarMenu className="gap-0">
+                    {group.pages.map((page) => {
+                      const { fa, en } = splitDocTitle(String(page.name))
+                      const isNew = PAGES_NEW.includes(page.url)
 
-                  return (
-                    <SidebarMenuItem key={page.url}>
-                      <SidebarMenuButton
-                        asChild
-                        isActive={page.url === pathname}
-                        className={ACTIVE_ITEM_CLASS}
-                      >
-                        <Link
-                          href={page.url}
-                          className="flex w-full min-w-0 items-center gap-2"
-                        >
-                          <span className="flex min-w-0 shrink items-center gap-1.5">
-                            <span className="truncate">{fa}</span>
-                            {isNew ? (
-                              <span
-                                className="flex size-2 shrink-0 rounded-full bg-blue-500"
-                                title="New"
-                              />
-                            ) : null}
-                          </span>
-                          {en ? (
-                            <>
-                              <span
-                                aria-hidden
-                                className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
-                              />
-                              <span
-                                dir="ltr"
-                                lang="en"
-                                className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                              >
-                                {en}
+                      return (
+                        <SidebarMenuItem key={page.url}>
+                          <SidebarMenuButton
+                            size="sm"
+                            asChild
+                            isActive={page.url === pathname}
+                            className={ACTIVE_ITEM_CLASS}
+                          >
+                            <Link
+                              href={page.url}
+                              className="flex w-full min-w-0 items-center gap-2"
+                            >
+                              <span className="flex min-w-0 shrink items-center gap-1.5">
+                                <span className="truncate">{fa}</span>
+                                {isNew ? (
+                                  <span
+                                    className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                    title="New"
+                                  />
+                                ) : null}
                               </span>
-                            </>
-                          ) : null}
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  )
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
+                              {en ? (
+                                <>
+                                  <span
+                                    aria-hidden
+                                    className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                                  />
+                                  <span
+                                    dir="ltr"
+                                    lang="en"
+                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                  >
+                                    {en}
+                                  </span>
+                                </>
+                              ) : null}
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      )
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </CollapsibleContent>
+            </Collapsible>
           </SidebarGroup>
         ))}
       </SidebarContent>

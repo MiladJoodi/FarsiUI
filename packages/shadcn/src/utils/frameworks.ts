@@ -21,7 +21,7 @@ export const FRAMEWORKS = {
     name: "remix",
     label: "Remix",
     links: {
-      installation: `${SHADCN_URL}/docs/installation/remix`,
+      installation: `${SHADCN_URL}/docs/installation`,
       tailwind: "https://tailwindcss.com/docs/guides/remix",
     },
   },
@@ -29,7 +29,7 @@ export const FRAMEWORKS = {
     name: "react-router",
     label: "React Router",
     links: {
-      installation: `${SHADCN_URL}/docs/installation/react-router`,
+      installation: `${SHADCN_URL}/docs/installation`,
       tailwind:
         "https://tailwindcss.com/docs/installation/framework-guides/react-router",
     },
@@ -46,7 +46,7 @@ export const FRAMEWORKS = {
     name: "astro",
     label: "Astro",
     links: {
-      installation: `${SHADCN_URL}/docs/installation/astro`,
+      installation: `${SHADCN_URL}/docs/installation`,
       tailwind: "https://tailwindcss.com/docs/guides/astro",
     },
   },
@@ -54,7 +54,7 @@ export const FRAMEWORKS = {
     name: "laravel",
     label: "Laravel",
     links: {
-      installation: `${SHADCN_URL}/docs/installation/laravel`,
+      installation: `${SHADCN_URL}/docs/installation`,
       tailwind: "https://tailwindcss.com/docs/guides/laravel",
     },
   },
@@ -62,7 +62,7 @@ export const FRAMEWORKS = {
     name: "tanstack-start",
     label: "TanStack Start",
     links: {
-      installation: `${SHADCN_URL}/docs/installation/tanstack`,
+      installation: `${SHADCN_URL}/docs/installation`,
       tailwind: "https://tailwindcss.com/docs/installation/using-postcss",
     },
   },

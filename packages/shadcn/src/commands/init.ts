@@ -366,7 +366,7 @@ export const init = new Command()
           )
           logger.log(
             `  See ${highlighter.info(
-              `${SHADCN_URL}/docs/installation/laravel`
+              `${SHADCN_URL}/docs/installation`
             )} for more information.`
           )
           logger.break()

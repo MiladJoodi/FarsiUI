@@ -1,66 +1,66 @@
 ---
 title: Vite
-description: Install and configure shadcn/ui for Vite.
+description: نصب و پیکربندی FarsiUI برای Vite.
 ---
 
-Choose the setup that matches your starting point.
+بسته به نقطه شروع پروژه، یکی از روش‌های زیر را انتخاب کنید.
 
 <div className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-6">
   <LinkedCard
     href="#scaffold-with-cli"
     className="items-start gap-1 p-6 text-sm md:p-6"
   >
-    <div className="font-medium">Use the CLI</div>
+    <div className="font-medium">استفاده از CLI</div>
     <div className="leading-relaxed text-muted-foreground">
-      Scaffold a new Vite project directly from the terminal.
+      ساخت یک پروژه جدید Vite مستقیماً از طریق ترمینال.
     </div>
   </LinkedCard>
   <LinkedCard
     href="#existing-vite-project"
     className="items-start gap-1 p-6 text-sm md:p-6"
   >
-    <div className="font-medium">Existing Project</div>
+    <div className="font-medium">پروژه موجود</div>
     <div className="leading-relaxed text-muted-foreground">
-      Configure shadcn/ui manually in an existing Vite project.
+      پیکربندی FarsiUI در یک پروژه موجود Vite.
     </div>
   </LinkedCard>
 </div>
 
+<div id="scaffold-with-cli" className="scroll-mt-24" />
 
-
-## Use the CLI
+## استفاده از CLI
 
 <Steps>
 
-### Create Project
+### ساخت پروژه
 
-Run the `init` command to scaffold a new Vite project. Follow the prompts to configure your project: base, preset, monorepo, and more.
-
-```bash
-npx shadcn@latest init -t vite
-```
-
-**For a monorepo project, use `--monorepo` flag:**
+دستور **`init`** را اجرا کنید تا یک پروژه جدید Vite ساخته شود. در ادامه می‌توانید تنظیمات پروژه مانند base، preset، monorepo و موارد دیگر را انتخاب کنید.
 
 ```bash
-npx shadcn@latest init -t vite --monorepo
+npx farsiui@latest init -t vite
 ```
 
-### Add Components
-
-Add the `Card` component to your project:
+**برای پروژه‌های monorepo از فلگ `--monorepo` استفاده کنید:**
 
 ```bash
-npx shadcn@latest add card
+npx farsiui@latest init -t vite --monorepo
 ```
 
-If you created a monorepo, run the command from `apps/web` or specify the workspace from the repo root:
+### افزودن کامپوننت‌ها
+
+کامپوننت **`Card`** را به پروژه خود اضافه کنید:
 
 ```bash
-npx shadcn@latest add card -c apps/web
+npx farsiui@latest add card
 ```
 
-The command above will add the `Card` component to your project. You can then import it like this:
+اگر پروژه را به‌صورت monorepo ساخته‌اید، دستور را از مسیر **`apps/web`** اجرا کنید یا workspace را از ریشه پروژه مشخص کنید:
+
+```bash
+npx farsiui@latest add card -c apps/web
+```
+
+دستور بالا کامپوننت **`Card`** را به پروژه اضافه می‌کند. سپس می‌توانید آن را به شکل زیر import کنید:
 
 ```tsx showLineNumbers title="src/App.tsx"
 import {
@@ -75,13 +75,13 @@ function App() {
   return (
     <Card className="max-w-sm">
       <CardHeader>
-        <CardTitle>Project Overview</CardTitle>
+        <CardTitle>نمای کلی پروژه</CardTitle>
         <CardDescription>
-          Track progress and recent activity for your Vite app.
+          پیشرفت و فعالیت‌های اخیر اپلیکیشن Vite خود را دنبال کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        Your design system is ready. Start building your next component.
+        سیستم طراحی شما آماده است. ساخت کامپوننت بعدی را شروع کنید.
       </CardContent>
     </Card>
   )
@@ -90,42 +90,43 @@ function App() {
 export default App
 ```
 
-If you created a monorepo, update `apps/web/src/App.tsx` and import from `@workspace/ui/components/card` instead.
+اگر پروژه را به‌صورت monorepo ساخته‌اید، فایل **`apps/web/src/App.tsx`** را ویرایش کنید و کامپوننت را از **`@workspace/ui/components/card`** import کنید.
 
 </Steps>
 
 <div id="existing-vite-project" className="scroll-mt-24" />
-## Existing Project
+
+## پروژه موجود
 
 <Steps>
 
-### Create Project
+### ساخت پروژه
 
-If you need a new Vite project, create one first and select the **React + TypeScript** template. Otherwise, skip this step.
+اگر به یک پروژه جدید Vite نیاز دارید، ابتدا یک پروژه بسازید و قالب **React + TypeScript** را انتخاب کنید. در غیر این صورت، از این مرحله عبور کنید.
 
 ```bash
 npm create vite@latest
 ```
 
-### Add Tailwind CSS
+### افزودن Tailwind CSS
 
-If your project already has Tailwind CSS configured, skip this step.
+اگر Tailwind CSS از قبل در پروژه شما پیکربندی شده است، از این مرحله عبور کنید.
 
 ```bash
 npm install tailwindcss @tailwindcss/vite
 ```
 
-Replace everything in `src/index.css` with the following:
+تمام محتوای فایل **`src/index.css`** را با کد زیر جایگزین کنید:
 
 ```css title="src/index.css"
 @import "tailwindcss";
 ```
 
-### Edit tsconfig.json file
+### ویرایش فایل tsconfig.json
 
-If your project already has the `@/*` alias configured, skip this step.
+اگر alias مربوط به **`@/*`** از قبل در پروژه شما تنظیم شده است، از این مرحله عبور کنید.
 
-Vite splits TypeScript configuration across multiple files. Add the `baseUrl` and `paths` properties to the `compilerOptions` section of `tsconfig.json` and `tsconfig.app.json`:
+Vite تنظیمات TypeScript را بین چند فایل تقسیم می‌کند. ویژگی‌های **`baseUrl`** و **`paths`** را به بخش **`compilerOptions`** در فایل‌های **`tsconfig.json`** و **`tsconfig.app.json`** اضافه کنید:
 
 ```ts title="tsconfig.json" {11-16} showLineNumbers
 {
@@ -147,9 +148,9 @@ Vite splits TypeScript configuration across multiple files. Add the `baseUrl` an
 }
 ```
 
-### Edit tsconfig.app.json file
+### ویرایش فایل tsconfig.app.json
 
-Add the same alias to `tsconfig.app.json` so your editor can resolve imports:
+همان alias را به **`tsconfig.app.json`** اضافه کنید تا ویرایشگر کد بتواند importها را به‌درستی تشخیص دهد:
 
 ```ts title="tsconfig.app.json" {4-9} showLineNumbers
 {
@@ -166,9 +167,9 @@ Add the same alias to `tsconfig.app.json` so your editor can resolve imports:
 }
 ```
 
-### Update vite.config.ts
+### به‌روزرسانی vite.config.ts
 
-Install `@types/node` and update `vite.config.ts` so Vite can resolve the `@` alias:
+**`@types/node`** را نصب کنید و فایل **`vite.config.ts`** را به‌روزرسانی کنید تا Vite بتواند alias مربوط به **`@`** را resolve کند:
 
 ```bash
 npm install -D @types/node
@@ -191,23 +192,23 @@ export default defineConfig({
 })
 ```
 
-### Run the CLI
+### اجرای CLI
 
-Run the `shadcn` init command to set up shadcn/ui in your project:
-
-```bash
-npx shadcn@latest init
-```
-
-### Add Components
-
-You can now start adding components to your project.
+دستور **`init`** را اجرا کنید تا FarsiUI در پروژه شما پیکربندی شود:
 
 ```bash
-npx shadcn@latest add button
+npx farsiui@latest init
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+### افزودن کامپوننت‌ها
+
+حالا می‌توانید کامپوننت‌های موردنیاز خود را به پروژه اضافه کنید:
+
+```bash
+npx farsiui@latest add button
+```
+
+دستور بالا کامپوننت **`Button`** را به پروژه اضافه می‌کند. سپس می‌توانید آن را به شکل زیر import کنید:
 
 ```tsx showLineNumbers title="src/App.tsx"
 import { Button } from "@/components/ui/button"
@@ -215,7 +216,7 @@ import { Button } from "@/components/ui/button"
 function App() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
+      <Button>کلیک کنید</Button>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import fs from "fs"
 import { ExamplesIndex } from "@/examples/__index__"
 
-import { PAGES_NEW } from "@/lib/docs"
 import { getPagesFromFolder, type PageTreeFolder } from "@/lib/page-tree"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
@@ -38,7 +37,7 @@ function getRegistryEntry(name: string, styleName: string) {
   )
 }
 
-function getComponentsList(variant: "all" | "new") {
+function getComponentsList() {
   const componentsFolder = source.pageTree.children.find(
     (page) => page.$id === "components"
   )
@@ -48,9 +47,6 @@ function getComponentsList(variant: "all" | "new") {
   }
 
   return getPagesFromFolder(componentsFolder as PageTreeFolder, "base")
-    .filter(
-      (component) => variant === "all" || PAGES_NEW.includes(component.url)
-    )
     .map((component) => {
       const slug = component.url.replace(/^\/docs\//, "").split("/")
       const description = source.getPage(slug)?.data.description?.trim()
@@ -64,11 +60,8 @@ function getComponentsList(variant: "all" | "new") {
 
 export function replaceComponentsList(content: string) {
   return content
-    .replace(
-      /<ComponentsList\s+variant=["']new["']\s*\/>/g,
-      getComponentsList("new")
-    )
-    .replace(/<ComponentsList\s*\/>/g, getComponentsList("all"))
+    .replace(/<ComponentsList\s+variant=["']new["']\s*\/>/g, "")
+    .replace(/<ComponentsList\s*\/>/g, getComponentsList())
 }
 
 export function processMdxForLLMs(content: string, style: Style["name"]) {

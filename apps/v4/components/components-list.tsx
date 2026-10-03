@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { cn } from "cn"
 
-import { PAGES_NEW, splitDocTitle } from "@/lib/docs"
+import { ComponentWireframe } from "@/components/components-wireframes"
+import { splitDocTitle } from "@/lib/docs"
 import {
   getPagesFromFolder,
   type PageTreeFolder,
@@ -25,62 +25,56 @@ function getLabel(component: PageTreePage) {
   return { fa, en: fromSlug || null }
 }
 
-function ComponentLink({
-  component,
-  showNewIndicator,
-}: {
-  component: PageTreePage
-  showNewIndicator: boolean
-}) {
-  const isNew = showNewIndicator && PAGES_NEW.includes(component.url)
+function getSlug(component: PageTreePage) {
+  return component.url.split("/").filter(Boolean).pop() ?? ""
+}
+
+function ComponentCard({ component }: { component: PageTreePage }) {
   const { fa, en } = getLabel(component)
+  const slug = getSlug(component)
 
   return (
-    <Link
-      href={component.url}
-      className={cn(
-        "relative flex min-h-14 flex-col justify-center gap-0.5 rounded-lg border border-border px-3 py-2.5 outline-none",
-        "transition-colors hover:bg-muted/50",
-        "focus-visible:ring-2 focus-visible:ring-ring/40"
-      )}
-    >
-      <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-        {fa}
-        {isNew ? (
+    <section className="flex min-w-0 flex-col gap-2">
+      <div className="flex min-w-0 items-baseline gap-2">
+        <h2 className="shrink-0 text-sm font-semibold tracking-tight">{fa}</h2>
+        {en ? (
           <>
-            <span className="sr-only">New</span>
             <span
-              aria-hidden="true"
-              className="size-1.5 shrink-0 rounded-full bg-blue-500"
+              aria-hidden
+              className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
             />
+            <span
+              dir="ltr"
+              lang="en"
+              className="shrink-0 text-xs tracking-wide text-muted-foreground"
+            >
+              {en}
+            </span>
           </>
         ) : null}
-      </span>
-      {en ? (
-        <span
-          dir="ltr"
-          lang="en"
-          className="self-start font-mono text-[0.7rem] text-muted-foreground/70"
-        >
-          {en}
-        </span>
-      ) : null}
-    </Link>
+      </div>
+
+      <Link
+        href={component.url}
+        aria-label={en ? `${fa} — ${en}` : fa}
+        className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <ComponentWireframe slug={slug} />
+      </Link>
+    </section>
   )
 }
 
 export function ComponentsList({
   componentsFolder,
   currentBase,
-  variant = "all",
 }: {
   componentsFolder: PageTreeFolder
   currentBase: string
+  /** @deprecated new section removed */
   variant?: "all" | "new"
 }) {
-  const list = getPagesFromFolder(componentsFolder, currentBase).filter(
-    (component) => variant === "all" || PAGES_NEW.includes(component.url)
-  )
+  const list = getPagesFromFolder(componentsFolder, currentBase)
 
   if (!list.length) {
     return null
@@ -89,14 +83,12 @@ export function ComponentsList({
   return (
     <div
       data-not-typeset
-      className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+      dir="rtl"
+      lang="fa"
+      className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
     >
       {list.map((component) => (
-        <ComponentLink
-          key={component.$id}
-          component={component}
-          showNewIndicator={variant === "all"}
-        />
+        <ComponentCard key={component.$id} component={component} />
       ))}
     </div>
   )
