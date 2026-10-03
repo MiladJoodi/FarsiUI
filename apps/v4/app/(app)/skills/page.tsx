@@ -1,10 +1,6 @@
 import Link from "next/link"
 
-import { getSkills } from "@/lib/skills"
-
 export default function SkillsPage() {
-  const skills = getSkills()
-
   return (
     <div
       data-slot="docs"
@@ -42,12 +38,19 @@ export default function SkillsPage() {
               قبل از کار این دستورالعمل‌ها را می‌خوانند.
             </p>
             <p>
-              برای کارهای فارسی، مهارت‌هایی مثل فارسی محاوره‌ای، متن{" "}
+              هر مهارت یک فایل{" "}
+              <bdi dir="ltr" className="font-medium text-foreground">
+                SKILL.md
+              </bdi>{" "}
+              است؛ همان دستورالعملی که{" "}
+              <bdi dir="ltr" className="font-medium text-foreground">
+                Agent
+              </bdi>{" "}
+              می‌خواند. برای کارهای فارسی، مهارت‌هایی مثل فارسی محاوره‌ای، متن{" "}
               <bdi dir="ltr" className="font-medium text-foreground">
                 UI
               </bdi>
-              ، تقویم شمسی، کد ملی و شبا آماده کرده‌ایم. هرکدام یک مهارت مستقل
-              است.
+              ، تقویم شمسی، کد ملی و شبا آماده کرده‌ایم.
             </p>
           </div>
         </header>
@@ -62,41 +65,23 @@ export default function SkillsPage() {
             </li>
             <li className="leading-7">
               فایل{" "}
-              <bdi dir="ltr" className="font-mono text-foreground">
+              <bdi dir="ltr" className="font-medium text-foreground">
                 SKILL.md
               </bdi>{" "}
-              را کپی یا دانلود کنید و در مسیری که داخل همان صفحه برای{" "}
+              را کپی یا دانلود کنید و در مسیری که برای{" "}
               <bdi dir="ltr" className="font-medium text-foreground">
                 Agent
               </bdi>{" "}
-              شما نوشته شده بگذارید. تمام.
+              شما نوشته شده بگذارید. راهنمای مسیرها در{" "}
+              <Link
+                href="/skills/install"
+                className="font-medium text-foreground underline-offset-4 hover:underline"
+              >
+                نحوه نصب
+              </Link>{" "}
+              است.
             </li>
           </ol>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="font-heading text-lg font-medium tracking-tight">
-            فهرست فعلی
-          </h2>
-          <ul className="divide-y rounded-xl border">
-            {skills.map((skill) => (
-              <li key={skill.slug}>
-                <Link
-                  href={`/skills/${skill.slug}`}
-                  className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-muted/40"
-                >
-                  <span className="font-medium">{skill.title}</span>
-                  <span
-                    dir="ltr"
-                    lang="en"
-                    className="font-mono text-[0.7rem] text-muted-foreground"
-                  >
-                    {skill.slug}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </section>
       </div>
     </div>
