@@ -4,7 +4,7 @@
 import "server-only"
 
 export const ExamplesIndex: Record<string, Record<string, any>> = {
-  base: {
+  "base": {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/base/accordion-basic.tsx",
@@ -1101,6 +1101,10 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       name: "input-invalid",
       filePath: "examples/base/input-invalid.tsx",
     },
+    "input-numeric": {
+      name: "input-numeric",
+      filePath: "examples/base/input-numeric.tsx",
+    },
     "input-otp-alphanumeric": {
       name: "input-otp-alphanumeric",
       filePath: "examples/base/input-otp-alphanumeric.tsx",
@@ -2082,7 +2086,7 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       filePath: "examples/base/typography-table.tsx",
     },
   },
-  aria: {
+  "aria": {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/aria/accordion-basic.tsx",
@@ -3139,6 +3143,10 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       name: "input-invalid",
       filePath: "examples/aria/input-invalid.tsx",
     },
+    "input-numeric": {
+      name: "input-numeric",
+      filePath: "examples/aria/input-numeric.tsx",
+    },
     "input-otp-alphanumeric": {
       name: "input-otp-alphanumeric",
       filePath: "examples/aria/input-otp-alphanumeric.tsx",
@@ -4088,7 +4096,7 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
       filePath: "examples/aria/typography-table.tsx",
     },
   },
-  radix: {
+  "radix": {
     "accordion-basic": {
       name: "accordion-basic",
       filePath: "examples/radix/accordion-basic.tsx",
@@ -5144,6 +5152,10 @@ export const ExamplesIndex: Record<string, Record<string, any>> = {
     "input-invalid": {
       name: "input-invalid",
       filePath: "examples/radix/input-invalid.tsx",
+    },
+    "input-numeric": {
+      name: "input-numeric",
+      filePath: "examples/radix/input-numeric.tsx",
     },
     "input-otp-alphanumeric": {
       name: "input-otp-alphanumeric",
