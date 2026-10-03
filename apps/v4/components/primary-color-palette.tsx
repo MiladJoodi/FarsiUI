@@ -98,6 +98,7 @@ export function PrimaryColorPalette({
             </Button>
           </PopoverTrigger>
           <PopoverContent
+            dir="rtl"
             align="end"
             side="top"
             sideOffset={8}

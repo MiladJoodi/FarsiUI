@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronDownIcon, SearchIcon, XIcon } from "lucide-react"
+import { ChevronDownIcon } from "lucide-react"
 
 import { PAGES_NEW, splitDocTitle } from "@/lib/docs"
 import { DOCS_SIDEBAR_SCROLL_STORAGE_KEY } from "@/lib/docs-sidebar-scroll"
@@ -12,17 +12,15 @@ import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
 import type { source } from "@/lib/source"
 import { ListIndexNav } from "@/components/list-index-nav"
 import {
+  matchesNavQuery,
+  normalizeNavSearch,
+  SidebarNavSearch,
+} from "@/components/sidebar-nav-search"
+import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/registry/new-york-v4/ui/collapsible"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Kbd, KbdGroup } from "@/registry/new-york-v4/ui/kbd"
 import {
   Sidebar,
   SidebarContent,
@@ -36,13 +34,13 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const ACTIVE_ITEM_CLASS =
-  "relative h-6 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+  "relative h-7 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
 
 const ACTIVE_SECTION_CLASS =
-  "relative h-6 w-fit overflow-visible border border-transparent py-0 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+  "relative h-7 w-fit overflow-visible border border-transparent py-0 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
 
 const GROUP_TRIGGER_CLASS =
-  "flex h-6 w-full cursor-pointer items-center gap-1 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground"
+  "flex h-7 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "مقدمه", href: "/docs" },
@@ -66,20 +64,6 @@ const TOP_LEVEL_SECTIONS = [
 const EXCLUDED_SECTIONS = ["installation", "dark-mode", "changelog", "rtl"]
 const EXCLUDED_PAGES = ["/docs", "/docs/rtl", "/docs/new"]
 const SEARCH_DEBOUNCE_MS = 200
-
-function normalizeSearch(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/\u200c/g, "")
-    .replace(/ي/g, "ی")
-    .replace(/ك/g, "ک")
-    .trim()
-}
-
-function matchesQuery(haystack: string, query: string) {
-  if (!query) return true
-  return normalizeSearch(haystack).includes(query)
-}
 
 function readScrollState() {
   try {
@@ -136,102 +120,6 @@ function getActiveItem(container: HTMLElement) {
   return active
 }
 
-function DocsSidebarSearch({
-  value,
-  onValueChange,
-  onClear,
-}: {
-  value: string
-  onValueChange: (value: string) => void
-  onClear: () => void
-}) {
-  const inputRef = React.useRef<HTMLInputElement>(null)
-
-  React.useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (!(event.key === "k" && (event.metaKey || event.ctrlKey))) {
-        return
-      }
-
-      const input = inputRef.current
-      // Skip when sidebar search is hidden (e.g. mobile).
-      if (!input || input.offsetParent === null) {
-        return
-      }
-
-      const target = event.target
-      if (
-        target instanceof HTMLInputElement ||
-        target instanceof HTMLTextAreaElement ||
-        target instanceof HTMLSelectElement ||
-        (target instanceof HTMLElement && target.isContentEditable)
-      ) {
-        if (target !== input) {
-          return
-        }
-      }
-
-      event.preventDefault()
-      event.stopPropagation()
-      event.stopImmediatePropagation()
-      input.focus()
-      input.select()
-    }
-
-    document.addEventListener("keydown", onKeyDown, true)
-    return () => document.removeEventListener("keydown", onKeyDown, true)
-  }, [])
-
-  return (
-    <InputGroup className="group/sidebar-search h-8 border-border/70 bg-background/80 shadow-none transition-colors focus-within:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:ring-0 dark:bg-input/20 dark:focus-within:border-foreground/45 dark:has-[[data-slot=input-group-control]:focus-visible]:border-foreground/45">
-      <InputGroupAddon>
-        <SearchIcon className="size-3.5 opacity-60" />
-      </InputGroupAddon>
-      <InputGroupInput
-        ref={inputRef}
-        data-docs-sidebar-search=""
-        value={value}
-        onChange={(event) => onValueChange(event.target.value)}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") {
-            event.preventDefault()
-            if (value) {
-              onClear()
-            } else {
-              event.currentTarget.blur()
-            }
-          }
-        }}
-        placeholder="جستجو در ناوبری..."
-        className="h-8 text-[0.8rem]"
-        aria-label="جستجو در آیتم‌های سایدبار"
-      />
-      <InputGroupAddon align="inline-end" className="gap-1">
-        {value ? (
-          <InputGroupButton
-            size="icon-xs"
-            aria-label="پاک کردن جستجو"
-            onClick={() => {
-              onClear()
-              inputRef.current?.focus()
-            }}
-          >
-            <XIcon className="size-3.5" />
-          </InputGroupButton>
-        ) : (
-          <KbdGroup
-            dir="ltr"
-            className="pointer-events-none opacity-0 transition-opacity group-focus-within/sidebar-search:opacity-100 group-hover/sidebar-search:opacity-100"
-          >
-            <Kbd className="h-5 bg-muted/80 px-1.5 text-[0.65rem]">Ctrl</Kbd>
-            <Kbd className="h-5 bg-muted/80 px-1.5 text-[0.65rem]">K</Kbd>
-          </KbdGroup>
-        )}
-      </InputGroupAddon>
-    </InputGroup>
-  )
-}
-
 function getDocsCurrentLabel(
   tree: typeof source.pageTree,
   pathname: string,
@@ -282,11 +170,12 @@ function DocsSidebarBody({
   const contentRef = React.useRef<HTMLDivElement>(null)
   const [searchValue, setSearchValue] = React.useState("")
   const [debouncedQuery, setDebouncedQuery] = React.useState("")
-  const componentsOnly = scope === "components"
+  const componentsOnly =
+    scope === "components" || pathname.startsWith("/docs/components")
 
   React.useEffect(() => {
     const timeout = window.setTimeout(() => {
-      setDebouncedQuery(normalizeSearch(searchValue))
+      setDebouncedQuery(normalizeNavSearch(searchValue))
     }, SEARCH_DEBOUNCE_MS)
 
     return () => window.clearTimeout(timeout)
@@ -305,7 +194,7 @@ function DocsSidebarBody({
       if (!showMcpDocs && href.includes("/mcp")) {
         return false
       }
-      return matchesQuery(name, debouncedQuery)
+      return matchesNavQuery(name, debouncedQuery)
     })
   }, [componentsOnly, debouncedQuery])
 
@@ -337,10 +226,10 @@ function DocsSidebarBody({
         const title = String(page.name)
         const { fa, en } = splitDocTitle(title)
         return (
-          matchesQuery(title, debouncedQuery) ||
-          matchesQuery(fa, debouncedQuery) ||
-          (en ? matchesQuery(en, debouncedQuery) : false) ||
-          matchesQuery(String(item.name), debouncedQuery)
+          matchesNavQuery(title, debouncedQuery) ||
+          matchesNavQuery(fa, debouncedQuery) ||
+          (en ? matchesNavQuery(en, debouncedQuery) : false) ||
+          matchesNavQuery(String(item.name), debouncedQuery)
         )
       })
 
@@ -444,7 +333,7 @@ function DocsSidebarBody({
     <>
       {showSearch ? (
         <div className="shrink-0 pe-2 pt-2 pb-3">
-          <DocsSidebarSearch
+          <SidebarNavSearch
             value={searchValue}
             onValueChange={setSearchValue}
             onClear={clearSearch}
@@ -463,11 +352,11 @@ function DocsSidebarBody({
         ) : null}
         {filteredSections.length > 0 ? (
           <SidebarGroup className="p-1 pt-1">
-            <SidebarGroupLabel className="h-6 font-medium text-muted-foreground">
+            <SidebarGroupLabel className="h-7 font-medium text-muted-foreground">
               بخش‌ها
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu className="gap-0">
+              <SidebarMenu className="gap-0.5">
                 {filteredSections.map(({ name, href }) => (
                   <SidebarMenuItem key={name}>
                     <SidebarMenuButton
@@ -498,121 +387,57 @@ function DocsSidebarBody({
           </SidebarGroup>
         ) : null}
 
-        {componentGroup ? (
-          <SidebarGroup className={componentsOnly ? "p-1 pt-1" : "p-1"}>
-            {componentsOnly ? (
-              <SidebarGroupContent>
-                <SidebarMenu className="gap-0">
-                  {componentGroup.pages.map((page) => {
-                    const { fa, en } = splitDocTitle(String(page.name))
-                    const isNew = PAGES_NEW.includes(page.url)
+        {componentsOnly && componentGroup ? (
+          <SidebarGroup className="p-1 pt-1">
+            <SidebarGroupContent>
+              <SidebarMenu className="gap-0.5">
+                {componentGroup.pages.map((page) => {
+                  const { fa, en } = splitDocTitle(String(page.name))
+                  const isNew = PAGES_NEW.includes(page.url)
 
-                    return (
-                      <SidebarMenuItem key={page.url}>
-                        <SidebarMenuButton
-                          size="sm"
-                          asChild
-                          isActive={page.url === pathname}
-                          className={ACTIVE_ITEM_CLASS}
+                  return (
+                    <SidebarMenuItem key={page.url}>
+                      <SidebarMenuButton
+                        size="sm"
+                        asChild
+                        isActive={page.url === pathname}
+                        className={ACTIVE_ITEM_CLASS}
+                      >
+                        <Link
+                          href={page.url}
+                          className="flex w-full min-w-0 items-center gap-2"
                         >
-                          <Link
-                            href={page.url}
-                            className="flex w-full min-w-0 items-center gap-2"
-                          >
-                            <span className="flex min-w-0 shrink items-center gap-1.5">
-                              <span className="truncate">{fa}</span>
-                              {isNew ? (
-                                <span
-                                  className="flex size-2 shrink-0 rounded-full bg-blue-500"
-                                  title="New"
-                                />
-                              ) : null}
-                            </span>
-                            {en ? (
-                              <>
-                                <span
-                                  aria-hidden
-                                  className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
-                                />
-                                <span
-                                  dir="ltr"
-                                  lang="en"
-                                  className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                                >
-                                  {en}
-                                </span>
-                              </>
+                          <span className="flex min-w-0 shrink items-center gap-1.5">
+                            <span className="truncate">{fa}</span>
+                            {isNew ? (
+                              <span
+                                className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                title="New"
+                              />
                             ) : null}
-                          </Link>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    )
-                  })}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            ) : (
-              <Collapsible
-                open={isGroupOpen("components")}
-                onOpenChange={(open) => setGroupOpen("components", open)}
-                className="group/components-root"
-              >
-                <CollapsibleTrigger className={GROUP_TRIGGER_CLASS}>
-                  <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/components-root:rotate-90" />
-                  <span>کامپوننت‌ها</span>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarGroupContent>
-                    <SidebarMenu className="gap-0">
-                      {componentGroup.pages.map((page) => {
-                        const { fa, en } = splitDocTitle(String(page.name))
-                        const isNew = PAGES_NEW.includes(page.url)
-
-                        return (
-                          <SidebarMenuItem key={page.url}>
-                            <SidebarMenuButton
-                              size="sm"
-                              asChild
-                              isActive={page.url === pathname}
-                              className={ACTIVE_ITEM_CLASS}
-                            >
-                              <Link
-                                href={page.url}
-                                className="flex w-full min-w-0 items-center gap-2"
+                          </span>
+                          {en ? (
+                            <>
+                              <span
+                                aria-hidden
+                                className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                              />
+                              <span
+                                dir="ltr"
+                                lang="en"
+                                className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
                               >
-                                <span className="flex min-w-0 shrink items-center gap-1.5">
-                                  <span className="truncate">{fa}</span>
-                                  {isNew ? (
-                                    <span
-                                      className="flex size-2 shrink-0 rounded-full bg-blue-500"
-                                      title="New"
-                                    />
-                                  ) : null}
-                                </span>
-                                {en ? (
-                                  <>
-                                    <span
-                                      aria-hidden
-                                      className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
-                                    />
-                                    <span
-                                      dir="ltr"
-                                      lang="en"
-                                      className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                                    >
-                                      {en}
-                                    </span>
-                                  </>
-                                ) : null}
-                              </Link>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        )
-                      })}
-                    </SidebarMenu>
-                  </SidebarGroupContent>
-                </CollapsibleContent>
-              </Collapsible>
-            )}
+                                {en}
+                              </span>
+                            </>
+                          ) : null}
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  )
+                })}
+              </SidebarMenu>
+            </SidebarGroupContent>
           </SidebarGroup>
         ) : null}
 
@@ -629,7 +454,7 @@ function DocsSidebarBody({
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarGroupContent>
-                  <SidebarMenu className="gap-0">
+                  <SidebarMenu className="gap-0.5">
                     {group.pages.map((page) => {
                       const { fa, en } = splitDocTitle(String(page.name))
                       const isNew = PAGES_NEW.includes(page.url)
@@ -702,7 +527,7 @@ export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
         <DocsSidebarBody
           tree={tree}
           persistScroll={false}
-          showSearch={false}
+          showSearch={isComponents}
           scope={isComponents ? "components" : "all"}
         />
       </SidebarProvider>

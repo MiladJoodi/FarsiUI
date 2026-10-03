@@ -45,7 +45,7 @@ export default function ShowcaseLayout({
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(ellipse_at_top,color-mix(in_oklab,var(--color-foreground)_5%,transparent),transparent_65%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[min(70vh,40rem)] bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,color-mix(in_oklab,var(--color-foreground)_4.5%,transparent),transparent_72%)]"
       />
 
       <ShowcaseHero />

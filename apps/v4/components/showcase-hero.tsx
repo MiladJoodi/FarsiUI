@@ -7,7 +7,7 @@ export function ShowcaseHero() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-8 -z-10 mx-auto h-40 max-w-xl rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--color-foreground)_8%,transparent),transparent)]"
+        className="pointer-events-none absolute inset-x-0 -top-10 -z-10 mx-auto h-52 max-w-2xl rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--color-foreground)_5%,transparent),transparent_78%)] blur-2xl"
       />
       <h1 className="text-balance text-2xl font-semibold tracking-tight md:text-4xl md:leading-[1.25]">
         نمونه‌های ساخته‌شده
