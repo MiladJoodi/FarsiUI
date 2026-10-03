@@ -12,16 +12,6 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-function toPersianDigits(value: string) {
-  return value.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
-}
-
-function toLatinDigits(value: string) {
-  return value.replace(/[۰-۹]/g, (digit) =>
-    String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit))
-  )
-}
-
 function TimeField({
   id,
   label,
@@ -33,7 +23,7 @@ function TimeField({
 }) {
   const reactId = React.useId()
   const inputId = `${id}-${reactId}`
-  const [value, setValue] = React.useState(() => toPersianDigits(defaultValue))
+  const [value, setValue] = React.useState(defaultValue)
 
   return (
     <Field>
@@ -46,20 +36,16 @@ function TimeField({
           dir="ltr"
           lang="fa"
           autoComplete="off"
-          placeholder="۰۰:۰۰:۰۰"
+          placeholder="00:00:00"
           value={value}
           onChange={(event) => {
-            const next = toLatinDigits(event.target.value)
-              .replace(/[^\d:]/g, "")
-              .slice(0, 8)
-            setValue(toPersianDigits(next))
+            const next = event.target.value.replace(/[^\d:]/g, "").slice(0, 8)
+            setValue(next)
           }}
           onBlur={() => {
-            const [h = "00", m = "00", s = "00"] = toLatinDigits(value).split(":")
+            const [h = "00", m = "00", s = "00"] = value.split(":")
             setValue(
-              toPersianDigits(
-                `${h.padStart(2, "0").slice(0, 2)}:${m.padStart(2, "0").slice(0, 2)}:${s.padStart(2, "0").slice(0, 2)}`
-              )
+              `${h.padStart(2, "0").slice(0, 2)}:${m.padStart(2, "0").slice(0, 2)}:${s.padStart(2, "0").slice(0, 2)}`
             )
           }}
         />

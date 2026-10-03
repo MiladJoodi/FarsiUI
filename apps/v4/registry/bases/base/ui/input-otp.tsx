@@ -5,6 +5,7 @@ import { cn } from "cn"
 import { OTPInput, OTPInputContext } from "input-otp"
 
 import { IconPlaceholder } from "@/components/icon-placeholder"
+import { toPersianDigits } from "@/registry/bases/base/lib/digits"
 
 function InputOTP({
   className,
@@ -51,9 +52,7 @@ function InputOTPSlot({
 }) {
   const inputOTPContext = React.useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
-  const displayChar = char
-    ? char.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
-    : char
+  const displayChar = char ? toPersianDigits(char) : char
 
   return (
     <div

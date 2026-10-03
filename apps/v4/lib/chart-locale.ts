@@ -1,10 +1,6 @@
 /** Persian digits, Jalali dates, and shared chart copy for FarsiUI demos. */
 
-const PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹"
-
-export function toPersianDigits(value: number | string) {
-  return String(value).replace(/\d/g, (d) => PERSIAN_DIGITS[Number(d)]!)
-}
+export { toPersianDigits } from "@/lib/digits"
 
 export function formatPersianNumber(value: number) {
   return value.toLocaleString("fa-IR")
