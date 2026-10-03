@@ -36,10 +36,6 @@ export const siteConfig = {
   },
   navItems: [
     {
-      href: "/",
-      label: "خانه",
-    },
-    {
       href: "/docs/installation",
       label: "مستندات",
     },

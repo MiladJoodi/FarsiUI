@@ -1,8 +1,6 @@
 import {
   Camera01Icon,
-  CloudUploadIcon,
   Globe02Icon,
-  PlusSignCircleIcon,
   TelegramIcon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
@@ -20,6 +18,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
+  InputGroupText,
 } from "@/styles/base-rhea/ui/input-group"
 
 export function SocialLinksCard() {
@@ -29,53 +28,56 @@ export function SocialLinksCard() {
         <CardTitle>لینک‌های اجتماعی</CardTitle>
       </CardHeader>
       <CardContent>
-  <FieldGroup>
-    <Field>
-      <FieldLabel htmlFor="telegram-username">تلگرام</FieldLabel>
-      <InputGroup>
-        <InputGroupAddon>
-          <HugeiconsIcon icon={TelegramIcon} strokeWidth={2} />
-        </InputGroupAddon>
-        <InputGroupInput
-          id="telegram-username"
-          placeholder="@username"
-          dir="ltr"
-          className="text-left"
-        />
-      </InputGroup>
-    </Field>
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="telegram-username">تلگرام</FieldLabel>
+            <InputGroup dir="ltr">
+              <InputGroupAddon align="inline-start">
+                <HugeiconsIcon icon={TelegramIcon} strokeWidth={2} />
+              </InputGroupAddon>
+              <InputGroupAddon align="inline-start">
+                <InputGroupText>@</InputGroupText>
+              </InputGroupAddon>
+              <InputGroupInput
+                id="telegram-username"
+                placeholder="username"
+                className="text-left"
+              />
+            </InputGroup>
+          </Field>
 
-    <Field>
-      <FieldLabel htmlFor="instagram-handle">اینستاگرام</FieldLabel>
-      <InputGroup>
-        <InputGroupAddon>
-          <HugeiconsIcon icon={Camera01Icon} strokeWidth={2} />
-        </InputGroupAddon>
-        <InputGroupInput
-          id="instagram-handle"
-          placeholder="@username"
-          dir="ltr"
-          className="text-left"
-        />
-      </InputGroup>
-    </Field>
+          <Field>
+            <FieldLabel htmlFor="instagram-handle">اینستاگرام</FieldLabel>
+            <InputGroup dir="ltr">
+              <InputGroupAddon align="inline-start">
+                <HugeiconsIcon icon={Camera01Icon} strokeWidth={2} />
+              </InputGroupAddon>
+              <InputGroupAddon align="inline-start">
+                <InputGroupText>@</InputGroupText>
+              </InputGroupAddon>
+              <InputGroupInput
+                id="instagram-handle"
+                placeholder="username"
+                className="text-left"
+              />
+            </InputGroup>
+          </Field>
 
-    <Field>
-      <FieldLabel htmlFor="website-url">وب‌سایت</FieldLabel>
-      <InputGroup>
-        <InputGroupAddon>
-          <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} />
-        </InputGroupAddon>
-        <InputGroupInput
-          id="website-url"
-          placeholder="example.ir"
-          dir="ltr"
-          className="text-left"
-        />
-      </InputGroup>
-    </Field>
-  </FieldGroup>
-</CardContent>
+          <Field>
+            <FieldLabel htmlFor="website-url">وب‌سایت</FieldLabel>
+            <InputGroup dir="ltr">
+              <InputGroupAddon align="inline-start">
+                <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} />
+              </InputGroupAddon>
+              <InputGroupInput
+                id="website-url"
+                placeholder="example.ir"
+                className="text-left"
+              />
+            </InputGroup>
+          </Field>
+        </FieldGroup>
+      </CardContent>
       <CardFooter>
         <Button className="w-full">ذخیرهٔ لینک‌ها</Button>
       </CardFooter>

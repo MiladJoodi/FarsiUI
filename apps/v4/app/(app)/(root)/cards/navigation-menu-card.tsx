@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 
 import { Card, CardContent } from "@/styles/base-rhea/ui/card"
 import {
@@ -117,14 +116,14 @@ export function NavigationMenuCard() {
                 <NavigationMenuTrigger>شروع کار</NavigationMenuTrigger>
                 <NavigationMenuContent dir="rtl" className="text-start">
                   <ul className="w-72 text-start">
-                    <ListItem href="/docs" title="مقدمه">
-                      کامپوننت‌های قابل‌استفادهٔ مجدد با Tailwind CSS.
+                    <ListItem title="معرفی">
+                      آشنایی سریع با ساختار و فلسفهٔ FarsiUI
                     </ListItem>
-                    <ListItem href="/docs/installation" title="نصب">
-                      نحوهٔ نصب وابستگی‌ها و ساختاربندی اپ.
+                    <ListItem title="نصب">
+                      راه‌اندازی پروژه در چند دقیقه
                     </ListItem>
-                    <ListItem href="/docs/components" title="کامپوننت‌ها">
-                      فهرست کامل کامپوننت‌های رابط کاربری.
+                    <ListItem title="کامپوننت‌ها">
+                      دکمه‌ها، فرم‌ها و اجزای آمادهٔ RTL
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
@@ -133,20 +132,17 @@ export function NavigationMenuCard() {
                 <NavigationMenuTrigger>محصول</NavigationMenuTrigger>
                 <NavigationMenuContent dir="rtl" className="text-start">
                   <ul className="w-64 text-start">
-                    <ListItem href="/docs" title="ویژگی‌ها">
-                      قابلیت‌های اصلی و ابزارهای طراحی.
+                    <ListItem title="ویژگی‌ها">
+                      تم، تایپوگرافی فارسی و پشتیبانی RTL
                     </ListItem>
-                    <ListItem href="/docs" title="قیمت‌گذاری">
-                      طرح‌های اشتراک و مقایسهٔ امکانات.
+                    <ListItem title="بلوک‌ها">
+                      بخش‌های آماده برای ساخت سریع صفحه
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  render={<Link href="/docs" />}
-                  className={navigationMenuTriggerStyle()}
-                >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   مستندات
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -161,15 +157,17 @@ export function NavigationMenuCard() {
 function ListItem({
   title,
   children,
-  href,
   ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+}: React.ComponentPropsWithoutRef<"li"> & {
+  title: string
+  children: React.ReactNode
+}) {
   return (
     <li {...props}>
-      <NavigationMenuLink render={<Link href={href} />} className="text-start">
-        <div className="flex flex-col gap-1 text-start text-sm">
+      <NavigationMenuLink className="text-start">
+        <div className="flex flex-col gap-0.5 text-start text-sm">
           <div className="leading-none font-medium">{title}</div>
-          <div className="line-clamp-2 text-muted-foreground">{children}</div>
+          <div className="truncate text-muted-foreground">{children}</div>
         </div>
       </NavigationMenuLink>
     </li>

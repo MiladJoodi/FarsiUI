@@ -1,12 +1,6 @@
 "use client"
 
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-  type MouseEvent,
-  type ReactNode,
-} from "react"
+import type { MouseEvent, ReactNode } from "react"
 import { MessageScrollerDemo } from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
@@ -194,54 +188,28 @@ function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
 }
 
 /**
- * Mobile: desktop collage scaled into 140vw (shadcn pattern).
- * Same cards/columns as desktop; only a bottom fade (no top wash).
+ * Mobile: desktop collage zoomed into 140vw (shadcn pattern).
+ * `zoom` keeps layout height correct; fades match CardsDemo exactly.
  */
 export function CardsDemoMobile() {
-  const innerRef = useRef<HTMLDivElement>(null)
-  const [frameHeight, setFrameHeight] = useState<number>()
-
-  useLayoutEffect(() => {
-    const inner = innerRef.current
-    if (!inner) return
-
-    const update = () => {
-      const scale = (window.innerWidth * 1.4) / MOBILE_DESIGN_WIDTH
-      setFrameHeight(inner.offsetHeight * scale)
-    }
-
-    update()
-    const ro = new ResizeObserver(update)
-    ro.observe(inner)
-    window.addEventListener("resize", update)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener("resize", update)
-    }
-  }, [])
-
   return (
-    <div
-      className="relative w-full overflow-hidden bg-muted dark:bg-background"
-      style={frameHeight ? { height: frameHeight } : undefined}
-    >
+    <div className="relative w-full overflow-hidden bg-muted dark:bg-background">
       <div
-        ref={innerRef}
         data-slot="demo"
         dir="rtl"
         lang="fa"
         aria-hidden="true"
-        className="theme-container pointer-events-none absolute top-0 right-0 max-w-none origin-top-right bg-muted p-6 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+        className="theme-container pointer-events-none max-w-none bg-muted p-12 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
         style={{
           width: MOBILE_DESIGN_WIDTH,
-          transform: `scale(calc(140vw / ${MOBILE_DESIGN_WIDTH}px))`,
-          transformOrigin: "top right",
+          zoom: `calc(140vw / ${MOBILE_DESIGN_WIDTH}px)`,
         }}
       >
         <CardsColumns forceAll />
       </div>
-      {/* Bottom fade only — same idea as desktop end wash, not scaled away. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
+      {/* Identical to CardsDemo fades — on the outer frame so zoom doesn't crush them. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
 }
