@@ -13,9 +13,10 @@ import { Button } from "@/styles/radix-luma/ui/button"
 import { CardsDemo, CardsDemoMobile } from "./cards"
 
 const slogan = "چند قدم جلوتر شروع کنید"
-const title = "کتابخانه کامپوننت UI فارسی برای React"
+const title = "کتابخانه کامپوننت UI فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
-const description = siteConfig.description
+const description =
+  "مخزن کامپوننت‌های استاندارد، راست‌چین و قابل شخصی‌سازی برای React."
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -121,9 +122,6 @@ export default function IndexPage() {
           </Button>
           <Button asChild variant="secondary">
             <Link href="/docs/components">مشاهده کامپوننت‌ها</Link>
-          </Button>
-          <Button asChild variant="ghost">
-            <Link href="/blocks">بلوک‌ها</Link>
           </Button>
         </PageActions>
       </PageHeader>
