@@ -746,51 +746,6 @@ export const Components: Record<string, any> = {
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-06"
         return { default: mod.default || mod[exportName] }
       }),
-  "sidebar-07": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-07/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-07"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-09": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-09/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-09"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-10": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-10/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-10"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-11": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-11/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-11"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-12": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-12/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-12"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-13": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-13/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-13"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-14": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-14/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-14"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-15": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-15/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-15"
-        return { default: mod.default || mod[exportName] }
-      }),
-  "sidebar-16": React.lazy(async () => {
-        const mod = await import("@/registry/bases/radix/blocks/sidebar-16/page")
-        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "sidebar-16"
-        return { default: mod.default || mod[exportName] }
-      }),
   "use-mobile": React.lazy(async () => {
         const mod = await import("@/registry/bases/radix/hooks/use-mobile")
         const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "use-mobile"

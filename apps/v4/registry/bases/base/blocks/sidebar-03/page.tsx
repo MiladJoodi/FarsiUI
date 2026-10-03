@@ -1,4 +1,6 @@
-﻿import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-03/components/app-sidebar"
+"use client"
+
+import { AppSidebar } from "@/registry/bases/base/blocks/sidebar-03/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -18,38 +20,35 @@ export default function Page() {
   return (
     <div dir="rtl" lang="fa" className="min-h-svh">
       <SidebarProvider>
-      <AppSidebar side="right" />
-      <SidebarInset dir="rtl" lang="fa">
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
-          <div className="flex items-center gap-2 px-3">
-            <SidebarTrigger />
+        <AppSidebar />
+        <SidebarInset>
+          <header className="flex h-14 shrink-0 items-center gap-2 border-b px-4">
+            <SidebarTrigger className="-ms-1" />
             <Separator
               orientation="vertical"
-              className="ms-2 data-vertical:h-4 data-vertical:self-auto"
+              className="me-2 data-vertical:h-4 data-vertical:self-auto"
             />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#" onClick={(e) => e.preventDefault()}>ساخت اپلیکیشن</BreadcrumbLink>
+                  <BreadcrumbLink href="#">پلتفرم</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>دریافت داده</BreadcrumbPage>
+                  <BreadcrumbPage>پروژه‌ها</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+          </header>
+          <div className="flex flex-1 flex-col gap-4 p-4">
+            <div className="grid auto-rows-min gap-4 md:grid-cols-2">
+              <div className="aspect-video rounded-xl bg-muted/50" />
+              <div className="aspect-video rounded-xl bg-muted/50" />
+            </div>
+            <div className="min-h-[40vh] flex-1 rounded-xl bg-muted/50" />
           </div>
-        </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+        </SidebarInset>
+      </SidebarProvider>
     </div>
   )
 }

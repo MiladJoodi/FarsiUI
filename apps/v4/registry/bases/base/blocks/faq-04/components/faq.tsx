@@ -82,39 +82,41 @@ function QuestionList({
 
 export function FaqTabs() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8 text-start">
-        <h2 className="text-3xl font-bold tracking-tight">مرکز راهنما</h2>
-        <p className="mt-2 text-muted-foreground">
-          موضوع را انتخاب کنید تا پاسخ‌های مرتبط را ببینید
-        </p>
-      </div>
+      <section className="w-full max-w-3xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8 text-start">
+          <h2 className="text-3xl font-bold tracking-tight">مرکز راهنما</h2>
+          <p className="mt-2 text-muted-foreground">
+            موضوع را انتخاب کنید تا پاسخ‌های مرتبط را ببینید
+          </p>
+        </div>
 
-      <Tabs defaultValue="general" dir="rtl" lang="fa" className="w-full">
-        <TabsList className="grid w-full grid-cols-3" dir="rtl">
-          <TabsTrigger value="general">عمومی</TabsTrigger>
-          <TabsTrigger value="billing">صورتحساب</TabsTrigger>
-          <TabsTrigger value="tech">فنی</TabsTrigger>
-        </TabsList>
-        <TabsContent value="general" className="mt-6">
-          <QuestionList items={GENERAL} idPrefix="gen" />
-        </TabsContent>
-        <TabsContent value="billing" className="mt-6">
-          <QuestionList items={BILLING} idPrefix="bill" />
-        </TabsContent>
-        <TabsContent value="tech" className="mt-6">
-          <QuestionList items={TECH} idPrefix="tech" />
-        </TabsContent>
-      </Tabs>
+        <Tabs defaultValue="general" dir="rtl" lang="fa" className="w-full">
+          <TabsList className="grid w-full grid-cols-3" dir="rtl">
+            <TabsTrigger value="general">عمومی</TabsTrigger>
+            <TabsTrigger value="billing">صورتحساب</TabsTrigger>
+            <TabsTrigger value="tech">فنی</TabsTrigger>
+          </TabsList>
+          <TabsContent value="general" className="mt-6">
+            <QuestionList items={GENERAL} idPrefix="gen" />
+          </TabsContent>
+          <TabsContent value="billing" className="mt-6">
+            <QuestionList items={BILLING} idPrefix="bill" />
+          </TabsContent>
+          <TabsContent value="tech" className="mt-6">
+            <QuestionList items={TECH} idPrefix="tech" />
+          </TabsContent>
+        </Tabs>
 
-      <div className="mt-10 flex flex-col gap-2 sm:flex-row sm:justify-center">
-        <Button variant="outline">مستندات</Button>
-        <Button>ارسال تیکت</Button>
-      </div>
-    </section>
+        <div className="mt-10 flex flex-col gap-2 sm:flex-row sm:justify-center">
+          <Button variant="outline">مستندات</Button>
+          <Button>ارسال تیکت</Button>
+        </div>
+      </section>
+    </div>
   )
 }

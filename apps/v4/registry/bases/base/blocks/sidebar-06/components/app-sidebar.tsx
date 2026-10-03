@@ -2,182 +2,174 @@
 
 import * as React from "react"
 
-import { NavMain } from "@/registry/bases/base/blocks/sidebar-06/components/nav-main"
-import { SidebarOptInForm } from "@/registry/bases/base/blocks/sidebar-06/components/sidebar-opt-in-form"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/bases/base/ui/collapsible"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/bases/base/ui/popover"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarRail,
 } from "@/registry/bases/base/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-// This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "شروع کار",
-      url: "#",
-      items: [
-        {
-          title: "نصب",
-          url: "#",
-        },
-        {
-          title: "ساختار پروژه",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "ساخت اپلیکیشن",
-      url: "#",
-      items: [
-        {
-          title: "مسیریابی",
-          url: "#",
-        },
-        {
-          title: "دریافت داده",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "رندرینگ",
-          url: "#",
-        },
-        {
-          title: "کش",
-          url: "#",
-        },
-        {
-          title: "استایل‌دهی",
-          url: "#",
-        },
-        {
-          title: "بهینه‌سازی",
-          url: "#",
-        },
-        {
-          title: "پیکربندی",
-          url: "#",
-        },
-        {
-          title: "تست",
-          url: "#",
-        },
-        {
-          title: "احراز هویت",
-          url: "#",
-        },
-        {
-          title: "استقرار",
-          url: "#",
-        },
-        {
-          title: "ارتقاء",
-          url: "#",
-        },
-        {
-          title: "نمونه‌ها",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "مرجع API",
-      url: "#",
-      items: [
-        {
-          title: "کامپوننت‌ها",
-          url: "#",
-        },
-        {
-          title: "قراردادهای فایل",
-          url: "#",
-        },
-        {
-          title: "توابع",
-          url: "#",
-        },
-        {
-          title: "گزینه‌های next.config",
-          url: "#",
-        },
-        {
-          title: "خط فرمان",
-          url: "#",
-        },
-        {
-          title: "زمان‌اجرای لبه",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "معماری",
-      url: "#",
-      items: [
-        {
-          title: "دسترس‌پذیری",
-          url: "#",
-        },
-        {
-          title: "تازه‌سازی سریع",
-          url: "#",
-        },
-        {
-          title: "کامپایلر Next.js",
-          url: "#",
-        },
-        {
-          title: "مرورگرهای پشتیبانی‌شده",
-          url: "#",
-        },
-        {
-          title: "توربوپک",
-          url: "#",
-        },
-      ],
-    },
-  ],
-}
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+const NAV = [
+  {
+    title: "عملیات",
+    icon: "ActivityIcon",
+    open: true,
+    items: [
+      { title: "صف", active: true },
+      { title: "لاگ‌ها" },
+      { title: "هشدارها" },
+    ],
+  },
+  {
+    title: "منابع",
+    icon: "DatabaseIcon",
+    open: false,
+    items: [{ title: "پایگاه‌داده" }, { title: "کش" }, { title: "فایل‌ها" }],
+  },
+] as const
+
+export function AppSidebar() {
+  const [userOpen, setUserOpen] = React.useState(false)
+
   return (
-    <Sidebar dir="rtl" lang="fa" {...props}>
-      <SidebarHeader>
+    <Sidebar side="left" collapsible="offcanvas" variant="sidebar">
+      <SidebarHeader className="border-b px-3 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" render={<a href="#" />}>
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <IconPlaceholder
-                  lucide="GalleryVerticalEndIcon"
-                  tabler="IconLayoutRows"
-                  hugeicons="LayoutBottomIcon"
-                  phosphor="RowsIcon"
-                  remixicon="RiGalleryLine"
-                  className="size-4"
-                />
+                <IconPlaceholder lucide="OrbitIcon" className="size-4" />
               </div>
-              <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">مستندات</span>
-                <span className="">نسخه ۱٫۰٫۰</span>
+              <div className="grid flex-1 text-start text-sm leading-tight">
+                <span className="truncate font-semibold">کنسول</span>
+                <span className="truncate text-xs text-muted-foreground">
+                  سمت چپ
+                </span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <SidebarGroup>
+          <SidebarGroupLabel>سرویس‌ها</SidebarGroupLabel>
+          <SidebarMenu>
+            {NAV.map((item) => (
+              <Collapsible
+                key={item.title}
+                defaultOpen={item.open}
+                className="group/collapsible"
+              >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger
+                    render={<SidebarMenuButton tooltip={item.title} />}
+                  >
+                    <IconPlaceholder lucide={item.icon} className="size-4" />
+                    <span>{item.title}</span>
+                    <IconPlaceholder
+                      lucide="ChevronRightIcon"
+                      className="ms-auto size-4 transition-transform group-data-open/collapsible:rotate-90"
+                    />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {item.items.map((sub) => (
+                        <SidebarMenuSubItem key={sub.title}>
+                          <SidebarMenuSubButton
+                            isActive={"active" in sub && sub.active}
+                            render={<a href="#" />}
+                          >
+                            <span>{sub.title}</span>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
       </SidebarContent>
+
       <SidebarFooter>
-        <div className="p-1">
-          <SidebarOptInForm />
-        </div>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <Popover open={userOpen} onOpenChange={setUserOpen}>
+              <PopoverTrigger
+                render={
+                  <SidebarMenuButton
+                    size="lg"
+                    className="data-[state=open]:bg-sidebar-accent"
+                  />
+                }
+              >
+                <div className="flex size-8 items-center justify-center rounded-lg bg-muted text-xs font-medium">
+                  سا
+                </div>
+                <div className="grid flex-1 text-start text-sm leading-tight">
+                  <span className="truncate font-medium">سارا کریمی</span>
+                  <span className="truncate text-xs text-muted-foreground">
+                    حساب
+                  </span>
+                </div>
+                <IconPlaceholder
+                  lucide="ChevronsUpDownIcon"
+                  className="ms-auto size-4"
+                />
+              </PopoverTrigger>
+              <PopoverContent
+                side="top"
+                align="start"
+                className="w-56 p-1"
+                dir="rtl"
+              >
+                <button
+                  type="button"
+                  className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                  onClick={() => setUserOpen(false)}
+                >
+                  پروفایل
+                </button>
+                <button
+                  type="button"
+                  className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                  onClick={() => setUserOpen(false)}
+                >
+                  تنظیمات
+                </button>
+                <button
+                  type="button"
+                  className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
+                  onClick={() => setUserOpen(false)}
+                >
+                  خروج
+                </button>
+              </PopoverContent>
+            </Popover>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

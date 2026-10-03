@@ -38,34 +38,36 @@ const ITEMS = [
 
 export function FaqCard() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <Card dir="rtl" lang="fa">
-        <CardHeader className="text-start">
-          <Badge variant="secondary" className="mb-2 w-fit">
-            راهنما
-          </Badge>
-          <CardTitle className="text-2xl">پرسش‌های متداول</CardTitle>
-          <CardDescription>
-            پاسخ کوتاه قبل از تماس با پشتیبانی
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Accordion type="single" collapsible dir="rtl" lang="fa" className="w-full">
-            {ITEMS.map((item, i) => (
-              <AccordionItem key={item.q} value={`item-${i}`}>
-                <AccordionTrigger className="text-start">{item.q}</AccordionTrigger>
-                <AccordionContent className="text-start text-muted-foreground">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </CardContent>
-      </Card>
-    </section>
+      <div className="w-full max-w-2xl">
+        <Card dir="rtl" lang="fa">
+          <CardHeader className="text-start">
+            <Badge variant="secondary" className="mb-2 w-fit">
+              راهنما
+            </Badge>
+            <CardTitle className="text-2xl">پرسش‌های متداول</CardTitle>
+            <CardDescription>
+              پاسخ کوتاه قبل از تماس با پشتیبانی
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Accordion type="single" collapsible dir="rtl" lang="fa" className="w-full">
+              {ITEMS.map((item, i) => (
+                <AccordionItem key={item.q} value={`item-${i}`}>
+                  <AccordionTrigger className="text-start">{item.q}</AccordionTrigger>
+                  <AccordionContent className="text-start text-muted-foreground">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
   )
 }

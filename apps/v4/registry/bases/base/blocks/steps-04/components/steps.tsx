@@ -56,104 +56,106 @@ export function StepsInteractive() {
   }, [flow])
 
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight">مراحل فرآیند</h2>
-          <p className="mt-2 text-muted-foreground">
-            نوع مسیر را انتخاب کنید و بین مراحل جابه‌جا شوید
+      <section className="w-full max-w-3xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">مراحل فرآیند</h2>
+            <p className="mt-2 text-muted-foreground">
+              نوع مسیر را انتخاب کنید و بین مراحل جابه‌جا شوید
+            </p>
+          </div>
+          <Select
+            items={FLOW_ITEMS}
+            value={flow}
+            onValueChange={(value) => {
+              if (value && value in FLOWS) setFlow(value as FlowKey)
+            }}
+          >
+            <SelectTrigger className="w-full sm:w-44" dir="rtl">
+              <SelectValue placeholder="نوع فرآیند" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {FLOW_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <ol className="mb-8 grid grid-cols-4 gap-2">
+          {steps.map((item, i) => {
+            const done = i < step
+            const current = i === step
+            return (
+              <li
+                key={item.title}
+                className="flex flex-col items-center gap-2 text-center"
+              >
+                <button
+                  type="button"
+                  onClick={() => setStep(i)}
+                  className={cn(
+                    "flex size-9 items-center justify-center rounded-full border text-sm font-medium transition-colors",
+                    current && "border-primary bg-primary text-primary-foreground",
+                    done && "border-primary bg-primary/10 text-primary",
+                    !current && !done && "bg-background text-muted-foreground"
+                  )}
+                  aria-current={current ? "step" : undefined}
+                >
+                  {done ? <CheckIcon className="size-4" /> : toFa(i + 1)}
+                </button>
+                <span
+                  className={cn(
+                    "hidden text-xs sm:block",
+                    current
+                      ? "font-medium text-foreground"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {item.title}
+                </span>
+              </li>
+            )
+          })}
+        </ol>
+
+        <div className="rounded-2xl border bg-card p-6 shadow-sm md:p-8">
+          <div className="mb-3 flex items-center gap-2">
+            <Badge variant="outline">
+              مرحله {toFa(step + 1)} از {toFa(steps.length)}
+            </Badge>
+            <Badge variant="secondary">{flow}</Badge>
+          </div>
+          <h3 className="text-xl font-bold tracking-tight">
+            {steps[step]?.title}
+          </h3>
+          <p className="mt-2 leading-relaxed text-muted-foreground">
+            {steps[step]?.desc}
           </p>
-        </div>
-        <Select
-          items={FLOW_ITEMS}
-          value={flow}
-          onValueChange={(value) => {
-            if (value && value in FLOWS) setFlow(value as FlowKey)
-          }}
-        >
-          <SelectTrigger className="w-full sm:w-44" dir="rtl">
-            <SelectValue placeholder="نوع فرآیند" />
-          </SelectTrigger>
-          <SelectContent dir="rtl" lang="fa">
-            {FLOW_ITEMS.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
-      <ol className="mb-8 grid grid-cols-4 gap-2">
-        {steps.map((item, i) => {
-          const done = i < step
-          const current = i === step
-          return (
-            <li
-              key={item.title}
-              className="flex flex-col items-center gap-2 text-center"
+          <div className="mt-8 flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              disabled={step === 0}
+              onClick={() => setStep((s) => Math.max(0, s - 1))}
             >
-              <button
-                type="button"
-                onClick={() => setStep(i)}
-                className={cn(
-                  "flex size-9 items-center justify-center rounded-full border text-sm font-medium transition-colors",
-                  current && "border-primary bg-primary text-primary-foreground",
-                  done && "border-primary bg-primary/10 text-primary",
-                  !current && !done && "bg-background text-muted-foreground"
-                )}
-                aria-current={current ? "step" : undefined}
-              >
-                {done ? <CheckIcon className="size-4" /> : toFa(i + 1)}
-              </button>
-              <span
-                className={cn(
-                  "hidden text-xs sm:block",
-                  current
-                    ? "font-medium text-foreground"
-                    : "text-muted-foreground"
-                )}
-              >
-                {item.title}
-              </span>
-            </li>
-          )
-        })}
-      </ol>
-
-      <div className="rounded-2xl border bg-card p-6 shadow-sm md:p-8">
-        <div className="mb-3 flex items-center gap-2">
-          <Badge variant="outline">
-            مرحله {toFa(step + 1)} از {toFa(steps.length)}
-          </Badge>
-          <Badge variant="secondary">{flow}</Badge>
+              قبلی
+            </Button>
+            <Button
+              disabled={step === steps.length - 1}
+              onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}
+            >
+              بعدی
+            </Button>
+          </div>
         </div>
-        <h3 className="text-xl font-bold tracking-tight">
-          {steps[step]?.title}
-        </h3>
-        <p className="mt-2 leading-relaxed text-muted-foreground">
-          {steps[step]?.desc}
-        </p>
-        <div className="mt-8 flex flex-wrap gap-2">
-          <Button
-            variant="outline"
-            disabled={step === 0}
-            onClick={() => setStep((s) => Math.max(0, s - 1))}
-          >
-            قبلی
-          </Button>
-          <Button
-            disabled={step === steps.length - 1}
-            onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}
-          >
-            بعدی
-          </Button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

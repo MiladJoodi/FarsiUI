@@ -60,41 +60,43 @@ const MEMBERS = [
 
 export function TeamCards() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-10 text-start">
-        <h2 className="text-3xl font-bold tracking-tight">اعضای تیم</h2>
-        <p className="mt-2 text-muted-foreground">
-          نقش‌ها و مسئولیت‌ها در یک نگاه
-        </p>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {MEMBERS.map((member) => (
-          <Card key={member.name}>
-            <CardHeader className="gap-4">
-              <div className="flex items-center gap-3">
-                <Avatar className="size-12">
-                  <AvatarImage src={member.avatar} alt={member.name} />
-                  <AvatarFallback>{member.fallback}</AvatarFallback>
-                </Avatar>
-                <div className="min-w-0">
-                  <CardTitle className="text-base">{member.name}</CardTitle>
-                  <CardDescription>{member.role}</CardDescription>
+      <section className="w-full max-w-5xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-10 text-start">
+          <h2 className="text-3xl font-bold tracking-tight">اعضای تیم</h2>
+          <p className="mt-2 text-muted-foreground">
+            نقش‌ها و مسئولیت‌ها در یک نگاه
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {MEMBERS.map((member) => (
+            <Card key={member.name}>
+              <CardHeader className="gap-4">
+                <div className="flex items-center gap-3">
+                  <Avatar className="size-12">
+                    <AvatarImage src={member.avatar} alt={member.name} />
+                    <AvatarFallback>{member.fallback}</AvatarFallback>
+                  </Avatar>
+                  <div className="min-w-0">
+                    <CardTitle className="text-base">{member.name}</CardTitle>
+                    <CardDescription>{member.role}</CardDescription>
+                  </div>
                 </div>
-              </div>
-              <Badge variant="outline" className="w-fit">
-                {member.dept}
-              </Badge>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {member.bio}
-              </p>
-            </CardHeader>
-          </Card>
-        ))}
-      </div>
-    </section>
+                <Badge variant="outline" className="w-fit">
+                  {member.dept}
+                </Badge>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {member.bio}
+                </p>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }

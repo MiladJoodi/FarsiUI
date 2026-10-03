@@ -26,24 +26,26 @@ const ITEMS = [
 
 export function FaqSimple() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <h2 className="mb-8 text-start text-3xl font-bold tracking-tight">
-        پرسش‌های متداول
-      </h2>
-      <Accordion type="single" collapsible dir="rtl" lang="fa" className="w-full">
-        {ITEMS.map((item, i) => (
-          <AccordionItem key={item.q} value={`item-${i}`}>
-            <AccordionTrigger className="text-start">{item.q}</AccordionTrigger>
-            <AccordionContent className="text-start text-muted-foreground">
-              {item.a}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </section>
+      <section className="w-full max-w-2xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <h2 className="mb-8 text-start text-3xl font-bold tracking-tight">
+          پرسش‌های متداول
+        </h2>
+        <Accordion type="single" collapsible dir="rtl" lang="fa" className="w-full">
+          {ITEMS.map((item, i) => (
+            <AccordionItem key={item.q} value={`item-${i}`}>
+              <AccordionTrigger className="text-start">{item.q}</AccordionTrigger>
+              <AccordionContent className="text-start text-muted-foreground">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+    </div>
   )
 }

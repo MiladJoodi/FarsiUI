@@ -39,58 +39,60 @@ const MEMBERS = [
 
 export function TeamFeatured() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <Badge variant="secondary" className="mb-3">
-            تیم اصلی
-          </Badge>
-          <h2 className="text-3xl font-bold tracking-tight">با ما آشنا شوید</h2>
-          <p className="mt-2 text-muted-foreground">
-            از طراحی تا مهندسی؛ یک تیم برای محصول فارسی
-          </p>
+      <section className="w-full max-w-5xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Badge variant="secondary" className="mb-3">
+              تیم اصلی
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight">با ما آشنا شوید</h2>
+            <p className="mt-2 text-muted-foreground">
+              از طراحی تا مهندسی؛ یک تیم برای محصول فارسی
+            </p>
+          </div>
+          <Button variant="outline">موقعیت‌های شغلی</Button>
         </div>
-        <Button variant="outline">موقعیت‌های شغلی</Button>
-      </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="aspect-16/10 bg-muted">
-            <img
-              src={LEAD.avatar}
-              alt={LEAD.name}
-              className="size-full object-cover object-top"
-            />
-          </div>
-          <div className="space-y-3 p-6 md:p-8">
-            <h3 className="text-xl font-bold tracking-tight">{LEAD.name}</h3>
-            <p className="text-sm text-muted-foreground">{LEAD.role}</p>
-            <p className="leading-relaxed text-muted-foreground">{LEAD.bio}</p>
-          </div>
-        </article>
-
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-          {MEMBERS.map((member) => (
-            <div
-              key={member.name}
-              className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm"
-            >
-              <Avatar className="size-11">
-                <AvatarImage src={member.avatar} alt={member.name} />
-                <AvatarFallback>{member.fallback}</AvatarFallback>
-              </Avatar>
-              <div className="min-w-0 text-sm">
-                <p className="font-medium">{member.name}</p>
-                <p className="text-muted-foreground">{member.role}</p>
-              </div>
+        <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+          <article className="overflow-hidden rounded-2xl border bg-card shadow-sm">
+            <div className="aspect-16/10 bg-muted">
+              <img
+                src={LEAD.avatar}
+                alt={LEAD.name}
+                className="size-full object-cover object-top"
+              />
             </div>
-          ))}
+            <div className="space-y-3 p-6 md:p-8">
+              <h3 className="text-xl font-bold tracking-tight">{LEAD.name}</h3>
+              <p className="text-sm text-muted-foreground">{LEAD.role}</p>
+              <p className="leading-relaxed text-muted-foreground">{LEAD.bio}</p>
+            </div>
+          </article>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            {MEMBERS.map((member) => (
+              <div
+                key={member.name}
+                className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm"
+              >
+                <Avatar className="size-11">
+                  <AvatarImage src={member.avatar} alt={member.name} />
+                  <AvatarFallback>{member.fallback}</AvatarFallback>
+                </Avatar>
+                <div className="min-w-0 text-sm">
+                  <p className="font-medium">{member.name}</p>
+                  <p className="text-muted-foreground">{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

@@ -13,12 +13,12 @@ import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 export function ContactSplit() {
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="overflow-hidden rounded-2xl border bg-card shadow-sm lg:grid lg:grid-cols-2">
+      <section className="w-full max-w-5xl overflow-hidden rounded-2xl border bg-card shadow-sm lg:grid lg:grid-cols-2">
         <div className="flex flex-col justify-center gap-6 border-b bg-muted/40 p-6 md:p-10 lg:border-b-0 lg:border-l">
           <div>
             <Badge variant="secondary" className="mb-3">
@@ -103,7 +103,7 @@ export function ContactSplit() {
             </FieldDescription>
           </FieldGroup>
         </form>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

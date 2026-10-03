@@ -114,138 +114,140 @@ export function FaqSearch() {
   }, [query, category, sort])
 
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8 space-y-4">
-        <div>
-          <Badge variant="secondary" className="mb-3">
-            پشتیبانی
-          </Badge>
-          <h2 className="text-3xl font-bold tracking-tight">
-            پرسش‌های متداول
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            جستجو کنید یا دسته را فیلتر کنید
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <div className="relative flex-1">
-            <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="جستجو در پرسش و پاسخ…"
-              className="ps-9"
-              dir="rtl"
-            />
+      <section className="w-full max-w-3xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8 space-y-4">
+          <div>
+            <Badge variant="secondary" className="mb-3">
+              پشتیبانی
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight">
+              پرسش‌های متداول
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              جستجو کنید یا دسته را فیلتر کنید
+            </p>
           </div>
-          <Select
-            items={CATEGORIES.map((cat) => ({ value: cat, label: cat }))}
-            value={category}
-            onValueChange={(value) => {
-              if (typeof value === "string") setCategory(value)
-            }}
-          >
-            <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="دسته" />
-            </SelectTrigger>
-            <SelectContent dir="rtl" lang="fa">
-              {CATEGORIES.map((cat) => (
-                <SelectItem key={cat} value={cat}>
-                  {cat}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={
-                <Button variant="outline" className="w-full sm:w-auto" />
-              }
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="relative flex-1">
+              <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="جستجو در پرسش و پاسخ…"
+                className="ps-9"
+                dir="rtl"
+              />
+            </div>
+            <Select
+              items={CATEGORIES.map((cat) => ({ value: cat, label: cat }))}
+              value={category}
+              onValueChange={(value) => {
+                if (typeof value === "string") setCategory(value)
+              }}
             >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
-              <DropdownMenuLabel>نمایش بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(v) => {
-                  if (v === "popular" || v === "newest" || v === "alpha") {
-                    setSort(v)
-                  }
-                }}
-              >
-                {SORT_ITEMS.map((item) => (
-                  <DropdownMenuRadioItem key={item.value} value={item.value}>
-                    {item.label}
-                  </DropdownMenuRadioItem>
+              <SelectTrigger className="w-full sm:w-40" dir="rtl">
+                <SelectValue placeholder="دسته" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {CATEGORIES.map((cat) => (
+                  <SelectItem key={cat} value={cat}>
+                    {cat}
+                  </SelectItem>
                 ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </SelectContent>
+            </Select>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <Button variant="outline" className="w-full sm:w-auto" />
+                }
+              >
+                مرتب‌سازی
+              </DropdownMenuTrigger>
+              <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-44">
+                <DropdownMenuLabel>نمایش بر اساس</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup
+                  value={sort}
+                  onValueChange={(v) => {
+                    if (v === "popular" || v === "newest" || v === "alpha") {
+                      setSort(v)
+                    }
+                  }}
+                >
+                  {SORT_ITEMS.map((item) => (
+                    <DropdownMenuRadioItem key={item.value} value={item.value}>
+                      {item.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-      </div>
 
-      {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
-          پرسشی با این فیلتر پیدا نشد. عبارت یا دستهٔ دیگری را امتحان کنید.
-        </p>
-      ) : (
-        <Accordion
-          type="single"
-          collapsible
-          dir="rtl"
-          lang="fa"
-          className="w-full rounded-xl border bg-card px-1"
-        >
-          {filtered.map((item, i) => (
-            <AccordionItem key={item.q} value={`item-${i}`}>
-              <AccordionTrigger className="px-4 text-start">
-                {item.q}
-              </AccordionTrigger>
-              <AccordionContent className="space-y-2 px-4 text-start text-muted-foreground">
-                <Badge variant="outline" className="font-normal">
-                  {item.category}
-                </Badge>
-                <p>{item.a}</p>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      )}
-
-      <Separator className="my-10" />
-
-      <Card dir="rtl" lang="fa">
-        <CardHeader className="text-start">
-          <CardTitle className="text-lg">هنوز جواب نگرفتید؟</CardTitle>
-          <CardDescription>
-            پیام بفرستید؛ معمولاً در کمتر از یک روز پاسخ می‌دهیم
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form
-            className="flex flex-col gap-3 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
+        {filtered.length === 0 ? (
+          <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+            پرسشی با این فیلتر پیدا نشد. عبارت یا دستهٔ دیگری را امتحان کنید.
+          </p>
+        ) : (
+          <Accordion
+            type="single"
+            collapsible
+            dir="rtl"
+            lang="fa"
+            className="w-full rounded-xl border bg-card px-1"
           >
-            <Input
-              type="email"
-              required
-              placeholder="ایمیل شما"
-              dir="ltr"
-              className="text-start sm:flex-1"
-            />
-            <Button type="submit" className="sm:shrink-0">
-              ارسال پرسش
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </section>
+            {filtered.map((item, i) => (
+              <AccordionItem key={item.q} value={`item-${i}`}>
+                <AccordionTrigger className="px-4 text-start">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="space-y-2 px-4 text-start text-muted-foreground">
+                  <Badge variant="outline" className="font-normal">
+                    {item.category}
+                  </Badge>
+                  <p>{item.a}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        )}
+
+        <Separator className="my-10" />
+
+        <Card dir="rtl" lang="fa">
+          <CardHeader className="text-start">
+            <CardTitle className="text-lg">هنوز جواب نگرفتید؟</CardTitle>
+            <CardDescription>
+              پیام بفرستید؛ معمولاً در کمتر از یک روز پاسخ می‌دهیم
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form
+              className="flex flex-col gap-3 sm:flex-row"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <Input
+                type="email"
+                required
+                placeholder="ایمیل شما"
+                dir="ltr"
+                className="text-start sm:flex-1"
+              />
+              <Button type="submit" className="sm:shrink-0">
+                ارسال پرسش
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
   )
 }

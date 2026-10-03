@@ -265,17 +265,21 @@ function DocsSidebarBody({
   tree,
   persistScroll = true,
   showSearch = true,
+  scope = "all",
 }: {
   tree: typeof source.pageTree
   persistScroll?: boolean
   /** Desktop sidebar keeps search; mobile فهرست matches blocks/skills index. */
   showSearch?: boolean
+  /** Mobile components index should only list components — not the full docs tree. */
+  scope?: "all" | "components"
 }) {
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
   const contentRef = React.useRef<HTMLDivElement>(null)
   const [searchValue, setSearchValue] = React.useState("")
   const [debouncedQuery, setDebouncedQuery] = React.useState("")
+  const componentsOnly = scope === "components"
 
   React.useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -291,13 +295,16 @@ function DocsSidebarBody({
   }, [])
 
   const filteredSections = React.useMemo(() => {
+    if (componentsOnly) {
+      return []
+    }
     return TOP_LEVEL_SECTIONS.filter(({ name, href }) => {
       if (!showMcpDocs && href.includes("/mcp")) {
         return false
       }
       return matchesQuery(name, debouncedQuery)
     })
-  }, [debouncedQuery])
+  }, [componentsOnly, debouncedQuery])
 
   const filteredGroups = React.useMemo(() => {
     return tree.children.flatMap((item) => {
@@ -306,6 +313,13 @@ function DocsSidebarBody({
       }
 
       if (item.type !== "folder") {
+        return []
+      }
+
+      const isComponents =
+        item.$id === "components" || String(item.name) === "کامپوننت‌ها"
+
+      if (componentsOnly && !isComponents) {
         return []
       }
 
@@ -336,15 +350,16 @@ function DocsSidebarBody({
           id: item.$id ?? String(item.name),
           name: item.name,
           pages,
-          isComponents:
-            item.$id === "components" || String(item.name) === "کامپوننت‌ها",
+          isComponents,
         },
       ]
     })
-  }, [tree.children, currentBase, debouncedQuery])
+  }, [tree.children, currentBase, debouncedQuery, componentsOnly])
 
   const componentGroup = filteredGroups.find((group) => group.isComponents)
-  const otherGroups = filteredGroups.filter((group) => !group.isComponents)
+  const otherGroups = componentsOnly
+    ? []
+    : filteredGroups.filter((group) => !group.isComponents)
 
   const isComponentsPath = pathname.startsWith("/docs/components")
   const [componentsOpen, setComponentsOpen] = React.useState(true)
@@ -471,67 +486,118 @@ function DocsSidebarBody({
         ) : null}
 
         {componentGroup ? (
-          <SidebarGroup>
-            <Collapsible
-              open={componentsOpen}
-              onOpenChange={setComponentsOpen}
-              className="group/components-root"
-            >
-              <CollapsibleTrigger className="flex h-8 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground">
-                <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/components-root:rotate-90" />
-                <span>کامپوننت‌ها</span>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <SidebarGroupContent>
-                  <SidebarMenu className="gap-0.5">
-                    {componentGroup.pages.map((page) => {
-                      const { fa, en } = splitDocTitle(String(page.name))
-                      const isNew = PAGES_NEW.includes(page.url)
+          <SidebarGroup className={componentsOnly ? "pt-1" : undefined}>
+            {componentsOnly ? (
+              <SidebarGroupContent>
+                <SidebarMenu className="gap-0.5">
+                  {componentGroup.pages.map((page) => {
+                    const { fa, en } = splitDocTitle(String(page.name))
+                    const isNew = PAGES_NEW.includes(page.url)
 
-                      return (
-                        <SidebarMenuItem key={page.url}>
-                          <SidebarMenuButton
-                            asChild
-                            isActive={page.url === pathname}
-                            className={ACTIVE_ITEM_CLASS}
+                    return (
+                      <SidebarMenuItem key={page.url}>
+                        <SidebarMenuButton
+                          asChild
+                          isActive={page.url === pathname}
+                          className={ACTIVE_ITEM_CLASS}
+                        >
+                          <Link
+                            href={page.url}
+                            className="flex w-full min-w-0 items-center gap-2"
                           >
-                            <Link
-                              href={page.url}
-                              className="flex w-full min-w-0 items-center gap-2"
-                            >
-                              <span className="flex min-w-0 shrink items-center gap-1.5">
-                                <span className="truncate">{fa}</span>
-                                {isNew ? (
-                                  <span
-                                    className="flex size-2 shrink-0 rounded-full bg-blue-500"
-                                    title="New"
-                                  />
-                                ) : null}
-                              </span>
-                              {en ? (
-                                <>
-                                  <span
-                                    aria-hidden
-                                    className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
-                                  />
-                                  <span
-                                    dir="ltr"
-                                    lang="en"
-                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                                  >
-                                    {en}
-                                  </span>
-                                </>
+                            <span className="flex min-w-0 shrink items-center gap-1.5">
+                              <span className="truncate">{fa}</span>
+                              {isNew ? (
+                                <span
+                                  className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                  title="New"
+                                />
                               ) : null}
-                            </Link>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      )
-                    })}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </CollapsibleContent>
-            </Collapsible>
+                            </span>
+                            {en ? (
+                              <>
+                                <span
+                                  aria-hidden
+                                  className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                                />
+                                <span
+                                  dir="ltr"
+                                  lang="en"
+                                  className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                >
+                                  {en}
+                                </span>
+                              </>
+                            ) : null}
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    )
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            ) : (
+              <Collapsible
+                open={componentsOpen}
+                onOpenChange={setComponentsOpen}
+                className="group/components-root"
+              >
+                <CollapsibleTrigger className="flex h-8 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground">
+                  <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/components-root:rotate-90" />
+                  <span>کامپوننت‌ها</span>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarGroupContent>
+                    <SidebarMenu className="gap-0.5">
+                      {componentGroup.pages.map((page) => {
+                        const { fa, en } = splitDocTitle(String(page.name))
+                        const isNew = PAGES_NEW.includes(page.url)
+
+                        return (
+                          <SidebarMenuItem key={page.url}>
+                            <SidebarMenuButton
+                              asChild
+                              isActive={page.url === pathname}
+                              className={ACTIVE_ITEM_CLASS}
+                            >
+                              <Link
+                                href={page.url}
+                                className="flex w-full min-w-0 items-center gap-2"
+                              >
+                                <span className="flex min-w-0 shrink items-center gap-1.5">
+                                  <span className="truncate">{fa}</span>
+                                  {isNew ? (
+                                    <span
+                                      className="flex size-2 shrink-0 rounded-full bg-blue-500"
+                                      title="New"
+                                    />
+                                  ) : null}
+                                </span>
+                                {en ? (
+                                  <>
+                                    <span
+                                      aria-hidden
+                                      className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                                    />
+                                    <span
+                                      dir="ltr"
+                                      lang="en"
+                                      className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                    >
+                                      {en}
+                                    </span>
+                                  </>
+                                ) : null}
+                              </Link>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        )
+                      })}
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </CollapsibleContent>
+              </Collapsible>
+            )}
           </SidebarGroup>
         ) : null}
 
@@ -598,13 +664,12 @@ function DocsSidebarBody({
 export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
+  const isComponents = pathname.startsWith("/docs/components")
   const current = React.useMemo(
     () => getDocsCurrentLabel(tree, pathname, currentBase),
     [tree, pathname, currentBase]
   )
-  const title = pathname.startsWith("/docs/components")
-    ? "فهرست کامپوننت‌ها"
-    : "فهرست مستندات"
+  const title = isComponents ? "فهرست کامپوننت‌ها" : "فهرست مستندات"
 
   return (
     <ListIndexNav title={title} current={current}>
@@ -613,6 +678,7 @@ export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
           tree={tree}
           persistScroll={false}
           showSearch={false}
+          scope={isComponents ? "components" : "all"}
         />
       </SidebarProvider>
     </ListIndexNav>

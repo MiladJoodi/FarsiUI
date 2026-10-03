@@ -187,9 +187,9 @@
     "lucide": "PanelLeft",
     "radix": "ViewVerticalIcon",
     "tabler": "IconLayoutSidebar",
-    "hugeicons": "SidebarLeftIcon",
+    "hugeicons": "LayoutLeftIcon",
     "phosphor": "SidebarIcon",
-    "remixicon": "RiLayoutLeftLine"
+    "remixicon": "RiSideBarLine"
   },
   "Plus": {
     "lucide": "Plus",
@@ -303,17 +303,10 @@
     "phosphor": "ArchiveIcon",
     "remixicon": "RiArchiveLine"
   },
-  "ArchiveXIcon": {
-    "lucide": "ArchiveXIcon",
-    "tabler": "IconArchiveOff",
-    "hugeicons": "ArchiveIcon",
-    "phosphor": "ArchiveIcon",
-    "remixicon": "RiArchiveLine"
-  },
   "ArrowDownIcon": {
     "lucide": "ArrowDownIcon",
     "tabler": "IconArrowDown",
-    "hugeicons": "ArrowDownIcon",
+    "hugeicons": "ArrowDown01Icon",
     "phosphor": "ArrowDownIcon",
     "remixicon": "RiArrowDownLine"
   },
@@ -334,14 +327,14 @@
   "ArrowUpIcon": {
     "lucide": "ArrowUpIcon",
     "tabler": "IconArrowUp",
-    "hugeicons": "ArrowUpIcon",
+    "hugeicons": "ArrowUp01Icon",
     "phosphor": "ArrowUpIcon",
     "remixicon": "RiArrowUpLine"
   },
   "ArrowUpRightIcon": {
     "lucide": "ArrowUpRightIcon",
     "tabler": "IconArrowUpRight",
-    "hugeicons": "ArrowUpRightIcon",
+    "hugeicons": "ArrowUpRight01Icon",
     "phosphor": "ArrowUpRightIcon",
     "remixicon": "RiArrowRightUpLine"
   },
@@ -372,13 +365,6 @@
     "hugeicons": "Notification03Icon",
     "phosphor": "BellIcon",
     "remixicon": "RiNotification3Line"
-  },
-  "BlocksIcon": {
-    "lucide": "BlocksIcon",
-    "tabler": "IconCube",
-    "hugeicons": "CubeIcon",
-    "phosphor": "CubeIcon",
-    "remixicon": "RiBox3Line"
   },
   "BluetoothIcon": {
     "lucide": "BluetoothIcon",
@@ -460,7 +446,7 @@
   "ChartLineIcon": {
     "lucide": "ChartLineIcon",
     "tabler": "IconChartLine",
-    "hugeicons": "ChartIcon",
+    "hugeicons": "Chart03Icon",
     "phosphor": "ChartLineIcon",
     "remixicon": "RiLineChartLine"
   },
@@ -603,20 +589,6 @@
     "hugeicons": "CubeIcon",
     "phosphor": "CubeIcon",
     "remixicon": "RiBox1Line"
-  },
-  "CornerUpLeftIcon": {
-    "lucide": "CornerUpLeftIcon",
-    "tabler": "IconCornerUpLeft",
-    "hugeicons": "UndoIcon",
-    "phosphor": "ArrowBendUpLeftIcon",
-    "remixicon": "RiCornerUpLeftLine"
-  },
-  "CornerUpRightIcon": {
-    "lucide": "CornerUpRightIcon",
-    "tabler": "IconCornerUpRight",
-    "hugeicons": "RedoIcon",
-    "phosphor": "ArrowBendUpRightIcon",
-    "remixicon": "RiCornerUpRightLine"
   },
   "DatabaseIcon": {
     "lucide": "DatabaseIcon",
@@ -877,13 +849,6 @@
     "phosphor": "LifebuoyIcon",
     "remixicon": "RiLifebuoyLine"
   },
-  "LifeBuoyIcon": {
-    "lucide": "LifeBuoyIcon",
-    "tabler": "IconLifebuoy",
-    "hugeicons": "ChartRingIcon",
-    "phosphor": "LifebuoyIcon",
-    "remixicon": "RiLifebuoyLine"
-  },
   "LinkIcon": {
     "lucide": "LinkIcon",
     "tabler": "IconLink",
@@ -940,27 +905,6 @@
     "phosphor": "PlusIcon",
     "remixicon": "RiAddLine"
   },
-  "MenuIcon": {
-    "lucide": "MenuIcon",
-    "tabler": "IconMenu",
-    "hugeicons": "Menu09Icon",
-    "phosphor": "ListIcon",
-    "remixicon": "RiMenuLine"
-  },
-  "MessageCircleIcon": {
-    "lucide": "MessageCircleIcon",
-    "tabler": "IconMessageQuestion",
-    "hugeicons": "MessageIcon",
-    "phosphor": "ChatCircleIcon",
-    "remixicon": "RiChat1Line"
-  },
-  "MessageCircleQuestionIcon": {
-    "lucide": "MessageCircleQuestionIcon",
-    "tabler": "IconMessageQuestion",
-    "hugeicons": "MessageQuestionIcon",
-    "phosphor": "ChatCircleIcon",
-    "remixicon": "RiQuestionLine"
-  },
   "MessageSquareIcon": {
     "lucide": "MessageSquareIcon",
     "tabler": "IconMessage",
@@ -1003,6 +947,9 @@
     "phosphor": "XCircleIcon",
     "remixicon": "RiCloseCircleLine"
   },
+  "OrbitIcon": {
+    "lucide": "OrbitIcon"
+  },
   "PaintbrushIcon": {
     "lucide": "PaintbrushIcon",
     "tabler": "IconPalette",
@@ -1016,6 +963,9 @@
     "hugeicons": "PaintBoardIcon",
     "phosphor": "PaletteIcon",
     "remixicon": "RiPaletteLine"
+  },
+  "PanelsTopLeftIcon": {
+    "lucide": "PanelsTopLeftIcon"
   },
   "PaperclipIcon": {
     "lucide": "PaperclipIcon",
@@ -1101,13 +1051,6 @@
     "phosphor": "ScissorsIcon",
     "remixicon": "RiScissorsLine"
   },
-  "SendIcon": {
-    "lucide": "SendIcon",
-    "tabler": "IconSend",
-    "hugeicons": "SentIcon",
-    "phosphor": "PaperPlaneTiltIcon",
-    "remixicon": "RiSendPlaneLine"
-  },
   "ServerIcon": {
     "lucide": "ServerIcon",
     "tabler": "IconServer",
@@ -1152,7 +1095,7 @@
   },
   "SparklesIcon": {
     "lucide": "SparklesIcon",
-    "tabler": "IconSparkles",
+    "tabler": "IconServerSpark",
     "hugeicons": "SparklesIcon",
     "phosphor": "SparkleIcon",
     "remixicon": "RiSparklingLine"
@@ -1170,13 +1113,6 @@
     "hugeicons": "StarIcon",
     "phosphor": "StarIcon",
     "remixicon": "RiStarLine"
-  },
-  "StarOffIcon": {
-    "lucide": "StarOffIcon",
-    "tabler": "IconStarOff",
-    "hugeicons": "StarOffIcon",
-    "phosphor": "StarIcon",
-    "remixicon": "RiStarOffLine"
   },
   "StopCircleIcon": {
     "lucide": "StopCircleIcon",
@@ -1244,7 +1180,7 @@
   "TrashIcon": {
     "lucide": "TrashIcon",
     "tabler": "IconTrash",
-    "hugeicons": "DeleteIcon",
+    "hugeicons": "Delete02Icon",
     "phosphor": "TrashIcon",
     "remixicon": "RiDeleteBinLine"
   },
@@ -1296,13 +1232,6 @@
     "hugeicons": "UserGroupIcon",
     "phosphor": "UsersIcon",
     "remixicon": "RiGroupLine"
-  },
-  "VideoIcon": {
-    "lucide": "VideoIcon",
-    "tabler": "IconVideoPlus",
-    "hugeicons": "RecordIcon",
-    "phosphor": "VideoIcon",
-    "remixicon": "RiVideoLine"
   },
   "Volume2Icon": {
     "lucide": "Volume2Icon",

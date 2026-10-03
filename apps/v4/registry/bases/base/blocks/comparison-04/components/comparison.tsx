@@ -76,90 +76,92 @@ export function ComparisonPicker() {
   const [right, setRight] = React.useState<OptionKey>("فارسی‌یوآی")
 
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold tracking-tight">دو گزینه را بچینید</h2>
-        <p className="mt-2 text-muted-foreground">
-          هر ستون یک ابزار است؛ برای قیمت پلن‌ها به بخش قیمت‌گذاری بروید
-        </p>
-      </div>
-
-      <div className="mb-6 grid gap-3 sm:grid-cols-2">
-        <Select
-          items={OPTION_ITEMS}
-          value={left}
-          onValueChange={(value) => {
-            if (value && value in OPTIONS) setLeft(value as OptionKey)
-          }}
-        >
-          <SelectTrigger className="w-full" dir="rtl">
-            <SelectValue placeholder="گزینهٔ اول" />
-          </SelectTrigger>
-          <SelectContent dir="rtl" lang="fa">
-            {OPTION_ITEMS.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Select
-          items={OPTION_ITEMS}
-          value={right}
-          onValueChange={(value) => {
-            if (value && value in OPTIONS) setRight(value as OptionKey)
-          }}
-        >
-          <SelectTrigger className="w-full" dir="rtl">
-            <SelectValue placeholder="گزینهٔ دوم" />
-          </SelectTrigger>
-          <SelectContent dir="rtl" lang="fa">
-            {OPTION_ITEMS.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="overflow-hidden rounded-xl border">
-        <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b bg-muted/40 text-sm font-medium">
-          <div className="px-4 py-3">قابلیت</div>
-          <div className="border-s px-4 py-3 text-center">{left}</div>
-          <div className="border-s px-4 py-3 text-center">{right}</div>
+      <section className="w-full max-w-3xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold tracking-tight">دو گزینه را بچینید</h2>
+          <p className="mt-2 text-muted-foreground">
+            هر ستون یک ابزار است؛ برای قیمت پلن‌ها به بخش قیمت‌گذاری بروید
+          </p>
         </div>
-        {FEATURES.map((feature) => (
-          <div
-            key={feature.key}
-            className="grid grid-cols-[1.4fr_1fr_1fr] border-b text-sm last:border-0"
-          >
-            <div className="px-4 py-3.5 font-medium">{feature.label}</div>
-            <div className="flex items-center justify-center border-s px-4 py-3.5">
-              {OPTIONS[left].cells[feature.key] ? (
-                <CheckIcon className="size-4 text-primary" />
-              ) : (
-                <MinusIcon className="size-4 text-muted-foreground" />
-              )}
-            </div>
-            <div className="flex items-center justify-center border-s px-4 py-3.5">
-              {OPTIONS[right].cells[feature.key] ? (
-                <CheckIcon className="size-4 text-primary" />
-              ) : (
-                <MinusIcon className="size-4 text-muted-foreground" />
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
 
-      <Button variant="outline" className="mt-6 w-full sm:w-fit">
-        مشاهدهٔ بلوک‌های آماده
-      </Button>
-    </section>
+        <div className="mb-6 grid gap-3 sm:grid-cols-2">
+          <Select
+            items={OPTION_ITEMS}
+            value={left}
+            onValueChange={(value) => {
+              if (value && value in OPTIONS) setLeft(value as OptionKey)
+            }}
+          >
+            <SelectTrigger className="w-full" dir="rtl">
+              <SelectValue placeholder="گزینهٔ اول" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {OPTION_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select
+            items={OPTION_ITEMS}
+            value={right}
+            onValueChange={(value) => {
+              if (value && value in OPTIONS) setRight(value as OptionKey)
+            }}
+          >
+            <SelectTrigger className="w-full" dir="rtl">
+              <SelectValue placeholder="گزینهٔ دوم" />
+            </SelectTrigger>
+            <SelectContent dir="rtl" lang="fa">
+              {OPTION_ITEMS.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border">
+          <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b bg-muted/40 text-sm font-medium">
+            <div className="px-4 py-3">قابلیت</div>
+            <div className="border-s px-4 py-3 text-center">{left}</div>
+            <div className="border-s px-4 py-3 text-center">{right}</div>
+          </div>
+          {FEATURES.map((feature) => (
+            <div
+              key={feature.key}
+              className="grid grid-cols-[1.4fr_1fr_1fr] border-b text-sm last:border-0"
+            >
+              <div className="px-4 py-3.5 font-medium">{feature.label}</div>
+              <div className="flex items-center justify-center border-s px-4 py-3.5">
+                {OPTIONS[left].cells[feature.key] ? (
+                  <CheckIcon className="size-4 text-primary" />
+                ) : (
+                  <MinusIcon className="size-4 text-muted-foreground" />
+                )}
+              </div>
+              <div className="flex items-center justify-center border-s px-4 py-3.5">
+                {OPTIONS[right].cells[feature.key] ? (
+                  <CheckIcon className="size-4 text-primary" />
+                ) : (
+                  <MinusIcon className="size-4 text-muted-foreground" />
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <Button variant="outline" className="mt-6 w-full sm:w-fit">
+          مشاهدهٔ بلوک‌های آماده
+        </Button>
+      </section>
+    </div>
   )
 }

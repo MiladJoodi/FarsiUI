@@ -15,59 +15,61 @@ const PARAGRAPHS = [
 
 export function ArticleCover() {
   return (
-    <article
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-3xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div
-        className="mb-8 aspect-16/9 w-full rounded-2xl bg-primary/10"
-        aria-hidden
-      />
-      <header className="mb-8 space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Badge className="w-fit">محصول</Badge>
-          <div className="flex items-center gap-1">
-            <Button variant="ghost" size="icon" aria-label="اشتراک‌گذاری">
-              <Share2Icon className="size-4" />
-            </Button>
-            <Button variant="ghost" size="icon" aria-label="کپی لینک">
-              <LinkIcon className="size-4" />
-            </Button>
-            <Button variant="ghost" size="icon" aria-label="ذخیره">
-              <BookmarkIcon className="size-4" />
-            </Button>
-          </div>
-        </div>
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-          کاور، اشتراک و برچسب در یک صفحهٔ خواندنی
-        </h1>
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="flex items-center gap-3">
-            <Avatar className="size-10">
-              <AvatarImage src="/avatars/03.png" alt="سارا کریمی" />
-              <AvatarFallback>س‌ک</AvatarFallback>
-            </Avatar>
-            <div className="text-sm">
-              <p className="font-medium">سارا کریمی</p>
-              <p className="text-muted-foreground">۱ مهر ۱۴۰۵ · ۸ دقیقه مطالعه</p>
+      <article className="w-full max-w-3xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div
+          className="mb-8 aspect-16/9 w-full rounded-2xl bg-primary/10"
+          aria-hidden
+        />
+        <header className="mb-8 space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <Badge className="w-fit">محصول</Badge>
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="icon" aria-label="اشتراک‌گذاری">
+                <Share2Icon className="size-4" />
+              </Button>
+              <Button variant="ghost" size="icon" aria-label="کپی لینک">
+                <LinkIcon className="size-4" />
+              </Button>
+              <Button variant="ghost" size="icon" aria-label="ذخیره">
+                <BookmarkIcon className="size-4" />
+              </Button>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {TAGS.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+            کاور، اشتراک و برچسب در یک صفحهٔ خواندنی
+          </h1>
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-3">
+              <Avatar className="size-10">
+                <AvatarImage src="/avatars/03.png" alt="سارا کریمی" />
+                <AvatarFallback>س‌ک</AvatarFallback>
+              </Avatar>
+              <div className="text-sm">
+                <p className="font-medium">سارا کریمی</p>
+                <p className="text-muted-foreground">۱ مهر ۱۴۰۵ · ۸ دقیقه مطالعه</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {TAGS.map((tag) => (
+                <Badge key={tag} variant="secondary">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
+        </header>
+        <Separator className="mb-8" />
+        <div className="space-y-5 text-base leading-8 text-foreground/90">
+          {PARAGRAPHS.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
+          ))}
         </div>
-      </header>
-      <Separator className="mb-8" />
-      <div className="space-y-5 text-base leading-8 text-foreground/90">
-        {PARAGRAPHS.map((p) => (
-          <p key={p.slice(0, 24)}>{p}</p>
-        ))}
-      </div>
-    </article>
+      </article>
+    </div>
   )
 }

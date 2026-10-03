@@ -148,7 +148,7 @@ export default async function BlockPage({
     style: string
     name: string
   }>
-  searchParams: Promise<{ embed?: string }>
+  searchParams: Promise<{ embed?: string; static?: string }>
 }) {
   const [{ style: styleName, name }, query] = await Promise.all([
     params,
@@ -156,6 +156,7 @@ export default async function BlockPage({
   ])
   const style = getStyle(styleName)
   const embed = query.embed === "1"
+  const staticPreview = query.static === "1"
 
   if (!style) {
     return notFound()
@@ -171,7 +172,11 @@ export default async function BlockPage({
   const visualStyleClass = getVisualStyleClass(style.name)
 
   return (
-    <ComponentPreview embed={embed} styleClass={visualStyleClass}>
+    <ComponentPreview
+      embed={embed}
+      staticPreview={staticPreview}
+      styleClass={visualStyleClass}
+    >
       <div className={cn(embed ? "h-full min-h-full" : "min-h-svh")}>
         <Component />
       </div>

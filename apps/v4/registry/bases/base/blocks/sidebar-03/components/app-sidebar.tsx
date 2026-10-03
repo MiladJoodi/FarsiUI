@@ -1,11 +1,15 @@
-﻿"use client"
+"use client"
 
-import * as React from "react"
-
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/bases/base/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -17,115 +21,123 @@ import {
 } from "@/registry/bases/base/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-const data = {
-  navMain: [
-    {
-      title: "شروع کار",
-      url: "#",
-      items: [
-        { title: "نصب", url: "#" },
-        { title: "ساختار پروژه", url: "#" },
-      ],
-    },
-    {
-      title: "ساخت اپلیکیشن",
-      url: "#",
-      items: [
-        { title: "مسیریابی", url: "#" },
-        { title: "دریافت داده", url: "#", isActive: true },
-        { title: "رندرینگ", url: "#" },
-        { title: "کش", url: "#" },
-        { title: "استایل‌دهی", url: "#" },
-        { title: "بهینه‌سازی", url: "#" },
-        { title: "پیکربندی", url: "#" },
-        { title: "تست", url: "#" },
-        { title: "احراز هویت", url: "#" },
-        { title: "استقرار", url: "#" },
-        { title: "ارتقاء", url: "#" },
-        { title: "نمونه‌ها", url: "#" },
-      ],
-    },
-    {
-      title: "مرجع API",
-      url: "#",
-      items: [
-        { title: "کامپوننت‌ها", url: "#" },
-        { title: "قراردادهای فایل", url: "#" },
-        { title: "توابع", url: "#" },
-        { title: "گزینه‌های next.config", url: "#" },
-        { title: "خط فرمان", url: "#" },
-        { title: "زمان‌اجرای لبه", url: "#" },
-      ],
-    },
-    {
-      title: "معماری",
-      url: "#",
-      items: [
-        { title: "دسترس‌پذیری", url: "#" },
-        { title: "تازه‌سازی سریع", url: "#" },
-        { title: "کامپایلر Next.js", url: "#" },
-        { title: "مرورگرهای پشتیبانی‌شده", url: "#" },
-        { title: "توربوپک", url: "#" },
-      ],
-    },
-    {
-      title: "جامعه",
-      url: "#",
-      items: [{ title: "راهنمای مشارکت", url: "#" }],
-    },
-  ],
+const NAV = [
+  {
+    title: "پلتفرم",
+    icon: "SquareTerminalIcon",
+    open: true,
+    items: [
+      { title: "نمای کلی", active: true },
+      { title: "تحلیل" },
+      { title: "گزارش‌ها" },
+    ],
+  },
+  {
+    title: "پروژه‌ها",
+    icon: "FolderIcon",
+    open: true,
+    items: [
+      { title: "فعال" },
+      { title: "بایگانی" },
+      {
+        title: "تیم‌ها",
+        items: [{ title: "طراحی" }, { title: "مهندسی" }, { title: "محصول" }],
+      },
+    ],
+  },
+  {
+    title: "تنظیمات",
+    icon: "Settings2Icon",
+    open: false,
+    items: [{ title: "عمومی" }, { title: "اعضا" }, { title: "صورتحساب" }],
+  },
+] as const
+
+function NestedItems({
+  items,
+}: {
+  items: readonly {
+    title: string
+    active?: boolean
+    items?: readonly { title: string }[]
+  }[]
+}) {
+  return (
+    <SidebarMenuSub>
+      {items.map((item) =>
+        item.items ? (
+          <Collapsible key={item.title} defaultOpen className="group/nested">
+            <SidebarMenuSubItem>
+              <CollapsibleTrigger
+                render={<SidebarMenuSubButton className="w-full" />}
+              >
+                <span>{item.title}</span>
+                <IconPlaceholder
+                  lucide="ChevronLeftIcon"
+                  className="ms-auto size-3.5 transition-transform group-data-open/nested:-rotate-90"
+                />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <SidebarMenuSub>
+                  {item.items.map((child) => (
+                    <SidebarMenuSubItem key={child.title}>
+                      <SidebarMenuSubButton render={<a href="#" />}>
+                        <span>{child.title}</span>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  ))}
+                </SidebarMenuSub>
+              </CollapsibleContent>
+            </SidebarMenuSubItem>
+          </Collapsible>
+        ) : (
+          <SidebarMenuSubItem key={item.title}>
+            <SidebarMenuSubButton
+              isActive={item.active}
+              render={<a href="#" />}
+            >
+              <span>{item.title}</span>
+            </SidebarMenuSubButton>
+          </SidebarMenuSubItem>
+        )
+      )}
+    </SidebarMenuSub>
+  )
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar() {
   return (
-    <Sidebar dir="rtl" lang="fa" {...props}>
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <IconPlaceholder
-                  lucide="GalleryVerticalEndIcon"
-                  tabler="IconLayoutRows"
-                  hugeicons="LayoutBottomIcon"
-                  phosphor="RowsIcon"
-                  remixicon="RiGalleryLine"
-                  className="size-4"
-                />
-              </div>
-              <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">مستندات</span>
-                <span className="">نسخه ۱٫۰٫۰</span>
-              </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+    <Sidebar side="right" collapsible="offcanvas">
+      <SidebarHeader className="border-b px-4 py-3">
+        <p className="text-sm font-semibold">منوی تو در تو</p>
+        <p className="text-xs text-muted-foreground">گروه‌های جمع‌شونده</p>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
+          <SidebarGroupLabel>ناوبری</SidebarGroupLabel>
           <SidebarMenu>
-            {data.navMain.map((item) => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  render={<a href={item.url} className="font-medium" />}
-                >
-                  {item.title}
-                </SidebarMenuButton>
-                {item.items?.length ? (
-                  <SidebarMenuSub>
-                    {item.items.map((subItem) => (
-                      <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton
-                          isActive={subItem.isActive}
-                          render={<a href={subItem.url} onClick={(e) => { if (subItem.url === "#") e.preventDefault() }} />}
-                        >
-                          {subItem.title}
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                    ))}
-                  </SidebarMenuSub>
-                ) : null}
-              </SidebarMenuItem>
+            {NAV.map((item) => (
+              <Collapsible
+                key={item.title}
+                defaultOpen={item.open}
+                className="group/collapsible"
+              >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger
+                    render={<SidebarMenuButton tooltip={item.title} />}
+                  >
+                    <IconPlaceholder lucide={item.icon} className="size-4" />
+                    <span>{item.title}</span>
+                    <IconPlaceholder
+                      lucide="ChevronLeftIcon"
+                      className="ms-auto size-4 transition-transform group-data-open/collapsible:-rotate-90"
+                    />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <NestedItems items={item.items} />
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
             ))}
           </SidebarMenu>
         </SidebarGroup>

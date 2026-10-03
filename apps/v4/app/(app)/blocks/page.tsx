@@ -1,6 +1,6 @@
 import { type Metadata } from "next"
 
-import { getFeaturedBlockGroups } from "@/lib/blocks-featured"
+import { getFeaturedBlockSamples } from "@/lib/blocks-featured"
 import { BlocksShowcase } from "@/components/blocks-showcase"
 import { getActiveStyle } from "@/registry/_legacy-styles"
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default async function BlocksPage() {
   const activeStyle = await getActiveStyle()
-  const groups = await getFeaturedBlockGroups(activeStyle.name)
+  const samples = await getFeaturedBlockSamples(activeStyle.name)
 
-  return <BlocksShowcase groups={groups} styleName={activeStyle.name} />
+  return <BlocksShowcase samples={samples} />
 }

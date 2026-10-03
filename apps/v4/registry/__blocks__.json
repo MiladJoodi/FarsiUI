@@ -2941,122 +2941,44 @@
   },
   {
     "name": "sidebar-01",
-    "description": "A simple sidebar with navigation grouped by section.",
+    "description": "سایدبار با آیکن، offcanvas راست‌چین.",
     "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {
     "name": "sidebar-02",
-    "description": "A sidebar with collapsible sections.",
+    "description": "سایدبار متنی بدون آیکن.",
     "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {
     "name": "sidebar-03",
-    "description": "A sidebar with submenus.",
+    "description": "منوی تو در تو با گروه‌های جمع‌شونده.",
     "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {
     "name": "sidebar-04",
-    "description": "A floating sidebar with submenus.",
+    "description": "سایدبار شناور با کشوی نرم Popover.",
     "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {
     "name": "sidebar-05",
-    "description": "A sidebar with collapsible submenus.",
+    "description": "جمع‌شونده به نوار آیکن (inset).",
     "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {
     "name": "sidebar-06",
-    "description": "A sidebar with submenus as dropdowns.",
+    "description": "لایوت معکوس؛ سایدبار سمت چپ.",
     "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-07",
-    "description": "A sidebar that collapses to icons.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-09",
-    "description": "Collapsible nested sidebars.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-10",
-    "description": "A sidebar in a popover.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-11",
-    "description": "A sidebar with a collapsible file tree.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-12",
-    "description": "A sidebar with a calendar.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-13",
-    "description": "A sidebar in a dialog.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-14",
-    "description": "A sidebar on the right.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-15",
-    "description": "A left and right sidebar.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
-  },
-  {
-    "name": "sidebar-16",
-    "description": "A sidebar with a sticky site header.",
-    "categories": [
-      "sidebar",
-      "dashboard"
+      "sidebar"
     ]
   },
   {

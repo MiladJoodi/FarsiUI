@@ -6,24 +6,26 @@ const PARAGRAPHS = [
 
 export function ArticleSimple() {
   return (
-    <article
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <header className="mb-8 space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-          چرا صفحهٔ مقاله را از ساده‌ترین نسخه شروع کنیم؟
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          ۲ مهر ۱۴۰۵ · ۵ دقیقه مطالعه
-        </p>
-      </header>
-      <div className="space-y-5 text-base leading-8 text-foreground/90">
-        {PARAGRAPHS.map((p) => (
-          <p key={p.slice(0, 24)}>{p}</p>
-        ))}
-      </div>
-    </article>
+      <article className="w-full max-w-2xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <header className="mb-8 space-y-3">
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+            چرا صفحهٔ مقاله را از ساده‌ترین نسخه شروع کنیم؟
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            ۲ مهر ۱۴۰۵ · ۵ دقیقه مطالعه
+          </p>
+        </header>
+        <div className="space-y-5 text-base leading-8 text-foreground/90">
+          {PARAGRAPHS.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
+          ))}
+        </div>
+      </article>
+    </div>
   )
 }

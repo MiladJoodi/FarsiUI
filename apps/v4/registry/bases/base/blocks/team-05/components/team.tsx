@@ -130,148 +130,150 @@ export function TeamDirectory() {
   }, [query, dept, sort])
 
   return (
-    <section
+    <div
       dir="rtl"
       lang="fa"
-      className="mx-auto flex min-h-svh max-w-5xl flex-col justify-center px-6 py-16 md:px-10"
+      className="flex min-h-svh w-full items-center justify-center bg-muted p-6 md:p-10"
     >
-      <div className="mb-8 space-y-4">
-        <div>
-          <Badge variant="secondary" className="mb-3">
-            فهرست کارکنان
-          </Badge>
-          <h2 className="text-3xl font-bold tracking-tight">تیم ما</h2>
-          <p className="mt-2 text-muted-foreground">
-            جستجو، فیلتر واحد و مرتب‌سازی
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <div className="relative flex-1">
-            <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="جستجو نام، نقش یا شهر…"
-              className="ps-9"
-              dir="rtl"
-            />
+      <section className="w-full max-w-5xl rounded-xl border bg-background px-6 py-12 shadow-sm md:px-10 md:py-16">
+        <div className="mb-8 space-y-4">
+          <div>
+            <Badge variant="secondary" className="mb-3">
+              فهرست کارکنان
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight">تیم ما</h2>
+            <p className="mt-2 text-muted-foreground">
+              جستجو، فیلتر واحد و مرتب‌سازی
+            </p>
           </div>
-          <Select
-            items={DEPTS.map((item) => ({ value: item, label: item }))}
-            value={dept}
-            onValueChange={(value) => {
-              if (typeof value === "string") setDept(value)
-            }}
-          >
-            <SelectTrigger className="w-full sm:w-40" dir="rtl">
-              <SelectValue placeholder="واحد" />
-            </SelectTrigger>
-            <SelectContent dir="rtl" lang="fa">
-              {DEPTS.map((item) => (
-                <SelectItem key={item} value={item}>
-                  {item}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={
-                <Button variant="outline" className="w-full sm:w-auto" />
-              }
-            >
-              مرتب‌سازی
-            </DropdownMenuTrigger>
-            <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
-              <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup
-                value={sort}
-                onValueChange={(value) => {
-                  if (value === "name" || value === "role" || value === "dept") {
-                    setSort(value)
-                  }
-                }}
-              >
-                {SORT_ITEMS.map((item) => (
-                  <DropdownMenuRadioItem key={item.value} value={item.value}>
-                    {item.label}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
 
-      {filtered.length === 0 ? (
-        <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
-          عضوی با این فیلتر پیدا نشد. عبارت دیگری را امتحان کنید.
-        </p>
-      ) : (
-        <div className="grid gap-3 sm:grid-cols-2">
-          {filtered.map((member) => (
-            <div
-              key={member.name}
-              className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm"
-            >
-              <Avatar className="size-12">
-                <AvatarImage src={member.avatar} alt={member.name} />
-                <AvatarFallback>{member.fallback}</AvatarFallback>
-              </Avatar>
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <p className="font-medium">{member.name}</p>
-                  <Badge variant="outline" className="font-normal">
-                    {member.dept}
-                  </Badge>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  {member.role} · {member.location}
-                </p>
-              </div>
-              <Button variant="ghost" size="sm">
-                جزئیات
-              </Button>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="relative flex-1">
+              <SearchIcon className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="جستجو نام، نقش یا شهر…"
+                className="ps-9"
+                dir="rtl"
+              />
             </div>
-          ))}
+            <Select
+              items={DEPTS.map((item) => ({ value: item, label: item }))}
+              value={dept}
+              onValueChange={(value) => {
+                if (typeof value === "string") setDept(value)
+              }}
+            >
+              <SelectTrigger className="w-full sm:w-40" dir="rtl">
+                <SelectValue placeholder="واحد" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {DEPTS.map((item) => (
+                  <SelectItem key={item} value={item}>
+                    {item}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <Button variant="outline" className="w-full sm:w-auto" />
+                }
+              >
+                مرتب‌سازی
+              </DropdownMenuTrigger>
+              <DropdownMenuContent dir="rtl" lang="fa" align="end" className="w-40">
+                <DropdownMenuLabel>مرتب‌سازی بر اساس</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup
+                  value={sort}
+                  onValueChange={(value) => {
+                    if (value === "name" || value === "role" || value === "dept") {
+                      setSort(value)
+                    }
+                  }}
+                >
+                  {SORT_ITEMS.map((item) => (
+                    <DropdownMenuRadioItem key={item.value} value={item.value}>
+                      {item.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-      )}
 
-      <Separator className="my-10" />
+        {filtered.length === 0 ? (
+          <p className="rounded-xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">
+            عضوی با این فیلتر پیدا نشد. عبارت دیگری را امتحان کنید.
+          </p>
+        ) : (
+          <div className="grid gap-3 sm:grid-cols-2">
+            {filtered.map((member) => (
+              <div
+                key={member.name}
+                className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm"
+              >
+                <Avatar className="size-12">
+                  <AvatarImage src={member.avatar} alt={member.name} />
+                  <AvatarFallback>{member.fallback}</AvatarFallback>
+                </Avatar>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-medium">{member.name}</p>
+                    <Badge variant="outline" className="font-normal">
+                      {member.dept}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {member.role} · {member.location}
+                  </p>
+                </div>
+                <Button variant="ghost" size="sm">
+                  جزئیات
+                </Button>
+              </div>
+            ))}
+          </div>
+        )}
 
-      <Card dir="rtl" lang="fa">
-        <CardHeader className="text-start">
-          <CardTitle className="text-lg">می‌خواهید به تیم بپیوندید؟</CardTitle>
-          <CardDescription>
-            ایمیل بگذارید؛ فرصت‌های باز را برایتان می‌فرستیم
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form
-            className="flex flex-col gap-3 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <Input
-              type="text"
-              placeholder="نام و نام خانوادگی"
-              dir="rtl"
-              className="sm:flex-1"
-            />
-            <Input
-              type="email"
-              required
-              placeholder="ایمیل"
-              dir="ltr"
-              className="text-start sm:flex-1"
-            />
-            <Button type="submit" className="sm:shrink-0">
-              ارسال رزومه
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </section>
+        <Separator className="my-10" />
+
+        <Card dir="rtl" lang="fa">
+          <CardHeader className="text-start">
+            <CardTitle className="text-lg">می‌خواهید به تیم بپیوندید؟</CardTitle>
+            <CardDescription>
+              ایمیل بگذارید؛ فرصت‌های باز را برایتان می‌فرستیم
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form
+              className="flex flex-col gap-3 sm:flex-row"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <Input
+                type="text"
+                placeholder="نام و نام خانوادگی"
+                dir="rtl"
+                className="sm:flex-1"
+              />
+              <Input
+                type="email"
+                required
+                placeholder="ایمیل"
+                dir="ltr"
+                className="text-start sm:flex-1"
+              />
+              <Button type="submit" className="sm:shrink-0">
+                ارسال رزومه
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
   )
 }

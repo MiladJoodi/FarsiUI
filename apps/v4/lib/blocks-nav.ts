@@ -12,6 +12,7 @@ export type BlocksNavItem = {
 
 export type BlocksNavCategory = {
   title: string
+  en: string
   slug: string
   items: BlocksNavItem[]
 }
@@ -23,6 +24,7 @@ function item(en: string, title: string, slug: string): BlocksNavItem {
 export const blocksNavCategories: BlocksNavCategory[] = [
   {
     title: "فرم‌ها و احراز هویت",
+    en: "Forms & Auth",
     slug: "forms-auth",
     items: [
       item("Login", "ورود", "login"),
@@ -43,6 +45,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "بازاریابی",
+    en: "Marketing",
     slug: "marketing",
     items: [
       item("Hero", "معرفی", "hero"),
@@ -60,6 +63,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "ناوبری",
+    en: "Navigation",
     slug: "navigation",
     items: [
       item("Navbar", "نوار ناوبری", "navbar"),
@@ -72,6 +76,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "محتوا",
+    en: "Content",
     slug: "content",
     items: [
       item("Blog Grid", "فهرست وبلاگ", "blog-grid"),
@@ -85,6 +90,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "داشبورد",
+    en: "Dashboard",
     slug: "dashboard",
     items: [
       item("Dashboard Overview", "نمای کلی داشبورد", "dashboard"),
@@ -99,6 +105,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "تجارت و فروشگاه",
+    en: "Commerce",
     slug: "commerce",
     items: [
       item("Product Grid", "فهرست محصولات", "product-grid"),
@@ -112,6 +119,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "حساب کاربری",
+    en: "Account",
     slug: "account",
     items: [
       item("Profile", "پروفایل", "profile"),
@@ -124,6 +132,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "ارتباط و گفتگو",
+    en: "Communication",
     slug: "communication",
     items: [
       item("Chat", "گفتگو", "chat"),
@@ -136,6 +145,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "جستجو و فیلتر",
+    en: "Search & Filter",
     slug: "search",
     items: [
       item("Search", "جستجو", "search"),
@@ -148,6 +158,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "فایل و رسانه",
+    en: "Files & Media",
     slug: "media",
     items: [
       item("File Upload", "بارگذاری فایل", "file-upload"),
@@ -160,6 +171,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "تقویم و زمان‌بندی",
+    en: "Calendar",
     slug: "calendar",
     items: [
       item("Calendar", "تقویم", "calendar-block"),
@@ -172,6 +184,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "پرداخت و اشتراک",
+    en: "Billing",
     slug: "billing",
     items: [
       item("Payment", "پرداخت", "payment"),
@@ -184,6 +197,7 @@ export const blocksNavCategories: BlocksNavCategory[] = [
   },
   {
     title: "وضعیت‌ها",
+    en: "States",
     slug: "states",
     items: [
       item("Empty State", "حالت خالی", "empty-state"),

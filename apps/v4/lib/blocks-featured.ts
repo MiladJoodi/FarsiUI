@@ -6,15 +6,17 @@ import {
 import { type Style } from "@/registry/_legacy-styles"
 
 export type FeaturedBlockSample = {
+  /** Top-level category title (FA). */
+  categoryTitle: string
+  /** Top-level category title (EN). */
+  categoryEn: string
+  categorySlug: string
+  /** First subcategory — used for the category link. */
   item: BlocksNavItem
+  /** First simple block id (e.g. login-01). */
   blockName: string
+  /** Total blocks across all subcategories in this group. */
   blockCount: number
-}
-
-export type FeaturedBlockGroup = {
-  title: string
-  slug: string
-  samples: FeaturedBlockSample[]
 }
 
 type BlockMeta = {
@@ -34,12 +36,12 @@ function sortBlockNames(names: string[]) {
 }
 
 /**
- * One sample block per visible nav subcategory.
- * Uses lightweight __blocks__.json (no heavy registry index import).
+ * One sample per top-level nav category: the first simple block (*-01)
+ * of the first subcategory that has registry blocks (e.g. auth → login-01).
  */
-export async function getFeaturedBlockGroups(
+export async function getFeaturedBlockSamples(
   _styleName: Style["name"]
-): Promise<FeaturedBlockGroup[]> {
+): Promise<FeaturedBlockSample[]> {
   const nav = getVisibleBlocksNav()
   const blocks = blocksMeta as BlockMeta[]
 
@@ -52,34 +54,50 @@ export async function getFeaturedBlockGroups(
     }
   }
 
-  const groups: FeaturedBlockGroup[] = []
+  const samples: FeaturedBlockSample[] = []
 
   for (const category of nav) {
-    const samples: FeaturedBlockSample[] = []
+    let firstItem: BlocksNavItem | null = null
+    let blockName: string | null = null
+    let blockCount = 0
 
     for (const item of category.items) {
       const names = byCategory.get(item.slug)
       if (!names?.length) continue
 
-      const available = sortBlockNames(names)
-      const blockName = available[0]
-      if (!blockName) continue
+      blockCount += names.length
 
-      samples.push({
-        item,
-        blockName,
-        blockCount: available.length,
-      })
+      if (!firstItem) {
+        const available = sortBlockNames(names)
+        const primary = available[0]
+        if (primary) {
+          firstItem = item
+          blockName = primary
+        }
+      }
     }
 
-    if (samples.length > 0) {
-      groups.push({
-        title: category.title,
-        slug: category.slug,
-        samples,
-      })
-    }
+    if (!firstItem || !blockName || blockCount === 0) continue
+
+    samples.push({
+      categoryTitle: category.title,
+      categoryEn: category.en,
+      categorySlug: category.slug,
+      item: firstItem,
+      blockName,
+      blockCount,
+    })
   }
 
-  return groups
+  return samples
+}
+
+/** @deprecated Use getFeaturedBlockSamples — kept for gradual call-site updates. */
+export async function getFeaturedBlockGroups(styleName: Style["name"]) {
+  const samples = await getFeaturedBlockSamples(styleName)
+  return samples.map((sample) => ({
+    title: sample.categoryTitle,
+    slug: sample.categorySlug,
+    samples: [sample],
+  }))
 }
