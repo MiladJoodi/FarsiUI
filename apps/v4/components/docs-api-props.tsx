@@ -42,7 +42,7 @@ export function DocsApiProps({
         {props.map((prop) => (
           <div key={prop.name} className="px-4 py-3.5">
             <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
-              <code className="font-mono text-sm font-semibold text-foreground">
+              <code className="font-mono text-[13px] font-semibold text-foreground">
                 {prop.name}
               </code>
               {prop.description ? (
@@ -59,7 +59,7 @@ export function DocsApiProps({
                     <code
                       key={value}
                       className={cn(
-                        "rounded-md px-1.5 py-0.5 font-mono text-[0.7rem]",
+                        "rounded-md px-1.5 py-0.5 font-mono text-[13px]",
                         isDefault
                           ? "bg-primary/15 text-foreground"
                           : "bg-muted text-muted-foreground"

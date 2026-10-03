@@ -105,6 +105,8 @@ export default async function Page(props: {
   const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
   const isChangelog = slug[0] === "changelog"
   const isComponentsIndex = slug.length === 1 && slug[0] === "components"
+  const isComponentDoc =
+    slug[0] === "components" && slug.length > 1 && !isComponentsIndex
   const neighbours = isChangelog
     ? { previous: null, next: null }
     : findNeighbour(source.pageTree, page.url)
@@ -112,9 +114,10 @@ export default async function Page(props: {
   return (
     <div
       data-slot="docs"
+      data-docs-kind={isComponentDoc ? "component" : "docs"}
       dir="rtl"
       lang="fa"
-      className="flex scroll-mt-24 items-stretch pb-8 text-[1.05rem] sm:text-[15px] xl:w-full"
+      className="flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="h-(--top-spacing) shrink-0" />
@@ -128,14 +131,14 @@ export default async function Page(props: {
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between md:items-start">
-                <h1 className="flex scroll-m-24 items-center gap-2.5 text-3xl font-semibold tracking-tight sm:text-3xl">
+                <h1 className="docs-page-title flex scroll-m-24 items-center gap-2.5 font-semibold tracking-tight">
                   <span>{titleFa}</span>
                   {titleEn ? (
                     <Badge
                       variant="secondary"
                       dir="ltr"
                       lang="en"
-                      className="translate-y-px font-mono text-[0.7rem] font-medium tracking-wide text-muted-foreground"
+                      className="translate-y-px font-sans text-[12px] font-medium tracking-normal text-muted-foreground"
                     >
                       {titleEn}
                     </Badge>
@@ -173,7 +176,7 @@ export default async function Page(props: {
                 </div>
               </div>
               {doc.description && (
-                <p className="text-[1.05rem] text-pretty text-muted-foreground sm:text-base">
+                <p className="docs-page-description text-pretty text-muted-foreground">
                   {doc.description}
                 </p>
               )}

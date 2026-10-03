@@ -404,7 +404,10 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
   return (
     <section className="flex min-w-0 flex-col gap-2">
       <div className="flex min-w-0 items-baseline gap-2">
-        <h2 className="shrink-0 text-sm font-semibold tracking-tight">
+        <h2
+          data-block-title=""
+          className="shrink-0 font-semibold tracking-tight"
+        >
           {sample.categoryTitle}
         </h2>
         <span
@@ -414,7 +417,7 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
         <span
           dir="ltr"
           lang="en"
-          className="shrink-0 text-xs tracking-wide text-muted-foreground"
+          className="shrink-0 font-sans text-[12px] tracking-normal text-muted-foreground"
         >
           {sample.categoryEn}
         </span>

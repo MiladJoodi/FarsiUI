@@ -59,7 +59,10 @@ export function ComponentPreview({
       return (
         <figure className="flex flex-col gap-4">
           {content}
-          <figcaption className="text-center text-sm text-muted-foreground">
+          <figcaption
+            data-preview-label=""
+            className="text-center text-muted-foreground"
+          >
             {caption}
           </figcaption>
         </figure>

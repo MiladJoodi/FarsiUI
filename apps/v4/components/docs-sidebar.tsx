@@ -34,13 +34,16 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const ACTIVE_ITEM_CLASS =
-  "relative h-7 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+  "relative h-10 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent lg:h-8"
 
 const ACTIVE_SECTION_CLASS =
-  "relative h-7 w-fit overflow-visible border border-transparent py-0 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+  "relative h-10 w-fit overflow-visible border border-transparent py-0 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent lg:h-8 3xl:fixed:w-full 3xl:fixed:max-w-48"
 
 const GROUP_TRIGGER_CLASS =
-  "flex h-7 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground outline-none hover:text-foreground"
+  "flex h-10 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[13px] font-medium text-muted-foreground outline-none hover:text-foreground lg:h-8"
+
+const SIDEBAR_EN_CLASS =
+  "shrink-0 font-sans text-[12px] font-normal tracking-normal text-muted-foreground"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "مقدمه", href: "/docs" },
@@ -330,13 +333,14 @@ function DocsSidebarBody({
   }, [persistScroll])
 
   return (
-    <>
+    <div data-docs-sidebar="">
       {showSearch ? (
         <div className="shrink-0 pe-2 pt-2 pb-3">
           <SidebarNavSearch
             value={searchValue}
             onValueChange={setSearchValue}
             onClear={clearSearch}
+            inputClassName="text-[14px]"
           />
         </div>
       ) : null}
@@ -346,13 +350,13 @@ function DocsSidebarBody({
         className="w-full scroll-fade scrollbar-none overflow-x-hidden pe-2"
       >
         {!hasResults ? (
-          <div className="px-2 py-6 text-center text-[0.8rem] text-muted-foreground">
+          <div className="px-2 py-6 text-center text-[14px] text-muted-foreground">
             جستجو خالی
           </div>
         ) : null}
         {filteredSections.length > 0 ? (
           <SidebarGroup className="p-1 pt-1">
-            <SidebarGroupLabel className="h-7 font-medium text-muted-foreground">
+            <SidebarGroupLabel className="h-8 text-[13px] font-medium text-muted-foreground">
               بخش‌ها
             </SidebarGroupLabel>
             <SidebarGroupContent>
@@ -422,11 +426,7 @@ function DocsSidebarBody({
                                 aria-hidden
                                 className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
                               />
-                              <span
-                                dir="ltr"
-                                lang="en"
-                                className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                              >
+                              <span dir="ltr" lang="en" className={SIDEBAR_EN_CLASS}>
                                 {en}
                               </span>
                             </>
@@ -486,11 +486,7 @@ function DocsSidebarBody({
                                     aria-hidden
                                     className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
                                   />
-                                  <span
-                                    dir="ltr"
-                                    lang="en"
-                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
-                                  >
+                                  <span dir="ltr" lang="en" className={SIDEBAR_EN_CLASS}>
                                     {en}
                                   </span>
                                 </>
@@ -507,7 +503,7 @@ function DocsSidebarBody({
           </SidebarGroup>
         ))}
       </SidebarContent>
-    </>
+    </div>
   )
 }
 

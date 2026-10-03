@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { SearchIcon, XIcon } from "lucide-react"
+import { cn } from "cn"
 
 import {
   InputGroup,
@@ -29,10 +30,12 @@ export function SidebarNavSearch({
   value,
   onValueChange,
   onClear,
+  inputClassName,
 }: {
   value: string
   onValueChange: (value: string) => void
   onClear: () => void
+  inputClassName?: string
 }) {
   const inputRef = React.useRef<HTMLInputElement>(null)
 
@@ -91,7 +94,7 @@ export function SidebarNavSearch({
           }
         }}
         placeholder="جستجو در ناوبری..."
-        className="h-8 text-[0.8rem]"
+        className={cn("h-8 text-[0.8rem]", inputClassName)}
         aria-label="جستجو در آیتم‌های سایدبار"
       />
       <InputGroupAddon align="inline-end" className="gap-1">

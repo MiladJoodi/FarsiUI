@@ -117,6 +117,7 @@ function BlockViewerProvider({
     >
       <div
         id={item.name}
+        data-slot="block-viewer"
         data-view={view}
         className="group/block-view-wrapper flex min-w-0 scroll-mt-24 flex-col items-stretch gap-4 overflow-hidden"
         style={
@@ -155,7 +156,10 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
         value={view}
         onValueChange={(value) => setView(value as "preview" | "code")}
       >
-        <TabsList className="grid h-8! grid-cols-2 items-center rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-xs">
+        <TabsList
+          data-block-preview-label=""
+          className="grid h-8! grid-cols-2 items-center rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-[14px]"
+        >
           <TabsTrigger value="preview">پیش‌نمایش</TabsTrigger>
           <TabsTrigger value="code">کد</TabsTrigger>
         </TabsList>
@@ -163,7 +167,8 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
       <Separator orientation="vertical" className="mx-2 h-4!" />
       <a
         href={`#${item.name}`}
-        className="flex-1 text-center text-sm font-medium underline-offset-2 hover:underline md:flex-auto md:text-start"
+        data-block-variant-title=""
+        className="flex-1 text-center font-medium underline-offset-2 hover:underline md:flex-auto md:text-start"
       >
         {item.description?.replace(/\.$/, "")}
       </a>
@@ -361,6 +366,7 @@ function BlockViewerCode() {
 
   return (
     <div
+      data-slot="code"
       dir="ltr"
       lang="en"
       className="me-[14px] flex overflow-hidden rounded-xl border bg-code text-code-foreground group-data-[view=preview]/block-view-wrapper:hidden md:h-(--height)"

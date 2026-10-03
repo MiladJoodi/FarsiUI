@@ -44,14 +44,14 @@ export default function ChangelogPage() {
       data-slot="docs"
       dir="rtl"
       lang="fa"
-      className="flex scroll-mt-24 items-stretch pb-8 text-[1.05rem] sm:text-[15px] xl:w-full"
+      className="flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="h-(--top-spacing) shrink-0" />
         <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <h1 className="scroll-m-24 text-4xl font-semibold tracking-tight sm:text-3xl">
+              <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
                 تغییرات
               </h1>
               <Button variant="secondary" size="sm" asChild>
@@ -61,7 +61,7 @@ export default function ChangelogPage() {
                 </a>
               </Button>
             </div>
-            <p className="text-[1.05rem] text-muted-foreground sm:text-base sm:text-balance md:max-w-[80%]">
+            <p className="docs-page-description text-muted-foreground text-balance md:max-w-[80%]">
               آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function ChangelogPage() {
                 <Link
                   key={page.url}
                   href={page.url}
-                  className="text-[0.8rem] text-muted-foreground no-underline transition-colors hover:text-foreground"
+                  className="text-[13px] text-muted-foreground no-underline transition-colors hover:text-foreground"
                 >
                   {data.title}
                 </Link>
@@ -138,7 +138,7 @@ export default function ChangelogPage() {
             {olderPages.length > 0 && (
               <a
                 href="#more-updates"
-                className="text-[0.8rem] text-muted-foreground no-underline transition-colors hover:text-foreground"
+                className="text-[13px] text-muted-foreground no-underline transition-colors hover:text-foreground"
               >
                 به‌روزرسانی‌های بیشتر
               </a>

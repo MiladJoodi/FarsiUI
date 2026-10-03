@@ -37,7 +37,10 @@ const SIDEBAR_CLASS =
   "sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
 
 const ACTIVE_ITEM_CLASS =
-  "relative h-[30px] w-full overflow-visible border border-transparent pe-1.5 text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent"
+  "relative h-10 w-full overflow-visible border border-transparent pe-1.5 text-[14px] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent lg:h-8"
+
+const SIDEBAR_EN_CLASS =
+  "shrink-0 font-sans text-[12px] font-normal tracking-normal text-muted-foreground"
 
 const SEARCH_DEBOUNCE_MS = 200
 
@@ -124,7 +127,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
         <SidebarGroup className="pt-1">
           <SidebarGroupContent>
             {!hasResults ? (
-              <div className="px-2 py-6 text-center text-[0.8rem] text-muted-foreground">
+              <div className="px-2 py-6 text-center text-[14px] text-muted-foreground">
                 جستجو خالی
               </div>
             ) : null}
@@ -162,11 +165,11 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
                     className="group/blocks-cat"
                   >
                     <SidebarMenuItem>
-                      <CollapsibleTrigger className="flex h-[30px] w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[0.8rem] font-medium text-muted-foreground outline-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                      <CollapsibleTrigger className="flex h-10 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[13px] font-medium text-muted-foreground outline-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground lg:h-8">
                         <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/blocks-cat:rotate-90" />
                         <span className="flex min-w-0 flex-1 items-center justify-between gap-2">
                           <span className="truncate">{category.title}</span>
-                          <span className="shrink-0 text-[0.65rem] font-normal tracking-normal text-muted-foreground/80">
+                          <span className="shrink-0 text-[12px] font-normal tracking-normal text-muted-foreground/80">
                             {count.toLocaleString("fa-IR")}
                           </span>
                         </span>
@@ -195,7 +198,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
                                   <span
                                     dir="ltr"
                                     lang="en"
-                                    className="shrink-0 font-mono text-[0.65rem] font-normal tracking-wide text-muted-foreground"
+                                    className={SIDEBAR_EN_CLASS}
                                   >
                                     {item.en}
                                   </span>

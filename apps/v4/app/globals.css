@@ -321,6 +321,203 @@ body[class*="theme-"] {
     text-decoration-line: none;
   }
 
+  /*
+   * Site chrome typography (Documentation / Component Preview chrome / Blocks chrome).
+   * Does NOT restyle UI inside demos: [data-slot="component-preview"] stage,
+   * iframes, or registry component/block internals.
+   */
+  [data-slot="docs"] {
+    font-family: var(--font-sans);
+    --docs-h1: 28px;
+    --docs-h2: 20px;
+    --docs-h3: 18px;
+    --docs-component-title: 20px;
+    --docs-body: 16px;
+    --docs-small: 14px;
+    --docs-code: 13px;
+  }
+
+  @media (min-width: 768px) {
+    [data-slot="docs"] {
+      --docs-h1: 32px;
+      --docs-h2: 22px;
+      --docs-h3: 18px;
+      --docs-component-title: 22px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    [data-slot="docs"] {
+      --docs-h1: 36px;
+      --docs-h2: 24px;
+      --docs-h3: 20px;
+      --docs-component-title: 24px;
+    }
+  }
+
+  [data-slot="docs"] .typeset {
+    --typeset-size: var(--docs-body);
+    --typeset-leading: 1.7;
+    font-size: var(--docs-body);
+    line-height: 1.7;
+  }
+
+  @media (min-width: 48rem), print {
+    [data-slot="docs"] .typeset {
+      font-size: var(--docs-body);
+    }
+  }
+
+  [data-slot="docs"] .typeset :where(h1) {
+    font-size: var(--docs-h1);
+    line-height: 1.3;
+  }
+
+  [data-slot="docs"] .typeset :where(h2) {
+    font-size: var(--docs-h2);
+    line-height: 1.3;
+  }
+
+  [data-slot="docs"] .typeset :where(h3) {
+    font-size: var(--docs-h3);
+    line-height: 1.3;
+  }
+
+  [data-slot="docs"] .docs-page-title {
+    font-size: var(--docs-h1);
+    line-height: 1.3;
+  }
+
+  [data-slot="docs"][data-docs-kind="component"] .docs-page-title,
+  [data-slot="docs"] [data-docs-kind="component"] .docs-page-title {
+    font-size: var(--docs-component-title);
+    line-height: 1.3;
+  }
+
+  [data-slot="docs"] .docs-page-description {
+    font-size: var(--docs-body);
+    line-height: 1.7;
+  }
+
+  [data-slot="docs"] .typeset :where(table),
+  [data-slot="docs"] .typeset :where(th),
+  [data-slot="docs"] .typeset :where(td) {
+    font-size: var(--docs-small);
+    line-height: 1.7;
+  }
+
+  [data-slot="docs"] .typeset :where(small),
+  [data-slot="docs"] .typeset :where(figcaption) {
+    font-size: var(--docs-small);
+    line-height: 1.7;
+  }
+
+  /* Docs chrome controls — exclude live component demos. */
+  [data-slot="docs"] .docs-nav :is(button, a, [data-slot="button"]),
+  [data-slot="docs"] [data-docs-sidebar] :is(button, input, [data-slot="input-group-control"]) {
+    font-size: var(--docs-small);
+  }
+
+  [data-slot="docs"] [data-sidebar-nav-search] {
+    font-size: var(--docs-small) !important;
+  }
+
+  [data-slot="docs"] .typeset :where(:not(pre) > code) {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: var(--docs-code);
+    line-height: 1.5;
+  }
+
+  [data-slot="docs"] .typeset :where(pre) {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: var(--docs-code);
+    line-height: 1.5;
+  }
+
+  [data-slot="docs"] [data-rehype-pretty-code-figure],
+  [data-slot="docs"] [data-rehype-pretty-code-title],
+  [data-slot="docs"] [data-line-numbers] [data-line]::before {
+    font-size: var(--docs-code);
+    line-height: 1.5;
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  /* Component Preview chrome (not the demo UI itself). */
+  [data-slot="component-preview"] {
+    --preview-label: 14px;
+    --preview-code: 13px;
+    font-family: var(--font-sans);
+  }
+
+  [data-slot="component-preview"] > [data-slot="code"],
+  [data-slot="component-preview"] > [data-slot="code"] [data-rehype-pretty-code-figure],
+  [data-slot="component-preview"] > [data-slot="code"] pre,
+  [data-slot="component-preview"] > [data-slot="code"] code {
+    font-size: var(--preview-code);
+    line-height: 1.5;
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  [data-slot="component-preview"] [data-preview-label],
+  [data-preview-label] {
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: var(--font-sans);
+  }
+
+  /* Blocks chrome */
+  [data-slot="blocks"] {
+    font-family: var(--font-sans);
+    --block-title: 20px;
+    --block-description: 16px;
+    --block-variant-title: 16px;
+    --block-preview-label: 14px;
+    --block-code: 13px;
+  }
+
+  @media (min-width: 768px) {
+    [data-slot="blocks"] {
+      --block-title: 22px;
+      --block-variant-title: 17px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    [data-slot="blocks"] {
+      --block-title: 24px;
+      --block-variant-title: 18px;
+    }
+  }
+
+  [data-slot="blocks"] [data-block-title] {
+    font-size: var(--block-title);
+    line-height: 1.3;
+  }
+
+  [data-slot="blocks"] [data-block-description] {
+    font-size: var(--block-description);
+    line-height: 1.7;
+  }
+
+  [data-slot="blocks"] [data-block-variant-title] {
+    font-size: var(--block-variant-title);
+    line-height: 1.3;
+  }
+
+  [data-slot="blocks"] [data-block-preview-label] {
+    font-size: var(--block-preview-label);
+    line-height: 1.7;
+  }
+
+  [data-slot="block-viewer"] [data-slot="code"] [data-rehype-pretty-code-figure],
+  [data-slot="block-viewer"] [data-slot="code"] pre,
+  [data-slot="block-viewer"] [data-slot="code"] code,
+  [data-slot="blocks"] [data-rehype-pretty-code-figure] {
+    font-size: var(--block-code, 13px);
+    line-height: 1.5;
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
   .steps {
     &:first-child {
       @apply !mt-0;

@@ -39,7 +39,13 @@ export default function BlocksLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-1 flex-col" dir="rtl" lang="fa" id="blocks">
+    <div
+      data-slot="blocks"
+      className="flex flex-1 flex-col"
+      dir="rtl"
+      lang="fa"
+      id="blocks"
+    >
       <BlocksListIndex />
       <div className="container-wrapper flex flex-1 flex-col px-2">
         <SidebarProvider
