@@ -38,8 +38,8 @@ export function InputNumeric() {
           placeholder="09121234567"
         />
         <FieldDescription>
-          `type=&quot;tel&quot;` در زمینهٔ فارسی به‌صورت خودکار ارقام فارسی نشان
-          می‌دهد؛ state همچنان ASCII است.
+          type=&quot;tel&quot; در زمینهٔ فارسی ارقام فارسی نشان می‌دهد؛ state
+          همچنان ASCII است.
         </FieldDescription>
       </Field>
       <Field>
@@ -54,7 +54,7 @@ export function InputNumeric() {
           placeholder="123456"
         />
         <FieldDescription>
-          با `persianDigits={false}` یا `lang=&quot;en&quot;` نمایش لاتین می‌ماند.
+          با persianDigits=false نمایش لاتین می‌ماند.
         </FieldDescription>
       </Field>
     </div>
