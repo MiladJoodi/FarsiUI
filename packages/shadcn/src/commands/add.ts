@@ -3,7 +3,6 @@ import { runInit } from "@/src/commands/init"
 import { preFlightAdd } from "@/src/preflights/preflight-add"
 import { parsePresetStyle, type PresetBase } from "@/src/preset/preset"
 import {
-  promptForBase,
   promptForPreset,
   resolveRegistryBaseConfig,
 } from "@/src/preset/presets"
@@ -188,8 +187,8 @@ export const add = new Command()
           projectInfo?.framework.name
         )
 
-        // Prompt for base and preset.
-        const base = await promptForBase()
+        // FarsiUI defaults to Base UI; skip the component library prompt.
+        const base = "base" as const
         warnForDeprecatedComponents(options.components ?? [], base)
         const { url: initUrl } = await promptForPreset({
           rtl: false,
@@ -224,7 +223,8 @@ export const add = new Command()
       let shouldUpdateAppIndex = false
 
       if (errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-        const selectedBase = await promptForBase()
+        // FarsiUI defaults to Base UI; skip the component library prompt.
+        const selectedBase = "base" as const
         warnForDeprecatedComponents(options.components ?? [], selectedBase)
 
         const { projectPath, template } = await createProject({

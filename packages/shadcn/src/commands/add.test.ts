@@ -320,7 +320,6 @@ describe("add command", () => {
 
         mockPrompts({
           proceed: true,
-          base: "radix",
           selectedPreset: "nova",
         })
         vi.mocked(runInit).mockResolvedValue(baseConfig(cwd))
@@ -354,7 +353,7 @@ describe("add command", () => {
       })
     })
 
-    it("allows toast after selecting Base UI", async () => {
+    it("allows toast with the default Base UI library", async () => {
       await withTempDir(async (cwd) => {
         await fs.writeJson(path.join(cwd, "package.json"), {
           name: "no-config-project",
@@ -363,7 +362,6 @@ describe("add command", () => {
 
         mockPrompts({
           proceed: true,
-          base: "base",
           selectedPreset: "nova",
         })
         vi.mocked(runInit).mockResolvedValue({
@@ -380,56 +378,13 @@ describe("add command", () => {
         )
       })
     })
-
-    it("warns about toast after selecting a non-Base UI library", async () => {
-      await withTempDir(async (cwd) => {
-        await fs.writeJson(path.join(cwd, "package.json"), {
-          name: "no-config-project",
-          version: "1.0.0",
-        })
-        const { logger } = await import("@/src/utils/logger")
-
-        mockPrompts({
-          proceed: true,
-          base: "radix",
-        })
-
-        await expect(runAdd(["toast"], cwd)).rejects.toThrow("process.exit:1")
-
-        expect(logger.warn).toHaveBeenCalledWith(
-          expect.stringContaining("only available for Base UI projects")
-        )
-        expect(runInit).not.toHaveBeenCalled()
-      })
-    })
   })
 
   describe("empty/missing project (create-project flow)", () => {
-    it("does not scaffold before warning about toast for a non-Base UI library", async () => {
-      await withTempDir(async (emptyDir) => {
-        const { logger } = await import("@/src/utils/logger")
-
-        mockPrompts({
-          base: "radix",
-        })
-
-        await expect(runAdd(["toast"], emptyDir)).rejects.toThrow(
-          "process.exit:1"
-        )
-
-        expect(logger.warn).toHaveBeenCalledWith(
-          expect.stringContaining("only available for Base UI projects")
-        )
-        expect(createProject).not.toHaveBeenCalled()
-        expect(runInit).not.toHaveBeenCalled()
-      })
-    })
-
     it("runs init with isNewProject/skipPreflight after scaffolding a project", async () => {
       await withTempDir(async (emptyDir) => {
         await withTempDir(async (projectPath) => {
           mockPrompts({
-            base: "radix",
             selectedPreset: "nova",
           })
           vi.mocked(createProject).mockResolvedValue({
@@ -474,7 +429,6 @@ describe("add command", () => {
       await withTempDir(async (emptyDir) => {
         await withTempDir(async (projectPath) => {
           mockPrompts({
-            base: "radix",
             selectedPreset: "nova",
           })
           vi.mocked(createProject).mockResolvedValue({
@@ -499,7 +453,6 @@ describe("add command", () => {
       await withTempDir(async (emptyDir) => {
         await withTempDir(async (projectPath) => {
           mockPrompts({
-            base: "radix",
             selectedPreset: "nova",
           })
           vi.mocked(createProject).mockResolvedValue({
@@ -520,7 +473,6 @@ describe("add command", () => {
       await withTempDir(async (emptyDir) => {
         await withTempDir(async (projectPath) => {
           mockPrompts({
-            base: "radix",
             selectedPreset: "nova",
           })
           vi.mocked(createProject).mockResolvedValue({
