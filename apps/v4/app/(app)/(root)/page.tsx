@@ -1,5 +1,4 @@
 import { type Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/lib/config"
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: siteConfig.url,
+    url: "/",
     title: metadataTitle,
     description,
     siteName: siteConfig.name,
@@ -94,28 +93,8 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
-        <div className="container overflow-hidden md:px-0 lg:max-w-none">
-          <section className="-mx-4 w-[140vw] overflow-hidden md:hidden">
-            <Image
-              src="/images/full-light.png"
-              width={2560}
-              height={2764}
-              alt="Dashboard"
-              className="block h-auto w-full dark:hidden"
-              priority
-            />
-            <Image
-              src="/images/full-dark.png"
-              width={2560}
-              height={2764}
-              alt="Dashboard"
-              className="hidden h-auto w-full dark:block"
-              priority
-            />
-          </section>
-          <section className="hidden md:block">
-            <CardsDemo />
-          </section>
+        <div className="container overflow-hidden px-0 lg:max-w-none">
+          <CardsDemo />
         </div>
       </div>
     </div>

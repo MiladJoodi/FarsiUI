@@ -105,7 +105,7 @@ export function CardsDemo() {
       data-slot="demo"
       dir="rtl"
       lang="fa"
-      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-4 pb-0! [--gap:--spacing(4)] sm:p-6 sm:[--gap:--spacing(6)] md:max-w-none lg:p-6 lg:[--gap:--spacing(6)] xl:p-8 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
       <CardsSkeletonRails />
       <div className="relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]">

@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
+import { headers } from "next/headers"
 import { cn } from "cn"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 
-import { META_THEME_COLORS, siteConfig } from "@/lib/config"
+import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
 import { activeUiFontStyle, fontVariables } from "@/lib/fonts"
 import { ActiveThemeProvider } from "@/components/active-theme"
@@ -17,54 +18,67 @@ import { Toaster as BaseToaster } from "@/styles/base-nova/ui/toast"
 import "@/app/globals.css"
 import "@/app/(app)/(typeset)/typeset.css"
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  metadataBase: new URL(siteConfig.url),
-  description: siteConfig.description,
-  keywords: ["Next.js", "React", "Tailwind CSS", "Components", "FarsiUI", "RTL", "Persian"],
-  authors: [
-    {
-      name: "FarsiUI",
-      url: siteConfig.links.github,
+export async function generateMetadata(): Promise<Metadata> {
+  const metadataBase = getMetadataBase(await headers())
+
+  return {
+    title: {
+      default: siteConfig.name,
+      template: `%s - ${siteConfig.name}`,
     },
-  ],
-  creator: "FarsiUI",
-  openGraph: {
-    type: "website",
-    locale: "fa_IR",
-    url: siteConfig.url,
-    title: siteConfig.name,
+    metadataBase,
     description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
+    keywords: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Components",
+      "FarsiUI",
+      "RTL",
+      "Persian",
+    ],
+    authors: [
       {
-        url: `${siteConfig.url}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        name: "FarsiUI",
+        url: siteConfig.links.github,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [`${siteConfig.url}/opengraph-image.png`],
-  },
-  icons: {
-    icon: [{ url: "/farsiui/favicon.png", type: "image/png" }],
-    shortcut: "/farsiui/favicon.png",
-    apple: "/farsiui/favicon.png",
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-  alternates: {
-    types: {
-      "application/rss+xml": `${siteConfig.url}/rss.xml`,
+    creator: "FarsiUI",
+    openGraph: {
+      type: "website",
+      locale: "fa_IR",
+      url: "/",
+      title: siteConfig.name,
+      description: siteConfig.description,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
     },
-  },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.name,
+      description: siteConfig.description,
+      images: ["/opengraph-image.png"],
+    },
+    icons: {
+      icon: [{ url: "/farsiui/favicon.png", type: "image/png" }],
+      shortcut: "/farsiui/favicon.png",
+      apple: "/farsiui/favicon.png",
+    },
+    // Relative path keeps this same-origin (avoids localhost loopback permission prompts).
+    manifest: "/site.webmanifest",
+    alternates: {
+      types: {
+        "application/rss+xml": "/rss.xml",
+      },
+    },
+  }
 }
 
 export default function RootLayout({
