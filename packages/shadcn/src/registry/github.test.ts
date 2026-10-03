@@ -348,7 +348,7 @@ describe("GitHub registry items", () => {
           return HttpResponse.text("export function Button() {}")
         }
       ),
-      http.get("https://ui.shadcn.com/r/index.json", () => {
+      http.get("https://farsiui.ir/r/index.json", () => {
         return HttpResponse.json([
           {
             name: "input",
@@ -357,7 +357,7 @@ describe("GitHub registry items", () => {
           },
         ])
       }),
-      http.get("https://ui.shadcn.com/r/styles/new-york-v4/input.json", () => {
+      http.get("https://farsiui.ir/r/styles/new-york-v4/input.json", () => {
         return HttpResponse.json({
           name: "input",
           type: "registry:ui",
@@ -830,7 +830,7 @@ describe("GitHub registry items", () => {
 
     expect(result).toEqual([
       "acme/ui/button",
-      "https://ui.shadcn.com/r/styles/{style}/button.json",
+      "https://farsiui.ir/r/styles/{style}/button.json",
       "https://example.com/card.json",
     ])
   })

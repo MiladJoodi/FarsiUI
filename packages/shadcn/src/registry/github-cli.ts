@@ -112,7 +112,7 @@ async function fetchGitHubApi(endpoint: string, token: string, accept: string) {
       headers: new Headers({
         Accept: accept,
         Authorization: `Bearer ${token}`,
-        "User-Agent": "shadcn",
+        "User-Agent": "farsiui",
         "X-GitHub-Api-Version": GITHUB_API_VERSION,
       }),
     })

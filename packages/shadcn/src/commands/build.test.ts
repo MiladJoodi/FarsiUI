@@ -73,7 +73,7 @@ describe("build command", () => {
     expect(registry).not.toHaveProperty("include")
     expect(registry.items[0].files[0]).not.toHaveProperty("content")
     expect(button).toMatchObject({
-      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: "https://farsiui.ir/schema/registry-item.json",
       name: "button",
       files: [
         {

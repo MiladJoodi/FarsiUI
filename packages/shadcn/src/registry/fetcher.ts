@@ -48,7 +48,7 @@ export async function fetchRegistry(
         const fetchPromise = (async () => {
           const requestHeaders = new Headers({
             Accept: "application/vnd.shadcn.v1+json, application/json;q=0.9",
-            "User-Agent": "shadcn",
+            "User-Agent": "farsiui",
           })
 
           for (const [key, value] of Object.entries(headers)) {

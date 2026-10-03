@@ -17,7 +17,8 @@ import fsExtra from "fs-extra"
 import prompts from "prompts"
 import z from "zod"
 
-const SHADCN_MCP_VERSION = "latest"
+const FARSIUI_MCP_VERSION = "latest"
+const FARSIUI_PACKAGE = `farsiui@${FARSIUI_MCP_VERSION}`
 
 const CLIENTS = [
   {
@@ -26,9 +27,9 @@ const CLIENTS = [
     configPath: ".mcp.json",
     config: {
       mcpServers: {
-        shadcn: {
+        farsiui: {
           command: "npx",
-          args: [`shadcn@${SHADCN_MCP_VERSION}`, "mcp"],
+          args: [FARSIUI_PACKAGE, "mcp"],
         },
       },
     },
@@ -39,9 +40,9 @@ const CLIENTS = [
     configPath: ".cursor/mcp.json",
     config: {
       mcpServers: {
-        shadcn: {
+        farsiui: {
           command: "npx",
-          args: [`shadcn@${SHADCN_MCP_VERSION}`, "mcp"],
+          args: [FARSIUI_PACKAGE, "mcp"],
         },
       },
     },
@@ -52,9 +53,9 @@ const CLIENTS = [
     configPath: ".vscode/mcp.json",
     config: {
       servers: {
-        shadcn: {
+        farsiui: {
           command: "npx",
-          args: [`shadcn@${SHADCN_MCP_VERSION}`, "mcp"],
+          args: [FARSIUI_PACKAGE, "mcp"],
         },
       },
     },
@@ -63,9 +64,9 @@ const CLIENTS = [
     name: "codex",
     label: "Codex",
     configPath: ".codex/config.toml",
-    config: `[mcp_servers.shadcn]
+    config: `[mcp_servers.farsiui]
 command = "npx"
-args = ["shadcn@${SHADCN_MCP_VERSION}", "mcp"]
+args = ["${FARSIUI_PACKAGE}", "mcp"]
 `,
   },
   {
@@ -75,9 +76,9 @@ args = ["shadcn@${SHADCN_MCP_VERSION}", "mcp"]
     config: {
       $schema: "https://opencode.ai/config.json",
       mcp: {
-        shadcn: {
+        farsiui: {
           type: "local",
-          command: ["npx", `shadcn@${SHADCN_MCP_VERSION}`, "mcp"],
+          command: ["npx", FARSIUI_PACKAGE, "mcp"],
           enabled: true,
         },
       },
@@ -85,11 +86,11 @@ args = ["shadcn@${SHADCN_MCP_VERSION}", "mcp"]
   },
 ] as const
 
-const DEPENDENCIES = [`shadcn@${SHADCN_MCP_VERSION}`]
+const DEPENDENCIES = [FARSIUI_PACKAGE]
 
 export const mcp = new Command()
   .name("mcp")
-  .description("MCP server and configuration commands")
+  .description("FarsiUI MCP server and client configuration commands")
   .option(
     "-c, --cwd <cwd>",
     "the working directory. defaults to the current directory.",
@@ -113,7 +114,7 @@ const mcpInitOptionsSchema = z.object({
 
 mcp
   .command("init")
-  .description("Initialize MCP configuration for your client")
+  .description("Initialize FarsiUI MCP configuration for your client")
   .option(
     "--client <client>",
     `MCP client (${CLIENTS.map((c) => c.name).join(", ")})`
@@ -174,7 +175,7 @@ mcp
         }
 
         logger.break()
-        logger.log("To configure the shadcn MCP server in Codex:")
+        logger.log("To configure the FarsiUI MCP server in Codex:")
         logger.break()
         logger.log(
           `1. Open or create the file ${highlighter.info(
@@ -183,9 +184,9 @@ mcp
         )
         logger.log("2. Add the following configuration:")
         logger.log()
-        logger.info(`[mcp_servers.shadcn]
+        logger.info(`[mcp_servers.farsiui]
 command = "npx"
-args = ["shadcn@${SHADCN_MCP_VERSION}", "mcp"]`)
+args = ["${FARSIUI_PACKAGE}", "mcp"]`)
         logger.break()
         logger.info("3. Restart Codex to load the MCP server")
         logger.break()
@@ -226,7 +227,9 @@ args = ["shadcn@${SHADCN_MCP_VERSION}", "mcp"]`)
 
 const overwriteMerge = (_: any[], sourceArray: any[]) => sourceArray
 
-async function runMcpInit(options: z.infer<typeof mcpInitOptionsSchema>) {
+export async function runMcpInit(
+  options: z.infer<typeof mcpInitOptionsSchema>
+) {
   const { client, cwd } = options
 
   const clientInfo = CLIENTS.find((c) => c.name === client)

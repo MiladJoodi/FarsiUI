@@ -64,7 +64,7 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
 
     logger.break()
     logger.error(
-      `No ${highlighter.info("components.json")} found. Run ${highlighter.info("shadcn init")} first.`
+      `No ${highlighter.info("components.json")} found. Run ${highlighter.info("farsiui init")} first.`
     )
     logger.error(
       `Learn more at ${highlighter.info(`${SHADCN_URL}/docs/components-json`)}.`
@@ -105,7 +105,7 @@ export async function runEject(options: z.infer<typeof ejectOptionsSchema>) {
   if (!options.silent) {
     logger.break()
     logger.warn(
-      "This action is not reversible. Future shadcn CLI updates to tailwind.css will not apply automatically."
+      "This action is not reversible. Future FarsiUI CLI updates to tailwind.css will not apply automatically."
     )
     logger.break()
   }

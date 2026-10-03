@@ -1,5 +1,5 @@
-﻿---
-title: پرسشنامه (Questionnaire)
+---
+title: ???????? (Questionnaire)
 description: A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions.
 base: aria
 component: true
@@ -23,7 +23,7 @@ component: true
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add questionnaire
+npx farsiui@latest add questionnaire
 ```
 
 </TabsContent>
@@ -95,7 +95,7 @@ const items = [
       },
       { value: "both", label: "Both together" },
     ],
-    input: { label: "Another answer", placeholder: "Type another answer…" },
+    input: { label: "Another answer", placeholder: "Type another answer�" },
   },
   {
     name: "detail",
@@ -168,19 +168,19 @@ function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 
 ```text
 Questionnaire
-├── QuestionnaireProgress
-├── QuestionnaireItem
-│   ├── QuestionnaireTitle
-│   ├── QuestionnaireDescription
-│   ├── QuestionnaireChoices
-│   │   ├── QuestionnaireChoice
-│   │   └── QuestionnaireInput
-│   └── QuestionnaireError
-└── QuestionnaireActions
-    ├── QuestionnairePrevious
-    ├── QuestionnaireSkip
-    ├── QuestionnaireNext
-    └── QuestionnaireSubmit
++-- QuestionnaireProgress
++-- QuestionnaireItem
+�   +-- QuestionnaireTitle
+�   +-- QuestionnaireDescription
+�   +-- QuestionnaireChoices
+�   �   +-- QuestionnaireChoice
+�   �   +-- QuestionnaireInput
+�   +-- QuestionnaireError
++-- QuestionnaireActions
+    +-- QuestionnairePrevious
+    +-- QuestionnaireSkip
+    +-- QuestionnaireNext
+    +-- QuestionnaireSubmit
 ```
 
 Questionnaire owns the ordered items, active item, answer state, validation,

@@ -308,10 +308,10 @@ describe("formatMonorepoMessage", () => {
     expect(allLogCalls.some((msg) => msg.includes("-c"))).toBe(true)
     // Should list both targets.
     expect(
-      allLogCalls.some((msg) => msg.includes("shadcn init -c apps/web"))
+      allLogCalls.some((msg) => msg.includes("farsiui init -c apps/web"))
     ).toBe(true)
     expect(
-      allLogCalls.some((msg) => msg.includes("shadcn init -c apps/docs"))
+      allLogCalls.some((msg) => msg.includes("farsiui init -c apps/docs"))
     ).toBe(true)
 
     logSpy.mockRestore()
@@ -328,7 +328,7 @@ describe("formatMonorepoMessage", () => {
     const allLogCalls = logSpy.mock.calls.map((c) => c[0] as string)
     expect(
       allLogCalls.some((msg) =>
-        msg.includes("shadcn add [component] -c apps/web")
+        msg.includes("farsiui add [component] -c apps/web")
       )
     ).toBe(true)
 

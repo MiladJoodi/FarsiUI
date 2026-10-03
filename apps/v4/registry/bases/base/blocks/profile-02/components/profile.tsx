@@ -27,7 +27,7 @@ export function ProfileCard() {
       className="mx-auto flex min-h-svh max-w-md flex-col justify-center px-6 py-16 md:px-10"
     >
       <Card>
-        <CardHeader className="items-center text-center">
+        <CardHeader className="justify-items-center text-center">
           <Avatar className="size-20">
             <AvatarImage
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"

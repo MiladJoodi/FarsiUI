@@ -157,7 +157,7 @@ export function ChatSplit() {
         </aside>
 
         <div className="flex min-h-[360px] flex-col">
-          <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
+          <CardHeader className="grid-cols-[auto_1fr_auto] items-center gap-3 space-y-0 border-b py-3">
             <Avatar className="size-9">
               <AvatarImage
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
@@ -165,10 +165,14 @@ export function ChatSplit() {
               />
               <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold">سارا محمدی</p>
-              <p className="text-xs text-muted-foreground">آنلاین</p>
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold">سارا محمدی</p>
+              <p className="truncate text-xs text-muted-foreground">آنلاین</p>
             </div>
+            <Button type="button" variant="ghost" size="icon-sm" className="shrink-0">
+              <SearchIcon className="size-4" />
+              <span className="sr-only">جستجو</span>
+            </Button>
           </CardHeader>
           <CardContent className="flex-1 space-y-3 overflow-auto py-4">
             {MESSAGES.map((m, i) => (

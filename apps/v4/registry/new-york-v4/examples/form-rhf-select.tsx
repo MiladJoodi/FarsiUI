@@ -45,10 +45,9 @@ const spokenLanguages = [
 const formSchema = z.object({
   language: z
     .string()
-    .min(1, "Please select your spoken language.")
+    .min(1, "لطفاً زبان گفتاری خود را انتخاب کنید.")
     .refine((val) => val !== "auto", {
-      message:
-        "Auto-detection is not allowed. Please select a specific language.",
+      message: "تشخیص خودکار مجاز نیست. لطفاً یک زبان مشخص انتخاب کنید.",
     }),
 })
 

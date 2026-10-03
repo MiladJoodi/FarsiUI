@@ -64,7 +64,7 @@ describe("handleError", () => {
 
   it("builds a previous minor command from the failed arguments", () => {
     expect(getPreviousMinorCommand("4.6.0", ["add", "foo"])).toBe(
-      "npx shadcn@4.5.0 add foo"
+      "npx farsiui@4.5.0 add foo"
     )
   })
 
@@ -72,14 +72,14 @@ describe("handleError", () => {
     process.env.npm_config_user_agent = "pnpm/10.0.0 npm/? node/v22"
 
     expect(getPreviousMinorCommand("4.6.0", ["add", "foo"])).toBe(
-      "pnpm dlx shadcn@4.5.0 add foo"
+      "pnpm dlx farsiui@4.5.0 add foo"
     )
   })
 
   it("quotes arguments that need shell escaping", () => {
     expect(
       getPreviousMinorCommand("4.6.0", ["add", "hello world", "it's-working"])
-    ).toBe("npx shadcn@4.5.0 add 'hello world' 'it'\\''s-working'")
+    ).toBe("npx farsiui@4.5.0 add 'hello world' 'it'\\''s-working'")
   })
 
   it("prints the previous minor command before exiting", () => {

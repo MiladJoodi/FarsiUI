@@ -67,6 +67,8 @@ export async function getAllBlocks(
       types.includes(block.type) &&
       (categories.length === 0 ||
         block.categories?.some((category) => categories.includes(category))) &&
-      !block.name.startsWith("chart-")
+      !block.name.startsWith("chart-") &&
+      // Removed from /blocks/dashboard gallery (legacy full shell).
+      block.name !== "dashboard-01"
   )
 }

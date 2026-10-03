@@ -68,17 +68,17 @@ describe("resolveRegistryItemsFromRegistries", () => {
     expect(setRegistryHeaders).toHaveBeenCalledWith({})
   })
 
-  it("should resolve non-registry items through @shadcn registry", () => {
+  it("should resolve non-registry items through @farsiui registry", () => {
     const items = ["button", "card", "dialog"]
     const config = { registries: {} } as any
 
     const result = resolveRegistryItemsFromRegistries(items, config)
 
-    // Non-prefixed items are resolved through the built-in @shadcn registry
+    // Non-prefixed items are resolved through the built-in @farsiui registry
     expect(result).toEqual([
-      "https://ui.shadcn.com/r/styles/{style}/button.json",
-      "https://ui.shadcn.com/r/styles/{style}/card.json",
-      "https://ui.shadcn.com/r/styles/{style}/dialog.json",
+      "https://farsiui.ir/r/styles/{style}/button.json",
+      "https://farsiui.ir/r/styles/{style}/card.json",
+      "https://farsiui.ir/r/styles/{style}/dialog.json",
     ])
     expect(setRegistryHeaders).toHaveBeenCalledWith({})
   })
@@ -145,11 +145,11 @@ describe("resolveRegistryItemsFromRegistries", () => {
 
     const result = resolveRegistryItemsFromRegistries(items, config)
 
-    // Non-registry items (button, dialog) are resolved through the built-in @shadcn registry
+    // Non-registry items (button, dialog) are resolved through the built-in @farsiui registry
     expect(result).toEqual([
-      "https://ui.shadcn.com/r/styles/{style}/button.json",
+      "https://farsiui.ir/r/styles/{style}/button.json",
       "https://v0.dev/chat/b/card/json",
-      "https://ui.shadcn.com/r/styles/{style}/dialog.json",
+      "https://farsiui.ir/r/styles/{style}/dialog.json",
       "https://api.com/table.json",
     ])
     expect(setRegistryHeaders).toHaveBeenCalledWith({

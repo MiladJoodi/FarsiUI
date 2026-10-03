@@ -1,6 +1,7 @@
 import { isComponentsDocsPath } from "@/lib/docs"
 import { showMcpDocs } from "@/lib/flags"
 import {
+  getAllPagesFromFolder,
   getCurrentBase,
   getPagesFromFolder,
   type PageTreeFolder,
@@ -14,6 +15,18 @@ export const DOCS_TOP_LEVEL_SECTIONS = [
   { name: "سرور MCP", href: "/docs/mcp" },
 ] as const
 
+/**
+ * Folders with their own local prev/next (not mixed into main docs sequence).
+ * Note: `/docs/installation` hub stays in main top-level nav; only its subpages
+ * use the local installation sequence.
+ */
+const SECTION_LOCAL_NAV = [
+  "installation",
+  "dark-mode",
+  "rtl",
+  "changelog",
+] as const
+
 const EXCLUDED_SECTIONS = ["installation", "dark-mode", "changelog", "rtl"]
 
 export type DocsNavItem = {
@@ -25,6 +38,18 @@ function isComponentsFolder(item: PageTreeFolder) {
   return item.$id === "components" || String(item.name) === "کامپوننت‌ها"
 }
 
+function getSectionId(url: string): (typeof SECTION_LOCAL_NAV)[number] | null {
+  // Hub is listed under «بخش‌ها»; keep main-nav neighbours there.
+  if (url === "/docs/installation") return null
+
+  for (const id of SECTION_LOCAL_NAV) {
+    if (url === `/docs/${id}` || url.startsWith(`/docs/${id}/`)) {
+      return id
+    }
+  }
+  return null
+}
+
 /** Pages that must never appear in main-docs prev/next (or leak from root links). */
 export function isExcludedFromMainNav(url: string) {
   if (!url || url === "/llms.txt" || url.startsWith("http")) return true
@@ -32,6 +57,11 @@ export function isExcludedFromMainNav(url: string) {
   if (url === "/docs/rtl" || url.startsWith("/docs/rtl/")) return true
   if (url.startsWith("/docs/dark-mode")) return true
   if (url.startsWith("/docs/changelog")) return true
+  if (url === "/docs/typeset" || url === "/typeset") return true
+  if (url.startsWith("/docs/installation/") && url !== "/docs/installation") {
+    // Sub-guides stay in their local sequence; only the hub is in main nav.
+    return true
+  }
   return false
 }
 
@@ -57,6 +87,7 @@ export function getMainDocsNavSequence(
     const pages = getPagesFromFolder(item, "base")
     for (const page of pages) {
       if (!showMcpDocs && page.url.includes("/mcp")) continue
+      if (!page.url.startsWith("/docs")) continue
       if (isExcludedFromMainNav(page.url) || seen.has(page.url)) continue
       // Skip pages already covered by top-level sections (cli, mcp, …).
       if (
@@ -95,6 +126,25 @@ export function getComponentsDocsNavSequence(
     .map((page) => ({ url: page.url, name: String(page.name) }))
 }
 
+/** Flat page order for a single docs section (installation, dark-mode, …). */
+export function getSectionDocsNavSequence(
+  tree: typeof source.pageTree,
+  sectionId: string
+): DocsNavItem[] {
+  const folder = tree.children.find(
+    (item): item is PageTreeFolder =>
+      item.type === "folder" && item.$id === sectionId
+  )
+  if (!folder) return []
+
+  const prefix = `/docs/${sectionId}`
+  return getAllPagesFromFolder(folder)
+    .filter(
+      (page) => page.url === prefix || page.url.startsWith(`${prefix}/`)
+    )
+    .map((page) => ({ url: page.url, name: String(page.name) }))
+}
+
 export function findDocsNeighbour(
   tree: typeof source.pageTree,
   url: string
@@ -102,9 +152,12 @@ export function findDocsNeighbour(
   previous: DocsNavItem | null
   next: DocsNavItem | null
 } {
+  const sectionId = getSectionId(url)
   const sequence = isComponentsDocsPath(url)
     ? getComponentsDocsNavSequence(tree, url)
-    : getMainDocsNavSequence(tree)
+    : sectionId
+      ? getSectionDocsNavSequence(tree, sectionId)
+      : getMainDocsNavSequence(tree)
 
   const index = sequence.findIndex((item) => item.url === url)
   if (index === -1) {

@@ -40,7 +40,7 @@ const BASE_STYLE = {
 
 export const registry = {
   name: "shadcn/ui",
-  homepage: "https://ui.shadcn.com",
+  homepage: "https://farsiui.ir",
   items: z.array(registryItemSchema).parse([
     {
       name: "index",

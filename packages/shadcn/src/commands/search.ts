@@ -129,7 +129,7 @@ export const search = new Command()
         logger.break()
         logger.error(
           `Provide a registry or namespace to search, e.g. ${highlighter.info(
-            "shadcn search @shadcn"
+            "farsiui search @farsiui"
           )}.`
         )
         logger.break()
@@ -137,7 +137,7 @@ export const search = new Command()
           `If you have a ${highlighter.info(
             "components.json"
           )} with registries configured, run ${highlighter.info(
-            "shadcn search"
+            "farsiui search"
           )} with no arguments to search all of them.`
         )
         logger.break()
@@ -170,7 +170,7 @@ export const search = new Command()
       }
 
       // When no registry is passed, "search all" resolves to every configured
-      // registry, excluding builtins (e.g. @shadcn).
+      // registry, excluding builtins (e.g. @farsiui).
       const registriesToSearch = resolveSearchRegistries(registries, config)
 
       if (searchAllConfigured && registriesToSearch.length === 0) {
@@ -182,7 +182,7 @@ export const search = new Command()
         )
         logger.error(
           `Provide a registry or namespace to search, e.g. ${highlighter.info(
-            "shadcn search @shadcn"
+            "farsiui search @farsiui"
           )}.`
         )
         logger.break()

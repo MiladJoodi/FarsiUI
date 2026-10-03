@@ -7,7 +7,7 @@ import { Spinner } from "@/styles/radix-rhea/ui/spinner"
 
 export function ShimmerMarker() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-4">
+    <div dir="rtl" lang="fa" className="flex w-full max-w-sm flex-col gap-4">
       <Marker role="status">
         <MarkerIcon>
           <Spinner />

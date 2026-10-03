@@ -116,7 +116,7 @@ describe("parseApplyOnlyParts", () => {
       [
         "Missing value for --only.",
         "Use one or more of: theme, font.",
-        "Example: shadcn apply <preset> --only theme,font.",
+        "Example: farsiui apply <preset> --only theme,font.",
       ].join("\n")
     )
   })
@@ -135,7 +135,7 @@ describe("parseApplyOnlyParts", () => {
       [
         "Invalid value for --only: theme,colors.",
         "Use one or more of: theme, font.",
-        "Example: shadcn apply <preset> --only theme,font.",
+        "Example: farsiui apply <preset> --only theme,font.",
       ].join("\n")
     )
     expect(() => parseApplyOnlyParts("")).toThrow("Invalid value for --only")
@@ -146,13 +146,13 @@ describe("parseApplyOnlyParts", () => {
 })
 
 describe("getPresetUrlOnly", () => {
-  it("reads only from shadcn init URLs", () => {
+  it("reads only from farsiui init URLs", () => {
     const presetUrl = `${SHADCN_URL}/init?base=radix&style=nova&only=font`
 
     expect(getPresetUrlOnly(presetUrl)).toBe("font")
   })
 
-  it("reads only from non-shadcn init URLs", () => {
+  it("reads only from non-farsiui init URLs", () => {
     const presetUrl =
       "http://localhost:4000/init?base=radix&style=nova&only=font"
 
@@ -173,7 +173,7 @@ describe("validateApplyOnlyPreset", () => {
     expect(() => validateApplyOnlyPreset({ only: ["theme"] })).toThrow(
       [
         "Missing preset for --only.",
-        "Use: shadcn apply <preset> --only theme,font.",
+        "Use: farsiui apply <preset> --only theme,font.",
       ].join("\n")
     )
   })

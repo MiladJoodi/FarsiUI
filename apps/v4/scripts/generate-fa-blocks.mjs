@@ -71,7 +71,6 @@ const SKIP_SLUGS = new Set([
   "account-billing",
   "sessions",
   "chat",
-  "conversation",
   "message-list",
   "comments",
   "notifications",

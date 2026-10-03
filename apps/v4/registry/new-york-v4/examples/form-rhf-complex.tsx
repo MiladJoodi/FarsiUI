@@ -62,25 +62,25 @@ const addons = [
 const formSchema = z.object({
   plan: z
     .string({
-      required_error: "Please select a subscription plan",
+      required_error: "لطفاً یک پلن اشتراک انتخاب کنید",
     })
-    .min(1, "Please select a subscription plan")
+    .min(1, "لطفاً یک پلن اشتراک انتخاب کنید")
     .refine((value) => value === "basic" || value === "pro", {
-      message: "Invalid plan selection. Please choose Basic or Pro",
+      message: "انتخاب پلن نامعتبر است. پایه یا حرفه‌ای را انتخاب کنید",
     }),
   billingPeriod: z
     .string({
-      required_error: "Please select a billing period",
+      required_error: "لطفاً دوره پرداخت را انتخاب کنید",
     })
-    .min(1, "Please select a billing period"),
+    .min(1, "لطفاً دوره پرداخت را انتخاب کنید"),
   addons: z
     .array(z.string())
-    .min(1, "Please select at least one add-on")
-    .max(3, "You can select up to 3 add-ons")
+    .min(1, "حداقل یک افزونه را انتخاب کنید")
+    .max(3, "می‌توانید حداکثر ۳ افزونه انتخاب کنید")
     .refine(
       (value) => value.every((addon) => addons.some((a) => a.id === addon)),
       {
-        message: "You selected an invalid add-on",
+        message: "یک افزونهٔ نامعتبر انتخاب شده است",
       }
     ),
   emailNotifications: z.boolean(),

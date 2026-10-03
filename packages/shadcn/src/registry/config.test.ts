@@ -42,7 +42,7 @@ describe("configWithDefaults", () => {
         Authorization: "Bearer token",
       },
     })
-    expect(result.registries?.["@shadcn"]).toBe(BUILTIN_REGISTRIES["@shadcn"])
+    expect(result.registries?.["@farsiui"]).toBe(BUILTIN_REGISTRIES["@farsiui"])
   })
 
   it("should use FALLBACK_STYLE when style is new-york and tailwind.config is empty", () => {
@@ -195,14 +195,14 @@ describe("configWithDefaults", () => {
   it("should override built-in registries if user provides same key", () => {
     const config = createConfig({
       registries: {
-        "@shadcn": "http://custom-shadcn.com/{name}",
+        "@farsiui": "http://custom-shadcn.com/{name}",
       },
     })
 
     const result = configWithDefaults(config)
 
-    // User's @shadcn should override the built-in one
-    expect(result.registries?.["@shadcn"]).toBe(
+    // User's @farsiui should override the built-in one
+    expect(result.registries?.["@farsiui"]).toBe(
       "http://custom-shadcn.com/{name}"
     )
   })

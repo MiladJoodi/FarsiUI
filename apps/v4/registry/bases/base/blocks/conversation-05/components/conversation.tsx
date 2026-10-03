@@ -202,7 +202,7 @@ export function ConversationHub() {
         </aside>
 
         <div className="flex min-h-[360px] flex-col border-b lg:border-b-0 lg:border-l">
-          <div className="flex items-center gap-3 border-b px-4 py-3">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b px-4 py-3">
             <Avatar className="size-9">
               <AvatarImage
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
@@ -210,10 +210,10 @@ export function ConversationHub() {
               />
               <AvatarFallback>س‌م</AvatarFallback>
             </Avatar>
-            <div className="min-w-0 flex-1">
-              <p className="truncate font-semibold">پیگیری سفارش</p>
+            <div className="min-w-0">
+              <p className="truncate font-semibold">سارا محمدی</p>
               <p className="truncate text-xs tracking-normal text-muted-foreground">
-                سارا محمدی ·{" "}
+                پیگیری سفارش · آنلاین ·{" "}
                 <span dir="ltr" className="inline-block text-start">
                   sara@example.com
                 </span>
@@ -222,7 +222,12 @@ export function ConversationHub() {
             <Popover open={threadOpen} onOpenChange={setThreadOpen}>
               <PopoverTrigger
                 render={
-                  <Button type="button" variant="outline" size="icon-sm" />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="icon-sm"
+                    className="shrink-0"
+                  />
                 }
               >
                 <MoreHorizontalIcon className="size-4" />

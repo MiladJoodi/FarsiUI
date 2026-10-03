@@ -96,7 +96,7 @@ describe("isUrl", () => {
     expect(isUrl("http://example.com")).toBe(true)
     expect(isUrl("https://example.com/path")).toBe(true)
     expect(isUrl("https://subdomain.example.com")).toBe(true)
-    expect(isUrl("https://ui.shadcn.com/r/styles/new-york/button.json")).toBe(
+    expect(isUrl("https://farsiui.ir/r/styles/new-york/button.json")).toBe(
       true
     )
   })
@@ -126,7 +126,7 @@ describe("isLocalFile", () => {
     expect(isLocalFile("https://example.com/component.json")).toBe(false)
     expect(isLocalFile("http://registry.com/button.json")).toBe(false)
     expect(
-      isLocalFile("https://ui.shadcn.com/r/styles/new-york/button.json")
+      isLocalFile("https://farsiui.ir/r/styles/new-york/button.json")
     ).toBe(false)
   })
 

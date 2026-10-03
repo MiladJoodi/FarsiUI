@@ -21,12 +21,12 @@ import {
   formatSearchResultsWithPagination,
   formatSkippedRegistries,
   getMcpConfig,
-  npxShadcn,
+  npxFarsiui,
 } from "./utils"
 
 export const server = new Server(
   {
-    name: "shadcn",
+    name: "farsiui",
     version: "1.0.0",
   },
   {
@@ -71,7 +71,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               .array(z.string())
               .optional()
               .describe(
-                "Array of registry names to list (e.g., ['@shadcn', '@acme']). Omit to list from every registry configured in components.json."
+                "Array of registry names to list (e.g., ['@farsiui', '@acme']). Omit to list from every registry configured in components.json."
               ),
             types: z
               .array(z.string())
@@ -102,7 +102,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               .array(z.string())
               .optional()
               .describe(
-                "Array of registry names to search (e.g., ['@shadcn', '@acme']). Omit to search every registry configured in components.json."
+                "Array of registry names to search (e.g., ['@farsiui', '@acme']). Omit to search every registry configured in components.json."
               ),
             query: z
               .string()
@@ -137,7 +137,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             items: z
               .array(z.string())
               .describe(
-                "Array of item names with registry prefix (e.g., ['@shadcn/button', '@shadcn/card'])"
+                "Array of item names with registry prefix (e.g., ['@farsiui/button', '@farsiui/card'])"
               ),
           })
         ),
@@ -152,7 +152,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               .array(z.string())
               .optional()
               .describe(
-                "Array of registry names to search (e.g., ['@shadcn', '@acme']). Omit to search every registry configured in components.json."
+                "Array of registry names to search (e.g., ['@farsiui', '@acme']). Omit to search every registry configured in components.json."
               ),
             query: z
               .string()
@@ -165,13 +165,13 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "get_add_command_for_items",
         description:
-          "Get the shadcn CLI add command for specific items in a registry. This is useful for adding one or more components to your project.",
+          "Get the FarsiUI CLI add command for specific items in a registry. This is useful for adding one or more components to your project.",
         inputSchema: zodToJsonSchema(
           z.object({
             items: z
               .array(z.string())
               .describe(
-                "Array of items to get the add command for prefixed with the registry name (e.g., ['@shadcn/button', '@shadcn/card'])"
+                "Array of items to get the add command for prefixed with the registry name (e.g., ['@farsiui/button', '@farsiui/card'])"
               ),
           })
         ),
@@ -228,12 +228,12 @@ async function handleCallTool(request: {
                   .join("\n")}
 
                 You can view the items in a registry by running:
-                \`${await npxShadcn("view @name-of-registry")}\`
+                \`${await npxFarsiui("view @name-of-registry")}\`
 
-                For example: \`${await npxShadcn(
-                  "view @shadcn"
-                )}\` or \`${await npxShadcn(
-                  "view @shadcn @acme"
+                For example: \`${await npxFarsiui(
+                  "view @farsiui"
+                )}\` or \`${await npxFarsiui(
+                  "view @farsiui @acme"
                 )}\` to view multiple registries.
                 `,
             },
@@ -313,7 +313,7 @@ async function handleCallTool(request: {
             {
               type: "text",
               text:
-                formatSearchResultsWithPagination(results, {
+                await formatSearchResultsWithPagination(results, {
                   query: args.query,
                   registries,
                 }) + skippedNote,
@@ -389,7 +389,7 @@ async function handleCallTool(request: {
             {
               type: "text",
               text:
-                formatSearchResultsWithPagination(results, {
+                await formatSearchResultsWithPagination(results, {
                   registries,
                 }) + skippedNote,
             },
@@ -415,7 +415,7 @@ async function handleCallTool(request: {
                 type: "text",
                 text: dedent`No items found for: ${args.items.join(", ")}
 
-                Make sure the item names are correct and include the registry prefix (e.g., @shadcn/button).`,
+                Make sure the item names are correct and include the registry prefix (e.g., @farsiui/button).`,
               },
             ],
           }
@@ -515,7 +515,7 @@ async function handleCallTool(request: {
           content: [
             {
               type: "text",
-              text: await npxShadcn(`add ${args.items.join(" ")}`),
+              text: await npxFarsiui(`add ${args.items.join(" ")}`),
             },
           ],
         }

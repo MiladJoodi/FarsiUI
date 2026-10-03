@@ -35,10 +35,10 @@ describe("buildUrlFromRegistryConfig", () => {
   it("should replace style placeholder in URL", () => {
     const url = buildUrlFromRegistryConfig(
       "button",
-      "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+      "https://farsiui.ir/r/styles/{style}/{name}.json",
       { style: "new-york" } as any
     )
-    expect(url).toBe("https://ui.shadcn.com/r/styles/new-york/button.json")
+    expect(url).toBe("https://farsiui.ir/r/styles/new-york/button.json")
   })
 
   it("should handle both name and style placeholders", () => {
@@ -343,12 +343,12 @@ describe("buildHeadersFromRegistryConfig", () => {
 })
 
 describe("buildUrlAndHeadersForRegistryItem", () => {
-  it("should resolve non-registry items through @shadcn registry", () => {
+  it("should resolve non-registry items through @farsiui registry", () => {
     const input = "button"
     const config = {} as any
-    // Non-prefixed items are resolved through the built-in @shadcn registry
+    // Non-prefixed items are resolved through the built-in @farsiui registry
     expect(buildUrlAndHeadersForRegistryItem(input, config)).toEqual({
-      url: "https://ui.shadcn.com/r/styles/{style}/button.json",
+      url: "https://farsiui.ir/r/styles/{style}/button.json",
       headers: {},
     })
   })

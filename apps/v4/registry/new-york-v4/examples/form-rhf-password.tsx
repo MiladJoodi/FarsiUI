@@ -56,22 +56,19 @@ const passwordRequirements = [
 const formSchema = z.object({
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters")
+    .min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد")
     .refine(
       (val) => /[a-z]/.test(val),
-      "Password must contain at least one lowercase letter"
+      "رمز عبور باید حداقل یک حرف کوچک داشته باشد"
     )
     .refine(
       (val) => /[A-Z]/.test(val),
-      "Password must contain at least one uppercase letter"
+      "رمز عبور باید حداقل یک حرف بزرگ داشته باشد"
     )
-    .refine(
-      (val) => /\d/.test(val),
-      "Password must contain at least one number"
-    )
+    .refine((val) => /\d/.test(val), "رمز عبور باید حداقل یک عدد داشته باشد")
     .refine(
       (val) => /[!@#$%^&*(),.?":{}|<>]/.test(val),
-      "Password must contain at least one special character"
+      "رمز عبور باید حداقل یک کاراکتر خاص داشته باشد"
     ),
 })
 

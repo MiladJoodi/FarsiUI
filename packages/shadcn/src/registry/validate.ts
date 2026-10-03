@@ -77,7 +77,7 @@ export async function validateRegistry(options: {
       registryFile: rootFile,
       message: "Root source registry file must be named registry.json.",
       suggestion:
-        "Rename the file to registry.json and pass that file to shadcn registry validate.",
+        "Rename the file to registry.json and pass that file to farsiui registry validate.",
     })
   }
 
@@ -361,7 +361,7 @@ async function validateRegistryItems(
     const source = context.itemSourcesByItem.get(item)
     const registryItem = {
       ...rewriteRegistryItemFilePaths(item, context, registryRootDir),
-      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: "https://farsiui.ir/schema/registry-item.json",
     }
 
     for (let index = 0; index < (item.files?.length ?? 0); index++) {

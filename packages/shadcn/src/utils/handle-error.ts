@@ -84,7 +84,7 @@ export function getPreviousMinorCommand(
 
   const runner = getPackageRunnerCommand(getPackageManagerFromUserAgent())
 
-  return [...runner.split(" "), `shadcn@${previousMinorVersion}`, ...args]
+  return [...runner.split(" "), `farsiui@${previousMinorVersion}`, ...args]
     .map(quoteShellArg)
     .join(" ")
 }

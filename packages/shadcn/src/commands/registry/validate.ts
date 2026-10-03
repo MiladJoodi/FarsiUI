@@ -19,7 +19,7 @@ type RegistryValidationReport = Awaited<ReturnType<typeof validateRegistry>>
 
 export const validate = new Command()
   .name("validate")
-  .description("validate a shadcn registry")
+  .description("validate a FarsiUI registry")
   .argument(
     "[registry]",
     "registry address to validate. Supports registry.json paths and GitHub sources.",

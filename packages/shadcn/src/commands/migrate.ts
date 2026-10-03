@@ -47,7 +47,7 @@ export const migrateOptionsSchema = z.object({
         value && migrations.some((migration) => migration.name === value),
       {
         message:
-          "You must specify a valid migration. Run `shadcn migrate --list` to see available migrations.",
+          "You must specify a valid migration. Run `farsiui migrate --list` to see available migrations.",
       }
     )
     .optional(),

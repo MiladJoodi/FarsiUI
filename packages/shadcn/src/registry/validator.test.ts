@@ -52,9 +52,9 @@ describe("validateRegistryConfig", () => {
   })
 
   describe("built-in registries", () => {
-    it("should not throw for @shadcn since it's now a built-in registry", () => {
+    it("should not throw for @farsiui since it's now a built-in registry", () => {
       expect(() => {
-        validateRegistryConfig("@shadcn", {
+        validateRegistryConfig("@farsiui", {
           url: "https://example.com/{name}",
         })
       }).not.toThrow()
@@ -70,7 +70,7 @@ describe("validateRegistryConfig", () => {
 
     it("should not throw for similar but different registry names", () => {
       expect(() => {
-        validateRegistryConfig("@shadcn-ui", {
+        validateRegistryConfig("@farsiui-ui", {
           url: "https://example.com/{name}",
         })
       }).not.toThrow()

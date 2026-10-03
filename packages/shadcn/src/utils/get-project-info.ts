@@ -577,7 +577,7 @@ export async function getProjectConfig(
   }
 
   const config: z.infer<typeof rawConfigSchema> = {
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://farsiui.ir/schema.json",
     rsc: projectInfo.isRSC,
     tsx: projectInfo.isTsx,
     style: "new-york",

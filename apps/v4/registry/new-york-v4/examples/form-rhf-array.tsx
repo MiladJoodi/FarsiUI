@@ -36,11 +36,11 @@ const formSchema = z.object({
   emails: z
     .array(
       z.object({
-        address: z.string().email("Enter a valid email address."),
+        address: z.string().email("یک آدرس ایمیل معتبر وارد کنید."),
       })
     )
-    .min(1, "Add at least one email address.")
-    .max(5, "You can add up to 5 email addresses."),
+    .min(1, "حداقل یک آدرس ایمیل اضافه کنید.")
+    .max(5, "می‌توانید حداکثر ۵ آدرس ایمیل اضافه کنید."),
 })
 
 export default function FormRhfArray() {

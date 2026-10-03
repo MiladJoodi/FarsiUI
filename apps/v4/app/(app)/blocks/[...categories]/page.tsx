@@ -1,10 +1,16 @@
 import { type Metadata } from "next"
+import { redirect } from "next/navigation"
 
 import { getAllBlockIds } from "@/lib/blocks"
 import { registryCategories } from "@/lib/categories"
 import { getRegistryItem } from "@/lib/registry"
 import { BlockCardDisplay } from "@/components/block-card-display"
 import { getActiveStyle } from "@/registry/_legacy-styles"
+
+/** Legacy category merged into chat. */
+const CATEGORY_REDIRECTS: Record<string, string> = {
+  conversation: "chat",
+}
 
 export const revalidate = false
 export const dynamic = "force-dynamic"
@@ -41,6 +47,10 @@ export default async function BlocksPage({
     params,
     getActiveStyle(),
   ])
+  const legacy = categories[0] ? CATEGORY_REDIRECTS[categories[0]] : undefined
+  if (legacy) {
+    redirect(`/blocks/${legacy}`)
+  }
   const candidateNames = await getAllBlockIds(["registry:block"], categories)
   const blocks = (
     await Promise.all(

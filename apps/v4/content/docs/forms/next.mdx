@@ -12,6 +12,7 @@ In this guide, we will take a look at building forms with Next.js using `useActi
 We are going to build the following form with a simple text input and a textarea. On submit, we'll use a server action to validate the form data and update the form state.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-next-demo"
   previewClassName="h-auto! min-h-0 justify-center p-3!" 
@@ -82,12 +83,12 @@ import { z } from "zod"
 export const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
 ```
 
@@ -272,7 +273,7 @@ export async function bugReportFormAction(
       values,
       success: false,
       errors: {
-        email: ["This email is already registered"],
+        email: ["این ایمیل قبلاً ثبت شده است"],
       },
     }
   }
@@ -372,6 +373,7 @@ export async function demoFormAction(
 Here is an example of a more complex form with multiple fields and validation.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-next-complex"
   previewClassName="h-auto! min-h-0 justify-center p-3!" 

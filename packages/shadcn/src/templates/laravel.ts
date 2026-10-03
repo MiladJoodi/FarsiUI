@@ -16,7 +16,7 @@ export const laravel = createTemplate({
     logger.log(
       `  Please create a new app with ${highlighter.info(
         "laravel new --react"
-      )} first then run ${highlighter.info("shadcn init")}.`
+      )} first then run ${highlighter.info("farsiui init")}.`
     )
     logger.log(
       `  See ${highlighter.info(

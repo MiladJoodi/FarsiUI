@@ -26,11 +26,11 @@ import { Input } from "@/registry/new-york-v4/ui/input"
 const formSchema = z.object({
   username: z
     .string()
-    .min(3, "Username must be at least 3 characters.")
-    .max(10, "Username must be at most 10 characters.")
+    .min(3, "نام کاربری باید حداقل ۳ کاراکتر باشد.")
+    .max(10, "نام کاربری باید حداکثر ۱۰ کاراکتر باشد.")
     .regex(
       /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores."
+      "نام کاربری فقط می‌تواند شامل حروف، اعداد و زیرخط باشد."
     ),
 })
 

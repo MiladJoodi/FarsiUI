@@ -3,13 +3,13 @@
   "pages": [
     "components",
     "(root)",
-    "changelog",
     "react",
     "helpers",
     "forms",
     "installation",
     "dark-mode",
     "rtl",
-    "utils"
+    "utils",
+    "!changelog"
   ]
 }

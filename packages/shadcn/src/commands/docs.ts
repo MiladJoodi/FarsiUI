@@ -54,7 +54,7 @@ export const docs = new Command()
           logger.error(
             `Component ${highlighter.info(
               component
-            )} not found in the shadcn registry.`
+            )} not found in the FarsiUI registry.`
           )
           process.exit(1)
         }

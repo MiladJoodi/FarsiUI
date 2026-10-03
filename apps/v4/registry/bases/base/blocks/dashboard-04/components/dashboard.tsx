@@ -97,17 +97,22 @@ export function DashboardChart() {
           <CardDescription>مقادیر نسبی بدون فاصلهٔ ارقام</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex h-48 items-end gap-2 sm:gap-3">
+          <div className="flex h-52 items-end gap-2 sm:gap-3">
             {bars.map((bar) => (
               <div
                 key={bar.label}
-                className="flex flex-1 flex-col items-center gap-2"
+                className="flex h-full min-h-0 flex-1 flex-col gap-2"
               >
-                <div
-                  className="w-full rounded-t-md bg-primary/80"
-                  style={{ height: `${(bar.value / max) * 100}%` }}
-                />
-                <span className="text-xs text-muted-foreground">{bar.label}</span>
+                <div className="relative flex min-h-0 flex-1 items-end">
+                  <div
+                    className="w-full min-h-2 rounded-t-md bg-primary"
+                    style={{ height: `${(bar.value / max) * 100}%` }}
+                    title={String(bar.value)}
+                  />
+                </div>
+                <span className="shrink-0 text-center text-xs text-muted-foreground">
+                  {bar.label}
+                </span>
               </div>
             ))}
           </div>

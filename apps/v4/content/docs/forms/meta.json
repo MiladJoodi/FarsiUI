@@ -1,4 +1,4 @@
 {
   "title": "فرم‌ها",
-  "pages": ["react-hook-form", "tanstack-form", "formisch"]
+  "pages": ["index", "next", "react-hook-form", "tanstack-form", "formisch"]
 }

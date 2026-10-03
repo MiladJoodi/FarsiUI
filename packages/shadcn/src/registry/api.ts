@@ -161,14 +161,14 @@ function parseRegistryCatalog(name: string, result: unknown) {
 
     if (registry.include?.length) {
       throw new RegistryValidationError(
-        `Registry catalog "${name}" uses "include", but consumer registry endpoints must serve a resolved registry catalog. Run "npx shadcn build" and serve the built registry.json, or use loadRegistry() in a dynamic route.`,
+        `Registry catalog "${name}" uses "include", but consumer registry endpoints must serve a resolved registry catalog. Run "npx farsiui build" and serve the built registry.json, or use loadRegistry() in a dynamic route.`,
         {
           context: {
             registry: name,
             include: registry.include,
           },
           suggestion:
-            "Serve a flattened registry.json for CLI consumers. Source registry.json files with include are supported by shadcn build and loadRegistry().",
+            "Serve a flattened registry.json for CLI consumers. Source registry.json files with include are supported by farsiui build and loadRegistry().",
         }
       )
     }
@@ -182,7 +182,7 @@ function parseRegistryCatalog(name: string, result: unknown) {
     throw new RegistryParseError(name, error, {
       subject: "registry catalog",
       suggestion:
-        "The registry catalog may be corrupted or have an invalid format. Please make sure it returns a valid registry.json object. See https://ui.shadcn.com/schema/registry.json.",
+        "The registry catalog may be corrupted or have an invalid format. Please make sure it returns a valid registry.json object. See https://farsiui.ir/schema/registry.json.",
     })
   }
 }

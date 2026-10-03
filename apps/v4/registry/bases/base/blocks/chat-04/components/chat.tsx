@@ -99,7 +99,7 @@ export function ChatActions() {
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <Card className="flex h-[580px] flex-col overflow-hidden bg-card">
-        <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
+        <CardHeader className="grid-cols-[auto_1fr_auto] items-center gap-3 space-y-0 border-b py-3">
           <Avatar className="size-10">
             <AvatarImage
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
@@ -107,75 +107,78 @@ export function ChatActions() {
             />
             <AvatarFallback>ع‌ر</AvatarFallback>
           </Avatar>
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0">
             <p className="truncate text-sm font-semibold">علی رضایی</p>
-            <p className="text-xs tracking-normal text-muted-foreground">
+            <p className="truncate text-xs tracking-normal text-muted-foreground">
+              آنلاین ·{" "}
               <span dir="ltr" className="inline-block text-start">
                 ali@example.com
               </span>
             </p>
           </div>
-          <Select
-            items={[...STATUS_ITEMS]}
-            value={status}
-            onValueChange={(value) => {
-              if (STATUS_ITEMS.some((item) => item.value === value)) {
-                setStatus(value as string)
-              }
-            }}
-          >
-            <SelectTrigger className="w-28" dir="rtl" size="sm">
-              <SelectValue placeholder="وضعیت" />
-            </SelectTrigger>
-            <SelectContent dir="rtl" lang="fa">
-              {STATUS_ITEMS.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
-            <PopoverTrigger
-              render={<Button type="button" variant="ghost" size="icon-sm" />}
+          <div className="flex shrink-0 items-center gap-1.5">
+            <Select
+              items={[...STATUS_ITEMS]}
+              value={status}
+              onValueChange={(value) => {
+                if (STATUS_ITEMS.some((item) => item.value === value)) {
+                  setStatus(value as string)
+                }
+              }}
             >
-              <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">بیشتر</span>
-            </PopoverTrigger>
-            <PopoverContent
-              dir="rtl"
-              lang="fa"
-              align="start"
-              className="w-48 space-y-1 p-2"
-            >
-              <p className="px-2 py-1.5 text-sm font-medium">گفتگو</p>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start"
-                onClick={() => setHeaderOpen(false)}
+              <SelectTrigger className="w-28" dir="rtl" size="sm">
+                <SelectValue placeholder="وضعیت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {STATUS_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+              <PopoverTrigger
+                render={<Button type="button" variant="ghost" size="icon-sm" />}
               >
-                <SearchIcon className="size-4" />
-                جستجو در پیام‌ها
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start"
-                onClick={() => setHeaderOpen(false)}
+                <MoreHorizontalIcon className="size-4" />
+                <span className="sr-only">بیشتر</span>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-48 space-y-1 p-2"
               >
-                پین کردن گفتگو
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start text-destructive hover:text-destructive"
-                onClick={() => setHeaderOpen(false)}
-              >
-                بستن گفتگو
-              </Button>
-            </PopoverContent>
-          </Popover>
+                <p className="px-2 py-1.5 text-sm font-medium">گفتگو</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  <SearchIcon className="size-4" />
+                  جستجو در پیام‌ها
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  پین کردن گفتگو
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  بستن گفتگو
+                </Button>
+              </PopoverContent>
+            </Popover>
+          </div>
         </CardHeader>
 
         <CardContent className="flex-1 space-y-3 overflow-auto py-4">

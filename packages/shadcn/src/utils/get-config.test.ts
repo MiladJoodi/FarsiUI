@@ -44,7 +44,7 @@ describe("getProjectConfig", () => {
     const cwd = getFixturesDir("frameworks/next-app-imports")
 
     expect(await getProjectConfig(cwd)).toEqual({
-      $schema: "https://ui.shadcn.com/schema.json",
+      $schema: "https://farsiui.ir/schema.json",
       style: "new-york",
       rsc: true,
       tsx: true,
@@ -74,7 +74,7 @@ describe("getProjectConfig", () => {
         utils: path.resolve(cwd, "src/lib/utils.ts"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
   })
@@ -83,7 +83,7 @@ describe("getProjectConfig", () => {
     const cwd = getFixturesDir("frameworks/vite-app-imports")
 
     expect(await getProjectConfig(cwd)).toEqual({
-      $schema: "https://ui.shadcn.com/schema.json",
+      $schema: "https://farsiui.ir/schema.json",
       style: "new-york",
       rsc: false,
       tsx: true,
@@ -113,7 +113,7 @@ describe("getProjectConfig", () => {
         utils: path.resolve(cwd, "src/lib/utils"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
   })
@@ -122,7 +122,7 @@ describe("getProjectConfig", () => {
     const cwd = getFixturesDir("frameworks/vite-root-imports")
 
     expect(await getProjectConfig(cwd)).toEqual({
-      $schema: "https://ui.shadcn.com/schema.json",
+      $schema: "https://farsiui.ir/schema.json",
       style: "new-york",
       rsc: false,
       tsx: true,
@@ -152,7 +152,7 @@ describe("getProjectConfig", () => {
         utils: path.resolve(cwd, "src/lib/utils"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
   })
@@ -161,7 +161,7 @@ describe("getProjectConfig", () => {
     const cwd = getFixturesDir("frameworks/vite-partial-imports")
 
     expect(await getProjectConfig(cwd)).toEqual({
-      $schema: "https://ui.shadcn.com/schema.json",
+      $schema: "https://farsiui.ir/schema.json",
       style: "new-york",
       rsc: false,
       tsx: true,
@@ -190,7 +190,7 @@ describe("getProjectConfig", () => {
         utils: path.resolve(cwd, "src/lib/utils"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
   })
@@ -239,7 +239,7 @@ describe("getConfig", () => {
       },
       iconLibrary: "lucide",
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
 
@@ -282,7 +282,7 @@ describe("getConfig", () => {
         utils: path.resolve(getFixturesDir("config-full"), "./src/lib/utils"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
 
@@ -318,7 +318,7 @@ describe("getConfig", () => {
         lib: path.resolve(getFixturesDir("config-jsx"), "./lib"),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
 
@@ -363,7 +363,7 @@ describe("getConfig", () => {
         ),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
 
@@ -414,7 +414,7 @@ describe("getConfig", () => {
         ),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
 
@@ -463,7 +463,7 @@ describe("getConfig", () => {
         ),
       },
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
       },
     })
   })

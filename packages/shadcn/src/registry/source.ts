@@ -149,7 +149,7 @@ async function createRegistryItemFromSource(
 ) {
   const registryItem = {
     ...rewriteRegistryItemFilePaths(item, result.itemSourcesByItem),
-    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    $schema: "https://farsiui.ir/schema/registry-item.json",
   }
 
   await Promise.all(
@@ -461,7 +461,7 @@ function resolveIncludePath(
 ) {
   if (isUrl(includePath)) {
     throw new RegistryValidationError(
-      `Invalid include "${includePath}" in ${registryFile}: remote includes are not supported by shadcn build. Use a relative path to a registry.json file in the same repository.`,
+      `Invalid include "${includePath}" in ${registryFile}: remote includes are not supported by farsiui build. Use a relative path to a registry.json file in the same repository.`,
       {
         registryFile,
         context: { includePath },
@@ -524,7 +524,7 @@ function validateRegistryItemFiles(
   for (const file of item.files ?? []) {
     if (isUrl(file.path)) {
       throw new RegistryValidationError(
-        `Invalid file path "${file.path}" for item "${item.name}" in ${registryFile}: remote file paths are not supported by shadcn build.`,
+        `Invalid file path "${file.path}" for item "${item.name}" in ${registryFile}: remote file paths are not supported by farsiui build.`,
         {
           registryFile,
           context: { itemName: item.name, filePath: file.path },

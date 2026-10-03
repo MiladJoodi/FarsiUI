@@ -68,6 +68,8 @@ function isHiddenDocsNavPage(url: string) {
   if (EXCLUDED_PAGES.includes(url)) return true
   // RTL section is linked from root meta in older trees; never show in main nav.
   if (url === "/docs/rtl" || url.startsWith("/docs/rtl/")) return true
+  if (url === "/docs/changelog" || url.startsWith("/docs/changelog/")) return true
+  if (url === "/docs/typeset" || url === "/typeset") return true
   return false
 }
 const SEARCH_DEBOUNCE_MS = 200

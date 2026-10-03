@@ -195,26 +195,36 @@ export function ChatHub() {
         </aside>
 
         <div className="flex min-h-[400px] flex-col">
-          <div className="flex items-center gap-3 border-b px-4 py-3">
-            <Avatar className="size-10">
-              {"avatar" in contact && contact.avatar ? (
-                <AvatarImage src={contact.avatar} alt={contact.name} />
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b px-4 py-3">
+            <div className="relative">
+              <Avatar className="size-10">
+                {"avatar" in contact && contact.avatar ? (
+                  <AvatarImage src={contact.avatar} alt={contact.name} />
+                ) : null}
+                <AvatarFallback>{contact.initials}</AvatarFallback>
+              </Avatar>
+              {contact.online ? (
+                <span className="absolute end-0 bottom-0 size-2.5 rounded-full border-2 border-background bg-emerald-500" />
               ) : null}
-              <AvatarFallback>{contact.initials}</AvatarFallback>
-            </Avatar>
-            <div className="min-w-0 flex-1">
+            </div>
+            <div className="min-w-0">
               <p className="truncate font-semibold">{contact.name}</p>
               <p className="truncate text-xs tracking-normal text-muted-foreground">
+                {contact.online ? "آنلاین" : "آفلاین"} ·{" "}
                 <span dir="ltr" className="inline-block text-start">
                   {contact.email}
                 </span>
-                {contact.online ? " · آنلاین" : " · آفلاین"}
               </p>
             </div>
             <Popover open={moreOpen} onOpenChange={setMoreOpen}>
               <PopoverTrigger
                 render={
-                  <Button type="button" variant="outline" size="icon-sm" />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="icon-sm"
+                    className="shrink-0"
+                  />
                 }
               >
                 <MoreHorizontalIcon className="size-4" />

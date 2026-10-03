@@ -1,5 +1,5 @@
-﻿---
-title: پیمایشگر پیام (Message Scroller)
+---
+title: ???????? ???? (Message Scroller)
 description: A chat scroll container that anchors turns, opens saved transcripts, follows streamed responses, loads history without jumping, and jumps to any message.
 base: radix
 component: true
@@ -28,18 +28,18 @@ the bottom, lose context, and have to find their way back.
 In practice, this comes down to scroll: when to follow, when to hold, and when
 to let the reader decide. A great streaming chat should:
 
-1. **Move only when the reader asked to move.** If someone is reading, don’t pull them somewhere else. Auto-scroll should never be the default.
-2. **Follow only while they’re following.** If they’re at the live edge, keep the stream in view. If they scroll away, leave them there.
+1. **Move only when the reader asked to move.** If someone is reading, don�t pull them somewhere else. Auto-scroll should never be the default.
+2. **Follow only while they�re following.** If they�re at the live edge, keep the stream in view. If they scroll away, leave them there.
 3. **Every interaction is a signal.** Scrolling is not the only one. Selecting text, using the keyboard, opening a link, or searching should all stop the interface from moving.
 4. **Start a new turn near the top of the viewport.** This gives the new turn somewhere it can be read from the beginning.
 5. **Then stream in the answer.** The answer should grow into the screen, not immediately push everything away.
 6. **Keep part of the previous conversation in context.** The prompt and reply should stay visually connected, and enough of the previous turn should remain visible so the reader knows where they are.
 7. **Let new content arrive offscreen.** The conversation can keep streaming without changing what the reader is looking at.
-8. **Show what’s happening out of view.** Make it clear when a response is still streaming or when new messages have arrived.
-9. **Make it easy to return to the latest reply.** A “Jump to latest” action should bring the reader back and resume following.
+8. **Show what�s happening out of view.** Make it clear when a response is still streaming or when new messages have arrived.
+9. **Make it easy to return to the latest reply.** A �Jump to latest� action should bring the reader back and resume following.
 10. **Let people jump anywhere in the conversation.** Long threads need message links, search, unread markers, and direct navigation.
 11. **Reopen where the reader left off.** A saved conversation should open at the last meaningful turn. Often this is the last user message. Not the absolute bottom.
-12. **Keep the reader’s place when layout changes.** Images load. Markdown expands. Code blocks render. Older messages appear above. None of that should make the reader lose their place.
+12. **Keep the reader�s place when layout changes.** Images load. Markdown expands. Code blocks render. Older messages appear above. None of that should make the reader lose their place.
 13. **Handle interruptions without stealing position.** Stopping, retrying, regenerating, branching, or errors should not unexpectedly move the conversation.
 14. **Stay responsive in long threads.** Streaming text, markdown, code, images, and long history should still feel responsive.
 15. **Be accessible without the noise.** Keep the transcript navigable, preserve keyboard focus, and announce important events at a comfortable pace.
@@ -73,7 +73,7 @@ markdown.
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add message-scroller
+npx farsiui@latest add message-scroller
 ```
 
 </TabsContent>
@@ -169,20 +169,20 @@ container.
 </MessageScrollerProvider>
 ```
 
-- **`MessageScrollerProvider`** — the headless root. Owns scroll state and the
+- **`MessageScrollerProvider`** � the headless root. Owns scroll state and the
   behavior props for opening position, auto-scroll, anchoring, scroll commands,
   and visibility tracking.
-- **`MessageScroller`** — the styled frame. Lays out the viewport, content, and
+- **`MessageScroller`** � the styled frame. Lays out the viewport, content, and
   controls inside the provider.
-- **`MessageScrollerViewport`** — the scrollable element. Receives native scroll
+- **`MessageScrollerViewport`** � the scrollable element. Receives native scroll
   events and preserves the visible row when older messages are prepended.
-- **`MessageScrollerContent`** — the transcript container. Holds the rows and
+- **`MessageScrollerContent`** � the transcript container. Holds the rows and
   provides the live-region defaults for new messages.
-- **`MessageScrollerItem`** — the transcript row boundary. Wrap every direct
+- **`MessageScrollerItem`** � the transcript row boundary. Wrap every direct
   child of the content so the scroller can measure, anchor, preserve position,
   track visibility, and jump to it. An item can be a message, marker, typing
   indicator, separator, join/leave event, or "load earlier" row.
-- **`MessageScrollerButton`** — the scroll control. Scrolls to the start or end of the transcript and is inert until there is content in its direction.
+- **`MessageScrollerButton`** � the scroll control. Scrolls to the start or end of the transcript and is inert until there is content in its direction.
 
 ## Core Concepts
 

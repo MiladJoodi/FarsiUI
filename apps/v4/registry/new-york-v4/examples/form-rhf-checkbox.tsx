@@ -42,11 +42,11 @@ const formSchema = z.object({
   responses: z.boolean(),
   tasks: z
     .array(z.string())
-    .min(1, "Please select at least one notification type.")
+    .min(1, "حداقل یک نوع اعلان را انتخاب کنید.")
     .refine(
       (value) => value.every((task) => tasks.some((t) => t.id === task)),
       {
-        message: "Invalid notification type selected.",
+        message: "نوع اعلان نامعتبر انتخاب شده است.",
       }
     ),
 })

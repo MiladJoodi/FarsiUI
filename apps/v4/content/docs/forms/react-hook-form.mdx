@@ -20,6 +20,7 @@ import { InfoIcon } from "lucide-react"
 </Callout>
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-demo"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -82,12 +83,12 @@ import * as z from "zod"
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
 ```
 
@@ -103,12 +104,12 @@ import * as z from "zod"
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, "Bug title must be at least 5 characters.")
-    .max(32, "Bug title must be at most 32 characters."),
+    .min(5, "عنوان باگ باید حداقل ۵ کاراکتر باشد.")
+    .max(32, "عنوان باگ باید حداکثر ۳۲ کاراکتر باشد."),
   description: z
     .string()
-    .min(20, "Description must be at least 20 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .min(20, "توضیحات باید حداقل ۲۰ کاراکتر باشد.")
+    .max(100, "توضیحات باید حداکثر ۱۰۰ کاراکتر باشد."),
 })
 
 export function BugReportForm() {
@@ -232,6 +233,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<Input />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-input"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -260,6 +262,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<Textarea />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-textarea"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -298,6 +301,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<SelectTrigger />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-select"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -348,6 +352,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای اعمال صحیح Styling و فاصله‌گذاری، حتماً **`data-slot="checkbox-group"`** را به **`<FieldGroup />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-checkbox"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -404,6 +409,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<RadioGroupItem />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-radiogroup"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -454,6 +460,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 - برای نمایش خطا، Prop **`aria-invalid`** را به **`<Switch />`** و Prop **`data-invalid`** را به **`<Field />`** اضافه کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-switch"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -492,6 +499,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 در اینجا نمونه‌ای از یک فرم پیچیده‌تر با چندین فیلد و اعتبارسنجی را می‌بینید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-complex"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -513,6 +521,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 React Hook Form برای مدیریت فیلدهای آرایه‌ای پویا، Hook **`useFieldArray`** را ارائه می‌دهد. زمانی که نیاز دارید فیلدها را به‌صورت پویا اضافه یا حذف کنید، می‌توانید از آن استفاده کنید.
 
 <ComponentPreview
+  direction="rtl"
   styleName="new-york-v4"
   name="form-rhf-array"
   previewClassName="h-auto! min-h-0 justify-center p-3!"
@@ -633,10 +642,10 @@ const formSchema = z.object({
   emails: z
     .array(
       z.object({
-        address: z.string().email("Enter a valid email address."),
+        address: z.string().email("یک آدرس ایمیل معتبر وارد کنید."),
       })
     )
-    .min(1, "Add at least one email address.")
-    .max(5, "You can add up to 5 email addresses."),
+    .min(1, "حداقل یک آدرس ایمیل اضافه کنید.")
+    .max(5, "می‌توانید حداکثر ۵ آدرس ایمیل اضافه کنید."),
 })
 ```

@@ -3,19 +3,22 @@
   "pages": [
     "index",
     "[نصب](/docs/installation)",
+    "cli",
+    "mcp",
     "components-json",
     "package-imports",
     "theming",
-    "typeset",
     "persian-digits",
     "[حالت تاریک](/docs/dark-mode/next)",
     "monorepo",
     "javascript",
     "blocks",
     "figma",
-    "[تغییرات](/docs/changelog)",
     "[llms.txt](/llms.txt)",
+    "!typeset",
     "!official",
-    "!new"
+    "!new",
+    "!react-19",
+    "!tailwind-v4"
   ]
 }

@@ -136,7 +136,6 @@ export const blocksNavCategories: BlocksNavCategory[] = [
     slug: "communication",
     items: [
       item("Chat", "گفتگو", "chat"),
-      item("Conversation", "مکالمه", "conversation"),
       item("Message List", "فهرست پیام‌ها", "message-list"),
       item("Comments", "دیدگاه‌ها", "comments"),
       item("Notifications", "اعلان‌ها", "notifications"),

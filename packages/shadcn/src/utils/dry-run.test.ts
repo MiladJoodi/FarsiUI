@@ -114,7 +114,7 @@ afterEach(() => {
 
 function createMockConfig(overrides: Partial<Config> = {}): Config {
   return {
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://farsiui.ir/schema.json",
     style: "new-york",
     rsc: true,
     tsx: true,
@@ -328,13 +328,13 @@ describe("dryRunComponents", () => {
       ],
       dependencies: [],
       devDependencies: [],
-      docs: "Read more at https://ui.shadcn.com/docs/components/button",
+      docs: "Read more at https://farsiui.ir/docs/components/button",
     })
 
     const result = await dryRunComponents(["button"], config)
 
     expect(result.docs).toBe(
-      "Read more at https://ui.shadcn.com/docs/components/button"
+      "Read more at https://farsiui.ir/docs/components/button"
     )
   })
 
@@ -683,7 +683,7 @@ describe("formatDryRunResult", () => {
 
     const output = formatDryRunResult(result, ["button"])
 
-    expect(output).toContain("shadcn add button")
+    expect(output).toContain("farsiui add button")
     expect(output).toContain("(dry run)")
     expect(output).toContain("Files")
     expect(output).toContain("(1)")

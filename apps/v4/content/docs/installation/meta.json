@@ -1,7 +1,9 @@
 {
   "pages": [
+    "index",
     "next",
     "vite",
-    "manual"
+    "manual",
+    "!gatsby"
   ]
 }

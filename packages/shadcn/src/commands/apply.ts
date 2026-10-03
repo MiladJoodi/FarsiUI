@@ -140,7 +140,7 @@ export const apply = new Command()
         await promptToOpenPresetBuilder({
           createUrl,
           followUp: `Then run ${highlighter.info(
-            "shadcn apply --preset <preset>"
+            "farsiui apply --preset <preset>"
           )} with the preset code or preset URL from ui.shadcn.com.`,
           prompt: !options.yes,
         })
@@ -325,7 +325,7 @@ export function resolveApplyOnly(
       [
         "Missing value for --only.",
         `Use one or more of: ${APPLY_ONLY_VALUES.join(", ")}.`,
-        "Example: shadcn apply <preset> --only theme,font.",
+        "Example: farsiui apply <preset> --only theme,font.",
       ].join("\n")
     )
   }
@@ -350,7 +350,7 @@ export function parseApplyOnlyParts(value: string) {
       [
         `Invalid value for --only: ${value}.`,
         `Use one or more of: ${APPLY_ONLY_VALUES.join(", ")}.`,
-        "Example: shadcn apply <preset> --only theme,font.",
+        "Example: farsiui apply <preset> --only theme,font.",
       ].join("\n")
     )
   }
@@ -369,7 +369,7 @@ export function validateApplyOnlyPreset(options: {
   throw new ApplyOnlyError(
     [
       "Missing preset for --only.",
-      "Use: shadcn apply <preset> --only theme,font.",
+      "Use: farsiui apply <preset> --only theme,font.",
     ].join("\n")
   )
 }
@@ -594,8 +594,8 @@ function quoteShellArg(value: string) {
 
 function getInitCommand(preset?: string) {
   if (!preset) {
-    return "shadcn init"
+    return "farsiui init"
   }
 
-  return `shadcn init --preset ${quoteShellArg(preset)}`
+  return `farsiui init --preset ${quoteShellArg(preset)}`
 }

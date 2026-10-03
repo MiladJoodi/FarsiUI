@@ -1,7 +1,6 @@
 "use client"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
-import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -47,7 +46,7 @@ export function ChatThread() {
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
       <Card className="flex h-[520px] flex-col overflow-hidden">
-        <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
+        <CardHeader className="grid-cols-[auto_1fr_auto] items-center gap-3 space-y-0 border-b py-3">
           <Avatar className="size-10">
             <AvatarImage
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
@@ -55,13 +54,16 @@ export function ChatThread() {
             />
             <AvatarFallback>س‌م</AvatarFallback>
           </Avatar>
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0">
             <p className="truncate text-sm font-semibold">سارا محمدی</p>
-            <p className="text-xs text-muted-foreground">
+            <p className="truncate text-xs text-muted-foreground">
+              آنلاین ·{" "}
               <bdi dir="ltr">sara@example.com</bdi>
             </p>
           </div>
-          <Badge variant="secondary">آنلاین</Badge>
+          <Button type="button" variant="outline" size="sm" className="shrink-0">
+            بیشتر
+          </Button>
         </CardHeader>
         <CardContent className="flex-1 space-y-4 overflow-auto py-4">
           {MESSAGES.map((m, i) => (

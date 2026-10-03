@@ -50,14 +50,14 @@ const mockResults = {
       name: "button",
       type: "registry:ui",
       description: "A button component",
-      registry: "@shadcn",
-      addCommandArgument: "@shadcn/button",
+      registry: "@farsiui",
+      addCommandArgument: "@farsiui/button",
     },
     {
       name: "card",
       type: "registry:ui",
-      registry: "@shadcn",
-      addCommandArgument: "@shadcn/card",
+      registry: "@farsiui",
+      addCommandArgument: "@farsiui/card",
     },
   ],
 }
@@ -151,16 +151,16 @@ describe("search command", () => {
     const exit = mockProcessExit()
 
     await expect(
-      search.parseAsync(["@shadcn", "--cwd", "/tmp/test-project"], {
+      search.parseAsync(["@farsiui", "--cwd", "/tmp/test-project"], {
         from: "user",
       })
     ).rejects.toThrow("process.exit:0")
 
     expect(searchRegistries).toHaveBeenCalled()
     expect(log).toHaveBeenCalledWith(
-      expect.stringContaining("Found 2 items in @shadcn")
+      expect.stringContaining("Found 2 items in @farsiui")
     )
-    expect(log).toHaveBeenCalledWith(expect.stringContaining("@shadcn/button"))
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("@farsiui/button"))
     expect(log).not.toHaveBeenCalledWith(
       expect.stringContaining('"pagination"')
     )
@@ -174,7 +174,7 @@ describe("search command", () => {
     const exit = mockProcessExit()
 
     await expect(
-      search.parseAsync(["@shadcn", "--cwd", "/tmp/test-project", "--json"], {
+      search.parseAsync(["@farsiui", "--cwd", "/tmp/test-project", "--json"], {
         from: "user",
       })
     ).rejects.toThrow("process.exit:0")
@@ -214,7 +214,7 @@ describe("search command", () => {
     vi.mocked(fsExtra.existsSync).mockReturnValueOnce(true as never)
     vi.mocked(fsExtra.readJson).mockResolvedValueOnce({ style: "new-york" })
     // components.json present but with no configured registries (only the
-    // builtin @shadcn, which is excluded from "search all").
+    // builtin @farsiui, which is excluded from "search all").
     vi.mocked(getConfig).mockReturnValueOnce({ ...baseConfig } as never)
 
     await expect(
@@ -238,7 +238,7 @@ describe("search command", () => {
 
     await expect(
       search.parseAsync(
-        ["@shadcn", "--type", "bogus", "--cwd", "/tmp/test-project"],
+        ["@farsiui", "--type", "bogus", "--cwd", "/tmp/test-project"],
         {
           from: "user",
         }
@@ -280,7 +280,7 @@ describe("search command", () => {
       expect.any(Object)
     )
 
-    // Only the configured registries are searched (builtin @shadcn is
+    // Only the configured registries are searched (builtin @farsiui is
     // excluded), and per-registry failures are tolerated.
     expect(searchRegistries).toHaveBeenCalledWith(
       ["@acme", "@internal"],

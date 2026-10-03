@@ -58,7 +58,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
         `A ${highlighter.info(
           "components.json"
         )} file is required to build the registry. Run ${highlighter.info(
-          "shadcn init"
+          "farsiui init"
         )} to create one.`
       )
       logger.break()
@@ -122,7 +122,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
 
       // Add the schema to the registry item.
       registryItem["$schema"] =
-        "https://ui.shadcn.com/schema/registry-item.json"
+        "https://farsiui.ir/schema/registry-item.json"
 
       for (const file of registryItem.files) {
         const absPath = path.resolve(resolvePaths.cwd, file.path)

@@ -90,7 +90,7 @@ describe("resolveRegistryNamespaces", () => {
     ])
 
     const namespaces = await resolveRegistryNamespaces(
-      ["@shadcn/button", "@foo/card"],
+      ["@farsiui/button", "@foo/card"],
       mockConfig
     )
 
@@ -426,9 +426,9 @@ describe("checkNamespaceConfiguration", () => {
   })
 
   it("should handle built-in registries as configured", () => {
-    const result = checkNamespaceConfiguration(["@shadcn", "@foo"], mockConfig)
+    const result = checkNamespaceConfiguration(["@farsiui", "@foo"], mockConfig)
 
-    expect(result.configured).toEqual(["@shadcn", "@foo"])
+    expect(result.configured).toEqual(["@farsiui", "@foo"])
     expect(result.missing).toEqual([])
   })
 
@@ -456,11 +456,11 @@ describe("checkNamespaceConfiguration", () => {
 
   it("should handle mixed configured and missing namespaces", () => {
     const result = checkNamespaceConfiguration(
-      ["@shadcn", "@foo", "@unknown", "@bar", "@missing"],
+      ["@farsiui", "@foo", "@unknown", "@bar", "@missing"],
       mockConfig
     )
 
-    expect(result.configured).toContain("@shadcn")
+    expect(result.configured).toContain("@farsiui")
     expect(result.configured).toContain("@foo")
     expect(result.configured).toContain("@bar")
     expect(result.missing).toContain("@unknown")

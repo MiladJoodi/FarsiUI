@@ -20,6 +20,7 @@ import { useThemeConfig } from "@/components/active-theme"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 import {
@@ -214,12 +215,12 @@ export function BlockCard({
         className="w-full gap-2"
       >
         <div className="flex flex-wrap items-center gap-2">
-          <TabsList className="h-8 w-fit grid grid-cols-2 rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2.5 *:data-[slot=tabs-trigger]:text-xs">
-            <TabsTrigger value="preview">مشاهده</TabsTrigger>
-            <TabsTrigger value="code">کد</TabsTrigger>
-          </TabsList>
-
-          <div className="flex h-8 items-center gap-1 rounded-md border p-[3px]">
+          <div className="ms-auto flex h-8 items-center gap-0.5 rounded-lg border bg-muted p-1">
+            <TabsList className="grid h-auto! w-fit grid-cols-2 gap-0.5 rounded-none bg-transparent p-0 shadow-none *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2.5 *:data-[slot=tabs-trigger]:text-xs">
+              <TabsTrigger value="preview">مشاهده</TabsTrigger>
+              <TabsTrigger value="code">کد</TabsTrigger>
+            </TabsList>
+            <Separator orientation="vertical" className="mx-0.5 h-4!" />
             <ToggleGroup
               type="single"
               value={previewViewport}
@@ -228,7 +229,7 @@ export function BlockCard({
                 setViewport(value as Viewport)
                 setTab("preview")
               }}
-              className="hidden gap-1 md:flex *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:cursor-pointer! *:data-[slot=toggle-group-item]:rounded-sm!"
+              className="hidden gap-0.5 md:flex *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:cursor-pointer! *:data-[slot=toggle-group-item]:rounded-sm!"
             >
               <ToggleGroupItem value="100%" title="دسکتاپ">
                 <Monitor className="size-3.5" />
@@ -244,6 +245,10 @@ export function BlockCard({
                 <Smartphone className="size-3.5" />
               </ToggleGroupItem>
             </ToggleGroup>
+            <Separator
+              orientation="vertical"
+              className="mx-0.5 hidden h-4! md:block"
+            />
             <Button
               asChild
               size="icon"
@@ -351,7 +356,7 @@ export function BlockCard({
                 className="m-0! flex min-h-0 flex-1 flex-col"
               >
                 <figcaption
-                  className="flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs [&_svg]:size-3.5 [&_svg]:opacity-70"
+                  className="flex h-9 shrink-0 items-center gap-1.5 border-b px-3 text-xs [&_svg]:size-3.5 [&_svg]:opacity-70"
                   data-language={language}
                 >
                   {getIconForLanguageExtension(language)}
@@ -363,8 +368,9 @@ export function BlockCard({
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="ms-auto size-7 shrink-0"
+                    className="size-7 shrink-0"
                     disabled={!activeFile?.content}
+                    title="کپی کد"
                     onClick={() => {
                       if (!activeFile?.content) return
                       fileCopy.copyToClipboard(activeFile.content)

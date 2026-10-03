@@ -259,7 +259,7 @@ describe("fetchRegistry", () => {
     expect(acceptHeader).toBe(
       "application/vnd.shadcn.v1+json, application/json;q=0.9"
     )
-    expect(userAgentHeader).toBe("shadcn")
+    expect(userAgentHeader).toBe("farsiui")
   })
 
   it("should allow per-registry headers to override the default Accept and User-Agent", async () => {

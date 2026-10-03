@@ -114,84 +114,87 @@ export function ConversationActions() {
       className="mx-auto flex min-h-svh max-w-xl flex-col justify-center px-6 py-16 md:px-10"
     >
       <Card className="flex h-[600px] flex-col gap-0 overflow-hidden bg-card py-0">
-        <CardHeader className="flex-row items-center gap-3 space-y-0 border-b py-3">
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-semibold">
-              مکالمه · اصلاح فاکتور
-            </p>
-            <p className="text-xs tracking-normal text-muted-foreground">
+        <CardHeader className="grid-cols-[auto_1fr_auto] items-center gap-3 space-y-0 border-b py-3">
+          <Avatar className="size-10">
+            <AvatarImage
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
+              alt="سارا محمدی"
+            />
+            <AvatarFallback>س‌م</AvatarFallback>
+          </Avatar>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold">سارا محمدی</p>
+            <p className="truncate text-xs tracking-normal text-muted-foreground">
+              اصلاح فاکتور ·{" "}
               <span dir="ltr" className="inline-block text-start">
                 sara@example.com
               </span>
             </p>
           </div>
-          <Select
-            items={[...PRIORITY_ITEMS]}
-            value={priority}
-            onValueChange={(value) => {
-              if (PRIORITY_ITEMS.some((item) => item.value === value)) {
-                setPriority(value as string)
-              }
-            }}
-          >
-            <SelectTrigger className="w-28 shrink-0" dir="rtl">
-              <SelectValue placeholder="اولویت" />
-            </SelectTrigger>
-            <SelectContent dir="rtl" lang="fa">
-              {PRIORITY_ITEMS.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
-            <PopoverTrigger
-              render={
+          <div className="flex shrink-0 items-center gap-1.5">
+            <Select
+              items={[...PRIORITY_ITEMS]}
+              value={priority}
+              onValueChange={(value) => {
+                if (PRIORITY_ITEMS.some((item) => item.value === value)) {
+                  setPriority(value as string)
+                }
+              }}
+            >
+              <SelectTrigger className="w-28" dir="rtl" size="sm">
+                <SelectValue placeholder="اولویت" />
+              </SelectTrigger>
+              <SelectContent dir="rtl" lang="fa">
+                {PRIORITY_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Popover open={headerOpen} onOpenChange={setHeaderOpen}>
+              <PopoverTrigger
+                render={
+                  <Button type="button" variant="outline" size="icon-sm" />
+                }
+              >
+                <MoreHorizontalIcon className="size-4" />
+                <span className="sr-only">عملیات مکالمه</span>
+              </PopoverTrigger>
+              <PopoverContent
+                dir="rtl"
+                lang="fa"
+                align="start"
+                className="w-48 space-y-1 p-2"
+              >
+                <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
                 <Button
                   type="button"
-                  variant="outline"
-                  size="icon-sm"
-                  className="shrink-0"
-                />
-              }
-            >
-              <MoreHorizontalIcon className="size-4" />
-              <span className="sr-only">عملیات مکالمه</span>
-            </PopoverTrigger>
-            <PopoverContent
-              dir="rtl"
-              lang="fa"
-              align="start"
-              className="w-48 space-y-1 p-2"
-            >
-              <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start"
-                onClick={() => setHeaderOpen(false)}
-              >
-                اختصاص به همکار
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start"
-                onClick={() => setHeaderOpen(false)}
-              >
-                ادغام با تیکت دیگر
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-8 w-full justify-start text-destructive hover:text-destructive"
-                onClick={() => setHeaderOpen(false)}
-              >
-                بستن مکالمه
-              </Button>
-            </PopoverContent>
-          </Popover>
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  اختصاص به همکار
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  ادغام با تیکت دیگر
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setHeaderOpen(false)}
+                >
+                  بستن مکالمه
+                </Button>
+              </PopoverContent>
+            </Popover>
+          </div>
         </CardHeader>
 
         <CardContent className="flex-1 space-y-4 overflow-auto py-4">
@@ -240,66 +243,62 @@ export function ConversationActions() {
                     r.text
                   )}
                 </div>
-                <div className="flex items-center gap-2">
-                  <p className="text-[10px] tracking-normal text-muted-foreground">
-                    {r.time}
-                  </p>
-                  {r.me ? (
-                    <Popover
-                      open={openId === r.id}
-                      onOpenChange={(open) =>
-                        setOpenId(open ? r.id : null)
-                      }
-                    >
-                      <PopoverTrigger
-                        render={
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            size="sm"
-                            className="h-6 px-2 text-[10px] text-muted-foreground"
-                          />
-                        }
-                      >
-                        <MoreHorizontalIcon className="size-3.5" />
-                        عملیات
-                      </PopoverTrigger>
-                      <PopoverContent
-                        dir="rtl"
-                        lang="fa"
-                        align="start"
-                        className="w-36 space-y-1 p-2"
-                      >
-                        <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          className="h-8 w-full justify-start"
-                          onClick={() => setOpenId(null)}
-                        >
-                          کپی
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          className="h-8 w-full justify-start"
-                          onClick={() => setOpenId(null)}
-                        >
-                          ویرایش
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          className="h-8 w-full justify-start text-destructive hover:text-destructive"
-                          onClick={() => remove(r.id)}
-                        >
-                          حذف
-                        </Button>
-                      </PopoverContent>
-                    </Popover>
-                  ) : null}
-                </div>
+                <p className="text-[10px] tracking-normal text-muted-foreground">
+                  {r.time}
+                </p>
               </div>
+              {r.me ? (
+                <Popover
+                  open={openId === r.id}
+                  onOpenChange={(open) => setOpenId(open ? r.id : null)}
+                >
+                  <PopoverTrigger
+                    render={
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon-sm"
+                        className="shrink-0 self-center text-muted-foreground"
+                      />
+                    }
+                  >
+                    <MoreHorizontalIcon className="size-3.5" />
+                    <span className="sr-only">عملیات</span>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    dir="rtl"
+                    lang="fa"
+                    align="start"
+                    className="w-36 space-y-1 p-2"
+                  >
+                    <p className="px-2 py-1.5 text-sm font-medium">عملیات</p>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      کپی
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start"
+                      onClick={() => setOpenId(null)}
+                    >
+                      ویرایش
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-8 w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => remove(r.id)}
+                    >
+                      حذف
+                    </Button>
+                  </PopoverContent>
+                </Popover>
+              ) : null}
             </div>
           ))}
         </CardContent>

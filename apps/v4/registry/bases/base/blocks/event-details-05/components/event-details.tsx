@@ -288,11 +288,15 @@ export function EventDetailsFancy() {
                   در این جلسه وضعیت اسپرینت جاری را مرور می‌کنیم، بک‌لاگ را
                   اولویت‌بندی می‌کنیم و زمان انتشار بعدی را قطعی می‌کنیم.
                 </p>
-                <div className="flex items-center gap-2 rounded-lg border bg-muted/30 px-3 py-2 text-foreground">
+                <div
+                  dir="ltr"
+                  lang="en"
+                  className="flex items-center gap-2 rounded-lg border bg-muted/30 px-3 py-2 text-start text-foreground"
+                >
                   <LinkIcon className="size-4 shrink-0 text-muted-foreground" />
-                  <bdi dir="ltr" className="truncate text-xs sm:text-sm">
+                  <span className="truncate text-xs sm:text-sm">
                     meet.example.com/product-sync
-                  </bdi>
+                  </span>
                 </div>
               </CardContent>
             </Card>

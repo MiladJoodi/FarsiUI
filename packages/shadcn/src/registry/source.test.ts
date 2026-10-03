@@ -163,7 +163,7 @@ describe("loadRegistryItemFromSource: happy paths", () => {
     const item = await loadRegistryItemFromSource("button", reader)
 
     expect(item).toMatchObject({
-      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: "https://farsiui.ir/schema/registry-item.json",
       name: "button",
       files: [
         {

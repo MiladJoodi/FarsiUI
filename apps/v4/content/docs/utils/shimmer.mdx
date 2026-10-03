@@ -3,7 +3,7 @@ title: شیمر
 description: Utility برای اضافه کردن افکت شیمر به عناصر متنی.
 ---
 
-<ComponentPreview styleName="base-rhea" name="shimmer-demo" />
+<ComponentPreview styleName="base-rhea" name="shimmer-demo" direction="rtl" />
 
 ## نصب
 
@@ -58,7 +58,7 @@ npm install farsiui
 
 شیمر را می‌توان با هر کامپوننتی که متن نمایش می‌دهد ترکیب کرد. یک کاربرد رایج، استفاده از [**`Marker`**](/docs/components/marker) برای نمایش وضعیت زنده هنگام پردازش پاسخ توسط Assistant است:
 
-<ComponentPreview styleName="base-rhea" name="shimmer-marker" />
+<ComponentPreview styleName="base-rhea" name="shimmer-marker" direction="rtl" />
 
 ```tsx
 <Marker role="status">
@@ -75,7 +75,7 @@ npm install farsiui
 
 برای تعیین رنگ Highlight به‌صورت صریح، از **`shimmer-color-<color>`** استفاده کنید. این کلاس رنگ‌های Theme را همراه با Modifier مربوط به Opacity و همچنین هر مقدار رنگ دلخواهی می‌پذیرد.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-color" />
+<ComponentPreview styleName="base-rhea" name="shimmer-color" direction="rtl" />
 
 ```tsx
 <p className="shimmer shimmer-color-blue-500/60">
@@ -90,7 +90,7 @@ npm install farsiui
 
 با **`shimmer-duration-<number>`** مدت زمان یک حرکت کامل را بر حسب میلی‌ثانیه تعیین کنید. مقدار پیش‌فرض **`2000`** میلی‌ثانیه، یعنی **`2s`** است.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-duration" />
+<ComponentPreview styleName="base-rhea" name="shimmer-duration" direction="rtl" />
 
 ```tsx
 <p className="shimmer shimmer-duration-1000">
@@ -104,7 +104,7 @@ npm install farsiui
 
 مقدار پیش‌فرض **`calc(3ch + 40px)`** است؛ یعنی یک مقدار پایهٔ ثابت به‌علاوهٔ **`3ch`** که با اندازهٔ فونت تغییر می‌کند.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-spread" />
+<ComponentPreview styleName="base-rhea" name="shimmer-spread" direction="rtl" />
 
 ```tsx
 <p className="shimmer shimmer-spread-24">
@@ -124,7 +124,7 @@ npm install farsiui
 
 با **`shimmer-angle-<number>`** زاویهٔ نوار Highlight را بر حسب درجه تعیین کنید. مقدار پیش‌فرض **`20`** درجه است.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-angle" />
+<ComponentPreview styleName="base-rhea" name="shimmer-angle" direction="rtl" />
 
 ```tsx
 <p className="shimmer shimmer-angle-45">
@@ -150,7 +150,7 @@ npm install farsiui
 
 برای کنترل مدت زمان اجرا، آن را با **`shimmer-duration-<number>`** ترکیب کنید.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-once" />
+<ComponentPreview styleName="base-rhea" name="shimmer-once" direction="rtl" />
 
 ```tsx
 <p className="shimmer shimmer-duration-1100 shimmer-once">
@@ -164,7 +164,7 @@ npm install farsiui
 
 این کلاس مستقل از ترتیب کلاس‌ها عمل می‌کند و برای حالت‌های Responsive یا Stateful مناسب است:
 
-<ComponentPreview styleName="base-rhea" name="shimmer-none" />
+<ComponentPreview styleName="base-rhea" name="shimmer-none" direction="rtl" />
 
 ```tsx
 <p className="shimmer md:shimmer-none">
@@ -196,4 +196,4 @@ npm install farsiui
 
 برای معکوس کردن دستی جهت حرکت از **`shimmer-reverse`** استفاده کنید.
 
-<ComponentPreview styleName="base-rhea" name="shimmer-rtl" />
+<ComponentPreview styleName="base-rhea" name="shimmer-rtl" direction="rtl" />

@@ -115,8 +115,8 @@ const server = setupServer(
   http.get(`${REGISTRY_URL}/registries.json`, () => {
     return HttpResponse.json([
       {
-        name: "@shadcn",
-        url: "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        name: "@farsiui",
+        url: "https://farsiui.ir/r/styles/{style}/{name}.json",
         description: "The official shadcn/ui registry.",
       },
       {
@@ -1337,7 +1337,7 @@ describe("getRegistry", () => {
         expect(error.message).toContain("@parsetest/registry")
         expect(error.context?.item).toBe("@parsetest/registry")
         expect(error.suggestion).toContain(
-          "https://ui.shadcn.com/schema/registry.json"
+          "https://farsiui.ir/schema/registry.json"
         )
         expect(error.parseError).toBeDefined()
         if (error.parseError instanceof z.ZodError) {
@@ -1447,15 +1447,15 @@ describe("getRegistry", () => {
 
   it("should distinguish between URL and registry name", async () => {
     // Test that it correctly identifies and handles a URL vs registry name
-    const registryName = "@shadcn"
-    const registryUrl = "https://ui.shadcn.com/registry.json"
+    const registryName = "@farsiui"
+    const registryUrl = "https://farsiui.ir/registry.json"
 
     // Mock for URL
     server.use(
       http.get(registryUrl, () => {
         return HttpResponse.json({
           name: "shadcn-from-url",
-          homepage: "https://ui.shadcn.com",
+          homepage: "https://farsiui.ir",
           items: [],
         })
       })
@@ -1465,8 +1465,8 @@ describe("getRegistry", () => {
       style: "new-york",
       tailwind: { baseColor: "neutral", cssVariables: true },
       registries: {
-        "@shadcn": {
-          url: "https://ui.shadcn.com/{name}.json",
+        "@farsiui": {
+          url: "https://farsiui.ir/{name}.json",
         },
       },
     } as any
@@ -1789,7 +1789,7 @@ describe("getRegistriesConfig", () => {
             Authorization: "Bearer token",
           },
         },
-        "@shadcn": expect.any(String),
+        "@farsiui": expect.any(String),
       })
     } finally {
       await fs.unlink(configFile)
@@ -1917,7 +1917,7 @@ describe("getRegistriesConfig", () => {
     const config = {
       style: "new-york",
       registries: {
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
         "@acme": "https://acme.com/registry/{name}.json",
         "@private": {
           url: "https://private.registry.com/{name}.json",
@@ -1936,8 +1936,8 @@ describe("getRegistriesConfig", () => {
       const result = await getRegistriesConfig(tempDir)
 
       expect(result.registries).toBeDefined()
-      expect(result.registries?.["@shadcn"]).toBe(
-        "https://ui.shadcn.com/r/styles/{style}/{name}.json"
+      expect(result.registries?.["@farsiui"]).toBe(
+        "https://farsiui.ir/r/styles/{style}/{name}.json"
       )
       expect(result.registries?.["@acme"]).toBe(
         "https://acme.com/registry/{name}.json"
@@ -2247,8 +2247,8 @@ describe("getRegistriesConfig", () => {
 
       expect(result).toEqual([
         {
-          name: "@shadcn",
-          url: "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+          name: "@farsiui",
+          url: "https://farsiui.ir/r/styles/{style}/{name}.json",
           description: "The official shadcn/ui registry.",
         },
         {
@@ -2306,7 +2306,7 @@ describe("getRegistriesConfig", () => {
 
       // getRegistriesIndex transforms array format to object format.
       expect(result).toEqual({
-        "@shadcn": "https://ui.shadcn.com/r/styles/{style}/{name}.json",
+        "@farsiui": "https://farsiui.ir/r/styles/{style}/{name}.json",
         "@example": "https://example.com/registry/styles/{style}/{name}.json",
         "@test": "https://test.com/registry/{name}.json",
       })

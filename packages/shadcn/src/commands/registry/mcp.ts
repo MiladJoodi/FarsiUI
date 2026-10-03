@@ -13,9 +13,9 @@ export const mcp = new Command()
   .action(async () => {
     logger.warn(
       `The ${highlighter.info(
-        "shadcn registry:mcp"
+        "farsiui registry:mcp"
       )} command is deprecated. Use the ${highlighter.info(
-        "shadcn mcp"
+        "farsiui mcp"
       )} command instead.`
     )
     logger.break()

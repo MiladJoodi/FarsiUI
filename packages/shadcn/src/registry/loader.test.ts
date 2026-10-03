@@ -493,7 +493,7 @@ describe("readRegistryWithIncludes", () => {
     })
 
     expect(item).toMatchObject({
-      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: "https://farsiui.ir/schema/registry-item.json",
       name: "button",
       files: [
         {

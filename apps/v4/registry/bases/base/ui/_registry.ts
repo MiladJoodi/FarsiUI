@@ -12,9 +12,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/accordion",
+        docs: "https://farsiui.ir/docs/components/base/accordion",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/accordion-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/accordion-example.tsx",
         api: "https://base-ui.com/react/components/accordion.md",
       },
     },
@@ -30,9 +30,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/alert",
+        docs: "https://farsiui.ir/docs/components/base/alert",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/alert-example.tsx",
       },
     },
   },
@@ -48,9 +48,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/alert-dialog",
+        docs: "https://farsiui.ir/docs/components/base/alert-dialog",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/alert-dialog-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/alert-dialog-example.tsx",
         api: "https://base-ui.com/react/components/alert-dialog.md",
       },
     },
@@ -66,9 +66,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/aspect-ratio",
+        docs: "https://farsiui.ir/docs/components/base/aspect-ratio",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/aspect-ratio-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/aspect-ratio-example.tsx",
       },
     },
   },
@@ -83,9 +83,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/avatar",
+        docs: "https://farsiui.ir/docs/components/base/avatar",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/avatar-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/avatar-example.tsx",
         api: "https://base-ui.com/react/components/avatar.md",
       },
     },
@@ -101,9 +101,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/badge",
+        docs: "https://farsiui.ir/docs/components/base/badge",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/badge-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/badge-example.tsx",
       },
     },
   },
@@ -118,9 +118,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/breadcrumb",
+        docs: "https://farsiui.ir/docs/components/base/breadcrumb",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/breadcrumb-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/breadcrumb-example.tsx",
       },
     },
   },
@@ -135,9 +135,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/button",
+        docs: "https://farsiui.ir/docs/components/base/button",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/button-example.tsx",
       },
     },
   },
@@ -153,9 +153,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/button-group",
+        docs: "https://farsiui.ir/docs/components/base/button-group",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/button-group-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/button-group-example.tsx",
       },
     },
   },
@@ -172,9 +172,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/calendar",
+        docs: "https://farsiui.ir/docs/components/base/calendar",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/calendar-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/calendar-example.tsx",
         api: "https://react-day-picker.js.org",
       },
     },
@@ -190,9 +190,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/card",
+        docs: "https://farsiui.ir/docs/components/base/card",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/card-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/card-example.tsx",
       },
     },
   },
@@ -209,9 +209,9 @@ export const ui: Registry["items"] = [
     dependencies: ["embla-carousel-react"],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/carousel",
+        docs: "https://farsiui.ir/docs/components/base/carousel",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/carousel-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/carousel-example.tsx",
         api: "https://www.embla-carousel.com/get-started/react",
       },
     },
@@ -229,9 +229,9 @@ export const ui: Registry["items"] = [
     dependencies: ["recharts@3.8.0"],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/chart",
+        docs: "https://farsiui.ir/docs/components/base/chart",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/chart-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/chart-example.tsx",
       },
     },
   },
@@ -246,9 +246,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/checkbox",
+        docs: "https://farsiui.ir/docs/components/base/checkbox",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/checkbox-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/checkbox-example.tsx",
         api: "https://base-ui.com/react/components/checkbox.md",
       },
     },
@@ -264,9 +264,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/collapsible",
+        docs: "https://farsiui.ir/docs/components/base/collapsible",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/collapsible-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/collapsible-example.tsx",
         api: "https://base-ui.com/react/components/collapsible.md",
       },
     },
@@ -284,9 +284,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/combobox",
+        docs: "https://farsiui.ir/docs/components/base/combobox",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/combobox-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/combobox-example.tsx",
         api: "https://base-ui.com/react/components/combobox.md",
       },
     },
@@ -304,9 +304,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/command",
+        docs: "https://farsiui.ir/docs/components/base/command",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/command-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/command-example.tsx",
         api: "https://github.com/dip/cmdk",
       },
     },
@@ -322,9 +322,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/context-menu",
+        docs: "https://farsiui.ir/docs/components/base/context-menu",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/context-menu-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/context-menu-example.tsx",
         api: "https://base-ui.com/react/components/context-menu.md",
       },
     },
@@ -341,9 +341,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/dialog",
+        docs: "https://farsiui.ir/docs/components/base/dialog",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dialog-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/dialog-example.tsx",
         api: "https://base-ui.com/react/components/dialog.md",
       },
     },
@@ -360,9 +360,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/drawer",
+        docs: "https://farsiui.ir/docs/components/base/drawer",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/drawer-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/drawer-example.tsx",
         api: "https://base-ui.com/react/components/drawer.md",
       },
     },
@@ -378,9 +378,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/dropdown-menu",
+        docs: "https://farsiui.ir/docs/components/base/dropdown-menu",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/dropdown-menu-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/dropdown-menu-example.tsx",
         api: "https://base-ui.com/react/components/menu.md",
       },
     },
@@ -396,9 +396,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/empty",
+        docs: "https://farsiui.ir/docs/components/base/empty",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/empty-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/empty-example.tsx",
       },
     },
   },
@@ -414,9 +414,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/field",
+        docs: "https://farsiui.ir/docs/components/base/field",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/field-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/field-example.tsx",
       },
     },
   },
@@ -435,9 +435,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/hover-card",
+        docs: "https://farsiui.ir/docs/components/base/hover-card",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/hover-card-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/hover-card-example.tsx",
         api: "https://base-ui.com/react/components/hover-card.md",
       },
     },
@@ -454,9 +454,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/input",
+        docs: "https://farsiui.ir/docs/components/base/input",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/input-example.tsx",
       },
     },
   },
@@ -472,9 +472,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/input-group",
+        docs: "https://farsiui.ir/docs/components/base/input-group",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-group-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/input-group-example.tsx",
       },
     },
   },
@@ -491,9 +491,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/input-otp",
+        docs: "https://farsiui.ir/docs/components/base/input-otp",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-otp-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/input-otp-example.tsx",
         api: "https://input-otp.rodz.dev",
       },
     },
@@ -510,9 +510,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/item",
+        docs: "https://farsiui.ir/docs/components/base/item",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/item-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/item-example.tsx",
       },
     },
   },
@@ -527,9 +527,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/label",
+        docs: "https://farsiui.ir/docs/components/base/label",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/label-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/label-example.tsx",
         api: "https://base-ui.com/react/components/label.md",
       },
     },
@@ -546,9 +546,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/menubar",
+        docs: "https://farsiui.ir/docs/components/base/menubar",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/menubar-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/menubar-example.tsx",
         api: "https://base-ui.com/react/components/menubar.md",
       },
     },
@@ -564,9 +564,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/navigation-menu",
+        docs: "https://farsiui.ir/docs/components/base/navigation-menu",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/navigation-menu-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/navigation-menu-example.tsx",
         api: "https://base-ui.com/react/components/navigation-menu.md",
       },
     },
@@ -583,9 +583,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/pagination",
+        docs: "https://farsiui.ir/docs/components/base/pagination",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/pagination-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/pagination-example.tsx",
       },
     },
   },
@@ -611,9 +611,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/popover",
+        docs: "https://farsiui.ir/docs/components/base/popover",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/popover-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/popover-example.tsx",
         api: "https://base-ui.com/react/components/popover.md",
       },
     },
@@ -630,9 +630,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/progress",
+        docs: "https://farsiui.ir/docs/components/base/progress",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/progress-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/progress-example.tsx",
         api: "https://base-ui.com/react/components/progress.md",
       },
     },
@@ -648,9 +648,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/radio-group",
+        docs: "https://farsiui.ir/docs/components/base/radio-group",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/radio-group-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/radio-group-example.tsx",
         api: "https://base-ui.com/react/components/radio-group.md",
       },
     },
@@ -667,9 +667,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/resizable",
+        docs: "https://farsiui.ir/docs/components/base/resizable",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/resizable-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/resizable-example.tsx",
         api: "https://github.com/bvaughn/react-resizable-panels",
       },
     },
@@ -685,9 +685,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/scroll-area",
+        docs: "https://farsiui.ir/docs/components/base/scroll-area",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/scroll-area-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/scroll-area-example.tsx",
         api: "https://base-ui.com/react/components/scroll-area.md",
       },
     },
@@ -703,9 +703,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/select",
+        docs: "https://farsiui.ir/docs/components/base/select",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/select-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/select-example.tsx",
         api: "https://base-ui.com/react/components/select.md",
       },
     },
@@ -721,9 +721,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/separator",
+        docs: "https://farsiui.ir/docs/components/base/separator",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/separator-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/separator-example.tsx",
         api: "https://base-ui.com/react/components/separator.md",
       },
     },
@@ -740,9 +740,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/sheet",
+        docs: "https://farsiui.ir/docs/components/base/sheet",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sheet-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/sheet-example.tsx",
         api: "https://base-ui.com/react/components/dialog.md",
       },
     },
@@ -767,9 +767,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/sidebar",
+        docs: "https://farsiui.ir/docs/components/base/sidebar",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sidebar-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/sidebar-example.tsx",
       },
     },
   },
@@ -784,9 +784,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/skeleton",
+        docs: "https://farsiui.ir/docs/components/base/skeleton",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/skeleton-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/skeleton-example.tsx",
       },
     },
   },
@@ -801,9 +801,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/slider",
+        docs: "https://farsiui.ir/docs/components/base/slider",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/slider-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/slider-example.tsx",
         api: "https://base-ui.com/react/components/slider.md",
       },
     },
@@ -820,9 +820,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/sonner",
+        docs: "https://farsiui.ir/docs/components/base/sonner",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sonner-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/sonner-example.tsx",
         api: "https://sonner.emilkowal.ski",
       },
     },
@@ -838,9 +838,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/spinner",
+        docs: "https://farsiui.ir/docs/components/base/spinner",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/spinner-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/spinner-example.tsx",
       },
     },
   },
@@ -855,9 +855,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/switch",
+        docs: "https://farsiui.ir/docs/components/base/switch",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/switch-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/switch-example.tsx",
         api: "https://base-ui.com/react/components/switch.md",
       },
     },
@@ -873,9 +873,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/table",
+        docs: "https://farsiui.ir/docs/components/base/table",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/table-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/table-example.tsx",
       },
     },
   },
@@ -890,9 +890,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/tabs",
+        docs: "https://farsiui.ir/docs/components/base/tabs",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tabs-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/tabs-example.tsx",
         api: "https://base-ui.com/react/components/tabs.md",
       },
     },
@@ -909,9 +909,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/textarea",
+        docs: "https://farsiui.ir/docs/components/base/textarea",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/textarea-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/textarea-example.tsx",
       },
     },
   },
@@ -928,9 +928,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/toast",
+        docs: "https://farsiui.ir/docs/components/base/toast",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toast-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/toast-example.tsx",
         api: "https://base-ui.com/react/components/toast.md",
       },
     },
@@ -946,9 +946,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/toggle",
+        docs: "https://farsiui.ir/docs/components/base/toggle",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/toggle-example.tsx",
         api: "https://base-ui.com/react/components/toggle.md",
       },
     },
@@ -965,9 +965,9 @@ export const ui: Registry["items"] = [
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/toggle-group",
+        docs: "https://farsiui.ir/docs/components/base/toggle-group",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/toggle-group-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/toggle-group-example.tsx",
         api: "https://base-ui.com/react/components/toggle-group.md",
       },
     },
@@ -999,9 +999,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/tooltip",
+        docs: "https://farsiui.ir/docs/components/base/tooltip",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tooltip-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/tooltip-example.tsx",
         api: "https://base-ui.com/react/components/tooltip.md",
       },
     },
@@ -1017,9 +1017,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/kbd",
+        docs: "https://farsiui.ir/docs/components/base/kbd",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/kbd-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/kbd-example.tsx",
       },
     },
   },
@@ -1034,9 +1034,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/native-select",
+        docs: "https://farsiui.ir/docs/components/base/native-select",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/native-select-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/native-select-example.tsx",
       },
     },
   },
@@ -1052,7 +1052,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/direction",
+        docs: "https://farsiui.ir/docs/components/base/direction",
         api: "https://base-ui.com/react/utils/direction-provider.md",
       },
     },
@@ -1103,9 +1103,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     meta: {
       links: {
-        docs: "https://ui.shadcn.com/docs/components/base/questionnaire",
+        docs: "https://farsiui.ir/docs/components/base/questionnaire",
         examples:
-          "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/questionnaire-example.tsx",
+          "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/questionnaire-example.tsx",
       },
     },
   },

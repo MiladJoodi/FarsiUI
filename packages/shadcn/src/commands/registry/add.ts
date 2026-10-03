@@ -85,7 +85,7 @@ export async function addRegistriesToConfig(
     throw new Error(
       `No ${highlighter.info("components.json")} or ${highlighter.info(
         "package.json"
-      )} found. Run ${highlighter.info("shadcn init")} first.`
+      )} found. Run ${highlighter.info("farsiui init")} first.`
     )
   }
 

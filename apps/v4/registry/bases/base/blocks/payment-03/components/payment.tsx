@@ -80,8 +80,8 @@ export function PaymentCardForm() {
               value={card}
               onChange={(e) => setCard(formatCardNumber(e.target.value))}
               placeholder="۶۰۳۷-****-****-****"
-              dir="rtl"
-              className="text-end tracking-normal"
+              dir="ltr"
+              className="text-start tracking-normal"
               inputMode="numeric"
               autoComplete="cc-number"
             />

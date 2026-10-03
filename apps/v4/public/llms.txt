@@ -13,7 +13,7 @@
 - [Typeset](https://farsiui.ir/docs/typeset): Typography styles for rendered markdown and streaming content.
 - [Changelog](https://farsiui.ir/docs/changelog): Release notes and project updates.
 - [Blocks](https://farsiui.ir/docs/blocks): Building blocks and contribution notes.
-- [Figma](https://farsiui.ir/docs/figma): Community Figma kits compatible with shadcn/ui-style components for FarsiUI designs.
+- [Figma](https://farsiui.ir/docs/figma): Community Figma kits for designing with FarsiUI components.
 
 ## Installation
 
@@ -39,7 +39,7 @@
 - [Native Select](https://farsiui.ir/docs/components/native-select): Styled native HTML select.
 - [Switch](https://farsiui.ir/docs/components/switch): Toggle switch.
 - [Slider](https://farsiui.ir/docs/components/slider): Range slider.
-- [Calendar](https://farsiui.ir/docs/components/calendar): Calendar date selection (including Hijri support examples).
+- [Calendar](https://farsiui.ir/docs/components/calendar): Persian (Jalali) calendar date selection with RTL and fa-IR formatting.
 - [Date Picker](https://farsiui.ir/docs/components/date-picker): Date picker combining input and calendar.
 - [Combobox](https://farsiui.ir/docs/components/combobox): Searchable select with autocomplete.
 - [Label](https://farsiui.ir/docs/components/label): Form label.

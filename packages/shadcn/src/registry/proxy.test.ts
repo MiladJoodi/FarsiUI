@@ -184,7 +184,7 @@ describe("fetchWithProxy", () => {
         headers: {
           "X-API-Key": "secret",
           Accept: "application/json",
-          "User-Agent": "shadcn",
+          "User-Agent": "farsiui",
         },
       }
     )
@@ -196,7 +196,7 @@ describe("fetchWithProxy", () => {
     expect(second.get("x-api-key")).toBeNull()
     // Non-sensitive headers may be kept.
     expect(second.get("accept")).toBe("application/json")
-    expect(second.get("user-agent")).toBe("shadcn")
+    expect(second.get("user-agent")).toBe("farsiui")
   })
 
   it("throws when the redirect chain exceeds the limit", async () => {

@@ -36,7 +36,7 @@ export function buildUrlAndHeadersForRegistryItem(
     ) {
       return null
     }
-    registry = "@shadcn"
+    registry = "@farsiui"
   }
 
   const registries = { ...BUILTIN_REGISTRIES, ...config?.registries }

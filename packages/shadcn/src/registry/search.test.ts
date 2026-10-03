@@ -24,10 +24,10 @@ describe("searchRegistries", () => {
     const mockGetRegistry = vi.mocked(getRegistry)
 
     mockGetRegistry.mockImplementation(async (name: string) => {
-      if (name === "@shadcn" || name === "@shadcn/registry") {
+      if (name === "@farsiui" || name === "@farsiui/registry") {
         return {
           name: "shadcn/ui",
-          homepage: "https://ui.shadcn.com",
+          homepage: "https://farsiui.ir",
           items: [
             {
               name: "button",
@@ -59,7 +59,7 @@ describe("searchRegistries", () => {
       throw new Error(`Unknown registry: ${name}`)
     })
 
-    const results = await searchRegistries(["@shadcn", "@custom"])
+    const results = await searchRegistries(["@farsiui", "@custom"])
 
     expect(results).toEqual({
       items: [
@@ -68,15 +68,15 @@ describe("searchRegistries", () => {
           title: "Button",
           type: "registry:ui",
           description: "A button component",
-          registry: "@shadcn",
-          addCommandArgument: "@shadcn/button",
+          registry: "@farsiui",
+          addCommandArgument: "@farsiui/button",
         },
         {
           name: "card",
           type: "registry:ui",
           description: "A card component",
-          registry: "@shadcn",
-          addCommandArgument: "@shadcn/card",
+          registry: "@farsiui",
+          addCommandArgument: "@farsiui/card",
         },
         {
           name: "header",
@@ -146,10 +146,10 @@ describe("searchRegistries", () => {
     const mockGetRegistry = vi.mocked(getRegistry)
 
     mockGetRegistry.mockImplementation(async (name: string) => {
-      if (name === "@shadcn" || name === "@shadcn/registry") {
+      if (name === "@farsiui" || name === "@farsiui/registry") {
         return {
           name: "shadcn/ui",
-          homepage: "https://ui.shadcn.com",
+          homepage: "https://farsiui.ir",
           items: [
             {
               name: "button",
@@ -172,12 +172,12 @@ describe("searchRegistries", () => {
       throw new Error(`Unknown registry: ${name}`)
     })
 
-    const results = await searchRegistries(["@shadcn"], { query: "button" })
+    const results = await searchRegistries(["@farsiui"], { query: "button" })
 
     expect(results.items).toHaveLength(1)
     expect(results.items[0].name).toBe("button")
-    expect(results.items[0].registry).toBe("@shadcn")
-    expect(results.items[0].addCommandArgument).toBe("@shadcn/button")
+    expect(results.items[0].registry).toBe("@farsiui")
+    expect(results.items[0].addCommandArgument).toBe("@farsiui/button")
     expect(results.pagination).toEqual({
       total: 1,
       offset: 0,
@@ -691,16 +691,16 @@ describe("searchRegistries", () => {
   })
 
   it("should handle mixed registry names and URLs", async () => {
-    const registryName = "@shadcn"
+    const registryName = "@farsiui"
     const registryUrl = "https://custom.com/registry.json"
 
     const mockGetRegistry = vi.mocked(getRegistry)
 
     mockGetRegistry.mockImplementation(async (nameOrUrl: string) => {
-      if (nameOrUrl === "@shadcn" || nameOrUrl === "@shadcn/registry") {
+      if (nameOrUrl === "@farsiui" || nameOrUrl === "@farsiui/registry") {
         return {
           name: "shadcn/ui",
-          homepage: "https://ui.shadcn.com",
+          homepage: "https://farsiui.ir",
           items: [
             {
               name: "button",
@@ -730,7 +730,7 @@ describe("searchRegistries", () => {
       query: "button",
     })
 
-    // Should find the button from @shadcn
+    // Should find the button from @farsiui
     expect(results.items).toHaveLength(1)
     expect(results.items[0]).toMatchObject({
       name: "button",
@@ -766,8 +766,8 @@ describe("buildRegistryItemNameFromRegistry", () => {
     {
       name: "namespace registry",
       itemName: "button",
-      registry: "@shadcn",
-      expected: "@shadcn/button",
+      registry: "@farsiui",
+      expected: "@farsiui/button",
     },
     {
       name: "namespace registry with org",
@@ -929,32 +929,32 @@ describe("printSearchResults", () => {
             name: "button",
             type: "registry:ui",
             description: "A button component",
-            registry: "@shadcn",
-            addCommandArgument: "@shadcn/button",
+            registry: "@farsiui",
+            addCommandArgument: "@farsiui/button",
           },
           {
             name: "card",
             type: "registry:ui",
-            registry: "@shadcn",
-            addCommandArgument: "@shadcn/card",
+            registry: "@farsiui",
+            addCommandArgument: "@farsiui/card",
           },
         ],
       },
       {
         query: "button",
-        registries: ["@shadcn"],
+        registries: ["@farsiui"],
       }
     )
 
     expect(log).toHaveBeenCalledWith(
-      expect.stringContaining('Found 2 items matching "button" in @shadcn')
+      expect.stringContaining('Found 2 items matching "button" in @farsiui')
     )
     expect(log).toHaveBeenCalledWith(
       expect.stringContaining("Showing 1-2 of 2")
     )
     expect(log).toHaveBeenCalledWith(
       expect.stringMatching(
-        /- @shadcn\/button \(ui\) — A button component\n- @shadcn\/card \(ui\)$/
+        /- @farsiui\/button \(ui\) — A button component\n- @farsiui\/card \(ui\)$/
       )
     )
 
@@ -971,20 +971,20 @@ describe("printSearchResults", () => {
           {
             name: "button",
             type: "registry:ui",
-            registry: "@shadcn",
-            addCommandArgument: "@shadcn/button",
+            registry: "@farsiui",
+            addCommandArgument: "@farsiui/button",
           },
         ],
       },
       {
         // Full namespaced form on input is shown as the shorthand.
         types: ["registry:ui"],
-        registries: ["@shadcn"],
+        registries: ["@farsiui"],
       }
     )
 
     expect(log).toHaveBeenCalledWith(
-      expect.stringContaining("Found 1 item of type ui in @shadcn")
+      expect.stringContaining("Found 1 item of type ui in @farsiui")
     )
 
     log.mockRestore()
@@ -1012,7 +1012,7 @@ describe("printSearchResults", () => {
         ],
       },
       {
-        registries: ["@shadcn", "@custom"],
+        registries: ["@farsiui", "@custom"],
       }
     )
 
@@ -1073,12 +1073,12 @@ describe("printSearchResults", () => {
       },
       {
         query: "missing",
-        registries: ["@shadcn"],
+        registries: ["@farsiui"],
       }
     )
 
     expect(log).toHaveBeenCalledWith(
-      expect.stringContaining('No items found matching "missing" in @shadcn')
+      expect.stringContaining('No items found matching "missing" in @farsiui')
     )
 
     log.mockRestore()
@@ -1089,7 +1089,7 @@ describe("resolveSearchRegistries", () => {
   it("returns explicitly provided registries unchanged", () => {
     expect(
       resolveSearchRegistries(["@one", "@two"], {
-        registries: { "@shadcn": "x/{name}.json", "@one": "y/{name}.json" },
+        registries: { "@farsiui": "x/{name}.json", "@one": "y/{name}.json" },
       })
     ).toEqual(["@one", "@two"])
   })
@@ -1098,7 +1098,7 @@ describe("resolveSearchRegistries", () => {
     expect(
       resolveSearchRegistries([], {
         registries: {
-          "@shadcn": "x/{name}.json",
+          "@farsiui": "x/{name}.json",
           "@one": "y/{name}.json",
           "@two": "z/{name}.json",
         },

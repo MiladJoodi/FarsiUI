@@ -1,6 +1,6 @@
 export function ShimmerDemo() {
   return (
-    <p className="shimmer text-sm text-muted-foreground">
+    <p dir="rtl" lang="fa" className="shimmer text-sm text-muted-foreground">
       در حال ایجاد پاسخ&hellip;
     </p>
   )

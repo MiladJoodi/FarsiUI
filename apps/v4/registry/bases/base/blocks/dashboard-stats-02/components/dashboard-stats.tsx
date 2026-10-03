@@ -85,8 +85,8 @@ export function DashboardStatsCards() {
                 {stat.bars.map((h, i) => (
                   <div
                     key={i}
-                    className="flex-1 rounded-sm bg-primary/70"
-                    style={{ height: `${h}%` }}
+                    className="min-h-1 flex-1 rounded-sm bg-primary/70"
+                    style={{ height: `${Math.max(h, 12)}%` }}
                   />
                 ))}
               </div>

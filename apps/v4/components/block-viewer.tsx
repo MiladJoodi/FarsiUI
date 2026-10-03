@@ -144,7 +144,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
   const { setView, view, item, setIframeKey, viewport, setViewport } =
     useBlockViewer()
   const { copyToClipboard, isCopied } = useCopyToClipboard()
-  const installCommand = `npx shadcn@latest add ${item.name}`
+  const installCommand = `npx farsiui@latest add ${item.name}`
 
   return (
     <div
@@ -152,79 +152,76 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
       lang="fa"
       className="hidden w-full items-center gap-2 ps-2 md:pe-6 lg:flex"
     >
-      <Tabs
-        value={view}
-        onValueChange={(value) => setView(value as "preview" | "code")}
-      >
-        <TabsList
-          data-block-preview-label=""
-          className="grid h-8! grid-cols-2 items-center rounded-lg p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-[14px]"
-        >
-          <TabsTrigger value="preview">پیش‌نمایش</TabsTrigger>
-          <TabsTrigger value="code">کد</TabsTrigger>
-        </TabsList>
-      </Tabs>
-      <Separator orientation="vertical" className="mx-2 h-4!" />
       <a
         href={`#${item.name}`}
         data-block-variant-title=""
-        className="flex-1 text-center font-medium underline-offset-2 hover:underline md:flex-auto md:text-start"
+        className="min-w-0 flex-1 truncate text-start font-medium underline-offset-2 hover:underline"
       >
         {item.description?.replace(/\.$/, "")}
       </a>
-      <div className="ms-auto flex items-center gap-2">
-        <div className="flex h-8 items-center gap-1.5 rounded-md border p-[3px] shadow-none">
-          <ToggleGroup
-            type="single"
-            value={viewport}
-            onValueChange={(value) => {
-              if (!value) return
-              setViewport(value as "100%" | "60%" | "30%")
-              setView("preview")
-            }}
-            className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:rounded-sm!"
+      <div className="ms-auto flex h-8 items-center gap-0.5 rounded-lg border bg-muted p-1 shadow-none">
+        <Tabs
+          value={view}
+          onValueChange={(value) => setView(value as "preview" | "code")}
+        >
+          <TabsList
+            data-block-preview-label=""
+            className="grid h-auto! grid-cols-2 items-center gap-0.5 rounded-none bg-transparent p-0 shadow-none *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-[14px]"
           >
-            <ToggleGroupItem value="100%" title="دسکتاپ">
-              <Monitor />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="60%" title="تبلت">
-              <Tablet />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="30%" title="موبایل">
-              <Smartphone />
-            </ToggleGroupItem>
-            <Separator orientation="vertical" className="h-4!" />
-            <Button
-              size="icon"
-              variant="ghost"
-              className="size-6 rounded-sm p-0"
-              asChild
-              title="باز کردن در تب جدید"
-            >
-              <Link href={`/view/${styleName}/${item.name}`} target="_blank">
-                <span className="sr-only">باز کردن در تب جدید</span>
-                <Fullscreen />
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="h-4!" />
-            <Button
-              size="icon"
-              variant="ghost"
-              className="size-6 rounded-sm p-0"
-              title="تازه‌سازی پیش‌نمایش"
-              onClick={() => {
-                setIframeKey?.((k) => k + 1)
-              }}
-            >
-              <RotateCw />
-              <span className="sr-only">تازه‌سازی پیش‌نمایش</span>
-            </Button>
-          </ToggleGroup>
-        </div>
-        <Separator orientation="vertical" className="mx-1 h-4!" />
+            <TabsTrigger value="preview">پیش‌نمایش</TabsTrigger>
+            <TabsTrigger value="code">کد</TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Separator orientation="vertical" className="mx-0.5 h-4!" />
+        <ToggleGroup
+          type="single"
+          value={viewport}
+          onValueChange={(value) => {
+            if (!value) return
+            setViewport(value as "100%" | "60%" | "30%")
+            setView("preview")
+          }}
+          className="gap-0.5 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:rounded-sm!"
+        >
+          <ToggleGroupItem value="100%" title="دسکتاپ">
+            <Monitor />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="60%" title="تبلت">
+            <Tablet />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="30%" title="موبایل">
+            <Smartphone />
+          </ToggleGroupItem>
+        </ToggleGroup>
+        <Separator orientation="vertical" className="mx-0.5 h-4!" />
+        <Button
+          size="icon"
+          variant="ghost"
+          className="size-6 rounded-sm p-0"
+          asChild
+          title="باز کردن در تب جدید"
+        >
+          <Link href={`/view/${styleName}/${item.name}`} target="_blank">
+            <span className="sr-only">باز کردن در تب جدید</span>
+            <Fullscreen />
+          </Link>
+        </Button>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="size-6 rounded-sm p-0"
+          title="تازه‌سازی پیش‌نمایش"
+          onClick={() => {
+            setIframeKey?.((k) => k + 1)
+          }}
+        >
+          <RotateCw />
+          <span className="sr-only">تازه‌سازی پیش‌نمایش</span>
+        </Button>
+        <Separator orientation="vertical" className="mx-0.5 h-4!" />
         <Button
           variant="ghost"
-          className="h-8 w-fit max-w-[min(100%,22rem)] gap-1.5 px-2 shadow-none"
+          className="h-6 w-fit max-w-[min(100%,18rem)] gap-1.5 rounded-sm px-2 shadow-none"
           size="sm"
           title="کپی دستور نصب"
           onClick={() => {
@@ -379,14 +376,12 @@ function BlockViewerCode() {
         className="mx-0! mt-0 flex min-w-0 flex-1 flex-col rounded-xl border-none"
       >
         <figcaption
-          className="flex h-12 shrink-0 items-center gap-2 border-b px-4 py-2 text-code-foreground [&_svg]:size-4 [&_svg]:text-code-foreground [&_svg]:opacity-70"
+          className="flex h-12 shrink-0 items-center gap-1.5 border-b px-4 py-2 text-code-foreground [&_svg]:size-4 [&_svg]:text-code-foreground [&_svg]:opacity-70"
           data-language={language}
         >
           {getIconForLanguageExtension(language)}
           <span className="truncate font-mono text-sm">{file.target}</span>
-          <div className="ms-auto flex items-center gap-2">
-            <BlockCopyCodeButton />
-          </div>
+          <BlockCopyCodeButton />
         </figcaption>
         <div
           key={file?.path}

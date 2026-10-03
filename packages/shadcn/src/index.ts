@@ -22,8 +22,10 @@ process.on("SIGTERM", () => process.exit(0))
 
 async function main() {
   const program = new Command()
-    .name("shadcn")
-    .description("build your component library")
+    .name("farsiui")
+    .description(
+      "FarsiUI CLI — add and manage Persian-first UI components from the FarsiUI registry"
+    )
     .version(
       packageJson.version || "1.0.0",
       "-v, --version",

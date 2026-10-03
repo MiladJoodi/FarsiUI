@@ -362,7 +362,7 @@ async function fetchGitHubSourceFile(
     response = await fetchWithProxy(url, {
       headers: new Headers({
         "Accept-Encoding": "identity",
-        "User-Agent": "shadcn",
+        "User-Agent": "farsiui",
       }),
     })
   } catch (error) {

@@ -10,7 +10,6 @@ import {
   CardHeader,
 } from "@/registry/bases/base/ui/card"
 import { Input } from "@/registry/bases/base/ui/input"
-import { Separator } from "@/registry/bases/base/ui/separator"
 
 const REPLIES = [
   {
@@ -48,36 +47,30 @@ export function ConversationThread() {
       className="mx-auto flex min-h-svh max-w-lg flex-col justify-center px-6 py-16 md:px-10"
     >
       <Card className="flex h-[540px] flex-col gap-0 overflow-hidden bg-card py-0">
-        <CardHeader className="space-y-3 border-b py-3">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <p className="text-sm font-semibold">پیگیری سفارش #۴۵۲۱</p>
-              <p className="text-xs tracking-normal text-muted-foreground">
-                شروع شده ۱۴۰۵/۰۷/۱۲
-              </p>
-            </div>
-            <Badge variant="outline" className="border">
-              باز
-            </Badge>
+        <CardHeader className="grid-cols-[auto_1fr_auto] items-center gap-3 space-y-0 border-b py-3">
+          <div className="flex -space-x-2 space-x-reverse">
+            <Avatar className="size-9 border-2 border-background">
+              <AvatarImage
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
+                alt="سارا"
+              />
+              <AvatarFallback>س‌م</AvatarFallback>
+            </Avatar>
+            <Avatar className="size-9 border-2 border-background">
+              <AvatarFallback>پ‌ش</AvatarFallback>
+            </Avatar>
           </div>
-          <Separator />
-          <div className="flex items-center gap-2">
-            <div className="flex -space-x-2 space-x-reverse">
-              <Avatar className="size-7 border-2 border-background">
-                <AvatarImage
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
-                  alt="سارا"
-                />
-                <AvatarFallback>س‌م</AvatarFallback>
-              </Avatar>
-              <Avatar className="size-7 border-2 border-background">
-                <AvatarFallback>پ‌ش</AvatarFallback>
-              </Avatar>
-            </div>
-            <p className="text-xs tracking-normal text-muted-foreground">
-              ۲ شرکت‌کننده
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold">
+              پیگیری سفارش #۴۵۲۱
+            </p>
+            <p className="truncate text-xs tracking-normal text-muted-foreground">
+              سارا محمدی · آنلاین
             </p>
           </div>
+          <Badge variant="outline" className="shrink-0 border">
+            باز
+          </Badge>
         </CardHeader>
         <CardContent className="flex-1 space-y-4 overflow-auto py-4">
           {REPLIES.map((r, i) => (
