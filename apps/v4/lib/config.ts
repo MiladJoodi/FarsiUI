@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "shadcn/ui",
-  url: "https://ui.shadcn.com",
-  ogImage: "https://ui.shadcn.com/og.jpg",
+  name: "FarsiUI",
+  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:4000",
+  ogImage: "/opengraph-image.png",
   description:
     "کامپوننت‌های مدرن و قابل شخصی‌سازی برای ساخت محصولات فارسی",
   links: {

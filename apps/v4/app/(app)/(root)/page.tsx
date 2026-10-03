@@ -23,7 +23,7 @@ const websiteJsonLd = {
   "@id": `${siteConfig.url}/#website`,
   url: siteConfig.url,
   name: siteConfig.name,
-  alternateName: ["shadcn", "ui.shadcn.com"],
+  alternateName: ["FarsiUI"],
   description: siteConfig.description,
   inLanguage: "fa-IR",
   sameAs: [siteConfig.links.github, siteConfig.links.twitter],

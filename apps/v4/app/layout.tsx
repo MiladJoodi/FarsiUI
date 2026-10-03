@@ -24,17 +24,17 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: ["Next.js", "React", "Tailwind CSS", "Components", "shadcn"],
+  keywords: ["Next.js", "React", "Tailwind CSS", "Components", "FarsiUI", "RTL", "Persian"],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com",
+      name: "FarsiUI",
+      url: siteConfig.links.github,
     },
   ],
-  creator: "shadcn",
+  creator: "FarsiUI",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "fa_IR",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -53,12 +53,11 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/opengraph-image.png`],
-    creator: "@shadcn",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [{ url: "/farsiui/favicon.png", type: "image/png" }],
+    shortcut: "/farsiui/favicon.png",
+    apple: "/farsiui/favicon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: {
