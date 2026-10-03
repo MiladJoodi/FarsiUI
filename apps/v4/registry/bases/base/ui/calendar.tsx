@@ -51,6 +51,9 @@ function Calendar({
           const labels = ["ی", "د", "س", "چ", "پ", "ج", "ش"]
           return labels[date.getDay()] ?? ""
         },
+        formatWeekNumberHeader: () => "هـ",
+        formatWeekNumber: (weekNumber) =>
+          weekNumber.toLocaleString(locale?.code ?? "fa-IR"),
         ...formatters,
       }}
       classNames={{
@@ -105,11 +108,11 @@ function Calendar({
         ),
         week: cn("mt-2 flex w-full", defaultClassNames.week),
         week_number_header: cn(
-          "w-(--cell-size) select-none",
+          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium text-muted-foreground select-none",
           defaultClassNames.week_number_header
         ),
         week_number: cn(
-          "text-[0.8rem] text-muted-foreground select-none",
+          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium tabular-nums text-muted-foreground select-none",
           defaultClassNames.week_number
         ),
         day: cn(
@@ -201,7 +204,7 @@ function Calendar({
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
+              <div className="flex size-(--cell-size) items-center justify-center text-center tabular-nums">
                 {children}
               </div>
             </td>

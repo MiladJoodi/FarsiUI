@@ -19,10 +19,9 @@ export default function CarouselOrientation() {
       dir="rtl"
       opts={{
         align: "start",
-        direction: "rtl",
       }}
       orientation="vertical"
-      className="w-full max-w-xs"
+      className="mx-auto w-full max-w-xs"
     >
       <CarouselContent className="-mt-1 h-[270px]">
         {Array.from({ length: 5 }).map((_, index) => (

@@ -79,7 +79,7 @@ export function AccordionRtl() {
   const { t } = useTranslation(translations, "ar")
 
   return (
-    <Accordion defaultValue={["item-1"]} className="max-w-md">
+    <Accordion className="max-w-md">
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{t[item.questionKey]}</AccordionTrigger>

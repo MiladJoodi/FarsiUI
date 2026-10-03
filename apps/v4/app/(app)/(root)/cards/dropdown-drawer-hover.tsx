@@ -189,24 +189,46 @@ export function DropdownDrawerHover() {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" text="قبلی" />
+              <PaginationPrevious
+                href="#"
+                text="قبلی"
+                onClick={(event) => event.preventDefault()}
+              />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">۱</PaginationLink>
+              <PaginationLink
+                href="#"
+                onClick={(event) => event.preventDefault()}
+              >
+                ۱
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <PaginationLink
+                href="#"
+                isActive
+                onClick={(event) => event.preventDefault()}
+              >
                 ۲
               </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">۳</PaginationLink>
+              <PaginationLink
+                href="#"
+                onClick={(event) => event.preventDefault()}
+              >
+                ۳
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" text="بعدی" />
+              <PaginationNext
+                href="#"
+                text="بعدی"
+                onClick={(event) => event.preventDefault()}
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

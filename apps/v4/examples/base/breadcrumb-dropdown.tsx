@@ -18,13 +18,19 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
+function preventNav(e: React.MouseEvent) {
+  e.preventDefault()
+}
+
 export default function BreadcrumbDropdown() {
   return (
     <div dir="rtl" className="flex w-full justify-center">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={preventNav}>
+              خانه
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             <DotIcon />

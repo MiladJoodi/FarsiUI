@@ -7,7 +7,7 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion dir="rtl" defaultValue={["shipping"]} className="w-full max-w-lg">
+    <Accordion dir="rtl" className="w-full max-w-lg">
       <AccordionItem value="shipping">
         <AccordionTrigger>گزینه‌های ارسال چیست؟</AccordionTrigger>
         <AccordionContent>

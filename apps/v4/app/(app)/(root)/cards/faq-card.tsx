@@ -33,7 +33,7 @@ export function FaqCard() {
         <CardTitle>سوالات پرتکرار</CardTitle>
       </CardHeader>
       <CardContent>
-        <Accordion dir="rtl" defaultValue={["secure"]} className="border-0">
+        <Accordion dir="rtl" className="border-0">
           {QUESTIONS.map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger className="text-start">{item.q}</AccordionTrigger>

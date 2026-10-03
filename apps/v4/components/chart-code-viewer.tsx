@@ -36,7 +36,7 @@ export function ChartCodeViewer({
     <Button
       size="sm"
       variant="outline"
-      className="h-6 rounded-[6px] border bg-transparent px-2 text-xs text-foreground shadow-none hover:bg-muted dark:text-foreground"
+      className="h-6 rounded-[6px] border bg-transparent px-2 font-sans text-xs text-foreground shadow-none hover:bg-muted dark:text-foreground"
     >
       مشاهده کد
     </Button>

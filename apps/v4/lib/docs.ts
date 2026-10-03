@@ -9,6 +9,13 @@ export const PAGES_NEW = [
 
 export const PAGES_UPDATED = []
 
+/** True only for `/docs/components` and `/docs/components/*` — not `components-json`, etc. */
+export function isComponentsDocsPath(pathname: string) {
+  return (
+    pathname === "/docs/components" || pathname.startsWith("/docs/components/")
+  )
+}
+
 /** Split `"فارسی (English)"` titles into sides for UI. */
 export function splitDocTitle(title: string) {
   const match = title.match(/^(.*?)\s*\(([^)]+)\)\s*$/)

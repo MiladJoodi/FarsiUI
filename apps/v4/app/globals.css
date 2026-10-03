@@ -272,6 +272,11 @@ body[class*="theme-"] {
   @apply mx-auto max-w-[1400px] px-4 3xl:max-w-screen-2xl lg:px-8;
 }
 
+/* Flip directional icons in RTL (carousel, pagination, calendar, …). */
+@utility cn-rtl-flip {
+  @apply rtl:rotate-180;
+}
+
 @utility no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -449,13 +454,17 @@ body[class*="theme-"] {
     font-family: var(--font-sans);
   }
 
-  [data-slot="component-preview"] > [data-slot="code"],
+  /* Mono only on the code surface — not chrome like «مشاهده کد». */
   [data-slot="component-preview"] > [data-slot="code"] [data-rehype-pretty-code-figure],
   [data-slot="component-preview"] > [data-slot="code"] pre,
   [data-slot="component-preview"] > [data-slot="code"] code {
     font-size: var(--preview-code);
     line-height: 1.5;
     font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  [data-slot="component-preview"] > [data-slot="code"] button {
+    font-family: var(--font-sans);
   }
 
   [data-slot="component-preview"] [data-preview-label],

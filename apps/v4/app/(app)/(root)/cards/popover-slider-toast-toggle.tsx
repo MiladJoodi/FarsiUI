@@ -87,15 +87,20 @@ export function PopoverSliderToastToggle() {
         <div className="flex items-center gap-3">
           <span
             aria-hidden
-            className="w-11 shrink-0 text-sm tabular-nums text-muted-foreground"
+            dir="ltr"
+            className="inline-block w-[3.25rem] shrink-0 text-end text-sm tabular-nums text-muted-foreground [font-variant-numeric:tabular-nums]"
           >
-            {percent.toLocaleString("fa-IR")}٪
+            {Math.round(percent).toLocaleString("fa-IR")}٪
           </span>
           <DirectionProvider direction="rtl">
             <Slider
               className="min-w-0 flex-1"
               value={sliderValue}
-              onValueChange={(value) => setSliderValue(value as number[])}
+              onValueChange={(value) => {
+                const next = Array.isArray(value) ? value : [value]
+                const rounded = next.map((n) => Math.round(Number(n)))
+                setSliderValue(rounded)
+              }}
               max={100}
               step={1}
               aria-label="درصد"

@@ -53,7 +53,7 @@ export default function ButtonGroupDemo() {
           >
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="min-w-56" dir="rtl">
+          <DropdownMenuContent align="end" className="min-w-56" dir="rtl">
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <MailCheckIcon />
@@ -83,7 +83,7 @@ export default function ButtonGroupDemo() {
                   <TagIcon />
                   برچسب به‌عنوان...
                 </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent dir="rtl">
+                <DropdownMenuSubContent dir="rtl" side="left" sideOffset={2}>
                   <DropdownMenuRadioGroup
                     value={label}
                     onValueChange={setLabel}

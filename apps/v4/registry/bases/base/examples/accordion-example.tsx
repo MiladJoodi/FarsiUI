@@ -271,7 +271,6 @@ function AccordionInCard() {
         <CardContent>
           <Accordion
             multiple
-            defaultValue={["plans"]}
             className="style-maia:rounded-md style-mira:rounded-md"
           >
             {items.map((item) => (

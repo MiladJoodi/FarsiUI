@@ -1,3 +1,5 @@
+"use client"
+
 import {
   ArrowRight01Icon,
   Calendar03Icon,
@@ -40,7 +42,9 @@ export function Payments() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+              <BreadcrumbLink render={<button type="button" />}>
+                خانه
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -79,7 +83,7 @@ export function Payments() {
       <CardContent>
         <ItemGroup>
           <div role="listitem" className="w-full">
-            <Item variant="muted" render={<a href="#" />}>
+            <Item variant="muted" render={<button type="button" />}>
               <ItemMedia variant="icon">
                 <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
               </ItemMedia>
@@ -97,7 +101,7 @@ export function Payments() {
             </Item>
           </div>
           <div role="listitem" className="w-full">
-            <Item variant="muted" render={<a href="#" />}>
+            <Item variant="muted" render={<button type="button" />}>
               <ItemMedia variant="icon">
                 <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
               </ItemMedia>
@@ -115,7 +119,7 @@ export function Payments() {
             </Item>
           </div>
           <div role="listitem" className="w-full">
-            <Item variant="muted" render={<a href="#" />}>
+            <Item variant="muted" render={<button type="button" />}>
               <ItemMedia variant="icon">
                 <HugeiconsIcon icon={RefreshIcon} strokeWidth={2} />
               </ItemMedia>

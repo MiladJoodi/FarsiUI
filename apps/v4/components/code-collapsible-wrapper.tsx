@@ -30,7 +30,7 @@ export function CodeCollapsibleWrapper({
           <Button
             variant="ghost"
             size="sm"
-            className="h-7 rounded-md px-2 text-muted-foreground"
+            className="h-7 rounded-md px-2 font-sans text-muted-foreground"
           >
             {isOpened ? "بستن" : "مشاهده کد"}
           </Button>
@@ -43,7 +43,7 @@ export function CodeCollapsibleWrapper({
       >
         {children}
       </CollapsibleContent>
-      <CollapsibleTrigger className="absolute inset-x-0 -bottom-2 flex h-20 items-center justify-center rounded-b-lg bg-gradient-to-b from-code/70 to-code text-sm text-muted-foreground group-data-[state=open]/collapsible:hidden">
+      <CollapsibleTrigger className="absolute inset-x-0 -bottom-2 flex h-20 items-center justify-center rounded-b-lg bg-gradient-to-b from-code/70 to-code font-sans text-sm text-muted-foreground group-data-[state=open]/collapsible:hidden">
         {isOpened ? "بستن" : "مشاهده کد"}
       </CollapsibleTrigger>
     </Collapsible>

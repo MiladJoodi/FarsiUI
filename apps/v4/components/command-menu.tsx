@@ -201,7 +201,7 @@ export function CommandMenu({
               runCommand(() => router.push(item.href))
             }}
           >
-            <IconArrowRight />
+            <IconArrowRight className="rtl:rotate-180" />
             {item.label}
           </CommandMenuItem>
         ))}
@@ -230,7 +230,7 @@ export function CommandMenu({
           >
             {style.icon}
             {style.title}
-            <span className="ml-auto text-xs font-normal text-muted-foreground">
+            <span className="ms-auto text-xs font-normal text-muted-foreground">
               مشاهده تم
             </span>
           </CommandMenuItem>
@@ -281,7 +281,7 @@ export function CommandMenu({
                 {isComponent ? (
                   <div className="aspect-square size-4 rounded-full border border-dashed border-muted-foreground" />
                 ) : (
-                  <IconArrowRight />
+                  <IconArrowRight className="rtl:rotate-180" />
                 )}
                 {item.name}
               </CommandMenuItem>
@@ -321,7 +321,10 @@ export function CommandMenu({
               style={{ "--color": color.oklch } as React.CSSProperties}
             />
             {color.className}
-            <span className="ml-auto font-mono text-xs font-normal text-muted-foreground tabular-nums">
+            <span
+              dir="ltr"
+              className="ms-auto font-mono text-xs font-normal text-muted-foreground tabular-nums"
+            >
               {color.oklch}
             </span>
           </CommandMenuItem>
@@ -361,7 +364,7 @@ export function CommandMenu({
           >
             <SquareDashedIcon />
             {block.description}
-            <span className="ml-auto font-mono text-xs font-normal text-muted-foreground tabular-nums">
+            <span className="ms-auto font-mono text-xs font-normal text-muted-foreground tabular-nums">
               {block.name}
             </span>
           </CommandMenuItem>
@@ -437,7 +440,8 @@ export function CommandMenu({
           <DialogDescription>جستجو برای اجرا کردن یک دستور...</DialogDescription>
         </DialogHeader>
         <Command
-          className="rounded-none bg-transparent **:data-[slot=command-input]:h-9! **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:h-9! **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:border-input **:data-[slot=command-input-wrapper]:bg-input/50"
+          dir="rtl"
+          className="rounded-none bg-transparent text-start **:data-[slot=command-input]:h-9! **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:h-9! **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:border-input **:data-[slot=command-input-wrapper]:bg-input/50"
           filter={commandFilter}
         >
           <div className="relative">
@@ -477,9 +481,9 @@ export function CommandMenu({
               <CornerDownLeftIcon />
             </CommandMenuKbd>{" "}
             {selectedType === "page" || selectedType === "component"
-              ? "Go to Page"
+              ? "رفتن به صفحه"
               : null}
-            {selectedType === "color" ? "Copy OKLCH" : null}
+            {selectedType === "color" ? "کپی OKLCH" : null}
             {selectedType === "style" ? "مشاهده تم" : null}
           </div>
           {copyPayload && (
@@ -615,6 +619,7 @@ function SearchResults({
 function DialogContent({
   className,
   children,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean
@@ -624,8 +629,10 @@ function DialogContent({
       {/* <DialogOverlay /> */}
       <DialogPrimitive.Content
         data-slot="dialog-content"
+        dir={dir}
+        lang="fa"
         className={cn(
-          "fixed top-[15%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none sm:max-w-lg",
+          "fixed top-[15%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] gap-4 rounded-lg border bg-background p-6 text-start shadow-lg duration-200 outline-none sm:max-w-lg",
           className
         )}
         {...props}

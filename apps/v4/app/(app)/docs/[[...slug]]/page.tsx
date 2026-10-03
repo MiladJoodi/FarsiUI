@@ -1,9 +1,12 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { mdxComponents } from "@/mdx-components"
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react"
-import { findNeighbour } from "fumadocs-core/page-tree"
-
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconArrowUpRight,
+} from "@tabler/icons-react"
+import { findDocsNeighbour } from "@/lib/docs-nav"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { splitDocTitle } from "@/lib/docs"
@@ -103,13 +106,16 @@ export default async function Page(props: {
   const doc = contentPage.data
   const MDX = doc.body
   const { fa: titleFa, en: titleEn } = splitDocTitle(doc.title)
+  const links = (
+    doc as { links?: { doc?: string; api?: string } }
+  ).links
   const isChangelog = slug[0] === "changelog"
   const isComponentsIndex = slug.length === 1 && slug[0] === "components"
   const isComponentDoc =
     slug[0] === "components" && slug.length > 1 && !isComponentsIndex
   const neighbours = isChangelog
     ? { previous: null, next: null }
-    : findNeighbour(source.pageTree, page.url)
+    : findDocsNeighbour(source.pageTree, page.url)
 
   return (
     <div
@@ -180,12 +186,50 @@ export default async function Page(props: {
                   {doc.description}
                 </p>
               )}
+              {links?.doc || links?.api ? (
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  {links.doc ? (
+                    <Badge
+                      asChild
+                      variant="secondary"
+                      className="rounded-md px-2 py-0.5 font-sans text-[12px] font-medium tracking-normal text-muted-foreground"
+                    >
+                      <a
+                        href={links.doc}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1"
+                      >
+                        مستندات
+                        <IconArrowUpRight className="size-3" />
+                      </a>
+                    </Badge>
+                  ) : null}
+                  {links.api ? (
+                    <Badge
+                      asChild
+                      variant="secondary"
+                      className="rounded-md px-2 py-0.5 font-sans text-[12px] font-medium tracking-normal text-muted-foreground"
+                    >
+                      <a
+                        href={links.api}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1"
+                      >
+                        مرجع API
+                        <IconArrowUpRight className="size-3" />
+                      </a>
+                    </Badge>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           </div>
-          <div className="typeset w-full flex-1 pb-16 *:data-[slot=alert]:first:mt-0 sm:pb-0">
+          <div className="typeset w-full flex-1 *:data-[slot=alert]:first:mt-0">
             <MDX components={mdxComponents} />
           </div>
-          <div className="hidden h-16 w-full items-center gap-2 px-4 sm:flex sm:px-0">
+          <div className="flex min-h-16 w-full flex-wrap items-center gap-2 pt-2 pb-4">
             {neighbours.previous && (
               <Button
                 variant="secondary"
@@ -195,7 +239,7 @@ export default async function Page(props: {
               >
                 <Link href={neighbours.previous.url}>
                   <IconArrowLeft className="rtl:rotate-180" />{" "}
-                  {neighbours.previous.name}
+                  {splitDocTitle(neighbours.previous.name).fa}
                 </Link>
               </Button>
             )}
@@ -207,7 +251,7 @@ export default async function Page(props: {
                 asChild
               >
                 <Link href={neighbours.next.url}>
-                  {neighbours.next.name}{" "}
+                  {splitDocTitle(neighbours.next.name).fa}{" "}
                   <IconArrowRight className="rtl:rotate-180" />
                 </Link>
               </Button>

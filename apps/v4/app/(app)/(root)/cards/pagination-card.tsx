@@ -1,3 +1,5 @@
+import type { MouseEvent } from "react"
+
 import { Card, CardContent } from "@/styles/base-rhea/ui/card"
 import {
   Pagination,
@@ -9,6 +11,10 @@ import {
   PaginationPrevious,
 } from "@/styles/base-rhea/ui/pagination"
 
+function preventHash(event: MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault()
+}
+
 export function PaginationCard() {
   return (
     <Card className="w-full" dir="rtl">
@@ -16,24 +22,28 @@ export function PaginationCard() {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" text="قبلی" />
+              <PaginationPrevious href="#" text="قبلی" onClick={preventHash} />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">۱</PaginationLink>
+              <PaginationLink href="#" onClick={preventHash}>
+                ۱
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <PaginationLink href="#" isActive onClick={preventHash}>
                 ۲
               </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">۳</PaginationLink>
+              <PaginationLink href="#" onClick={preventHash}>
+                ۳
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" text="بعدی" />
+              <PaginationNext href="#" text="بعدی" onClick={preventHash} />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

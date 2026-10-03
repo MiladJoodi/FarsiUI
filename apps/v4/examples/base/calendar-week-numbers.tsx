@@ -19,6 +19,7 @@ export default function CalendarWeekNumbers() {
           selected={date}
           onSelect={setDate}
           showWeekNumber
+          className="rounded-lg [--cell-size:--spacing(9)]"
         />
       </CardContent>
     </Card>

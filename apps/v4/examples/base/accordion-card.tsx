@@ -43,7 +43,7 @@ export default function AccordionCard() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Accordion dir="rtl" defaultValue={["plans"]}>
+        <Accordion dir="rtl">
           {items.map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger>{item.trigger}</AccordionTrigger>

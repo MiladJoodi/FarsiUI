@@ -28,7 +28,7 @@ const items = [
 
 export default function AccordionBasic() {
   return (
-    <Accordion dir="rtl" defaultValue={["item-1"]} className="w-full max-w-lg">
+    <Accordion dir="rtl" className="w-full max-w-lg">
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{item.trigger}</AccordionTrigger>

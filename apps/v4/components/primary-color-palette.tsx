@@ -14,7 +14,7 @@ import {
 } from "@/registry/new-york-v4/ui/popover"
 
 const THEME_LABELS: Record<string, string> = {
-  neutral: "خنثی",
+  neutral: "خاکستری",
   blue: "آبی",
   green: "سبز",
   orange: "نارنجی",

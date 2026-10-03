@@ -138,8 +138,10 @@ function DropdownMenuSubTrigger({
 function DropdownMenuSubContent({
   align = "start",
   alignOffset = -3,
-  side = "inline-end",
-  sideOffset = 0,
+  // Physical left: matches RTL chevron (rtl:rotate-180) and avoids
+  // inline-end collision flips that park the submenu far from the trigger.
+  side = "left",
+  sideOffset = 2,
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuContent>) {

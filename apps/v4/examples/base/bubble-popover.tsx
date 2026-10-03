@@ -45,7 +45,8 @@ export default function BubblePopoverDemo() {
                   دستور با کد خروجی ۱ شکست خورد
                 </PopoverTitle>
                 <PopoverDescription className="text-sm">
-                  ENOENT: چنین فایل یا پوشه‌ای وجود ندارد، open pnpm-lock.yaml
+                  فایل pnpm-lock.yaml پیدا نشد؛ مسیر را بررسی کنید یا دوباره
+                  وابستگی‌ها را نصب کنید.
                 </PopoverDescription>
               </PopoverHeader>
             </PopoverContent>

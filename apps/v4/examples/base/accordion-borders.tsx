@@ -28,11 +28,7 @@ const items = [
 
 export default function AccordionBorders() {
   return (
-    <Accordion
-      dir="rtl"
-      className="w-full max-w-lg rounded-lg border"
-      defaultValue={["billing"]}
-    >
+    <Accordion dir="rtl" className="w-full max-w-lg rounded-lg border">
       {items.map((item) => (
         <AccordionItem
           key={item.value}

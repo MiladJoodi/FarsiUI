@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -8,13 +10,19 @@ import {
   BreadcrumbSeparator,
 } from "@/styles/base-nova/ui/breadcrumb"
 
+function preventNav(e: React.MouseEvent) {
+  e.preventDefault()
+}
+
 export default function BreadcrumbEllipsisDemo() {
   return (
     <div dir="rtl" className="flex w-full justify-center">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">خانه</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={preventNav}>
+              خانه
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -22,7 +30,9 @@ export default function BreadcrumbEllipsisDemo() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">کامپوننت‌ها</BreadcrumbLink>
+            <BreadcrumbLink href="#" onClick={preventNav}>
+              کامپوننت‌ها
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

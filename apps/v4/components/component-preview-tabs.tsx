@@ -1,25 +1,18 @@
 "use client"
 
 import * as React from "react"
-import { IconAlertCircle, IconEye } from "@tabler/icons-react"
+import { IconEye } from "@tabler/icons-react"
 import { cn } from "cn"
 import { I18nProvider } from "react-aria-components"
 
 import {
   LanguageProvider,
-  LanguageSelector,
-  useLanguageContext,
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
 import { DirectionProvider as BaseDirectionProvider } from "@/registry/bases/base/ui/direction"
 import { DirectionProvider as RadixDirectionProvider } from "@/registry/bases/radix/ui/direction"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/styles/base-nova/ui/popover"
 
 export function ComponentPreviewTabs({
   className,
@@ -60,34 +53,6 @@ export function ComponentPreviewTabs({
     >
       {direction === "rtl" ? (
         <LanguageProvider defaultLanguage="ar">
-          <div className="flex h-16 items-center border-b px-4">
-            <RtlLanguageSelector />
-            <Popover>
-              <PopoverTrigger
-                render={
-                  <Button
-                    variant="ghost"
-                    size="icon-sm"
-                    className="ms-auto size-7"
-                  >
-                    <IconAlertCircle />
-                    <span className="sr-only">Toggle</span>
-                  </Button>
-                }
-              ></PopoverTrigger>
-              <PopoverContent
-                side="bottom"
-                align="end"
-                dir="rtl"
-                className="w-56 text-xs text-start"
-              >
-                <div>
-                  متن‌های این نمونه برای نمایش RTL ترجمه‌شده‌اند و ممکن است
-                  کاملاً دقیق نباشند.
-                </div>
-              </PopoverContent>
-            </Popover>
-          </div>
           <PreviewWrapper
             align={align}
             chromeLessOnMobile={chromeLessOnMobile}
@@ -135,7 +100,7 @@ export function ComponentPreviewTabs({
                   type="button"
                   size="sm"
                   variant="outline"
-                  className="relative z-10 gap-1.5 rounded-lg bg-background text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
+                  className="relative z-10 gap-1.5 rounded-lg bg-background font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
                   onClick={() => {
                     setIsMobileCodeVisible(true)
                   }}
@@ -165,20 +130,6 @@ const directionTranslations: Translations<Record<string, never>> = {
     dir: "rtl",
     values: {},
   },
-}
-
-function RtlLanguageSelector({ className }: { className?: string }) {
-  const context = useLanguageContext()
-  if (!context) {
-    return null
-  }
-  return (
-    <LanguageSelector
-      value={context.language}
-      onValueChange={context.setLanguage}
-      className={className}
-    />
-  )
 }
 
 function PreviewWrapper({

@@ -120,7 +120,11 @@ function Carousel({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cn("relative", className)}
+        className={cn(
+          "relative",
+          orientation === "vertical" && "py-14",
+          className
+        )}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
@@ -185,10 +189,10 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "cn-carousel-previous absolute touch-manipulation",
+        "cn-carousel-previous absolute z-10 touch-manipulation",
         orientation === "horizontal"
           ? "inset-y-0 -left-12 my-auto"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          : "top-2 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
@@ -222,10 +226,10 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "cn-carousel-next absolute touch-manipulation",
+        "cn-carousel-next absolute z-10 touch-manipulation",
         orientation === "horizontal"
           ? "inset-y-0 -right-12 my-auto"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          : "bottom-2 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}

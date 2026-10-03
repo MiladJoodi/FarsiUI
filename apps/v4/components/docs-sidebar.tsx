@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDownIcon } from "lucide-react"
 
-import { PAGES_NEW, splitDocTitle } from "@/lib/docs"
+import { isComponentsDocsPath, PAGES_NEW, splitDocTitle } from "@/lib/docs"
 import { DOCS_SIDEBAR_SCROLL_STORAGE_KEY } from "@/lib/docs-sidebar-scroll"
 import { showMcpDocs } from "@/lib/flags"
 import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
@@ -52,10 +52,6 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/installation",
   },
   {
-    name: "تم‌دهی",
-    href: "/docs/theming",
-  },
-  {
     name: "CLI",
     href: "/docs/cli",
   },
@@ -66,6 +62,13 @@ const TOP_LEVEL_SECTIONS = [
 ]
 const EXCLUDED_SECTIONS = ["installation", "dark-mode", "changelog", "rtl"]
 const EXCLUDED_PAGES = ["/docs", "/docs/rtl", "/docs/new"]
+
+function isHiddenDocsNavPage(url: string) {
+  if (EXCLUDED_PAGES.includes(url)) return true
+  // RTL section is linked from root meta in older trees; never show in main nav.
+  if (url === "/docs/rtl" || url.startsWith("/docs/rtl/")) return true
+  return false
+}
 const SEARCH_DEBOUNCE_MS = 200
 
 function readScrollState() {
@@ -174,7 +177,7 @@ function DocsSidebarBody({
   const [searchValue, setSearchValue] = React.useState("")
   const [debouncedQuery, setDebouncedQuery] = React.useState("")
   const componentsOnly =
-    scope === "components" || pathname.startsWith("/docs/components")
+    scope === "components" || isComponentsDocsPath(pathname)
 
   React.useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -222,7 +225,18 @@ function DocsSidebarBody({
         if (!showMcpDocs && page.url.includes("/mcp")) {
           return false
         }
-        if (EXCLUDED_PAGES.includes(page.url)) {
+        if (isHiddenDocsNavPage(page.url)) {
+          return false
+        }
+        // Already listed under «بخش‌ها» — don't repeat in شروع کار / other groups.
+        if (
+          TOP_LEVEL_SECTIONS.some(
+            (section) =>
+              section.href !== "/docs" &&
+              (page.url === section.href ||
+                page.url.startsWith(`${section.href}/`))
+          )
+        ) {
           return false
         }
 
@@ -333,7 +347,10 @@ function DocsSidebarBody({
   }, [persistScroll])
 
   return (
-    <div data-docs-sidebar="">
+    <div
+      data-docs-sidebar=""
+      className="flex min-h-0 flex-1 flex-col overflow-hidden"
+    >
       {showSearch ? (
         <div className="shrink-0 pe-2 pt-2 pb-3">
           <SidebarNavSearch
@@ -347,11 +364,11 @@ function DocsSidebarBody({
       <SidebarContent
         ref={contentRef}
         data-docs-sidebar-content=""
-        className="w-full scroll-fade scrollbar-none overflow-x-hidden pe-2"
+        className="min-h-0 w-full scroll-fade scrollbar-none overflow-x-hidden overflow-y-auto pe-2"
       >
         {!hasResults ? (
           <div className="px-2 py-6 text-center text-[14px] text-muted-foreground">
-            جستجو خالی
+            جستجو...
           </div>
         ) : null}
         {filteredSections.length > 0 ? (
@@ -510,7 +527,7 @@ function DocsSidebarBody({
 export function DocsListIndex({ tree }: { tree: typeof source.pageTree }) {
   const pathname = usePathname()
   const currentBase = getCurrentBase(pathname)
-  const isComponents = pathname.startsWith("/docs/components")
+  const isComponents = isComponentsDocsPath(pathname)
   const current = React.useMemo(
     () => getDocsCurrentLabel(tree, pathname, currentBase),
     [tree, pathname, currentBase]
