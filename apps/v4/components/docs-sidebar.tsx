@@ -546,7 +546,9 @@ export function DocsSidebar({
       {...props}
     >
       <div className="absolute top-12 bottom-0 left-2 hidden h-full w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)] lg:flex" />
-      <DocsSidebarBody tree={tree} />
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+        <DocsSidebarBody tree={tree} />
+      </div>
     </Sidebar>
   )
 }
