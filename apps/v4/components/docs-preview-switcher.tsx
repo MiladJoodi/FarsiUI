@@ -46,7 +46,7 @@ export function DocsPreviewSwitcher({
             className={cn(
               "rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
               isActive
-                ? "bg-muted text-foreground"
+                ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
             )}
           >

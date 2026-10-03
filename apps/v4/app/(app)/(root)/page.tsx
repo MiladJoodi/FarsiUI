@@ -10,7 +10,7 @@ import {
 } from "@/components/page-header"
 import { Button } from "@/styles/radix-luma/ui/button"
 
-import { CardsDemo } from "./cards"
+import { CardsDemo, CardsDemoMobile } from "./cards"
 
 const title = "چند قدم جلوتر شروع کنید"
 const metadataTitle = `${siteConfig.name} - ${title}`
@@ -93,8 +93,14 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
-        <div className="w-full overflow-x-hidden md:container md:overflow-hidden md:px-0 lg:max-w-none">
-          <CardsDemo />
+        <div className="container overflow-hidden md:px-0 lg:max-w-none">
+          {/* Mobile: shadcn-style 140vw bleed of a scaled desktop collage (live Persian cards). */}
+          <section className="-mx-4 w-[140vw] overflow-hidden md:hidden">
+            <CardsDemoMobile />
+          </section>
+          <section className="hidden md:block">
+            <CardsDemo />
+          </section>
         </div>
       </div>
     </div>

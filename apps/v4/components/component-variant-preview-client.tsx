@@ -30,6 +30,7 @@ import {
   DocsPreviewSwitcher,
   DocsPreviewSwitcherStage,
 } from "@/components/docs-preview-switcher"
+import { PreviewThemeScope } from "@/components/preview-theme-scope"
 import {
   BUTTON_SIZE_OPTIONS,
   ICON_SIZE_BY_BUTTON_SIZE,
@@ -341,10 +342,12 @@ export function ComponentVariantPreviewClient({
   items,
   children,
   layout = "gallery",
+  styleName = "base-nova",
 }: {
   items: VariantPreviewItem[]
   children?: React.ReactNode
   layout?: VariantPreviewLayout
+  styleName?: string
 }) {
   const [selected, setSelected] = React.useState(items[0]?.name ?? "")
   const [size, setSize] = React.useState<ButtonSizeId>("default")
@@ -409,27 +412,30 @@ export function ComponentVariantPreviewClient({
       >
         {layout === "switcher" ? (
           <div data-slot="preview" className="relative p-4 sm:p-6">
-            <DocsPreviewSwitcherStage
-              role="tabpanel"
-              dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
-              className="w-full [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full [&_[data-slot=chart]]:w-full [&:has([data-slot=chart])]:items-stretch"
-            >
-              <DirectionProvider
-                direction={
-                  active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")
-                }
+            <PreviewThemeScope styleName={styleName}>
+              <DocsPreviewSwitcherStage
+                role="tabpanel"
+                dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
+                className="w-full [&_[data-slot=accordion]]:max-w-lg [&_[data-slot=accordion]]:w-full [&_[data-slot=alert]]:max-w-md [&_[data-slot=alert]]:w-full [&_[data-slot=chart]]:w-full [&:has([data-slot=chart])]:items-stretch"
               >
-                <VariantPreviewSizeContext.Provider value={size}>
-                  {activeLivePreview}
-                </VariantPreviewSizeContext.Provider>
-              </DirectionProvider>
-            </DocsPreviewSwitcherStage>
+                <DirectionProvider
+                  direction={
+                    active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")
+                  }
+                >
+                  <VariantPreviewSizeContext.Provider value={size}>
+                    {activeLivePreview}
+                  </VariantPreviewSizeContext.Provider>
+                </DirectionProvider>
+              </DocsPreviewSwitcherStage>
+            </PreviewThemeScope>
           </div>
         ) : (
         <div
           data-slot="preview"
           className="relative p-6 pb-12 sm:px-8 sm:pt-8 sm:pb-12"
         >
+          <PreviewThemeScope styleName={styleName}>
           <div className="preview relative flex w-full flex-wrap items-center justify-center gap-2 sm:gap-3">
             <VariantPreviewSizeContext.Provider value={size}>
               {items.map((item, index) => {
@@ -452,9 +458,9 @@ export function ComponentVariantPreviewClient({
                     }}
                     className={cn(
                       "rounded-xl p-1 outline-none transition-shadow",
-                      "focus-within:ring-2 focus-within:ring-ring",
+                      "focus-within:ring-2 focus-within:ring-primary/40",
                       isActive &&
-                        "ring-2 ring-ring ring-offset-2 ring-offset-background"
+                        "ring-2 ring-primary ring-offset-2 ring-offset-background"
                     )}
                   >
                     {livePreview}
@@ -463,6 +469,7 @@ export function ComponentVariantPreviewClient({
               })}
             </VariantPreviewSizeContext.Provider>
           </div>
+          </PreviewThemeScope>
 
           <div
             className={cn(

@@ -4,7 +4,6 @@ import { getColors } from "@/lib/colors"
 import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
 import { CommandMenu } from "@/components/command-menu"
-import { FarsiUILogo } from "@/components/farsiui-logo"
 import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
@@ -25,11 +24,14 @@ export function SiteHeader() {
     >
       <div className="container-wrapper px-4 sm:px-6 3xl:fixed:px-0">
         <div className="flex h-(--header-height) items-center gap-1 **:data-[slot=separator]:h-4! 3xl:fixed:container">
+          <MobileNav
+            items={siteConfig.navItems}
+            className="flex lg:hidden"
+          />
           <Link
             href="/"
-            className="me-1.5 flex shrink-0 items-center gap-2 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="me-1.5 flex shrink-0 items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <FarsiUILogo className="size-[22px] text-primary" />
             <span
               aria-hidden
               className="text-[0.98rem] leading-none font-extrabold tracking-tight text-primary"
@@ -38,10 +40,6 @@ export function SiteHeader() {
             </span>
             <span className="sr-only">{siteConfig.name}</span>
           </Link>
-          <MobileNav
-            items={siteConfig.navItems}
-            className="flex lg:hidden"
-          />
           <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
           <div className="ms-auto flex min-w-0 items-center gap-1.5 sm:gap-2 md:flex-1 md:justify-end">
             <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">

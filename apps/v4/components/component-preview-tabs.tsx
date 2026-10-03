@@ -10,6 +10,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
+import { PreviewThemeScope } from "@/components/preview-theme-scope"
 import { DirectionProvider as BaseDirectionProvider } from "@/registry/bases/base/ui/direction"
 import { DirectionProvider as RadixDirectionProvider } from "@/registry/bases/radix/ui/direction"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -56,6 +57,7 @@ export function ComponentPreviewTabs({
             align={align}
             chromeLessOnMobile={chromeLessOnMobile}
             previewClassName={previewClassName}
+            styleName={styleName}
           >
             <DirectionProviderWrapper base={base}>
               {component}
@@ -68,6 +70,7 @@ export function ComponentPreviewTabs({
             align={align}
             chromeLessOnMobile={chromeLessOnMobile}
             previewClassName={previewClassName}
+            styleName={styleName}
             dir="ltr"
           >
             {component}
@@ -136,12 +139,14 @@ function PreviewWrapper({
   align,
   chromeLessOnMobile,
   previewClassName,
+  styleName,
   dir: explicitDir,
   children,
 }: {
   align: "center" | "start" | "end"
   chromeLessOnMobile: boolean
   previewClassName?: string
+  styleName?: string
   dir?: "ltr" | "rtl"
   children: React.ReactNode
 }) {
@@ -156,16 +161,18 @@ function PreviewWrapper({
 
   return (
     <div data-slot="preview" dir={dir} lang={lang} data-lang={lang}>
-      <div
-        data-align={align}
-        data-chromeless={chromeLessOnMobile}
-        className={cn(
-          "preview relative flex h-72 w-full justify-center p-10 data-[align=center]:items-center data-[align=end]:items-start data-[align=start]:items-start data-[chromeless=true]:h-auto data-[chromeless=true]:p-0 sm:data-[align=end]:items-end",
-          previewClassName
-        )}
-      >
-        {children}
-      </div>
+      <PreviewThemeScope styleName={styleName}>
+        <div
+          data-align={align}
+          data-chromeless={chromeLessOnMobile}
+          className={cn(
+            "preview relative flex h-72 w-full justify-center p-10 data-[align=center]:items-center data-[align=end]:items-start data-[align=start]:items-start data-[chromeless=true]:h-auto data-[chromeless=true]:p-0 sm:data-[align=end]:items-end",
+            previewClassName
+          )}
+        >
+          {children}
+        </div>
+      </PreviewThemeScope>
     </div>
   )
 }

@@ -45,6 +45,11 @@ import { SavingsTargets as SkeletonSavingsTargets } from "./skeleton/savings-tar
 import { UIElements as SkeletonUIElements } from "./skeleton/ui-elements"
 import { UIElements } from "./ui-elements"
 
+/** Design width of the mobile collage before it is scaled into 140vw (shadcn pattern). */
+const MOBILE_DESIGN_WIDTH = 1400
+/** Approximate unscaled collage height used to size the scaled viewport. */
+const MOBILE_DESIGN_HEIGHT = 1680
+
 /**
  * Decorative strip pinned to the bottom fade only.
  * Height matches the fade overlay so duplicates never form a full extra row.
@@ -109,58 +114,92 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
   event.preventDefault()
 }
 
-/** Mobile: real 2-column stack with every demo card, fully scrollable. */
-function CardsDemoMobile() {
+/**
+ * Mobile: same idea as shadcn's full-light/full-dark screenshots —
+ * a desktop-width multi-column collage scaled into 140vw so cards look dense
+ * and bleed off-screen. Live Persian components; nothing removed.
+ */
+export function CardsDemoMobile() {
   return (
     <div
-      data-slot="demo"
-      dir="rtl"
-      lang="fa"
-      onClickCapture={preventDemoHashNavigation}
-      className="theme-container relative w-full bg-muted px-3 pt-4 pb-8 [--gap:--spacing(4)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+      className="relative w-full overflow-hidden"
+      style={{
+        height: `calc(${MOBILE_DESIGN_HEIGHT} * 140vw / ${MOBILE_DESIGN_WIDTH})`,
+      }}
     >
-      <div className="relative z-10 grid grid-cols-2 items-start gap-(--gap) **:data-[slot=card]:w-full">
-        <div className="flex min-w-0 flex-col gap-(--gap)">
-          <UIElements />
-          <ContributionHistory />
-          <div className="**:[.text-center.text-xs]:hidden">
-            <MessageScrollerDemo />
+      <div
+        data-slot="demo"
+        dir="rtl"
+        lang="fa"
+        aria-hidden="true"
+        className="theme-container pointer-events-none absolute top-0 right-0 max-w-none origin-top-right bg-muted p-6 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+        style={{
+          width: MOBILE_DESIGN_WIDTH,
+          transform: `scale(calc(140vw / ${MOBILE_DESIGN_WIDTH}px))`,
+          transformOrigin: "top right",
+        }}
+      >
+        <div className="relative z-10 grid grid-cols-4 items-start gap-(--gap) **:data-[slot=card]:w-full">
+          <div className="flex min-w-0 flex-col gap-(--gap)">
+            <UIElements />
+            <CalendarCard />
+            <SidebarNav />
+            <MenubarCard />
+            <SyncingStateCard />
+            <PayoutThreshold />
+            <FadeTail>
+              <PayoutThreshold />
+            </FadeTail>
           </div>
-          <CalendarCard />
-          <SavingsTargets />
-          <SidebarNav />
-          <ClaimableBalance />
-          <Payments />
-          <MenubarCard />
-          <AccountAccess />
-          <DividendIncome />
-          <SyncingStateCard />
-          <TabsCard />
-          <PayoutThreshold />
-          <FaqCard />
+          <div className="flex min-w-0 flex-col gap-(--gap)">
+            <ContributionHistory />
+            <ClaimableBalance />
+            <DividendIncome />
+            <TabsCard />
+            <FaqCard />
+            <FadeTail>
+              <ClaimableBalance />
+            </FadeTail>
+          </div>
+          <div className="flex min-w-0 flex-col gap-(--gap)">
+            <div className="**:[.text-center.text-xs]:hidden">
+              <MessageScrollerDemo />
+            </div>
+            <Payments />
+            <PopoverSliderToastToggle />
+            <ContextMenuCard />
+            <AttachmentCard />
+            <InviteTeamCard />
+            <FadeTail>
+              <Payments />
+            </FadeTail>
+          </div>
+          <div className="flex min-w-0 flex-col gap-(--gap)">
+            <NewMilestone />
+            <SavingsTargets />
+            <AccountAccess />
+            <EmptyDistributeTrack />
+            <AnalyticsCard />
+            <NotificationSettings />
+            <PowerUsage />
+            <MarkerAvatarAlert />
+            <NavigationMenuCard />
+            <DropdownDrawerHover />
+            <ShortcutsCard />
+            <SocialLinksCard />
+            <FadeTail>
+              <NotificationSettings />
+            </FadeTail>
+          </div>
         </div>
-        <div className="flex min-w-0 flex-col gap-(--gap)">
-          <NewMilestone />
-          <EmptyDistributeTrack />
-          <AnalyticsCard />
-          <PopoverSliderToastToggle />
-          <NotificationSettings />
-          <ContextMenuCard />
-          <PowerUsage />
-          <AttachmentCard />
-          <MarkerAvatarAlert />
-          <InviteTeamCard />
-          <NavigationMenuCard />
-          <DropdownDrawerHover />
-          <ShortcutsCard />
-          <SocialLinksCard />
-        </div>
+        <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+        <div className="absolute inset-x-0 bottom-0 z-20 h-48 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
       </div>
     </div>
   )
 }
 
-function CardsDemoDesktop() {
+export function CardsDemo() {
   const col = (visibleFrom: string) =>
     `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
 
@@ -234,18 +273,5 @@ function CardsDemoDesktop() {
       <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 dark:via-background/80" />
     </div>
-  )
-}
-
-export function CardsDemo() {
-  return (
-    <>
-      <div className="md:hidden">
-        <CardsDemoMobile />
-      </div>
-      <div className="hidden md:block">
-        <CardsDemoDesktop />
-      </div>
-    </>
   )
 }

@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link, { type LinkProps } from "next/link"
 import { usePathname, useRouter } from "next/navigation"
+import { MenuIcon, XIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -28,27 +29,17 @@ export function MobileNav({
       <PopoverTrigger asChild>
         <Button
           variant="ghost"
-          size="sm"
+          size="icon"
           className={cn(
-            "extend-touch-target h-8 gap-2 px-2 text-sm font-medium hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
+            "extend-touch-target size-8 shrink-0 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
             className
           )}
         >
-          <span className="relative size-3.5 shrink-0" aria-hidden>
-            <span
-              className={cn(
-                "absolute inset-x-0 top-0.5 h-0.5 rounded-full bg-foreground transition-all duration-150",
-                open && "top-1.5 rotate-45"
-              )}
-            />
-            <span
-              className={cn(
-                "absolute inset-x-0 bottom-0.5 h-0.5 rounded-full bg-foreground transition-all duration-150",
-                open && "bottom-1.5 -rotate-45"
-              )}
-            />
-          </span>
-          <span>{open ? "بستن" : "منو"}</span>
+          {open ? (
+            <XIcon className="size-5" aria-hidden />
+          ) : (
+            <MenuIcon className="size-5" aria-hidden />
+          )}
           <span className="sr-only">باز و بسته کردن منو</span>
         </Button>
       </PopoverTrigger>

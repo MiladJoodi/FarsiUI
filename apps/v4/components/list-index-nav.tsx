@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { usePathname } from "next/navigation"
+import { MenuIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -51,11 +52,7 @@ export function ListIndexNav({
             aria-expanded={open}
             aria-controls="list-index-sheet"
           >
-            <span className="relative size-3.5 shrink-0" aria-hidden>
-              <span className="absolute inset-x-0 top-0.5 h-0.5 rounded-full bg-foreground" />
-              <span className="absolute inset-x-0 top-[0.4375rem] h-0.5 rounded-full bg-foreground" />
-              <span className="absolute inset-x-0 bottom-0.5 h-0.5 rounded-full bg-foreground" />
-            </span>
+            <MenuIcon className="size-4 shrink-0" aria-hidden />
             <span>{title}</span>
             {current ? (
               <>

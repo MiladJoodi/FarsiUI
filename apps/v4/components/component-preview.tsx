@@ -4,6 +4,7 @@ import Image from "next/image"
 import { getRegistryComponent } from "@/lib/registry"
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
+import { PreviewThemeIframe } from "@/components/preview-theme-scope"
 
 export function ComponentPreview({
   name,
@@ -50,7 +51,11 @@ export function ComponentPreview({
           className="absolute top-0 left-0 z-20 hidden h-full w-[1600px] max-w-none bg-background object-cover object-left-top md:hidden dark:block md:dark:hidden"
         />
         <div className="absolute inset-0 hidden w-[1600px] bg-background md:block">
-          <iframe src={`/view/${styleName}/${name}`} className="size-full" />
+          <PreviewThemeIframe
+            src={`/view/${styleName}/${name}`}
+            styleName={styleName}
+            className="size-full"
+          />
         </div>
       </div>
     )

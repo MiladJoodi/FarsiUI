@@ -314,6 +314,7 @@ export async function ComponentVariantPreview({
     <ComponentVariantPreviewClient
       items={prepared.map((item) => item.meta)}
       layout={layout}
+      styleName={styleName}
     >
       {prepared.map((item) => {
         if (item.meta.variant || item.meta.demo) {
