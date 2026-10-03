@@ -12,6 +12,7 @@ import { Button } from "@/styles/radix-luma/ui/button"
 
 import { CardsDemo, CardsDemoMobile } from "./cards"
 
+const slogan = "چند قدم جلوتر شروع کنید"
 const title = "کتابخانه کامپوننت UI فارسی برای React"
 const metadataTitle = `${siteConfig.name} — ${title}`
 const description = siteConfig.description
@@ -109,11 +110,11 @@ export default function IndexPage() {
         lang="fa"
         className="md:**:[.container]:pb-8 lg:**:[.container]:pb-12"
       >
+        <p className="max-w-4xl text-lg font-medium tracking-tight text-muted-foreground sm:text-xl">
+          {slogan}
+        </p>
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
-        <PageHeaderDescription>
-          کامپوننت‌های آماده برای ساخت رابط کاربری فارسی با React، Tailwind و پشتیبانی
-          کامل RTL — کد را مالک می‌شوید و مطابق نیاز پروژه سفارشی می‌کنید.
-        </PageHeaderDescription>
+        <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
           <Button asChild className="h-[35px]">
             <Link href="/docs/installation">شروع کنید</Link>
