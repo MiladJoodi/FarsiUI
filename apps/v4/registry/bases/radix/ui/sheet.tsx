@@ -50,6 +50,7 @@ function SheetContent({
   children,
   side = "right",
   showCloseButton = true,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
   side?: "top" | "right" | "bottom" | "left"
@@ -61,6 +62,7 @@ function SheetContent({
       <SheetPrimitive.Content
         data-slot="sheet-content"
         data-side={side}
+        dir={dir}
         className={cn(
           "cn-sheet-content data-open:animate-in data-open:fade-in-0 data-[side=bottom]:data-open:slide-in-from-bottom-10 data-[side=left]:data-open:slide-in-from-left-10 data-[side=right]:data-open:slide-in-from-right-10 data-[side=top]:data-open:slide-in-from-top-10 data-closed:animate-out data-closed:fade-out-0 data-[side=bottom]:data-closed:slide-out-to-bottom-10 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=top]:data-closed:slide-out-to-top-10",
           className
@@ -78,7 +80,7 @@ function SheetContent({
                 phosphor="XIcon"
                 remixicon="RiCloseLine"
               />
-              <span className="sr-only">Close</span>
+              <span className="sr-only">بستن</span>
             </Button>
           </SheetPrimitive.Close>
         )}

@@ -29,7 +29,7 @@ export function NavDocuments({
   const { isMobile } = useSidebar()
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Documents</SidebarGroupLabel>
+      <SidebarGroupLabel>اسناد</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -47,11 +47,11 @@ export function NavDocuments({
                   phosphor="DotsThreeOutlineIcon"
                   remixicon="RiMoreLine"
                 />
-                <span className="sr-only">More</span>
+                <span className="sr-only">بیشتر</span>
               </SidebarMenuAction>
               <DropdownMenu
-                className="w-24"
-                placement={isMobile ? "bottom end" : "right top"}
+                className="w-32"
+                placement={isMobile ? "bottom end" : "left top"}
               >
                 <DropdownMenuItem>
                   <IconPlaceholder
@@ -61,7 +61,7 @@ export function NavDocuments({
                     phosphor="FolderIcon"
                     remixicon="RiFolderLine"
                   />
-                  <span>Open</span>
+                  <span>باز کردن</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <IconPlaceholder
@@ -71,7 +71,7 @@ export function NavDocuments({
                     phosphor="ShareIcon"
                     remixicon="RiShareLine"
                   />
-                  <span>Share</span>
+                  <span>اشتراک‌گذاری</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem variant="destructive">
@@ -82,7 +82,7 @@ export function NavDocuments({
                     phosphor="TrashIcon"
                     remixicon="RiDeleteBinLine"
                   />
-                  <span>Delete</span>
+                  <span>حذف</span>
                 </DropdownMenuItem>
               </DropdownMenu>
             </DropdownMenuTrigger>
@@ -98,7 +98,7 @@ export function NavDocuments({
               remixicon="RiMoreLine"
               className="text-sidebar-foreground/70"
             />
-            <span>More</span>
+            <span>بیشتر</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

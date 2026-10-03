@@ -26,6 +26,7 @@ function ContextMenu({
   crossOffset = 0,
   className,
   children,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof MenuPrimitive<object>>,
@@ -42,6 +43,7 @@ function ContextMenu({
   return (
     <PopoverPrimitive
       data-slot={dataSlot}
+      dir={dir}
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}

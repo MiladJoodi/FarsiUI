@@ -20,6 +20,7 @@ function PopoverContent({
   className,
   align = "center",
   sideOffset = 4,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content>) {
   return (
@@ -28,6 +29,7 @@ function PopoverContent({
         data-slot="popover-content"
         align={align}
         sideOffset={sideOffset}
+        dir={dir}
         className={cn(
           "cn-popover-content z-50 w-72 origin-(--radix-popover-content-transform-origin) outline-hidden",
           className

@@ -12,7 +12,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
       remixicon="RiLoaderLine"
       data-slot="spinner"
       role="status"
-      aria-label="Loading"
+      aria-label="در حال بارگذاری"
       className={cn("size-4 animate-spin", className)}
       {...props}
     />

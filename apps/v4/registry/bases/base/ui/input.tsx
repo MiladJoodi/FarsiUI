@@ -78,16 +78,12 @@ function Input({
         {...inputProps}
         placeholder={formatPlaceholder(placeholder)}
         ref={composedRef}
-        onValueChange={
-          onValueChange
-            ? (next, eventDetails) => {
-                onValueChange(
-                  enabled ? toLatinValue(String(next ?? "")) : String(next ?? ""),
-                  eventDetails
-                )
-              }
-            : undefined
-        }
+        onValueChange={(next, eventDetails) => {
+          const latin = enabled
+            ? toLatinValue(String(next ?? ""))
+            : String(next ?? "")
+          onValueChange?.(latin, eventDetails)
+        }}
       />
     </>
   )

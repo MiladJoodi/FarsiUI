@@ -8,11 +8,13 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Accordion({
   className,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
+      dir={dir}
       className={cn("cn-accordion flex w-full flex-col", className)}
       {...props}
     />

@@ -43,7 +43,7 @@ export function NavMain({
                   hugeicons="MoreHorizontalCircle01Icon"
                   phosphor="DotsThreeOutlineIcon"
                   remixicon="RiMoreLine"
-                  className="ml-auto"
+                  className="ms-auto"
                 />
               </SidebarMenuButton>
               {item.items?.length ? (

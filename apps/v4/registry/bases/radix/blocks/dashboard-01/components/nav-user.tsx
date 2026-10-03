@@ -44,11 +44,14 @@ export function NavUser({
             >
               <Avatar className="h-8 w-8 rounded-lg grayscale">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">س‌م</AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
+              <div className="grid flex-1 text-start text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs text-muted-foreground">
+                <span
+                  className="justify-self-start truncate text-xs text-muted-foreground"
+                  dir="ltr"
+                >
                   {user.email}
                 </span>
               </div>
@@ -58,25 +61,28 @@ export function NavUser({
                 hugeicons="MoreVerticalCircle01Icon"
                 phosphor="DotsThreeVerticalIcon"
                 remixicon="RiMore2Line"
-                className="ml-auto size-4"
+                className="ms-auto size-4"
               />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "left"}
             align="end"
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">س‌م</AvatarFallback>
                 </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
+                <div className="grid flex-1 text-start text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs text-muted-foreground">
+                  <span
+                    className="justify-self-start truncate text-xs text-muted-foreground"
+                    dir="ltr"
+                  >
                     {user.email}
                   </span>
                 </div>
@@ -92,7 +98,7 @@ export function NavUser({
                   phosphor="UserCircleIcon"
                   remixicon="RiUserLine"
                 />
-                Account
+                حساب کاربری
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -102,7 +108,7 @@ export function NavUser({
                   phosphor="CreditCardIcon"
                   remixicon="RiBankCardLine"
                 />
-                Billing
+                صورتحساب
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -112,7 +118,7 @@ export function NavUser({
                   phosphor="BellIcon"
                   remixicon="RiNotification3Line"
                 />
-                Notifications
+                اعلان‌ها
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -124,7 +130,7 @@ export function NavUser({
                 phosphor="SignOutIcon"
                 remixicon="RiLogoutBoxLine"
               />
-              Log out
+              خروج
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

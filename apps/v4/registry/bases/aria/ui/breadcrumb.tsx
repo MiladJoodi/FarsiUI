@@ -17,7 +17,7 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
-      aria-label="breadcrumb"
+      aria-label="مسیر صفحه"
       data-slot="breadcrumb"
       className={cn("cn-breadcrumb", className)}
       {...props}
@@ -102,6 +102,31 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
+function BreadcrumbSeparator({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
+  // Aria BreadcrumbItem already renders separators for non-current items.
+  // Export a no-op for API parity with base/radix blocks that insert
+  // <BreadcrumbSeparator /> explicitly between items.
+  if (children != null) {
+    return (
+      <span
+        data-slot="breadcrumb-separator"
+        role="presentation"
+        aria-hidden="true"
+        className={cn("cn-breadcrumb-separator", className)}
+        {...props}
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return null
+}
+
 function BreadcrumbEllipsis({
   className,
   ...props
@@ -124,7 +149,7 @@ function BreadcrumbEllipsis({
         phosphor="DotsThreeIcon"
         remixicon="RiMoreLine"
       />
-      <span className="sr-only">More</span>
+      <span className="sr-only">بیشتر</span>
     </span>
   )
 }
@@ -135,5 +160,6 @@ export {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
+  BreadcrumbSeparator,
   BreadcrumbEllipsis,
 }

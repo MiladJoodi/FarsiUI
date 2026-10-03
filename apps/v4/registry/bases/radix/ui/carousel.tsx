@@ -148,7 +148,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
       <div
         className={cn(
           "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          orientation === "horizontal" ? "-ms-4" : "-mt-4 flex-col",
           className
         )}
         {...props}
@@ -167,7 +167,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="carousel-item"
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        orientation === "horizontal" ? "ps-4" : "pt-4",
         className
       )}
       {...props}
@@ -191,7 +191,7 @@ function CarouselPrevious({
       className={cn(
         "cn-carousel-previous absolute z-10 touch-manipulation",
         orientation === "horizontal"
-          ? "inset-y-0 -left-12 my-auto"
+          ? "inset-y-0 -start-12 my-auto"
           : "top-2 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -205,9 +205,10 @@ function CarouselPrevious({
         hugeicons="ArrowLeft01Icon"
         phosphor="CaretLeftIcon"
         remixicon="RiArrowLeftSLine"
-        className="cn-rtl-flip"
+        // Horizontal RTL flips the chevron; vertical already uses rotate-90.
+        className={orientation === "horizontal" ? "rtl:rotate-180" : undefined}
       />
-      <span className="sr-only">Previous slide</span>
+      <span className="sr-only">اسلاید قبلی</span>
     </Button>
   )
 }
@@ -228,7 +229,7 @@ function CarouselNext({
       className={cn(
         "cn-carousel-next absolute z-10 touch-manipulation",
         orientation === "horizontal"
-          ? "inset-y-0 -right-12 my-auto"
+          ? "inset-y-0 -end-12 my-auto"
           : "bottom-2 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -242,9 +243,9 @@ function CarouselNext({
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
-        className="cn-rtl-flip"
+        className={orientation === "horizontal" ? "rtl:rotate-180" : undefined}
       />
-      <span className="sr-only">Next slide</span>
+      <span className="sr-only">اسلاید بعدی</span>
     </Button>
   )
 }

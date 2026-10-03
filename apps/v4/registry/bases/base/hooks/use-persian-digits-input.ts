@@ -89,19 +89,24 @@ export function usePersianDigitsInput({
     })
   )
 
-  // Resolve ancestor dir/lang after mount so SSR markup stays stable.
-  React.useEffect(() => {
-    const context = readLocaleContext(inputRef.current, { dir, lang })
-    setEnabled(
-      resolvePersianDigitsEnabled({
+  const resolveEnabled = React.useCallback(
+    (node: HTMLElement | null) => {
+      const context = readLocaleContext(node, { dir, lang })
+      return resolvePersianDigitsEnabled({
         persianDigits,
         type,
         inputMode,
         dir: context.dir,
         lang: context.lang,
       })
-    )
-  }, [persianDigits, type, inputMode, dir, lang])
+    },
+    [persianDigits, type, inputMode, dir, lang]
+  )
+
+  // Resolve ancestor dir/lang after mount so SSR markup stays stable.
+  React.useEffect(() => {
+    setEnabled(resolveEnabled(inputRef.current))
+  }, [resolveEnabled])
 
   const latinValue = isControlled
     ? toLatinDigits(toStringValue(value))
@@ -119,9 +124,15 @@ export function usePersianDigitsInput({
     selectionRef.current = null
   })
 
-  const setInputRef = React.useCallback((node: HTMLInputElement | null) => {
-    inputRef.current = node
-  }, [])
+  const setInputRef = React.useCallback(
+    (node: HTMLInputElement | null) => {
+      inputRef.current = node
+      if (node) {
+        setEnabled(resolveEnabled(node))
+      }
+    },
+    [resolveEnabled]
+  )
 
   const handleChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

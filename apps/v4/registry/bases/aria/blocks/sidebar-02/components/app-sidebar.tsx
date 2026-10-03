@@ -28,96 +28,96 @@ const data = {
   versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   navMain: [
     {
-      title: "Getting Started",
+      title: "شروع کار",
       url: "#",
       items: [
         {
-          title: "Installation",
+          title: "نصب",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "ساختار پروژه",
           url: "#",
         },
       ],
     },
     {
-      title: "Build Your Application",
+      title: "ساخت اپلیکیشن شما",
       url: "#",
       items: [
         {
-          title: "Routing",
+          title: "مسیریابی",
           url: "#",
         },
         {
-          title: "Data Fetching",
+          title: "دریافت داده",
           url: "#",
           isActive: true,
         },
         {
-          title: "Rendering",
+          title: "رندرینگ",
           url: "#",
         },
         {
-          title: "Caching",
+          title: "کش‌گذاری",
           url: "#",
         },
         {
-          title: "Styling",
+          title: "استایل‌دهی",
           url: "#",
         },
         {
-          title: "Optimizing",
+          title: "بهینه‌سازی",
           url: "#",
         },
         {
-          title: "Configuring",
+          title: "پیکربندی",
           url: "#",
         },
         {
-          title: "Testing",
+          title: "تست‌نویسی",
           url: "#",
         },
         {
-          title: "Authentication",
+          title: "احراز هویت",
           url: "#",
         },
         {
-          title: "Deploying",
+          title: "استقرار",
           url: "#",
         },
         {
-          title: "Upgrading",
+          title: "ارتقا",
           url: "#",
         },
         {
-          title: "Examples",
+          title: "نمونه‌ها",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "مرجع API",
       url: "#",
       items: [
         {
-          title: "Components",
+          title: "کامپوننت‌ها",
           url: "#",
         },
         {
-          title: "File Conventions",
+          title: "قراردادهای فایل",
           url: "#",
         },
         {
-          title: "Functions",
+          title: "توابع",
           url: "#",
         },
         {
-          title: "next.config.js Options",
+          title: "گزینه‌های next.config.js",
           url: "#",
         },
         {
-          title: "CLI",
+          title: "خط فرمان (CLI)",
           url: "#",
         },
         {
@@ -127,11 +127,11 @@ const data = {
       ],
     },
     {
-      title: "Architecture",
+      title: "معماری",
       url: "#",
       items: [
         {
-          title: "Accessibility",
+          title: "دسترسی‌پذیری",
           url: "#",
         },
         {
@@ -139,11 +139,11 @@ const data = {
           url: "#",
         },
         {
-          title: "Next.js Compiler",
+          title: "کامپایلر Next.js",
           url: "#",
         },
         {
-          title: "Supported Browsers",
+          title: "مرورگرهای پشتیبانی‌شده",
           url: "#",
         },
         {
@@ -153,11 +153,11 @@ const data = {
       ],
     },
     {
-      title: "Community",
+      title: "جامعه",
       url: "#",
       items: [
         {
-          title: "Contribution Guide",
+          title: "راهنمای مشارکت",
           url: "#",
         },
       ],
@@ -166,7 +166,7 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar side="right" {...props}>
       <SidebarHeader>
         <VersionSwitcher
           versions={data.versions}
@@ -194,7 +194,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   hugeicons="ArrowRight01Icon"
                   phosphor="CaretRightIcon"
                   remixicon="RiArrowRightSLine"
-                  className="ml-auto transition-transform group-data-expanded/collapsible:rotate-90"
+                  className="ms-auto transition-transform group-data-expanded/collapsible:rotate-90"
                 />
               </SidebarGroupLabel>
               <CollapsibleContent>

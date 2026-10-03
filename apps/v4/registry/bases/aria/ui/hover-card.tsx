@@ -21,6 +21,7 @@ function HoverCard({
   placement = "bottom",
   offset = 4,
   crossOffset = 0,
+  dir = "rtl",
   ...props
 }: Omit<PopoverPrimitiveProps, "className"> & {
   className?: string
@@ -28,6 +29,7 @@ function HoverCard({
   return (
     <PopoverPrimitive
       data-slot="hover-card-content"
+      dir={dir}
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}
@@ -40,4 +42,7 @@ function HoverCard({
   )
 }
 
-export { HoverCard, HoverCardTrigger }
+/** Alias for base/radix-compatible imports (`HoverCardContent`). */
+const HoverCardContent = HoverCard
+
+export { HoverCard, HoverCardContent, HoverCardTrigger }

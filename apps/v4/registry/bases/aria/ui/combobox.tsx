@@ -152,6 +152,7 @@ function ComboboxContent({
   offset = 6,
   crossOffset = 0,
   anchor,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof PopoverPrimitive>,
@@ -164,6 +165,7 @@ function ComboboxContent({
   return (
     <PopoverPrimitive
       data-slot="combobox-content"
+      dir={dir}
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}

@@ -20,96 +20,96 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 const data = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "شروع کار",
       url: "#",
       items: [
         {
-          title: "Installation",
+          title: "نصب",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "ساختار پروژه",
           url: "#",
         },
       ],
     },
     {
-      title: "Build Your Application",
+      title: "ساخت اپلیکیشن شما",
       url: "#",
       items: [
         {
-          title: "Routing",
+          title: "مسیریابی",
           url: "#",
         },
         {
-          title: "Data Fetching",
+          title: "دریافت داده",
           url: "#",
           isActive: true,
         },
         {
-          title: "Rendering",
+          title: "رندرینگ",
           url: "#",
         },
         {
-          title: "Caching",
+          title: "کش‌گذاری",
           url: "#",
         },
         {
-          title: "Styling",
+          title: "استایل‌دهی",
           url: "#",
         },
         {
-          title: "Optimizing",
+          title: "بهینه‌سازی",
           url: "#",
         },
         {
-          title: "Configuring",
+          title: "پیکربندی",
           url: "#",
         },
         {
-          title: "Testing",
+          title: "تست‌نویسی",
           url: "#",
         },
         {
-          title: "Authentication",
+          title: "احراز هویت",
           url: "#",
         },
         {
-          title: "Deploying",
+          title: "استقرار",
           url: "#",
         },
         {
-          title: "Upgrading",
+          title: "ارتقا",
           url: "#",
         },
         {
-          title: "Examples",
+          title: "نمونه‌ها",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "مرجع API",
       url: "#",
       items: [
         {
-          title: "Components",
+          title: "کامپوننت‌ها",
           url: "#",
         },
         {
-          title: "File Conventions",
+          title: "قراردادهای فایل",
           url: "#",
         },
         {
-          title: "Functions",
+          title: "توابع",
           url: "#",
         },
         {
-          title: "next.config.js Options",
+          title: "گزینه‌های next.config.js",
           url: "#",
         },
         {
-          title: "CLI",
+          title: "خط فرمان (CLI)",
           url: "#",
         },
         {
@@ -119,11 +119,11 @@ const data = {
       ],
     },
     {
-      title: "Architecture",
+      title: "معماری",
       url: "#",
       items: [
         {
-          title: "Accessibility",
+          title: "دسترسی‌پذیری",
           url: "#",
         },
         {
@@ -131,11 +131,11 @@ const data = {
           url: "#",
         },
         {
-          title: "Next.js Compiler",
+          title: "کامپایلر Next.js",
           url: "#",
         },
         {
-          title: "Supported Browsers",
+          title: "مرورگرهای پشتیبانی‌شده",
           url: "#",
         },
         {
@@ -148,7 +148,7 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar side="right" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -164,7 +164,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">Documentation</span>
+                <span className="font-medium">مستندات</span>
                 <span className="">v1.0.0</span>
               </div>
             </SidebarMenuButton>

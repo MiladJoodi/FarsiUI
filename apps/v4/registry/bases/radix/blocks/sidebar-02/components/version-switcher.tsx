@@ -53,7 +53,7 @@ export function VersionSwitcher({
                 hugeicons="UnfoldMoreIcon"
                 phosphor="CaretUpDownIcon"
                 remixicon="RiArrowUpDownLine"
-                className="ml-auto"
+                className="ms-auto"
               />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -74,7 +74,7 @@ export function VersionSwitcher({
                     hugeicons="Tick02Icon"
                     phosphor="CheckIcon"
                     remixicon="RiCheckLine"
-                    className="ml-auto"
+                    className="ms-auto"
                   />
                 )}
               </DropdownMenuItem>

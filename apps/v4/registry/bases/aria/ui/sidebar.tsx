@@ -153,12 +153,12 @@ function SidebarProvider({
 }
 
 function Sidebar({
-  side = "left",
+  side = "right",
   variant = "sidebar",
   collapsible = "offcanvas",
   className,
   children,
-  dir,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<"div"> & {
   side?: "left" | "right"
@@ -201,8 +201,8 @@ function Sidebar({
         {...props}
       >
         <SheetHeader className="sr-only">
-          <SheetTitle>Sidebar</SheetTitle>
-          <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+          <SheetTitle>نوار کناری</SheetTitle>
+          <SheetDescription>نمایش نوار کناری در موبایل</SheetDescription>
         </SheetHeader>
         <div className="flex h-full w-full flex-col">{children}</div>
       </Sheet>
@@ -281,9 +281,9 @@ function SidebarTrigger({
         hugeicons="SidebarLeftIcon"
         phosphor="SidebarIcon"
         remixicon="RiSideBarLine"
-        className="cn-rtl-flip"
+        className="cn-rtl-flip rtl:rotate-180"
       />
-      <span className="sr-only">Toggle Sidebar</span>
+      <span className="sr-only">باز و بسته کردن نوار کناری</span>
     </Button>
   )
 }
@@ -295,10 +295,10 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
     <button
       data-sidebar="rail"
       data-slot="sidebar-rail"
-      aria-label="Toggle Sidebar"
+      aria-label="باز و بسته کردن نوار کناری"
       tabIndex={-1}
       onClick={toggleSidebar}
-      title="Toggle Sidebar"
+      title="باز و بسته کردن نوار کناری"
       className={cn(
         "cn-sidebar-rail absolute inset-y-0 z-20 hidden w-4 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] sm:flex ltr:-translate-x-1/2 rtl:-translate-x-1/2",
         "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
@@ -542,7 +542,7 @@ function SidebarMenuButton({
   return (
     <TooltipTrigger isDisabled={state !== "collapsed" || isMobile}>
       {comp}
-      <Tooltip placement="right" {...tooltip} />
+      <Tooltip placement="left" {...tooltip} />
     </TooltipTrigger>
   )
 }

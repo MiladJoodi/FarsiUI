@@ -36,36 +36,67 @@ export function isPersianLocaleContext(options: {
   lang?: string | null
 }): boolean {
   const lang = (options.lang ?? "").toLowerCase()
-  if (lang.startsWith("fa")) {
+
+  // Explicit English / LTR latin locale → keep ASCII digits.
+  if (lang.startsWith("en")) {
+    return false
+  }
+
+  // Persian (and FarsiUI's RTL preview languages mapped as ar/he).
+  if (
+    lang.startsWith("fa") ||
+    lang.startsWith("ar") ||
+    lang.startsWith("he")
+  ) {
     return true
   }
 
-  const dir = options.dir ?? ""
-  // RTL without an explicit non-Persian lang (common in FarsiUI demos).
-  if (dir === "rtl" && (!lang || lang.startsWith("fa"))) {
-    return true
-  }
-
-  return false
+  // Bare RTL (no lang on the dir boundary) → Persian digits for FarsiUI.
+  return (options.dir ?? "") === "rtl"
 }
 
 export function readLocaleContext(
   element: HTMLElement | null,
   props: { dir?: string; lang?: string }
 ): { dir: string | null; lang: string | null } {
-  const dir =
-    props.dir ??
-    element?.closest("[dir]")?.getAttribute("dir") ??
-    (typeof document !== "undefined"
-      ? document.documentElement.getAttribute("dir")
-      : null)
+  // Explicit Input props win. Do not merge with <html lang="en">, which would
+  // incorrectly disable Persian digits inside RTL containers.
+  if (props.dir != null || props.lang != null) {
+    return {
+      dir: props.dir ?? null,
+      lang: props.lang ?? null,
+    }
+  }
 
-  const lang =
-    props.lang ??
-    element?.closest("[lang]")?.getAttribute("lang") ??
-    (typeof document !== "undefined"
-      ? document.documentElement.getAttribute("lang")
-      : null)
+  let dir: string | null = null
+  let lang: string | null = null
+
+  let node: HTMLElement | null = element
+  while (node) {
+    if (!lang) {
+      lang = node.getAttribute("lang") || node.getAttribute("data-lang")
+    }
+
+    if (!dir && node.hasAttribute("dir")) {
+      dir = node.getAttribute("dir")
+      if (!lang) {
+        lang = node.getAttribute("lang") || node.getAttribute("data-lang")
+      }
+      // Stop at the nearest dir boundary so documentElement lang="en"
+      // does not override an RTL preview/container.
+      break
+    }
+
+    if (dir && lang) {
+      break
+    }
+
+    node = node.parentElement
+  }
+
+  if (!dir && typeof document !== "undefined") {
+    dir = document.documentElement.getAttribute("dir")
+  }
 
   return { dir, lang }
 }

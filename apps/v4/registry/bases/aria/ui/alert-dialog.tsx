@@ -47,6 +47,7 @@ function AlertDialog({
   className,
   size = "default",
   children,
+  dir = "rtl",
   ...props
 }: Omit<ModalOverlayPrimitiveProps, "className" | "children"> &
   Pick<React.ComponentProps<typeof ModalPrimitive>, "isDismissable"> & {
@@ -59,6 +60,7 @@ function AlertDialog({
       <ModalPrimitive
         data-slot="alert-dialog-content"
         data-size={size}
+        dir={dir}
         className={cn(
           "cn-alert-dialog-content-aria group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 outline-none",
           className

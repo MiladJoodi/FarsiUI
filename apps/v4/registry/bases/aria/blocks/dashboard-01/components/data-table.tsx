@@ -137,26 +137,26 @@ const columns = columnHelper.columns([
     id: "select",
     header: () => (
       <div className="flex items-center justify-center">
-        <Checkbox slot="selection" />
+        <Checkbox slot="selection" aria-label="انتخاب همه" />
       </div>
     ),
     cell: () => (
       <div className="flex items-center justify-center">
-        <Checkbox slot="selection" />
+        <Checkbox slot="selection" aria-label="انتخاب ردیف" />
       </div>
     ),
     enableSorting: false,
     enableHiding: false,
   }),
   columnHelper.accessor("header", {
-    header: "Header",
+    header: "عنوان",
     cell: ({ row }) => {
       return <TableCellViewer item={row.original} />
     },
     enableHiding: false,
   }),
   columnHelper.accessor("type", {
-    header: "Section Type",
+    header: "نوع بخش",
     cell: ({ row }) => (
       <div className="w-32">
         <Badge variant="outline" className="px-1.5 text-muted-foreground">
@@ -166,10 +166,10 @@ const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor("status", {
-    header: "Status",
+    header: "وضعیت",
     cell: ({ row }) => (
       <Badge variant="outline" className="px-1.5 text-muted-foreground">
-        {row.original.status === "Done" ? (
+        {row.original.status === "انجام‌شده" ? (
           <IconPlaceholder
             lucide="CircleCheckIcon"
             tabler="IconCircleCheckFilled"
@@ -192,15 +192,15 @@ const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor("target", {
-    header: () => <div className="w-full text-right">Target</div>,
+    header: () => <div className="w-full text-end">هدف</div>,
     cell: ({ row }) => (
       <form
         onSubmit={(e) => {
           e.preventDefault()
           toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
+            loading: `در حال ذخیرهٔ ${row.original.header}`,
+            success: "انجام شد",
+            error: "خطا",
           })
         }}
       >
@@ -208,7 +208,7 @@ const columns = columnHelper.columns([
           Target
         </Label>
         <Input
-          className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background dark:bg-transparent dark:hover:bg-input/30 dark:focus-visible:bg-input/30"
+          className="h-8 w-16 border-transparent bg-transparent text-end shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background dark:bg-transparent dark:hover:bg-input/30 dark:focus-visible:bg-input/30"
           defaultValue={row.original.target}
           id={`${row.original.id}-target`}
         />
@@ -216,15 +216,15 @@ const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor("limit", {
-    header: () => <div className="w-full text-right">Limit</div>,
+    header: () => <div className="w-full text-end">سقف</div>,
     cell: ({ row }) => (
       <form
         onSubmit={(e) => {
           e.preventDefault()
           toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
+            loading: `در حال ذخیرهٔ ${row.original.header}`,
+            success: "انجام شد",
+            error: "خطا",
           })
         }}
       >
@@ -232,7 +232,7 @@ const columns = columnHelper.columns([
           Limit
         </Label>
         <Input
-          className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background dark:bg-transparent dark:hover:bg-input/30 dark:focus-visible:bg-input/30"
+          className="h-8 w-16 border-transparent bg-transparent text-end shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background dark:bg-transparent dark:hover:bg-input/30 dark:focus-visible:bg-input/30"
           defaultValue={row.original.limit}
           id={`${row.original.id}-limit`}
         />
@@ -240,9 +240,9 @@ const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor("reviewer", {
-    header: "Reviewer",
+    header: "بازبین",
     cell: ({ row }) => {
-      const isAssigned = row.original.reviewer !== "Assign reviewer"
+      const isAssigned = row.original.reviewer !== "انتخاب بازبین"
       if (isAssigned) {
         return row.original.reviewer
       }
@@ -251,7 +251,7 @@ const columns = columnHelper.columns([
           <Label htmlFor={`${row.original.id}-reviewer`} className="sr-only">
             Reviewer
           </Label>
-          <Select placeholder="Assign reviewer">
+          <Select placeholder="انتخاب بازبین">
             <SelectTrigger
               className="w-38 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate"
               size="sm"
@@ -259,12 +259,10 @@ const columns = columnHelper.columns([
             >
               <SelectValue />
             </SelectTrigger>
-            <SelectContent placement="bottom end">
+            <SelectContent placement="bottom end" dir="rtl" lang="fa">
               <SelectGroup>
-                <SelectItem id="Eddie Lake">Eddie Lake</SelectItem>
-                <SelectItem id="Jamik Tashpulatov">
-                  Jamik Tashpulatov
-                </SelectItem>
+                <SelectItem id="علی محمدی">علی محمدی</SelectItem>
+                <SelectItem id="سارا کریمی">سارا کریمی</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -288,14 +286,19 @@ const columns = columnHelper.columns([
             phosphor="DotsThreeVerticalIcon"
             remixicon="RiMore2Line"
           />
-          <span className="sr-only">Open menu</span>
+          <span className="sr-only">باز کردن منو</span>
         </Button>
-        <DropdownMenu placement="bottom end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Make a copy</DropdownMenuItem>
-          <DropdownMenuItem>Favorite</DropdownMenuItem>
+        <DropdownMenu
+          placement="bottom end"
+          className="w-32"
+          dir="rtl"
+          lang="fa"
+        >
+          <DropdownMenuItem>ویرایش</DropdownMenuItem>
+          <DropdownMenuItem>کپی</DropdownMenuItem>
+          <DropdownMenuItem>علاقه‌مندی</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
         </DropdownMenu>
       </DropdownMenuTrigger>
     ),
@@ -368,12 +371,14 @@ export function DataTable({
     <Tabs
       defaultSelectedKey="outline"
       className="w-full flex-col justify-start gap-6"
+      dir="rtl"
+      lang="fa"
     >
       <div className="flex items-center justify-between px-4 lg:px-6">
         <Label htmlFor="view-selector" className="sr-only">
-          View
+          نما
         </Label>
-        {/* <Select placeholder="Select a view" defaultValue="outline">
+        {/* <Select placeholder="انتخاب نما" defaultValue="outline">
           <SelectTrigger
             className="flex w-fit @4xl/main:hidden"
             size="sm"
@@ -381,24 +386,24 @@ export function DataTable({
           >
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent dir="rtl" lang="fa">
             <SelectGroup>
-              <SelectItem id="outline">Outline</SelectItem>
-              <SelectItem id="past-performance">Past Performance</SelectItem>
-              <SelectItem id="key-personnel">Key Personnel</SelectItem>
-              <SelectItem id="focus-documents">Focus Documents</SelectItem>
+              <SelectItem id="outline">طرح کلی</SelectItem>
+              <SelectItem id="past-performance">عملکرد گذشته</SelectItem>
+              <SelectItem id="key-personnel">افراد کلیدی</SelectItem>
+              <SelectItem id="focus-documents">اسناد مهم</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select> */}
         <TabsList className="hidden **:data-[slot=badge]:size-5 **:data-[slot=badge]:rounded-full **:data-[slot=badge]:bg-muted-foreground/30 **:data-[slot=badge]:px-1 @4xl/main:flex">
-          <TabsTrigger id="outline">Outline</TabsTrigger>
+          <TabsTrigger id="outline">طرح کلی</TabsTrigger>
           <TabsTrigger id="past-performance">
-            Past Performance <Badge variant="secondary">3</Badge>
+            عملکرد گذشته <Badge variant="secondary">3</Badge>
           </TabsTrigger>
           <TabsTrigger id="key-personnel">
-            Key Personnel <Badge variant="secondary">2</Badge>
+            افراد کلیدی <Badge variant="secondary">2</Badge>
           </TabsTrigger>
-          <TabsTrigger id="focus-documents">Focus Documents</TabsTrigger>
+          <TabsTrigger id="focus-documents">اسناد مهم</TabsTrigger>
         </TabsList>
         <div className="flex items-center gap-2">
           {/* <DropdownMenuTrigger>
@@ -411,7 +416,7 @@ export function DataTable({
                 remixicon="RiLayoutColumnLine"
                 data-icon="inline-start"
               />
-              Columns
+              ستون‌ها
               <IconPlaceholder
                 lucide="ChevronDownIcon"
                 tabler="IconChevronDown"
@@ -424,6 +429,8 @@ export function DataTable({
             <DropdownMenu
               align="end"
               className="w-32"
+              dir="rtl"
+              lang="fa"
               selectionMode="multiple"
               selectedKeys={
                 table
@@ -473,7 +480,7 @@ export function DataTable({
               phosphor="PlusIcon"
               remixicon="RiAddLine"
             />
-            <span className="hidden lg:inline">Add Section</span>
+            <span className="hidden lg:inline">افزودن بخش</span>
           </Button>
         </div>
       </div>
@@ -483,7 +490,7 @@ export function DataTable({
       >
         <div className="overflow-hidden rounded-lg border">
           <Table
-            aria-label="Tasks"
+            aria-label="وظایف"
             dragAndDropHooks={dragAndDropHooks}
             selectionMode="multiple"
             onSelectionChange={(selection) => {
@@ -528,7 +535,7 @@ export function DataTable({
             </TableHeader>
             <TableBody
               className="data-empty:h-24 data-empty:text-center **:data-[slot=table-cell]:first:w-8"
-              renderEmptyState={() => "No results."}
+              renderEmptyState={() => "نتیجه‌ای نیست."}
             >
               {table.getRowModel().rows.map((row) => (
                 <TableRow
@@ -550,15 +557,15 @@ export function DataTable({
         <div className="flex items-center justify-between px-4">
           <div className="hidden flex-1 text-sm text-muted-foreground lg:flex">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
+            {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
           </div>
           <div className="flex w-full items-center gap-8 lg:w-fit">
             <div className="hidden items-center gap-2 lg:flex">
               <Label htmlFor="rows-per-page" className="text-sm font-medium">
-                Rows per page
+                ردیف در صفحه
               </Label>
               <Select
-                aria-label="Rows per page"
+                aria-label="ردیف در صفحه"
                 placeholder={`${table.state.pagination.pageSize}`}
                 value={`${table.state.pagination.pageSize}`}
                 onChange={(value) => {
@@ -568,7 +575,7 @@ export function DataTable({
                 <SelectTrigger size="sm" className="w-20" id="rows-per-page">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent placement="top">
+                <SelectContent placement="top" dir="rtl" lang="fa">
                   <SelectGroup>
                     {[10, 20, 30, 40, 50].map((pageSize) => (
                       <SelectItem key={pageSize} id={`${pageSize}`}>
@@ -580,23 +587,24 @@ export function DataTable({
               </Select>
             </div>
             <div className="flex w-fit items-center justify-center text-sm font-medium">
-              Page {table.state.pagination.pageIndex + 1} of{" "}
+              صفحه {table.state.pagination.pageIndex + 1} از{" "}
               {table.getPageCount()}
             </div>
-            <div className="ml-auto flex items-center gap-2 lg:ml-0">
+            <div className="ms-auto flex items-center gap-2 lg:ms-0">
               <Button
                 variant="outline"
                 className="hidden h-8 w-8 p-0 lg:flex"
                 onPress={() => table.setPageIndex(0)}
                 isDisabled={!table.getCanPreviousPage()}
               >
-                <span className="sr-only">Go to first page</span>
+                <span className="sr-only">صفحهٔ اول</span>
                 <IconPlaceholder
                   lucide="ChevronsLeftIcon"
                   tabler="IconChevronsLeft"
                   hugeicons="ArrowLeftDoubleIcon"
                   phosphor="CaretDoubleLeftIcon"
                   remixicon="RiSkipLeftLine"
+                  className="rtl:rotate-180"
                 />
               </Button>
               <Button
@@ -606,13 +614,14 @@ export function DataTable({
                 onPress={() => table.previousPage()}
                 isDisabled={!table.getCanPreviousPage()}
               >
-                <span className="sr-only">Go to previous page</span>
+                <span className="sr-only">صفحهٔ قبل</span>
                 <IconPlaceholder
                   lucide="ChevronLeftIcon"
                   tabler="IconChevronLeft"
                   hugeicons="ArrowLeft01Icon"
                   phosphor="CaretLeftIcon"
                   remixicon="RiArrowLeftSLine"
+                  className="rtl:rotate-180"
                 />
               </Button>
               <Button
@@ -622,13 +631,14 @@ export function DataTable({
                 onPress={() => table.nextPage()}
                 isDisabled={!table.getCanNextPage()}
               >
-                <span className="sr-only">Go to next page</span>
+                <span className="sr-only">صفحهٔ بعد</span>
                 <IconPlaceholder
                   lucide="ChevronRightIcon"
                   tabler="IconChevronRight"
                   hugeicons="ArrowRight01Icon"
                   phosphor="CaretRightIcon"
                   remixicon="RiArrowRightSLine"
+                  className="rtl:rotate-180"
                 />
               </Button>
               <Button
@@ -638,13 +648,14 @@ export function DataTable({
                 onPress={() => table.setPageIndex(table.getPageCount() - 1)}
                 isDisabled={!table.getCanNextPage()}
               >
-                <span className="sr-only">Go to last page</span>
+                <span className="sr-only">صفحهٔ آخر</span>
                 <IconPlaceholder
                   lucide="ChevronsRightIcon"
                   tabler="IconChevronsRight"
                   hugeicons="ArrowRightDoubleIcon"
                   phosphor="CaretDoubleRightIcon"
                   remixicon="RiSkipRightLine"
+                  className="rtl:rotate-180"
                 />
               </Button>
             </div>
@@ -697,34 +708,32 @@ const chartData = [
 ]
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     color: "var(--primary)",
   },
   mobile: {
-    label: "Mobile",
+    label: "موبایل",
     color: "var(--primary)",
   },
 } satisfies ChartConfig
 function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
   const isMobile = useIsMobile()
   return (
-    <Drawer swipeDirection={isMobile ? "down" : "right"}>
+    <Drawer swipeDirection={isMobile ? "down" : "left"}>
       <DrawerTrigger
         render={
           <Button
             variant="link"
-            className="w-fit px-0 text-left text-foreground"
+            className="w-fit px-0 text-start text-foreground"
           />
         }
       >
         {item.header}
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="gap-1">
+        <DrawerHeader className="gap-1 text-start">
           <DrawerTitle>{item.header}</DrawerTitle>
-          <DrawerDescription>
-            Showing total visitors for the last 6 months
-          </DrawerDescription>
+          <DrawerDescription>مجموع بازدید شش ماه اخیر</DrawerDescription>
         </DrawerHeader>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 text-sm">
           {!isMobile && (
@@ -772,7 +781,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
               <Separator />
               <div className="grid gap-2">
                 <div className="flex gap-2 leading-none font-medium">
-                  Trending up by 5.2% this month{" "}
+                  رشد ۵٫۲٪ در این ماه{" "}
                   <IconPlaceholder
                     lucide="TrendingUpIcon"
                     tabler="IconTrendingUp"
@@ -783,9 +792,8 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                   />
                 </div>
                 <div className="text-muted-foreground">
-                  Showing total visitors for the last 6 months. This is just
-                  some random text to test the layout. It spans multiple lines
-                  and should wrap around.
+                  مجموع بازدید شش ماه اخیر. این متن نمونه برای بررسی چیدمان
+                  راست‌چین است.
                 </div>
               </div>
               <Separator />
@@ -793,57 +801,50 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
           )}
           <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
-              <Label htmlFor="header">Header</Label>
-              <Input id="header" defaultValue={item.header} />
+              <Label htmlFor="header">عنوان</Label>
+              <Input id="header" defaultValue={item.header} dir="rtl" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-3">
-                <Label htmlFor="type">Type</Label>
+                <Label htmlFor="type">نوع</Label>
                 <Select
-                  placeholder="Select a type"
-                  aria-label="Type"
+                  placeholder="انتخاب نوع"
+                  aria-label="نوع"
                   defaultValue={item.type}
                 >
-                  <SelectTrigger id="type" className="w-full">
+                  <SelectTrigger id="type" className="w-full" dir="rtl">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent dir="rtl" lang="fa">
                     <SelectGroup>
-                      <SelectItem id="Table of Contents">
-                        Table of Contents
-                      </SelectItem>
-                      <SelectItem id="Executive Summary">
-                        Executive Summary
-                      </SelectItem>
-                      <SelectItem id="Technical Approach">
-                        Technical Approach
-                      </SelectItem>
-                      <SelectItem id="Design">Design</SelectItem>
-                      <SelectItem id="Capabilities">Capabilities</SelectItem>
-                      <SelectItem id="Focus Documents">
-                        Focus Documents
-                      </SelectItem>
-                      <SelectItem id="Narrative">Narrative</SelectItem>
-                      <SelectItem id="Cover Page">Cover Page</SelectItem>
+                      <SelectItem id="فهرست">فهرست</SelectItem>
+                      <SelectItem id="خلاصهٔ اجرایی">خلاصهٔ اجرایی</SelectItem>
+                      <SelectItem id="رویکرد فنی">رویکرد فنی</SelectItem>
+                      <SelectItem id="طراحی">طراحی</SelectItem>
+                      <SelectItem id="قابلیت‌ها">قابلیت‌ها</SelectItem>
+                      <SelectItem id="اسناد مهم">اسناد مهم</SelectItem>
+                      <SelectItem id="روایی">روایی</SelectItem>
+                      <SelectItem id="صفحهٔ جلد">صفحهٔ جلد</SelectItem>
+                      <SelectItem id="فنی">فنی</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
               <div className="flex flex-col gap-3">
-                <Label htmlFor="status">Status</Label>
+                <Label htmlFor="status">وضعیت</Label>
                 <Select
-                  aria-label="Status"
-                  placeholder="Select a status"
+                  aria-label="وضعیت"
+                  placeholder="انتخاب وضعیت"
                   defaultValue={item.status}
                 >
-                  <SelectTrigger id="status" className="w-full">
+                  <SelectTrigger id="status" className="w-full" dir="rtl">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent dir="rtl" lang="fa">
                     <SelectGroup>
-                      <SelectItem id="Done">Done</SelectItem>
-                      <SelectItem id="In Progress">In Progress</SelectItem>
-                      <SelectItem id="Not Started">Not Started</SelectItem>
+                      <SelectItem id="انجام‌شده">انجام‌شده</SelectItem>
+                      <SelectItem id="در حال انجام">در حال انجام</SelectItem>
+                      <SelectItem id="شروع‌نشده">شروع‌نشده</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -851,31 +852,39 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-3">
-                <Label htmlFor="target">Target</Label>
-                <Input id="target" defaultValue={item.target} />
+                <Label htmlFor="target">هدف</Label>
+                <Input
+                  id="target"
+                  defaultValue={item.target}
+                  dir="ltr"
+                  className="text-start"
+                />
               </div>
               <div className="flex flex-col gap-3">
-                <Label htmlFor="limit">Limit</Label>
-                <Input id="limit" defaultValue={item.limit} />
+                <Label htmlFor="limit">سقف</Label>
+                <Input
+                  id="limit"
+                  defaultValue={item.limit}
+                  dir="ltr"
+                  className="text-start"
+                />
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <Label htmlFor="reviewer">Reviewer</Label>
+              <Label htmlFor="reviewer">بازبین</Label>
               <Select
-                aria-label="Reviewer"
-                placeholder="Select a reviewer"
+                aria-label="بازبین"
+                placeholder="انتخاب بازبین"
                 defaultValue={item.reviewer}
               >
-                <SelectTrigger id="reviewer" className="w-full">
+                <SelectTrigger id="reviewer" className="w-full" dir="rtl">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent dir="rtl" lang="fa">
                   <SelectGroup>
-                    <SelectItem id="Eddie Lake">Eddie Lake</SelectItem>
-                    <SelectItem id="Jamik Tashpulatov">
-                      Jamik Tashpulatov
-                    </SelectItem>
-                    <SelectItem id="Emily Whalen">Emily Whalen</SelectItem>
+                    <SelectItem id="علی محمدی">علی محمدی</SelectItem>
+                    <SelectItem id="سارا کریمی">سارا کریمی</SelectItem>
+                    <SelectItem id="هستی احمدی">هستی احمدی</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -883,8 +892,8 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
           </form>
         </div>
         <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerClose render={<Button variant="outline" />}>Done</DrawerClose>
+          <Button>ثبت</Button>
+          <DrawerClose render={<Button variant="outline" />}>بستن</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

@@ -128,14 +128,14 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: "بازدید",
   },
   desktop: {
-    label: "Desktop",
+    label: "دسکتاپ",
     color: "var(--primary)",
   },
   mobile: {
-    label: "Mobile",
+    label: "موبایل",
     color: "var(--primary)",
   },
 } satisfies ChartConfig
@@ -165,14 +165,14 @@ export function ChartAreaInteractive() {
   })
 
   return (
-    <Card className="@container/card">
+    <Card className="@container/card" dir="rtl" lang="fa">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>مجموع بازدیدها</CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Total for the last 3 months
+            مجموع سه ماه اخیر
           </span>
-          <span className="@[540px]/card:hidden">Last 3 months</span>
+          <span className="@[540px]/card:hidden">سه ماه اخیر</span>
         </CardDescription>
         <CardAction>
           <ToggleGroup
@@ -184,12 +184,12 @@ export function ChartAreaInteractive() {
             variant="outline"
             className="hidden *:data-[slot=toggle-group-item]:px-4! @[767px]/card:flex"
           >
-            <ToggleGroupItem id="90d">Last 3 months</ToggleGroupItem>
-            <ToggleGroupItem id="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem id="7d">Last 7 days</ToggleGroupItem>
+            <ToggleGroupItem id="90d">۳ ماه</ToggleGroupItem>
+            <ToggleGroupItem id="30d">۳۰ روز</ToggleGroupItem>
+            <ToggleGroupItem id="7d">۷ روز</ToggleGroupItem>
           </ToggleGroup>
           <Select
-            aria-label="Select a value"
+            aria-label="بازهٔ زمانی"
             value={timeRange}
             onChange={(value) => {
               if (value !== null) {
@@ -205,13 +205,13 @@ export function ChartAreaInteractive() {
             </SelectTrigger>
             <SelectContent className="rounded-xl">
               <SelectItem id="90d" className="rounded-lg">
-                Last 3 months
+                ۳ ماه اخیر
               </SelectItem>
               <SelectItem id="30d" className="rounded-lg">
-                Last 30 days
+                ۳۰ روز اخیر
               </SelectItem>
               <SelectItem id="7d" className="rounded-lg">
-                Last 7 days
+                ۷ روز اخیر
               </SelectItem>
             </SelectContent>
           </Select>
@@ -258,7 +258,7 @@ export function ChartAreaInteractive() {
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value)
-                return date.toLocaleDateString("en-US", {
+                return date.toLocaleDateString("fa-IR", {
                   month: "short",
                   day: "numeric",
                 })
@@ -269,7 +269,7 @@ export function ChartAreaInteractive() {
               content={
                 <ChartTooltipContent
                   labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
+                    return new Date(value).toLocaleDateString("fa-IR", {
                       month: "short",
                       day: "numeric",
                     })

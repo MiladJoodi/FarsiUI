@@ -8,11 +8,14 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Menubar({
   className,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
   return (
     <MenubarPrimitive.Root
       data-slot="menubar"
+      dir={dir}
+      lang="fa"
       className={cn("cn-menubar flex items-center", className)}
       {...props}
     />
@@ -75,6 +78,7 @@ function MenubarContent({
         align={align}
         alignOffset={alignOffset}
         sideOffset={sideOffset}
+        lang="fa"
         className={cn(
           "cn-menubar-content cn-menu-target cn-menu-translucent z-50 origin-(--radix-menubar-content-transform-origin) overflow-hidden",
           className
@@ -265,6 +269,7 @@ function MenubarSubContent({
   return (
     <MenubarPrimitive.SubContent
       data-slot="menubar-sub-content"
+      lang="fa"
       className={cn(
         "cn-menubar-sub-content cn-menu-target cn-menu-translucent z-50 origin-(--radix-menubar-content-transform-origin) overflow-hidden",
         className

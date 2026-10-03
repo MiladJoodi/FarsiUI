@@ -36,6 +36,7 @@ function Tooltip({
   offset = 4,
   crossOffset = 0,
   children,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof TooltipPrimitive>,
@@ -47,6 +48,7 @@ function Tooltip({
   return (
     <TooltipPrimitive
       data-slot="tooltip-content"
+      dir={dir}
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}
@@ -77,4 +79,7 @@ function Tooltip({
   )
 }
 
-export { Tooltip, TooltipTrigger }
+/** Alias for base/radix-compatible imports (`TooltipContent`). */
+const TooltipContent = Tooltip
+
+export { Tooltip, TooltipContent, TooltipTrigger }

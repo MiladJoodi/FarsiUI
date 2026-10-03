@@ -18,20 +18,45 @@ function PopoverTrigger({ children, ...props }: DialogTriggerProps) {
   )
 }
 
+type Side = "top" | "right" | "bottom" | "left"
+type Align = "start" | "center" | "end"
+
+function toPlacement(
+  side?: Side,
+  align?: Align,
+  fallback: PopoverPrimitiveProps["placement"] = "bottom"
+): PopoverPrimitiveProps["placement"] {
+  if (!side) {
+    return fallback
+  }
+  if (!align || align === "center") {
+    return side
+  }
+  return `${side} ${align}` as PopoverPrimitiveProps["placement"]
+}
+
 function Popover({
   className,
   placement = "bottom",
+  side,
+  align,
+  sideOffset,
   offset = 4,
   crossOffset = 0,
+  dir = "rtl",
   ...props
 }: Omit<PopoverPrimitiveProps, "className"> & {
   className?: string
+  side?: Side
+  align?: Align
+  sideOffset?: number
 }) {
   return (
     <PopoverPrimitive
       data-slot="popover-content"
-      placement={placement}
-      offset={offset}
+      dir={dir}
+      placement={toPlacement(side, align, placement)}
+      offset={sideOffset ?? offset}
       crossOffset={crossOffset}
       className={cn(
         "cn-popover-content-aria z-50 w-72 origin-(--trigger-anchor-point) outline-hidden",
@@ -41,6 +66,9 @@ function Popover({
     />
   )
 }
+
+/** Alias for base/radix-compatible imports (`PopoverContent`). */
+const PopoverContent = Popover
 
 function PopoverHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -80,6 +108,7 @@ function PopoverDescription({
 
 export {
   Popover,
+  PopoverContent,
   PopoverDescription,
   PopoverHeader,
   PopoverTitle,

@@ -3,11 +3,11 @@
 import * as React from "react"
 import { cn } from "cn"
 import {
-  DayPicker,
   getDefaultClassNames,
   type DayButton,
   type Locale,
 } from "react-day-picker"
+import { DayPicker } from "react-day-picker/persian"
 
 import { Button, buttonVariants } from "@/registry/bases/radix/ui/button"
 import { IconPlaceholder } from "@/components/icon-placeholder"
@@ -19,6 +19,7 @@ function Calendar({
   captionLayout = "label",
   buttonVariant = "ghost",
   locale,
+  dir = "rtl",
   formatters,
   components,
   ...props
@@ -38,9 +39,21 @@ function Calendar({
       )}
       captionLayout={captionLayout}
       locale={locale}
+      dir={dir}
       formatters={{
         formatMonthDropdown: (date) =>
-          date.toLocaleString(locale?.code, { month: "short" }),
+          date.toLocaleString(locale?.code ?? "fa-IR", {
+            month: "short",
+            calendar: "persian",
+          }),
+        formatWeekdayName: (date) => {
+          // ش ی د س چ پ ج
+          const labels = ["ی", "د", "س", "چ", "پ", "ج", "ش"]
+          return labels[date.getDay()] ?? ""
+        },
+        formatWeekNumberHeader: () => "هـ",
+        formatWeekNumber: (weekNumber) =>
+          weekNumber.toLocaleString(locale?.code ?? "fa-IR"),
         ...formatters,
       }}
       classNames={{
@@ -95,11 +108,11 @@ function Calendar({
         ),
         week: cn("mt-2 flex w-full", defaultClassNames.week),
         week_number_header: cn(
-          "w-(--cell-size) select-none",
+          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium text-muted-foreground select-none",
           defaultClassNames.week_number_header
         ),
         week_number: cn(
-          "text-[0.8rem] text-muted-foreground select-none",
+          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium tabular-nums text-muted-foreground select-none",
           defaultClassNames.week_number
         ),
         day: cn(
@@ -191,7 +204,7 @@ function Calendar({
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
+              <div className="flex size-(--cell-size) items-center justify-center text-center tabular-nums">
                 {children}
               </div>
             </td>

@@ -25,13 +25,36 @@ function DropdownMenuTrigger({
   return <MenuTriggerPrimitive data-slot="dropdown-menu-trigger" {...props} />
 }
 
+type Side = "top" | "right" | "bottom" | "left"
+type Align = "start" | "center" | "end"
+
+function toPlacement(
+  side?: Side,
+  align?: Align,
+  fallback: React.ComponentProps<typeof PopoverPrimitive>["placement"] = "bottom start"
+): React.ComponentProps<typeof PopoverPrimitive>["placement"] {
+  if (!side) {
+    return fallback
+  }
+  if (!align || align === "center") {
+    return side
+  }
+  return `${side} ${align}` as React.ComponentProps<
+    typeof PopoverPrimitive
+  >["placement"]
+}
+
 function DropdownMenu({
   "data-slot": dataSlot = "dropdown-menu-content",
   placement = "bottom start",
+  side,
+  align,
+  sideOffset,
   offset = 4,
   crossOffset = 0,
   className,
   children,
+  dir = "rtl",
   ...props
 }: Omit<
   React.ComponentProps<typeof MenuPrimitive<object>>,
@@ -44,12 +67,16 @@ function DropdownMenu({
     "data-slot"?: string
     className?: string
     children?: React.ReactNode
+    side?: Side
+    align?: Align
+    sideOffset?: number
   }) {
   return (
     <PopoverPrimitive
       data-slot={dataSlot}
-      placement={placement}
-      offset={offset}
+      dir={dir}
+      placement={toPlacement(side, align, placement)}
+      offset={sideOffset ?? offset}
       crossOffset={crossOffset}
       className={cn(
         "cn-dropdown-menu-content-aria cn-menu-target cn-menu-translucent cn-menu-translucent-aria z-50 w-(--trigger-width) origin-(--trigger-anchor-point) overflow-x-hidden overflow-y-auto outline-none data-exiting:overflow-hidden",
@@ -65,6 +92,9 @@ function DropdownMenu({
     </PopoverPrimitive>
   )
 }
+
+/** Alias for base/radix-compatible imports (`DropdownMenuContent`). */
+const DropdownMenuContent = DropdownMenu
 
 function DropdownMenuGroup({
   ...props
@@ -250,6 +280,7 @@ function DropdownMenuShortcut({
 export {
   DropdownMenuTrigger,
   DropdownMenu,
+  DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuItem,

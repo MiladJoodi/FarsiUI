@@ -15,32 +15,33 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"form">) {
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form dir="rtl" lang="fa" className={cn("flex flex-col gap-6", className)} {...props}>
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="text-2xl font-bold">ورود به حساب</h1>
           <p className="text-sm text-balance text-muted-foreground">
-            Enter your email below to login to your account
+            ایمیل خود را وارد کنید تا وارد حساب شوید
           </p>
         </div>
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
+          <FieldLabel htmlFor="email">ایمیل</FieldLabel>
           <Input
             id="email"
             type="email"
-            placeholder="m@example.com"
+            placeholder="name@example.com"
+            dir="ltr"
+            className="bg-background text-start"
             required
-            className="bg-background"
           />
         </Field>
         <Field>
           <div className="flex items-center">
-            <FieldLabel htmlFor="password">Password</FieldLabel>
+            <FieldLabel htmlFor="password">رمز عبور</FieldLabel>
             <a
               href="#"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
+              className="ms-auto text-sm underline-offset-4 hover:underline"
             >
-              Forgot your password?
+              فراموشی رمز؟
             </a>
           </div>
           <Input
@@ -51,9 +52,9 @@ export function LoginForm({
           />
         </Field>
         <Field>
-          <Button type="submit">Login</Button>
+          <Button type="submit">ورود</Button>
         </Field>
-        <FieldSeparator>Or continue with</FieldSeparator>
+        <FieldSeparator>یا ادامه با</FieldSeparator>
         <Field>
           <Button variant="outline" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -62,12 +63,12 @@ export function LoginForm({
                 fill="currentColor"
               />
             </svg>
-            Login with GitHub
+            ورود با گیت‌هاب
           </Button>
           <FieldDescription className="text-center">
-            Don&apos;t have an account?{" "}
+            حساب ندارید؟{" "}
             <a href="#" className="underline underline-offset-4">
-              Sign up
+              ثبت‌نام
             </a>
           </FieldDescription>
         </Field>

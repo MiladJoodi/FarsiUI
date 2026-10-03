@@ -22,12 +22,12 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div dir="rtl" lang="fa" className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
+          <CardTitle className="text-xl">خوش آمدید</CardTitle>
           <CardDescription>
-            Login with your Apple or Google account
+            با حساب اپل یا گوگل وارد شوید
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -41,7 +41,7 @@ export function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Apple
+                  ورود با اپل
                 </Button>
                 <Button variant="outline" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -50,37 +50,37 @@ export function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Google
+                  ورود با گوگل
                 </Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
-                Or continue with
+                یا ادامه با
               </FieldSeparator>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel htmlFor="email">ایمیل</FieldLabel>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="name@example.com" dir="ltr" className="text-start"
                   required
                 />
               </Field>
               <Field>
                 <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">رمز عبور</FieldLabel>
                   <a
                     href="#"
-                    className="ml-auto text-sm underline-offset-4 hover:underline"
+                    className="ms-auto text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                    فراموشی رمز؟
                   </a>
                 </div>
                 <Input id="password" type="password" required />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
+                <Button type="submit">ورود</Button>
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="#">Sign up</a>
+                  حساب ندارید؟ <a href="#">ثبت‌نام</a>
                 </FieldDescription>
               </Field>
             </FieldGroup>
@@ -88,8 +88,8 @@ export function LoginForm({
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        با ادامه، <a href="#">شرایط استفاده</a>{" "}
+        و <a href="#">حریم خصوصی</a> را می‌پذیرید.
       </FieldDescription>
     </div>
   )

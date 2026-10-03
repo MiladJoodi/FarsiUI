@@ -66,6 +66,7 @@ function Sheet({
   children,
   side = "right",
   showCloseButton = true,
+  dir = "rtl",
   ...props
 }: Omit<ModalOverlayPrimitiveProps, "className" | "children"> &
   Pick<React.ComponentProps<typeof ModalPrimitive>, "isDismissable"> & {
@@ -79,6 +80,7 @@ function Sheet({
       <ModalPrimitive
         data-slot="sheet-content"
         data-side={side}
+        dir={dir}
         className={cn(
           "cn-sheet-content data-entering:opacity-0 data-exiting:opacity-0 data-[side=bottom]:data-entering:translate-y-[2.5rem] data-[side=bottom]:data-exiting:translate-y-[2.5rem] data-[side=left]:data-entering:translate-x-[-2.5rem] data-[side=left]:data-exiting:translate-x-[-2.5rem] data-[side=right]:data-entering:translate-x-[2.5rem] data-[side=right]:data-exiting:translate-x-[2.5rem] data-[side=top]:data-entering:translate-y-[-2.5rem] data-[side=top]:data-exiting:translate-y-[-2.5rem]",
           className
@@ -102,7 +104,7 @@ function Sheet({
                 phosphor="XIcon"
                 remixicon="RiCloseLine"
               />
-              <span className="sr-only">Close</span>
+              <span className="sr-only">بستن</span>
             </SheetClose>
           )}
         </SheetPrimitive>

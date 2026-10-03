@@ -33,6 +33,7 @@ function TooltipContent({
   className,
   sideOffset = 0,
   children,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content>) {
   return (
@@ -40,6 +41,7 @@ function TooltipContent({
       <TooltipPrimitive.Content
         data-slot="tooltip-content"
         sideOffset={sideOffset}
+        dir={dir}
         className={cn(
           "cn-tooltip-content z-50 w-fit max-w-xs origin-(--radix-tooltip-content-transform-origin) bg-foreground text-background",
           className

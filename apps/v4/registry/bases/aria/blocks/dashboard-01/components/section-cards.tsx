@@ -1,5 +1,7 @@
 "use client"
 
+import type * as React from "react"
+
 import { Badge } from "@/registry/bases/aria/ui/badge"
 import {
   Card,
@@ -11,14 +13,28 @@ import {
 } from "@/registry/bases/aria/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
+function StatValue({ children }: { children: React.ReactNode }) {
+  return (
+    <bdi
+      dir="ltr"
+      className="inline-block tracking-normal [letter-spacing:0] [font-variant-numeric:lining-nums]"
+    >
+      {children}
+    </bdi>
+  )
+}
+
 export function SectionCards() {
   return (
     <div className="grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Total Revenue</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+          <CardDescription>درآمد کل</CardDescription>
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۱۲۵٬۰۰۰٬۰۰۰</StatValue>
+            <span className="ms-1 text-sm font-normal text-muted-foreground">
+              تومان
+            </span>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -29,13 +45,13 @@ export function SectionCards() {
                 phosphor="TrendUpIcon"
                 remixicon="RiArrowUpLine"
               />
-              +12.5%
+              ٪۱۲٫۵+
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Trending up this month{" "}
+            رشد این ماه
             <IconPlaceholder
               lucide="TrendingUpIcon"
               tabler="IconTrendingUp"
@@ -45,16 +61,14 @@ export function SectionCards() {
               className="size-4"
             />
           </div>
-          <div className="text-muted-foreground">
-            Visitors for the last 6 months
-          </div>
+          <div className="text-muted-foreground">بازدید شش ماه اخیر</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>New Customers</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            1,234
+          <CardDescription>مشتریان جدید</CardDescription>
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۱٬۲۳۴</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -65,13 +79,13 @@ export function SectionCards() {
                 phosphor="TrendDownIcon"
                 remixicon="RiArrowDownLine"
               />
-              -20%
+              ٪۲۰−
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Down 20% this period{" "}
+            کاهش در این دوره
             <IconPlaceholder
               lucide="TrendingDownIcon"
               tabler="IconTrendingDown"
@@ -81,16 +95,14 @@ export function SectionCards() {
               className="size-4"
             />
           </div>
-          <div className="text-muted-foreground">
-            Acquisition needs attention
-          </div>
+          <div className="text-muted-foreground">جذب مشتری نیاز به توجه دارد</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Active Accounts</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            45,678
+          <CardDescription>حساب‌های فعال</CardDescription>
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>۴۵٬۶۷۸</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -101,13 +113,13 @@ export function SectionCards() {
                 phosphor="TrendUpIcon"
                 remixicon="RiArrowUpLine"
               />
-              +12.5%
+              ٪۱۲٫۵+
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Strong user retention{" "}
+            ماندگاری خوب کاربران
             <IconPlaceholder
               lucide="TrendingUpIcon"
               tabler="IconTrendingUp"
@@ -117,14 +129,14 @@ export function SectionCards() {
               className="size-4"
             />
           </div>
-          <div className="text-muted-foreground">Engagement exceed targets</div>
+          <div className="text-muted-foreground">تعامل بالاتر از هدف</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Growth Rate</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            4.5%
+          <CardDescription>نرخ رشد</CardDescription>
+          <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+            <StatValue>٪۴٫۵</StatValue>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -135,13 +147,13 @@ export function SectionCards() {
                 phosphor="TrendUpIcon"
                 remixicon="RiArrowUpLine"
               />
-              +4.5%
+              ٪۴٫۵+
             </Badge>
           </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Steady performance increase{" "}
+            رشد پایدار عملکرد
             <IconPlaceholder
               lucide="TrendingUpIcon"
               tabler="IconTrendingUp"
@@ -151,7 +163,7 @@ export function SectionCards() {
               className="size-4"
             />
           </div>
-          <div className="text-muted-foreground">Meets growth projections</div>
+          <div className="text-muted-foreground">هم‌راستا با پیش‌بینی رشد</div>
         </CardFooter>
       </Card>
     </div>

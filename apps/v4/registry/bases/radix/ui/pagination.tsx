@@ -8,7 +8,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
       role="navigation"
-      aria-label="pagination"
+      aria-label="صفحه‌بندی"
       data-slot="pagination"
       className={cn(
         "cn-pagination mx-auto flex w-full justify-center",
@@ -66,12 +66,12 @@ function PaginationLink({
 
 function PaginationPrevious({
   className,
-  text = "Previous",
+  text = "قبلی",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
   return (
     <PaginationLink
-      aria-label="Go to previous page"
+      aria-label="رفتن به صفحه قبلی"
       size="default"
       className={cn("cn-pagination-previous", className)}
       {...props}
@@ -94,12 +94,12 @@ function PaginationPrevious({
 
 function PaginationNext({
   className,
-  text = "Next",
+  text = "بعدی",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
   return (
     <PaginationLink
-      aria-label="Go to next page"
+      aria-label="رفتن به صفحه بعدی"
       size="default"
       className={cn("cn-pagination-next", className)}
       {...props}
@@ -139,7 +139,7 @@ function PaginationEllipsis({
         phosphor="DotsThreeIcon"
         remixicon="RiMoreLine"
       />
-      <span className="sr-only">More pages</span>
+      <span className="sr-only">صفحات بیشتر</span>
     </span>
   )
 }

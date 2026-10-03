@@ -9,6 +9,7 @@ function NavigationMenu({
   className,
   children,
   viewport = true,
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean
@@ -17,6 +18,8 @@ function NavigationMenu({
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
       data-viewport={viewport}
+      dir={dir}
+      lang="fa"
       className={cn(
         "cn-navigation-menu group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
         className

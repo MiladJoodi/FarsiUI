@@ -7,7 +7,7 @@ import { IconPlaceholder } from "@/components/icon-placeholder"
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
-      aria-label="breadcrumb"
+      aria-label="مسیر صفحه"
       data-slot="breadcrumb"
       className={cn("cn-breadcrumb", className)}
       {...props}
@@ -117,7 +117,7 @@ function BreadcrumbEllipsis({
         phosphor="DotsThreeIcon"
         remixicon="RiMoreLine"
       />
-      <span className="sr-only">More</span>
+      <span className="sr-only">بیشتر</span>
     </span>
   )
 }

@@ -82,6 +82,7 @@ function Calendar<
   return (
     <AriaCalendar
       {...props}
+      dir={props.dir ?? "rtl"}
       data-slot="calendar"
       visibleDuration={{ months: props.numberOfMonths || 1 }}
       className={cn(
@@ -111,6 +112,7 @@ function RangeCalendar<T extends DateValue>(
   return (
     <AriaRangeCalendar
       {...props}
+      dir={props.dir ?? "rtl"}
       data-slot="calendar"
       visibleDuration={{ months: props.numberOfMonths || 1 }}
       className={cn(

@@ -44,6 +44,7 @@ function AlertDialogOverlay({
 function AlertDialogContent({
   className,
   size = "default",
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Content> & {
   size?: "default" | "sm"
@@ -54,6 +55,7 @@ function AlertDialogContent({
       <AlertDialogPrimitive.Content
         data-slot="alert-dialog-content"
         data-size={size}
+        dir={dir}
         className={cn(
           "cn-alert-dialog-content group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 outline-none",
           className

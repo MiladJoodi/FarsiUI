@@ -16,10 +16,11 @@ import {
 
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-function Accordion({ className, ...props }: DisclosureGroupProps) {
+function Accordion({ className, dir = "rtl", ...props }: DisclosureGroupProps) {
   return (
     <AccordionPrimitive
       data-slot="accordion"
+      dir={dir}
       className={cn("cn-accordion flex w-full flex-col", className)}
       {...props}
     />

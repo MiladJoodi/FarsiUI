@@ -150,12 +150,12 @@ function PreviewWrapper({
   const translation = useTranslation(directionTranslations, "ar")
   const dir = explicitDir ?? translation.dir
 
+  // FarsiUI RTL previews use Language="ar" internally; expose lang="fa" so
+  // Input persian-digit auto mode (and assistive tech) see a Persian locale.
+  const lang = dir === "rtl" ? "fa" : "en"
+
   return (
-    <div
-      data-slot="preview"
-      dir={dir}
-      data-lang={dir === "rtl" ? translation.language : undefined}
-    >
+    <div data-slot="preview" dir={dir} lang={lang} data-lang={lang}>
       <div
         data-align={align}
         data-chromeless={chromeLessOnMobile}

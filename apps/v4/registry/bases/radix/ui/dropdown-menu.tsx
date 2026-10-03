@@ -7,9 +7,16 @@ import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function DropdownMenu({
+  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
+  return (
+    <DropdownMenuPrimitive.Root
+      data-slot="dropdown-menu"
+      dir={dir}
+      {...props}
+    />
+  )
 }
 
 function DropdownMenuPortal({
@@ -35,7 +42,6 @@ function DropdownMenuContent({
   className,
   align = "start",
   sideOffset = 4,
-  dir = "rtl",
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (
