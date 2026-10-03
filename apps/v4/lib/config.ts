@@ -1,7 +1,11 @@
+const PRODUCTION_APP_URL = "https://farsiui.ir"
+const LOCAL_APP_URL = "http://localhost:4000"
+
 function resolveAppUrl() {
   const fromEnv = process.env.NEXT_PUBLIC_APP_URL?.trim()
   if (fromEnv) return fromEnv.replace(/\/$/, "")
-  return "http://localhost:4000"
+  if (process.env.NODE_ENV === "production") return PRODUCTION_APP_URL
+  return LOCAL_APP_URL
 }
 
 /** Prefer the live request host so absolute URLs never point at a different origin (e.g. localhost). */
@@ -29,7 +33,7 @@ export const siteConfig = {
   url: resolveAppUrl(),
   ogImage: "/opengraph-image.png",
   description:
-    "کامپوننت‌های مدرن و قابل شخصی‌سازی برای ساخت محصولات فارسی",
+    "کتابخانه کامپوننت UI فارسی برای React و Tailwind — آمادهٔ RTL و مناسب ساخت رابط کاربری محصولات فارسی.",
   links: {
     github: "https://github.com/MiladJoodi/FarsiUI",
   },

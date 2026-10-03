@@ -4,12 +4,14 @@ import { ChartsNav } from "@/components/charts-nav"
 
 const title = "نمودارها"
 const description =
-  "نمودارهای آماده برای نمایش داده، ساخته‌شده با Recharts."
+  "نمودارهای آمادهٔ FarsiUI برای نمایش داده در رابط کاربری فارسی — ساخته‌شده با Recharts."
 
 export const metadata: Metadata = {
   title,
   description,
   openGraph: {
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -20,6 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(

@@ -8,8 +8,8 @@ import { FieldDescription } from "@/registry/new-york-v4/ui/field"
 import { UserAuthForm } from "@/app/(app)/examples/authentication/components/user-auth-form"
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "احراز هویت",
+  description: "فرم‌های ورود و احراز هویت ساخته‌شده با کامپوننت‌های FarsiUI.",
 }
 
 export default function AuthenticationPage() {

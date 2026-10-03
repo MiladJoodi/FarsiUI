@@ -572,27 +572,27 @@
   {
     "name": "conversation-01",
     "description": "مکالمهٔ ساده با موضوع و پاسخ فارسی.",
-    "categories": ["conversation"]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-02",
     "description": "ترد با شرکت‌کنندگان و ایمیل LTR.",
-    "categories": ["conversation"]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-03",
     "description": "وضعیت Select RTL و دعوت با ایمیل LTR.",
-    "categories": ["conversation"]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-04",
     "description": "اولویت و منوی عملیات پیام RTL.",
-    "categories": ["conversation"]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-05",
     "description": "مرکز سه‌ستونه با دعوت همکار و فیلتر RTL.",
-    "categories": ["conversation"]
+    "categories": ["chat"]
   },
   {
     "name": "cta-01",
@@ -618,11 +618,6 @@
     "name": "cta-05",
     "description": "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
     "categories": ["cta"]
-  },
-  {
-    "name": "dashboard-01",
-    "description": "داشبورد کامل با سایدبار راست، نمودار و جدول فارسی.",
-    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-02",

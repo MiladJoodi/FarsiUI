@@ -10,7 +10,12 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "/showcase",
+  },
   openGraph: {
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -21,6 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(

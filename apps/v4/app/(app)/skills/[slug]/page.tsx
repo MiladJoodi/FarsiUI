@@ -32,6 +32,23 @@ export async function generateMetadata({
     alternates: {
       canonical: `/skills/${skill.slug}`,
     },
+    openGraph: {
+      title: skill.title,
+      description: skill.summary,
+      url: `/skills/${skill.slug}`,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            skill.title
+          )}&description=${encodeURIComponent(skill.summary)}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: skill.title,
+      description: skill.summary,
+    },
   }
 }
 

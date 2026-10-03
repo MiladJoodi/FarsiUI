@@ -10,8 +10,8 @@ import { UserNav } from "./components/user-nav"
 import { taskSchema } from "./data/schema"
 
 export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
+  title: "مدیریت وظایف",
+  description: "نمونهٔ ردیابی وظایف و مسائل با جدول داده در FarsiUI.",
 }
 
 // Simulate a database read for tasks.

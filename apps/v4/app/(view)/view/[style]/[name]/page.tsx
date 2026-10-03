@@ -65,6 +65,7 @@ export async function generateMetadata({
   return {
     title: item.name,
     description,
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -84,7 +85,6 @@ export async function generateMetadata({
       title,
       description,
       images: [siteConfig.ogImage],
-      creator: "@FarsiUI",
     },
   }
 }

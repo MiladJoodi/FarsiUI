@@ -15,14 +15,19 @@ import { Button } from "@/styles/radix-luma/ui/button"
 export const dynamic = "force-static"
 export const revalidate = false
 
-const title = "The Foundation for your Design System"
+const title = "نمونه‌های کاربردی FarsiUI"
 const description =
-  "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code."
+  "نمونه‌صفحه‌های آماده با کامپوننت‌های FarsiUI — داشبورد، وظایف، احراز هویت، playground و RTL."
 
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "/examples",
+  },
   openGraph: {
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -33,6 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -50,20 +57,20 @@ export default function ExamplesLayout({
 }) {
   return (
     <>
-      <PageHeader>
+      <PageHeader dir="rtl" lang="fa">
         <Announcement />
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
           <Button asChild className="h-[35px]">
-            <Link href="/docs/installation">Get Started</Link>
+            <Link href="/docs/installation">شروع کنید</Link>
           </Button>
           <Button asChild variant="secondary">
-            <Link href="/docs/components">View Components</Link>
+            <Link href="/docs/components">کامپوننت‌ها</Link>
           </Button>
         </PageActions>
       </PageHeader>
-      <PageNav id="examples" className="hidden md:flex">
+      <PageNav id="examples" className="hidden md:flex" dir="rtl" lang="fa">
         <ExamplesNav className="flex-1 overflow-hidden [&>a:first-child]:text-primary" />
       </PageNav>
       <div className="container-wrapper flex flex-1 flex-col section-soft pb-6">

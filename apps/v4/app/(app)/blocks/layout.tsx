@@ -8,12 +8,18 @@ import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
 
 const title = "بلوک‌ها"
-const description = "بلوک‌های آمادهٔ UI برای کپی در پروژه‌های فارسی و راست‌چین."
+const description =
+  "بلوک‌های آمادهٔ UI برای کپی در پروژه‌های فارسی و راست‌چین — ورود، داشبورد، بازاریابی و بیشتر."
 
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "/blocks",
+  },
   openGraph: {
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -24,6 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(

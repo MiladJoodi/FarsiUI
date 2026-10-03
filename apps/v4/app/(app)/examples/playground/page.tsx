@@ -31,8 +31,8 @@ import { models, types } from "./data/models"
 import { presets } from "./data/presets"
 
 export const metadata: Metadata = {
-  title: "Playground",
-  description: "The OpenAI Playground built using the components.",
+  title: "زمین بازی",
+  description: "نمونهٔ playground ساخته‌شده با کامپوننت‌های FarsiUI.",
 }
 
 export default function PlaygroundPage() {

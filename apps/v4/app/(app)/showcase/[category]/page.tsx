@@ -26,11 +26,33 @@ export async function generateMetadata({
     return {}
   }
 
+  const title = `${category.title} — نمونه‌ها`
+  const description =
+    category.description ||
+    `نمونه‌پروژه‌های ${category.title} ساخته‌شده با FarsiUI.`
+
   return {
-    title: `${category.title} — نمونه‌ها`,
-    description: category.description,
+    title,
+    description,
     alternates: {
       canonical: `/showcase/${category.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/showcase/${category.slug}`,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            title
+          )}&description=${encodeURIComponent(description)}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   }
 }

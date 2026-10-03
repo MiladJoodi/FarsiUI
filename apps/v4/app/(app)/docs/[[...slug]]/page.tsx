@@ -53,42 +53,57 @@ export async function generateMetadata(props: {
   }
 
   const doc = contentPage.data
-
-  if (!doc.title || !doc.description) {
+  const title = doc.title
+  if (!title) {
     notFound()
   }
 
+  const description =
+    doc.description ||
+    `${title} در مستندات FarsiUI — کامپوننت‌ها و راهنمای رابط کاربری فارسی.`
+
+  const isMirroredComponent =
+    slug[0] === "components" &&
+    (slug[1] === "aria" || slug[1] === "radix") &&
+    Boolean(slug[2])
+
+  const canonicalPath = isMirroredComponent
+    ? `/docs/components/base/${slug[2]}`
+    : page.url
+
   return {
-    title: doc.title,
-    description: doc.description,
+    title,
+    description,
     alternates: {
-      canonical: page.url,
+      canonical: canonicalPath,
     },
+    robots: isMirroredComponent
+      ? { index: false, follow: true }
+      : undefined,
     openGraph: {
-      title: doc.title,
-      description: doc.description,
+      title,
+      description,
       type: "article",
-      url: absoluteUrl(page.url),
+      url: absoluteUrl(canonicalPath),
       images: [
         {
           url: `/og?title=${encodeURIComponent(
-            doc.title
-          )}&description=${encodeURIComponent(doc.description)}`,
+            title
+          )}&description=${encodeURIComponent(description)}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: doc.title,
-      description: doc.description,
+      title,
+      description,
       images: [
         {
           url: `/og?title=${encodeURIComponent(
-            doc.title
-          )}&description=${encodeURIComponent(doc.description)}`,
+            title
+          )}&description=${encodeURIComponent(description)}`,
         },
       ],
-      creator: "@FarsiUI",
     },
   }
 }

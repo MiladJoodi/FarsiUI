@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: "fa_IR",
-      url: "/",
+      url: siteConfig.url,
       title: siteConfig.name,
       description: siteConfig.description,
       siteName: siteConfig.name,
@@ -88,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fa"
       suppressHydrationWarning
       className={cn(
         fontVariables,

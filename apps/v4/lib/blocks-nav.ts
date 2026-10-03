@@ -235,3 +235,14 @@ export function getBlocksCategorySlugs() {
   }
   return [...slugs]
 }
+
+/** Resolve a blocks nav item by its route slug. */
+export function getBlocksNavItem(slug: string) {
+  for (const category of blocksNavCategories) {
+    const navItem = category.items.find((item) => item.slug === slug)
+    if (navItem) {
+      return { category, item: navItem }
+    }
+  }
+  return null
+}

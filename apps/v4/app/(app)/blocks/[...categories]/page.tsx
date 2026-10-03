@@ -2,6 +2,7 @@ import { type Metadata } from "next"
 import { redirect } from "next/navigation"
 
 import { getAllBlockIds } from "@/lib/blocks"
+import { getBlocksNavItem } from "@/lib/blocks-nav"
 import { registryCategories } from "@/lib/categories"
 import { getRegistryItem } from "@/lib/registry"
 import { BlockCardDisplay } from "@/components/block-card-display"
@@ -28,12 +29,45 @@ export async function generateMetadata({
   params: Promise<{ categories?: string[] }>
 }) {
   const { categories = [] } = await params
-  const category = registryCategories.find(({ slug }) => slug === categories[0])
+  const slug = categories[0]
+  const match = slug ? getBlocksNavItem(slug) : null
+  const title = match
+    ? `${match.item.title} — بلوک‌های UI`
+    : "بلوک‌ها"
+  const description = match
+    ? `بلوک‌های آمادهٔ «${match.item.title}» برای پروژه‌های فارسی و راست‌چین در دستهٔ ${match.category.title}.`
+    : "بلوک‌های آمادهٔ UI برای کپی در پروژه‌های فارسی و راست‌چین."
+  const canonical = `/blocks/${categories.join("/")}`
 
   return {
-    title: category ? `${category.name} Blocks` : undefined,
+    title,
+    description,
     alternates: {
-      canonical: `/blocks/${categories.join("/")}`,
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            title
+          )}&description=${encodeURIComponent(description)}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            title
+          )}&description=${encodeURIComponent(description)}`,
+        },
+      ],
     },
   } satisfies Metadata
 }

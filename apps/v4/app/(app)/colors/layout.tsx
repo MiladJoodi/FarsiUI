@@ -11,14 +11,19 @@ import {
 } from "@/components/page-header"
 import { Button } from "@/styles/radix-luma/ui/button"
 
-const title = "Tailwind Colors in Every Format"
+const title = "پالت رنگ Tailwind"
 const description =
-  "The complete Tailwind color palette in HEX, RGB, HSL, CSS variables, and classes. Ready to copy and paste into your project."
+  "پالت کامل رنگ‌های Tailwind به‌صورت HEX، RGB، HSL، متغیر CSS و کلاس — آمادهٔ کپی در پروژهٔ FarsiUI."
 
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "/colors",
+  },
   openGraph: {
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -29,6 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
     images: [
       {
         url: `/og?title=${encodeURIComponent(
@@ -45,17 +52,17 @@ export default function ColorsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <div dir="rtl" lang="fa">
       <PageHeader>
         <Announcement />
         <PageHeaderHeading>{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
           <Button asChild className="h-[35px]">
-            <a href="#colors">Browse Colors</a>
+            <a href="#colors">مشاهده رنگ‌ها</a>
           </Button>
           <Button asChild variant="secondary">
-            <Link href="/docs/theming">Documentation</Link>
+            <Link href="/docs/theming">مستندات تم</Link>
           </Button>
         </PageActions>
       </PageHeader>

@@ -17,6 +17,9 @@ export function generateMetadata() {
   return {
     title: "تغییرات",
     description: "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.",
+    alternates: {
+      canonical: "/docs/changelog",
+    },
     openGraph: {
       title: "تغییرات",
       description: "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.",
@@ -31,6 +34,11 @@ export function generateMetadata() {
           )}`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "تغییرات",
+      description: "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI.",
     },
   }
 }

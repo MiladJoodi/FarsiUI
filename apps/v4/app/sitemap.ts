@@ -1,22 +1,78 @@
 import type { MetadataRoute } from "next"
 
-import { registryCategories } from "@/lib/categories"
+import { getBlocksCategorySlugs } from "@/lib/blocks-nav"
 import { siteConfig } from "@/lib/config"
-import { source } from "@/lib/source"
+import { getSkillSlugs } from "@/lib/skills-data"
+import { showcaseCategories } from "@/lib/showcase"
 
 const chartTypes = ["area", "bar", "line", "pie", "radar", "radial", "tooltip"]
 
-const staticRoutes = ["/", "/blocks", "/colors", "/sera", "/typeset"]
+const staticRoutes = [
+  "/",
+  "/blocks",
+  "/colors",
+  "/charts/area",
+  "/skills",
+  "/skills/install",
+  "/showcase",
+  "/examples",
+  "/docs",
+  "/docs/installation",
+  "/docs/components",
+  "/docs/mcp",
+  "/docs/changelog",
+]
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const urls = [
-    ...staticRoutes,
-    ...source.getPages().map((page) => page.url),
-    ...registryCategories.map((category) => `/blocks/${category.slug}`),
-    ...chartTypes.map((type) => `/charts/${type}`),
-  ]
+function isIndexableDocsUrl(url: string) {
+  if (url.startsWith("/docs/components/radix/")) return false
+  if (url.startsWith("/docs/components/aria/")) return false
+  return url.startsWith("/docs")
+}
 
-  return [...new Set(urls)].map((path) => ({
-    url: new URL(path, siteConfig.url).toString(),
+function toSitemapEntries(paths: string[]): MetadataRoute.Sitemap {
+  const unique = [...new Set(paths.filter(Boolean))]
+  return unique.map((path) => ({
+    url: new URL(path, `${siteConfig.url}/`).toString(),
   }))
+}
+
+export default async function sitemap(): MetadataRoute.Sitemap {
+  const urls = [...staticRoutes]
+
+  try {
+    const { source } = await import("@/lib/source")
+    for (const page of source.getPages()) {
+      if (isIndexableDocsUrl(page.url)) {
+        urls.push(page.url)
+      }
+    }
+  } catch {
+    // Keep static/docs seed routes if the docs source fails at runtime.
+  }
+
+  try {
+    for (const slug of getBlocksCategorySlugs()) {
+      urls.push(`/blocks/${slug}`)
+    }
+  } catch {
+    // ignore
+  }
+
+  for (const type of chartTypes) {
+    urls.push(`/charts/${type}`)
+  }
+
+  try {
+    for (const slug of getSkillSlugs()) {
+      urls.push(`/skills/${slug}`)
+    }
+  } catch {
+    // ignore
+  }
+
+  for (const category of showcaseCategories) {
+    urls.push(category.href ?? `/showcase/${category.slug}`)
+  }
+
+  return toSitemapEntries(urls)
 }
