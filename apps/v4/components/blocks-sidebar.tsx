@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDownIcon } from "lucide-react"
 
+import { getNavCategoryBlockCounts } from "@/lib/blocks-counts"
 import {
   findBlocksNavMatch,
   getVisibleBlocksNav,
@@ -35,6 +36,7 @@ const ACTIVE_ITEM_CLASS =
 function BlocksNavList() {
   const pathname = usePathname()
   const categories = React.useMemo(() => getVisibleBlocksNav(), [])
+  const categoryCounts = React.useMemo(() => getNavCategoryBlockCounts(), [])
   const match = React.useMemo(
     () => findBlocksNavMatch(pathname),
     [pathname]
@@ -70,6 +72,7 @@ function BlocksNavList() {
             const isCategoryOpen =
               openCategories[category.slug] ??
               match?.category.slug === category.slug
+            const count = categoryCounts[category.slug] ?? 0
 
             return (
               <Collapsible
@@ -86,7 +89,12 @@ function BlocksNavList() {
                 <SidebarMenuItem>
                   <CollapsibleTrigger className="flex h-[30px] w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[0.8rem] font-medium text-muted-foreground outline-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                     <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/blocks-cat:rotate-90" />
-                    <span className="truncate">{category.title}</span>
+                    <span className="flex min-w-0 flex-1 items-center justify-between gap-2">
+                      <span className="truncate">{category.title}</span>
+                      <span className="shrink-0 text-[0.65rem] font-normal tracking-normal text-muted-foreground/80">
+                        {count.toLocaleString("fa-IR")}
+                      </span>
+                    </span>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenu className="ms-3 gap-0.5 border-none pe-1 ps-0">
