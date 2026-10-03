@@ -14,7 +14,12 @@ export function SiteHeader() {
   const pageTree = source.pageTree
 
   return (
-    <header dir="rtl" lang="fa" className="sticky top-0 z-50 w-full bg-background">
+    <header
+      dir="rtl"
+      lang="fa"
+      data-site-header=""
+      className="sticky top-0 z-50 w-full bg-background transition-transform duration-300 ease-out [[data-header-hidden]_&]:pointer-events-none [[data-header-hidden]_&]:-translate-y-full"
+    >
       <div className="container-wrapper px-4 sm:px-6 3xl:fixed:px-0">
         <div className="flex h-(--header-height) items-center gap-1 **:data-[slot=separator]:h-4! 3xl:fixed:container">
           <MobileNav

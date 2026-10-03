@@ -36,8 +36,9 @@ export function ListIndexNav({
       <div
         dir="rtl"
         lang="fa"
+        data-list-index-nav=""
         className={cn(
-          "sticky top-(--header-height) z-40 border-b border-border/80 bg-background/95 backdrop-blur-md supports-backdrop-filter:bg-background/80 lg:hidden",
+          "sticky top-(--header-height) z-40 border-b border-border/80 bg-background/95 backdrop-blur-md transition-[top] duration-300 ease-out supports-backdrop-filter:bg-background/80 [[data-header-hidden]_&]:top-0 lg:hidden",
           className
         )}
       >

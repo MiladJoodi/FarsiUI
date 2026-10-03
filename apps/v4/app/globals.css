@@ -189,6 +189,11 @@
     scroll-padding-top: var(--header-height);
   }
 
+  /* Mobile: when the main header hides on scroll, فهرست sits at the top. */
+  html[data-header-hidden] {
+    scroll-padding-top: 2.75rem;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
