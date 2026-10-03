@@ -89,7 +89,8 @@ export function usePersianDigitsInput({
     })
   )
 
-  React.useLayoutEffect(() => {
+  // Resolve ancestor dir/lang after mount so SSR markup stays stable.
+  React.useEffect(() => {
     const context = readLocaleContext(inputRef.current, { dir, lang })
     setEnabled(
       resolvePersianDigitsEnabled({

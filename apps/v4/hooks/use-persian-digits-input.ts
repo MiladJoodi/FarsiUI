@@ -89,7 +89,8 @@ export function usePersianDigitsInput({
     })
   )
 
-  React.useLayoutEffect(() => {
+  // Resolve ancestor dir/lang after mount so SSR markup stays stable.
+  React.useEffect(() => {
     const context = readLocaleContext(inputRef.current, { dir, lang })
     setEnabled(
       resolvePersianDigitsEnabled({
@@ -118,12 +119,9 @@ export function usePersianDigitsInput({
     selectionRef.current = null
   })
 
-  const setInputRef = React.useCallback(
-    (node: HTMLInputElement | null) => {
-      inputRef.current = node
-    },
-    []
-  )
+  const setInputRef = React.useCallback((node: HTMLInputElement | null) => {
+    inputRef.current = node
+  }, [])
 
   const handleChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -147,12 +145,9 @@ export function usePersianDigitsInput({
     [enabled, isControlled, onChange]
   )
 
-  const resolvedType =
-    enabled && type === "number" ? "text" : type
+  const resolvedType = enabled && type === "number" ? "text" : type
   const resolvedInputMode =
-    enabled && type === "number"
-      ? (inputMode ?? "decimal")
-      : inputMode
+    enabled && type === "number" ? (inputMode ?? "decimal") : inputMode
 
   const displayValue = enabled ? toPersianDigits(latinValue) : undefined
 
@@ -166,11 +161,7 @@ export function usePersianDigitsInput({
       dir,
       lang,
       name: enabled && name ? undefined : name,
-      value: enabled
-        ? displayValue
-        : isControlled
-          ? value
-          : undefined,
+      value: enabled ? displayValue : isControlled ? value : undefined,
       defaultValue: enabled || isControlled ? undefined : defaultValue,
       onChange: handleChange,
     } satisfies Partial<React.ComponentProps<"input">>,

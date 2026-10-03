@@ -16,6 +16,7 @@ export function InputNumeric() {
         <Input
           id="amount"
           inputMode="decimal"
+          lang="fa"
           value={amount}
           onChange={(event) => setAmount(event.target.value)}
           placeholder="0"
@@ -33,6 +34,7 @@ export function InputNumeric() {
           id="phone"
           type="tel"
           dir="ltr"
+          lang="fa"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
           placeholder="09121234567"
