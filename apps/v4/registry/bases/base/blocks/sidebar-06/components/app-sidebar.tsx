@@ -52,7 +52,7 @@ export function AppSidebar() {
   const [userOpen, setUserOpen] = React.useState(false)
 
   return (
-    <Sidebar side="left" collapsible="offcanvas" variant="sidebar">
+    <Sidebar side="right" collapsible="offcanvas" variant="sidebar">
       <SidebarHeader className="border-b px-3 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -63,7 +63,7 @@ export function AppSidebar() {
               <div className="grid flex-1 text-start text-sm leading-tight">
                 <span className="truncate font-semibold">کنسول</span>
                 <span className="truncate text-xs text-muted-foreground">
-                  سمت چپ
+                  سرویس‌ها
                 </span>
               </div>
             </SidebarMenuButton>
@@ -88,8 +88,8 @@ export function AppSidebar() {
                     <IconPlaceholder lucide={item.icon} className="size-4" />
                     <span>{item.title}</span>
                     <IconPlaceholder
-                      lucide="ChevronRightIcon"
-                      className="ms-auto size-4 transition-transform group-data-open/collapsible:rotate-90"
+                      lucide="ChevronDownIcon"
+                      className="ms-auto size-4 opacity-60 transition-transform group-data-open/collapsible:rotate-180"
                     />
                   </CollapsibleTrigger>
                   <CollapsibleContent>
@@ -136,7 +136,7 @@ export function AppSidebar() {
                 </div>
                 <IconPlaceholder
                   lucide="ChevronsUpDownIcon"
-                  className="ms-auto size-4"
+                  className="ms-auto size-4 opacity-60"
                 />
               </PopoverTrigger>
               <PopoverContent
@@ -147,21 +147,21 @@ export function AppSidebar() {
               >
                 <button
                   type="button"
-                  className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                  className="flex w-full rounded-md px-2 py-1.5 text-start text-sm hover:bg-muted"
                   onClick={() => setUserOpen(false)}
                 >
                   پروفایل
                 </button>
                 <button
                   type="button"
-                  className="flex w-full rounded-md px-2 py-1.5 text-sm hover:bg-muted"
+                  className="flex w-full rounded-md px-2 py-1.5 text-start text-sm hover:bg-muted"
                   onClick={() => setUserOpen(false)}
                 >
                   تنظیمات
                 </button>
                 <button
                   type="button"
-                  className="flex w-full rounded-md px-2 py-1.5 text-sm text-destructive hover:bg-muted"
+                  className="flex w-full rounded-md px-2 py-1.5 text-start text-sm text-destructive hover:bg-muted"
                   onClick={() => setUserOpen(false)}
                 >
                   خروج

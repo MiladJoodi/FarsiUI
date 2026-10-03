@@ -9323,7 +9323,7 @@ export const blocks: Registry["items"] = [
     name: "sidebar-06",
     title: "Sidebar 06",
     type: "registry:block",
-    description: "لایوت معکوس؛ سایدبار سمت چپ.",
+    description: "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
     registryDependencies: [
       "sidebar",
       "breadcrumb",

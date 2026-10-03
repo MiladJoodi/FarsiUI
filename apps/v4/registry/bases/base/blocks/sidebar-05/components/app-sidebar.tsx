@@ -83,8 +83,8 @@ export function AppSidebar() {
                     <IconPlaceholder lucide={item.icon} className="size-4" />
                     <span>{item.title}</span>
                     <IconPlaceholder
-                      lucide="ChevronLeftIcon"
-                      className="ms-auto size-4 transition-transform group-data-open/collapsible:-rotate-90"
+                      lucide="ChevronDownIcon"
+                      className="ms-auto size-4 opacity-60 transition-transform group-data-open/collapsible:rotate-180"
                     />
                   </CollapsibleTrigger>
                   <CollapsibleContent>

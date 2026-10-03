@@ -35,14 +35,14 @@ export default function Page() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>لایوت معکوس</BreadcrumbPage>
+                  <BreadcrumbPage>حساب کاربری</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </header>
           <div className="flex flex-1 flex-col gap-4 p-4">
             <p className="text-sm text-muted-foreground">
-              سایدبار سمت چپ (معکوس نسبت به حالت پیش‌فرض راست‌چین).
+              منوی جمع‌شونده با منوی حساب در پایین سایدبار.
             </p>
             <div className="grid auto-rows-min gap-4 md:grid-cols-3">
               <div className="aspect-video rounded-xl bg-muted/50" />

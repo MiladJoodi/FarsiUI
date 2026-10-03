@@ -2125,8 +2125,8 @@
   },
   {
     "name": "sidebar-06",
-    "description": "A sidebar with submenus as dropdowns.",
-    "categories": ["sidebar", "dashboard"]
+    "description": "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
+    "categories": ["sidebar"]
   },
   {
     "name": "signup-01",
