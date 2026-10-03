@@ -274,7 +274,33 @@ body[class*="theme-"] {
 
 /* Flip directional icons in RTL (carousel, pagination, calendar, …). */
 @utility cn-rtl-flip {
-  @apply rtl:rotate-180;
+  &:where(
+    :is(
+      :lang(ae),
+      :lang(ar),
+      :lang(arc),
+      :lang(bcc),
+      :lang(bqi),
+      :lang(ckb),
+      :lang(dv),
+      :lang(fa),
+      :lang(glk),
+      :lang(he),
+      :lang(ku),
+      :lang(mzn),
+      :lang(nqo),
+      :lang(pnb),
+      :lang(ps),
+      :lang(sd),
+      :lang(ug),
+      :lang(ur),
+      :lang(yi)
+    ),
+    [dir="rtl"],
+    [dir="rtl"] *
+  ) {
+    rotate: 180deg;
+  }
 }
 
 @utility no-scrollbar {

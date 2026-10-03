@@ -38,7 +38,9 @@ export function DialogDemo() {
                 <Input
                   id="username-1"
                   name="username"
+                  dir="ltr"
                   defaultValue="@alireza"
+                  className="text-left"
                 />
               </Field>
             </FieldGroup>

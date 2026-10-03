@@ -31,7 +31,12 @@ export default function SheetDemo() {
             </div>
             <div className="grid gap-3">
               <Label htmlFor="sheet-demo-username">نام کاربری</Label>
-              <Input id="sheet-demo-username" defaultValue="@alireza" />
+              <Input
+                id="sheet-demo-username"
+                dir="ltr"
+                defaultValue="@alireza"
+                className="text-left"
+              />
             </div>
           </div>
           <SheetFooter>

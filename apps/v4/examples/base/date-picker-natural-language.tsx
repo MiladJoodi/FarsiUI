@@ -31,12 +31,12 @@ function formatDate(date: Date | undefined) {
   })
 }
 
+const initialDate = parseDate("In 2 days") || undefined
+
 export function DatePickerNaturalLanguage() {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("In 2 days")
-  const [date, setDate] = React.useState<Date | undefined>(
-    parseDate(value) || undefined
-  )
+  const [date, setDate] = React.useState<Date | undefined>(initialDate)
+  const [value, setValue] = React.useState(formatDate(initialDate))
 
   return (
     <Field className="mx-auto max-w-xs" dir="rtl">
@@ -45,12 +45,12 @@ export function DatePickerNaturalLanguage() {
         <InputGroupInput
           id="date-optional"
           value={value}
-          placeholder="Tomorrow یا next week"
+          placeholder="فردا یا هفتهٔ بعد"
           onChange={(e) => {
             setValue(e.target.value)
-            const date = parseDate(e.target.value)
-            if (date) {
-              setDate(date)
+            const parsed = parseDate(e.target.value)
+            if (parsed) {
+              setDate(parsed)
             }
           }}
           onKeyDown={(e) => {
@@ -87,9 +87,9 @@ export function DatePickerNaturalLanguage() {
                 defaultMonth={date}
                 locale={faIRDayPicker}
                 dir="rtl"
-                onSelect={(date) => {
-                  setDate(date)
-                  setValue(formatDate(date))
+                onSelect={(next) => {
+                  setDate(next)
+                  setValue(formatDate(next))
                   setOpen(false)
                 }}
               />

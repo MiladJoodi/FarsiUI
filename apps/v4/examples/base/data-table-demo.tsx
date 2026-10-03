@@ -72,6 +72,10 @@ const columnLabel: Record<string, string> = {
   amount: "مبلغ",
 }
 
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 const data: Payment[] = [
   {
     id: "m5gr84i9",
@@ -146,6 +150,8 @@ export const columns = columnHelper.columns([
       return (
         <Button
           variant="ghost"
+          size="sm"
+          className="-ms-2 h-8"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           ایمیل
@@ -160,47 +166,46 @@ export const columns = columnHelper.columns([
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"))
       const formatted = new Intl.NumberFormat("fa-IR", {
-        style: "currency",
-        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
       }).format(amount)
 
-      return (
-        <div dir="ltr" className="text-end font-medium tabular-nums">
-          {formatted}
-        </div>
-      )
+      return <div className="text-end font-medium">{formatted} $</div>
     },
   }),
   columnHelper.display({
     id: "actions",
+    header: () => <div className="text-center">عملیات</div>,
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={<Button variant="ghost" size="icon-xs" />}
-          >
-            <span className="sr-only">باز کردن منو</span>
-            <MoreHorizontal />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-44">
-            <DropdownMenuGroup>
-              <DropdownMenuLabel>اقدام‌ها</DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(payment.id)}
-              >
-                کپی شناسه پرداخت
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
-              <DropdownMenuItem>جزئیات پرداخت</DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              render={<Button variant="ghost" size="icon-xs" />}
+            >
+              <span className="sr-only">باز کردن منو</span>
+              <MoreHorizontal />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-44">
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>اقدام‌ها</DropdownMenuLabel>
+                <DropdownMenuItem
+                  onClick={() => navigator.clipboard.writeText(payment.id)}
+                >
+                  کپی شناسه پرداخت
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
+                <DropdownMenuItem>جزئیات پرداخت</DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       )
     },
   }),
@@ -316,8 +321,9 @@ export function DataTableDemo() {
       </div>
       <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} از{" "}
-          {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
+          {toPersianDigits(table.getFilteredSelectedRowModel().rows.length)} از{" "}
+          {toPersianDigits(table.getFilteredRowModel().rows.length)} ردیف انتخاب
+          شده.
         </div>
         <div className="flex gap-2">
           <Button

@@ -31,8 +31,6 @@ component: true
 "use client"
 
 import * as React from "react"
-import { format } from "date-fns"
-import { faIR } from "date-fns/locale"
 import { Calendar as CalendarIcon } from "lucide-react"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
@@ -43,6 +41,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+}
 
 export function DatePickerDemo() {
   const [date, setDate] = React.useState<Date>()
@@ -60,11 +66,7 @@ export function DatePickerDemo() {
           }
         >
           <CalendarIcon />
-          {date ? (
-            format(date, "PPP", { locale: faIR })
-          ) : (
-            <span>انتخاب تاریخ</span>
-          )}
+          {date ? formatDate(date) : <span>انتخاب تاریخ</span>}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
           <Calendar
@@ -200,7 +202,7 @@ Popover
 
 <DocsCollapsible title="زبان طبیعی">
 
-این مثال از کتابخانهٔ `chrono-node` برای پارس تاریخ به زبان طبیعی (انگلیسی) استفاده می‌کند.
+این مثال از کتابخانهٔ `chrono-node` برای پارس عبارت‌های انگلیسی مثل `tomorrow` استفاده می‌کند؛ مقدار نمایش‌داده‌شده در ورودی با تاریخ شمسی و ارقام فارسی است.
 
 ```bash
 npm install chrono-node

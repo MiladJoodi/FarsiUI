@@ -38,7 +38,9 @@ export function DialogRtl() {
                 <Input
                   id="username-rtl"
                   name="username"
+                  dir="ltr"
                   defaultValue="@alireza"
+                  className="text-left"
                 />
               </Field>
             </FieldGroup>

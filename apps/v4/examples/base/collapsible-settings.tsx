@@ -43,7 +43,7 @@ export function CollapsibleSettings() {
                 id="radius-x"
                 dir="ltr"
                 placeholder="۰"
-                defaultValue={0}
+                defaultValue="۰"
               />
             </Field>
             <Field>
@@ -54,7 +54,7 @@ export function CollapsibleSettings() {
                 id="radius-y"
                 dir="ltr"
                 placeholder="۰"
-                defaultValue={0}
+                defaultValue="۰"
               />
             </Field>
             <CollapsibleContent className="col-span-full grid grid-cols-subgrid gap-2">
@@ -66,7 +66,7 @@ export function CollapsibleSettings() {
                   id="radius-x-extra"
                   dir="ltr"
                   placeholder="۰"
-                  defaultValue={0}
+                  defaultValue="۰"
                 />
               </Field>
               <Field>
@@ -77,7 +77,7 @@ export function CollapsibleSettings() {
                   id="radius-y-extra"
                   dir="ltr"
                   placeholder="۰"
-                  defaultValue={0}
+                  defaultValue="۰"
                 />
               </Field>
             </CollapsibleContent>

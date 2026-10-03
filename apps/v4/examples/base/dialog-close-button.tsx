@@ -33,8 +33,10 @@ export function DialogCloseButton() {
               </Label>
               <Input
                 id="link"
+                dir="ltr"
                 defaultValue="https://ui.farsiui.com/docs/installation"
                 readOnly
+                className="text-left"
               />
             </div>
           </div>

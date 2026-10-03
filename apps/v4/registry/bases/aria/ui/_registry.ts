@@ -443,6 +443,7 @@ export const ui: Registry["items"] = [
   {
     name: "input",
     type: "registry:ui",
+    registryDependencies: ["digits", "use-persian-digits-input"],
     files: [
       {
         path: "ui/input.tsx",
@@ -481,6 +482,7 @@ export const ui: Registry["items"] = [
     name: "input-otp",
     type: "registry:ui",
     dependencies: ["input-otp"],
+    registryDependencies: ["digits"],
     files: [
       {
         path: "ui/input-otp.tsx",

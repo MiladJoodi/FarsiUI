@@ -176,19 +176,20 @@ export function DataTableRtl() {
           ),
         }),
         columnHelper.accessor("amount", {
-          header: () => <div className="text-start">مبلغ</div>,
+          header: () => <div className="text-end">مبلغ</div>,
           cell: ({ row }) => {
             const amount = parseFloat(row.getValue("amount"))
             const formatted = new Intl.NumberFormat("fa-IR", {
-              style: "currency",
-              currency: "USD",
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
             }).format(amount)
 
-            return <div className="text-start font-medium">{formatted}</div>
+            return <div className="text-end font-medium">{formatted} $</div>
           },
         }),
         columnHelper.display({
           id: "actions",
+          header: () => <div className="text-center">عملیات</div>,
           enableHiding: false,
           cell: ({ row }) => {
             const payment = row.original
@@ -325,8 +326,16 @@ export function DataTableRtl() {
       </div>
       <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} از{" "}
-          {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
+          {String(table.getFilteredSelectedRowModel().rows.length).replace(
+            /\d/g,
+            (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!
+          )}{" "}
+          از{" "}
+          {String(table.getFilteredRowModel().rows.length).replace(
+            /\d/g,
+            (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!
+          )}{" "}
+          ردیف انتخاب شده.
         </div>
         <div className="flex gap-2">
           <Button

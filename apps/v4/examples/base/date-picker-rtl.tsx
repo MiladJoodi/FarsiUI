@@ -1,8 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { format } from "date-fns"
-import { faIR } from "date-fns/locale"
 import { ChevronDownIcon } from "lucide-react"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
@@ -13,6 +11,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/styles/base-nova/ui/popover"
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+}
 
 export function DatePickerRtl() {
   const [date, setDate] = React.useState<Date>()
@@ -29,11 +35,7 @@ export function DatePickerRtl() {
             />
           }
         >
-          {date ? (
-            format(date, "PPP", { locale: faIR })
-          ) : (
-            <span>انتخاب تاریخ</span>
-          )}
+          {date ? formatDate(date) : <span>انتخاب تاریخ</span>}
           <ChevronDownIcon data-icon="inline-end" />
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">

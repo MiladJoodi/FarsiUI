@@ -1,8 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { addDays, format } from "date-fns"
-import { faIR } from "date-fns/locale"
+import { addDays } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 import { type DateRange } from "react-day-picker"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
@@ -15,6 +14,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/styles/base-nova/ui/popover"
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("fa-IR", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  })
+}
 
 export function DatePickerWithRange() {
   const [date, setDate] = React.useState<DateRange | undefined>({
@@ -39,11 +46,10 @@ export function DatePickerWithRange() {
           {date?.from ? (
             date.to ? (
               <>
-                {format(date.from, "d LLL y", { locale: faIR })} –{" "}
-                {format(date.to, "d LLL y", { locale: faIR })}
+                {formatDate(date.from)} – {formatDate(date.to)}
               </>
             ) : (
-              format(date.from, "d LLL y", { locale: faIR })
+              formatDate(date.from)
             )
           ) : (
             <span>انتخاب تاریخ</span>

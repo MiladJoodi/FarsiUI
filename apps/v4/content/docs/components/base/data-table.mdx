@@ -359,11 +359,11 @@ export const columns = columnHelper.columns([
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"))
       const formatted = new Intl.NumberFormat("fa-IR", {
-        style: "currency",
-        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
       }).format(amount)
 
-      return <div className="text-end font-medium">{formatted}</div>
+      return <div className="text-end font-medium">{formatted} $</div>
     },
   }),
 ])
@@ -403,6 +403,7 @@ export const columns = columnHelper.columns([
   // ...
   columnHelper.display({
     id: "actions",
+    header: () => <div className="text-center">عملیات</div>,
     cell: ({ row }) => {
       const payment = row.original
 
@@ -827,12 +828,16 @@ export function DataTable<TData extends RowData>({
 }
 ```
 
-تعداد ردیف‌های انتخاب‌شده با `table.getFilteredSelectedRowModel()`:
+تعداد ردیف‌های انتخاب‌شده با `table.getFilteredSelectedRowModel()` (اعداد با ارقام فارسی):
 
 ```tsx
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
+}
+
 <div className="flex-1 text-sm text-muted-foreground">
-  {table.getFilteredSelectedRowModel().rows.length} از{" "}
-  {table.getFilteredRowModel().rows.length} ردیف انتخاب شده.
+  {toPersianDigits(table.getFilteredSelectedRowModel().rows.length)} از{" "}
+  {toPersianDigits(table.getFilteredRowModel().rows.length)} ردیف انتخاب شده.
 </div>
 ```
 
@@ -846,7 +851,7 @@ export function DataTable<TData extends RowData>({
 
 <DocsCollapsible title="کامپوننت‌های قابل‌استفادهٔ مجدد">
 
-این‌ها از دموی [Tasks](/examples/tasks) آمده‌اند و ویژگی‌ها را از طریق `data-table-features.ts` به اشتراک می‌گذارند — همان الگوی بخش «تنظیم ویژگی‌های جدول».
+این کامپوننت‌ها از دموی [وظایف](/examples/tasks) آمده‌اند و همان آبجکت `features` در `data-table-features.ts` را به اشتراک می‌گذارند — الگوی بخش «تنظیم ویژگی‌های جدول».
 
 ### هدر ستون
 

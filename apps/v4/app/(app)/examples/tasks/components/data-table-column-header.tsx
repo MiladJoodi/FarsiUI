@@ -35,7 +35,7 @@ export function DataTableColumnHeader<TData extends RowData, TValue>({
           <Button
             variant="ghost"
             size="sm"
-            className="-ml-3 h-8 data-[state=open]:bg-accent"
+            className="-ms-2 h-8 data-[state=open]:bg-accent"
           >
             <span>{title}</span>
             {column.getIsSorted() === "desc" ? (
@@ -50,16 +50,16 @@ export function DataTableColumnHeader<TData extends RowData, TValue>({
         <DropdownMenuContent align="start">
           <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
             <ArrowUp />
-            Asc
+            صعودی
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
             <ArrowDown />
-            Desc
+            نزولی
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
             <EyeOff />
-            Hide
+            مخفی کردن
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
