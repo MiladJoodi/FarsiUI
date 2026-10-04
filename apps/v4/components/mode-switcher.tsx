@@ -29,29 +29,6 @@ export function ModeSwitcher({
   React.useEffect(() => {
     ;(window as Window & { __modeSwitchHydrated?: boolean }).__modeSwitchHydrated =
       true
-    // #region agent log
-    const t = Math.round(performance.now())
-    const dbg = (
-      window as Window & { __farsiHeaderDebug?: { modeSwitcherMount?: number } }
-    ).__farsiHeaderDebug
-    if (dbg) dbg.modeSwitcherMount = t
-    fetch("http://127.0.0.1:7896/ingest/5b150b1c-f596-4344-bc6e-c0563c0599de", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Debug-Session-Id": "bf5044",
-      },
-      body: JSON.stringify({
-        sessionId: "bf5044",
-        runId: "post-fix",
-        hypothesisId: "C",
-        location: "mode-switcher.tsx:hydrate",
-        message: "ModeSwitcher hydrated",
-        data: { t },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {})
-    // #endregion
   }, [])
 
   const toggleTheme = React.useCallback(() => {

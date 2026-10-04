@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { CheckIcon } from "lucide-react"
+import { useCallback, useState } from "react"
+import { CheckIcon, RotateCcwIcon } from "lucide-react"
+import { useTheme } from "next-themes"
 import { cn } from "cn"
 
 import { useThemeConfig } from "@/components/active-theme"
@@ -11,6 +12,8 @@ import {
   type DesignSystemId,
 } from "@/components/design-system-preview"
 import { useFontPreview } from "@/components/font-preview"
+import { DEFAULT_ACTIVE_THEME } from "@/lib/active-theme"
+import { THEME_BEFORE_DARK_DS_KEY } from "@/lib/design-system"
 import type { UiFontId } from "@/lib/fonts"
 import { THEME_LABELS, THEMES } from "@/lib/themes"
 
@@ -104,6 +107,7 @@ export function DesignStudioPanel({
     useDesignSystemPreview()
   const { fontId, setFontId, fonts } = useFontPreview()
   const { activeTheme, setActiveTheme } = useThemeConfig()
+  const { setTheme } = useTheme()
   const ownedAccent = OWNED_ACCENT_SYSTEMS.has(designSystemId)
   const showPrimaryColor = !hideColor && !ownedAccent
   const currentTheme = activeTheme === "default" ? "neutral" : activeTheme
@@ -117,6 +121,18 @@ export function DesignStudioPanel({
 
   const visibleTab =
     tab === "color" && !showPrimaryColor ? "style" : tab
+
+  const resetToDefaults = useCallback(() => {
+    try {
+      sessionStorage.removeItem(THEME_BEFORE_DARK_DS_KEY)
+    } catch {
+      // Ignore private mode.
+    }
+    setDesignSystemId("default")
+    setFontId("estedad")
+    setTheme("system")
+    setActiveTheme(DEFAULT_ACTIVE_THEME)
+  }, [setActiveTheme, setDesignSystemId, setFontId, setTheme])
 
   return (
     <div
@@ -153,6 +169,16 @@ export function DesignStudioPanel({
           )
         })}
       </div>
+      <button
+        type="button"
+        onClick={resetToDefaults}
+        aria-label="بازنشانی به پیشفرض، استعداد و خاکستری"
+        title="بازنشانی به پیشفرض · استعداد · خاکستری"
+        className="inline-flex w-fit items-center gap-1 self-start text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+      >
+        <span>پیشفرض · استعداد · خاکستری</span>
+        <RotateCcwIcon className="size-3 opacity-70" />
+      </button>
 
       {visibleTab === "style" ? (
         <section className="grid gap-2">

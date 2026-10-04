@@ -1,4 +1,3 @@
-import { HeaderInteractDebug } from "@/components/header-interact-debug"
 import { MobileHeaderScroll } from "@/components/mobile-header-scroll"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { SiteFooter } from "@/components/site-footer"
@@ -10,7 +9,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       data-slot="layout"
       className="group/layout relative z-10 flex min-h-svh flex-col bg-background font-sans"
     >
-      <HeaderInteractDebug />
       <ScrollToTop />
       <MobileHeaderScroll />
       <SiteHeader />

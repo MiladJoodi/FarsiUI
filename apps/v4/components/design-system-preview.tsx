@@ -6,15 +6,19 @@ import {
   useContext,
   useEffect,
   useLayoutEffect,
+  useRef,
   useState,
   type ReactNode,
 } from "react"
+import { useTheme } from "next-themes"
 
 import {
   DESIGN_SYSTEM_STORAGE_KEY,
   DESIGN_SYSTEM_STYLE_CLASS,
+  isDarkDefaultDesignSystem,
   normalizeDesignSystemId,
   persistDesignSystemId,
+  THEME_BEFORE_DARK_DS_KEY,
   type DesignSystemCookieId,
 } from "@/lib/design-system"
 
@@ -142,6 +146,52 @@ export function DesignSystemPreviewProvider({
   const [designSystemId, setDesignSystemIdState] =
     useState<DesignSystemId>(bootId)
   const [hydrated, setHydrated] = useState(false)
+  const designSystemIdRef = useRef(designSystemId)
+  const { setTheme, theme } = useTheme()
+  const themeRef = useRef(theme)
+
+  designSystemIdRef.current = designSystemId
+  themeRef.current = theme
+
+  const stashThemeBeforeDarkDs = useCallback(() => {
+    try {
+      if (sessionStorage.getItem(THEME_BEFORE_DARK_DS_KEY)) return
+      const current =
+        themeRef.current || window.localStorage.getItem("theme") || "system"
+      sessionStorage.setItem(THEME_BEFORE_DARK_DS_KEY, current)
+    } catch {
+      // Ignore private mode.
+    }
+  }, [])
+
+  const restoreThemeAfterDarkDs = useCallback(() => {
+    try {
+      const saved = sessionStorage.getItem(THEME_BEFORE_DARK_DS_KEY)
+      if (!saved) return
+      sessionStorage.removeItem(THEME_BEFORE_DARK_DS_KEY)
+      setTheme(saved)
+    } catch {
+      // Ignore private mode.
+    }
+  }, [setTheme])
+
+  const syncColorModeForDesignSystem = useCallback(
+    (nextId: DesignSystemId, prevId: DesignSystemId) => {
+      const nextDark = isDarkDefaultDesignSystem(nextId)
+      const prevDark = isDarkDefaultDesignSystem(prevId)
+
+      if (nextDark && !prevDark) {
+        stashThemeBeforeDarkDs()
+        setTheme("dark")
+        return
+      }
+
+      if (!nextDark && prevDark) {
+        restoreThemeAfterDarkDs()
+      }
+    },
+    [restoreThemeAfterDarkDs, setTheme, stashThemeBeforeDarkDs]
+  )
 
   // Before paint: reconcile localStorage vs cookie boot, apply class sync.
   useLayoutEffect(() => {
@@ -155,8 +205,15 @@ export function DesignSystemPreviewProvider({
     setDesignSystemIdState(next)
     persistDesignSystemId(next as DesignSystemCookieId)
     applyStyleRootClass(preset.styleRootClass)
+
+    // Boot path: فیروزه / نیلی already active → dark, keep prior choice stashed.
+    if (isDarkDefaultDesignSystem(next)) {
+      stashThemeBeforeDarkDs()
+      setTheme("dark")
+    }
+
     setHydrated(true)
-  }, [])
+  }, [setTheme, stashThemeBeforeDarkDs])
 
   useEffect(() => {
     if (!hydrated) return
@@ -235,12 +292,17 @@ export function DesignSystemPreviewProvider({
     }
   }, [designSystemId, hydrated])
 
-  const setDesignSystemId = useCallback((id: DesignSystemId) => {
-    if (!DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) return
-    persistDesignSystemId(id as DesignSystemCookieId)
-    applyStyleRootClass(resolvePreset(id).styleRootClass)
-    setDesignSystemIdState(id)
-  }, [])
+  const setDesignSystemId = useCallback(
+    (id: DesignSystemId) => {
+      if (!DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) return
+      const prevId = designSystemIdRef.current
+      persistDesignSystemId(id as DesignSystemCookieId)
+      applyStyleRootClass(resolvePreset(id).styleRootClass)
+      setDesignSystemIdState(id)
+      syncColorModeForDesignSystem(id, prevId)
+    },
+    [syncColorModeForDesignSystem]
+  )
 
   const preset = resolvePreset(designSystemId)
 

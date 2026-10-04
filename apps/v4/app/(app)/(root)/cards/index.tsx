@@ -2,7 +2,6 @@
 
 import type { MouseEvent, ReactNode } from "react"
 import { cn } from "cn"
-import MessageScrollerDemo from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
 import { AnalyticsCard } from "./analytics-card"
@@ -18,7 +17,7 @@ import { FaqCard } from "./faq-card"
 import { InviteTeamCard } from "./invite-team-card"
 import { MarkerAvatarAlert } from "./marker-avatar-alert"
 import { MenubarCard } from "./menubar-card"
-import { NavigationMenuCard } from "./navigation-menu-card"
+import { MessageScrollerStatic } from "./message-scroller-static"
 import { NewMilestone } from "./new-milestone"
 import { NotificationSettings } from "./notification-settings"
 import { Payments } from "./payments"
@@ -31,19 +30,6 @@ import { SidebarNav } from "./sidebar-nav"
 import { SocialLinksCard } from "./social-links-card"
 import { SyncingStateCard } from "./syncing-state-card"
 import { TabsCard } from "./tabs-card"
-import { AccountAccess as SkeletonAccountAccess } from "./skeleton/account-access"
-import { AnalyticsCard as SkeletonAnalyticsCard } from "./skeleton/analytics-card"
-import { ClaimableBalance as SkeletonClaimableBalance } from "./skeleton/claimable-balance"
-import { ContributionHistory as SkeletonContributionHistory } from "./skeleton/contribution-history"
-import { DividendIncome as SkeletonDividendIncome } from "./skeleton/dividend-income"
-import { EmptyDistributeTrack as SkeletonEmptyDistributeTrack } from "./skeleton/empty-distribute-track"
-import { NewMilestone as SkeletonNewMilestone } from "./skeleton/new-milestone"
-import { NotificationSettings as SkeletonNotificationSettings } from "./skeleton/notification-settings"
-import { Payments as SkeletonPayments } from "./skeleton/payments"
-import { PayoutThreshold as SkeletonPayoutThreshold } from "./skeleton/payout-threshold"
-import { PowerUsage as SkeletonPowerUsage } from "./skeleton/power-usage"
-import { SavingsTargets as SkeletonSavingsTargets } from "./skeleton/savings-targets"
-import { UIElements as SkeletonUIElements } from "./skeleton/ui-elements"
 import { UIElements } from "./ui-elements"
 
 /** Design width of the mobile collage before it is scaled into 140vw (shadcn pattern). */
@@ -60,47 +46,6 @@ function FadeTail({ children }: { children: ReactNode }) {
       className="pointer-events-none mt-auto h-40 shrink-0 overflow-hidden lg:h-48"
     >
       <div className="flex flex-col gap-(--gap)">{children}</div>
-    </div>
-  )
-}
-
-function CardsSkeletonRails() {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-12 z-10 hidden min-[2200px]:block [&_[data-slot=skeleton]:nth-child(even)]:hidden"
-    >
-      <div className="absolute top-0 left-[calc(50%-950px-var(--rail-width)-var(--gap))] grid w-(--rail-width) grid-cols-[repeat(2,var(--rail-column))] gap-(--gap) opacity-50 [--rail-column:20rem] [--rail-width:calc(var(--rail-column)*2+var(--gap))]">
-        <div className="flex flex-col gap-(--gap)">
-          <SkeletonContributionHistory />
-          <SkeletonClaimableBalance />
-          <SkeletonDividendIncome />
-          <SkeletonPayoutThreshold />
-        </div>
-        <div className="flex flex-col gap-(--gap)">
-          <SkeletonUIElements />
-          <SkeletonSavingsTargets />
-          <SkeletonNewMilestone />
-          <SkeletonPayoutThreshold />
-          <SkeletonAccountAccess />
-        </div>
-      </div>
-      <div className="absolute top-0 right-[calc(50%-950px-var(--rail-width)-var(--gap))] grid w-(--rail-width) grid-cols-[repeat(2,var(--rail-column))] gap-(--gap) opacity-50 [--rail-column:20rem] [--rail-width:calc(var(--rail-column)*2+var(--gap))]">
-        <div className="flex flex-col gap-(--gap)">
-          <SkeletonNewMilestone />
-          <SkeletonPayoutThreshold />
-          <SkeletonAccountAccess />
-          <SkeletonPayments />
-          <SkeletonEmptyDistributeTrack />
-        </div>
-        <div className="flex flex-col gap-(--gap)">
-          <SkeletonPayments />
-          <SkeletonEmptyDistributeTrack />
-          <SkeletonAnalyticsCard />
-          <SkeletonNotificationSettings />
-          <SkeletonPowerUsage />
-        </div>
-      </div>
     </div>
   )
 }
@@ -153,7 +98,6 @@ function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
         <NewMilestone />
         <SavingsTargets />
         <AccountAccess />
-        <NavigationMenuCard />
         <DropdownDrawerHover />
         <ShortcutsCard />
         <FadeTail>
@@ -162,7 +106,7 @@ function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
       </div>
       <div className={col("md:flex")}>
         <div className="**:[.text-center.text-xs]:hidden">
-          <MessageScrollerDemo />
+          <MessageScrollerStatic />
         </div>
         <Payments />
         <PopoverSliderToastToggle />
@@ -188,10 +132,6 @@ function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
   )
 }
 
-/**
- * Mobile: desktop collage zoomed into 140vw (shadcn pattern).
- * `zoom` keeps layout height correct; fades match CardsDemo exactly.
- */
 /** Soft handoff from page header (background) into the collage (muted). */
 const COLLAGE_SURFACE =
   "bg-muted [background-image:linear-gradient(to_bottom,var(--background)_0%,var(--background)_1.25rem,var(--muted)_5.5rem)] dark:bg-background dark:[background-image:none]"
@@ -236,7 +176,6 @@ export function CardsDemo() {
         COLLAGE_SURFACE
       )}
     >
-      <CardsSkeletonRails />
       <CardsColumns />
       <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
