@@ -4,7 +4,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Popover,
   PopoverContent,
@@ -12,7 +12,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/registry/bases/radix/ui-rtl/popover"
+} from "@/registry/bases/radix/ui/popover"
 
 const translations: Translations = {
   en: {

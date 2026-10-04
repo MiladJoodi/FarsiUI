@@ -9,7 +9,7 @@ import {
 import {
   NativeSelect,
   NativeSelectOption,
-} from "@/registry/bases/radix/ui-rtl/native-select"
+} from "@/registry/bases/radix/ui/native-select"
 
 const translations: Translations = {
   en: {

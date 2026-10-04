@@ -15,7 +15,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/registry/bases/radix/ui-rtl/select"
+} from "@/registry/bases/radix/ui/select"
 
 const translations: Translations = {
   en: {

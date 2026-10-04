@@ -11,8 +11,8 @@ import {
   ItemContent,
   ItemMedia,
   ItemTitle,
-} from "@/registry/bases/radix/ui-rtl/item"
-import { Spinner } from "@/registry/bases/radix/ui-rtl/spinner"
+} from "@/registry/bases/radix/ui/item"
+import { Spinner } from "@/registry/bases/radix/ui/spinner"
 
 const translations: Translations = {
   en: {

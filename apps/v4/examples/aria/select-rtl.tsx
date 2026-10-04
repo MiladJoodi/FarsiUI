@@ -17,7 +17,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/registry/bases/aria/ui-rtl/select"
+} from "@/registry/bases/aria/ui/select"
 
 const translations: Translations = {
   en: {

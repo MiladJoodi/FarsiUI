@@ -4,7 +4,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -14,10 +14,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/bases/radix/ui-rtl/dialog"
-import { Field, FieldGroup } from "@/registry/bases/radix/ui-rtl/field"
-import { Input } from "@/registry/bases/radix/ui-rtl/input"
-import { Label } from "@/registry/bases/radix/ui-rtl/label"
+} from "@/registry/bases/radix/ui/dialog"
+import { Field, FieldGroup } from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
+import { Label } from "@/registry/bases/radix/ui/label"
 
 const translations: Translations = {
   en: {

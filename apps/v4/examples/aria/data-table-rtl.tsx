@@ -26,8 +26,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/aria/ui-rtl/button"
-import { Checkbox } from "@/registry/bases/aria/ui-rtl/checkbox"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Checkbox } from "@/registry/bases/aria/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuGroup,
@@ -35,8 +35,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/bases/aria/ui-rtl/dropdown-menu"
-import { Input } from "@/registry/bases/aria/ui-rtl/input"
+} from "@/registry/bases/aria/ui/dropdown-menu"
+import { Input } from "@/registry/bases/aria/ui/input"
 import {
   Table,
   TableBody,
@@ -44,7 +44,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/bases/aria/ui-rtl/table"
+} from "@/registry/bases/aria/ui/table"
 import { buttonVariants } from "@/registry/bases/aria/ui/button"
 
 const translations: Translations = {

@@ -15,7 +15,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/bases/aria/ui-rtl/table"
+} from "@/registry/bases/aria/ui/table"
 
 const translations: Translations = {
   en: {

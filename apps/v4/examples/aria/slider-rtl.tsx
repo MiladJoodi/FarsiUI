@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Slider } from "@/registry/bases/aria/ui-rtl/slider"
+import { Slider } from "@/registry/bases/aria/ui/slider"
 
 const translations: Translations = {
   en: {

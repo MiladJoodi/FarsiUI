@@ -13,7 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/bases/radix/ui-rtl/chart"
+} from "@/registry/bases/radix/ui/chart"
 
 const translations: Translations = {
   en: {

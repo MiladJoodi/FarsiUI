@@ -6,12 +6,12 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Field, FieldLabel } from "@/registry/bases/aria/ui-rtl/field"
+import { Field, FieldLabel } from "@/registry/bases/aria/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/registry/bases/aria/ui-rtl/input-otp"
+} from "@/registry/bases/aria/ui/input-otp"
 
 const translations: Translations = {
   en: {

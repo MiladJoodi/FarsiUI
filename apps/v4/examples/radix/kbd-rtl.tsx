@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Kbd, KbdGroup } from "@/registry/bases/radix/ui-rtl/kbd"
+import { Kbd, KbdGroup } from "@/registry/bases/radix/ui/kbd"
 
 const translations: Translations = {
   en: {

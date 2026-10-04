@@ -15,7 +15,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/bases/radix/ui-rtl/table"
+} from "@/registry/bases/radix/ui/table"
 
 const translations: Translations = {
   en: {

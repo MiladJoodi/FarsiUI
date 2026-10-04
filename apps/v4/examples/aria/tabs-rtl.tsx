@@ -12,13 +12,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/bases/aria/ui-rtl/card"
+} from "@/registry/bases/aria/ui/card"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/bases/aria/ui-rtl/tabs"
+} from "@/registry/bases/aria/ui/tabs"
 
 const translations: Translations = {
   en: {

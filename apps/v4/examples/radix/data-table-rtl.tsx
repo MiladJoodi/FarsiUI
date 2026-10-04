@@ -26,8 +26,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
-import { Checkbox } from "@/registry/bases/radix/ui-rtl/checkbox"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -37,8 +37,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui-rtl/dropdown-menu"
-import { Input } from "@/registry/bases/radix/ui-rtl/input"
+} from "@/registry/bases/radix/ui/dropdown-menu"
+import { Input } from "@/registry/bases/radix/ui/input"
 import {
   Table,
   TableBody,
@@ -46,7 +46,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/bases/radix/ui-rtl/table"
+} from "@/registry/bases/radix/ui/table"
 
 const translations: Translations = {
   en: {

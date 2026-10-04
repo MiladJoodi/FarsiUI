@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Card,
   CardAction,
@@ -15,9 +15,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/bases/radix/ui-rtl/card"
-import { Input } from "@/registry/bases/radix/ui-rtl/input"
-import { Label } from "@/registry/bases/radix/ui-rtl/label"
+} from "@/registry/bases/radix/ui/card"
+import { Input } from "@/registry/bases/radix/ui/input"
+import { Label } from "@/registry/bases/radix/ui/label"
 
 const translations: Translations = {
   en: {

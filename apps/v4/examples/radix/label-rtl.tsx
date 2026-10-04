@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Checkbox } from "@/registry/bases/radix/ui-rtl/checkbox"
-import { Label } from "@/registry/bases/radix/ui-rtl/label"
+import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
+import { Label } from "@/registry/bases/radix/ui/label"
 
 const translations: Translations = {
   en: {

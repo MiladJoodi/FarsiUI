@@ -11,11 +11,11 @@ import {
   FieldContent,
   FieldDescription,
   FieldLabel,
-} from "@/registry/bases/radix/ui-rtl/field"
+} from "@/registry/bases/radix/ui/field"
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/registry/bases/radix/ui-rtl/radio-group"
+} from "@/registry/bases/radix/ui/radio-group"
 
 const translations: Translations = {
   en: {

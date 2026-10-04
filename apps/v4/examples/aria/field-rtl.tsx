@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/aria/ui-rtl/button"
-import { Checkbox } from "@/registry/bases/aria/ui-rtl/checkbox"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Checkbox } from "@/registry/bases/aria/ui/checkbox"
 import {
   Field,
   FieldDescription,
@@ -16,8 +16,8 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/registry/bases/aria/ui-rtl/field"
-import { Input } from "@/registry/bases/aria/ui-rtl/input"
+} from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
 import {
   Select,
   SelectContent,
@@ -25,8 +25,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/bases/aria/ui-rtl/select"
-import { Textarea } from "@/registry/bases/aria/ui-rtl/textarea"
+} from "@/registry/bases/aria/ui/select"
+import { Textarea } from "@/registry/bases/aria/ui/textarea"
 
 const months = [
   { label: "01", value: "01" },

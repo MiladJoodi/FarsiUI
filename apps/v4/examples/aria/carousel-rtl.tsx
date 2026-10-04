@@ -6,14 +6,14 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Card, CardContent } from "@/registry/bases/aria/ui-rtl/card"
+import { Card, CardContent } from "@/registry/bases/aria/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/registry/bases/aria/ui-rtl/carousel"
+} from "@/registry/bases/aria/ui/carousel"
 
 const translations: Translations = {
   en: {

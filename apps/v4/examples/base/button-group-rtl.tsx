@@ -17,8 +17,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/base/ui-rtl/button"
-import { ButtonGroup } from "@/registry/bases/base/ui-rtl/button-group"
+import { Button } from "@/registry/bases/base/ui/button"
+import { ButtonGroup } from "@/registry/bases/base/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,7 +31,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/registry/bases/base/ui-rtl/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 
 const translations: Translations = {
   en: {

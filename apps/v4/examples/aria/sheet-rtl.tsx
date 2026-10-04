@@ -4,9 +4,9 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/aria/ui-rtl/button"
-import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui-rtl/field"
-import { Input } from "@/registry/bases/aria/ui-rtl/input"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
 import {
   Sheet,
   SheetClose,
@@ -15,7 +15,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/registry/bases/aria/ui-rtl/sheet"
+} from "@/registry/bases/aria/ui/sheet"
 
 const translations: Translations = {
   en: {

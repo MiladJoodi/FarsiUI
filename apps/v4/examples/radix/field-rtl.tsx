@@ -4,8 +4,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
-import { Checkbox } from "@/registry/bases/radix/ui-rtl/checkbox"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
 import {
   Field,
   FieldDescription,
@@ -14,8 +14,8 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/registry/bases/radix/ui-rtl/field"
-import { Input } from "@/registry/bases/radix/ui-rtl/input"
+} from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
 import {
   Select,
   SelectContent,
@@ -23,8 +23,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/bases/radix/ui-rtl/select"
-import { Textarea } from "@/registry/bases/radix/ui-rtl/textarea"
+} from "@/registry/bases/radix/ui/select"
+import { Textarea } from "@/registry/bases/radix/ui/textarea"
 
 const months = [
   { label: "MM", value: null },

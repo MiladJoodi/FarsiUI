@@ -11,7 +11,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/bases/aria/ui-rtl/accordion"
+} from "@/registry/bases/aria/ui/accordion"
 
 const translations: Translations = {
   en: {

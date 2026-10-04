@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/aria/ui-rtl/button"
-import { Spinner } from "@/registry/bases/aria/ui-rtl/spinner"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Spinner } from "@/registry/bases/aria/ui/spinner"
 
 const translations: Translations = {
   en: {

@@ -1,0 +1,5 @@
+import EventListFilter from "@/registry/base-sera/blocks/event-list-03/components/event-list"
+
+export default function Page() {
+  return <EventListFilter />
+}

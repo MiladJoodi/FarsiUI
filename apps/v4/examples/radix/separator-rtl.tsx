@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Separator } from "@/registry/bases/radix/ui-rtl/separator"
+import { Separator } from "@/registry/bases/radix/ui/separator"
 
 const translations: Translations = {
   en: {

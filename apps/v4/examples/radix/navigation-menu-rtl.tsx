@@ -15,7 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/registry/bases/radix/ui-rtl/navigation-menu"
+} from "@/registry/bases/radix/ui/navigation-menu"
 
 const translations: Translations = {
   en: {

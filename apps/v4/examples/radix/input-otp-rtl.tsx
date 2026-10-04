@@ -6,12 +6,12 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Field, FieldLabel } from "@/registry/bases/radix/ui-rtl/field"
+import { Field, FieldLabel } from "@/registry/bases/radix/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/registry/bases/radix/ui-rtl/input-otp"
+} from "@/registry/bases/radix/ui/input-otp"
 
 const translations: Translations = {
   en: {

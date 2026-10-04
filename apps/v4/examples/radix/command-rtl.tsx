@@ -23,7 +23,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/registry/bases/radix/ui-rtl/command"
+} from "@/registry/bases/radix/ui/command"
 
 const translations: Translations = {
   en: {

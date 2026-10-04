@@ -11,7 +11,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/bases/base/ui-rtl/alert"
+} from "@/registry/bases/base/ui/alert"
 
 const translations: Translations = {
   en: {

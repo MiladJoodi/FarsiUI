@@ -4,7 +4,7 @@ import * as React from "react"
 import { CalendarDate } from "@internationalized/date"
 import { I18nProvider } from "react-aria-components"
 
-import { Calendar } from "@/registry/bases/aria/ui-rtl/calendar"
+import { Calendar } from "@/registry/bases/aria/ui/calendar"
 
 export default function CalendarHijri() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(

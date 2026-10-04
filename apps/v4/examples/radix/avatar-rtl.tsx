@@ -13,7 +13,7 @@ import {
   AvatarGroup,
   AvatarGroupCount,
   AvatarImage,
-} from "@/registry/bases/radix/ui-rtl/avatar"
+} from "@/registry/bases/radix/ui/avatar"
 
 const translations: Translations = {
   en: {

@@ -13,13 +13,13 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
-import { Calendar } from "@/registry/bases/radix/ui-rtl/calendar"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/bases/radix/ui-rtl/popover"
+} from "@/registry/bases/radix/ui/popover"
 
 const translations: Translations = {
   en: {

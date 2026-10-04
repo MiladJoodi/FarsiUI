@@ -7,7 +7,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Calendar } from "@/registry/bases/radix/ui-rtl/calendar"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
 
 const translations: Translations = {
   en: {

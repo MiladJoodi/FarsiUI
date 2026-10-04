@@ -14,14 +14,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/registry/bases/base/ui-rtl/breadcrumb"
+} from "@/registry/bases/base/ui/breadcrumb"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/bases/base/ui-rtl/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 
 const translations: Translations = {
   en: {

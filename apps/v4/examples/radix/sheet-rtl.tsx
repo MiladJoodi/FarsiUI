@@ -4,9 +4,9 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
-import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui-rtl/field"
-import { Input } from "@/registry/bases/radix/ui-rtl/input"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
 import {
   Sheet,
   SheetClose,
@@ -16,7 +16,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/registry/bases/radix/ui-rtl/sheet"
+} from "@/registry/bases/radix/ui/sheet"
 
 const translations: Translations = {
   en: {

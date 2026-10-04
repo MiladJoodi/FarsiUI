@@ -4,8 +4,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/aria/ui-rtl/button"
-import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui-rtl/tooltip"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
 
 const translations: Translations = {
   en: {

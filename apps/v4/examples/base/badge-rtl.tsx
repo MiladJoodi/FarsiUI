@@ -7,7 +7,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Badge } from "@/registry/bases/base/ui-rtl/badge"
+import { Badge } from "@/registry/bases/base/ui/badge"
 
 const translations: Translations = {
   en: {

@@ -15,14 +15,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/registry/bases/radix/ui-rtl/breadcrumb"
+} from "@/registry/bases/radix/ui/breadcrumb"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui-rtl/dropdown-menu"
+} from "@/registry/bases/radix/ui/dropdown-menu"
 
 const translations: Translations = {
   en: {

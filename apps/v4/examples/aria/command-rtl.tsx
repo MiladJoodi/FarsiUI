@@ -23,7 +23,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/registry/bases/aria/ui-rtl/command"
+} from "@/registry/bases/aria/ui/command"
 
 const translations: Translations = {
   en: {

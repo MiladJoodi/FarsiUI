@@ -21,7 +21,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/registry/bases/radix/ui-rtl/menubar"
+} from "@/registry/bases/radix/ui/menubar"
 
 const translations: Translations = {
   en: {

@@ -7,7 +7,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/registry/bases/radix/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -24,7 +24,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui-rtl/dropdown-menu"
+} from "@/registry/bases/radix/ui/dropdown-menu"
 
 const translations: Translations = {
   en: {

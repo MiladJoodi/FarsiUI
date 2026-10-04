@@ -17,8 +17,8 @@ import {
   ComboboxList,
   ComboboxValue,
   useComboboxAnchor,
-} from "@/registry/bases/radix/ui-rtl/combobox"
-import { Field, FieldLabel } from "@/registry/bases/radix/ui-rtl/field"
+} from "@/registry/bases/radix/ui/combobox"
+import { Field, FieldLabel } from "@/registry/bases/radix/ui/field"
 
 const categories = [
   "technology",

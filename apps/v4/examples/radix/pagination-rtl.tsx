@@ -14,7 +14,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/registry/bases/radix/ui-rtl/pagination"
+} from "@/registry/bases/radix/ui/pagination"
 
 const translations: Translations = {
   en: {

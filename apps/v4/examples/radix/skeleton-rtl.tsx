@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Skeleton } from "@/registry/bases/radix/ui-rtl/skeleton"
+import { Skeleton } from "@/registry/bases/radix/ui/skeleton"
 
 const translations: Translations = {
   en: {

@@ -33,13 +33,13 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/bases/radix/ui-rtl/avatar"
+} from "@/registry/bases/radix/ui/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/bases/radix/ui-rtl/collapsible"
-import { DirectionProvider } from "@/registry/bases/radix/ui-rtl/direction"
+} from "@/registry/bases/radix/ui/collapsible"
+import { DirectionProvider } from "@/registry/bases/radix/ui/direction"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,7 +48,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui-rtl/dropdown-menu"
+} from "@/registry/bases/radix/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -68,7 +68,7 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/registry/bases/radix/ui-rtl/sidebar"
+} from "@/registry/bases/radix/ui/sidebar"
 
 const translations: Translations = {
   en: {

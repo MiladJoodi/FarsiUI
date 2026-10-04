@@ -16,8 +16,8 @@ import {
   ComboboxEmpty,
   ComboboxItem,
   ComboboxList,
-} from "@/registry/bases/aria/ui-rtl/combobox"
-import { Field, FieldLabel } from "@/registry/bases/aria/ui-rtl/field"
+} from "@/registry/bases/aria/ui/combobox"
+import { Field, FieldLabel } from "@/registry/bases/aria/ui/field"
 
 const categories = [
   "technology",
