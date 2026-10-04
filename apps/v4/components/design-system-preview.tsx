@@ -26,6 +26,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "default",
     label: "پیشفرض",
+    hint: "استاندارد و شفاف",
     styleName: "base-nova",
     styleRootClass: "style-nova",
     recipe: "nova",
@@ -33,6 +34,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "comfort",
     label: "آرام",
+    hint: "آروم و باز",
     styleName: "base-vega",
     styleRootClass: "style-vega",
     recipe: "vega",
@@ -40,6 +42,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "glass",
     label: "فیروزه",
+    hint: "شیشه‌ای فیروزه‌ای",
     styleName: "base-glass",
     styleRootClass: "style-glass",
     recipe: "glass",
@@ -47,6 +50,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "rose",
     label: "رز",
+    hint: "گرم و نرم",
     styleName: "base-rose",
     styleRootClass: "style-rose",
     recipe: "rose",
@@ -54,6 +58,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "nili",
     label: "نیلی",
+    hint: "سرد و تیره",
     styleName: "base-nili",
     styleRootClass: "style-nili",
     recipe: "nili",
@@ -61,6 +66,7 @@ export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "khesht",
     label: "خشت",
+    hint: "خاکی و پررنگ",
     styleName: "base-khesht",
     styleRootClass: "style-khesht",
     recipe: "khesht",
@@ -68,6 +74,14 @@ export const DESIGN_SYSTEM_PRESETS = [
 ] as const
 
 export type DesignSystemId = (typeof DESIGN_SYSTEM_PRESETS)[number]["id"]
+
+/** Design systems whose accent is owned (Primary Color picker hidden). */
+export const OWNED_ACCENT_SYSTEMS = new Set<DesignSystemId>([
+  "glass",
+  "rose",
+  "nili",
+  "khesht",
+])
 
 const DEFAULT_DESIGN_SYSTEM: DesignSystemId = "default"
 

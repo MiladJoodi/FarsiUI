@@ -4,26 +4,18 @@ import * as React from "react"
 import { CheckIcon, ChevronDownIcon } from "lucide-react"
 import { cn } from "cn"
 
-import { THEMES } from "@/lib/themes"
+import { THEME_LABELS, THEMES } from "@/lib/themes"
 import { useThemeConfig } from "@/components/active-theme"
-import { useDesignSystemPreview } from "@/components/design-system-preview"
+import {
+  OWNED_ACCENT_SYSTEMS,
+  useDesignSystemPreview,
+} from "@/components/design-system-preview"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/new-york-v4/ui/popover"
-
-const THEME_LABELS: Record<string, string> = {
-  neutral: "خاکستری",
-  blue: "آبی",
-  green: "سبز",
-  orange: "نارنجی",
-  red: "قرمز",
-  rose: "رز",
-  violet: "بنفش",
-  yellow: "زرد",
-}
 
 function themeSwatch(themeName: string) {
   const theme = THEMES.find((item) => item.name === themeName) ?? THEMES[0]
@@ -76,12 +68,7 @@ export function PrimaryColorPalette({
   const [open, setOpen] = React.useState(false)
 
   // Owned-accent design systems; Primary Color must not recolor them.
-  if (
-    designSystemId === "glass" ||
-    designSystemId === "rose" ||
-    designSystemId === "nili" ||
-    designSystemId === "khesht"
-  ) {
+  if (OWNED_ACCENT_SYSTEMS.has(designSystemId)) {
     return null
   }
 
