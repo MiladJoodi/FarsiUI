@@ -10,7 +10,7 @@ import {
   Progress,
   ProgressLabel,
   ProgressValue,
-} from "@/styles/aria-nova/ui-rtl/progress"
+} from "@/registry/bases/aria/ui-rtl/progress"
 
 const translations: Translations = {
   en: {

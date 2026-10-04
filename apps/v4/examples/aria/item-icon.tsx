@@ -1,6 +1,6 @@
 import { ShieldAlertIcon } from "lucide-react"
 
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Item,
   ItemActions,
@@ -8,7 +8,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/styles/aria-nova/ui/item"
+} from "@/registry/bases/aria/ui/item"
 
 export default function ItemIcon() {
   return (

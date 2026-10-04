@@ -3,8 +3,8 @@ import {
   ItemContent,
   ItemMedia,
   ItemTitle,
-} from "@/styles/aria-nova/ui/item"
-import { Spinner } from "@/styles/aria-nova/ui/spinner"
+} from "@/registry/bases/aria/ui/item"
+import { Spinner } from "@/registry/bases/aria/ui/spinner"
 
 export default function SpinnerDemo() {
   return (

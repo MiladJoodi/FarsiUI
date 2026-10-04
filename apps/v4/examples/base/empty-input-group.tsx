@@ -6,13 +6,13 @@ import {
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
-} from "@/styles/base-nova/ui/empty"
+} from "@/registry/bases/base/ui/empty"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
-import { Kbd } from "@/styles/base-nova/ui/kbd"
+} from "@/registry/bases/base/ui/input-group"
+import { Kbd } from "@/registry/bases/base/ui/kbd"
 
 export default function EmptyInputGroup() {
   return (

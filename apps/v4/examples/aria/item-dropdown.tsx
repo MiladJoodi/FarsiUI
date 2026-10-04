@@ -6,21 +6,21 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/aria-nova/ui/avatar"
-import { Button } from "@/styles/aria-nova/ui/button"
+} from "@/registry/bases/aria/ui/avatar"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   DropdownMenu,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/styles/aria-nova/ui/dropdown-menu"
+} from "@/registry/bases/aria/ui/dropdown-menu"
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/styles/aria-nova/ui/item"
+} from "@/registry/bases/aria/ui/item"
 
 const people = [
   {

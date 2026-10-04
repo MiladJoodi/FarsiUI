@@ -1,6 +1,6 @@
-import { Badge } from "@/styles/aria-nova/ui/badge"
-import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
-import { Input } from "@/styles/aria-nova/ui/input"
+import { Badge } from "@/registry/bases/aria/ui/badge"
+import { Field, FieldLabel } from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
 
 export default function InputBadge() {
   return (

@@ -1,4 +1,4 @@
-import { Separator } from "@/styles/aria-nova/ui/separator"
+import { Separator } from "@/registry/bases/aria/ui/separator"
 
 export default function SeparatorList() {
   return (

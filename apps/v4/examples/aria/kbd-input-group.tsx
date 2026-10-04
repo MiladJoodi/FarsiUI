@@ -4,8 +4,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/styles/aria-nova/ui/input-group"
-import { Kbd } from "@/styles/aria-nova/ui/kbd"
+} from "@/registry/bases/aria/ui/input-group"
+import { Kbd } from "@/registry/bases/aria/ui/kbd"
 
 export default function KbdInputGroup() {
   return (

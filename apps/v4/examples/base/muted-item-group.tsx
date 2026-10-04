@@ -1,4 +1,4 @@
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Item,
   ItemActions,
@@ -6,7 +6,7 @@ import {
   ItemDescription,
   ItemGroup,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
+} from "@/registry/bases/base/ui/item"
 
 export default function MutedItemGroup() {
   return (

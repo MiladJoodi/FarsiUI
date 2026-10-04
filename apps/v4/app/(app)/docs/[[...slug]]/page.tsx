@@ -136,19 +136,30 @@ export default async function Page(props: {
       data-docs-kind={isComponentDoc ? "component" : "docs"}
       dir="rtl"
       lang="fa"
-      className="flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
+      className={
+        isComponentsIndex
+          ? "flex scroll-mt-24 items-stretch text-base leading-[1.7] xl:w-full"
+          : "flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
+      }
     >
-      <div className="flex min-w-0 flex-1 flex-col">
-        <div className="h-(--top-spacing) shrink-0" />
+      <div
+        className={
+          isComponentsIndex
+            ? "flex min-w-0 flex-1 flex-col section-soft ps-1 pe-2 pt-2 md:ps-2 md:pe-4 md:py-6"
+            : "flex min-w-0 flex-1 flex-col"
+        }
+      >
+        {!isComponentsIndex ? (
+          <div className="h-(--top-spacing) shrink-0" />
+        ) : null}
         <div
           className={
             isComponentsIndex
-              ? "mx-auto flex w-full max-w-6xl min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-6 lg:py-8 dark:text-foreground"
+              ? "mx-auto flex w-full max-w-6xl min-w-0 flex-1 flex-col px-4 pb-8 text-foreground md:px-6 dark:text-foreground"
               : "mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground"
           }
         >
-          <div className="flex flex-col gap-2">
-            {!isComponentsIndex ? (
+          {!isComponentsIndex ? (
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between md:items-start">
                 <h1 className="docs-page-title flex scroll-m-24 items-center gap-2.5 font-semibold tracking-tight">
@@ -239,39 +250,46 @@ export default async function Page(props: {
                 </div>
               ) : null}
             </div>
-            ) : null}
-          </div>
-          <div className="typeset w-full flex-1 *:data-[slot=alert]:first:mt-0">
+          ) : null}
+          <div
+            className={
+              isComponentsIndex
+                ? "w-full flex-1"
+                : "typeset w-full flex-1 *:data-[slot=alert]:first:mt-0"
+            }
+          >
             <MDX components={mdxComponents} />
           </div>
-          <div className="flex min-h-16 w-full flex-wrap items-center gap-2 pt-2 pb-4">
-            {neighbours.previous && (
-              <Button
-                variant="secondary"
-                size="sm"
-                asChild
-                className="shadow-none"
-              >
-                <Link href={neighbours.previous.url}>
-                  <ArrowLeft className="rtl:rotate-180" />{" "}
-                  {splitDocTitle(neighbours.previous.name).fa}
-                </Link>
-              </Button>
-            )}
-            {neighbours.next && (
-              <Button
-                variant="secondary"
-                size="sm"
-                className="ms-auto shadow-none"
-                asChild
-              >
-                <Link href={neighbours.next.url}>
-                  {splitDocTitle(neighbours.next.name).fa}{" "}
-                  <ArrowRight className="rtl:rotate-180" />
-                </Link>
-              </Button>
-            )}
-          </div>
+          {!isComponentsIndex ? (
+            <div className="flex min-h-16 w-full flex-wrap items-center gap-2 pt-2 pb-4">
+              {neighbours.previous && (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  asChild
+                  className="shadow-none"
+                >
+                  <Link href={neighbours.previous.url}>
+                    <ArrowLeft className="rtl:rotate-180" />{" "}
+                    {splitDocTitle(neighbours.previous.name).fa}
+                  </Link>
+                </Button>
+              )}
+              {neighbours.next && (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="ms-auto shadow-none"
+                  asChild
+                >
+                  <Link href={neighbours.next.url}>
+                    {splitDocTitle(neighbours.next.name).fa}{" "}
+                    <ArrowRight className="rtl:rotate-180" />
+                  </Link>
+                </Button>
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
       {!isComponentsIndex ? (

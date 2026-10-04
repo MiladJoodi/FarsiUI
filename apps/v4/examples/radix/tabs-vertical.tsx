@@ -1,4 +1,4 @@
-import { Tabs, TabsList, TabsTrigger } from "@/styles/radix-nova/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/radix/ui/tabs"
 
 export default function TabsVertical() {
   return (

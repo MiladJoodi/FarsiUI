@@ -6,7 +6,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-nova/ui/select"
+} from "@/registry/bases/base/ui/select"
 
 const items = [
   { label: "انتخاب میوه", value: null },

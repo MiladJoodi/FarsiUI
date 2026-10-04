@@ -6,25 +6,25 @@ import { toast } from "sonner"
 import {
   ButtonGroup,
   ButtonGroupText,
-} from "@/styles/base-nova/ui/button-group"
+} from "@/registry/bases/base/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-nova/ui/field"
+} from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 import {
   Popover,
   PopoverContent,
@@ -32,12 +32,12 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/styles/base-nova/ui/popover"
+} from "@/registry/bases/base/ui/popover"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/base-nova/ui/tooltip"
+} from "@/registry/bases/base/ui/tooltip"
 
 export default function InputGroupWithTooltip({
   country,

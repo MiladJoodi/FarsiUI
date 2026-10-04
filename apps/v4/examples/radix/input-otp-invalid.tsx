@@ -7,7 +7,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/styles/radix-nova/ui/input-otp"
+} from "@/registry/bases/radix/ui/input-otp"
 
 export default function InputOTPInvalid() {
   const [value, setValue] = React.useState("000000")

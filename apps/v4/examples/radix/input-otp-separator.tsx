@@ -3,7 +3,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/styles/radix-nova/ui/input-otp"
+} from "@/registry/bases/radix/ui/input-otp"
 
 export default function InputOTPWithSeparator() {
   return (

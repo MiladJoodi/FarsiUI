@@ -7,8 +7,8 @@ import {
   FieldLegend,
   FieldSet,
   FieldTitle,
-} from "@/styles/base-nova/ui/field"
-import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
+} from "@/registry/bases/base/ui/field"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
 
 export default function FieldChoiceCard() {
   return (

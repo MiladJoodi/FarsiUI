@@ -1,4 +1,4 @@
-import { Slider } from "@/styles/aria-nova/ui/slider"
+import { Slider } from "@/registry/bases/aria/ui/slider"
 
 export default function SliderDisabled() {
   return (

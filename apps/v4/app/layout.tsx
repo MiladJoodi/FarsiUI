@@ -7,6 +7,7 @@ import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
 import { activeUiFontStyle, fontVariables } from "@/lib/fonts"
 import { ActiveThemeProvider } from "@/components/active-theme"
+import { DesignSystemPreviewProvider } from "@/components/design-system-preview"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -137,17 +138,19 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ActiveThemeProvider>
-            <NuqsAdapter>
-              <BaseTooltipProvider delay={0}>
-                <RadixTooltipProvider delayDuration={0}>
-                  {children}
-                  <Toaster position="top-center" dir="rtl" />
-                  <BaseToaster />
-                </RadixTooltipProvider>
-              </BaseTooltipProvider>
-            </NuqsAdapter>
-            <TailwindIndicator />
-            <Analytics />
+            <DesignSystemPreviewProvider>
+              <NuqsAdapter>
+                <BaseTooltipProvider delay={0}>
+                  <RadixTooltipProvider delayDuration={0}>
+                    {children}
+                    <Toaster position="top-center" dir="rtl" />
+                    <BaseToaster />
+                  </RadixTooltipProvider>
+                </BaseTooltipProvider>
+              </NuqsAdapter>
+              <TailwindIndicator />
+              <Analytics />
+            </DesignSystemPreviewProvider>
           </ActiveThemeProvider>
         </ThemeProvider>
       </body>

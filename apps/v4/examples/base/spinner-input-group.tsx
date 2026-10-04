@@ -6,8 +6,8 @@ import {
   InputGroupButton,
   InputGroupInput,
   InputGroupTextarea,
-} from "@/styles/base-nova/ui/input-group"
-import { Spinner } from "@/styles/base-nova/ui/spinner"
+} from "@/registry/bases/base/ui/input-group"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export default function SpinnerInputGroup() {
   return (

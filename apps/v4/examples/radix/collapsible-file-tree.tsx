@@ -7,19 +7,19 @@ import {
   FolderIcon,
 } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Card, CardContent, CardHeader } from "@/styles/radix-nova/ui/card"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Card, CardContent, CardHeader } from "@/registry/bases/radix/ui/card"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/radix-nova/ui/collapsible"
+} from "@/registry/bases/radix/ui/collapsible"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/styles/radix-nova/ui/tabs"
+} from "@/registry/bases/radix/ui/tabs"
 
 type FileTreeItem = { name: string } | { name: string; items: FileTreeItem[] }
 

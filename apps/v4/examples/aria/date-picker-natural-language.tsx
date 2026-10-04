@@ -10,15 +10,15 @@ import {
 import { parseDate as parseNaturalLanguage } from "chrono-node"
 import { CalendarIcon } from "lucide-react"
 
-import { Calendar } from "@/styles/aria-nova/ui/calendar"
-import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
+import { Calendar } from "@/registry/bases/aria/ui/calendar"
+import { Field, FieldLabel } from "@/registry/bases/aria/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/aria-nova/ui/input-group"
-import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
+} from "@/registry/bases/aria/ui/input-group"
+import { Popover, PopoverTrigger } from "@/registry/bases/aria/ui/popover"
 
 function parseDate(value: string) {
   const date = parseNaturalLanguage(value)

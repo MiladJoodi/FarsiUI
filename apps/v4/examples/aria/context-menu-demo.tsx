@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/styles/aria-nova/ui/context-menu"
+} from "@/registry/bases/aria/ui/context-menu"
 
 export default function ContextMenuDemo() {
   return (

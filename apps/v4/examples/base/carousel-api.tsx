@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Card, CardContent } from "@/styles/base-nova/ui/card"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/styles/base-nova/ui/carousel"
+} from "@/registry/bases/base/ui/carousel"
 
 function toPersianDigits(value: number | string) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)

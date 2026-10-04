@@ -1,6 +1,6 @@
 import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Item,
   ItemActions,
@@ -8,7 +8,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/styles/radix-nova/ui/item"
+} from "@/registry/bases/radix/ui/item"
 
 export default function ItemDemo() {
   return (

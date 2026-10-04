@@ -4,8 +4,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/base-nova/ui/avatar"
-import { Button } from "@/styles/base-nova/ui/button"
+} from "@/registry/bases/base/ui/avatar"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Item,
   ItemActions,
@@ -14,7 +14,7 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
+} from "@/registry/bases/base/ui/item"
 
 const people = [
   {

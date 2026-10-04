@@ -5,8 +5,8 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/aria-nova/ui/field"
-import { Switch } from "@/styles/aria-nova/ui/switch"
+} from "@/registry/bases/aria/ui/field"
+import { Switch } from "@/registry/bases/aria/ui/switch"
 
 export default function SwitchChoiceCard() {
   return (

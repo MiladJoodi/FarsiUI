@@ -20,7 +20,7 @@ examples
 
 ```tsx
 // examples/base/button-loading.tsx
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 
 export function ButtonLoading() {
   return <Button disabled>Loading...</Button>
@@ -42,6 +42,6 @@ pnpm --filter=v4 registry:build
 ## Notes
 
 - Example files should be placed directly in `examples/base` or `examples/radix`, not in subdirectories.
-- Base examples should import from `@/styles/base-nova/*`. Radix examples should import from `@/styles/radix-nova/*`.
+- Base examples should import from `@/registry/bases/base/*`. Radix examples should import from `@/registry/bases/radix/*`.
 - Both named exports and default exports are supported.
 - After adding or removing examples, run `pnpm --filter=v4 registry:build` to update the index.

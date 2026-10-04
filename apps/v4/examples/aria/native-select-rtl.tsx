@@ -9,7 +9,7 @@ import {
 import {
   NativeSelect,
   NativeSelectOption,
-} from "@/styles/aria-nova/ui-rtl/native-select"
+} from "@/registry/bases/aria/ui-rtl/native-select"
 
 const translations: Translations = {
   en: {

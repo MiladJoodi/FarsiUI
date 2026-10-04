@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarProvider,
-} from "@/styles/radix-nova/ui/sidebar"
+} from "@/registry/bases/radix/ui/sidebar"
 
 const projects = [
   {

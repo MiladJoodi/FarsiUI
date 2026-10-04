@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { Label } from "@/styles/base-nova/ui/label"
-import { Slider } from "@/styles/base-nova/ui/slider"
+import { Label } from "@/registry/bases/base/ui/label"
+import { Slider } from "@/registry/bases/base/ui/slider"
 
 function toPersianDigits(value: number | string) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)

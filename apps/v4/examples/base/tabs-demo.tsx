@@ -3,7 +3,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/styles/base-nova/ui/tabs"
+} from "@/registry/bases/base/ui/tabs"
 
 export default function TabsDemo() {
   return (

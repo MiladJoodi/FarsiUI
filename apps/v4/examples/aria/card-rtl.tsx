@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/styles/aria-nova/ui-rtl/button"
+import { Button } from "@/registry/bases/aria/ui-rtl/button"
 import {
   Card,
   CardAction,
@@ -15,9 +15,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/aria-nova/ui-rtl/card"
-import { Input } from "@/styles/aria-nova/ui-rtl/input"
-import { Label } from "@/styles/aria-nova/ui-rtl/label"
+} from "@/registry/bases/aria/ui-rtl/card"
+import { Input } from "@/registry/bases/aria/ui-rtl/input"
+import { Label } from "@/registry/bases/aria/ui-rtl/label"
 
 const translations: Translations = {
   en: {

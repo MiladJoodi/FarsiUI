@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-nova/ui/select"
+} from "@/registry/bases/base/ui/select"
 
 export default function SelectRtl() {
   const fruits = [

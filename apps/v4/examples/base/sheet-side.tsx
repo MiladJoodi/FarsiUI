@@ -1,4 +1,4 @@
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Sheet,
   SheetClose,
@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/styles/base-nova/ui/sheet"
+} from "@/registry/bases/base/ui/sheet"
 
 const SHEET_SIDES = [
   { side: "top" as const, label: "بالا" },

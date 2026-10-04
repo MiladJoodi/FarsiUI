@@ -1,7 +1,7 @@
-import { Button } from "@/styles/aria-nova/ui/button"
-import { ButtonGroup } from "@/styles/aria-nova/ui/button-group"
-import { Kbd, KbdGroup } from "@/styles/aria-nova/ui/kbd"
-import { Tooltip, TooltipTrigger } from "@/styles/aria-nova/ui/tooltip"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { ButtonGroup } from "@/registry/bases/aria/ui/button-group"
+import { Kbd, KbdGroup } from "@/registry/bases/aria/ui/kbd"
+import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
 
 export default function KbdTooltip() {
   return (

@@ -3,21 +3,21 @@
 import * as React from "react"
 import { MaximizeIcon, MinimizeIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/styles/base-nova/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/base-nova/ui/collapsible"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
-import { Input } from "@/styles/base-nova/ui/input"
+} from "@/registry/bases/base/ui/collapsible"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
 
 export default function CollapsibleSettings() {
   const [isOpen, setIsOpen] = React.useState(false)

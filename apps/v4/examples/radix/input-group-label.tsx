@@ -5,13 +5,13 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/radix-nova/ui/input-group"
-import { Label } from "@/styles/radix-nova/ui/label"
+} from "@/registry/bases/radix/ui/input-group"
+import { Label } from "@/registry/bases/radix/ui/label"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/radix-nova/ui/tooltip"
+} from "@/registry/bases/radix/ui/tooltip"
 
 export default function InputGroupLabel() {
   return (

@@ -2,11 +2,11 @@
 import { Plus } from "lucide-react"
 
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   ButtonGroup,
   ButtonGroupSeparator,
-} from "@/styles/base-nova/ui/button-group"
+} from "@/registry/bases/base/ui/button-group"
 
 export default function ButtonGroupSplit() {
   return (

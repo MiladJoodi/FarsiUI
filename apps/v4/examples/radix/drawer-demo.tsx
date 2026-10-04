@@ -4,7 +4,7 @@ import * as React from "react"
 import { Minus, Plus } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
-import { Button } from "@/styles/radix-nova/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Drawer,
   DrawerClose,
@@ -14,7 +14,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/styles/radix-nova/ui/drawer"
+} from "@/registry/bases/radix/ui/drawer"
 
 const data = [
   {

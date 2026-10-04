@@ -1,6 +1,6 @@
-import { Field, FieldGroup, FieldLabel } from "@/styles/aria-nova/ui/field"
-import { Input } from "@/styles/aria-nova/ui/input"
-import { InputGroup, InputGroupInput } from "@/styles/aria-nova/ui/input-group"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
+import { InputGroup, InputGroupInput } from "@/registry/bases/aria/ui/input-group"
 
 export default function InputGroupBasic() {
   return (

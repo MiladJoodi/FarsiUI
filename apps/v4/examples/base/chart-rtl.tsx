@@ -9,7 +9,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/styles/base-nova/ui/chart"
+} from "@/registry/bases/base/ui/chart"
 
 const chartData = [
   { month: "فروردین", desktop: 186, mobile: 80 },

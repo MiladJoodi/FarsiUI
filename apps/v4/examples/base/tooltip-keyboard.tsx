@@ -1,12 +1,12 @@
 import { SaveIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { Kbd } from "@/styles/base-nova/ui/kbd"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Kbd } from "@/registry/bases/base/ui/kbd"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/base-nova/ui/tooltip"
+} from "@/registry/bases/base/ui/tooltip"
 
 export default function TooltipKeyboard() {
   return (

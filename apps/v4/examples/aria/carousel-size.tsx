@@ -1,13 +1,13 @@
 import * as React from "react"
 
-import { Card, CardContent } from "@/styles/aria-nova/ui/card"
+import { Card, CardContent } from "@/registry/bases/aria/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/styles/aria-nova/ui/carousel"
+} from "@/registry/bases/aria/ui/carousel"
 
 export default function CarouselSize() {
   return (

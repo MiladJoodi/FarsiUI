@@ -2,7 +2,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/styles/aria-nova/ui/resizable"
+} from "@/registry/bases/aria/ui/resizable"
 
 export default function ResizableDemo() {
   return (

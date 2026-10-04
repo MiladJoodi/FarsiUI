@@ -1,4 +1,4 @@
-import { Skeleton } from "@/styles/aria-nova/ui/skeleton"
+import { Skeleton } from "@/registry/bases/aria/ui/skeleton"
 
 export default function SkeletonForm() {
   return (

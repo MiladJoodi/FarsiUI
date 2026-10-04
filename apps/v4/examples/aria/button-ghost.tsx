@@ -1,4 +1,4 @@
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 
 export default function ButtonGhost() {
   return <Button variant="ghost">Ghost</Button>

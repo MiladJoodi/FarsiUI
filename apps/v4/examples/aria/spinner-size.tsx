@@ -1,4 +1,4 @@
-import { Spinner } from "@/styles/aria-nova/ui/spinner"
+import { Spinner } from "@/registry/bases/aria/ui/spinner"
 
 export default function SpinnerSize() {
   return (

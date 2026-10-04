@@ -2,8 +2,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/aria-nova/ui/avatar"
-import { Button } from "@/styles/aria-nova/ui/button"
+} from "@/registry/bases/aria/ui/avatar"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Empty,
   EmptyContent,
@@ -11,7 +11,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/aria-nova/ui/empty"
+} from "@/registry/bases/aria/ui/empty"
 
 export default function EmptyAvatar() {
   return (

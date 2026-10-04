@@ -1,4 +1,4 @@
-import { Checkbox } from "@/styles/aria-nova/ui/checkbox"
+import { Checkbox } from "@/registry/bases/aria/ui/checkbox"
 import {
   Field,
   FieldContent,
@@ -8,7 +8,7 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/styles/aria-nova/ui/field"
+} from "@/registry/bases/aria/ui/field"
 
 export default function FieldCheckbox() {
   return (

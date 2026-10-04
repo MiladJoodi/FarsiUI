@@ -1,6 +1,6 @@
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Input } from "@/styles/radix-nova/ui/input"
-import { Label } from "@/styles/radix-nova/ui/label"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Input } from "@/registry/bases/radix/ui/input"
+import { Label } from "@/registry/bases/radix/ui/label"
 import {
   Sheet,
   SheetClose,
@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/styles/radix-nova/ui/sheet"
+} from "@/registry/bases/radix/ui/sheet"
 
 export default function SheetDemo() {
   return (

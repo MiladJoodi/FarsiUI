@@ -4,7 +4,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/styles/base-nova/ui/alert"
+} from "@/registry/bases/base/ui/alert"
 
 export default function AlertDestructive() {
   return (

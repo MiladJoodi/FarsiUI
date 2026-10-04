@@ -13,8 +13,8 @@ import {
   ComboboxList,
   ComboboxValue,
   useComboboxAnchor,
-} from "@/styles/base-nova/ui/combobox"
-import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
+} from "@/registry/bases/base/ui/combobox"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
 
 const categories = [
   "technology",

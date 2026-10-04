@@ -11,7 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/radix-nova/ui/card"
+} from "@/registry/bases/radix/ui/card"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -25,7 +25,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/radix-nova/ui/questionnaire"
+} from "@/registry/bases/radix/ui/questionnaire"
 
 const items = [
   {

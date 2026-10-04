@@ -11,11 +11,11 @@ import {
   FieldContent,
   FieldDescription,
   FieldLabel,
-} from "@/styles/aria-nova/ui-rtl/field"
+} from "@/registry/bases/aria/ui-rtl/field"
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/styles/aria-nova/ui-rtl/radio-group"
+} from "@/registry/bases/aria/ui-rtl/radio-group"
 
 const translations: Translations = {
   en: {

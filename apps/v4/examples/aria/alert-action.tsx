@@ -3,8 +3,8 @@ import {
   AlertAction,
   AlertDescription,
   AlertTitle,
-} from "@/styles/aria-nova/ui/alert"
-import { Button } from "@/styles/aria-nova/ui/button"
+} from "@/registry/bases/aria/ui/alert"
+import { Button } from "@/registry/bases/aria/ui/button"
 
 export default function AlertActionExample() {
   return (

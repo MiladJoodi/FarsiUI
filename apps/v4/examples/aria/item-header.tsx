@@ -7,7 +7,7 @@ import {
   ItemGroup,
   ItemHeader,
   ItemTitle,
-} from "@/styles/aria-nova/ui/item"
+} from "@/registry/bases/aria/ui/item"
 
 const models = [
   {

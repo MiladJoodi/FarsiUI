@@ -9,7 +9,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-} from "@/styles/aria-nova/ui/breadcrumb"
+} from "@/registry/bases/aria/ui/breadcrumb"
 
 export default function BreadcrumbEllipsisDemo() {
   return (

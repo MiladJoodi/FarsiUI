@@ -1,12 +1,12 @@
 import { InfoIcon } from "lucide-react"
 
-import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 
 export default function InputInputGroup() {
   return (

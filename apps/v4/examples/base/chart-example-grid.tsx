@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, CartesianGrid } from "recharts"
 
-import { ChartContainer, type ChartConfig } from "@/styles/base-nova/ui/chart"
+import { ChartContainer, type ChartConfig } from "@/registry/bases/base/ui/chart"
 
 const chartData = [
   { month: "فروردین", desktop: 186, mobile: 80 },

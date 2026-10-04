@@ -11,7 +11,7 @@ import {
   ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from "@/styles/radix-nova/ui/context-menu"
+} from "@/registry/bases/radix/ui/context-menu"
 
 export default function ContextMenuRadio() {
   const [user, setUser] = React.useState("pedro")

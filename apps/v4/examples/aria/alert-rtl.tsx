@@ -11,7 +11,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/styles/aria-nova/ui-rtl/alert"
+} from "@/registry/bases/aria/ui-rtl/alert"
 
 const translations: Translations = {
   en: {

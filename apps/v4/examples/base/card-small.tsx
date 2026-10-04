@@ -1,6 +1,6 @@
 import { ChevronLeftIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-nova/ui/card"
+} from "@/registry/bases/base/ui/card"
 
 export default function CardSmall() {
   const featureName = "گزارش‌های زمان‌بندی‌شده"

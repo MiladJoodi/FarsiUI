@@ -6,7 +6,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 
 export default function InputGroupCustom() {
   return (

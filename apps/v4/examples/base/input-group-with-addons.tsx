@@ -16,14 +16,14 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-nova/ui/field"
+} from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
   InputGroupText,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 
 export default function InputGroupWithAddons() {
   return (

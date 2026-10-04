@@ -9,13 +9,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/styles/base-nova/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/styles/base-nova/ui/chart"
+} from "@/registry/bases/base/ui/chart"
 
 export const description = "نمودار میله‌ای تعاملی"
 

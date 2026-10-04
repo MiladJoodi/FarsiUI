@@ -1,5 +1,5 @@
-import { Label } from "@/styles/radix-nova/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
+import { Label } from "@/registry/bases/radix/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/radix/ui/radio-group"
 
 export default function RadioGroupDemo() {
   return (

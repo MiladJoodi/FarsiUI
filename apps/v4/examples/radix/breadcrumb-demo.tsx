@@ -8,15 +8,15 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/styles/radix-nova/ui/breadcrumb"
-import { Button } from "@/styles/radix-nova/ui/button"
+} from "@/registry/bases/radix/ui/breadcrumb"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/styles/radix-nova/ui/dropdown-menu"
+} from "@/registry/bases/radix/ui/dropdown-menu"
 
 export default function BreadcrumbDemo() {
   return (

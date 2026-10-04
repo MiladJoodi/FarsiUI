@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { ScrollArea } from "@/styles/base-nova/ui/scroll-area"
-import { Separator } from "@/styles/base-nova/ui/separator"
+import { ScrollArea } from "@/registry/bases/base/ui/scroll-area"
+import { Separator } from "@/registry/bases/base/ui/separator"
 
 const tags = Array.from({ length: 50 }, (_, i) => {
   const n = 50 - i

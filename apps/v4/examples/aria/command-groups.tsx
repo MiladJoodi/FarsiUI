@@ -10,7 +10,7 @@ import {
   UserIcon,
 } from "lucide-react"
 
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Command,
   CommandDialog,
@@ -21,7 +21,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/styles/aria-nova/ui/command"
+} from "@/registry/bases/aria/ui/command"
 
 export default function CommandWithGroups() {
   const [open, setOpen] = React.useState(false)

@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { Field, FieldDescription, FieldLabel } from "@/styles/radix-nova/ui/field"
-import { Input } from "@/styles/radix-nova/ui/input"
+import { Field, FieldDescription, FieldLabel } from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
 
 export default function InputNumeric() {
   const [amount, setAmount] = React.useState("123456")

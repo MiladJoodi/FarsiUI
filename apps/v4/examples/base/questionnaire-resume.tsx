@@ -7,7 +7,7 @@ import {
   answerLabel,
   answerLabels,
 } from "@/examples/base/questionnaire-answer-label"
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -22,7 +22,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/base-nova/ui/questionnaire"
+} from "@/registry/bases/base/ui/questionnaire"
 
 const items = [
   { name: "change", required: true },

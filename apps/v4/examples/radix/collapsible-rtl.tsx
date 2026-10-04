@@ -7,12 +7,12 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/styles/radix-nova/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui-rtl/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/radix-nova/ui-rtl/collapsible"
+} from "@/registry/bases/radix/ui-rtl/collapsible"
 
 const translations: Translations = {
   en: {

@@ -4,11 +4,11 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/styles/aria-nova/ui-rtl/button"
+import { Button } from "@/registry/bases/aria/ui-rtl/button"
 import {
   HoverCard,
   HoverCardTrigger,
-} from "@/styles/aria-nova/ui-rtl/hover-card"
+} from "@/registry/bases/aria/ui-rtl/hover-card"
 
 const translations: Translations = {
   en: {

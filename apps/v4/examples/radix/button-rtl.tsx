@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/styles/radix-nova/ui-rtl/button"
-import { Spinner } from "@/styles/radix-nova/ui-rtl/spinner"
+import { Button } from "@/registry/bases/radix/ui-rtl/button"
+import { Spinner } from "@/registry/bases/radix/ui-rtl/spinner"
 
 const translations: Translations = {
   en: {

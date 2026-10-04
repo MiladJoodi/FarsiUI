@@ -12,13 +12,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/styles/aria-nova/ui-rtl/card"
+} from "@/registry/bases/aria/ui-rtl/card"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/styles/aria-nova/ui-rtl/tabs"
+} from "@/registry/bases/aria/ui-rtl/tabs"
 
 const translations: Translations = {
   en: {

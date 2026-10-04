@@ -8,6 +8,8 @@ import { z } from "zod"
 
 import { BASE_COLORS, type BaseColor } from "@/registry/base-colors"
 import { BASES, type Base } from "@/registry/bases"
+import { getDensityCssVars } from "@/registry/densities"
+import { getEffectCssVars } from "@/registry/effects"
 import { bodyFonts, fonts, headingFonts } from "@/registry/fonts"
 import { STYLES, type Style } from "@/registry/styles"
 import { THEMES, type Theme } from "@/registry/themes"
@@ -809,6 +811,8 @@ export function buildRegistryBase(config: DesignSystemConfig) {
   const registryDependencies = ["utils"]
   const themeVars = {
     ...(registryTheme.cssVars?.theme ?? {}),
+    ...getDensityCssVars(config.style),
+    ...getEffectCssVars(),
     ...(normalizedFontHeading === "inherit"
       ? { "--font-heading": getInheritedHeadingFontValue(config.font) }
       : {}),
@@ -887,11 +891,10 @@ export function buildPartialRegistryBase(
       baseColor: config.baseColor,
     }
 
-    if (registryTheme.cssVars.theme) {
-      cssVars.theme = {
-        ...(cssVars.theme ?? {}),
-        ...registryTheme.cssVars.theme,
-      }
+    cssVars.theme = {
+      ...(cssVars.theme ?? {}),
+      ...(registryTheme.cssVars.theme ?? {}),
+      ...getEffectCssVars(),
     }
     cssVars.light = {
       ...(cssVars.light ?? {}),

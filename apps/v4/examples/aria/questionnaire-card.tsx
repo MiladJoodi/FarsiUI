@@ -11,7 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/aria-nova/ui/card"
+} from "@/registry/bases/aria/ui/card"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -25,7 +25,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/aria-nova/ui/questionnaire"
+} from "@/registry/bases/aria/ui/questionnaire"
 
 const items = [
   {

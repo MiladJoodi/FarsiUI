@@ -22,8 +22,8 @@ import {
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { Checkbox } from "@/styles/base-nova/ui/checkbox"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -33,8 +33,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui/dropdown-menu"
-import { Input } from "@/styles/base-nova/ui/input"
+} from "@/registry/bases/base/ui/dropdown-menu"
+import { Input } from "@/registry/bases/base/ui/input"
 import {
   Table,
   TableBody,
@@ -42,7 +42,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/styles/base-nova/ui/table"
+} from "@/registry/bases/base/ui/table"
 
 type Payment = {
   id: string

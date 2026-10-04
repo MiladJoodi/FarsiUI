@@ -1,5 +1,5 @@
-import { Calendar } from "@/styles/radix-nova/ui/calendar"
-import { Card, CardContent } from "@/styles/radix-nova/ui/card"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
+import { Card, CardContent } from "@/registry/bases/radix/ui/card"
 
 export default function CalendarMultiple() {
   return (

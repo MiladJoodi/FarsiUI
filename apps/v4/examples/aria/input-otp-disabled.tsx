@@ -1,10 +1,10 @@
-import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
+import { Field, FieldLabel } from "@/registry/bases/aria/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/styles/aria-nova/ui/input-otp"
+} from "@/registry/bases/aria/ui/input-otp"
 
 export default function InputOTPDisabled() {
   return (

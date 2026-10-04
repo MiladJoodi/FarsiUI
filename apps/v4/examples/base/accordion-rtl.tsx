@@ -11,7 +11,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/styles/base-nova/ui-rtl/accordion"
+} from "@/registry/bases/base/ui-rtl/accordion"
 
 const translations: Translations = {
   en: {

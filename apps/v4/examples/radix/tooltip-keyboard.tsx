@@ -1,12 +1,12 @@
 import { SaveIcon } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Kbd } from "@/styles/radix-nova/ui/kbd"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Kbd } from "@/registry/bases/radix/ui/kbd"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/radix-nova/ui/tooltip"
+} from "@/registry/bases/radix/ui/tooltip"
 
 export default function TooltipKeyboard() {
   return (

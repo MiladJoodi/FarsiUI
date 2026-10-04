@@ -10,7 +10,7 @@ import {
   UserIcon,
 } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Command,
   CommandDialog,
@@ -21,7 +21,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/styles/base-nova/ui/command"
+} from "@/registry/bases/base/ui/command"
 
 export default function CommandWithGroups() {
   const [open, setOpen] = React.useState(false)

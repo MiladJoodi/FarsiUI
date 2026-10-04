@@ -2,7 +2,7 @@ import {
   NativeSelect,
   NativeSelectOptGroup,
   NativeSelectOption,
-} from "@/styles/base-nova/ui/native-select"
+} from "@/registry/bases/base/ui/native-select"
 
 export default function NativeSelectGroups() {
   return (

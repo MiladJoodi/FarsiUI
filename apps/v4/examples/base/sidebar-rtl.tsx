@@ -27,13 +27,13 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/base-nova/ui/avatar"
+} from "@/registry/bases/base/ui/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/base-nova/ui/collapsible"
-import { DirectionProvider } from "@/styles/base-nova/ui/direction"
+} from "@/registry/bases/base/ui/collapsible"
+import { DirectionProvider } from "@/registry/bases/base/ui/direction"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -42,7 +42,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -62,7 +62,7 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/styles/base-nova/ui/sidebar"
+} from "@/registry/bases/base/ui/sidebar"
 
 const navMain = [
   {

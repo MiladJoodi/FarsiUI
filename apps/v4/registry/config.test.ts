@@ -25,6 +25,36 @@ describe("buildRegistryBase", () => {
     expect(result.cssVars?.theme?.["--font-heading"]).toBe("var(--font-sans)")
   })
 
+  it("includes Nova density and effect theme tokens without renaming colors", () => {
+    const result = buildRegistryBase(DEFAULT_CONFIG)
+
+    expect(result.cssVars?.theme?.["control-h-md"]).toBe("2rem")
+    expect(result.cssVars?.theme?.["control-h-xs"]).toBe("1.5rem")
+    expect(result.cssVars?.theme?.["space-control-x"]).toBe("0.625rem")
+    expect(result.cssVars?.theme?.["text-control"]).toBe("0.875rem")
+    expect(result.cssVars?.theme?.["radius-control"]).toBe("var(--radius-lg)")
+    expect(result.cssVars?.theme?.["duration-fast"]).toBe("100ms")
+    expect(result.cssVars?.theme?.["shadow-md"]).toBeTruthy()
+    expect(result.cssVars?.light?.primary).toBeTruthy()
+    expect(result.cssVars?.light?.radius).toBeTruthy()
+  })
+
+  it("maps Vega style to Comfort density (spacious controls vs Default/Nova)", () => {
+    const result = buildRegistryBase({
+      ...DEFAULT_CONFIG,
+      style: "vega",
+    })
+
+    expect(result.cssVars?.theme?.["control-h-md"]).toBe("2.5rem")
+    expect(result.cssVars?.theme?.["control-h-sm"]).toBe("2.25rem")
+    expect(result.cssVars?.theme?.["control-h-lg"]).toBe("2.75rem")
+    expect(result.cssVars?.theme?.["space-control-x"]).toBe("0.875rem")
+    expect(result.cssVars?.theme?.["space-inline"]).toBe("0.5rem")
+    expect(result.cssVars?.theme?.["space-stack"]).toBe("1.5rem")
+    expect(result.cssVars?.theme?.["text-control-sm"]).toBe("0.8125rem")
+    expect(result.cssVars?.theme?.["radius-control"]).toBe("var(--radius-xl)")
+  })
+
   it("adds a heading font dependency when a distinct heading font is selected", () => {
     const result = buildRegistryBase({
       ...DEFAULT_CONFIG,

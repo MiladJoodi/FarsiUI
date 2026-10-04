@@ -3,8 +3,8 @@ import {
   FieldContent,
   FieldDescription,
   FieldLabel,
-} from "@/styles/radix-nova/ui/field"
-import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
+} from "@/registry/bases/radix/ui/field"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/radix/ui/radio-group"
 
 export default function RadioGroupDescription() {
   return (

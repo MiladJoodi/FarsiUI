@@ -5,14 +5,14 @@ import { addDays, format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 import { type DateRange } from "react-day-picker"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Calendar } from "@/styles/radix-nova/ui/calendar"
-import { Field, FieldLabel } from "@/styles/radix-nova/ui/field"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
+import { Field, FieldLabel } from "@/registry/bases/radix/ui/field"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/styles/radix-nova/ui/popover"
+} from "@/registry/bases/radix/ui/popover"
 
 export default function DatePickerWithRange() {
   const [date, setDate] = React.useState<DateRange | undefined>({

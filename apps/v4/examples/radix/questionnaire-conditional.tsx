@@ -16,7 +16,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/radix-nova/ui/questionnaire"
+} from "@/registry/bases/radix/ui/questionnaire"
 
 export default function QuestionnaireConditional() {
   const [runtime, setRuntime] = React.useState("local")

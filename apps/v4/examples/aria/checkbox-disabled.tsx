@@ -1,5 +1,5 @@
-import { Checkbox } from "@/styles/aria-nova/ui/checkbox"
-import { Field, FieldGroup, FieldLabel } from "@/styles/aria-nova/ui/field"
+import { Checkbox } from "@/registry/bases/aria/ui/checkbox"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui/field"
 
 export default function CheckboxDisabled() {
   return (

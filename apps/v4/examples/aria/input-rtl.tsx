@@ -10,8 +10,8 @@ import {
   Field,
   FieldDescription,
   FieldLabel,
-} from "@/styles/aria-nova/ui-rtl/field"
-import { Input } from "@/styles/aria-nova/ui-rtl/input"
+} from "@/registry/bases/aria/ui-rtl/field"
+import { Input } from "@/registry/bases/aria/ui-rtl/input"
 
 const translations: Translations = {
   en: {

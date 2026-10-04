@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/styles/aria-nova/ui/accordion"
+} from "@/registry/bases/aria/ui/accordion"
 
 export default function AccordionDemo() {
   return (

@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Kbd, KbdGroup } from "@/styles/aria-nova/ui-rtl/kbd"
+import { Kbd, KbdGroup } from "@/registry/bases/aria/ui-rtl/kbd"
 
 const translations: Translations = {
   en: {

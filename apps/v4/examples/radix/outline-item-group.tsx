@@ -7,7 +7,7 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@/styles/radix-nova/ui/item"
+} from "@/registry/bases/radix/ui/item"
 
 export default function OutlineItemGroup() {
   return (

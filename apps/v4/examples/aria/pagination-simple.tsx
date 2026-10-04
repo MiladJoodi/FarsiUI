@@ -3,7 +3,7 @@ import {
   PaginationContent,
   PaginationItem,
   PaginationLink,
-} from "@/styles/aria-nova/ui/pagination"
+} from "@/registry/bases/aria/ui/pagination"
 
 export default function PaginationSimple() {
   return (

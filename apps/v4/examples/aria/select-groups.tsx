@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/styles/aria-nova/ui/select"
+} from "@/registry/bases/aria/ui/select"
 
 export default function SelectGroups() {
   const fruits = [

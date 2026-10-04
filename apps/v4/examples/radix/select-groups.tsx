@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/styles/radix-nova/ui/select"
+} from "@/registry/bases/radix/ui/select"
 
 export default function SelectGroups() {
   return (

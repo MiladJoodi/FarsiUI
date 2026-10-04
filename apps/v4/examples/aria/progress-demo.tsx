@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Progress } from "@/styles/aria-nova/ui/progress"
+import { Progress } from "@/registry/bases/aria/ui/progress"
 
 export default function ProgressDemo() {
   const [progress, setProgress] = React.useState(13)

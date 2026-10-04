@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/styles/base-nova/ui/breadcrumb"
+} from "@/registry/bases/base/ui/breadcrumb"
 
 function preventNav(e: React.MouseEvent) {
   e.preventDefault()

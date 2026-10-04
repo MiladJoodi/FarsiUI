@@ -1,13 +1,13 @@
 import * as React from "react"
 
-import { Card, CardContent } from "@/styles/radix-nova/ui/card"
+import { Card, CardContent } from "@/registry/bases/radix/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/styles/radix-nova/ui/carousel"
+} from "@/registry/bases/radix/ui/carousel"
 
 export default function CarouselSpacing() {
   return (

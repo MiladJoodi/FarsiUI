@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/styles/base-nova/ui/button"
+import { buttonVariants } from "@/registry/bases/base/ui/button"
 
 export default function ButtonRender() {
   return (

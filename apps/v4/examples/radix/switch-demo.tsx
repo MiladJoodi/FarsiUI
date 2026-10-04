@@ -1,5 +1,5 @@
-import { Label } from "@/styles/radix-nova/ui/label"
-import { Switch } from "@/styles/radix-nova/ui/switch"
+import { Label } from "@/registry/bases/radix/ui/label"
+import { Switch } from "@/registry/bases/radix/ui/switch"
 
 export default function SwitchDemo() {
   return (

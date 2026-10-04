@@ -6,7 +6,7 @@ import {
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger,
-} from "@/styles/radix-nova/ui/context-menu"
+} from "@/registry/bases/radix/ui/context-menu"
 
 export default function ContextMenuShortcuts() {
   return (

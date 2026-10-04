@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { ScrollArea } from "@/styles/radix-nova/ui-rtl/scroll-area"
-import { Separator } from "@/styles/radix-nova/ui-rtl/separator"
+import { ScrollArea } from "@/registry/bases/radix/ui-rtl/scroll-area"
+import { Separator } from "@/registry/bases/radix/ui-rtl/separator"
 
 const tags = Array.from({ length: 50 }, (_, i) => `v1.2.0-beta.${50 - i}`)
 

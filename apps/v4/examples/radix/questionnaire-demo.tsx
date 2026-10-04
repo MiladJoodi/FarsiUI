@@ -18,7 +18,7 @@ import {
   QuestionnaireSkip,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/radix-nova/ui/questionnaire"
+} from "@/registry/bases/radix/ui/questionnaire"
 
 const items = [
   {

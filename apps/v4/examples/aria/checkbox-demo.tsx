@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox } from "@/styles/aria-nova/ui/checkbox"
+import { Checkbox } from "@/registry/bases/aria/ui/checkbox"
 import {
   Field,
   FieldContent,
@@ -8,8 +8,8 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/aria-nova/ui/field"
-import { Label } from "@/styles/aria-nova/ui/label"
+} from "@/registry/bases/aria/ui/field"
+import { Label } from "@/registry/bases/aria/ui/label"
 
 export default function CheckboxDemo() {
   return (

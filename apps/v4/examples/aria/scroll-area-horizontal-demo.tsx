@@ -1,7 +1,7 @@
 import * as React from "react"
 import Image from "next/image"
 
-import { ScrollArea } from "@/styles/aria-nova/ui/scroll-area"
+import { ScrollArea } from "@/registry/bases/aria/ui/scroll-area"
 
 export interface Artwork {
   artist: string

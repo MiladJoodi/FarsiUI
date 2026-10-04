@@ -22,8 +22,8 @@ import {
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Checkbox } from "@/styles/radix-nova/ui/checkbox"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -32,8 +32,8 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "@/styles/radix-nova/ui/dropdown-menu"
-import { Input } from "@/styles/radix-nova/ui/input"
+} from "@/registry/bases/radix/ui/dropdown-menu"
+import { Input } from "@/registry/bases/radix/ui/input"
 import {
   Table,
   TableBody,
@@ -41,7 +41,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/styles/radix-nova/ui/table"
+} from "@/registry/bases/radix/ui/table"
 
 // New in v9: declare the features this table uses — anything you don't
 // register is tree-shaken out of the bundle.

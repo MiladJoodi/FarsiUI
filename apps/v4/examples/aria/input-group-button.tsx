@@ -9,8 +9,8 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/aria-nova/ui/input-group"
-import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
+} from "@/registry/bases/aria/ui/input-group"
+import { Popover, PopoverTrigger } from "@/registry/bases/aria/ui/popover"
 
 export default function InputGroupButtonExample() {
   const { copyToClipboard, isCopied } = useCopyToClipboard()

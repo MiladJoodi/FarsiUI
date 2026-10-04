@@ -2,9 +2,9 @@
 
 import { SearchIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
-import { Input } from "@/styles/base-nova/ui/input"
+import { Button } from "@/registry/bases/base/ui/button"
+import { ButtonGroup } from "@/registry/bases/base/ui/button-group"
+import { Input } from "@/registry/bases/base/ui/input"
 
 export default function ButtonGroupInput() {
   return (

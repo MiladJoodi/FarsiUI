@@ -1,5 +1,5 @@
-import { Button } from "@/styles/aria-nova/ui/button"
-import { Spinner } from "@/styles/aria-nova/ui/spinner"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Spinner } from "@/registry/bases/aria/ui/spinner"
 
 export default function ButtonLoading() {
   return (

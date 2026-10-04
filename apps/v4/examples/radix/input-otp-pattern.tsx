@@ -2,12 +2,12 @@
 
 import { REGEXP_ONLY_DIGITS } from "input-otp"
 
-import { Field, FieldLabel } from "@/styles/radix-nova/ui/field"
+import { Field, FieldLabel } from "@/registry/bases/radix/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/styles/radix-nova/ui/input-otp"
+} from "@/registry/bases/radix/ui/input-otp"
 
 export default function InputOTPPattern() {
   return (

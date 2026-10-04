@@ -10,8 +10,8 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
-import { Progress } from "@/styles/base-nova/ui/progress"
+} from "@/registry/bases/base/ui/item"
+import { Progress } from "@/registry/bases/base/ui/progress"
 
 export default function FileUploadList() {
   const files = React.useMemo(

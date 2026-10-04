@@ -1,4 +1,4 @@
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Empty,
   EmptyContent,
@@ -6,8 +6,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/aria-nova/ui/empty"
-import { Spinner } from "@/styles/aria-nova/ui/spinner"
+} from "@/registry/bases/aria/ui/empty"
+import { Spinner } from "@/registry/bases/aria/ui/spinner"
 
 export default function SpinnerEmpty() {
   return (

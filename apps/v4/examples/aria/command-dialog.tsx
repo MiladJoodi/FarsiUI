@@ -19,7 +19,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/styles/aria-nova/ui/command"
+} from "@/registry/bases/aria/ui/command"
 
 export default function CommandDialogDemo() {
   const [open, setOpen] = React.useState(false)

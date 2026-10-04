@@ -3,7 +3,7 @@
 import * as React from "react"
 import { BellIcon, MailIcon, MessageSquareIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11,7 +11,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "@/styles/base-nova/ui/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 
 export default function DropdownMenuCheckboxesIcons() {
   const [notifications, setNotifications] = React.useState({

@@ -1,11 +1,11 @@
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Dialog,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/styles/aria-nova/ui/dialog"
+} from "@/registry/bases/aria/ui/dialog"
 
 export default function DialogScrollableContent() {
   return (

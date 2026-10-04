@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Skeleton } from "@/styles/aria-nova/ui-rtl/skeleton"
+import { Skeleton } from "@/registry/bases/aria/ui-rtl/skeleton"
 
 const translations: Translations = {
   en: {

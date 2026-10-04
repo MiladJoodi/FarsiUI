@@ -3,7 +3,7 @@
 import * as React from "react"
 import { CreditCardIcon, SettingsIcon, UserIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Command,
   CommandDialog,
@@ -13,7 +13,7 @@ import {
   CommandItem,
   CommandList,
   CommandShortcut,
-} from "@/styles/base-nova/ui/command"
+} from "@/registry/bases/base/ui/command"
 
 export default function CommandWithShortcuts() {
   const [open, setOpen] = React.useState(false)

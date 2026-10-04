@@ -5,8 +5,8 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/radix-nova/ui/field"
-import { Switch } from "@/styles/radix-nova/ui/switch"
+} from "@/registry/bases/radix/ui/field"
+import { Switch } from "@/registry/bases/radix/ui/switch"
 
 export default function SwitchChoiceCard() {
   return (

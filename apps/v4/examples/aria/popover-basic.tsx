@@ -1,11 +1,11 @@
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Popover,
   PopoverDescription,
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/styles/aria-nova/ui/popover"
+} from "@/registry/bases/aria/ui/popover"
 
 export default function PopoverBasic() {
   return (

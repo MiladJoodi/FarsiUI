@@ -33,13 +33,13 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/radix-nova/ui-rtl/avatar"
+} from "@/registry/bases/radix/ui-rtl/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/radix-nova/ui-rtl/collapsible"
-import { DirectionProvider } from "@/styles/radix-nova/ui-rtl/direction"
+} from "@/registry/bases/radix/ui-rtl/collapsible"
+import { DirectionProvider } from "@/registry/bases/radix/ui-rtl/direction"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,7 +48,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/radix-nova/ui-rtl/dropdown-menu"
+} from "@/registry/bases/radix/ui-rtl/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -68,7 +68,7 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/styles/radix-nova/ui-rtl/sidebar"
+} from "@/registry/bases/radix/ui-rtl/sidebar"
 
 const translations: Translations = {
   en: {

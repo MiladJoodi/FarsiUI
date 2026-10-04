@@ -6,7 +6,7 @@ import { useVariantPreviewSize } from "@/components/component-variant-preview-si
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/styles/base-nova/ui/toggle-group"
+} from "@/registry/bases/base/ui/toggle-group"
 
 export default function ToggleGroupDemo() {
   const size = useVariantPreviewSize()

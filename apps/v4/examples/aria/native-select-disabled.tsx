@@ -1,7 +1,7 @@
 import {
   NativeSelect,
   NativeSelectOption,
-} from "@/styles/aria-nova/ui/native-select"
+} from "@/registry/bases/aria/ui/native-select"
 
 export default function NativeSelectDisabled() {
   return (

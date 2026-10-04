@@ -6,7 +6,7 @@ import {
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
+} from "@/registry/bases/base/ui/item"
 
 export default function ItemLink() {
   return (

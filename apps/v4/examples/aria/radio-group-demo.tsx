@@ -1,5 +1,5 @@
-import { Label } from "@/styles/aria-nova/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
+import { Label } from "@/registry/bases/aria/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/aria/ui/radio-group"
 
 export default function RadioGroupDemo() {
   return (

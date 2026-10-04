@@ -2,7 +2,7 @@
 
 import { BadgeCheckIcon, ChevronLeftIcon } from "lucide-react"
 
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Item,
   ItemActions,
@@ -10,7 +10,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
+} from "@/registry/bases/base/ui/item"
 
 export default function ItemRtl() {
   return (

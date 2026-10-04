@@ -4,7 +4,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/styles/aria-nova/ui/alert"
+} from "@/registry/bases/aria/ui/alert"
 
 export default function AlertDestructive() {
   return (

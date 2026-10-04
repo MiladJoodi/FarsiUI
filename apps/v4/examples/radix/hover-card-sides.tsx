@@ -1,9 +1,9 @@
-import { Button } from "@/styles/radix-nova/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/styles/radix-nova/ui/hover-card"
+} from "@/registry/bases/radix/ui/hover-card"
 
 const HOVER_CARD_SIDES = ["left", "top", "bottom", "right"] as const
 

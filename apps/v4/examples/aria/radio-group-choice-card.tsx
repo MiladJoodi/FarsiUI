@@ -4,8 +4,8 @@ import {
   FieldDescription,
   FieldLabel,
   FieldTitle,
-} from "@/styles/aria-nova/ui/field"
-import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
+} from "@/registry/bases/aria/ui/field"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/aria/ui/radio-group"
 
 export default function RadioGroupChoiceCard() {
   return (

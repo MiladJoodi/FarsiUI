@@ -13,8 +13,8 @@ import {
   Trash2Icon,
 } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { ButtonGroup } from "@/styles/radix-nova/ui/button-group"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { ButtonGroup } from "@/registry/bases/radix/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,7 +27,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/styles/radix-nova/ui/dropdown-menu"
+} from "@/registry/bases/radix/ui/dropdown-menu"
 
 export default function ButtonGroupDemo() {
   const [label, setLabel] = React.useState("personal")

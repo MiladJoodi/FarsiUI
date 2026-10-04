@@ -14,7 +14,7 @@ import {
   QuestionnaireItem,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/base-nova/ui/questionnaire"
+} from "@/registry/bases/base/ui/questionnaire"
 
 const items = [
   {

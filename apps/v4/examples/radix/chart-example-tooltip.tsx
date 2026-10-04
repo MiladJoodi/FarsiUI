@@ -7,7 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/styles/radix-nova/ui/chart"
+} from "@/registry/bases/radix/ui/chart"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },

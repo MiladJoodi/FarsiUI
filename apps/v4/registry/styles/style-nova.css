@@ -1,4 +1,20 @@
 .style-nova {
+  /* Density tokens (SoT: registry/densities.ts — nova) */
+  --control-h-xs: 1.5rem;
+  --control-h-sm: 1.75rem;
+  --control-h-md: 2rem;
+  --control-h-lg: 2.25rem;
+  --control-icon: 1rem;
+  --control-icon-sm: 0.75rem;
+  --space-control-x: 0.625rem;
+  --space-control-y: 0.25rem;
+  --space-stack: 1rem;
+  --space-inline: 0.375rem;
+  --text-control: 0.875rem;
+  --text-control-sm: 0.8rem;
+  --leading-control: 1.25;
+  --radius-control: var(--radius-lg);
+
   /* MARK: Accordion */
   .cn-accordion-item {
     @apply not-last:border-b;
@@ -145,65 +161,65 @@
     @apply size-5 [&>svg]:size-4;
   }
 
-  /* MARK: Button */
+  /* MARK: Button — Default: compact, flat, precise */
   .cn-button {
-    @apply focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 rounded-lg border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-3 aria-invalid:ring-3 active:not-aria-[haspopup]:translate-y-px [&_svg:not([class*='size-'])]:size-4;
+    @apply focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 rounded-(--radius-control) border border-transparent bg-clip-padding text-(length:--text-control) leading-(--leading-control) font-medium shadow-none transition-[color,background-color,border-color,box-shadow,transform] duration-150 focus-visible:ring-3 aria-invalid:ring-3 active:not-aria-[haspopup]:translate-y-px [&_svg:not([class*='size-'])]:size-(--control-icon);
   }
 
   .cn-button-variant-default {
-    @apply bg-primary text-primary-foreground hover:bg-primary/80;
+    @apply bg-primary text-primary-foreground hover:bg-primary/80 active:not-aria-[haspopup]:bg-primary/70;
   }
 
   .cn-button-variant-outline {
-    @apply border-border bg-background text-foreground hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground;
+    @apply border-border bg-background text-foreground hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground;
   }
 
   .cn-button-variant-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground;
+    @apply bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] active:not-aria-[haspopup]:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_8%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground;
   }
 
   .cn-button-variant-ghost {
-    @apply hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 aria-expanded:bg-muted aria-expanded:text-foreground;
+    @apply hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 dark:hover:bg-muted/50 aria-expanded:bg-muted aria-expanded:text-foreground;
   }
 
   .cn-button-variant-destructive {
-    @apply bg-destructive/10 hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/20 text-destructive focus-visible:border-destructive/40 dark:hover:bg-destructive/30;
+    @apply bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 active:not-aria-[haspopup]:bg-destructive/25 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40;
   }
 
   .cn-button-variant-link {
-    @apply text-primary underline-offset-4 hover:underline;
+    @apply text-primary underline-offset-4 shadow-none hover:underline active:not-aria-[haspopup]:translate-y-0;
   }
 
   .cn-button-size-xs {
-    @apply h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3;
+    @apply h-(--control-h-xs) gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-(--radius-control) has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
   }
 
   .cn-button-size-sm {
-    @apply h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5;
+    @apply h-(--control-h-sm) gap-1 rounded-[min(var(--radius-md),12px)] px-(--space-control-x) text-(length:--text-control-sm) in-data-[slot=button-group]:rounded-(--radius-control) has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5;
   }
 
   .cn-button-size-default {
-    @apply h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+    @apply h-(--control-h-md) gap-(--space-inline) px-(--space-control-x) has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
   }
 
   .cn-button-size-lg {
-    @apply h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+    @apply h-(--control-h-lg) gap-(--space-inline) px-3 has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5;
   }
 
   .cn-button-size-icon-xs {
-    @apply size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3;
+    @apply size-(--control-h-xs) rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-(--radius-control) [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
   }
 
   .cn-button-size-icon-sm {
-    @apply size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg;
+    @apply size-(--control-h-sm) rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-(--radius-control);
   }
 
   .cn-button-size-icon {
-    @apply size-8;
+    @apply size-(--control-h-md);
   }
 
   .cn-button-size-icon-lg {
-    @apply size-9;
+    @apply size-(--control-h-lg);
   }
 
   /* MARK: Button Group */

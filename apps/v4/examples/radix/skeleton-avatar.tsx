@@ -1,4 +1,4 @@
-import { Skeleton } from "@/styles/radix-nova/ui/skeleton"
+import { Skeleton } from "@/registry/bases/radix/ui/skeleton"
 
 export default function SkeletonAvatar() {
   return (

@@ -1,4 +1,4 @@
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 
 export default function ButtonSecondary() {
   return <Button variant="secondary">ثانویه</Button>

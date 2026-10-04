@@ -1,11 +1,11 @@
-import { Checkbox } from "@/styles/radix-nova/ui/checkbox"
+import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/radix-nova/ui/field"
+} from "@/registry/bases/radix/ui/field"
 
 export default function CheckboxDescription() {
   return (

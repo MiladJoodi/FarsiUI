@@ -4,7 +4,7 @@ import * as React from "react"
 import { CalendarDate } from "@internationalized/date"
 import { type DateRange } from "react-aria-components"
 
-import { RangeCalendar } from "@/styles/aria-nova/ui/calendar"
+import { RangeCalendar } from "@/registry/bases/aria/ui/calendar"
 
 export default function CalendarRange() {
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>({

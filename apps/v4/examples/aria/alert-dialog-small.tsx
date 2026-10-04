@@ -7,8 +7,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/styles/aria-nova/ui/alert-dialog"
-import { Button } from "@/styles/aria-nova/ui/button"
+} from "@/registry/bases/aria/ui/alert-dialog"
+import { Button } from "@/registry/bases/aria/ui/button"
 
 export default function AlertDialogSmall() {
   return (

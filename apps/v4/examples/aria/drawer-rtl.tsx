@@ -8,8 +8,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Badge } from "@/styles/aria-nova/ui-rtl/badge"
-import { Button } from "@/styles/aria-nova/ui-rtl/button"
+import { Badge } from "@/registry/bases/aria/ui-rtl/badge"
+import { Button } from "@/registry/bases/aria/ui-rtl/button"
 import {
   Drawer,
   DrawerClose,
@@ -19,18 +19,18 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/styles/aria-nova/ui-rtl/drawer"
+} from "@/registry/bases/aria/ui-rtl/drawer"
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldLabel,
   FieldTitle,
-} from "@/styles/aria-nova/ui-rtl/field"
+} from "@/registry/bases/aria/ui-rtl/field"
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/styles/aria-nova/ui-rtl/radio-group"
+} from "@/registry/bases/aria/ui-rtl/radio-group"
 
 const translations = {
   en: {

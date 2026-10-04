@@ -1,4 +1,4 @@
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Empty,
   EmptyContent,
@@ -6,8 +6,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/base-nova/ui/empty"
-import { Spinner } from "@/styles/base-nova/ui/spinner"
+} from "@/registry/bases/base/ui/empty"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export default function SpinnerEmpty() {
   return (

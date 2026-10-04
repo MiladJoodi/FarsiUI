@@ -2,7 +2,7 @@ import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/styles/aria-nova/ui/input-otp"
+} from "@/registry/bases/aria/ui/input-otp"
 
 export default function InputOTPDemo() {
   return (

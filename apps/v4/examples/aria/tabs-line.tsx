@@ -1,4 +1,4 @@
-import { Tabs, TabsList, TabsTrigger } from "@/styles/aria-nova/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/aria/ui/tabs"
 
 export default function TabsLine() {
   return (

@@ -3,14 +3,14 @@
 import * as React from "react"
 import { Clock2Icon } from "lucide-react"
 
-import { Calendar } from "@/styles/base-nova/ui/calendar"
-import { Card, CardContent, CardFooter } from "@/styles/base-nova/ui/card"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Card, CardContent, CardFooter } from "@/registry/bases/base/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 
 function TimeField({
   id,

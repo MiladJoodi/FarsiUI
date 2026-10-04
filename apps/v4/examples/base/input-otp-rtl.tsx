@@ -1,11 +1,11 @@
 "use client"
 
-import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/styles/base-nova/ui/input-otp"
+} from "@/registry/bases/base/ui/input-otp"
 
 export default function InputOTPRtl() {
   return (

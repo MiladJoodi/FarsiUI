@@ -16,6 +16,7 @@ export type VariantPreviewDemo =
   | "rtl"
   | "group"
   | "disabled"
+  | "sizes"
 
 export type VariantPreviewSizedCode = {
   code: string

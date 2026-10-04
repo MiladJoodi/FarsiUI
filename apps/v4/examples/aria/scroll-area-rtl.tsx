@@ -6,8 +6,8 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { ScrollArea } from "@/styles/aria-nova/ui-rtl/scroll-area"
-import { Separator } from "@/styles/aria-nova/ui-rtl/separator"
+import { ScrollArea } from "@/registry/bases/aria/ui-rtl/scroll-area"
+import { Separator } from "@/registry/bases/aria/ui-rtl/separator"
 
 const tags = Array.from({ length: 50 }, (_, i) => `v1.2.0-beta.${50 - i}`)
 

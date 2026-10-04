@@ -1,7 +1,7 @@
 "use client"
 
-import { Calendar } from "@/styles/base-nova/ui/calendar"
-import { Card, CardContent } from "@/styles/base-nova/ui/card"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 
 export default function CalendarMultiple() {
   return (

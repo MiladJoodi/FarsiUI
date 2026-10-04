@@ -2,7 +2,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/base-nova/ui/avatar"
+} from "@/registry/bases/base/ui/avatar"
 
 export default function AvatarBasic() {
   return (

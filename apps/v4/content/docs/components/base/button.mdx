@@ -10,19 +10,21 @@ component: true
   styleName="base-nova"
   layout="switcher"
   examples={[
-    { name: "button-default", label: "پیش‌فرض", sizeable: false },
-    { name: "button-outline", label: "حاشیه‌دار", sizeable: false },
-    { name: "button-secondary", label: "ثانویه", sizeable: false },
-    { name: "button-ghost", label: "شفاف", sizeable: false },
-    { name: "button-destructive", label: "خطرناک", sizeable: false },
-    { name: "button-link", label: "لینک", sizeable: false },
-    { name: "button-size", label: "اندازه", sizeable: false },
-    { name: "button-with-icon", label: "با آیکون", sizeable: false },
-    { name: "button-icon", label: "آیکونی", sizeable: false },
-    { name: "button-disabled", label: "غیرفعال", sizeable: false },
-    { name: "button-rounded", label: "گرد", sizeable: false },
-    { name: "button-spinner", label: "بارگذاری", sizeable: false },
-    { name: "button-render", label: "به‌عنوان لینک", sizeable: false },
+    // variant/demo → live cn-* PreviewDemo (Style picker Default/Comfort).
+    // name still loads demo source for the code panel.
+    { name: "button-default", label: "پیش‌فرض", variant: "default", sizeable: false },
+    { name: "button-outline", label: "حاشیه‌دار", variant: "outline", sizeable: false },
+    { name: "button-secondary", label: "ثانویه", variant: "secondary", sizeable: false },
+    { name: "button-ghost", label: "شفاف", variant: "ghost", sizeable: false },
+    { name: "button-destructive", label: "خطرناک", variant: "destructive", sizeable: false },
+    { name: "button-link", label: "لینک", variant: "link", sizeable: false },
+    { name: "button-size", label: "اندازه", demo: "sizes", sizeable: false },
+    { name: "button-with-icon", label: "با آیکون", demo: "with-icon", sizeable: false },
+    { name: "button-icon", label: "آیکونی", demo: "icon", sizeable: false },
+    { name: "button-disabled", label: "غیرفعال", demo: "disabled", sizeable: false },
+    { name: "button-rounded", label: "گرد", demo: "rounded", sizeable: false },
+    { name: "button-spinner", label: "بارگذاری", demo: "spinner", sizeable: false },
+    { name: "button-render", label: "به‌عنوان لینک", demo: "as-link", sizeable: false },
   ]}
 />
 

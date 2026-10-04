@@ -6,7 +6,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/styles/base-nova/ui/pagination"
+} from "@/registry/bases/base/ui/pagination"
 
 export default function PaginationRtl() {
   return (

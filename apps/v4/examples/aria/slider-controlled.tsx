@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { Label } from "@/styles/aria-nova/ui/label"
-import { Slider } from "@/styles/aria-nova/ui/slider"
+import { Label } from "@/registry/bases/aria/ui/label"
+import { Slider } from "@/registry/bases/aria/ui/slider"
 
 export default function SliderControlled() {
   const [value, setValue] = React.useState([0.3, 0.7])

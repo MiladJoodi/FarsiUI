@@ -7,7 +7,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Badge } from "@/styles/radix-nova/ui-rtl/badge"
+import { Badge } from "@/registry/bases/radix/ui-rtl/badge"
 
 const translations: Translations = {
   en: {

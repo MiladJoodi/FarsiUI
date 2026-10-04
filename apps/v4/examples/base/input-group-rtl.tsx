@@ -7,7 +7,7 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-nova/ui/field"
+} from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
@@ -15,8 +15,8 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/styles/base-nova/ui/input-group"
-import { Spinner } from "@/styles/base-nova/ui/spinner"
+} from "@/registry/bases/base/ui/input-group"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export default function InputGroupRtl() {
   return (

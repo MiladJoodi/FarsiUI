@@ -1,5 +1,5 @@
-import { Button } from "@/styles/base-nova/ui/button"
-import { Kbd } from "@/styles/base-nova/ui/kbd"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Kbd } from "@/registry/bases/base/ui/kbd"
 
 export default function KbdButton() {
   return (

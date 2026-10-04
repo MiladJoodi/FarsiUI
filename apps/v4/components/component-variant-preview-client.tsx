@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArchiveIcon, ArrowLeftIcon, ArrowRightIcon, ArrowUpIcon, CalendarPlusIcon, CircleFadingArrowUpIcon, ClockIcon, Eye, GitBranch, GitFork, ListFilterIcon, MailCheckIcon, Minus, MoreHorizontalIcon, Plus, PlusIcon, TagIcon, Trash2Icon } from "lucide-react"
+import { ArchiveIcon, ArrowLeftIcon, ArrowRightIcon, ArrowUpIcon, ArrowUpRightIcon, CalendarPlusIcon, CircleFadingArrowUpIcon, ClockIcon, Eye, GitBranch, GitFork, ListFilterIcon, MailCheckIcon, Minus, MoreHorizontalIcon, Plus, PlusIcon, TagIcon, Trash2Icon } from "lucide-react"
 import { cn } from "cn"
 
 import { CopyButton } from "@/components/copy-button"
@@ -21,7 +21,12 @@ import {
 import {
   VariantPreviewSizeContext,
 } from "@/components/component-variant-preview-size"
-import { Button, buttonVariants } from "@/styles/base-nova/ui/button"
+// Live style picker needs the unbaked cn-* Button so PreviewThemeScope
+// (.style-nova / .style-vega) can drive density recipes. Baked base-nova
+// already inlines h-8/rounded-lg and ignores the ancestor style root.
+import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
+// Chrome outside PreviewThemeScope — cn-* outline has no tokens there.
+import { Button as ChromeButton } from "@/registry/new-york-v4/ui/button"
 import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import { DirectionProvider } from "@/styles/base-nova/ui/direction"
 import {
@@ -74,6 +79,39 @@ function PreviewDemo({
       <Button type="button" size={effectiveSize} disabled tabIndex={-1}>
         {item.label}
       </Button>
+    )
+  }
+
+  if (item.demo === "sizes") {
+    return (
+      <div
+        dir="rtl"
+        className="flex flex-col flex-wrap items-center justify-center gap-6 sm:flex-row sm:gap-8"
+      >
+        {(
+          [
+            ["xs", "icon-xs", "خیلی کوچک"],
+            ["sm", "icon-sm", "کوچک"],
+            ["default", "icon", "معمولی"],
+            ["lg", "icon-lg", "بزرگ"],
+          ] as const
+        ).map(([sizeId, iconSize, label]) => (
+          <div key={sizeId} className="flex items-start gap-2">
+            <Button type="button" size={sizeId} variant="outline" tabIndex={-1}>
+              {label}
+            </Button>
+            <Button
+              type="button"
+              size={iconSize}
+              variant="outline"
+              aria-label="ارسال"
+              tabIndex={-1}
+            >
+              <ArrowUpRightIcon />
+            </Button>
+          </div>
+        ))}
+      </div>
     )
   }
 
@@ -322,11 +360,11 @@ export function ComponentVariantPreviewClient({
   items,
   children,
   layout = "gallery",
-  styleName = "base-nova",
 }: {
   items: VariantPreviewItem[]
   children?: React.ReactNode
   layout?: VariantPreviewLayout
+  /** @deprecated Ignored — global Design System picker owns preview style. */
   styleName?: string
 }) {
   const [selected, setSelected] = React.useState(items[0]?.name ?? "")
@@ -392,7 +430,7 @@ export function ComponentVariantPreviewClient({
       >
         {layout === "switcher" ? (
           <div data-slot="preview" className="relative p-4 sm:p-6">
-            <PreviewThemeScope styleName={styleName}>
+            <PreviewThemeScope>
               <DocsPreviewSwitcherStage
                 role="tabpanel"
                 dir={active.demo === "rtl" ? "rtl" : (active.direction ?? "rtl")}
@@ -415,7 +453,7 @@ export function ComponentVariantPreviewClient({
           data-slot="preview"
           className="relative p-6 pb-12 sm:px-8 sm:pt-8 sm:pb-12"
         >
-          <PreviewThemeScope styleName={styleName}>
+          <PreviewThemeScope>
           <div className="preview relative flex w-full flex-wrap items-center justify-center gap-2 sm:gap-3">
             <VariantPreviewSizeContext.Provider value={size}>
               {items.map((item, index) => {
@@ -528,16 +566,16 @@ export function ComponentVariantPreviewClient({
                     "linear-gradient(to top, var(--color-code), color-mix(in oklab, var(--color-code) 60%, transparent), transparent)",
                 }}
               />
-              <Button
+              <ChromeButton
                 type="button"
                 size="sm"
                 variant="outline"
-                className="relative z-10 gap-1.5 rounded-lg bg-background font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
+                className="relative z-10 gap-1.5 rounded-lg border border-border bg-white font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
                 onClick={() => setCodeOpen(true)}
               >
                 <Eye className="size-4" />
                 مشاهده کد
-              </Button>
+              </ChromeButton>
             </div>
           </div>
         )}

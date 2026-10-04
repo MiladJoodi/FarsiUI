@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Checkbox } from "@/styles/aria-nova/ui-rtl/checkbox"
+import { Checkbox } from "@/registry/bases/aria/ui-rtl/checkbox"
 import {
   Field,
   FieldContent,
@@ -14,8 +14,8 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/aria-nova/ui-rtl/field"
-import { Label } from "@/styles/aria-nova/ui-rtl/label"
+} from "@/registry/bases/aria/ui-rtl/field"
+import { Label } from "@/registry/bases/aria/ui-rtl/label"
 
 const translations: Translations = {
   en: {

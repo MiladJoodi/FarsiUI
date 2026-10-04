@@ -16,7 +16,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/styles/radix-nova/ui/command"
+} from "@/registry/bases/radix/ui/command"
 
 export default function CommandDemo() {
   return (

@@ -4,15 +4,15 @@ import * as React from "react"
 import { format } from "date-fns"
 import { ChevronDownIcon } from "lucide-react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
-import { Calendar } from "@/styles/radix-nova/ui/calendar"
-import { Field, FieldGroup, FieldLabel } from "@/styles/radix-nova/ui/field"
-import { Input } from "@/styles/radix-nova/ui/input"
+import { Button } from "@/registry/bases/radix/ui/button"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/styles/radix-nova/ui/popover"
+} from "@/registry/bases/radix/ui/popover"
 
 export default function DatePickerTime() {
   const [open, setOpen] = React.useState(false)

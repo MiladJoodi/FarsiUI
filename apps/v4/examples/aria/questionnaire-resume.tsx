@@ -3,7 +3,7 @@
 import * as React from "react"
 import { toast } from "sonner"
 
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -18,7 +18,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/aria-nova/ui/questionnaire"
+} from "@/registry/bases/aria/ui/questionnaire"
 
 const items = [
   { name: "change", required: true },

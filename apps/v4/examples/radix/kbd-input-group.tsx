@@ -4,8 +4,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/styles/radix-nova/ui/input-group"
-import { Kbd } from "@/styles/radix-nova/ui/kbd"
+} from "@/registry/bases/radix/ui/input-group"
+import { Kbd } from "@/registry/bases/radix/ui/kbd"
 
 export default function KbdInputGroup() {
   return (

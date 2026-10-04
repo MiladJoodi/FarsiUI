@@ -4,15 +4,15 @@ import * as React from "react"
 import { ChevronDownIcon } from "lucide-react"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { Calendar } from "@/styles/base-nova/ui/calendar"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
-import { Input } from "@/styles/base-nova/ui/input"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/styles/base-nova/ui/popover"
+} from "@/registry/bases/base/ui/popover"
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("fa-IR", {

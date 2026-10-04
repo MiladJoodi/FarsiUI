@@ -6,14 +6,14 @@ import { CalendarIcon } from "lucide-react"
 import { type DateRange } from "react-day-picker"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { Calendar } from "@/styles/base-nova/ui/calendar"
-import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/styles/base-nova/ui/popover"
+} from "@/registry/bases/base/ui/popover"
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("fa-IR", {

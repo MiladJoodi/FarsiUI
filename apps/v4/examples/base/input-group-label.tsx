@@ -5,13 +5,13 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
-import { Label } from "@/styles/base-nova/ui/label"
+} from "@/registry/bases/base/ui/input-group"
+import { Label } from "@/registry/bases/base/ui/label"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/base-nova/ui/tooltip"
+} from "@/registry/bases/base/ui/tooltip"
 
 export default function InputGroupLabel() {
   return (

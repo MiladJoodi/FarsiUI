@@ -1,7 +1,7 @@
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/styles/radix-nova/ui/toggle-group"
+} from "@/registry/bases/radix/ui/toggle-group"
 
 export default function ToggleGroupSizes() {
   return (

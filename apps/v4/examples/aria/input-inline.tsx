@@ -1,6 +1,6 @@
-import { Button } from "@/styles/aria-nova/ui/button"
-import { Field } from "@/styles/aria-nova/ui/field"
-import { Input } from "@/styles/aria-nova/ui/input"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Field } from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
 
 export default function InputInline() {
   return (

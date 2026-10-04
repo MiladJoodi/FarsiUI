@@ -7,7 +7,7 @@ import {
   type CalendarDate,
 } from "@internationalized/date"
 
-import { Calendar } from "@/styles/aria-nova/ui/calendar"
+import { Calendar } from "@/registry/bases/aria/ui/calendar"
 
 export default function CalendarDemo() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(

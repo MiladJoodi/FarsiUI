@@ -1,5 +1,5 @@
-import { Button } from "@/styles/aria-nova/ui/button"
-import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Popover, PopoverTrigger } from "@/registry/bases/aria/ui/popover"
 
 export default function PopoverAlignments() {
   return (

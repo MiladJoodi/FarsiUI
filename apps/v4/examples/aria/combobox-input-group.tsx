@@ -12,8 +12,8 @@ import {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
-} from "@/styles/aria-nova/ui/combobox"
-import { InputGroupAddon } from "@/styles/aria-nova/ui/input-group"
+} from "@/registry/bases/aria/ui/combobox"
+import { InputGroupAddon } from "@/registry/bases/aria/ui/input-group"
 
 const timezones = [
   {

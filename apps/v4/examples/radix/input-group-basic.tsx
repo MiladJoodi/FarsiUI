@@ -1,6 +1,6 @@
-import { Field, FieldGroup, FieldLabel } from "@/styles/radix-nova/ui/field"
-import { Input } from "@/styles/radix-nova/ui/input"
-import { InputGroup, InputGroupInput } from "@/styles/radix-nova/ui/input-group"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui/field"
+import { Input } from "@/registry/bases/radix/ui/input"
+import { InputGroup, InputGroupInput } from "@/registry/bases/radix/ui/input-group"
 
 export default function InputGroupBasic() {
   return (

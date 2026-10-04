@@ -1,6 +1,6 @@
 import { GitBranch, GitFork } from "lucide-react"
 
-import { Button } from "@/styles/aria-nova/ui/button"
+import { Button } from "@/registry/bases/aria/ui/button"
 
 export default function ButtonWithIcon() {
   return (

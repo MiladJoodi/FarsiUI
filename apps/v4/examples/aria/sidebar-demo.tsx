@@ -30,12 +30,12 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/aria-nova/ui/avatar"
+} from "@/registry/bases/aria/ui/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/styles/aria-nova/ui/collapsible"
+} from "@/registry/bases/aria/ui/collapsible"
 import {
   DropdownMenu,
   DropdownMenuGroup,
@@ -44,7 +44,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/styles/aria-nova/ui/dropdown-menu"
+} from "@/registry/bases/aria/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -64,7 +64,7 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/styles/aria-nova/ui/sidebar"
+} from "@/registry/bases/aria/ui/sidebar"
 
 // This is sample data.
 const data = {

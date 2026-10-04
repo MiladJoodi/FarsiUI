@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { Field, FieldDescription, FieldLabel } from "@/styles/aria-nova/ui/field"
-import { Input } from "@/styles/aria-nova/ui/input"
+import { Field, FieldDescription, FieldLabel } from "@/registry/bases/aria/ui/field"
+import { Input } from "@/registry/bases/aria/ui/input"
 
 export default function InputNumeric() {
   const [amount, setAmount] = React.useState("123456")

@@ -5,15 +5,15 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-nova/ui/field"
-import { Input } from "@/styles/base-nova/ui/input"
+} from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
-import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
-import { Spinner } from "@/styles/base-nova/ui/spinner"
+} from "@/registry/bases/base/ui/input-group"
+import { Kbd, KbdGroup } from "@/registry/bases/base/ui/kbd"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export default function InputGroupWithKbd() {
   return (

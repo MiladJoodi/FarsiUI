@@ -1,4 +1,4 @@
-import { Skeleton } from "@/styles/base-nova/ui/skeleton"
+import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
 export default function SkeletonAvatar() {
   return (

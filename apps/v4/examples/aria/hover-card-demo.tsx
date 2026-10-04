@@ -1,7 +1,7 @@
 "use client"
 
-import { Button } from "@/styles/aria-nova/ui/button"
-import { HoverCard, HoverCardTrigger } from "@/styles/aria-nova/ui/hover-card"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { HoverCard, HoverCardTrigger } from "@/registry/bases/aria/ui/hover-card"
 
 export default function HoverCardDemo() {
   return (

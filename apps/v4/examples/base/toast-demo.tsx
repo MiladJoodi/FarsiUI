@@ -1,7 +1,7 @@
 "use client"
 
-import { Button } from "@/styles/base-nova/ui/button"
-import { toast } from "@/styles/base-nova/ui/toast"
+import { Button } from "@/registry/bases/base/ui/button"
+import { toast } from "@/registry/bases/base/ui/toast"
 
 export default function ToastDemo() {
   function showToast() {

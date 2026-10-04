@@ -6,7 +6,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Checkbox } from "@/styles/radix-nova/ui-rtl/checkbox"
+import { Checkbox } from "@/registry/bases/radix/ui-rtl/checkbox"
 import {
   Field,
   FieldContent,
@@ -14,8 +14,8 @@ import {
   FieldGroup,
   FieldLabel,
   FieldTitle,
-} from "@/styles/radix-nova/ui-rtl/field"
-import { Label } from "@/styles/radix-nova/ui-rtl/label"
+} from "@/registry/bases/radix/ui-rtl/field"
+import { Label } from "@/registry/bases/radix/ui-rtl/label"
 
 const translations: Translations = {
   en: {

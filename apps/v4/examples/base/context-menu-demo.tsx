@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/styles/base-nova/ui/context-menu"
+} from "@/registry/bases/base/ui/context-menu"
 
 export default function ContextMenuDemo() {
   return (

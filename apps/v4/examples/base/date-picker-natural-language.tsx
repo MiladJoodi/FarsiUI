@@ -5,19 +5,19 @@ import { parseDate } from "chrono-node"
 import { CalendarIcon } from "lucide-react"
 import { faIR as faIRDayPicker } from "react-day-picker/locale"
 
-import { Calendar } from "@/styles/base-nova/ui/calendar"
-import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/styles/base-nova/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/styles/base-nova/ui/popover"
+} from "@/registry/bases/base/ui/popover"
 
 function formatDate(date: Date | undefined) {
   if (!date) {

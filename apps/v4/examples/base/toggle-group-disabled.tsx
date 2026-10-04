@@ -3,7 +3,7 @@ import { Bold, Italic, Underline } from "lucide-react"
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/styles/base-nova/ui/toggle-group"
+} from "@/registry/bases/base/ui/toggle-group"
 
 export default function ToggleGroupDisabled() {
   return (

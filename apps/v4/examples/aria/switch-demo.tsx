@@ -1,5 +1,5 @@
-import { Label } from "@/styles/aria-nova/ui/label"
-import { Switch } from "@/styles/aria-nova/ui/switch"
+import { Label } from "@/registry/bases/aria/ui/label"
+import { Switch } from "@/registry/bases/aria/ui/switch"
 
 export default function SwitchDemo() {
   return (

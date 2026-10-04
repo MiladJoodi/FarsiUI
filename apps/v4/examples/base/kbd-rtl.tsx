@@ -1,6 +1,6 @@
 "use client"
 
-import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
+import { Kbd, KbdGroup } from "@/registry/bases/base/ui/kbd"
 
 export default function KbdRtl() {
   return (

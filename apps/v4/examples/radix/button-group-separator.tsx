@@ -1,8 +1,8 @@
-import { Button } from "@/styles/radix-nova/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   ButtonGroup,
   ButtonGroupSeparator,
-} from "@/styles/radix-nova/ui/button-group"
+} from "@/registry/bases/radix/ui/button-group"
 
 export default function ButtonGroupSeparatorDemo() {
   return (

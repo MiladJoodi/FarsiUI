@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Calendar } from "@/styles/radix-nova/ui/calendar"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
 
 export default function CalendarDemo() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())

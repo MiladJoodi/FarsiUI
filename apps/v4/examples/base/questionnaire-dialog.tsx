@@ -4,7 +4,7 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import { answerLabel } from "@/examples/base/questionnaire-answer-label"
-import { Button } from "@/styles/base-nova/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -14,7 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/styles/base-nova/ui/dialog"
+} from "@/registry/bases/base/ui/dialog"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -28,7 +28,7 @@ import {
   QuestionnaireProgress,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/base-nova/ui/questionnaire"
+} from "@/registry/bases/base/ui/questionnaire"
 
 const items = [
   { name: "scope", required: true },

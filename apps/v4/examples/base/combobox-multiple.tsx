@@ -13,7 +13,7 @@ import {
   ComboboxList,
   ComboboxValue,
   useComboboxAnchor,
-} from "@/styles/base-nova/ui/combobox"
+} from "@/registry/bases/base/ui/combobox"
 
 const frameworks = [
   "نکست‌جی‌اس",

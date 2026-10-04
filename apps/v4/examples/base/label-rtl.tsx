@@ -1,7 +1,7 @@
 "use client"
 
-import { Checkbox } from "@/styles/base-nova/ui/checkbox"
-import { Label } from "@/styles/base-nova/ui/label"
+import { Checkbox } from "@/registry/bases/base/ui/checkbox"
+import { Label } from "@/registry/bases/base/ui/label"
 
 export default function LabelRtl() {
   return (

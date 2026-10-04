@@ -1,6 +1,6 @@
 "use client"
 
-import { Calendar } from "@/styles/radix-nova/ui/calendar"
+import { Calendar } from "@/registry/bases/radix/ui/calendar"
 
 export default function CalendarCaption() {
   return (

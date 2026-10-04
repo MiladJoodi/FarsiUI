@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { ScrollArea, ScrollBar } from "@/styles/base-nova/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/registry/bases/base/ui/scroll-area"
 
 const places = [
   {

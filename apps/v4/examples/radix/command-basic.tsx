@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Button } from "@/styles/radix-nova/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 import {
   Command,
   CommandDialog,
@@ -11,7 +11,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/styles/radix-nova/ui/command"
+} from "@/registry/bases/radix/ui/command"
 
 export default function CommandBasic() {
   const [open, setOpen] = React.useState(false)

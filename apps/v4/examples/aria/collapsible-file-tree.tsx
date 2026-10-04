@@ -7,18 +7,18 @@ import {
   FolderIcon,
 } from "lucide-react"
 
-import { Button } from "@/styles/aria-nova/ui/button"
-import { Card, CardContent, CardHeader } from "@/styles/aria-nova/ui/card"
+import { Button } from "@/registry/bases/aria/ui/button"
+import { Card, CardContent, CardHeader } from "@/registry/bases/aria/ui/card"
 import {
   Collapsible,
   CollapsibleContent,
-} from "@/styles/aria-nova/ui/collapsible"
+} from "@/registry/bases/aria/ui/collapsible"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/styles/aria-nova/ui/tabs"
+} from "@/registry/bases/aria/ui/tabs"
 
 type FileTreeItem = { name: string } | { name: string; items: FileTreeItem[] }
 

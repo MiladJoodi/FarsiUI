@@ -3,8 +3,8 @@ import {
   ItemContent,
   ItemMedia,
   ItemTitle,
-} from "@/styles/base-nova/ui/item"
-import { Spinner } from "@/styles/base-nova/ui/spinner"
+} from "@/registry/bases/base/ui/item"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export default function SpinnerDemo() {
   return (

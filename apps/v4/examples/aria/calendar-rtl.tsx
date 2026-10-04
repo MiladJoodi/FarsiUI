@@ -8,7 +8,7 @@ import {
 } from "@internationalized/date"
 import { I18nProvider } from "react-aria-components"
 
-import { Calendar } from "@/styles/aria-nova/ui-rtl/calendar"
+import { Calendar } from "@/registry/bases/aria/ui-rtl/calendar"
 
 export default function CalendarRtl() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(

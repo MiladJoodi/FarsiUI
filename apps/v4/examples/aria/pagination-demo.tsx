@@ -7,7 +7,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/styles/aria-nova/ui/pagination"
+} from "@/registry/bases/aria/ui/pagination"
 
 export default function PaginationDemo() {
   return (

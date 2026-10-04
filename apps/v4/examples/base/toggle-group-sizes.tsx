@@ -1,7 +1,7 @@
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/styles/base-nova/ui/toggle-group"
+} from "@/registry/bases/base/ui/toggle-group"
 
 export default function ToggleGroupSizes() {
   return (

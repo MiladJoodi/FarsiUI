@@ -7,7 +7,7 @@ import { answerLabel } from "@/examples/base/questionnaire-answer-label"
 import {
   NativeSelect,
   NativeSelectOption,
-} from "@/styles/base-nova/ui/native-select"
+} from "@/registry/bases/base/ui/native-select"
 import {
   Questionnaire,
   QuestionnaireActions,
@@ -18,7 +18,7 @@ import {
   QuestionnaireItem,
   QuestionnaireSubmit,
   QuestionnaireTitle,
-} from "@/styles/base-nova/ui/questionnaire"
+} from "@/registry/bases/base/ui/questionnaire"
 
 const items = [
   {

@@ -4,7 +4,7 @@ import * as React from "react"
 import { addDays } from "date-fns"
 import { type DateRange } from "react-day-picker"
 
-import { Calendar } from "@/styles/base-nova/ui/calendar"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
 
 export default function CalendarRange() {
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>({

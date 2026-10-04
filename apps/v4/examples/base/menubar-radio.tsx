@@ -11,7 +11,7 @@ import {
   MenubarRadioItem,
   MenubarSeparator,
   MenubarTrigger,
-} from "@/styles/base-nova/ui/menubar"
+} from "@/registry/bases/base/ui/menubar"
 
 export default function MenubarRadio() {
   const [user, setUser] = React.useState("ali")

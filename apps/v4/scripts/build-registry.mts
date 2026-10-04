@@ -22,6 +22,7 @@ import { BASE_COLORS } from "@/registry/base-colors"
 import { BASES, type Base } from "@/registry/bases"
 import { PRESETS } from "@/registry/config"
 import { fonts } from "@/registry/fonts"
+import { resolveDensityInStyleMap } from "@/registry/resolve-density-style-map"
 import { STYLES } from "@/registry/styles"
 
 /*
@@ -1028,7 +1029,10 @@ async function buildBases(bases: Base[], targetStyleNames?: Set<string>) {
         return {
           style,
           styleHash: hashContent(styleContent),
-          styleMap: createStyleMap(styleContent),
+          styleMap: resolveDensityInStyleMap(
+            createStyleMap(styleContent),
+            style.name
+          ),
         }
       })
     ),

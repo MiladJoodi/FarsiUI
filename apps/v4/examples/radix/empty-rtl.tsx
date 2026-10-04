@@ -7,7 +7,7 @@ import {
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { Button } from "@/styles/radix-nova/ui-rtl/button"
+import { Button } from "@/registry/bases/radix/ui-rtl/button"
 import {
   Empty,
   EmptyContent,
@@ -15,7 +15,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/radix-nova/ui-rtl/empty"
+} from "@/registry/bases/radix/ui-rtl/empty"
 
 const translations: Translations = {
   en: {
