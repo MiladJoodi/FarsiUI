@@ -17,12 +17,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/styles/base-rhea/ui/alert-dialog"
-import { Badge } from "@/styles/base-rhea/ui/badge"
-import { Button } from "@/styles/base-rhea/ui/button"
-import { ButtonGroup } from "@/styles/base-rhea/ui/button-group"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
-import { Checkbox } from "@/styles/base-rhea/ui/checkbox"
+} from "@/registry/bases/base/ui/alert-dialog"
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import { ButtonGroup } from "@/registry/bases/base/ui/button-group"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
+import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,17 +31,17 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-rhea/ui/dropdown-menu"
-import { Field, FieldGroup } from "@/styles/base-rhea/ui/field"
+} from "@/registry/bases/base/ui/dropdown-menu"
+import { Field, FieldGroup } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/styles/base-rhea/ui/input-group"
-import { RadioGroup, RadioGroupItem } from "@/styles/base-rhea/ui/radio-group"
-import { Switch } from "@/styles/base-rhea/ui/switch"
-import { Textarea } from "@/styles/base-rhea/ui/textarea"
+} from "@/registry/bases/base/ui/input-group"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
+import { Switch } from "@/registry/bases/base/ui/switch"
+import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 export function UIElements() {
   return (

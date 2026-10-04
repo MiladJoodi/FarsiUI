@@ -5,9 +5,14 @@ import { NuqsAdapter } from "nuqs/adapters/next/app"
 
 import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
-import { activeUiFontStyle, fontVariables } from "@/lib/fonts"
+import {
+  activeUiFontStyle,
+  fontVariables,
+  UI_FONT_BOOTSTRAP_SCRIPT,
+} from "@/lib/fonts"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { DesignSystemPreviewProvider } from "@/components/design-system-preview"
+import { FontPreviewProvider } from "@/components/font-preview"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -17,6 +22,8 @@ import { TooltipProvider as RadixTooltipProvider } from "@/registry/bases/radix/
 import { Toaster as BaseToaster } from "@/styles/base-nova/ui/toast"
 
 import "@/app/globals.css"
+/* Default design system only — comfort/glass/rose CSS chunks load on demand. */
+import "@/app/styles/chunk-nova.css"
 import "@/app/(app)/(typeset)/typeset.css"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -93,6 +100,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         fontVariables,
+        "font-sans",
         "[--header-height:calc(var(--spacing)*14)] lg:[--header-height:calc(var(--spacing)*16)]"
       )}
       style={activeUiFontStyle}
@@ -128,28 +136,52 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var ds = localStorage.getItem('design-system-preview') || 'default';
+                if (ds === 'aether') { ds = 'glass'; localStorage.setItem('design-system-preview', ds); }
+                var styleMap = { default: 'style-nova', comfort: 'style-vega', glass: 'style-glass', rose: 'style-rose' };
+                var styleClass = styleMap[ds] || 'style-nova';
+                var applyStyle = function () {
+                  document.body.classList.add(styleClass);
+                };
+                if (document.body) applyStyle();
+                else document.addEventListener('DOMContentLoaded', applyStyle);
+              } catch (_) {}
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: UI_FONT_BOOTSTRAP_SCRIPT,
+          }}
+        />
         <meta name="theme-color" content={META_THEME_COLORS.light} />
       </head>
       <body
         suppressHydrationWarning
         className={cn(
-          "group/body antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
+          "group/body font-sans antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
         )}
       >
         <ThemeProvider>
           <ActiveThemeProvider>
             <DesignSystemPreviewProvider>
-              <NuqsAdapter>
-                <BaseTooltipProvider delay={0}>
-                  <RadixTooltipProvider delayDuration={0}>
-                    {children}
-                    <Toaster position="top-center" dir="rtl" />
-                    <BaseToaster />
-                  </RadixTooltipProvider>
-                </BaseTooltipProvider>
-              </NuqsAdapter>
-              <TailwindIndicator />
-              <Analytics />
+              <FontPreviewProvider>
+                <NuqsAdapter>
+                  <BaseTooltipProvider delay={0}>
+                    <RadixTooltipProvider delayDuration={0}>
+                      {children}
+                      <Toaster position="top-center" dir="rtl" />
+                      <BaseToaster />
+                    </RadixTooltipProvider>
+                  </BaseTooltipProvider>
+                </NuqsAdapter>
+                <TailwindIndicator />
+                <Analytics />
+              </FontPreviewProvider>
             </DesignSystemPreviewProvider>
           </ActiveThemeProvider>
         </ThemeProvider>

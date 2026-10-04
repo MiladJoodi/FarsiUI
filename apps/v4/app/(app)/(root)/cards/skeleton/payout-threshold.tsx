@@ -4,8 +4,8 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/styles/base-rhea/ui/card"
-import { Skeleton } from "@/styles/base-rhea/ui/skeleton"
+} from "@/registry/bases/base/ui/card"
+import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
 export function PayoutThreshold() {
   return (

@@ -9,6 +9,7 @@ import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { DesignSystemPicker } from "@/components/design-system-picker"
+import { FontPicker } from "@/components/font-picker"
 import { HeaderPrimaryColors } from "@/components/header-primary-colors"
 import { ModeSwitcher } from "@/components/mode-switcher"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
@@ -56,12 +57,13 @@ export function SiteHeader() {
               className="ms-2 hidden lg:block"
             />
             <DesignSystemPicker />
+            <FontPicker />
             <Separator orientation="vertical" className="hidden sm:block" />
             <HeaderPrimaryColors />
             <Separator orientation="vertical" className="hidden sm:block" />
             <div className="flex shrink-0 items-center gap-0.5">
               <GitHubLink />
-              <ContactLink className="lg:hidden" />
+              <ContactLink />
               <ModeSwitcher className="hidden lg:inline-flex" />
             </div>
           </div>

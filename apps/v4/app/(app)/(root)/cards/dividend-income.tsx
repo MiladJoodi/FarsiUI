@@ -1,7 +1,7 @@
 import { Cancel01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardAction,
@@ -9,14 +9,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemGroup,
   ItemTitle,
-} from "@/styles/base-rhea/ui/item"
+} from "@/registry/bases/base/ui/item"
 
 const HOLDINGS = [
   {

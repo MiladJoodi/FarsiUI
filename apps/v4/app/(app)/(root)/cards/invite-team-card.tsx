@@ -3,7 +3,7 @@
 import { PlusSignIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
@@ -11,9 +11,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
-import { Field, FieldLabel } from "@/styles/base-rhea/ui/field"
-import { Input } from "@/styles/base-rhea/ui/input"
+} from "@/registry/bases/base/ui/card"
+import { Field, FieldLabel } from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
 import {
   Select,
   SelectContent,
@@ -21,8 +21,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-rhea/ui/select"
-import { Separator } from "@/styles/base-rhea/ui/separator"
+} from "@/registry/bases/base/ui/select"
+import { Separator } from "@/registry/bases/base/ui/separator"
 
 const ROLES = [
   { label: "مدیر", value: "admin" },

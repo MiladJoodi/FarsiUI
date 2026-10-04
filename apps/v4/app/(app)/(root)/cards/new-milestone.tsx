@@ -1,4 +1,4 @@
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-rhea/ui/field"
-import { Input } from "@/styles/base-rhea/ui/input"
+} from "@/registry/bases/base/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
+import { Input } from "@/registry/bases/base/ui/input"
 
 export function NewMilestone() {
   return (

@@ -13,5 +13,9 @@ export function HeaderPrimaryColors() {
     return null
   }
 
-  return <PrimaryColorPalette compact />
+  return (
+    <div data-slot="header-primary-colors">
+      <PrimaryColorPalette compact />
+    </div>
+  )
 }

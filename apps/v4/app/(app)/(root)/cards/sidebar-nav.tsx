@@ -14,7 +14,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 import { cn } from "cn"
 
-import { Card } from "@/styles/base-rhea/ui/card"
+import { Card } from "@/registry/bases/base/ui/card"
 import {
   Sidebar,
   SidebarContent,
@@ -25,7 +25,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/styles/base-rhea/ui/sidebar"
+} from "@/registry/bases/base/ui/sidebar"
 
 function SidebarSection({
   label,
@@ -37,7 +37,7 @@ function SidebarSection({
   className?: string
 }) {
   return (
-    <Card className={cn("w-full overflow-hidden rounded-3xl py-0", className)}>
+    <Card className={cn("w-full rounded-3xl py-0", className)}>
       <SidebarProvider className="min-h-0" dir="rtl">
         <Sidebar collapsible="none" className="w-full bg-transparent" side="right">
           <SidebarContent className="gap-0 overflow-hidden">

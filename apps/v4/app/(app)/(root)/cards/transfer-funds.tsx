@@ -1,7 +1,7 @@
 import { Cancel01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardAction,
@@ -10,15 +10,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-rhea/ui/field"
+} from "@/registry/bases/base/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/styles/base-rhea/ui/input-group"
-import { Item, ItemContent } from "@/styles/base-rhea/ui/item"
+} from "@/registry/bases/base/ui/input-group"
+import { Item, ItemContent } from "@/registry/bases/base/ui/item"
 import {
   Select,
   SelectContent,
@@ -26,8 +26,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-rhea/ui/select"
-import { Separator } from "@/styles/base-rhea/ui/separator"
+} from "@/registry/bases/base/ui/select"
+import { Separator } from "@/registry/bases/base/ui/separator"
 
 const FROM_ACCOUNTS = [
   { label: "Main Checking (··8402) — $12,450.00", value: "checking" },

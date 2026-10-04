@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { Calendar } from "@/styles/base-rhea/ui/calendar"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Calendar } from "@/registry/bases/base/ui/calendar"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 
 export function CalendarCard() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())

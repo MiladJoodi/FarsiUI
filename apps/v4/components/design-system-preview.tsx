@@ -9,28 +9,43 @@ import {
   type ReactNode,
 } from "react"
 
+import {
+  loadDesignSystemStyle,
+  markDefaultDesignSystemStyleLoaded,
+  type LoadableDesignSystemId,
+} from "@/lib/design-system-style-loader"
+
 /**
- * Docs/Preview-only Design System selection (Default / Comfort / Aether).
+ * Docs/Preview-only Design System selection.
  * Does not affect CLI, bake, or installable component source.
+ *
+ * CSS: only the active style chunk is loaded. Default (nova) ships with the
+ * app shell; comfort / glass / rose load on first selection (or restore).
  */
 export const DESIGN_SYSTEM_PRESETS = [
   {
     id: "default",
-    label: "Default",
+    label: "پیشفرض",
     styleName: "base-nova",
     styleRootClass: "style-nova",
   },
   {
     id: "comfort",
-    label: "Comfort",
+    label: "آرام",
     styleName: "base-vega",
     styleRootClass: "style-vega",
   },
   {
-    id: "aether",
-    label: "Aether",
-    styleName: "base-aether",
-    styleRootClass: "style-aether",
+    id: "glass",
+    label: "فیروزه",
+    styleName: "base-nova",
+    styleRootClass: "style-glass",
+  },
+  {
+    id: "rose",
+    label: "رز",
+    styleName: "base-nova",
+    styleRootClass: "style-rose",
   },
 ] as const
 
@@ -45,6 +60,8 @@ type DesignSystemPreviewContextType = {
   styleName: string
   styleRootClass: string
   presets: typeof DESIGN_SYSTEM_PRESETS
+  /** False while a non-default style chunk is still fetching. */
+  styleReady: boolean
 }
 
 const DesignSystemPreviewContext = createContext<
@@ -58,6 +75,16 @@ function resolvePreset(id: string) {
   )
 }
 
+function normalizeStoredId(stored: string | null): DesignSystemId | null {
+  if (!stored) return null
+  // Aether was replaced by Glass (فیروزه).
+  const id = stored === "aether" ? "glass" : stored
+  if (DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) {
+    return id as DesignSystemId
+  }
+  return null
+}
+
 export function DesignSystemPreviewProvider({
   children,
   initialDesignSystem,
@@ -69,11 +96,20 @@ export function DesignSystemPreviewProvider({
     () => initialDesignSystem ?? DEFAULT_DESIGN_SYSTEM
   )
   const [hydrated, setHydrated] = useState(false)
+  const [styleReady, setStyleReady] = useState(
+    () => (initialDesignSystem ?? DEFAULT_DESIGN_SYSTEM) === "default"
+  )
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (stored && DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === stored)) {
-      setDesignSystemIdState(stored as DesignSystemId)
+    markDefaultDesignSystemStyleLoaded()
+    const raw = window.localStorage.getItem(STORAGE_KEY)
+    if (raw === "aether") {
+      window.localStorage.setItem(STORAGE_KEY, "glass")
+    }
+    const stored = normalizeStoredId(raw)
+    if (stored) {
+      if (stored !== "default") setStyleReady(false)
+      setDesignSystemIdState(stored)
     }
     setHydrated(true)
   }, [])
@@ -83,6 +119,35 @@ export function DesignSystemPreviewProvider({
     window.localStorage.setItem(STORAGE_KEY, designSystemId)
   }, [designSystemId, hydrated])
 
+  // Load CSS chunk for the active design system, then apply body class.
+  useEffect(() => {
+    if (!hydrated) return
+
+    let cancelled = false
+    const id = designSystemId as LoadableDesignSystemId
+    const preset = resolvePreset(designSystemId)
+
+    setStyleReady(id === "default")
+
+    void loadDesignSystemStyle(id)
+      .then(() => {
+        if (cancelled) return
+        const { body } = document
+        Array.from(body.classList)
+          .filter((className) => className.startsWith("style-"))
+          .forEach((className) => body.classList.remove(className))
+        body.classList.add(preset.styleRootClass)
+        setStyleReady(true)
+      })
+      .catch(() => {
+        if (!cancelled) setStyleReady(true)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [hydrated, designSystemId])
+
   const setDesignSystemId = useCallback((id: DesignSystemId) => {
     if (DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) {
       setDesignSystemIdState(id)
@@ -90,22 +155,6 @@ export function DesignSystemPreviewProvider({
   }, [])
 
   const preset = resolvePreset(designSystemId)
-
-  // Portaled overlays (dropdown, select, popover, …) mount on document.body.
-  // cn-* style recipes are scoped under .style-*, so the root must live on body.
-  useEffect(() => {
-    const { body } = document
-    const previous = Array.from(body.classList).filter((className) =>
-      className.startsWith("style-")
-    )
-    previous.forEach((className) => body.classList.remove(className))
-    body.classList.add(preset.styleRootClass)
-
-    return () => {
-      body.classList.remove(preset.styleRootClass)
-      previous.forEach((className) => body.classList.add(className))
-    }
-  }, [preset.styleRootClass])
 
   return (
     <DesignSystemPreviewContext.Provider
@@ -115,6 +164,7 @@ export function DesignSystemPreviewProvider({
         styleName: preset.styleName,
         styleRootClass: preset.styleRootClass,
         presets: DESIGN_SYSTEM_PRESETS,
+        styleReady,
       }}
     >
       {children}

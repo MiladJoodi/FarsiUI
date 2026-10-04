@@ -1,10 +1,10 @@
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/styles/base-rhea/ui/tabs"
+} from "@/registry/bases/base/ui/tabs"
 
 export function TabsCard() {
   return (

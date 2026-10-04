@@ -5,8 +5,8 @@ import { DirectionProvider } from "@base-ui/react/direction-provider"
 import { BookmarkIcon } from "lucide-react"
 import { toast } from "sonner"
 
-import { Button } from "@/styles/base-rhea/ui/button"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Combobox,
   ComboboxContent,
@@ -14,7 +14,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from "@/styles/base-rhea/ui/combobox"
+} from "@/registry/bases/base/ui/combobox"
 import {
   Popover,
   PopoverContent,
@@ -22,9 +22,9 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/styles/base-rhea/ui/popover"
-import { Slider } from "@/styles/base-rhea/ui/slider"
-import { Toggle } from "@/styles/base-rhea/ui/toggle"
+} from "@/registry/bases/base/ui/popover"
+import { Slider } from "@/registry/bases/base/ui/slider"
+import { Toggle } from "@/registry/bases/base/ui/toggle"
 
 const cities = [
   "تهران",

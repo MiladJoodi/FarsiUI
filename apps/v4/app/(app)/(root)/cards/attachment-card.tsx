@@ -8,9 +8,9 @@ import {
   AttachmentDescription,
   AttachmentMedia,
   AttachmentTitle,
-} from "@/styles/base-rhea/ui/attachment"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
-import { Spinner } from "@/styles/base-rhea/ui/spinner"
+} from "@/registry/bases/base/ui/attachment"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export function AttachmentCard() {
   return (

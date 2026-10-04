@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, Cell, XAxis } from "recharts"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
@@ -10,14 +10,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/styles/base-rhea/ui/chart"
-import { Item, ItemContent, ItemDescription } from "@/styles/base-rhea/ui/item"
+} from "@/registry/bases/base/ui/chart"
+import { Item, ItemContent, ItemDescription } from "@/registry/bases/base/ui/item"
 
 const chartData = [
   { month: "دی", amount: 800, fill: "var(--chart-1)" },
@@ -44,7 +44,7 @@ export function ContributionHistory() {
       <CardContent>
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto h-[200px] w-full"
+          className="aspect-auto h-[200px] w-full isolate overflow-hidden"
           aria-label="فعالیت واریز ۶ ماه گذشته"
         >
           <BarChart
@@ -60,8 +60,15 @@ export function ContributionHistory() {
               tick={{ fontSize: 12 }}
             />
             <ChartTooltip
-              cursor={{ fill: "var(--muted)", opacity: 0.35 }}
-              content={<ChartTooltipContent indicator="dot" nameKey="amount" />}
+              cursor={false}
+              isAnimationActive={false}
+              content={
+                <ChartTooltipContent
+                  indicator="dot"
+                  nameKey="amount"
+                  className="border-border/60 bg-popover text-popover-foreground shadow-lg backdrop-blur-none"
+                />
+              }
             />
             <Bar dataKey="amount" radius={8} maxBarSize={48}>
               {chartData.map((item) => (

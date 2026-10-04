@@ -4,15 +4,15 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/styles/base-rhea/ui/alert"
+} from "@/registry/bases/base/ui/alert"
 import {
   Avatar,
   AvatarBadge,
   AvatarFallback,
   AvatarImage,
-} from "@/styles/base-rhea/ui/avatar"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
-import { Marker, MarkerContent } from "@/styles/base-rhea/ui/marker"
+} from "@/registry/bases/base/ui/avatar"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
+import { Marker, MarkerContent } from "@/registry/bases/base/ui/marker"
 
 export function MarkerAvatarAlert() {
   return (

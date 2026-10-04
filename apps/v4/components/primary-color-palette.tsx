@@ -1,11 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon, ChevronUpIcon } from "lucide-react"
+import { CheckIcon, ChevronDownIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { THEMES } from "@/lib/themes"
 import { useThemeConfig } from "@/components/active-theme"
+import { useDesignSystemPreview } from "@/components/design-system-preview"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
@@ -69,14 +70,20 @@ export function PrimaryColorPalette({
   compact = false,
 }: React.ComponentProps<"div"> & { compact?: boolean }) {
   const { activeTheme, setActiveTheme } = useThemeConfig()
+  const { designSystemId } = useDesignSystemPreview()
   const current = activeTheme === "default" ? "neutral" : activeTheme
   const currentLabel = THEME_LABELS[current] ?? current
   const [open, setOpen] = React.useState(false)
 
+  // Glass / Rose own their accents; Primary Color must not recolor them.
+  if (designSystemId === "glass" || designSystemId === "rose") {
+    return null
+  }
+
   if (compact) {
     return (
       <div dir="rtl" className={cn("shrink-0", className)}>
-        <Popover open={open} onOpenChange={setOpen}>
+        <Popover open={open} onOpenChange={setOpen} modal={false}>
           <PopoverTrigger asChild>
             <Button
               type="button"
@@ -84,12 +91,12 @@ export function PrimaryColorPalette({
               size="sm"
               aria-label={`رنگ اصلی: ${currentLabel}`}
               title={currentLabel}
-              className="h-8 gap-0.5 rounded-full border-0 px-1 shadow-none hover:bg-transparent"
+              className="h-8 cursor-pointer gap-0.5 rounded-full border-0 px-1 shadow-none hover:bg-transparent"
             >
               <ColorDot themeName={current} size="sm" />
-              <ChevronUpIcon
+              <ChevronDownIcon
                 className={cn(
-                  "size-3.5 text-muted-foreground transition-transform",
+                  "size-3.5 text-muted-foreground transition-transform duration-150",
                   open && "rotate-180"
                 )}
               />
@@ -98,9 +105,9 @@ export function PrimaryColorPalette({
           <PopoverContent
             dir="rtl"
             align="end"
-            side="top"
-            sideOffset={8}
-            className="w-44 p-1.5"
+            side="bottom"
+            sideOffset={6}
+            className="w-44 p-1.5 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"
           >
             <div
               role="listbox"
@@ -118,7 +125,7 @@ export function PrimaryColorPalette({
                     role="option"
                     aria-selected={isActive}
                     className={cn(
-                      "flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-sm transition-colors",
+                      "flex w-full cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm transition-colors",
                       "hover:bg-accent hover:text-accent-foreground",
                       isActive && "bg-accent/70"
                     )}
@@ -166,7 +173,7 @@ export function PrimaryColorPalette({
             title={label}
             data-active={isActive}
             className={cn(
-              "size-8 rounded-full border-2 p-0 shadow-none",
+              "size-8 cursor-pointer rounded-full border-2 p-0 shadow-none",
               isActive
                 ? "border-foreground"
                 : "border-transparent hover:border-foreground/30"

@@ -14,7 +14,7 @@ import {
 
 import { createChat, getMessageText } from "@/lib/ai"
 import { MessageAnimated } from "@/components/message-animated"
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardAction,
@@ -23,38 +23,38 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-rhea/ui/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/base-rhea/ui/empty"
+} from "@/registry/bases/base/ui/empty"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-} from "@/styles/base-rhea/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 import {
   MessageScroller,
   MessageScrollerButton,
   MessageScrollerContent,
   MessageScrollerProvider,
   MessageScrollerViewport,
-} from "@/styles/base-rhea/ui/message-scroller"
+} from "@/registry/bases/base/ui/message-scroller"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/styles/base-rhea/ui/tooltip"
+} from "@/registry/bases/base/ui/tooltip"
 
 const chat = createChat()
   .user(

@@ -1,7 +1,7 @@
 import { Cancel01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardAction,
@@ -10,14 +10,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/card"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/styles/base-rhea/ui/field"
-import { Progress } from "@/styles/base-rhea/ui/progress"
+} from "@/registry/bases/base/ui/field"
+import { Progress } from "@/registry/bases/base/ui/progress"
 import {
   Select,
   SelectContent,
@@ -25,8 +25,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/styles/base-rhea/ui/select"
-import { Textarea } from "@/styles/base-rhea/ui/textarea"
+} from "@/registry/bases/base/ui/select"
+import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 const CURRENCIES = [
   { label: "تومان — ایران", value: "irr" },
@@ -47,7 +47,6 @@ export function PayoutThreshold() {
           <Button
             variant="ghost"
             size="icon-sm"
-            className="bg-muted"
             aria-label="بستن آستانهٔ پرداخت"
           >
             <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />

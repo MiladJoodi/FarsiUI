@@ -198,7 +198,10 @@ const COLLAGE_SURFACE =
 
 export function CardsDemoMobile() {
   return (
-    <div className={cn("relative w-full overflow-hidden", COLLAGE_SURFACE)}>
+    <div
+      data-collage-surface=""
+      className={cn("relative w-full overflow-x-clip", COLLAGE_SURFACE)}
+    >
       <div
         data-slot="demo"
         dir="rtl"
@@ -221,11 +224,12 @@ export function CardsDemo() {
   return (
     <div
       data-slot="demo"
+      data-collage-surface=""
       dir="rtl"
       lang="fa"
       onClickCapture={preventDemoHashNavigation}
       className={cn(
-        "theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden px-12 pt-6 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:px-12 min-[1900px]:pt-8 min-[1900px]:[--gap:--spacing(10)]! lg:px-6 lg:pt-6 lg:[--gap:--spacing(6)] [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]",
+        "theme-container relative flex w-full max-w-none flex-col gap-(--gap) px-12 pt-6 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:px-12 min-[1900px]:pt-8 min-[1900px]:[--gap:--spacing(10)]! lg:px-6 lg:pt-6 lg:[--gap:--spacing(6)] [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]",
         COLLAGE_SURFACE
       )}
     >

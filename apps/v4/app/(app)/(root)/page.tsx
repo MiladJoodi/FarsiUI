@@ -8,14 +8,14 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { Button } from "@/styles/radix-luma/ui/button"
+import { Button } from "@/registry/bases/radix/ui/button"
 
 import { CardsDemo, CardsDemoMobile } from "./cards"
 
 const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
 const description =
-  "مخزن کامپوننت‌های استاندارد، راست‌چین و قابل شخصی‌سازی برای React"
+  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی و آماده برای React"
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -122,9 +122,9 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <div className="container-wrapper flex-1 p-0">
-        <div className="container overflow-hidden md:px-0 lg:max-w-none">
+        <div className="container md:px-0 lg:max-w-none">
           {/* Mobile: 140vw bleed of a scaled desktop collage (live Persian cards). */}
-          <section className="-mx-4 w-[140vw] overflow-hidden md:hidden">
+          <section className="-mx-4 w-[140vw] overflow-x-clip md:hidden">
             <CardsDemoMobile />
           </section>
           <section className="hidden md:block">

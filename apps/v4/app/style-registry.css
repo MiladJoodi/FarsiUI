@@ -9,3 +9,14 @@
 @import "../registry/styles/style-sera.css" layer(base);
 @import "../registry/styles/style-rhea.css" layer(base);
 @import "../registry/styles/style-aether.css" layer(base);
+@import "../registry/styles/style-glass.css" layer(base);
+@import "../registry/styles/style-rose.css" layer(base);
+
+/*
+ * Unlayered design-system tokens after layered recipes.
+ * App shell also imports these last (layout.tsx) so they beat
+ * legacy-themes.css theme-* primary overrides on .theme-container.
+ */
+@import "../registry/styles/aether-tokens.css";
+@import "../registry/styles/glass-tokens.css";
+@import "../registry/styles/rose-tokens.css";

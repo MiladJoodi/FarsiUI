@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -18,7 +18,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/styles/base-rhea/ui/menubar"
+} from "@/registry/bases/base/ui/menubar"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -27,7 +27,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/styles/base-rhea/ui/navigation-menu"
+} from "@/registry/bases/base/ui/navigation-menu"
 
 export function NavigationMenuCard() {
   const [profile, setProfile] = React.useState("sara")

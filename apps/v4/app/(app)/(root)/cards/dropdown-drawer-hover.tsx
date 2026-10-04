@@ -4,9 +4,9 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import { useIsMobile } from "@/hooks/use-mobile"
-import { Badge } from "@/styles/base-rhea/ui/badge"
-import { Button } from "@/styles/base-rhea/ui/button"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Badge } from "@/registry/bases/base/ui/badge"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Drawer,
   DrawerClose,
@@ -16,7 +16,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/styles/base-rhea/ui/drawer"
+} from "@/registry/bases/base/ui/drawer"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,19 +25,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/styles/base-rhea/ui/dropdown-menu"
+} from "@/registry/bases/base/ui/dropdown-menu"
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldLabel,
   FieldTitle,
-} from "@/styles/base-rhea/ui/field"
+} from "@/registry/bases/base/ui/field"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/styles/base-rhea/ui/hover-card"
+} from "@/registry/bases/base/ui/hover-card"
 import {
   Pagination,
   PaginationContent,
@@ -46,9 +46,9 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/styles/base-rhea/ui/pagination"
-import { RadioGroup, RadioGroupItem } from "@/styles/base-rhea/ui/radio-group"
-import { Avatar, AvatarFallback, AvatarImage } from "@/styles/base-rhea/ui/avatar"
+} from "@/registry/bases/base/ui/pagination"
+import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 
 const deliveryTimes = [
   {

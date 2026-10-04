@@ -6,6 +6,7 @@ import {
   useDesignSystemPreview,
   type DesignSystemId,
 } from "@/components/design-system-preview"
+import { prefetchDesignSystemStyles } from "@/lib/design-system-style-loader"
 import {
   Select,
   SelectContent,
@@ -31,6 +32,9 @@ export function DesignSystemPicker({
       <Select
         items={items}
         value={designSystemId}
+        onOpenChange={(open) => {
+          if (open) prefetchDesignSystemStyles(designSystemId)
+        }}
         onValueChange={(value) => {
           if (value) setDesignSystemId(value as DesignSystemId)
         }}
@@ -38,10 +42,12 @@ export function DesignSystemPicker({
         <SelectTrigger
           id="design-system-picker"
           size="sm"
-          aria-label="Design System"
-          className="h-8 min-w-[6.5rem] border-border/80 bg-background/80 text-xs shadow-none"
+          aria-label="سیستم طراحی"
+          className="h-8 min-w-[9rem] cursor-pointer border-border/80 bg-background/80 text-xs shadow-none"
+          onPointerEnter={() => prefetchDesignSystemStyles(designSystemId)}
+          onFocus={() => prefetchDesignSystemStyles(designSystemId)}
         >
-          <SelectValue placeholder="Default" />
+          <SelectValue placeholder="پیشفرض" />
         </SelectTrigger>
         <SelectContent align="end">
           <SelectGroup>

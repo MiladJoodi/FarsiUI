@@ -5,21 +5,21 @@ import {
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-import { Button } from "@/styles/base-rhea/ui/button"
+import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/styles/base-rhea/ui/card"
-import { Field, FieldGroup, FieldLabel } from "@/styles/base-rhea/ui/field"
+} from "@/registry/bases/base/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/registry/bases/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/styles/base-rhea/ui/input-group"
+} from "@/registry/bases/base/ui/input-group"
 
 export function SocialLinksCard() {
   return (

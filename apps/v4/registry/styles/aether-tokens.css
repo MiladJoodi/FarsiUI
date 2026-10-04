@@ -1,0 +1,466 @@
+/**
+ * Aether semantic + role tokens (unlayered).
+ *
+ * Loaded outside `layer(base)` so these variables beat unlayered
+ * `.theme-*` overrides from `legacy-themes.css` when `.style-aether` is active.
+ *
+ * Density tokens stay in `style-aether.css` (synced with densities.ts).
+ * Recipes stay layered in `style-aether.css`.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — cool slate / restrained indigo-violet                              */
+/* -------------------------------------------------------------------------- */
+
+.style-aether {
+  /* Accent aliases (referenced by theme-lock selectors below) */
+  --aether-primary: oklch(0.47 0.15 275);
+  --aether-primary-foreground: oklch(0.99 0.01 270);
+  --aether-ring: oklch(0.55 0.13 275);
+  --aether-sidebar-primary: oklch(0.47 0.15 275);
+  --aether-sidebar-primary-foreground: oklch(0.99 0.01 270);
+  --aether-sidebar-ring: oklch(0.55 0.13 275);
+  --aether-chart-1: oklch(0.52 0.14 275);
+
+  --radius: 0.625rem;
+
+  /* Canvas — cool tint so glass can read against the page */
+  --background: oklch(0.935 0.022 265);
+  --foreground: oklch(0.22 0.03 270);
+
+  /* Role: surface (cards — translucent glass) */
+  --surface: oklch(0.98 0.025 275 / 0.18);
+  --surface-muted: oklch(0.96 0.03 275 / 0.14);
+  --surface-border: oklch(1 0 0 / 0.7);
+  --surface-filter: blur(28px) saturate(1.55);
+  --surface-opacity: 0.18;
+  --surface-foreground: var(--foreground);
+
+  /* Role: field (inputs — frosted glass, not stark white) */
+  --field: oklch(0.995 0.012 265 / 0.48);
+  --field-border: oklch(0.55 0.06 275 / 0.28);
+  --field-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.45), 0 1px 2px 0 rgb(15 23 42 / 0.04);
+
+  /* Role: control (outline/secondary — frosted glass) */
+  --control: oklch(0.995 0.014 265 / 0.4);
+  --control-border: oklch(0.55 0.06 275 / 0.3);
+  --control-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.4), 0 1px 2px 0 rgb(15 23 42 / 0.05);
+
+  /* Role: overlay (popover / dialog / dropdown / select — stronger glass) */
+  --overlay: oklch(0.99 0.016 265 / 0.52);
+  --overlay-shadow:
+    0 18px 40px -16px rgb(30 27 75 / 0.28), 0 6px 14px -6px rgb(15 23 42 / 0.12);
+
+  /* Geometry roles */
+  --radius-field: 0.625rem;
+  --radius-surface: 0.875rem;
+  --radius-overlay: 0.75rem;
+
+  /* Elevation roles (aligned with effects.ts shadow language) */
+  --shadow-field: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+  --shadow-surface:
+    0 12px 36px -16px rgb(49 46 129 / 0.35), 0 2px 10px -4px rgb(15 23 42 / 0.1);
+  --shadow-overlay:
+    0 18px 40px -16px rgb(30 27 75 / 0.28), 0 6px 14px -6px rgb(15 23 42 / 0.12);
+  --shadow-control: 0 1px 2px 0 rgb(15 23 42 / 0.06);
+  --shadow-press: inset 0 1px 0 0 rgb(255 255 255 / 0.2);
+
+  /* Motion (effects.ts duration-fast) */
+  --motion-fast: 100ms;
+
+  /* Map shadcn semantic roles → Aether roles */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--overlay);
+  --popover-foreground: var(--foreground);
+  --input: var(--field);
+
+  --primary: var(--aether-primary);
+  --primary-foreground: var(--aether-primary-foreground);
+  --secondary: oklch(0.96 0.02 265 / 0.55);
+  --secondary-foreground: oklch(0.3 0.03 270);
+  --muted: oklch(0.94 0.02 265 / 0.45);
+  --muted-foreground: oklch(0.48 0.025 270);
+  --accent: oklch(0.94 0.05 275 / 0.55);
+  --accent-foreground: oklch(0.3 0.07 275);
+  --destructive: oklch(0.55 0.19 25);
+  --border: var(--surface-border);
+  --ring: var(--aether-ring);
+
+  --sidebar: oklch(0.985 0.008 260 / 0.85);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--aether-sidebar-primary);
+  --sidebar-primary-foreground: var(--aether-sidebar-primary-foreground);
+  --sidebar-accent: oklch(0.95 0.035 275);
+  --sidebar-accent-foreground: oklch(0.3 0.07 275);
+  --sidebar-border: oklch(0.72 0.03 270 / 0.2);
+  --sidebar-ring: var(--aether-sidebar-ring);
+
+  --chart-1: var(--aether-chart-1);
+  --chart-2: oklch(0.55 0.1 230);
+  --chart-3: oklch(0.6 0.08 200);
+  --chart-4: oklch(0.52 0.1 300);
+  --chart-5: oklch(0.45 0.06 270);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark — deep blue-slate / brighter restrained indigo                        */
+/* -------------------------------------------------------------------------- */
+
+.dark .style-aether {
+  --aether-primary: oklch(0.72 0.13 275);
+  --aether-primary-foreground: oklch(0.16 0.03 270);
+  --aether-ring: oklch(0.68 0.12 275);
+  --aether-sidebar-primary: oklch(0.72 0.13 275);
+  --aether-sidebar-primary-foreground: oklch(0.16 0.03 270);
+  --aether-sidebar-ring: oklch(0.68 0.12 275);
+  --aether-chart-1: oklch(0.7 0.12 275);
+
+  --background: oklch(0.14 0.035 268);
+  --foreground: oklch(0.96 0.012 270);
+
+  --surface: oklch(0.3 0.045 270 / 0.28);
+  --surface-muted: oklch(0.24 0.04 268 / 0.22);
+  --surface-border: oklch(1 0 0 / 0.18);
+  --surface-filter: blur(28px) saturate(1.4);
+  --surface-opacity: 0.28;
+  --surface-foreground: var(--foreground);
+
+  --field: oklch(0.26 0.03 265 / 0.5);
+  --field-border: oklch(1 0 0 / 0.16);
+  --field-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.04), 0 1px 2px 0 rgb(0 0 0 / 0.35);
+
+  --control: oklch(0.28 0.035 265 / 0.42);
+  --control-border: oklch(1 0 0 / 0.14);
+  --control-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.05), 0 1px 2px 0 rgb(0 0 0 / 0.4);
+
+  --overlay: oklch(0.26 0.04 270 / 0.58);
+  --overlay-shadow:
+    0 22px 50px -18px rgb(0 0 0 / 0.65), 0 8px 18px -8px rgb(0 0 0 / 0.45);
+
+  --radius-field: 0.625rem;
+  --radius-surface: 0.875rem;
+  --radius-overlay: 0.75rem;
+
+  --shadow-field: 0 1px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-surface:
+    0 4px 16px -6px rgb(0 0 0 / 0.45), 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-overlay:
+    0 16px 40px -12px rgb(0 0 0 / 0.55), 0 4px 12px -4px rgb(0 0 0 / 0.4);
+  --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-press: 0 0 0 0 rgb(0 0 0 / 0);
+
+  --motion-fast: 100ms;
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--overlay);
+  --popover-foreground: var(--foreground);
+  --input: var(--field);
+
+  --primary: var(--aether-primary);
+  --primary-foreground: var(--aether-primary-foreground);
+  --secondary: oklch(0.3 0.035 265 / 0.5);
+  --secondary-foreground: oklch(0.96 0.012 270);
+  --muted: oklch(0.28 0.03 265 / 0.45);
+  --muted-foreground: oklch(0.72 0.025 270);
+  --accent: oklch(0.34 0.06 275 / 0.55);
+  --accent-foreground: oklch(0.96 0.012 270);
+  --destructive: oklch(0.68 0.16 22);
+  --border: var(--surface-border);
+  --ring: var(--aether-ring);
+
+  --sidebar: oklch(0.19 0.03 265 / 0.88);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--aether-sidebar-primary);
+  --sidebar-primary-foreground: var(--aether-sidebar-primary-foreground);
+  --sidebar-accent: oklch(0.32 0.055 275);
+  --sidebar-accent-foreground: oklch(0.96 0.012 270);
+  --sidebar-border: oklch(1 0 0 / 0.1);
+  --sidebar-ring: var(--aether-sidebar-ring);
+
+  --chart-1: var(--aether-chart-1);
+  --chart-2: oklch(0.65 0.1 230);
+  --chart-3: oklch(0.68 0.08 200);
+  --chart-4: oklch(0.62 0.1 300);
+  --chart-5: oklch(0.55 0.06 270);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Atmosphere reveal — unlayered so it beats Tailwind utility layers           */
+/* (`bg-background` / `bg-muted` live in @layer utilities > @layer base).     */
+/* Without this, mesh on body is covered and glass has nothing to refract.    */
+/* -------------------------------------------------------------------------- */
+
+.style-aether [data-slot="layout"] {
+  background-color: transparent;
+}
+
+/* Hide Primary Color as soon as body has style-aether (pre-hydration script). */
+.style-aether [data-slot="header-primary-colors"] {
+  display: none !important;
+}
+
+/*
+ * Paint mesh ON the collage (inside overflow:hidden ancestors).
+ * Backdrop-filter only samples within the nearest overflow/clip root —
+ * body mesh alone is invisible to cards trapped in overflow:hidden.
+ */
+.style-aether [data-collage-surface] {
+  background-color: oklch(0.86 0.055 270) !important;
+  background-image:
+    linear-gradient(oklch(0.32 0.14 275 / 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.32 0.14 275 / 0.2) 1px, transparent 1px),
+    radial-gradient(at 6% 4%, oklch(0.58 0.24 275 / 0.85) 0px, transparent 40%),
+    radial-gradient(at 94% 10%, oklch(0.66 0.18 230 / 0.7) 0px, transparent 38%),
+    radial-gradient(at 45% 42%, oklch(0.72 0.16 300 / 0.55) 0px, transparent 42%),
+    radial-gradient(at 72% 90%, oklch(0.68 0.16 250 / 0.62) 0px, transparent 44%),
+    linear-gradient(165deg, oklch(0.88 0.06 265), oklch(0.8 0.08 275)) !important;
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto,
+    auto,
+    auto,
+    auto,
+    auto !important;
+  background-attachment: scroll;
+}
+
+/*
+ * Glass fills — unlayered so utility layers can't paint stark white.
+ * Blur still comes from @apply backdrop-blur-* in style-aether recipes.
+ */
+.style-aether .cn-card,
+.style-aether .cn-alert {
+  background-color: var(--surface) !important;
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow-surface);
+  overflow: visible;
+}
+
+.style-aether .cn-input,
+.style-aether .cn-textarea,
+.style-aether .cn-select-trigger,
+.style-aether [data-slot="select-trigger"],
+.style-aether .cn-input-group,
+.style-aether [data-slot="input-group"],
+.style-aether .cn-native-select {
+  background-color: var(--field) !important;
+  border-color: var(--field-border);
+  box-shadow: var(--field-shadow);
+}
+
+.style-aether .cn-button-variant-outline,
+.style-aether .cn-button-variant-secondary,
+.style-aether .cn-menubar,
+.style-aether .cn-pagination-link[data-active="true"],
+.style-aether .cn-pagination-link[aria-current="page"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border);
+  box-shadow: var(--shadow-control);
+}
+
+.style-aether .cn-dialog-content,
+.style-aether .cn-alert-dialog-content,
+.style-aether .cn-popover-content,
+.style-aether .cn-sheet-content,
+.style-aether .cn-drawer-content,
+.style-aether .cn-drawer-popup,
+.style-aether .cn-dropdown-menu-content,
+.style-aether .cn-dropdown-menu-sub-content,
+.style-aether .cn-select-content,
+.style-aether [data-slot="select-content"],
+.style-aether .cn-combobox-content,
+.style-aether .cn-hover-card-content,
+.style-aether .cn-context-menu-content,
+.style-aether .cn-context-menu-sub-content,
+.style-aether .cn-menubar-content,
+.style-aether .cn-menubar-sub-content,
+.style-aether .cn-navigation-menu-viewport,
+.style-aether .cn-navigation-menu-popup,
+.style-aether .cn-menu-translucent,
+.style-aether .cn-dialog-content-aria,
+.style-aether .cn-popover-content-aria,
+.style-aether .cn-dropdown-menu-content-aria,
+.style-aether .cn-select-content-aria,
+.style-aether .cn-combobox-content-aria,
+.style-aether .cn-hover-card-content-aria,
+.style-aether .cn-context-menu-content-aria {
+  background-color: var(--overlay) !important;
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow-overlay);
+}
+
+.style-aether .cn-menu-translucent,
+.style-aether [data-slot="select-content"] {
+  isolation: auto;
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+}
+
+.style-aether .cn-menu-translucent::before {
+  content: none !important;
+  display: none !important;
+}
+
+/*
+ * Body mesh is in layered style-aether.css; re-assert unlayered so it wins
+ * over any utility/background on body when Aether is active.
+ */
+.style-aether {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(oklch(0.4 0.1 275 / 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.4 0.1 275 / 0.11) 1px, transparent 1px),
+    radial-gradient(at 12% 10%, oklch(0.68 0.18 275 / 0.55) 0px, transparent 48%),
+    radial-gradient(at 88% 16%, oklch(0.74 0.14 230 / 0.42) 0px, transparent 44%),
+    radial-gradient(at 58% 90%, oklch(0.76 0.12 300 / 0.35) 0px, transparent 50%),
+    linear-gradient(165deg, oklch(0.93 0.035 265), oklch(0.88 0.05 275));
+  background-size:
+    36px 36px,
+    36px 36px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-attachment: fixed;
+}
+
+.dark .style-aether {
+  background-image:
+    linear-gradient(oklch(0.7 0.08 275 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.7 0.08 275 / 0.08) 1px, transparent 1px),
+    radial-gradient(at 16% 14%, oklch(0.42 0.16 275 / 0.5) 0px, transparent 48%),
+    radial-gradient(at 88% 20%, oklch(0.36 0.12 230 / 0.36) 0px, transparent 44%),
+    radial-gradient(at 55% 90%, oklch(0.34 0.1 300 / 0.32) 0px, transparent 50%),
+    linear-gradient(165deg, oklch(0.12 0.035 268), oklch(0.17 0.04 275));
+  background-size:
+    36px 36px,
+    36px 36px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-attachment: fixed;
+}
+
+.dark .style-aether [data-collage-surface] {
+  background-image:
+    linear-gradient(oklch(0.7 0.08 275 / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.7 0.08 275 / 0.1) 1px, transparent 1px),
+    radial-gradient(at 14% 10%, oklch(0.42 0.16 275 / 0.55) 0px, transparent 46%),
+    radial-gradient(at 90% 16%, oklch(0.36 0.12 230 / 0.4) 0px, transparent 42%),
+    radial-gradient(at 55% 92%, oklch(0.34 0.1 300 / 0.36) 0px, transparent 48%),
+    linear-gradient(165deg, oklch(0.12 0.035 268), oklch(0.18 0.045 275)) !important;
+  background-size:
+    36px 36px,
+    36px 36px,
+    auto,
+    auto,
+    auto,
+    auto !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accent ownership — match `.theme-* .theme-container` specificity (0,2,0)   */
+/* Loaded after legacy-themes so Aether indigo wins under any Primary Color.  */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * Specificity (0,3,0) beats `.theme-* .theme-container` (0,2,0) and
+ * `.theme-*:is(.dark *)` dark variants from legacy-themes.css.
+ */
+.style-aether.theme-default,
+.style-aether.theme-neutral,
+.style-aether.theme-blue,
+.style-aether.theme-green,
+.style-aether.theme-amber,
+.style-aether.theme-rose,
+.style-aether.theme-purple,
+.style-aether.theme-orange,
+.style-aether.theme-teal,
+.style-aether.theme-red,
+.style-aether.theme-yellow,
+.style-aether.theme-violet,
+.style-aether.theme-default .theme-container,
+.style-aether.theme-neutral .theme-container,
+.style-aether.theme-blue .theme-container,
+.style-aether.theme-green .theme-container,
+.style-aether.theme-amber .theme-container,
+.style-aether.theme-rose .theme-container,
+.style-aether.theme-purple .theme-container,
+.style-aether.theme-orange .theme-container,
+.style-aether.theme-teal .theme-container,
+.style-aether.theme-red .theme-container,
+.style-aether.theme-yellow .theme-container,
+.style-aether.theme-violet .theme-container,
+.style-aether.theme-default [data-radix-popper-content-wrapper],
+.style-aether.theme-neutral [data-radix-popper-content-wrapper],
+.style-aether.theme-blue [data-radix-popper-content-wrapper],
+.style-aether.theme-green [data-radix-popper-content-wrapper],
+.style-aether.theme-amber [data-radix-popper-content-wrapper],
+.style-aether.theme-rose [data-radix-popper-content-wrapper],
+.style-aether.theme-purple [data-radix-popper-content-wrapper],
+.style-aether.theme-orange [data-radix-popper-content-wrapper],
+.style-aether.theme-teal [data-radix-popper-content-wrapper],
+.style-aether.theme-red [data-radix-popper-content-wrapper],
+.style-aether.theme-yellow [data-radix-popper-content-wrapper],
+.style-aether.theme-violet [data-radix-popper-content-wrapper],
+.style-aether .theme-container,
+.style-aether [data-radix-popper-content-wrapper] {
+  --primary: var(--aether-primary);
+  --primary-foreground: var(--aether-primary-foreground);
+  --ring: var(--aether-ring);
+  --sidebar-primary: var(--aether-sidebar-primary);
+  --sidebar-primary-foreground: var(--aether-sidebar-primary-foreground);
+  --sidebar-ring: var(--aether-sidebar-ring);
+  --chart-1: var(--aether-chart-1);
+}
+
+.dark .style-aether.theme-default,
+.dark .style-aether.theme-neutral,
+.dark .style-aether.theme-blue,
+.dark .style-aether.theme-green,
+.dark .style-aether.theme-amber,
+.dark .style-aether.theme-rose,
+.dark .style-aether.theme-purple,
+.dark .style-aether.theme-orange,
+.dark .style-aether.theme-teal,
+.dark .style-aether.theme-red,
+.dark .style-aether.theme-yellow,
+.dark .style-aether.theme-violet,
+.dark .style-aether.theme-default .theme-container,
+.dark .style-aether.theme-neutral .theme-container,
+.dark .style-aether.theme-blue .theme-container,
+.dark .style-aether.theme-green .theme-container,
+.dark .style-aether.theme-amber .theme-container,
+.dark .style-aether.theme-rose .theme-container,
+.dark .style-aether.theme-purple .theme-container,
+.dark .style-aether.theme-orange .theme-container,
+.dark .style-aether.theme-teal .theme-container,
+.dark .style-aether.theme-red .theme-container,
+.dark .style-aether.theme-yellow .theme-container,
+.dark .style-aether.theme-violet .theme-container,
+.dark .style-aether.theme-default [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-neutral [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-blue [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-green [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-amber [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-rose [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-purple [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-orange [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-teal [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-red [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-yellow [data-radix-popper-content-wrapper],
+.dark .style-aether.theme-violet [data-radix-popper-content-wrapper],
+.dark .style-aether .theme-container,
+.dark .style-aether [data-radix-popper-content-wrapper] {
+  --primary: var(--aether-primary);
+  --primary-foreground: var(--aether-primary-foreground);
+  --ring: var(--aether-ring);
+  --sidebar-primary: var(--aether-sidebar-primary);
+  --sidebar-primary-foreground: var(--aether-sidebar-primary-foreground);
+  --sidebar-ring: var(--aether-sidebar-ring);
+  --chart-1: var(--aether-chart-1);
+}

@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
-import { Skeleton } from "@/styles/base-rhea/ui/skeleton"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
+import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
 export function UIElements() {
   return (

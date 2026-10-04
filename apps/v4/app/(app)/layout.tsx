@@ -7,7 +7,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
       data-slot="layout"
-      className="group/layout relative z-10 flex min-h-svh flex-col bg-background"
+      className="group/layout relative z-10 flex min-h-svh flex-col bg-background font-sans"
     >
       <ScrollToTop />
       <MobileHeaderScroll />

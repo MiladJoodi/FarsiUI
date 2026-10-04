@@ -1,5 +1,5 @@
-.style-aether {
-  /* Density tokens (SoT: registry/densities.ts - aether) */
+.style-glass {
+  /* Density tokens (SoT: registry/densities.ts - Glass) */
   --control-h-xs: 1.625rem;
   --control-h-sm: 2rem;
   --control-h-md: 2.25rem;
@@ -16,26 +16,12 @@
   --radius-control: var(--radius-lg);
 
   /*
-   * Semantic color + role tokens live in aether-tokens.css (unlayered)
-   * so Aether indigo beats Primary Color theme-* overrides.
+   * Semantic color + role tokens live in glass-tokens.css (unlayered)
+   * so Glass cyan beats Primary Color theme-* overrides.
    */
 
-  /* Atmospheric shell — tint + mesh + grid so glass panels can read */
+  /* Atmospheric shell — teal mesh (overridden unlayered in glass-tokens.css) */
   background-color: var(--background);
-  background-image:
-    linear-gradient(oklch(0.45 0.08 275 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.45 0.08 275 / 0.07) 1px, transparent 1px),
-    radial-gradient(at 14% 12%, oklch(0.72 0.14 275 / 0.38) 0px, transparent 46%),
-    radial-gradient(at 86% 18%, oklch(0.78 0.1 230 / 0.28) 0px, transparent 42%),
-    radial-gradient(at 60% 88%, oklch(0.8 0.08 300 / 0.22) 0px, transparent 48%),
-    linear-gradient(165deg, oklch(0.95 0.03 265), oklch(0.9 0.04 275));
-  background-size:
-    40px 40px,
-    40px 40px,
-    auto,
-    auto,
-    auto,
-    auto;
   background-attachment: fixed;
 
   /* MARK: Accordion */
@@ -192,7 +178,7 @@
     @apply size-5 [&>svg]:size-4;
   }
 
-  /* MARK: Button — solid Aether controls (glass stays on surfaces) */
+  /* MARK: Button — solid Glass controls (glass stays on surfaces) */
   .cn-button {
     border-radius: var(--radius-field);
     @apply focus-visible:border-ring focus-visible:ring-ring/45 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 border border-transparent bg-clip-padding text-(length:--text-control) leading-(--leading-control) font-semibold shadow-none transition-[color,background-color,border-color,box-shadow,transform] duration-150 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-2 active:not-aria-[haspopup]:scale-[0.985] [&_svg:not([class*='size-'])]:size-(--control-icon);
@@ -341,7 +327,10 @@
 
   /* MARK: Chart */
   .cn-chart-tooltip {
-    @apply border-border/50 bg-background gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl;
+    background-color: var(--overlay);
+    border-color: var(--surface-border);
+    box-shadow: var(--shadow-overlay);
+    @apply gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs text-popover-foreground;
   }
 
   /* MARK: Checkbox */
@@ -821,8 +810,8 @@
 
   .cn-item-variant-muted {
     background-color: var(--control);
-    border-color: transparent;
-    @apply backdrop-blur-md;
+    border-color: var(--control-border);
+    box-shadow: var(--shadow-control);
   }
 
   .cn-item-size-default {
@@ -1919,21 +1908,10 @@
   }
 }
 
-/* Aether dark shell atmosphere (tokens: aether-tokens.css) */
-.dark .style-aether {
-  background-image:
-    linear-gradient(oklch(0.7 0.08 275 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.7 0.08 275 / 0.06) 1px, transparent 1px),
-    radial-gradient(at 16% 14%, oklch(0.42 0.16 275 / 0.45) 0px, transparent 48%),
-    radial-gradient(at 88% 20%, oklch(0.36 0.12 230 / 0.32) 0px, transparent 44%),
-    radial-gradient(at 55% 90%, oklch(0.34 0.1 300 / 0.28) 0px, transparent 50%),
-    linear-gradient(165deg, oklch(0.12 0.035 268), oklch(0.17 0.04 275));
-  background-size:
-    40px 40px,
-    40px 40px,
-    auto,
-    auto,
-    auto,
-    auto;
+/* Dark shell atmosphere comes from glass-tokens.css (unlayered). */
+.dark .style-glass {
+  background-attachment: fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
 }
 

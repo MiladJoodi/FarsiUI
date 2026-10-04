@@ -1,42 +1,25 @@
-.style-aether {
-  /* Density tokens (SoT: registry/densities.ts - aether) */
+.style-rose {
+  /* Density — soft clay controls (pill-friendly) */
   --control-h-xs: 1.625rem;
   --control-h-sm: 2rem;
-  --control-h-md: 2.25rem;
-  --control-h-lg: 2.5rem;
+  --control-h-md: 2.375rem;
+  --control-h-lg: 2.75rem;
   --control-icon: 1rem;
   --control-icon-sm: 0.875rem;
-  --space-control-x: 0.75rem;
-  --space-control-y: 0.3125rem;
+  --space-control-x: 0.875rem;
+  --space-control-y: 0.375rem;
   --space-stack: 1.25rem;
-  --space-inline: 0.375rem;
+  --space-inline: 0.5rem;
   --text-control: 0.875rem;
   --text-control-sm: 0.8125rem;
   --leading-control: 1.3;
-  --radius-control: var(--radius-lg);
+  /* Pill controls — matches VibeFarsi pomegranate --shape-control: 999px */
+  --radius-control: 999px;
 
   /*
-   * Semantic color + role tokens live in aether-tokens.css (unlayered)
-   * so Aether indigo beats Primary Color theme-* overrides.
+   * Semantic color + clay depth live in rose-tokens.css (unlayered)
+   * so Rose owns accent over Primary Color theme-* overrides.
    */
-
-  /* Atmospheric shell — tint + mesh + grid so glass panels can read */
-  background-color: var(--background);
-  background-image:
-    linear-gradient(oklch(0.45 0.08 275 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.45 0.08 275 / 0.07) 1px, transparent 1px),
-    radial-gradient(at 14% 12%, oklch(0.72 0.14 275 / 0.38) 0px, transparent 46%),
-    radial-gradient(at 86% 18%, oklch(0.78 0.1 230 / 0.28) 0px, transparent 42%),
-    radial-gradient(at 60% 88%, oklch(0.8 0.08 300 / 0.22) 0px, transparent 48%),
-    linear-gradient(165deg, oklch(0.95 0.03 265), oklch(0.9 0.04 275));
-  background-size:
-    40px 40px,
-    40px 40px,
-    auto,
-    auto,
-    auto,
-    auto;
-  background-attachment: fixed;
 
   /* MARK: Accordion */
   .cn-accordion-item {
@@ -44,7 +27,7 @@
   }
 
   .cn-accordion-trigger {
-    @apply focus-visible:ring-ring/40 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-foreground rounded-lg py-2.5 text-start text-sm font-medium hover:underline focus-visible:ring-2 **:data-[slot=accordion-trigger-icon]:size-4;
+    @apply focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-foreground rounded-lg py-2.5 text-start text-sm font-medium hover:underline focus-visible:ring-3 **:data-[slot=accordion-trigger-icon]:size-4;
   }
 
   .cn-accordion-content {
@@ -57,11 +40,7 @@
 
   /* MARK: Alert */
   .cn-alert {
-    background-color: var(--surface);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-surface);
-    border-radius: var(--radius-surface);
-    @apply grid gap-0.5 border px-3 py-2.5 text-start text-sm text-card-foreground ring-1 ring-white/40 backdrop-blur-2xl backdrop-saturate-150 has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pe-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4 dark:ring-white/10;
+    @apply grid gap-0.5 rounded-lg border px-2.5 py-2 text-start text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pe-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
   }
 
   .cn-alert-variant-default {
@@ -86,15 +65,11 @@
 
   /* MARK: Alert Dialog */
   .cn-alert-dialog-overlay {
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/25 duration-200 supports-backdrop-filter:backdrop-blur-md;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs;
   }
 
   .cn-alert-dialog-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: calc(var(--radius-overlay) + 0.125rem);
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 text-popover-foreground gap-4 border p-5 ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 duration-150 data-[size=default]:max-w-xs data-[size=sm]:max-w-64 data-[size=default]:sm:max-w-sm dark:ring-white/10;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 bg-popover text-popover-foreground ring-foreground/10 gap-4 rounded-xl p-4 ring-1 duration-100 data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm;
   }
 
   .cn-alert-dialog-header {
@@ -140,7 +115,7 @@
 
   /* MARK: Badge */
   .cn-badge {
-    @apply h-5 gap-1 rounded-full border border-border/60 bg-card/50 px-2 py-0.5 text-xs font-medium shadow-sm backdrop-blur-md transition-[color,background-color,box-shadow] duration-200 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&>svg]:size-3!;
+    @apply h-5 gap-1 rounded-4xl border border-transparent px-2 py-0.5 text-xs font-medium transition-all has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&>svg]:size-3!;
   }
 
   .cn-badge-variant-default {
@@ -192,65 +167,57 @@
     @apply size-5 [&>svg]:size-4;
   }
 
-  /* MARK: Button — solid Aether controls (glass stays on surfaces) */
+  /* MARK: Button — Default: compact, flat, precise */
   .cn-button {
-    border-radius: var(--radius-field);
-    @apply focus-visible:border-ring focus-visible:ring-ring/45 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 border border-transparent bg-clip-padding text-(length:--text-control) leading-(--leading-control) font-semibold shadow-none transition-[color,background-color,border-color,box-shadow,transform] duration-150 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-2 active:not-aria-[haspopup]:scale-[0.985] [&_svg:not([class*='size-'])]:size-(--control-icon);
+    @apply focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 rounded-(--radius-control) border border-transparent bg-clip-padding text-(length:--text-control) leading-(--leading-control) font-medium shadow-none transition-[color,background-color,border-color,box-shadow,transform] duration-150 focus-visible:ring-3 aria-invalid:ring-3 active:not-aria-[haspopup]:translate-y-px [&_svg:not([class*='size-'])]:size-(--control-icon);
   }
 
   .cn-button-variant-default {
-    box-shadow: var(--shadow-control);
-    @apply border-primary/20 bg-primary text-primary-foreground hover:bg-primary/92 active:not-aria-[haspopup]:bg-primary/85;
+    @apply bg-primary text-primary-foreground hover:bg-primary/80 active:not-aria-[haspopup]:bg-primary/70;
   }
 
   .cn-button-variant-outline {
-    background-color: var(--control);
-    border-color: var(--control-border);
-    box-shadow: var(--shadow-control);
-    @apply text-foreground backdrop-blur-md backdrop-saturate-150 hover:border-ring/45 hover:bg-accent/55 active:not-aria-[haspopup]:bg-accent/45 aria-expanded:bg-accent/65 aria-expanded:text-accent-foreground;
+    @apply border-border bg-background text-foreground hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground;
   }
 
   .cn-button-variant-secondary {
-    background-color: var(--secondary);
-    border-color: var(--control-border);
-    box-shadow: var(--shadow-control);
-    @apply text-secondary-foreground backdrop-blur-md backdrop-saturate-150 hover:bg-accent/50 active:not-aria-[haspopup]:bg-accent/40 aria-expanded:bg-accent/60 aria-expanded:text-accent-foreground;
+    @apply bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] active:not-aria-[haspopup]:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_8%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground;
   }
 
   .cn-button-variant-ghost {
-    @apply shadow-none hover:bg-accent/55 hover:text-accent-foreground hover:backdrop-blur-sm active:not-aria-[haspopup]:bg-accent/40 dark:hover:bg-white/10 aria-expanded:bg-accent/55 aria-expanded:text-accent-foreground;
+    @apply hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 dark:hover:bg-muted/50 aria-expanded:bg-muted aria-expanded:text-foreground;
   }
 
   .cn-button-variant-destructive {
-    @apply border-destructive/25 bg-destructive text-white shadow-none hover:bg-destructive/90 focus-visible:border-destructive/40 focus-visible:ring-destructive/30 active:not-aria-[haspopup]:bg-destructive/85;
+    @apply bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 active:not-aria-[haspopup]:bg-destructive/25 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40;
   }
 
   .cn-button-variant-link {
-    @apply text-primary underline-offset-4 shadow-none hover:underline active:not-aria-[haspopup]:scale-100;
+    @apply text-primary underline-offset-4 shadow-none hover:underline active:not-aria-[haspopup]:translate-y-0;
   }
 
   .cn-button-size-xs {
-    @apply h-(--control-h-xs) gap-1 rounded-(--radius-control) px-2 text-(length:--text-control-sm) in-data-[slot=button-group]:rounded-(--radius-control) has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
+    @apply h-(--control-h-xs) gap-1 rounded-(--radius-control) px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
   }
 
   .cn-button-size-sm {
-    @apply h-(--control-h-sm) gap-(--space-inline) rounded-(--radius-control) px-(--space-control-x) text-(length:--text-control-sm) in-data-[slot=button-group]:rounded-(--radius-control) has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+    @apply h-(--control-h-sm) gap-1 rounded-(--radius-control) px-(--space-control-x) text-(length:--text-control-sm) has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5;
   }
 
   .cn-button-size-default {
-    @apply h-(--control-h-md) gap-(--space-inline) px-(--space-control-x) has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5;
+    @apply h-(--control-h-md) gap-(--space-inline) px-(--space-control-x) has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
   }
 
   .cn-button-size-lg {
-    @apply h-(--control-h-lg) gap-2 px-3.5 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3;
+    @apply h-(--control-h-lg) gap-(--space-inline) px-3 has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5;
   }
 
   .cn-button-size-icon-xs {
-    @apply size-(--control-h-xs) rounded-(--radius-control) in-data-[slot=button-group]:rounded-(--radius-control) [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
+    @apply size-(--control-h-xs) rounded-(--radius-control) [&_svg:not([class*='size-'])]:size-(--control-icon-sm);
   }
 
   .cn-button-size-icon-sm {
-    @apply size-(--control-h-sm) rounded-(--radius-control) in-data-[slot=button-group]:rounded-(--radius-control);
+    @apply size-(--control-h-sm) rounded-(--radius-control);
   }
 
   .cn-button-size-icon {
@@ -275,9 +242,7 @@
   }
 
   .cn-button-group-text {
-    background-color: var(--control);
-    border-color: var(--control-border);
-    @apply gap-2 rounded-lg border px-2.5 text-sm font-medium backdrop-blur-md [&_svg:not([class*='size-'])]:size-4;
+    @apply bg-muted gap-2 rounded-lg border px-2.5 text-sm font-medium [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-button-group-separator {
@@ -290,30 +255,27 @@
   }
 
   .cn-calendar-dropdown-root {
-    @apply has-focus:border-ring border-input has-focus:ring-ring/40 min-w-20 border has-focus:ring-2;
+    @apply has-focus:border-ring border-input has-focus:ring-ring/50 min-w-20 border has-focus:ring-3;
   }
 
   .cn-calendar-caption-label {
     @apply h-7 pe-1.5 ps-2.5;
   }
 
-  /* MARK: Card — primary glass surface
-   * Do NOT combine overflow-hidden with backdrop-filter on the same node
-   * (Chromium drops the blur). Clip media via child selectors instead. */
+  /* MARK: Card — soft clay surface */
   .cn-card {
     background-color: var(--surface);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-surface);
     border-radius: var(--radius-surface);
-    @apply text-card-foreground gap-(--card-spacing) border py-(--card-spacing) text-sm ring-1 ring-white/60 backdrop-blur-2xl backdrop-saturate-150 [--card-spacing:--spacing(5)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-[var(--radius-surface)] *:[img:last-child]:rounded-b-[var(--radius-surface)] dark:ring-white/10;
+    box-shadow: var(--shadow-surface);
+    @apply text-card-foreground gap-(--card-spacing) border border-border py-(--card-spacing) text-sm [--card-spacing:--spacing(5)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-[var(--radius-surface)] *:[img:last-child]:rounded-b-[var(--radius-surface)];
   }
 
   .cn-card-header {
-    @apply gap-1 px-(--card-spacing) [.border-b]:pb-(--card-spacing);
+    @apply gap-1 rounded-t-[var(--radius-surface)] px-(--card-spacing) [.border-b]:pb-(--card-spacing);
   }
 
   .cn-card-title {
-    @apply text-base leading-snug font-semibold group-data-[size=sm]/card:text-sm;
+    @apply text-base leading-snug font-medium group-data-[size=sm]/card:text-sm;
   }
 
   .cn-card-description {
@@ -325,9 +287,7 @@
   }
 
   .cn-card-footer {
-    background-color: var(--surface-muted);
-    border-color: var(--surface-border);
-    @apply rounded-b-[var(--radius-surface)] border-t p-(--card-spacing);
+    @apply bg-muted/50 rounded-b-[var(--radius-surface)] border-t p-(--card-spacing);
   }
 
   /* MARK: Carousel */
@@ -346,11 +306,11 @@
 
   /* MARK: Checkbox */
   .cn-checkbox {
-    @apply border-input dark:bg-input/30 data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-checked:border-primary aria-invalid:aria-checked:border-primary aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 flex size-4 items-center justify-center rounded-[4px] border transition-colors group-has-disabled/field:opacity-50 focus-visible:ring-2 aria-invalid:ring-2 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input group-has-[:focus-visible]/field-label:data-checked:border-primary;
+    @apply border-input dark:bg-input/30 data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-checked:border-primary aria-invalid:aria-checked:border-primary aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 flex size-4 items-center justify-center rounded-[4px] border transition-colors group-has-disabled/field:opacity-50 focus-visible:ring-3 aria-invalid:ring-3 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input group-has-[:focus-visible]/field-label:data-checked:border-primary;
   }
 
   .cn-checkbox-aria {
-    @apply data-selected:bg-primary data-selected:text-primary-foreground dark:data-selected:bg-primary data-selected:border-primary data-focus-visible:border-ring data-focus-visible:ring-ring/40 data-focus-visible:ring-2 data-invalid:data-selected:border-primary data-invalid:border-destructive dark:data-invalid:border-destructive/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-3;
+    @apply data-selected:bg-primary data-selected:text-primary-foreground dark:data-selected:bg-primary data-selected:border-primary data-focus-visible:border-ring data-focus-visible:ring-ring/50 data-focus-visible:ring-3 data-invalid:data-selected:border-primary data-invalid:border-destructive dark:data-invalid:border-destructive/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-3;
   }
 
   .cn-checkbox-indicator {
@@ -359,11 +319,7 @@
 
   /* MARK: Combobox */
   .cn-combobox-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 *:data-[slot=input-group]:bg-transparent *:data-[slot=input-group]:border-border/50 max-h-72 min-w-36 overflow-hidden duration-150 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 max-h-72 min-w-36 overflow-hidden rounded-lg shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none;
   }
 
   .cn-combobox-content-logical {
@@ -411,7 +367,7 @@
   }
 
   .cn-combobox-chips {
-    @apply dark:bg-input/30 border-input focus-within:border-ring focus-within:ring-ring/40 has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive dark:has-aria-invalid:border-destructive/50 flex min-h-8 flex-wrap items-center gap-1 rounded-lg border bg-transparent bg-clip-padding px-2.5 py-1 text-sm transition-colors focus-within:ring-3 has-aria-invalid:ring-2 has-data-[slot=combobox-chip]:px-1;
+    @apply dark:bg-input/30 border-input focus-within:border-ring focus-within:ring-ring/50 has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive dark:has-aria-invalid:border-destructive/50 flex min-h-8 flex-wrap items-center gap-1 rounded-lg border bg-transparent bg-clip-padding px-2.5 py-1 text-sm transition-colors focus-within:ring-3 has-aria-invalid:ring-3 has-data-[slot=combobox-chip]:px-1;
   }
 
   .cn-combobox-chip {
@@ -424,10 +380,7 @@
 
   /* MARK: Command */
   .cn-command {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 rounded-xl! p-1;
+    @apply bg-popover text-popover-foreground rounded-xl! p-1;
   }
 
   .cn-command-dialog {
@@ -484,11 +437,7 @@
 
   /* MARK: Context Menu */
   .cn-context-menu-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 min-w-36 p-1 duration-150;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-36 rounded-lg p-1 shadow-md ring-1 duration-100;
   }
 
   .cn-context-menu-content-logical {
@@ -528,11 +477,7 @@
   }
 
   .cn-context-menu-sub-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 min-w-32 p-1 duration-150;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 bg-popover text-popover-foreground min-w-32 rounded-lg border p-1 shadow-lg duration-100;
   }
 
   .cn-context-menu-subcontent {
@@ -541,15 +486,11 @@
 
   /* MARK: Dialog */
   .cn-dialog-overlay {
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/25 duration-200 supports-backdrop-filter:backdrop-blur-md;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs;
   }
 
   .cn-dialog-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: calc(var(--radius-overlay) + 0.125rem);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 grid max-w-[calc(100%-2rem)] gap-4 border p-5 text-sm ring-1 ring-white/40 backdrop-blur-2xl backdrop-saturate-150 duration-200 sm:max-w-sm dark:ring-white/10;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-foreground/10 grid max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 duration-100 sm:max-w-sm;
   }
 
   .cn-dialog-close {
@@ -578,17 +519,11 @@
   }
 
   .cn-drawer-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 flex h-auto flex-col text-sm data-[vaul-drawer-direction=bottom]:rounded-t-xl data-[vaul-drawer-direction=bottom]:border-t data-[vaul-drawer-direction=left]:rounded-r-xl data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=right]:rounded-l-xl data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=top]:rounded-b-xl data-[vaul-drawer-direction=top]:border-b;
+    @apply bg-popover text-popover-foreground flex h-auto flex-col text-sm data-[vaul-drawer-direction=bottom]:rounded-t-xl data-[vaul-drawer-direction=bottom]:border-t data-[vaul-drawer-direction=left]:rounded-r-xl data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=right]:rounded-l-xl data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=top]:rounded-b-xl data-[vaul-drawer-direction=top]:border-b;
   }
 
   .cn-drawer-popup {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 text-sm data-[swipe-direction=down]:rounded-t-xl data-[swipe-direction=down]:border-t data-[swipe-direction=left]:rounded-r-xl data-[swipe-direction=left]:border-r data-[swipe-direction=right]:rounded-l-xl data-[swipe-direction=right]:border-l data-[swipe-direction=up]:rounded-b-xl data-[swipe-direction=up]:border-b;
+    @apply bg-popover text-popover-foreground text-sm data-[swipe-direction=down]:rounded-t-xl data-[swipe-direction=down]:border-t data-[swipe-direction=left]:rounded-r-xl data-[swipe-direction=left]:border-r data-[swipe-direction=right]:rounded-l-xl data-[swipe-direction=right]:border-l data-[swipe-direction=up]:rounded-b-xl data-[swipe-direction=up]:border-b;
   }
 
   .cn-drawer-handle {
@@ -625,11 +560,7 @@
 
   /* MARK: Dropdown Menu */
   .cn-dropdown-menu-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--available-height) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto border p-1 ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 duration-150 dark:ring-white/10;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-32 rounded-lg p-1 shadow-md ring-1 duration-100;
   }
 
   .cn-dropdown-menu-content-logical {
@@ -669,11 +600,7 @@
   }
 
   .cn-dropdown-menu-sub-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 text-popover-foreground min-w-[96px] border p-1 ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 duration-150 dark:ring-white/10;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-[96px] rounded-lg p-1 shadow-lg ring-1 duration-100;
   }
 
   .cn-dropdown-menu-subcontent {
@@ -735,7 +662,7 @@
   }
 
   .cn-field-label {
-    @apply has-data-checked:bg-primary/5 has-data-checked:border-primary/30 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border has-[>[data-slot=field]]:not-has-[:disabled,[data-disabled]]:hover:bg-muted/50 has-[>[data-slot=field]]:has-[:focus-visible]:border-ring has-[>[data-slot=field]]:has-[:focus-visible]:ring-ring/40 has-[>[data-slot=field]]:has-[:focus-visible]:ring-3 *:data-[slot=field]:p-2.5;
+    @apply has-data-checked:bg-primary/5 has-data-checked:border-primary/30 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border has-[>[data-slot=field]]:not-has-[:disabled,[data-disabled]]:hover:bg-muted/50 has-[>[data-slot=field]]:has-[:focus-visible]:border-ring has-[>[data-slot=field]]:has-[:focus-visible]:ring-ring/50 has-[>[data-slot=field]]:has-[:focus-visible]:ring-3 *:data-[slot=field]:p-2.5;
   }
 
   .cn-field-label-aria {
@@ -764,11 +691,7 @@
 
   /* MARK: Hover Card */
   .cn-hover-card-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 w-64 p-2.5 text-sm duration-150;
+    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground w-64 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-100;
   }
 
   .cn-hover-card-content-logical {
@@ -777,11 +700,7 @@
 
   /* MARK: Input */
   .cn-input {
-    background-color: var(--field);
-    border-color: var(--field-border);
-    box-shadow: var(--field-shadow);
-    border-radius: var(--radius-field);
-    @apply focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-muted/50 h-(--control-h-md) border px-(--space-control-x) py-1 text-base font-medium backdrop-blur-md backdrop-saturate-150 transition-[color,background-color,border-color,box-shadow] duration-150 file:h-6.5 file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-2 md:text-(length:--text-control);
+    @apply dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-transparent px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-3 aria-invalid:ring-3 md:text-sm;
   }
 
   /* MARK: Input OTP */
@@ -791,15 +710,15 @@
   }
 
   .cn-input-otp-group {
-    @apply has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive rounded-lg has-aria-invalid:ring-2;
+    @apply has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive rounded-lg has-aria-invalid:ring-3;
   }
 
   .cn-input-otp-slot {
-    @apply dark:bg-input/25 border-input data-[active=true]:border-ring data-[active=true]:ring-ring/40 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive size-(--control-h-md) border-y border-r text-(length:--text-control) font-medium shadow-xs transition-[color,border-color,box-shadow] duration-200 outline-none first:rounded-l-lg first:border-l last:rounded-r-lg data-[active=true]:ring-2 data-[active=true]:ring-offset-1 data-[active=true]:ring-offset-background;
+    @apply dark:bg-input/30 border-input data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive size-8 border-y border-r text-sm transition-all outline-none first:rounded-l-lg first:border-l last:rounded-r-lg data-[active=true]:ring-3;
   }
 
   .cn-input-otp-caret-line {
-    @apply animate-caret-blink bg-foreground h-4 w-px duration-2000;
+    @apply animate-caret-blink bg-foreground h-4 w-px duration-1000;
   }
 
   .cn-input-otp-separator {
@@ -820,9 +739,7 @@
   }
 
   .cn-item-variant-muted {
-    background-color: var(--control);
-    border-color: transparent;
-    @apply backdrop-blur-md;
+    @apply bg-muted/50 border-transparent;
   }
 
   .cn-item-size-default {
@@ -905,21 +822,15 @@
 
   /* MARK: Menubar */
   .cn-menubar {
-    background-color: var(--control);
-    border-color: var(--control-border);
-    @apply h-8 gap-0.5 rounded-lg border p-[3px] backdrop-blur-md backdrop-saturate-150;
+    @apply h-8 gap-0.5 rounded-lg border p-[3px];
   }
 
   .cn-menubar-trigger {
-    @apply hover:bg-accent/60 aria-expanded:bg-accent/65 rounded-sm px-1.5 py-[2px] text-sm font-medium;
+    @apply hover:bg-muted aria-expanded:bg-muted rounded-sm px-1.5 py-[2px] text-sm font-medium;
   }
 
   .cn-menubar-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 min-w-36 p-1 duration-150;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 min-w-36 rounded-lg p-1 shadow-md ring-1 duration-100;
   }
 
   .cn-menubar-content-logical {
@@ -963,11 +874,7 @@
   }
 
   .cn-menubar-sub-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 min-w-32 border p-1 ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 duration-150 dark:ring-white/10;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 min-w-32 rounded-lg p-1 shadow-lg ring-1 duration-100;
   }
 
   /* MARK: Navigation Menu */
@@ -980,11 +887,11 @@
   }
 
   .cn-navigation-menu-trigger {
-    @apply hover:bg-muted focus:bg-muted data-open:hover:bg-muted data-open:focus:bg-muted data-open:bg-muted/50 focus-visible:ring-ring/40 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-2 focus-visible:outline-1 disabled:opacity-50;
+    @apply hover:bg-muted focus:bg-muted data-open:hover:bg-muted data-open:focus:bg-muted data-open:bg-muted/50 focus-visible:ring-ring/50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-3 focus-visible:outline-1 disabled:opacity-50;
   }
 
   .cn-navigation-menu-link {
-    @apply data-active:focus:bg-muted data-active:hover:bg-muted data-active:bg-muted/50 focus-visible:ring-ring/40 hover:bg-muted focus:bg-muted flex items-center gap-2 rounded-lg p-2 text-sm transition-all outline-none focus-visible:ring-2 focus-visible:outline-1 in-data-[slot=navigation-menu-content]:rounded-md [&_svg:not([class*='size-'])]:size-4;
+    @apply data-active:focus:bg-muted data-active:hover:bg-muted data-active:bg-muted/50 focus-visible:ring-ring/50 hover:bg-muted focus:bg-muted flex items-center gap-2 rounded-lg p-2 text-sm transition-all outline-none focus-visible:ring-3 focus-visible:outline-1 in-data-[slot=navigation-menu-content]:rounded-md [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-navigation-menu-trigger-icon {
@@ -996,10 +903,7 @@
   }
 
   .cn-navigation-menu-viewport {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 data-open:animate-in data-closed:animate-out data-closed:zoom-out-90 data-open:zoom-in-90 rounded-lg duration-150;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:zoom-out-90 data-open:zoom-in-90 ring-foreground/10 rounded-lg shadow ring-1 duration-100;
   }
 
   .cn-navigation-menu-indicator {
@@ -1015,19 +919,12 @@
   }
 
   .cn-navigation-menu-popup {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/10 rounded-lg transition-all ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-200 data-starting-style:scale-90 data-starting-style:opacity-0;
+    @apply bg-popover text-popover-foreground ring-foreground/10 rounded-lg shadow ring-1 transition-all ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-150 data-starting-style:scale-90 data-starting-style:opacity-0;
   }
 
   /* MARK: Native Select */
   .cn-native-select {
-    background-color: var(--field);
-    border-color: var(--field-border);
-    box-shadow: var(--field-shadow);
-    border-radius: var(--radius-field);
-    @apply placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-(--control-h-md) w-full min-w-0 appearance-none border py-1 pr-8 pl-2.5 text-sm backdrop-blur-md backdrop-saturate-150 transition-colors select-none focus-visible:ring-2 aria-invalid:ring-2 data-[size=sm]:h-(--control-h-sm);
+    @apply border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 dark:hover:bg-input/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-8 w-full min-w-0 appearance-none rounded-lg border bg-transparent py-1 pr-8 pl-2.5 text-sm transition-colors select-none focus-visible:ring-3 aria-invalid:ring-3 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] data-[size=sm]:py-0.5;
   }
 
   .cn-native-select-icon {
@@ -1037,14 +934,6 @@
   /* MARK: Pagination */
   .cn-pagination-content {
     @apply gap-0.5;
-  }
-
-  .cn-pagination-link[data-active="true"],
-  .cn-pagination-link[aria-current="page"] {
-    background-color: var(--control) !important;
-    border-color: var(--control-border);
-    box-shadow: var(--shadow-control);
-    @apply text-foreground backdrop-blur-md;
   }
 
   .cn-pagination-ellipsis {
@@ -1061,11 +950,7 @@
 
   /* MARK: Popover */
   .cn-popover-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-72 border p-4 text-sm ring-1 ring-white/40 backdrop-blur-2xl backdrop-saturate-150 duration-150 outline-hidden dark:ring-white/10;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 flex flex-col gap-2.5 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-100;
   }
 
   .cn-popover-content-logical {
@@ -1111,11 +996,11 @@
   }
 
   .cn-radio-group-item {
-    @apply border-input dark:bg-input/30 data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-checked:border-primary aria-invalid:aria-checked:border-primary aria-invalid:border-destructive focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:aria-invalid:border-destructive/50 flex size-4 rounded-full focus-visible:ring-2 aria-invalid:ring-2 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input group-has-[:focus-visible]/field-label:data-checked:border-primary;
+    @apply border-input dark:bg-input/30 data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-checked:border-primary aria-invalid:aria-checked:border-primary aria-invalid:border-destructive focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:aria-invalid:border-destructive/50 flex size-4 rounded-full focus-visible:ring-3 aria-invalid:ring-3 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input group-has-[:focus-visible]/field-label:data-checked:border-primary;
   }
 
   .cn-radio-group-item-aria {
-    @apply data-selected:bg-primary data-selected:text-primary-foreground dark:data-selected:bg-primary data-selected:border-primary data-focus-visible:border-ring data-focus-visible:ring-ring/40 data-focus-visible:ring-2 data-invalid:data-selected:border-primary data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 dark:data-invalid:border-destructive/50 data-invalid:ring-3;
+    @apply data-selected:bg-primary data-selected:text-primary-foreground dark:data-selected:bg-primary data-selected:border-primary data-focus-visible:border-ring data-focus-visible:ring-ring/50 data-focus-visible:ring-3 data-invalid:data-selected:border-primary data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 dark:data-invalid:border-destructive/50 data-invalid:ring-3;
   }
 
   .cn-radio-group-indicator {
@@ -1142,11 +1027,7 @@
 
   /* MARK: Select */
   .cn-select-trigger {
-    background-color: var(--field);
-    border-color: var(--field-border);
-    box-shadow: var(--field-shadow);
-    border-radius: var(--radius-field);
-    @apply data-placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 gap-1.5 border py-2 pe-2 ps-2.5 text-sm font-medium backdrop-blur-md backdrop-saturate-150 transition-[color,background-color,border-color,box-shadow] duration-150 select-none focus-visible:ring-2 aria-invalid:ring-2 data-[size=default]:h-(--control-h-md) data-[size=sm]:h-(--control-h-sm) *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*='size-'])]:size-(--control-icon);
+    @apply border-input data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 gap-1.5 rounded-lg border bg-transparent py-2 pe-2 ps-2.5 text-sm transition-colors select-none focus-visible:ring-3 aria-invalid:ring-3 data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-select-value {
@@ -1162,11 +1043,7 @@
   }
 
   .cn-select-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    border-radius: var(--radius-overlay);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 min-w-36 border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 duration-150 dark:ring-white/10;
+    @apply bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 min-w-36 rounded-lg shadow-md ring-1 duration-100;
   }
 
   .cn-select-content-logical {
@@ -1232,10 +1109,7 @@
   }
 
   .cn-sheet-content {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply text-popover-foreground data-open:animate-in data-closed:animate-out fixed z-50 flex flex-col gap-4 border ring-1 ring-white/45 backdrop-blur-2xl backdrop-saturate-150 transition ease-in-out data-[side=right]:data-closed:slide-out-to-right data-[side=right]:data-open:slide-in-from-right data-[side=left]:data-closed:slide-out-to-left data-[side=left]:data-open:slide-in-from-left data-[side=top]:data-closed:slide-out-to-top data-[side=top]:data-open:slide-in-from-top data-[side=bottom]:data-closed:slide-out-to-bottom data-[side=bottom]:data-open:slide-in-from-bottom dark:ring-white/10;
+    @apply bg-popover text-popover-foreground fixed z-50 flex flex-col gap-4 bg-clip-padding text-sm shadow-lg transition duration-200 ease-in-out data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm;
   }
 
   .cn-sheet-close {
@@ -1316,7 +1190,7 @@
   }
 
   .cn-sidebar-menu-button {
-    @apply ring-sidebar-ring hover:bg-accent/55 hover:text-accent-foreground hover:backdrop-blur-sm active:bg-accent/50 active:text-accent-foreground data-active:bg-accent/65 data-active:text-accent-foreground data-active:backdrop-blur-md data-open:hover:bg-accent/55 data-open:hover:text-accent-foreground gap-2 rounded-lg p-2 text-start text-sm transition-[width,height,padding,background-color,color] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium;
+    @apply ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded-md p-2 text-start text-sm transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium;
   }
 
   .cn-sidebar-menu-button-aria {
@@ -1390,7 +1264,7 @@
   }
 
   .cn-slider-thumb {
-    @apply border-ring ring-ring/40 relative size-3 rounded-full border bg-white transition-[color,box-shadow] after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-2 focus-visible:outline-hidden active:ring-3;
+    @apply border-ring ring-ring/50 relative size-3 rounded-full border bg-white transition-[color,box-shadow] after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3;
   }
 
   /* MARK: Toast */
@@ -1400,11 +1274,11 @@
 
   /* MARK: Switch */
   .cn-switch {
-    @apply data-checked:bg-primary data-unchecked:bg-input/80 focus-visible:border-ring focus-visible:ring-ring/40 inline-flex h-5 w-9 shrink-0 items-center rounded-full border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-200 outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply data-checked:bg-primary data-unchecked:bg-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 dark:data-unchecked:bg-input/80 shrink-0 rounded-full border border-transparent focus-visible:ring-3 aria-invalid:ring-3 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:border-transparent data-[size=default]:h-[18.4px] data-[size=default]:w-[32px] data-[size=sm]:h-[14px] data-[size=sm]:w-[24px];
   }
 
   .cn-switch-aria {
-    @apply data-selected:bg-primary not-data-selected:bg-input data-focus-visible:border-ring data-focus-visible:ring-ring/40 dark:not-data-selected:bg-input/80 data-focus-visible:ring-2 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 data-invalid:ring-3;
+    @apply data-selected:bg-primary not-data-selected:bg-input data-focus-visible:border-ring data-focus-visible:ring-ring/50 dark:not-data-selected:bg-input/80 data-focus-visible:ring-3 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 data-invalid:ring-3;
   }
 
   .cn-switch-thumb {
@@ -1470,9 +1344,7 @@
   }
 
   .cn-tabs-list {
-    background-color: var(--control);
-    border-color: var(--control-border);
-    @apply inline-flex h-9 w-fit items-center justify-center rounded-xl border p-1 backdrop-blur-md backdrop-saturate-150;
+    @apply rounded-lg p-[3px] group-data-horizontal/tabs:h-8 data-[variant=line]:rounded-none;
   }
 
   .cn-tabs-trigger {
@@ -1489,16 +1361,12 @@
 
   /* MARK: Textarea */
   .cn-textarea {
-    background-color: var(--field);
-    border-color: var(--field-border);
-    box-shadow: var(--field-shadow);
-    border-radius: var(--radius-field);
-    @apply focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-muted/50 flex field-sizing-content min-h-20 w-full border px-(--space-control-x) py-2.5 text-base font-medium backdrop-blur-md backdrop-saturate-150 transition-[color,background-color,border-color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-2 md:text-(length:--text-control);
+    @apply border-input dark:bg-input/30 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 rounded-lg border bg-transparent px-2.5 py-2 text-base transition-colors focus-visible:ring-3 aria-invalid:ring-3 md:text-sm;
   }
 
   /* MARK: Toggle */
   .cn-toggle {
-    @apply hover:text-foreground aria-pressed:bg-muted focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[state=on]:bg-muted gap-1 rounded-lg text-sm font-medium transition-all [&_svg:not([class*='size-'])]:size-4;
+    @apply hover:text-foreground aria-pressed:bg-muted focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[state=on]:bg-muted gap-1 rounded-lg text-sm font-medium transition-all [&_svg:not([class*='size-'])]:size-4;
   }
 
   .cn-toggle-aria {
@@ -1536,7 +1404,7 @@
 
   /* MARK: Tooltip */
   .cn-tooltip-content {
-    @apply data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 bg-foreground/90 text-background z-50 w-fit rounded-lg px-3 py-1.5 text-xs shadow-lg backdrop-blur-md duration-200;
+    @apply data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs has-data-[slot=kbd]:pr-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm;
   }
 
   .cn-tooltip-content-logical {
@@ -1553,11 +1421,7 @@
 
   /* MARK: Input Group */
   .cn-input-group {
-    background-color: var(--field);
-    border-color: var(--field-border);
-    box-shadow: var(--field-shadow);
-    border-radius: var(--radius-field);
-    @apply has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/40 has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40 has-disabled:bg-muted/50 h-(--control-h-md) border backdrop-blur-md backdrop-saturate-150 transition-colors in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0 has-disabled:opacity-50 has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot][aria-invalid=true]]:ring-2 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pe-2 has-[>[data-align=inline-start]]:[&>input]:ps-2;
+    @apply border-input dark:bg-input/30 has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40 has-disabled:bg-input/50 dark:has-disabled:bg-input/80 h-8 rounded-lg border transition-colors in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0 has-disabled:opacity-50 has-[[data-slot=input-group-control]:focus-visible]:ring-3 has-[[data-slot][aria-invalid=true]]:ring-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pe-2 has-[>[data-align=inline-start]]:[&>input]:ps-2;
   }
 
   .cn-input-group-addon {
@@ -1608,19 +1472,9 @@
     @apply rounded-none border-0 bg-transparent py-2 shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent;
   }
 
-  /* MARK: Menu Translucent
-   * Direct blur on the panel — the ::before + isolate pattern kills
-   * backdrop-filter sampling of the page behind portaled menus. */
+  /* MARK: Menu Translucent */
   .cn-menu-translucent {
-    background-color: var(--overlay);
-    border-color: var(--surface-border);
-    box-shadow: var(--shadow-overlay);
-    @apply animate-none! relative border backdrop-blur-2xl backdrop-saturate-150 ring-1 ring-white/45 dark:ring-white/10 **:data-[slot$=-item]:focus:bg-accent/55 **:data-[slot$=-item]:data-highlighted:bg-accent/55 **:data-[slot$=-separator]:bg-border/60 **:data-[slot$=-trigger]:focus:bg-accent/55 **:data-[slot$=-trigger]:aria-expanded:bg-accent/55! **:data-[variant=destructive]:focus:bg-destructive/15! **:data-[variant=destructive]:text-destructive!;
-  }
-
-  .cn-menu-translucent::before {
-    content: none !important;
-    display: none !important;
+    @apply animate-none! relative bg-popover/70 before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:rounded-[inherit] before:backdrop-blur-2xl before:backdrop-saturate-150 **:data-[slot$=-item]:focus:bg-foreground/10 **:data-[slot$=-item]:data-highlighted:bg-foreground/10 **:data-[slot$=-separator]:bg-foreground/5 **:data-[slot$=-trigger]:focus:bg-foreground/10 **:data-[slot$=-trigger]:aria-expanded:bg-foreground/10! **:data-[variant=destructive]:focus:bg-foreground/10! **:data-[variant=destructive]:text-accent-foreground! **:data-[variant=destructive]:**:text-accent-foreground!;
   }
 
   .cn-menu-translucent-aria {
@@ -1633,7 +1487,7 @@
   }
 
   .cn-bubble-content {
-    @apply rounded-xl border border-transparent px-3 py-2 text-sm leading-relaxed [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-2 [button,a]:focus-visible:ring-ring/40 group-data-[align=end]/bubble:self-end;
+    @apply rounded-xl border border-transparent px-3 py-2 text-sm leading-relaxed [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-3 [button,a]:focus-visible:ring-ring/50 group-data-[align=end]/bubble:self-end;
   }
 
   .cn-bubble-variant-default {
@@ -1653,7 +1507,7 @@
   }
 
   .cn-bubble-variant-outline {
-    @apply *:data-[slot=bubble-content]:bg-[var(--control)] *:data-[slot=bubble-content]:border-[var(--control-border)] *:data-[slot=bubble-content]:backdrop-blur-md [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent/50 [&>[data-slot=bubble-content]:is(button,a):hover]:text-foreground;
+    @apply *:data-[slot=bubble-content]:bg-background *:data-[slot=bubble-content]:border-border [&>[data-slot=bubble-content]:is(button,a):hover]:bg-muted [&>[data-slot=bubble-content]:is(button,a):hover]:text-foreground dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-input/30;
   }
 
   .cn-bubble-variant-ghost {
@@ -1690,7 +1544,7 @@
 
   /* MARK: Attachment */
   .cn-attachment {
-    @apply rounded-xl w-fit focus-within:ring-1 focus-within:ring-ring/40;
+    @apply rounded-xl w-fit focus-within:ring-1 focus-within:ring-ring/50;
   }
 
   .cn-attachment-orientation-horizontal {
@@ -1792,7 +1646,7 @@
   }
 
   .cn-questionnaire-choice {
-    @apply border-input dark:bg-input/20 hover:bg-muted/50 data-checked:border-primary/40 data-checked:bg-muted dark:data-checked:bg-muted data-invalid:border-destructive has-[>input:focus-visible]:border-ring has-[>input:focus-visible]:ring-ring/40 gap-2.5 rounded-lg border bg-transparent px-3 py-2.5 text-sm has-[>input:focus-visible]:ring-3;
+    @apply border-input dark:bg-input/20 hover:bg-muted/50 data-checked:border-primary/40 data-checked:bg-muted dark:data-checked:bg-muted data-invalid:border-destructive has-[>input:focus-visible]:border-ring has-[>input:focus-visible]:ring-ring/50 gap-2.5 rounded-lg border bg-transparent px-3 py-2.5 text-sm has-[>input:focus-visible]:ring-3;
   }
 
   .cn-questionnaire-choice-indicator {
@@ -1824,7 +1678,7 @@
   }
 
   .cn-questionnaire-input {
-    @apply dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/40 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-transparent px-2.5 py-1 text-base focus-visible:ring-2 aria-invalid:ring-2 md:text-sm;
+    @apply dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-transparent px-2.5 py-1 text-base focus-visible:ring-3 aria-invalid:ring-3 md:text-sm;
   }
 
   .cn-questionnaire-error {
@@ -1867,43 +1721,43 @@
 
   /* MARK: React Aria */
   .cn-alert-dialog-overlay-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 bg-black/10 duration-200 supports-backdrop-filter:backdrop-blur-xs;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs;
   }
 
   .cn-alert-dialog-content-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 ring-foreground/10 gap-4 rounded-xl p-4 ring-1 duration-200 data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 bg-popover text-popover-foreground ring-foreground/10 gap-4 rounded-xl p-4 ring-1 duration-100 data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm;
   }
 
   .cn-combobox-content-aria {
-    @apply text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 max-h-72 min-w-36 overflow-hidden rounded-lg shadow-md ring-1 duration-200 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none;
+    @apply bg-popover text-popover-foreground data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 max-h-72 min-w-36 overflow-hidden rounded-lg shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none;
   }
 
   .cn-context-menu-content-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 min-w-36 rounded-lg p-1 shadow-md ring-1 duration-200;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-36 rounded-lg p-1 shadow-md ring-1 duration-100;
   }
 
   .cn-dialog-overlay-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 bg-black/10 duration-200 supports-backdrop-filter:backdrop-blur-xs;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs;
   }
 
   .cn-dialog-content-aria {
-    @apply text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 ring-foreground/10 grid max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 duration-200 sm:max-w-sm;
+    @apply bg-popover text-popover-foreground data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 ring-foreground/10 grid max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 duration-100 sm:max-w-sm;
   }
 
   .cn-dropdown-menu-content-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 min-w-32 rounded-lg p-1 shadow-md ring-1 duration-200;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-32 rounded-lg p-1 shadow-md ring-1 duration-100;
   }
 
   .cn-popover-content-aria {
-    @apply text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 flex flex-col gap-2.5 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-200;
+    @apply bg-popover text-popover-foreground data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 flex flex-col gap-2.5 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-100;
   }
 
   .cn-hover-card-content-aria {
-    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 w-64 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-200;
+    @apply data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground w-64 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-100;
   }
 
   .cn-select-content-aria {
-    @apply text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 min-w-36 rounded-lg shadow-md ring-1 duration-200;
+    @apply bg-popover text-popover-foreground data-entering:animate-in data-exiting:animate-out data-exiting:fade-out-0 data-entering:fade-in-0 data-exiting:zoom-out-95 data-entering:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 ring-foreground/10 min-w-36 rounded-lg shadow-md ring-1 duration-100;
   }
 
   .cn-tooltip-content-aria {
@@ -1911,29 +1765,10 @@
   }
 
   .cn-context-menu-sub-content-aria {
-    @apply text-popover-foreground bg-popover/75 border border-border/60 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl dark:ring-white/10 min-w-32 rounded-lg border p-1 shadow-lg duration-200;
+    @apply bg-popover text-popover-foreground min-w-32 rounded-lg border p-1 shadow-lg duration-100;
   }
 
   .cn-dropdown-menu-sub-content-aria {
-    @apply text-popover-foreground min-w-[96px] rounded-xl border border-border/60 bg-popover/75 p-1 shadow-[0_20px_50px_-24px_oklch(0.3_0.1_275/0.5)] ring-1 ring-white/35 backdrop-blur-2xl duration-200 dark:ring-white/10;
+    @apply ring-foreground/10 bg-popover text-popover-foreground min-w-[96px] rounded-lg p-1 shadow-lg ring-1 duration-100;
   }
 }
-
-/* Aether dark shell atmosphere (tokens: aether-tokens.css) */
-.dark .style-aether {
-  background-image:
-    linear-gradient(oklch(0.7 0.08 275 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.7 0.08 275 / 0.06) 1px, transparent 1px),
-    radial-gradient(at 16% 14%, oklch(0.42 0.16 275 / 0.45) 0px, transparent 48%),
-    radial-gradient(at 88% 20%, oklch(0.36 0.12 230 / 0.32) 0px, transparent 44%),
-    radial-gradient(at 55% 90%, oklch(0.34 0.1 300 / 0.28) 0px, transparent 50%),
-    linear-gradient(165deg, oklch(0.12 0.035 268), oklch(0.17 0.04 275));
-  background-size:
-    40px 40px,
-    40px 40px,
-    auto,
-    auto,
-    auto,
-    auto;
-}
-

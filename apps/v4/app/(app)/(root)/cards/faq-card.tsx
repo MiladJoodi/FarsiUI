@@ -5,8 +5,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/styles/base-rhea/ui/accordion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/accordion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/registry/bases/base/ui/card"
 
 const QUESTIONS = [
   {

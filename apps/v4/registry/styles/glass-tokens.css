@@ -1,0 +1,542 @@
+/**
+ * Glass (فیروزه · شیشه‌ای)
+ *
+ * Dark: exact VibeFarsi `turquoise` tokens.
+ * Light: frosted teal glass (same family — readable on light chrome).
+ *
+ * Unlayered so these beat `.theme-*` Primary Color overrides.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — frosted teal glass                                                 */
+/* -------------------------------------------------------------------------- */
+
+.style-glass {
+  --glass-primary: #0d9e96;
+  --glass-primary-foreground: #f4fffe;
+  --glass-ring: #0d9e96;
+  --glass-brand: #12b5a8;
+  --glass-brand-foreground: #f4fffe;
+  --glass-chart-1: #0d9e96;
+  --glass-chart-2: #12b5a8;
+  --glass-chart-3: #0ea5e9;
+  --glass-chart-4: #3f69d3;
+  --glass-chart-5: #3d6369;
+
+  --background: #e6f4f6;
+  --foreground: #001923;
+  --card: #ffffffb8;
+  --card-foreground: #001923;
+  --popover: #fffffff0;
+  --popover-foreground: #001923;
+  --primary: var(--glass-primary);
+  --primary-foreground: var(--glass-primary-foreground);
+  --secondary: #d4eef1;
+  --secondary-foreground: #001923;
+  --muted: #d8eef1;
+  --muted-foreground: #3d6369;
+  --accent: #c8e9ed;
+  --accent-foreground: #001923;
+  --destructive: #e11d48;
+  --border: #00192314;
+  --input: #ffffffcc;
+  --ring: var(--glass-ring);
+
+  --sidebar: #fffffff0;
+  --sidebar-foreground: #001923;
+  --sidebar-primary: var(--glass-primary);
+  --sidebar-primary-foreground: var(--glass-primary-foreground);
+  --sidebar-accent: #d4eef1;
+  --sidebar-accent-foreground: #001923;
+  --sidebar-border: #00192314;
+  --sidebar-ring: var(--glass-ring);
+
+  --chart-1: var(--glass-chart-1);
+  --chart-2: var(--glass-chart-2);
+  --chart-3: var(--glass-chart-3);
+  --chart-4: var(--glass-chart-4);
+  --chart-5: var(--glass-chart-5);
+
+  --radius: 0.875rem;
+  --radius-field: 0.75rem;
+  --radius-surface: 1.375rem;
+  --radius-overlay: 1rem;
+  --radius-control: 0.75rem;
+  --radius-4xl: 1.375rem;
+  --radius-3xl: 1.25rem;
+  --radius-2xl: 1rem;
+  --radius-xl: 0.875rem;
+  --radius-lg: 0.75rem;
+
+  --surface: #ffffffb8;
+  --surface-muted: #ffffff8f;
+  --surface-border: #00192314;
+  --surface-filter: blur(20px) saturate(1.55);
+  --surface-opacity: 0.72;
+  --surface-foreground: #001923;
+
+  --field: #ffffffcc;
+  --field-border: #0019231f;
+  --field-shadow: inset 0 1px 0 0 #ffffffa6, 0 1px 2px 0 #0019230a;
+
+  --control: #ffffffb3;
+  --control-border: #00192314;
+  --control-shadow:
+    0 1px 0 0 #ffffffcc inset, 0 10px 24px -14px #00bdbe55;
+
+  --overlay: #fffffff5;
+  --overlay-shadow:
+    0 1px 0 0 #ffffff inset, 0 24px 50px -20px #00192333;
+
+  --shadow-surface:
+    0 1px 0 0 #ffffffeb inset, 0 24px 48px -24px #00bdbe44;
+  --shadow-field: inset 0 1px 0 0 #ffffffa6, 0 1px 2px 0 #0019230a;
+  --shadow-overlay:
+    0 1px 0 0 #ffffff inset, 0 24px 50px -20px #00192333;
+  --shadow-control:
+    0 1px 0 0 #ffffffcc inset, 0 10px 24px -14px #00bdbe55;
+  --shadow-press: inset 0 1px 0 0 #ffffff66;
+
+  --motion-fast: 280ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+  --input: var(--field);
+
+  color-scheme: light;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark — exact VibeFarsi turquoise                                           */
+/* -------------------------------------------------------------------------- */
+
+.dark .style-glass {
+  --glass-primary: #60eae2;
+  --glass-primary-foreground: #001a1f;
+  --glass-ring: #60eae2;
+  --glass-brand: #81edc1;
+  --glass-brand-foreground: #001b17;
+  --glass-chart-1: #60eae2;
+  --glass-chart-2: #81edc1;
+  --glass-chart-3: #41dca5;
+  --glass-chart-4: #3f69d3;
+  --glass-chart-5: #a1c6ca;
+
+  --background: #001923;
+  --foreground: #eef7f8;
+  --card: #e6fafa12;
+  --card-foreground: #eef7f8;
+  --popover: #022632e0;
+  --popover-foreground: #eef7f8;
+  --primary: var(--glass-primary);
+  --primary-foreground: var(--glass-primary-foreground);
+  --secondary: #e6fafa1c;
+  --secondary-foreground: #eef7f8;
+  --muted: #e6fafa0f;
+  --muted-foreground: #a1c6ca;
+  --accent: #e6fafa1f;
+  --accent-foreground: #eef7f8;
+  --destructive: #fa686a;
+  --border: #dffcfd29;
+  --input: #dffcfd38;
+  --ring: var(--glass-ring);
+
+  --sidebar: #022632e0;
+  --sidebar-foreground: #eef7f8;
+  --sidebar-primary: var(--glass-primary);
+  --sidebar-primary-foreground: var(--glass-primary-foreground);
+  --sidebar-accent: #e6fafa1f;
+  --sidebar-accent-foreground: #eef7f8;
+  --sidebar-border: #dffcfd29;
+  --sidebar-ring: var(--glass-ring);
+
+  --chart-1: var(--glass-chart-1);
+  --chart-2: var(--glass-chart-2);
+  --chart-3: var(--glass-chart-3);
+  --chart-4: var(--glass-chart-4);
+  --chart-5: var(--glass-chart-5);
+
+  --surface: #062d38e6;
+  --surface-muted: #e6fafa18;
+  --surface-border: #dffcfd33;
+  --surface-filter: blur(18px) saturate(1.45);
+  --surface-opacity: 0.9;
+  --surface-foreground: #eef7f8;
+
+  /* Fields/controls need clear contrast vs card glass */
+  --field: #0a3542f2;
+  --field-border: #dffcfd45;
+  --field-shadow: inset 0 1px 0 0 #ffffff1a, inset 0 0 0 1px #00000014;
+
+  --control: #0c3a48f0;
+  --control-border: #dffcfd3d;
+  --control-shadow:
+    0 1px 0 0 #ffffff2e inset, 0 10px 24px -14px #00dad199;
+
+  --overlay: #022a36f5;
+  --overlay-shadow:
+    0 1px 0 0 #fff3 inset, 0 30px 70px -24px #000205cc;
+
+  --shadow-surface:
+    0 1px 0 0 #ffffff2e inset, 0 30px 60px -30px #000205b3;
+  --shadow-field: inset 0 1px 0 0 #ffffff1a, inset 0 0 0 1px #00000014;
+  --shadow-overlay:
+    0 1px 0 0 #fff3 inset, 0 30px 70px -24px #000205cc;
+  --shadow-control:
+    0 1px 0 0 #ffffff2e inset, 0 10px 24px -14px #00dad199;
+  --shadow-press: 0 1px 0 0 #ffffff1f inset;
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+  --input: var(--field);
+
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Atmosphere                                                                  */
+/* -------------------------------------------------------------------------- */
+
+.style-glass [data-slot="layout"] {
+  background-color: transparent;
+}
+
+.style-glass [data-slot="header-primary-colors"] {
+  display: none !important;
+}
+
+/* Light collage — soft teal mist (no repeating hatch) */
+.style-glass [data-collage-surface] {
+  background-color: #e6f4f6 !important;
+  background-image:
+    radial-gradient(55% 45% at 90% 0%, #00bdbe40, transparent 70%),
+    radial-gradient(45% 50% at 5% 100%, #3f69d333, transparent 70%),
+    radial-gradient(35% 35% at 45% 55%, #57c79126, transparent 70%) !important;
+  background-size: auto !important;
+  background-attachment: scroll !important;
+  color-scheme: light;
+}
+
+/* Dark collage — soft turquoise glow only */
+.dark .style-glass [data-collage-surface] {
+  background-color: #001923 !important;
+  background-image:
+    radial-gradient(55% 45% at 90% 0%, #00bdbe66, transparent 72%),
+    radial-gradient(45% 50% at 5% 100%, #3f69d34d, transparent 72%),
+    radial-gradient(35% 35% at 45% 55%, #57c79124, transparent 72%) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  color-scheme: dark;
+}
+
+.style-glass {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(55% 45% at 90% 0%, #00bdbe33, transparent 70%),
+    radial-gradient(45% 50% at 5% 100%, #3f69d326, transparent 70%),
+    radial-gradient(35% 35% at 45% 55%, #57c7911f, transparent 70%) !important;
+  /* Kill leftover Aether/grid 40px tiling that was painting a hatch */
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.dark .style-glass {
+  background-image:
+    radial-gradient(55% 45% at 90% 0%, #00bdbe66, transparent 72%),
+    radial-gradient(45% 50% at 5% 100%, #3f69d34d, transparent 72%),
+    radial-gradient(35% 35% at 45% 55%, #57c79124, transparent 72%) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Glass fills — cn-* + baked homepage data-slot                              */
+/* -------------------------------------------------------------------------- */
+
+.style-glass .cn-card,
+.style-glass .cn-alert,
+.style-glass [data-slot="card"] {
+  background-color: var(--surface) !important;
+  border-color: var(--surface-border) !important;
+  border-radius: var(--radius-surface) !important;
+  box-shadow: var(--shadow-surface) !important;
+  backdrop-filter: var(--surface-filter);
+  -webkit-backdrop-filter: var(--surface-filter);
+  /* Isolate paint so chart tooltips don't mirror into neighbor cards */
+  isolation: isolate;
+  transform: translateZ(0);
+  overflow: visible;
+  color: var(--card-foreground);
+}
+
+.style-glass .cn-input,
+.style-glass .cn-textarea,
+.style-glass .cn-select-trigger,
+.style-glass .cn-input-group,
+.style-glass .cn-native-select,
+.style-glass .cn-input-otp-slot,
+.style-glass [data-slot="input"],
+.style-glass [data-slot="textarea"],
+.style-glass [data-slot="select-trigger"],
+.style-glass [data-slot="input-group"],
+.style-glass [data-slot="input-group-control"],
+.style-glass [data-slot="combobox-input"] {
+  background-color: var(--field) !important;
+  border-color: var(--field-border) !important;
+  border-radius: var(--radius-field) !important;
+  box-shadow: var(--field-shadow) !important;
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  color: var(--foreground);
+}
+
+.style-glass .cn-button,
+.style-glass [data-slot="button"],
+.style-glass [data-slot="input-group-button"] {
+  border-radius: var(--radius-control) !important;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease;
+}
+
+.style-glass .cn-button-variant-default {
+  box-shadow: var(--shadow-control);
+}
+
+.style-glass .cn-button-variant-default:active {
+  box-shadow: var(--shadow-press) !important;
+  transform: scale(0.97);
+}
+
+.style-glass .cn-button-variant-outline,
+.style-glass .cn-button-variant-secondary,
+.style-glass .cn-menubar,
+.style-glass .cn-toggle-variant-outline,
+.style-glass .cn-pagination-link[data-active="true"],
+.style-glass .cn-pagination-link[aria-current="page"],
+.style-glass [data-slot="button"][data-variant="outline"],
+.style-glass [data-slot="button"][data-variant="secondary"],
+.style-glass [data-slot="toggle"][data-variant="outline"],
+.style-glass [data-slot="input-group-button"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+  border-radius: var(--radius-control) !important;
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  color: var(--foreground);
+}
+
+/* Ghost stays light, but hover/open get a real glass fill */
+.style-glass .cn-button-variant-ghost:hover,
+.style-glass .cn-button-variant-ghost[aria-expanded="true"],
+.style-glass [data-slot="button"][data-variant="ghost"]:hover,
+.style-glass [data-slot="button"][data-variant="ghost"][aria-expanded="true"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+}
+
+.style-glass .cn-item-variant-muted,
+.style-glass .cn-empty-media,
+.style-glass [data-slot="item"][data-variant="muted"],
+.style-glass [data-slot="empty-media"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.style-glass .cn-chart-tooltip,
+.style-glass [data-slot="chart-tooltip"],
+.style-glass .recharts-tooltip-wrapper {
+  isolation: isolate;
+}
+
+.style-glass .cn-chart-tooltip {
+  background-color: var(--overlay) !important;
+  border-color: var(--surface-border) !important;
+  box-shadow: var(--shadow-overlay) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--popover-foreground);
+}
+
+.style-glass .cn-dialog-content,
+.style-glass .cn-alert-dialog-content,
+.style-glass .cn-popover-content,
+.style-glass .cn-sheet-content,
+.style-glass .cn-drawer-content,
+.style-glass .cn-drawer-popup,
+.style-glass .cn-dropdown-menu-content,
+.style-glass .cn-dropdown-menu-sub-content,
+.style-glass .cn-select-content,
+.style-glass .cn-combobox-content,
+.style-glass .cn-hover-card-content,
+.style-glass .cn-context-menu-content,
+.style-glass .cn-context-menu-sub-content,
+.style-glass .cn-menubar-content,
+.style-glass .cn-menubar-sub-content,
+.style-glass .cn-navigation-menu-viewport,
+.style-glass [data-slot="dialog-content"],
+.style-glass [data-slot="alert-dialog-content"],
+.style-glass [data-slot="popover-content"],
+.style-glass [data-slot="sheet-content"],
+.style-glass [data-slot="drawer-content"],
+.style-glass [data-slot="drawer"],
+.style-glass [data-slot="dropdown-menu-content"],
+.style-glass [data-slot="dropdown-menu-sub-content"],
+.style-glass [data-slot="select-content"],
+.style-glass [data-slot="combobox-content"],
+.style-glass [data-slot="hover-card-content"],
+.style-glass [data-slot="context-menu-content"],
+.style-glass [data-slot="context-menu-sub-content"],
+.style-glass [data-slot="menubar-content"],
+.style-glass [data-slot="menubar-sub-content"],
+.style-glass [data-slot="navigation-menu-viewport"] {
+  background-color: var(--overlay) !important;
+  border-color: var(--surface-border) !important;
+  border-radius: var(--radius-overlay) !important;
+  box-shadow: var(--shadow-overlay) !important;
+  backdrop-filter: var(--surface-filter);
+  -webkit-backdrop-filter: var(--surface-filter);
+  color: var(--popover-foreground);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accent ownership — Glass beats `.theme-* .theme-container` (0,2,0)         */
+/* Also re-bind Tailwind --color-* so bg-chart-* / bg-primary follow Glass.   */
+/* -------------------------------------------------------------------------- */
+
+html body.style-glass.theme-default,
+html body.style-glass.theme-neutral,
+html body.style-glass.theme-blue,
+html body.style-glass.theme-green,
+html body.style-glass.theme-amber,
+html body.style-glass.theme-rose,
+html body.style-glass.theme-purple,
+html body.style-glass.theme-orange,
+html body.style-glass.theme-teal,
+html body.style-glass.theme-red,
+html body.style-glass.theme-yellow,
+html body.style-glass.theme-violet,
+html body.style-glass.theme-default .theme-container,
+html body.style-glass.theme-neutral .theme-container,
+html body.style-glass.theme-blue .theme-container,
+html body.style-glass.theme-green .theme-container,
+html body.style-glass.theme-amber .theme-container,
+html body.style-glass.theme-rose .theme-container,
+html body.style-glass.theme-purple .theme-container,
+html body.style-glass.theme-orange .theme-container,
+html body.style-glass.theme-teal .theme-container,
+html body.style-glass.theme-red .theme-container,
+html body.style-glass.theme-yellow .theme-container,
+html body.style-glass.theme-violet .theme-container,
+html body.style-glass.theme-default [data-radix-popper-content-wrapper],
+html body.style-glass.theme-neutral [data-radix-popper-content-wrapper],
+html body.style-glass.theme-blue [data-radix-popper-content-wrapper],
+html body.style-glass.theme-green [data-radix-popper-content-wrapper],
+html body.style-glass.theme-amber [data-radix-popper-content-wrapper],
+html body.style-glass.theme-rose [data-radix-popper-content-wrapper],
+html body.style-glass.theme-purple [data-radix-popper-content-wrapper],
+html body.style-glass.theme-orange [data-radix-popper-content-wrapper],
+html body.style-glass.theme-teal [data-radix-popper-content-wrapper],
+html body.style-glass.theme-red [data-radix-popper-content-wrapper],
+html body.style-glass.theme-yellow [data-radix-popper-content-wrapper],
+html body.style-glass.theme-violet [data-radix-popper-content-wrapper],
+html body.style-glass .theme-container,
+html body.style-glass [data-radix-popper-content-wrapper],
+html body.style-glass {
+  --primary: var(--glass-primary);
+  --primary-foreground: var(--glass-primary-foreground);
+  --ring: var(--glass-ring);
+  --sidebar-primary: var(--glass-primary);
+  --sidebar-primary-foreground: var(--glass-primary-foreground);
+  --sidebar-ring: var(--glass-ring);
+  --chart-1: var(--glass-chart-1);
+  --chart-2: var(--glass-chart-2);
+  --chart-3: var(--glass-chart-3);
+  --chart-4: var(--glass-chart-4);
+  --chart-5: var(--glass-chart-5);
+
+  --color-primary: var(--glass-primary);
+  --color-primary-foreground: var(--glass-primary-foreground);
+  --color-ring: var(--glass-ring);
+  --color-chart-1: var(--glass-chart-1);
+  --color-chart-2: var(--glass-chart-2);
+  --color-chart-3: var(--glass-chart-3);
+  --color-chart-4: var(--glass-chart-4);
+  --color-chart-5: var(--glass-chart-5);
+  --color-sidebar-primary: var(--glass-primary);
+  --color-sidebar-primary-foreground: var(--glass-primary-foreground);
+  --color-sidebar-ring: var(--glass-ring);
+}
+
+html.dark body.style-glass.theme-default,
+html.dark body.style-glass.theme-neutral,
+html.dark body.style-glass.theme-blue,
+html.dark body.style-glass.theme-green,
+html.dark body.style-glass.theme-amber,
+html.dark body.style-glass.theme-rose,
+html.dark body.style-glass.theme-purple,
+html.dark body.style-glass.theme-orange,
+html.dark body.style-glass.theme-teal,
+html.dark body.style-glass.theme-red,
+html.dark body.style-glass.theme-yellow,
+html.dark body.style-glass.theme-violet,
+html.dark body.style-glass.theme-default .theme-container,
+html.dark body.style-glass.theme-neutral .theme-container,
+html.dark body.style-glass.theme-blue .theme-container,
+html.dark body.style-glass.theme-green .theme-container,
+html.dark body.style-glass.theme-amber .theme-container,
+html.dark body.style-glass.theme-rose .theme-container,
+html.dark body.style-glass.theme-purple .theme-container,
+html.dark body.style-glass.theme-orange .theme-container,
+html.dark body.style-glass.theme-teal .theme-container,
+html.dark body.style-glass.theme-red .theme-container,
+html.dark body.style-glass.theme-yellow .theme-container,
+html.dark body.style-glass.theme-violet .theme-container,
+html.dark body.style-glass.theme-default [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-neutral [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-blue [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-green [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-amber [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-rose [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-purple [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-orange [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-teal [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-red [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-yellow [data-radix-popper-content-wrapper],
+html.dark body.style-glass.theme-violet [data-radix-popper-content-wrapper],
+html.dark body.style-glass .theme-container,
+html.dark body.style-glass [data-radix-popper-content-wrapper],
+html.dark body.style-glass {
+  --primary: var(--glass-primary);
+  --primary-foreground: var(--glass-primary-foreground);
+  --ring: var(--glass-ring);
+  --sidebar-primary: var(--glass-primary);
+  --sidebar-primary-foreground: var(--glass-primary-foreground);
+  --sidebar-ring: var(--glass-ring);
+  --chart-1: var(--glass-chart-1);
+  --chart-2: var(--glass-chart-2);
+  --chart-3: var(--glass-chart-3);
+  --chart-4: var(--glass-chart-4);
+  --chart-5: var(--glass-chart-5);
+
+  --color-primary: var(--glass-primary);
+  --color-primary-foreground: var(--glass-primary-foreground);
+  --color-ring: var(--glass-ring);
+  --color-chart-1: var(--glass-chart-1);
+  --color-chart-2: var(--glass-chart-2);
+  --color-chart-3: var(--glass-chart-3);
+  --color-chart-4: var(--glass-chart-4);
+  --color-chart-5: var(--glass-chart-5);
+  --color-sidebar-primary: var(--glass-primary);
+  --color-sidebar-primary-foreground: var(--glass-primary-foreground);
+  --color-sidebar-ring: var(--glass-ring);
+}

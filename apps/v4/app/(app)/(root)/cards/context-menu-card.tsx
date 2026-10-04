@@ -8,8 +8,8 @@ import {
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger,
-} from "@/styles/base-rhea/ui/context-menu"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+} from "@/registry/bases/base/ui/context-menu"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 
 export function ContextMenuCard() {
   return (

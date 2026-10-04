@@ -1,5 +1,5 @@
-import { Button } from "@/styles/base-rhea/ui/button"
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Button } from "@/registry/bases/base/ui/button"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Empty,
   EmptyContent,
@@ -7,8 +7,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/styles/base-rhea/ui/empty"
-import { Spinner } from "@/styles/base-rhea/ui/spinner"
+} from "@/registry/bases/base/ui/empty"
+import { Spinner } from "@/registry/bases/base/ui/spinner"
 
 export function SyncingStateCard() {
   return (

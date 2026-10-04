@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react"
 
-import { Card, CardContent } from "@/styles/base-rhea/ui/card"
+import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import {
   Pagination,
   PaginationContent,
@@ -9,7 +9,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/styles/base-rhea/ui/pagination"
+} from "@/registry/bases/base/ui/pagination"
 
 function preventHash(event: MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()

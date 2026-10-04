@@ -6,10 +6,7 @@ import { cn } from "cn"
 import { useThemeConfig } from "@/components/active-theme"
 import { useDesignSystemPreview } from "@/components/design-system-preview"
 
-// Docs routes do not load style recipes by default (only /view + /preview do).
-// PreviewThemeScope applies .style-* roots, so it must also pull in the cn-*
-// recipes that those roots activate.
-import "@/app/style-registry.css"
+// Style CSS chunks are owned by DesignSystemPreviewProvider (lazy per picker).
 
 /** Map docs `styleName` (e.g. base-nova) → style root class (style-nova). */
 export function getPreviewStyleRootClass(styleName = "base-nova") {
@@ -42,9 +39,24 @@ export function PreviewThemeScope({
   return (
     <div
       data-slot="preview-theme"
-      className={cn(`theme-${theme}`, styleRootClass)}
+      className={cn(
+        `theme-${theme}`,
+        styleRootClass,
+        // Atmospheric shells (Glass mesh / Rose clay hatch) need a clipped preview.
+        (styleRootClass === "style-glass" || styleRootClass === "style-rose") &&
+          "overflow-hidden rounded-xl"
+      )}
     >
-      <div className={cn("theme-container", className)} {...props}>
+      <div
+        className={cn(
+          "theme-container",
+          (styleRootClass === "style-glass" ||
+            styleRootClass === "style-rose") &&
+            "bg-transparent",
+          className
+        )}
+        {...props}
+      >
         {children}
       </div>
     </div>

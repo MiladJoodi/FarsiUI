@@ -1,0 +1,494 @@
+/**
+ * Rose (رز · خمیری) — exact tokens from VibeFarsi `pomegranate`.
+ *
+ * Source (live): https://vibefarsi.ir/components/card → data-theme="pomegranate"
+ * Color hexes from stylesheet; clay depth/shape from [data-ds] rule.
+ *
+ * Unlayered so these beat `.theme-*` Primary Color overrides.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — soft clay / pomegranate                                            */
+/* -------------------------------------------------------------------------- */
+
+.style-rose {
+  --rose-primary: #de3951;
+  --rose-primary-foreground: #fffafb;
+  --rose-ring: #de3951;
+  --rose-brand: #bf50a0;
+  --rose-brand-foreground: #fcfcfc;
+  --rose-chart-1: #de3951;
+  --rose-chart-2: #bf50a0;
+  --rose-chart-3: #d6810c;
+  --rose-chart-4: #00915f;
+  --rose-chart-5: #7d585a;
+
+  /* Exact VibeFarsi pomegranate palette */
+  --background: #fce5e6;
+  --foreground: #3b1b1e;
+  --card: #fff4f4;
+  --card-foreground: #3b1b1e;
+  --popover: #fff8f8;
+  --popover-foreground: #3b1b1e;
+  --primary: var(--rose-primary);
+  --primary-foreground: var(--rose-primary-foreground);
+  --secondary: #f4d5d6;
+  --secondary-foreground: #3b1b1e;
+  --muted: #f8ddde;
+  --muted-foreground: #7d585a;
+  --accent: #f8d4d5;
+  --accent-foreground: #3b1b1e;
+  --destructive: #cc2823;
+  --border: #3b1b1e17;
+  --input: #3b1b1e1f;
+  --ring: var(--rose-ring);
+
+  --sidebar: #fff4f4;
+  --sidebar-foreground: #3b1b1e;
+  --sidebar-primary: var(--rose-primary);
+  --sidebar-primary-foreground: var(--rose-primary-foreground);
+  --sidebar-accent: #f8d4d5;
+  --sidebar-accent-foreground: #3b1b1e;
+  --sidebar-border: #3b1b1e17;
+  --sidebar-ring: var(--rose-ring);
+
+  --chart-1: var(--rose-chart-1);
+  --chart-2: var(--rose-chart-2);
+  --chart-3: var(--rose-chart-3);
+  --chart-4: var(--rose-chart-4);
+  --chart-5: var(--rose-chart-5);
+
+  /* Geometry — VibeFarsi --radius / --shape-* */
+  --radius: 1.25rem;
+  --radius-field: 1rem;
+  --radius-surface: 1.75rem;
+  --radius-overlay: 1.5rem;
+  --radius-control: 999px;
+  /* Baked homepage cards use --radius-4xl */
+  --radius-4xl: 1.75rem;
+  --radius-3xl: 1.5rem;
+  --radius-2xl: 1.25rem;
+  --radius-xl: 1rem;
+  --radius-lg: 0.875rem;
+
+  /* Role surfaces (opaque clay, not glass) */
+  --surface: #fff4f4;
+  --surface-muted: #f8ddde;
+  --surface-border: #3b1b1e17;
+  --surface-filter: none;
+  --surface-opacity: 1;
+  --surface-foreground: #3b1b1e;
+
+  --field: #fff4f4;
+  --field-border: #3b1b1e1f;
+  /* Exact --depth-field */
+  --field-shadow: inset 0 2px 5px 0 #4e192117;
+
+  --control: #fff4f4;
+  --control-border: #3b1b1e17;
+  /* Exact --depth-control */
+  --control-shadow:
+    inset 0 -3px 0 0 #31000a29, inset 0 2px 0 0 #ffffff59,
+    0 10px 20px -10px #9a1c328c;
+
+  --overlay: #fff8f8;
+  /* Exact --depth-overlay */
+  --overlay-shadow:
+    inset 0 2px 0 0 #fffc, 0 30px 60px -22px #932a3773;
+
+  /* Exact --depth-surface → elevation roles */
+  --shadow-surface:
+    inset 0 2px 0 0 #fffc, inset 0 -4px 10px 0 #833b4312,
+    0 24px 44px -24px #932a3766;
+  --shadow-field: inset 0 2px 5px 0 #4e192117;
+  --shadow-overlay:
+    inset 0 2px 0 0 #fffc, 0 30px 60px -22px #932a3773;
+  --shadow-control:
+    inset 0 -3px 0 0 #31000a29, inset 0 2px 0 0 #ffffff59,
+    0 10px 20px -10px #9a1c328c;
+  /* Exact --depth-press */
+  --shadow-press: inset 0 2px 5px 0 #31000a38;
+
+  --motion-fast: 420ms;
+  --motion-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark — deeper clay, same pomegranate accent */
+.dark .style-rose {
+  --rose-primary: #f2556d;
+  --rose-primary-foreground: #2a1013;
+  --rose-ring: #f2556d;
+  --rose-brand: #d97bb8;
+  --rose-brand-foreground: #1a0c0e;
+  --rose-chart-1: #f2556d;
+  --rose-chart-2: #d97bb8;
+  --rose-chart-3: #e8a03a;
+  --rose-chart-4: #3dba8c;
+  --rose-chart-5: #d4b0b3;
+
+  --background: #2a1416;
+  --foreground: #fff4f4;
+  --card: #3a1c20;
+  --card-foreground: #fff4f4;
+  --popover: #422024;
+  --popover-foreground: #fff4f4;
+  --primary: var(--rose-primary);
+  --primary-foreground: var(--rose-primary-foreground);
+  --secondary: #4a2428;
+  --secondary-foreground: #fff4f4;
+  --muted: #3a1c20;
+  --muted-foreground: #d4b0b3;
+  --accent: #4a2428;
+  --accent-foreground: #fff4f4;
+  --destructive: #ff6b66;
+  --border: #ffffff1a;
+  --input: #ffffff24;
+  --ring: var(--rose-ring);
+
+  --sidebar: #3a1c20;
+  --sidebar-foreground: #fff4f4;
+  --sidebar-primary: var(--rose-primary);
+  --sidebar-primary-foreground: var(--rose-primary-foreground);
+  --sidebar-accent: #4a2428;
+  --sidebar-accent-foreground: #fff4f4;
+  --sidebar-border: #ffffff1a;
+  --sidebar-ring: var(--rose-ring);
+
+  --chart-1: var(--rose-chart-1);
+  --chart-2: var(--rose-chart-2);
+  --chart-3: var(--rose-chart-3);
+  --chart-4: var(--rose-chart-4);
+  --chart-5: var(--rose-chart-5);
+
+  --surface: #3a1c20;
+  --surface-muted: #2a1416;
+  --surface-border: #ffffff1a;
+  --surface-foreground: #fff4f4;
+
+  --field: #3a1c20;
+  --field-border: #ffffff24;
+  --field-shadow: inset 0 2px 5px 0 #00000059;
+
+  --control: #3a1c20;
+  --control-border: #ffffff1a;
+  --control-shadow:
+    inset 0 -3px 0 0 #00000040, inset 0 2px 0 0 #ffffff14,
+    0 10px 20px -10px #00000080;
+
+  --overlay: #422024;
+  --overlay-shadow:
+    inset 0 2px 0 0 #ffffff14, 0 30px 60px -22px #000000a6;
+
+  --shadow-surface:
+    inset 0 2px 0 0 #ffffff14, 0 24px 44px -24px #00000099;
+  --shadow-field: inset 0 2px 5px 0 #00000059;
+  --shadow-overlay:
+    inset 0 2px 0 0 #ffffff14, 0 30px 60px -22px #000000a6;
+  --shadow-control:
+    inset 0 -3px 0 0 #00000040, inset 0 2px 0 0 #ffffff14,
+    0 10px 20px -10px #00000080;
+  --shadow-press: inset 0 2px 5px 0 #00000066;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Atmosphere — soft pink canvas + diagonal hatch (preview + collage)          */
+/* -------------------------------------------------------------------------- */
+
+.style-rose [data-slot="layout"] {
+  background-color: transparent;
+}
+
+.style-rose [data-slot="header-primary-colors"] {
+  display: none !important;
+}
+
+.style-rose [data-collage-surface] {
+  background-color: #fce5e6 !important;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgb(59 27 30 / 0.045) 10px,
+      rgb(59 27 30 / 0.045) 11px
+    ) !important;
+  background-size: auto !important;
+  background-attachment: scroll !important;
+}
+
+.dark .style-rose [data-collage-surface] {
+  background-color: #2a1416 !important;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgb(255 244 244 / 0.04) 10px,
+      rgb(255 244 244 / 0.04) 11px
+    ) !important;
+}
+
+.style-rose {
+  background-color: var(--background);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgb(59 27 30 / 0.04) 10px,
+    rgb(59 27 30 / 0.04) 11px
+  );
+  background-attachment: fixed;
+}
+
+.dark .style-rose {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgb(255 244 244 / 0.035) 10px,
+    rgb(255 244 244 / 0.035) 11px
+  );
+}
+
+/* Docs preview shell */
+.style-rose[data-slot="preview-theme"],
+.style-rose [data-slot="preview-theme"] {
+  background-color: var(--background);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgb(59 27 30 / 0.045) 10px,
+    rgb(59 27 30 / 0.045) 11px
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Clay fills — cn-* recipes + baked homepage data-slot components            */
+/* -------------------------------------------------------------------------- */
+
+.style-rose .cn-card,
+.style-rose .cn-alert,
+.style-rose [data-slot="card"] {
+  background-color: var(--surface) !important;
+  border-color: var(--surface-border);
+  border-radius: var(--radius-surface) !important;
+  box-shadow: var(--shadow-surface) !important;
+}
+
+.style-rose .cn-input,
+.style-rose .cn-textarea,
+.style-rose .cn-select-trigger,
+.style-rose .cn-input-group,
+.style-rose .cn-native-select,
+.style-rose [data-slot="input"],
+.style-rose [data-slot="textarea"],
+.style-rose [data-slot="select-trigger"],
+.style-rose [data-slot="input-group"] {
+  background-color: var(--field) !important;
+  border-color: var(--field-border) !important;
+  border-radius: var(--radius-field) !important;
+  box-shadow: var(--field-shadow) !important;
+}
+
+.style-rose .cn-button,
+.style-rose [data-slot="button"] {
+  border-radius: var(--radius-control) !important;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease;
+}
+
+.style-rose .cn-button-variant-default {
+  box-shadow: var(--shadow-control);
+}
+
+.style-rose .cn-button-variant-default:active {
+  box-shadow: var(--shadow-press) !important;
+  transform: scale(0.95);
+}
+
+.style-rose .cn-button-variant-outline,
+.style-rose .cn-button-variant-secondary,
+.style-rose .cn-menubar,
+.style-rose .cn-pagination-link[data-active="true"],
+.style-rose .cn-pagination-link[aria-current="page"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+  border-radius: var(--radius-control) !important;
+}
+
+/* Nested menus / drawers / sheets / popovers — portaled on body */
+.style-rose .cn-dialog-content,
+.style-rose .cn-alert-dialog-content,
+.style-rose .cn-popover-content,
+.style-rose .cn-sheet-content,
+.style-rose .cn-drawer-content,
+.style-rose .cn-drawer-popup,
+.style-rose .cn-dropdown-menu-content,
+.style-rose .cn-dropdown-menu-sub-content,
+.style-rose .cn-select-content,
+.style-rose .cn-combobox-content,
+.style-rose .cn-hover-card-content,
+.style-rose .cn-context-menu-content,
+.style-rose .cn-context-menu-sub-content,
+.style-rose .cn-menubar-content,
+.style-rose .cn-menubar-sub-content,
+.style-rose .cn-navigation-menu-viewport,
+.style-rose [data-slot="dialog-content"],
+.style-rose [data-slot="alert-dialog-content"],
+.style-rose [data-slot="popover-content"],
+.style-rose [data-slot="sheet-content"],
+.style-rose [data-slot="drawer-content"],
+.style-rose [data-slot="drawer"],
+.style-rose [data-slot="dropdown-menu-content"],
+.style-rose [data-slot="dropdown-menu-sub-content"],
+.style-rose [data-slot="select-content"],
+.style-rose [data-slot="combobox-content"],
+.style-rose [data-slot="hover-card-content"],
+.style-rose [data-slot="context-menu-content"],
+.style-rose [data-slot="context-menu-sub-content"],
+.style-rose [data-slot="menubar-content"],
+.style-rose [data-slot="menubar-sub-content"],
+.style-rose [data-slot="navigation-menu-viewport"] {
+  background-color: var(--overlay) !important;
+  border-color: var(--surface-border) !important;
+  border-radius: var(--radius-overlay) !important;
+  box-shadow: var(--shadow-overlay) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accent ownership — Rose beats `.theme-* .theme-container` (0,2,0)          */
+/* Also re-bind Tailwind --color-* so bg-chart-* / bg-primary follow Rose.    */
+/* -------------------------------------------------------------------------- */
+
+html body.style-rose.theme-default,
+html body.style-rose.theme-neutral,
+html body.style-rose.theme-blue,
+html body.style-rose.theme-green,
+html body.style-rose.theme-amber,
+html body.style-rose.theme-rose,
+html body.style-rose.theme-purple,
+html body.style-rose.theme-orange,
+html body.style-rose.theme-teal,
+html body.style-rose.theme-red,
+html body.style-rose.theme-yellow,
+html body.style-rose.theme-violet,
+html body.style-rose.theme-default .theme-container,
+html body.style-rose.theme-neutral .theme-container,
+html body.style-rose.theme-blue .theme-container,
+html body.style-rose.theme-green .theme-container,
+html body.style-rose.theme-amber .theme-container,
+html body.style-rose.theme-rose .theme-container,
+html body.style-rose.theme-purple .theme-container,
+html body.style-rose.theme-orange .theme-container,
+html body.style-rose.theme-teal .theme-container,
+html body.style-rose.theme-red .theme-container,
+html body.style-rose.theme-yellow .theme-container,
+html body.style-rose.theme-violet .theme-container,
+html body.style-rose.theme-default [data-radix-popper-content-wrapper],
+html body.style-rose.theme-neutral [data-radix-popper-content-wrapper],
+html body.style-rose.theme-blue [data-radix-popper-content-wrapper],
+html body.style-rose.theme-green [data-radix-popper-content-wrapper],
+html body.style-rose.theme-amber [data-radix-popper-content-wrapper],
+html body.style-rose.theme-rose [data-radix-popper-content-wrapper],
+html body.style-rose.theme-purple [data-radix-popper-content-wrapper],
+html body.style-rose.theme-orange [data-radix-popper-content-wrapper],
+html body.style-rose.theme-teal [data-radix-popper-content-wrapper],
+html body.style-rose.theme-red [data-radix-popper-content-wrapper],
+html body.style-rose.theme-yellow [data-radix-popper-content-wrapper],
+html body.style-rose.theme-violet [data-radix-popper-content-wrapper],
+html body.style-rose .theme-container,
+html body.style-rose [data-radix-popper-content-wrapper],
+html body.style-rose {
+  --primary: var(--rose-primary);
+  --primary-foreground: var(--rose-primary-foreground);
+  --ring: var(--rose-ring);
+  --sidebar-primary: var(--rose-primary);
+  --sidebar-primary-foreground: var(--rose-primary-foreground);
+  --sidebar-ring: var(--rose-ring);
+  --chart-1: var(--rose-chart-1);
+  --chart-2: var(--rose-chart-2);
+  --chart-3: var(--rose-chart-3);
+  --chart-4: var(--rose-chart-4);
+  --chart-5: var(--rose-chart-5);
+
+  --color-primary: var(--rose-primary);
+  --color-primary-foreground: var(--rose-primary-foreground);
+  --color-ring: var(--rose-ring);
+  --color-chart-1: var(--rose-chart-1);
+  --color-chart-2: var(--rose-chart-2);
+  --color-chart-3: var(--rose-chart-3);
+  --color-chart-4: var(--rose-chart-4);
+  --color-chart-5: var(--rose-chart-5);
+  --color-sidebar-primary: var(--rose-primary);
+  --color-sidebar-primary-foreground: var(--rose-primary-foreground);
+  --color-sidebar-ring: var(--rose-ring);
+}
+
+html.dark body.style-rose.theme-default,
+html.dark body.style-rose.theme-neutral,
+html.dark body.style-rose.theme-blue,
+html.dark body.style-rose.theme-green,
+html.dark body.style-rose.theme-amber,
+html.dark body.style-rose.theme-rose,
+html.dark body.style-rose.theme-purple,
+html.dark body.style-rose.theme-orange,
+html.dark body.style-rose.theme-teal,
+html.dark body.style-rose.theme-red,
+html.dark body.style-rose.theme-yellow,
+html.dark body.style-rose.theme-violet,
+html.dark body.style-rose.theme-default .theme-container,
+html.dark body.style-rose.theme-neutral .theme-container,
+html.dark body.style-rose.theme-blue .theme-container,
+html.dark body.style-rose.theme-green .theme-container,
+html.dark body.style-rose.theme-amber .theme-container,
+html.dark body.style-rose.theme-rose .theme-container,
+html.dark body.style-rose.theme-purple .theme-container,
+html.dark body.style-rose.theme-orange .theme-container,
+html.dark body.style-rose.theme-teal .theme-container,
+html.dark body.style-rose.theme-red .theme-container,
+html.dark body.style-rose.theme-yellow .theme-container,
+html.dark body.style-rose.theme-violet .theme-container,
+html.dark body.style-rose.theme-default [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-neutral [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-blue [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-green [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-amber [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-rose [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-purple [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-orange [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-teal [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-red [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-yellow [data-radix-popper-content-wrapper],
+html.dark body.style-rose.theme-violet [data-radix-popper-content-wrapper],
+html.dark body.style-rose .theme-container,
+html.dark body.style-rose [data-radix-popper-content-wrapper],
+html.dark body.style-rose {
+  --primary: var(--rose-primary);
+  --primary-foreground: var(--rose-primary-foreground);
+  --ring: var(--rose-ring);
+  --sidebar-primary: var(--rose-primary);
+  --sidebar-primary-foreground: var(--rose-primary-foreground);
+  --sidebar-ring: var(--rose-ring);
+  --chart-1: var(--rose-chart-1);
+  --chart-2: var(--rose-chart-2);
+  --chart-3: var(--rose-chart-3);
+  --chart-4: var(--rose-chart-4);
+  --chart-5: var(--rose-chart-5);
+
+  --color-primary: var(--rose-primary);
+  --color-primary-foreground: var(--rose-primary-foreground);
+  --color-ring: var(--rose-ring);
+  --color-chart-1: var(--rose-chart-1);
+  --color-chart-2: var(--rose-chart-2);
+  --color-chart-3: var(--rose-chart-3);
+  --color-chart-4: var(--rose-chart-4);
+  --color-chart-5: var(--rose-chart-5);
+  --color-sidebar-primary: var(--rose-primary);
+  --color-sidebar-primary-foreground: var(--rose-primary-foreground);
+  --color-sidebar-ring: var(--rose-ring);
+}
