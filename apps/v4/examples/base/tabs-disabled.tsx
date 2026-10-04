@@ -1,14 +1,38 @@
-import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/styles/base-nova/ui/tabs"
 
 export default function TabsDisabled() {
   return (
-    <Tabs defaultValue="home" dir="rtl">
+    <Tabs defaultValue="orders" className="w-full max-w-md gap-4" dir="rtl">
       <TabsList>
-        <TabsTrigger value="home">خانه</TabsTrigger>
-        <TabsTrigger value="settings" disabled>
-          غیرفعال
+        <TabsTrigger value="orders">سفارش‌ها</TabsTrigger>
+        <TabsTrigger value="returns">مرجوعی</TabsTrigger>
+        <TabsTrigger value="export" disabled>
+          خروجی اکسل
         </TabsTrigger>
       </TabsList>
+      <TabsContent
+        value="orders"
+        className="rounded-lg border p-4 text-sm text-muted-foreground"
+      >
+        ۳ سفارش در حال آماده‌سازی دارید.
+      </TabsContent>
+      <TabsContent
+        value="returns"
+        className="rounded-lg border p-4 text-sm text-muted-foreground"
+      >
+        درخواست مرجوعی باز ندارید.
+      </TabsContent>
+      <TabsContent
+        value="export"
+        className="rounded-lg border p-4 text-sm text-muted-foreground"
+      >
+        خروجی اکسل فقط در طرح حرفه‌ای فعال است.
+      </TabsContent>
     </Tabs>
   )
 }

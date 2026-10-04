@@ -69,13 +69,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 ```
 
 ```tsx showLineNumbers
-<Tabs defaultValue="account" className="w-[400px]">
+<Tabs defaultValue="account" className="w-full max-w-md gap-4" dir="rtl">
   <TabsList>
     <TabsTrigger value="account">حساب</TabsTrigger>
     <TabsTrigger value="password">رمز عبور</TabsTrigger>
   </TabsList>
-  <TabsContent value="account">تغییرات حساب را اینجا اعمال کنید.</TabsContent>
-  <TabsContent value="password">رمز عبور را اینجا تغییر دهید.</TabsContent>
+  <TabsContent value="account">
+    نام نمایشی و ایمیل را اینجا تغییر دهید.
+  </TabsContent>
+  <TabsContent value="password">
+    برای امنیت بیشتر، رمز عبور را عوض کنید.
+  </TabsContent>
 </Tabs>
 ```
 

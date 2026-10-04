@@ -4,6 +4,7 @@ import * as React from "react"
 import { IconCheck, IconCopy, IconDownload } from "@tabler/icons-react"
 import { cn } from "cn"
 
+import { CodeBlockCommand } from "@/components/code-block-command"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
@@ -13,6 +14,7 @@ const TOOL_LOGOS: Record<string, string> = {
   codex: "/farsiui/ai/codex.png",
 }
 
+/** Same npm/pnpm/yarn/bun command chrome as docs/installation. */
 export function SkillCopyCommand({
   command,
   className,
@@ -20,44 +22,30 @@ export function SkillCopyCommand({
   command: string
   className?: string
 }) {
-  const [copied, setCopied] = React.useState(false)
-
-  React.useEffect(() => {
-    if (!copied) return
-    const timer = setTimeout(() => setCopied(false), 1800)
-    return () => clearTimeout(timer)
-  }, [copied])
+  const npm = command
+  const yarn = command.startsWith("npx")
+    ? command.replace("npx", "yarn dlx")
+    : command
+  const pnpm = command.startsWith("npx")
+    ? command.replace("npx", "pnpm dlx")
+    : command
+  const bun = command.startsWith("npx")
+    ? command.replace("npx", "bunx --bun")
+    : command
 
   return (
-    <div
-      dir="ltr"
-      lang="en"
-      className={cn(
-        "relative flex items-center gap-2 overflow-x-auto rounded-lg border bg-code pe-10 ps-3 py-2 font-mono text-[12.5px] text-foreground",
-        className
-      )}
+    <figure
+      data-rehype-pretty-code-figure=""
+      data-not-typeset=""
+      className={cn("relative m-0! md:mx-0!", className)}
     >
-      <span className="select-none text-muted-foreground">$</span>
-      <code className="min-w-0 flex-1 whitespace-pre">{command}</code>
-      <Button
-        type="button"
-        size="icon"
-        variant="ghost"
-        data-slot="copy-button"
-        className="absolute top-1.5 end-1.5 size-7 cursor-pointer bg-code"
-        aria-label="کپی دستور"
-        onClick={async () => {
-          const ok = await copyToClipboardWithMeta(command)
-          if (ok) setCopied(true)
-        }}
-      >
-        {copied ? (
-          <IconCheck className="size-3.5" />
-        ) : (
-          <IconCopy className="size-3.5" />
-        )}
-      </Button>
-    </div>
+      <CodeBlockCommand
+        __npm__={npm}
+        __yarn__={yarn}
+        __pnpm__={pnpm}
+        __bun__={bun}
+      />
+    </figure>
   )
 }
 

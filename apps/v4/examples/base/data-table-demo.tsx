@@ -347,5 +347,3 @@ export default function DataTableDemo() {
     </div>
   )
 }
-
-export default DataTableDemo
