@@ -15,6 +15,27 @@ export function getPreviewStyleRootClass(styleName = "base-nova") {
 }
 
 /**
+ * Rewrite `/view/{style}/{name}` so the iframe always loads the Header
+ * Design System bake (base-glass, base-nili, …), not a stale registry style.
+ */
+export function resolveDesignSystemViewSrc(
+  src: string,
+  designSystemStyleName: string
+) {
+  try {
+    const url = new URL(src, "https://farsiui.local")
+    const parts = url.pathname.split("/").filter(Boolean)
+    if (parts[0] === "view" && parts[1] && parts[2]) {
+      parts[1] = designSystemStyleName
+      return `/${parts.join("/")}${url.search}`
+    }
+  } catch {
+    // Fall through to the original src.
+  }
+  return src
+}
+
+/**
  * Scopes the live site Primary Color + global Design System to a docs preview.
  * Style root comes from DesignSystemPreviewProvider (Header picker), not from
  * per-preview local state. Keep outside Copy / ComponentSource so copied
@@ -35,6 +56,11 @@ export function PreviewThemeScope({
   const { activeTheme } = useThemeConfig()
   const { styleRootClass } = useDesignSystemPreview()
   const theme = activeTheme === "default" ? "neutral" : activeTheme
+  const atmospheric =
+    styleRootClass === "style-glass" ||
+    styleRootClass === "style-rose" ||
+    styleRootClass === "style-nili" ||
+    styleRootClass === "style-khesht"
 
   return (
     <div
@@ -42,22 +68,13 @@ export function PreviewThemeScope({
       className={cn(
         `theme-${theme}`,
         styleRootClass,
-        // Atmospheric shells need a clipped preview.
-        (styleRootClass === "style-glass" ||
-          styleRootClass === "style-rose" ||
-          styleRootClass === "style-nili" ||
-          styleRootClass === "style-khesht") &&
-          "overflow-hidden rounded-xl"
+        atmospheric && "overflow-hidden rounded-xl"
       )}
     >
       <div
         className={cn(
           "theme-container",
-          (styleRootClass === "style-glass" ||
-            styleRootClass === "style-rose" ||
-            styleRootClass === "style-nili" ||
-            styleRootClass === "style-khesht") &&
-            "bg-transparent",
+          atmospheric && "bg-transparent",
           className
         )}
         {...props}
@@ -68,7 +85,7 @@ export function PreviewThemeScope({
   )
 }
 
-/** Same-origin /view iframe that stays in sync with Primary Color + Design System. */
+/** Same-origin /view iframe that remounts when Design System or theme changes. */
 export function PreviewThemeIframe({
   src,
   className,
@@ -80,8 +97,10 @@ export function PreviewThemeIframe({
   styleName?: string
 }) {
   const { activeTheme } = useThemeConfig()
-  const { styleRootClass } = useDesignSystemPreview()
+  const { styleRootClass, styleName: designSystemStyleName } =
+    useDesignSystemPreview()
   const theme = activeTheme === "default" ? "neutral" : activeTheme
+  const resolvedSrc = resolveDesignSystemViewSrc(src, designSystemStyleName)
   const ref = React.useRef<HTMLIFrameElement>(null)
 
   const sync = React.useCallback(() => {
@@ -114,8 +133,9 @@ export function PreviewThemeIframe({
 
   return (
     <iframe
+      key={`${resolvedSrc}:${styleRootClass}:${theme}`}
       ref={ref}
-      src={src}
+      src={resolvedSrc}
       className={className}
       onLoad={sync}
       title="Component preview"

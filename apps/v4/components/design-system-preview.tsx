@@ -12,6 +12,7 @@ import {
 import {
   loadDesignSystemStyle,
   markDefaultDesignSystemStyleLoaded,
+  schedulePrefetchDesignSystemStyles,
   type LoadableDesignSystemId,
 } from "@/lib/design-system-style-loader"
 
@@ -152,6 +153,10 @@ export function DesignSystemPreviewProvider({
       setDesignSystemIdState(stored)
     }
     setHydrated(true)
+    // Warm other style chunks in idle time so the picker opens without hitch.
+    schedulePrefetchDesignSystemStyles(
+      (stored ?? DEFAULT_DESIGN_SYSTEM) as LoadableDesignSystemId
+    )
   }, [])
 
   useEffect(() => {

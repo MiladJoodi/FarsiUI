@@ -17,16 +17,21 @@ export function ComponentPreview({
   /** Visual style root (e.g. style-nova) — must live on body so portals inherit it. */
   styleClass?: string | null
 }) {
-  // Full /view tab: lock body to the URL style. Embed iframes: leave body alone
-  // so the parent DesignSystemPreviewProvider picker can sync style-* live.
+  // Apply the URL bake's style root on first paint. The parent picker may
+  // still sync theme-*/style-* afterward for live Primary Color changes.
   React.useEffect(() => {
-    if (embed || !styleClass) return
+    if (!styleClass) return
     const { body } = document
+    Array.from(body.classList)
+      .filter((className) => className.startsWith("style-"))
+      .forEach((className) => {
+        body.classList.remove(className)
+      })
     body.classList.add(styleClass)
     return () => {
       body.classList.remove(styleClass)
     }
-  }, [embed, styleClass])
+  }, [styleClass])
 
   // Demo blocks use href="#" placeholders — stop hash jumps / iframe reloads in previews.
   React.useEffect(() => {
@@ -63,9 +68,9 @@ export function ComponentPreview({
       </style>
       <div
         className={cn(
-          // Embed: style root lives on body via parent sync — avoid nesting a
-          // conflicting style-* wrapper from the registry URL.
-          !embed && styleClass,
+          // Keep style root on a wrapper too so portals/recipes resolve even
+          // before the parent picker syncs body classes into this iframe.
+          styleClass,
           embed
             ? staticPreview
               ? "h-full min-h-full bg-transparent"

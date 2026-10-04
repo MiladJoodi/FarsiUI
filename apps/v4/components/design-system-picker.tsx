@@ -6,7 +6,7 @@ import {
   useDesignSystemPreview,
   type DesignSystemId,
 } from "@/components/design-system-preview"
-import { prefetchDesignSystemStyles } from "@/lib/design-system-style-loader"
+import { schedulePrefetchDesignSystemStyles } from "@/lib/design-system-style-loader"
 import {
   Select,
   SelectContent,
@@ -18,7 +18,8 @@ import {
 
 export function DesignSystemPicker({
   className,
-}: React.ComponentProps<"div">) {
+  fullWidth = false,
+}: React.ComponentProps<"div"> & { fullWidth?: boolean }) {
   const { designSystemId, setDesignSystemId, presets } =
     useDesignSystemPreview()
 
@@ -28,14 +29,11 @@ export function DesignSystemPicker({
   }))
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("flex items-center", fullWidth && "w-full", className)}>
       <Select
         items={items}
         value={designSystemId}
         modal={false}
-        onOpenChange={(open) => {
-          if (open) prefetchDesignSystemStyles(designSystemId)
-        }}
         onValueChange={(value) => {
           if (value) setDesignSystemId(value as DesignSystemId)
         }}
@@ -44,9 +42,14 @@ export function DesignSystemPicker({
           id="design-system-picker"
           size="sm"
           aria-label="سیستم طراحی"
-          className="h-8 w-auto min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none"
-          onPointerEnter={() => prefetchDesignSystemStyles(designSystemId)}
-          onFocus={() => prefetchDesignSystemStyles(designSystemId)}
+          className={cn(
+            "h-8 min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none",
+            fullWidth ? "w-full" : "w-auto"
+          )}
+          onPointerEnter={() =>
+            schedulePrefetchDesignSystemStyles(designSystemId)
+          }
+          onFocus={() => schedulePrefetchDesignSystemStyles(designSystemId)}
         >
           <SelectValue placeholder="پیشفرض" />
         </SelectTrigger>

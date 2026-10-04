@@ -13,7 +13,10 @@ import {
   SelectValue,
 } from "@/styles/base-nova/ui/select"
 
-export function FontPicker({ className }: React.ComponentProps<"div">) {
+export function FontPicker({
+  className,
+  fullWidth = false,
+}: React.ComponentProps<"div"> & { fullWidth?: boolean }) {
   const { fontId, setFontId, fonts } = useFontPreview()
   const activeFont = fonts.find((font) => font.id === fontId) ?? fonts[0]
 
@@ -24,7 +27,7 @@ export function FontPicker({ className }: React.ComponentProps<"div">) {
   }))
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("flex items-center", fullWidth && "w-full", className)}>
       <Select
         items={items.map(({ label, value }) => ({ label, value }))}
         value={fontId}
@@ -37,7 +40,10 @@ export function FontPicker({ className }: React.ComponentProps<"div">) {
           id="font-picker"
           size="sm"
           aria-label="فونت"
-          className="h-8 w-auto min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none"
+          className={cn(
+            "h-8 min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none",
+            fullWidth ? "w-full" : "w-auto"
+          )}
           style={{ fontFamily: `var(${activeFont.cssVar})` }}
         >
           <SelectValue placeholder="فونت" />

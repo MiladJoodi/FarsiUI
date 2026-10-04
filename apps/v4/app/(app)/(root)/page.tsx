@@ -98,7 +98,7 @@ export const metadata: Metadata = {
 
 export default function IndexPage() {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex min-w-0 flex-1 flex-col overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -121,10 +121,10 @@ export default function IndexPage() {
           </Button>
         </PageActions>
       </PageHeader>
-      <div className="container-wrapper flex-1 p-0">
-        <div className="container md:px-0 lg:max-w-none">
-          {/* Mobile: 140vw bleed of a scaled desktop collage (live Persian cards). */}
-          <section className="-mx-4 w-[140vw] overflow-x-clip md:hidden">
+      <div className="container-wrapper min-w-0 flex-1 overflow-x-clip p-0">
+        <div className="container min-w-0 overflow-x-clip md:px-0 lg:max-w-none">
+          {/* Mobile collage is wider than the viewport — clip here so the page never scrolls sideways. */}
+          <section className="relative -mx-4 overflow-x-clip md:hidden">
             <CardsDemoMobile />
           </section>
           <section className="hidden md:block">

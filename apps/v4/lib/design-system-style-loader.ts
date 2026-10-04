@@ -50,13 +50,53 @@ export function loadDesignSystemStyle(
   return promise
 }
 
-/** Prefetch every picker style except the active one (e.g. when picker opens). */
+/** Prefetch every picker style except the active one (fire-and-forget). */
 export function prefetchDesignSystemStyles(
   except?: LoadableDesignSystemId
 ): void {
   for (const id of Object.keys(LOADERS) as LoadableDesignSystemId[]) {
     if (id === except || loaded.has(id)) continue
     void loadDesignSystemStyle(id)
+  }
+}
+
+let prefetchScheduled = false
+
+/**
+ * Prefetch remaining design-system CSS during idle time so opening the
+ * select stays snappy (avoids injecting several large stylesheets on click).
+ */
+export function schedulePrefetchDesignSystemStyles(
+  except?: LoadableDesignSystemId
+): void {
+  if (typeof window === "undefined" || prefetchScheduled) return
+  prefetchScheduled = true
+
+  const run = () => {
+    const ids = (Object.keys(LOADERS) as LoadableDesignSystemId[]).filter(
+      (id) => id !== except && !loaded.has(id)
+    )
+
+    let index = 0
+    const next = () => {
+      if (index >= ids.length) return
+      const id = ids[index++]
+      void loadDesignSystemStyle(id).finally(() => {
+        if (typeof window.requestIdleCallback === "function") {
+          window.requestIdleCallback(next, { timeout: 1500 })
+        } else {
+          window.setTimeout(next, 50)
+        }
+      })
+    }
+
+    next()
+  }
+
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(run, { timeout: 2000 })
+  } else {
+    window.setTimeout(run, 250)
   }
 }
 

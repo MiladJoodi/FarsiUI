@@ -274,6 +274,7 @@ export function BlockCard({
                   </div>
                 ) : null}
                 <iframe
+                  key={`${previewStyleName}:${item.name}`}
                   ref={iframeRef}
                   src={`/view/${previewStyleName}/${item.name}?embed=1`}
                   title={item.name}

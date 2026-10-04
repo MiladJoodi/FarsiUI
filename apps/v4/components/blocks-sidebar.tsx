@@ -227,8 +227,8 @@ export function BlocksListIndex() {
     () => findBlocksNavMatch(pathname),
     [pathname]
   )
-  const current =
-    pathname === "/blocks" ? "معرفی" : (match?.item.title ?? null)
+  // Intro page: only "فهرست بلوک‌ها" — no trailing "/ معرفی".
+  const current = pathname === "/blocks" ? null : (match?.item.title ?? null)
 
   return (
     <PersianDigits>

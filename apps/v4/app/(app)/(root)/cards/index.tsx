@@ -200,7 +200,10 @@ export function CardsDemoMobile() {
   return (
     <div
       data-collage-surface=""
-      className={cn("relative w-full overflow-x-clip", COLLAGE_SURFACE)}
+      className={cn(
+        "relative w-full max-w-full overflow-x-clip",
+        COLLAGE_SURFACE
+      )}
     >
       <div
         data-slot="demo"

@@ -77,9 +77,7 @@ export function ComponentPreviewTabs({
             )}
           >
             <PreviewThemeIframe
-              key={previewStyleName}
               src={`/view/${previewStyleName}/${name}?embed=1`}
-              styleName={previewStyleName}
               className="absolute inset-0 size-full border-0"
             />
           </div>
