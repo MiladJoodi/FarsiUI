@@ -47,27 +47,27 @@ export function persistDesignSystemId(id: DesignSystemCookieId) {
 }
 
 /**
- * Blocking bootstrap: class on body + cookie sync for SSR agreement.
- * Picker CSS ships eagerly with the shell, so class-before-CSS FOUC is gone.
+ * Blocking bootstrap for first child of body — no DOMContentLoaded.
+ * Prefers localStorage, then document.cookie; applies style-* immediately.
  */
 export const DESIGN_SYSTEM_BOOTSTRAP_SCRIPT = `
   try {
     var key = '${DESIGN_SYSTEM_STORAGE_KEY}';
-    var ds = localStorage.getItem(key) || 'default';
+    var cookieName = '${DESIGN_SYSTEM_COOKIE}';
+    var fromCookie = (document.cookie.match(new RegExp('(?:^|; )' + cookieName + '=([^;]*)')) || [])[1];
+    var ds = localStorage.getItem(key) || (fromCookie ? decodeURIComponent(fromCookie) : '') || 'default';
     if (ds === 'aether') { ds = 'glass'; localStorage.setItem(key, ds); }
     var map = { default: 'style-nova', comfort: 'style-vega', glass: 'style-glass', rose: 'style-rose', nili: 'style-nili', khesht: 'style-khesht' };
     if (!map[ds]) ds = 'default';
-    document.cookie = '${DESIGN_SYSTEM_COOKIE}=' + ds + ';path=/;max-age=31536000;samesite=lax';
+    document.cookie = cookieName + '=' + ds + ';path=/;max-age=31536000;samesite=lax';
+    try { localStorage.setItem(key, ds); } catch (_) {}
     var styleClass = map[ds];
-    var applyStyle = function () {
-      var body = document.body;
-      if (!body) return;
+    var body = document.body;
+    if (body) {
       Array.prototype.slice.call(body.classList).forEach(function (c) {
         if (c.indexOf('style-') === 0) body.classList.remove(c);
       });
       body.classList.add(styleClass);
-    };
-    if (document.body) applyStyle();
-    else document.addEventListener('DOMContentLoaded', applyStyle);
+    }
   } catch (_) {}
 `

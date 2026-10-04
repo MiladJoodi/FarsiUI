@@ -3,10 +3,19 @@ import { cookies, headers } from "next/headers"
 import { cn } from "cn"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 
+/** Prefer dynamic render so picker prefs can reach body classes when available. */
+export const dynamic = "force-dynamic"
+
 import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
+import {
+  ACTIVE_THEME_BOOTSTRAP_SCRIPT,
+  ACTIVE_THEME_COOKIE,
+  normalizeActiveTheme,
+} from "@/lib/active-theme"
 import {
   DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
   DESIGN_SYSTEM_COOKIE,
+  DESIGN_SYSTEM_STYLE_CLASS,
   normalizeDesignSystemId,
 } from "@/lib/design-system"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
@@ -107,12 +116,22 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const cookieStore = await cookies()
+  const headerStore = await headers()
+  // proxy.ts forwards Cookie → x-* when root layout does not see Cookie.
   const initialDesignSystem = normalizeDesignSystemId(
-    cookieStore.get(DESIGN_SYSTEM_COOKIE)?.value
+    headerStore.get("x-design-system-preview") ??
+      cookieStore.get(DESIGN_SYSTEM_COOKIE)?.value
   )
   const initialFontId = normalizeUiFontId(
-    cookieStore.get(UI_FONT_COOKIE)?.value
+    headerStore.get("x-ui-font-preview") ??
+      cookieStore.get(UI_FONT_COOKIE)?.value
   )
+  const initialActiveTheme = normalizeActiveTheme(
+    headerStore.get("x-active-theme") ??
+      cookieStore.get(ACTIVE_THEME_COOKIE)?.value
+  )
+  const styleRootClass = DESIGN_SYSTEM_STYLE_CLASS[initialDesignSystem]
+  const themeClass = `theme-${initialActiveTheme}`
 
   return (
     <html
@@ -144,25 +163,6 @@ export default async function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                var activeTheme = localStorage.getItem('active-theme') || 'neutral';
-                var applyTheme = function () {
-                  document.body.classList.add('theme-' + activeTheme);
-                };
-                if (document.body) applyTheme();
-                else document.addEventListener('DOMContentLoaded', applyTheme);
-              } catch (_) {}
-            `,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
             __html: UI_FONT_BOOTSTRAP_SCRIPT,
           }}
         />
@@ -171,11 +171,25 @@ export default async function RootLayout({
       <body
         suppressHydrationWarning
         className={cn(
-          "group/body font-sans antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
+          "group/body font-sans antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]",
+          styleRootClass,
+          themeClass,
+          initialActiveTheme.endsWith("-scaled") && "theme-scaled"
         )}
       >
+        {/* Sync localStorage → body classes before first paint (body exists here). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ACTIVE_THEME_BOOTSTRAP_SCRIPT,
+          }}
+        />
         <ThemeProvider>
-          <ActiveThemeProvider>
+          <ActiveThemeProvider initialTheme={initialActiveTheme}>
             <DesignSystemPreviewProvider
               initialDesignSystem={initialDesignSystem}
             >

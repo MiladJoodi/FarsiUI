@@ -166,9 +166,12 @@ export const UI_FONT_BOOTSTRAP_SCRIPT = `
       lalezar: '--font-lalezar',
       'markazi-text': '--font-markazi-text'
     };
-    var font = localStorage.getItem('${UI_FONT_STORAGE_KEY}') || '${DEFAULT_UI_FONT}';
+    var cookieName = '${UI_FONT_COOKIE}';
+    var fromCookie = (document.cookie.match(new RegExp('(?:^|; )' + cookieName + '=([^;]*)')) || [])[1];
+    var font = localStorage.getItem('${UI_FONT_STORAGE_KEY}') || (fromCookie ? decodeURIComponent(fromCookie) : '') || '${DEFAULT_UI_FONT}';
     if (!fontMap[font]) font = '${DEFAULT_UI_FONT}';
-    document.cookie = '${UI_FONT_COOKIE}=' + font + ';path=/;max-age=31536000;samesite=lax';
+    document.cookie = cookieName + '=' + font + ';path=/;max-age=31536000;samesite=lax';
+    try { localStorage.setItem('${UI_FONT_STORAGE_KEY}', font); } catch (_) {}
     var cssVar = fontMap[font];
     var root = document.documentElement;
     root.style.setProperty('--font-sans', 'var(' + cssVar + ')');

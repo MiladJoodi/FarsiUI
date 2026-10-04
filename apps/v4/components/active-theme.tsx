@@ -9,8 +9,12 @@ import {
   type ReactNode,
 } from "react"
 
-const DEFAULT_THEME = "neutral"
-const STORAGE_KEY = "active-theme"
+import {
+  ACTIVE_THEME_STORAGE_KEY,
+  DEFAULT_ACTIVE_THEME,
+  normalizeActiveTheme,
+  persistActiveTheme,
+} from "@/lib/active-theme"
 
 type ThemeContextType = {
   activeTheme: string
@@ -54,21 +58,25 @@ export function ActiveThemeProvider({
   children: ReactNode
   initialTheme?: string
 }) {
-  const [activeTheme, setActiveThemeState] = useState<string>(
-    () => initialTheme || DEFAULT_THEME
+  const [activeTheme, setActiveThemeState] = useState<string>(() =>
+    normalizeActiveTheme(initialTheme)
   )
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME
-    setActiveThemeState(stored === "default" ? DEFAULT_THEME : stored)
+    const stored =
+      window.localStorage.getItem(ACTIVE_THEME_STORAGE_KEY) ||
+      DEFAULT_ACTIVE_THEME
+    const next = normalizeActiveTheme(stored)
+    setActiveThemeState(next)
+    persistActiveTheme(next)
     setHydrated(true)
   }, [])
 
   useEffect(() => {
     if (!hydrated) return
     applyThemeClass(activeTheme)
-    window.localStorage.setItem(STORAGE_KEY, activeTheme)
+    persistActiveTheme(activeTheme)
   }, [activeTheme, hydrated])
 
   // Sync theme onto lazy-loaded same-origin preview iframes.
@@ -114,7 +122,10 @@ export function ActiveThemeProvider({
   }, [activeTheme, hydrated])
 
   const setActiveTheme = useCallback((theme: string) => {
-    setActiveThemeState(theme === "default" ? DEFAULT_THEME : theme)
+    const next = normalizeActiveTheme(theme)
+    persistActiveTheme(next)
+    applyThemeClass(next)
+    setActiveThemeState(next)
   }, [])
 
   return (

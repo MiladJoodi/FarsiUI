@@ -90,9 +90,11 @@ function MobileDesignStudio({
         lang="fa"
         className="max-h-[min(88vh,36rem)] rounded-t-2xl"
       >
-        <DrawerHeader className="gap-0.5 pb-2 text-start">
+        <DrawerHeader className="flex-row items-center justify-between gap-3 pb-2 text-start">
           <DrawerTitle className="text-base">دیزاین</DrawerTitle>
-          <DrawerDescription className="text-xs">{summary}</DrawerDescription>
+          <DrawerDescription className="truncate text-xs">
+            {summary}
+          </DrawerDescription>
         </DrawerHeader>
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">
           <DesignStudioPanel hideColor={hideColor} />
@@ -119,11 +121,9 @@ function DesktopDesignStudio({ hideColor }: { hideColor: boolean }) {
         sideOffset={8}
         className="w-[min(22.5rem,calc(100vw-1.5rem))] p-0 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"
       >
-        <div className="border-b border-border/60 px-3.5 py-2.5 text-start">
-          <p className="text-sm font-medium leading-none">دیزاین</p>
-          <p className="mt-1 truncate text-xs text-muted-foreground">
-            {summary}
-          </p>
+        <div className="flex items-center justify-between gap-3 border-b border-border/60 px-3.5 py-2.5 text-start">
+          <p className="shrink-0 text-sm font-medium leading-none">دیزاین</p>
+          <p className="truncate text-xs text-muted-foreground">{summary}</p>
         </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain p-3.5">
           <DesignStudioPanel hideColor={hideColor} />
