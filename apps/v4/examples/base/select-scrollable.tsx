@@ -63,7 +63,7 @@ export default function SelectScrollable() {
   return (
     <div dir="rtl">
       <Select items={items}>
-        <SelectTrigger className="w-full max-w-64">
+        <SelectTrigger className="w-full max-w-sm">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
