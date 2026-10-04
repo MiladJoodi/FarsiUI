@@ -77,7 +77,7 @@ function ExampleLink({
     <Link
       href={example.href}
       key={example.href}
-      className="flex h-7 items-center justify-center gap-2 px-4 text-center text-base font-medium text-muted-foreground transition-colors hover:text-primary data-[active=true]:text-primary"
+      className="flex h-7 cursor-pointer items-center justify-center gap-2 px-4 text-center text-base font-medium text-muted-foreground transition-colors hover:text-primary data-[active=true]:text-primary"
       data-active={isActive}
     >
       {example.name}

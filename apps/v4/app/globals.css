@@ -237,6 +237,12 @@
   cursor: pointer;
 }
 
+/* Docs / charts style tab controls. */
+[data-slot="docs-preview-switcher"] [role="tab"],
+[data-slot="tabs-trigger"] {
+  cursor: pointer;
+}
+
 @utility theme-container {
   @apply font-sans;
 

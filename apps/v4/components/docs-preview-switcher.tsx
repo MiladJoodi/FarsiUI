@@ -44,7 +44,7 @@ export function DocsPreviewSwitcher({
             tabIndex={isActive ? 0 : -1}
             onClick={() => onValueChange(option.id)}
             className={cn(
-              "rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+              "cursor-pointer rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"

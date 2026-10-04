@@ -1,6 +1,5 @@
 "use client"
 
-import { Markdown } from "@/components/markdown"
 import {
   Bubble,
   BubbleContent,
@@ -40,12 +39,19 @@ export default function BubbleVariantsDemo() {
       </Bubble>
       <Bubble variant="ghost">
         <BubbleContent>
-          <Markdown>{`حباب‌های ghost برای متن دستیار، **مارک‌داون** و محتوایی مناسب‌اند که نباید قاب داشته باشند.
-
-برای پیام‌های دستیار که باید تمام عرض ظرف را بگیرند، گزینه مناسبی هستند. می‌توانید \`کد\` را هم داخل آن‌ها نمایش دهید.
-
-حباب‌های ghost تمام‌عرض هستند و می‌توانند کل ردیف ظرف را دربر بگیرند.
-`}</Markdown>
+          <div className="space-y-3">
+            <p>
+              حباب‌های ghost برای متن دستیار، <strong>مارک‌داون</strong> و محتوایی
+              مناسب‌اند که نباید قاب داشته باشند.
+            </p>
+            <p>
+              برای پیام‌های دستیار که باید تمام عرض ظرف را بگیرند، گزینه مناسبی
+              هستند. می‌توانید <code>کد</code> را هم داخل آن‌ها نمایش دهید.
+            </p>
+            <p>
+              حباب‌های ghost تمام‌عرض هستند و می‌توانند کل ردیف ظرف را دربر بگیرند.
+            </p>
+          </div>
         </BubbleContent>
       </Bubble>
     </div>

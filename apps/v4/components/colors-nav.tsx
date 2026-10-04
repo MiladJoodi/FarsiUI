@@ -27,7 +27,7 @@ export function ColorsNav({
                 (index === 0 && pathname === "/colors")
               }
               className={cn(
-                "flex h-7 items-center justify-center px-4 text-center text-base font-medium text-muted-foreground capitalize transition-colors hover:text-primary data-[active=true]:text-primary"
+                "flex h-7 cursor-pointer items-center justify-center px-4 text-center text-base font-medium text-muted-foreground capitalize transition-colors hover:text-primary data-[active=true]:text-primary"
               )}
             >
               {colorPalette.name}

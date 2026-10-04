@@ -12,7 +12,6 @@ import { Button } from "@/styles/radix-luma/ui/button"
 
 import { CardsDemo, CardsDemoMobile } from "./cards"
 
-const slogan = "چند قدم جلوتر شروع کنید"
 const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
 const description =
@@ -111,9 +110,6 @@ export default function IndexPage() {
         lang="fa"
         className="**:[.container]:py-6 md:**:[.container]:py-8 lg:**:[.container]:py-10"
       >
-        <p className="max-w-4xl text-lg font-medium tracking-tight text-muted-foreground sm:text-xl">
-          {slogan}
-        </p>
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>

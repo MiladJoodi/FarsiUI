@@ -90,7 +90,7 @@ function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
           <SidebarGroupContent>
             {!hasResults ? (
               <div className="px-2 py-6 text-center text-[14px] text-muted-foreground">
-                جستجو...
+                نتیجه‌ای پیدا نشد.
               </div>
             ) : null}
 

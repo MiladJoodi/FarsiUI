@@ -41,12 +41,9 @@ export default function BubblePopoverDemo() {
             </PopoverTrigger>
             <PopoverContent>
               <PopoverHeader>
-                <PopoverTitle className="text-sm">
-                  دستور با کد خروجی ۱ شکست خورد
-                </PopoverTitle>
+                <PopoverTitle className="text-sm">خطای اجرا</PopoverTitle>
                 <PopoverDescription className="text-sm">
-                  فایل pnpm-lock.yaml پیدا نشد؛ مسیر را بررسی کنید یا دوباره
-                  وابستگی‌ها را نصب کنید.
+                  فایل قفل وابستگی پیدا نشد.
                 </PopoverDescription>
               </PopoverHeader>
             </PopoverContent>

@@ -37,10 +37,10 @@ export function ShowcaseCategoriesNav({ className }: { className?: string }) {
               <Link
                 href={tab.href}
                 className={cn(
-                  "inline-flex h-10 items-center rounded-lg border border-transparent px-4 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                  "inline-flex h-10 cursor-pointer items-center rounded-lg px-4 text-sm font-medium transition-colors",
                   isActive
-                    ? "border-border/80 bg-background text-foreground shadow-xs"
-                    : "bg-transparent hover:bg-background/60"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                 )}
               >
                 {tab.title}

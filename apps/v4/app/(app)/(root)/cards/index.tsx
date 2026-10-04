@@ -199,7 +199,7 @@ export function CardsDemoMobile() {
         dir="rtl"
         lang="fa"
         aria-hidden="true"
-        className="theme-container pointer-events-none max-w-none bg-muted p-12 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+        className="theme-container pointer-events-none max-w-none bg-muted px-12 pt-4 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
         style={{
           width: MOBILE_DESIGN_WIDTH,
           zoom: `calc(140vw / ${MOBILE_DESIGN_WIDTH}px)`,
@@ -207,8 +207,6 @@ export function CardsDemoMobile() {
       >
         <CardsColumns forceAll />
       </div>
-      {/* Identical to CardsDemo fades — on the outer frame so zoom doesn't crush them. */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
@@ -221,11 +219,10 @@ export function CardsDemo() {
       dir="rtl"
       lang="fa"
       onClickCapture={preventDemoHashNavigation}
-      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted p-12 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:p-12 min-[1900px]:[--gap:--spacing(10)]! lg:p-6 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted px-12 pt-4 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:px-12 min-[1900px]:pt-6 min-[1900px]:[--gap:--spacing(10)]! lg:px-6 lg:pt-4 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
     >
       <CardsSkeletonRails />
       <CardsColumns />
-      <div className="absolute inset-x-0 top-0 z-1 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
   )
