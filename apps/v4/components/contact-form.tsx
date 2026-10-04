@@ -121,7 +121,7 @@ export function ContactForm() {
       dir="rtl"
       lang="fa"
     >
-      <FieldGroup>
+      <FieldGroup className="gap-3">
         {/* Honeypot — hidden from users */}
         <div
           aria-hidden="true"
@@ -139,45 +139,47 @@ export function ContactForm() {
           />
         </div>
 
-        <Field data-invalid={!!fieldErrors.name || undefined}>
-          <FieldLabel htmlFor="contact-name">نام</FieldLabel>
-          <Input
-            id="contact-name"
-            name="name"
-            autoComplete="name"
-            placeholder="علی رضایی"
-            value={values.name}
-            disabled={isLoading}
-            aria-invalid={!!fieldErrors.name || undefined}
-            onChange={(event) => updateField("name", event.target.value)}
-          />
-          <FieldError>{fieldErrors.name}</FieldError>
-        </Field>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Field data-invalid={!!fieldErrors.name || undefined}>
+            <FieldLabel htmlFor="contact-name">نام</FieldLabel>
+            <Input
+              id="contact-name"
+              name="name"
+              autoComplete="name"
+              placeholder="علی رضایی"
+              value={values.name}
+              disabled={isLoading}
+              aria-invalid={!!fieldErrors.name || undefined}
+              onChange={(event) => updateField("name", event.target.value)}
+            />
+            <FieldError>{fieldErrors.name}</FieldError>
+          </Field>
 
-        <Field data-invalid={!!fieldErrors.email || undefined}>
-          <FieldLabel htmlFor="contact-email">ایمیل</FieldLabel>
-          <Input
-            id="contact-email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder="name@example.com"
-            dir="ltr"
-            className="text-start"
-            value={values.email}
-            disabled={isLoading}
-            aria-invalid={!!fieldErrors.email || undefined}
-            onChange={(event) => updateField("email", event.target.value)}
-          />
-          <FieldError>{fieldErrors.email}</FieldError>
-        </Field>
+          <Field data-invalid={!!fieldErrors.email || undefined}>
+            <FieldLabel htmlFor="contact-email">ایمیل</FieldLabel>
+            <Input
+              id="contact-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="name@example.com"
+              dir="ltr"
+              className="text-start"
+              value={values.email}
+              disabled={isLoading}
+              aria-invalid={!!fieldErrors.email || undefined}
+              onChange={(event) => updateField("email", event.target.value)}
+            />
+            <FieldError>{fieldErrors.email}</FieldError>
+          </Field>
+        </div>
 
         <Field data-invalid={!!fieldErrors.subject || undefined}>
           <FieldLabel htmlFor="contact-subject">موضوع</FieldLabel>
           <Input
             id="contact-subject"
             name="subject"
-            placeholder="موضوع پیام"
+            placeholder="باگ، پیشنهاد، همکاری…"
             value={values.subject}
             disabled={isLoading}
             aria-invalid={!!fieldErrors.subject || undefined}
@@ -191,8 +193,8 @@ export function ContactForm() {
           <Textarea
             id="contact-message"
             name="message"
-            placeholder="پیام خود را بنویسید…"
-            className="min-h-32"
+            placeholder="پیامتان را بنویسید…"
+            className="min-h-24 resize-y"
             value={values.message}
             disabled={isLoading}
             aria-invalid={!!fieldErrors.message || undefined}
