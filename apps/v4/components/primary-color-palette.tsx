@@ -80,11 +80,11 @@ export function PrimaryColorPalette({
           <PopoverTrigger asChild>
             <Button
               type="button"
-              variant="outline"
+              variant="ghost"
               size="sm"
               aria-label={`رنگ اصلی: ${currentLabel}`}
               title={currentLabel}
-              className="h-8 gap-1.5 rounded-full border-border/80 pe-2 ps-1.5 shadow-none"
+              className="h-8 gap-0.5 rounded-full border-0 px-1 shadow-none hover:bg-transparent"
             >
               <ColorDot themeName={current} size="sm" />
               <ChevronUpIcon

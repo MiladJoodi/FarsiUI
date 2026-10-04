@@ -4,6 +4,7 @@ import { getColors } from "@/lib/colors"
 import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
 import { CommandMenu } from "@/components/command-menu"
+import { ContactLink } from "@/components/contact-link"
 import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
@@ -57,7 +58,8 @@ export function SiteHeader() {
             <Separator orientation="vertical" className="hidden sm:block" />
             <div className="flex shrink-0 items-center gap-0.5">
               <GitHubLink />
-              <ModeSwitcher />
+              <ContactLink className="lg:hidden" />
+              <ModeSwitcher className="hidden lg:inline-flex" />
             </div>
           </div>
         </div>

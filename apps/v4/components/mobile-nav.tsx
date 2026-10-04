@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { MenuIcon, XIcon } from "lucide-react"
 import { cn } from "cn"
 
+import { ModeSwitcher } from "@/components/mode-switcher"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
@@ -53,8 +54,11 @@ export function MobileNav({
         className="no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none bg-background/95 p-0 shadow-none backdrop-blur-md duration-100 data-open:animate-none!"
       >
         <nav className="flex flex-col gap-1 px-4 py-4 text-sm">
-          <div className="px-2 pb-1 text-[0.6875rem] font-medium tracking-wide text-muted-foreground">
-            منو
+          <div className="flex items-center justify-between gap-2 px-2 pb-1">
+            <div className="text-[0.6875rem] font-medium tracking-wide text-muted-foreground">
+              منو
+            </div>
+            <ModeSwitcher />
           </div>
           {items.map((item) => (
             <MobileLink
