@@ -134,6 +134,7 @@ export default async function Page(props: {
     <div
       data-slot="docs"
       data-docs-kind={isComponentDoc ? "component" : "docs"}
+      data-components-index={isComponentsIndex ? "" : undefined}
       dir="rtl"
       lang="fa"
       className={
@@ -142,13 +143,7 @@ export default async function Page(props: {
           : "flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
       }
     >
-      <div
-        className={
-          isComponentsIndex
-            ? "flex min-w-0 flex-1 flex-col section-soft ps-1 pe-2 pt-2 md:ps-2 md:pe-4 md:py-6"
-            : "flex min-w-0 flex-1 flex-col"
-        }
-      >
+      <div className="flex min-w-0 flex-1 flex-col">
         {!isComponentsIndex ? (
           <div className="h-(--top-spacing) shrink-0" />
         ) : null}

@@ -185,6 +185,29 @@ export const STYLES = [
       </svg>
     ),
   },
+  {
+    name: "aether",
+    title: "Aether",
+    description: "Premium AI / SaaS technical workspace.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 24 24"
+        fill="none"
+        role="img"
+        color="currentColor"
+      >
+        <path
+          d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        ></path>
+      </svg>
+    ),
+  },
 ] as const
 
 export type Style = (typeof STYLES)[number]

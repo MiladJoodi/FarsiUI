@@ -22,7 +22,9 @@ export default function DocsLayout({
             }
           >
             <DocsSidebar tree={source.pageTree} />
-            <div className="h-full w-full">{children}</div>
+            <div className="h-full w-full min-w-0 has-[[data-components-index]]:section-soft has-[[data-components-index]]:ps-1 has-[[data-components-index]]:pe-2 has-[[data-components-index]]:pt-2 md:has-[[data-components-index]]:ps-2 md:has-[[data-components-index]]:pe-4 md:has-[[data-components-index]]:py-6">
+              {children}
+            </div>
           </SidebarProvider>
         </div>
       </PersianDigits>

@@ -5,6 +5,7 @@
  *   default → nova
  *   comfort → comfort
  *   vega    → comfort (bake/init when style.name === "vega")
+ *   aether  → aether
  */
 
 export type DensityProfile = {
@@ -68,6 +69,26 @@ export const DENSITIES = {
     "leading-control": "1.35",
     "radius-control": "var(--radius-xl)",
   },
+  /**
+   * Aether — precise AI/SaaS workspace scale (between Default and Comfort).
+   * Mid-height controls, 10px control radius, technical spacing.
+   */
+  aether: {
+    "control-h-xs": "1.625rem",
+    "control-h-sm": "2rem",
+    "control-h-md": "2.25rem",
+    "control-h-lg": "2.5rem",
+    "control-icon": "1rem",
+    "control-icon-sm": "0.875rem",
+    "space-control-x": "0.75rem",
+    "space-control-y": "0.3125rem",
+    "space-stack": "1.25rem",
+    "space-inline": "0.375rem",
+    "text-control": "0.875rem",
+    "text-control-sm": "0.8125rem",
+    "leading-control": "1.3",
+    "radius-control": "var(--radius-lg)",
+  },
 } as const satisfies Record<string, DensityProfile>
 
 export type DensityName = keyof typeof DENSITIES
@@ -80,6 +101,7 @@ const DENSITY_ALIASES: Record<string, DensityName> = {
   nova: "nova",
   comfort: "comfort",
   vega: "comfort",
+  aether: "aether",
 }
 
 /** Token utility → concrete class for installable bake. */
@@ -117,6 +139,23 @@ export const DENSITY_BAKE_UTILITIES: Record<DensityName, DensityUtilityMap> = {
     "text-(length:--text-control)": "text-sm",
     "text-(length:--text-control-sm)": "text-[0.8125rem]",
     "rounded-(--radius-control)": "rounded-xl",
+  },
+  aether: {
+    "h-(--control-h-xs)": "h-6.5",
+    "h-(--control-h-sm)": "h-8",
+    "h-(--control-h-md)": "h-9",
+    "h-(--control-h-lg)": "h-10",
+    "size-(--control-h-xs)": "size-6.5",
+    "size-(--control-h-sm)": "size-8",
+    "size-(--control-h-md)": "size-9",
+    "size-(--control-h-lg)": "size-10",
+    "size-(--control-icon)": "size-4",
+    "size-(--control-icon-sm)": "size-3.5",
+    "px-(--space-control-x)": "px-3",
+    "gap-(--space-inline)": "gap-1.5",
+    "text-(length:--text-control)": "text-sm",
+    "text-(length:--text-control-sm)": "text-[0.8125rem]",
+    "rounded-(--radius-control)": "rounded-lg",
   },
 }
 

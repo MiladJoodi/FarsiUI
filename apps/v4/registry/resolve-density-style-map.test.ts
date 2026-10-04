@@ -68,4 +68,29 @@ describe("resolveDensityInStyleMap", () => {
       "h-10"
     )
   })
+
+  it("resolves Aether density between Default and Comfort", () => {
+    const resolved = resolveDensityInStyleMap(
+      {
+        "cn-button":
+          "rounded-(--radius-control) text-(length:--text-control) [&_svg:not([class*='size-'])]:size-(--control-icon)",
+        "cn-button-size-default":
+          "h-(--control-h-md) gap-(--space-inline) px-(--space-control-x)",
+        "cn-button-size-xs":
+          "h-(--control-h-xs) text-(length:--text-control-sm) [&_svg:not([class*='size-'])]:size-(--control-icon-sm)",
+      },
+      "aether"
+    )
+
+    expect(getDensity("aether")["control-h-md"]).toBe("2.25rem")
+    expect(getDensity("aether")["space-control-x"]).toBe("0.75rem")
+    expect(getDensity("aether")["radius-control"]).toBe("var(--radius-lg)")
+    expect(resolved["cn-button"]).toContain("rounded-lg")
+    expect(resolved["cn-button"]).toContain("size-4")
+    expect(resolved["cn-button"]).not.toContain("--control-")
+    expect(resolved["cn-button-size-default"]).toBe("h-9 gap-1.5 px-3")
+    expect(resolved["cn-button-size-xs"]).toContain("h-6.5")
+    expect(resolved["cn-button-size-xs"]).toContain("size-3.5")
+    expect(getDensityBakeUtilities("aether")["h-(--control-h-md)"]).toBe("h-9")
+  })
 })

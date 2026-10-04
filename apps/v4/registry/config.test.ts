@@ -55,6 +55,22 @@ describe("buildRegistryBase", () => {
     expect(result.cssVars?.theme?.["radius-control"]).toBe("var(--radius-xl)")
   })
 
+  it("maps Aether style to mid density between Default and Comfort", () => {
+    const result = buildRegistryBase({
+      ...DEFAULT_CONFIG,
+      style: "aether",
+    })
+
+    expect(result.cssVars?.theme?.["control-h-md"]).toBe("2.25rem")
+    expect(result.cssVars?.theme?.["control-h-sm"]).toBe("2rem")
+    expect(result.cssVars?.theme?.["control-h-lg"]).toBe("2.5rem")
+    expect(result.cssVars?.theme?.["space-control-x"]).toBe("0.75rem")
+    expect(result.cssVars?.theme?.["space-inline"]).toBe("0.375rem")
+    expect(result.cssVars?.theme?.["space-stack"]).toBe("1.25rem")
+    expect(result.cssVars?.theme?.["text-control-sm"]).toBe("0.8125rem")
+    expect(result.cssVars?.theme?.["radius-control"]).toBe("var(--radius-lg)")
+  })
+
   it("adds a heading font dependency when a distinct heading font is selected", () => {
     const result = buildRegistryBase({
       ...DEFAULT_CONFIG,

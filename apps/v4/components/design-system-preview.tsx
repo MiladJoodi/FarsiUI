@@ -10,7 +10,7 @@ import {
 } from "react"
 
 /**
- * Docs/Preview-only Design System selection (Default / Comfort).
+ * Docs/Preview-only Design System selection (Default / Comfort / Aether).
  * Does not affect CLI, bake, or installable component source.
  */
 export const DESIGN_SYSTEM_PRESETS = [
@@ -25,6 +25,12 @@ export const DESIGN_SYSTEM_PRESETS = [
     label: "Comfort",
     styleName: "base-vega",
     styleRootClass: "style-vega",
+  },
+  {
+    id: "aether",
+    label: "Aether",
+    styleName: "base-aether",
+    styleRootClass: "style-aether",
   },
 ] as const
 
@@ -84,6 +90,22 @@ export function DesignSystemPreviewProvider({
   }, [])
 
   const preset = resolvePreset(designSystemId)
+
+  // Portaled overlays (dropdown, select, popover, …) mount on document.body.
+  // cn-* style recipes are scoped under .style-*, so the root must live on body.
+  useEffect(() => {
+    const { body } = document
+    const previous = Array.from(body.classList).filter((className) =>
+      className.startsWith("style-")
+    )
+    previous.forEach((className) => body.classList.remove(className))
+    body.classList.add(preset.styleRootClass)
+
+    return () => {
+      body.classList.remove(preset.styleRootClass)
+      previous.forEach((className) => body.classList.add(className))
+    }
+  }, [preset.styleRootClass])
 
   return (
     <DesignSystemPreviewContext.Provider

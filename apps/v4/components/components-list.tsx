@@ -83,15 +83,12 @@ export function ComponentsList({
   }
 
   return (
-    <div
-      data-not-typeset
-      dir="rtl"
-      lang="fa"
-      className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-    >
-      {list.map((component) => (
-        <ComponentCard key={component.$id} component={component} />
-      ))}
+    <div data-not-typeset dir="rtl" lang="fa" className="w-full">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {list.map((component) => (
+          <ComponentCard key={component.$id} component={component} />
+        ))}
+      </div>
     </div>
   )
 }

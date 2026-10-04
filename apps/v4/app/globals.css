@@ -12,6 +12,7 @@
 @source "../styles/base-rhea/**/*.tsx";
 @source "../styles/base-sera/**/*.tsx";
 @source "../styles/base-vega/**/*.tsx";
+@source "../styles/base-aether/**/*.tsx";
 @source "../styles/aria-luma/**/*.tsx";
 @source "../styles/aria-lyra/**/*.tsx";
 @source "../styles/aria-maia/**/*.tsx";
@@ -20,6 +21,7 @@
 @source "../styles/aria-rhea/**/*.tsx";
 @source "../styles/aria-sera/**/*.tsx";
 @source "../styles/aria-vega/**/*.tsx";
+@source "../styles/aria-aether/**/*.tsx";
 @source "../styles/radix-luma/**/*.tsx";
 @source "../styles/radix-lyra/**/*.tsx";
 @source "../styles/radix-maia/**/*.tsx";
@@ -28,6 +30,7 @@
 @source "../styles/radix-rhea/**/*.tsx";
 @source "../styles/radix-sera/**/*.tsx";
 @source "../styles/radix-vega/**/*.tsx";
+@source "../styles/radix-aether/**/*.tsx";
 
 @custom-variant style-vega (&:where(.style-vega *));
 @custom-variant style-nova (&:where(.style-nova *));
@@ -37,6 +40,7 @@
 @custom-variant style-luma (&:where(.style-luma *));
 @custom-variant style-sera (&:where(.style-sera *));
 @custom-variant style-rhea (&:where(.style-rhea *));
+@custom-variant style-aether (&:where(.style-aether *));
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant fixed (&:is(.layout-fixed *));
