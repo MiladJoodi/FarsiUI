@@ -13,8 +13,8 @@ component: true
     { name: "chart-example", label: "پایه", sizeable: false },
     { name: "chart-example-grid", label: "شبکه", sizeable: false },
     { name: "chart-example-axis", label: "محور", sizeable: false },
-    { name: "chart-example-tooltip", label: "راهنما", sizeable: false },
-    { name: "chart-example-legend", label: "افسانه", sizeable: false },
+    { name: "chart-example-tooltip", label: "تولتیپ", sizeable: false },
+    { name: "chart-example-legend", label: "راهنما", sizeable: false },
   ]}
 />
 
@@ -140,7 +140,7 @@ Recharts را wrap نمی‌کنیم؛ بنابراین به abstraction قفل 
 اگر کد قدیمی نمودار را به Recharts v3 می‌برید:
 
 - به‌جای `hsl(var(--chart-1))` از `var(--chart-1)` برای توکن‌های CSS استفاده کنید.
-- `ChartTooltip.defaultIndex` فقط برای حالت اولیهٔ راهنماست؛ شکل فعال پایدار را در state خود نگه دارید.
+- `ChartTooltip.defaultIndex` فقط برای حالت اولیهٔ تولتیپ است؛ شکل فعال پایدار را در state خود نگه دارید.
 - اگر `<BarChart>` خودش `layout` دارد، `layout` را از `<Bar>` بردارید.
 - روی `ChartContainer` ارتفاع، `min-h-*` یا `aspect-*` بگذارید تا `ResponsiveContainer` در رندر اول اندازه بگیرد.
 
@@ -154,7 +154,7 @@ Recharts را wrap نمی‌کنیم؛ بنابراین به abstraction قفل 
 
 <DocsCollapsible title="اولین نمودار" defaultOpen>
 
-یک نمودار میله‌ای می‌سازیم و شبکه، محور، راهنما و افسانه را اضافه می‌کنیم.
+یک نمودار میله‌ای می‌سازیم و شبکه، محور، تولتیپ و راهنما را اضافه می‌کنیم.
 
 <Steps>
 
@@ -290,9 +290,9 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 </Steps>
 
-### افزودن راهنما
+### افزودن تولتیپ
 
-تا اینجا فقط از کامپوننت‌های Recharts استفاده کردیم. برای راهنما، `ChartTooltip` و `ChartTooltipContent` را از `chart` بیاورید.
+تا اینجا فقط از کامپوننت‌های Recharts استفاده کردیم. برای تولتیپ، `ChartTooltip` و `ChartTooltipContent` را از `chart` بیاورید.
 
 <Steps className="mb-0 pt-2">
 
@@ -329,13 +329,13 @@ import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
   previewClassName="h-80"
 />
 
-روی نمودار هاور کنید تا راهنما را ببینید.
+روی نمودار هاور کنید تا تولتیپ را ببینید.
 
 </Steps>
 
-### افزودن افسانه
+### افزودن راهنما
 
-همین کار را برای افسانه با `ChartLegend` و `ChartLegendContent` انجام دهید.
+همین کار را برای راهنما با `ChartLegend` و `ChartLegendContent` انجام دهید.
 
 <Steps className="mb-0 pt-2">
 
@@ -512,15 +512,15 @@ const chartData = [
 
 <div className="hidden">
 
-## راهنما
+## تولتیپ
 
 </div>
 
 <a id="tooltip"></a>
 
-<DocsCollapsible title="راهنما">
+<DocsCollapsible title="تولتیپ">
 
-راهنمای نمودار شامل برچسب، نام، نشانگر و مقدار است.
+تولتیپ نمودار شامل برچسب، نام، نشانگر و مقدار است.
 
 <ComponentPreview
   styleName="base-nova"
@@ -590,15 +590,15 @@ const chartConfig = {
 
 <div className="hidden">
 
-## افسانه
+## راهنما
 
 </div>
 
 <a id="legend"></a>
 
-<DocsCollapsible title="افسانه">
+<DocsCollapsible title="راهنما">
 
-با `<ChartLegend>` و `<ChartLegendContent>` افسانه اضافه کنید.
+با `<ChartLegend>` و `<ChartLegendContent>` راهنما اضافه کنید.
 
 ```tsx title="components/example-chart.tsx"
 import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
@@ -614,7 +614,7 @@ import { ChartLegend, ChartLegendContent } from "@/components/ui/chart"
 
 ### سفارشی
 
-با `nameKey` کلید سفارشی برای نام‌های افسانه بگذارید.
+با `nameKey` کلید سفارشی برای نام‌های راهنما بگذارید.
 
 ```tsx showLineNumbers /browser/
 const chartData = [
@@ -638,7 +638,7 @@ const chartConfig = {
 <ChartLegend content={<ChartLegendContent nameKey="browser" />} />
 ```
 
-نام‌های افسانه `کروم` و `سافاری` می‌شوند.
+نام‌های راهنما `کروم` و `سافاری` می‌شوند.
 
 </DocsCollapsible>
 
