@@ -1,7 +1,7 @@
 "use client"
+import { Menu } from "lucide-react"
 
 import * as React from "react"
-import { IconMenu3 } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
@@ -82,7 +82,7 @@ export function DocsTableOfContents({
               size="sm"
               className={cn("h-8 md:h-7", className)}
             >
-              <IconMenu3 /> در این صفحه
+              <Menu /> در این صفحه
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent

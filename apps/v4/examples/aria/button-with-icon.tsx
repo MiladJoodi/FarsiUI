@@ -1,4 +1,4 @@
-import { IconGitBranch, IconGitFork } from "@tabler/icons-react"
+import { GitBranch, GitFork } from "lucide-react"
 
 import { Button } from "@/styles/aria-nova/ui/button"
 
@@ -6,11 +6,11 @@ export default function ButtonWithIcon() {
   return (
     <div className="flex gap-2">
       <Button variant="outline">
-        <IconGitBranch data-icon="inline-start" /> New Branch
+        <GitBranch data-icon="inline-start" /> New Branch
       </Button>
       <Button variant="outline">
         Fork
-        <IconGitFork data-icon="inline-end" />
+        <GitFork data-icon="inline-end" />
       </Button>
     </div>
   )

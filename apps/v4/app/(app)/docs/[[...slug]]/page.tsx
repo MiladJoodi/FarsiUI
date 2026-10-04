@@ -1,11 +1,7 @@
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { mdxComponents } from "@/mdx-components"
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconArrowUpRight,
-} from "@tabler/icons-react"
 import { findDocsNeighbour } from "@/lib/docs-nav"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
@@ -177,7 +173,7 @@ export default async function Page(props: {
                         asChild
                       >
                         <Link href={neighbours.previous.url}>
-                          <IconArrowLeft className="rtl:rotate-180" />
+                          <ArrowLeft className="rtl:rotate-180" />
                           <span className="sr-only">Previous</span>
                         </Link>
                       </Button>
@@ -191,7 +187,7 @@ export default async function Page(props: {
                       >
                         <Link href={neighbours.next.url}>
                           <span className="sr-only">Next</span>
-                          <IconArrowRight className="rtl:rotate-180" />
+                          <ArrowRight className="rtl:rotate-180" />
                         </Link>
                       </Button>
                     )}
@@ -218,7 +214,7 @@ export default async function Page(props: {
                         className="inline-flex items-center gap-1"
                       >
                         مستندات
-                        <IconArrowUpRight className="size-3" />
+                        <ArrowUpRight className="size-3" />
                       </a>
                     </Badge>
                   ) : null}
@@ -235,7 +231,7 @@ export default async function Page(props: {
                         className="inline-flex items-center gap-1"
                       >
                         مرجع API
-                        <IconArrowUpRight className="size-3" />
+                        <ArrowUpRight className="size-3" />
                       </a>
                     </Badge>
                   ) : null}
@@ -255,7 +251,7 @@ export default async function Page(props: {
                 className="shadow-none"
               >
                 <Link href={neighbours.previous.url}>
-                  <IconArrowLeft className="rtl:rotate-180" />{" "}
+                  <ArrowLeft className="rtl:rotate-180" />{" "}
                   {splitDocTitle(neighbours.previous.name).fa}
                 </Link>
               </Button>
@@ -269,7 +265,7 @@ export default async function Page(props: {
               >
                 <Link href={neighbours.next.url}>
                   {splitDocTitle(neighbours.next.name).fa}{" "}
-                  <IconArrowRight className="rtl:rotate-180" />
+                  <ArrowRight className="rtl:rotate-180" />
                 </Link>
               </Button>
             )}

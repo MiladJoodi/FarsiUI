@@ -107,6 +107,18 @@ function generateIconFiles(iconUsage: IconUsage) {
   const written: string[] = []
 
   Object.entries(iconLibraries).forEach(([libraryName, config]) => {
+    // FarsiUI docs runtime only bundles lucide (+ other installed packs).
+    // Tabler stays in iconLibraries for CLI install targets, but is not a
+    // site dependency — skip generating its runtime re-export barrel.
+    if (libraryName === "tabler") {
+      const tablerPath = path.join(outputDir, `__${libraryName}__.ts`)
+      if (fs.existsSync(tablerPath)) {
+        fs.unlinkSync(tablerPath)
+        written.push(`  - ${config.title}: removed (not a site dependency)`)
+      }
+      return
+    }
+
     const icons = Array.from(iconUsage[libraryName as IconLibraryName]).sort()
 
     if (icons.length === 0) {

@@ -1,4 +1,4 @@
-import { IconCornerDownLeft, IconRefresh, IconCopy } from "@tabler/icons-react"
+import { Copy, CornerDownLeft, RefreshCw } from "lucide-react"
 
 import {
   InputGroup,
@@ -21,16 +21,16 @@ export default function InputGroupTextareaExample() {
           <InputGroupText>۰ / ۲۸۰ کاراکتر</InputGroupText>
           <InputGroupButton size="sm" className="ms-auto" variant="default">
             ارسال
-            <IconCornerDownLeft />
+            <CornerDownLeft />
           </InputGroupButton>
         </InputGroupAddon>
         <InputGroupAddon align="block-start" className="border-b">
           <InputGroupText className="font-medium">بازخورد محصول</InputGroupText>
           <InputGroupButton className="ms-auto" size="icon-xs" aria-label="بازنشانی">
-            <IconRefresh />
+            <RefreshCw />
           </InputGroupButton>
           <InputGroupButton variant="ghost" size="icon-xs" aria-label="کپی">
-            <IconCopy />
+            <Copy />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>

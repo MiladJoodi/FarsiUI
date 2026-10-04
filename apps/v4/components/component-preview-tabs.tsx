@@ -1,7 +1,7 @@
 "use client"
+import { Eye } from "lucide-react"
 
 import * as React from "react"
-import { IconEye } from "@tabler/icons-react"
 import { cn } from "cn"
 import { I18nProvider } from "react-aria-components"
 
@@ -110,7 +110,7 @@ export function ComponentPreviewTabs({
                       setIsMobileCodeVisible(true)
                     }}
                   >
-                    <IconEye className="size-4" />
+                    <Eye className="size-4" />
                     مشاهده کد
                   </Button>
                 </div>

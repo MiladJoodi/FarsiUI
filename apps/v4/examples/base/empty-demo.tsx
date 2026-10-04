@@ -1,5 +1,4 @@
-import { IconFolderCode } from "@tabler/icons-react"
-import { ArrowUpRightIcon } from "lucide-react"
+import { ArrowUpRightIcon, FolderCode } from "lucide-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import {
@@ -17,7 +16,7 @@ export default function EmptyDemo() {
       <Empty>
         <EmptyHeader>
           <EmptyMedia variant="icon">
-            <IconFolderCode />
+            <FolderCode />
           </EmptyMedia>
           <EmptyTitle>هنوز پروژه‌ای نیست</EmptyTitle>
           <EmptyDescription>

@@ -1,7 +1,7 @@
 "use client"
+import { ChevronUp, Eye } from "lucide-react"
 
 import * as React from "react"
-import { IconChevronUp, IconEye } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -36,7 +36,7 @@ export function CodeCollapsibleWrapper({
               size="sm"
               className={cn(viewCodeButtonClassName, "h-7 px-2")}
             >
-              <IconChevronUp className="size-4" />
+              <ChevronUp className="size-4" />
               بستن
             </Button>
           </div>
@@ -66,7 +66,7 @@ export function CodeCollapsibleWrapper({
               variant="outline"
               className={viewCodeButtonClassName}
             >
-              <IconEye className="size-4" />
+              <Eye className="size-4" />
               مشاهده کد
             </Button>
           </CollapsibleTrigger>

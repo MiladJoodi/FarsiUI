@@ -1,7 +1,7 @@
 "use client"
+import { Info, Star } from "lucide-react"
 
 import * as React from "react"
-import { IconInfoCircle, IconStar } from "@tabler/icons-react"
 
 import { useLanguageContext } from "@/components/language-selector"
 import {
@@ -62,7 +62,7 @@ export function InputGroupButtonExample() {
                 />
               }
             >
-              <IconInfoCircle />
+              <Info />
             </PopoverTrigger>
             <PopoverContent
               align="end"
@@ -85,7 +85,7 @@ export function InputGroupButtonExample() {
             size="icon-xs"
             aria-label={t.favorite}
           >
-            <IconStar
+            <Star
               data-favorite={isFavorite}
               className="data-[favorite=true]:fill-primary data-[favorite=true]:stroke-primary"
             />

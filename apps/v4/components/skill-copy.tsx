@@ -1,7 +1,7 @@
 "use client"
+import { Check, Copy, Download } from "lucide-react"
 
 import * as React from "react"
-import { IconCheck, IconCopy, IconDownload } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import { CodeBlockCommand } from "@/components/code-block-command"
@@ -102,7 +102,7 @@ export function SkillDownloadButton({
         URL.revokeObjectURL(url)
       }}
     >
-      <IconDownload className="size-3.5" />
+      <Download className="size-3.5" />
     </SkillIconButton>
   )
 }
@@ -134,9 +134,9 @@ export function SkillCopyIconButton({
       }}
     >
       {copied ? (
-        <IconCheck className="size-3.5" />
+        <Check className="size-3.5" />
       ) : (
-        <IconCopy className="size-3.5" />
+        <Copy className="size-3.5" />
       )}
     </SkillIconButton>
   )
@@ -180,9 +180,9 @@ export function SkillPathCopy({
         }}
       >
         {copied ? (
-          <IconCheck className="size-3.5" />
+          <Check className="size-3.5" />
         ) : (
-          <IconCopy className="size-3.5" />
+          <Copy className="size-3.5" />
         )}
       </Button>
     </div>
@@ -239,9 +239,9 @@ export function SkillAgentPathRow({
           }}
         >
           {copied ? (
-            <IconCheck className="size-3.5" />
+            <Check className="size-3.5" />
           ) : (
-            <IconCopy className="size-3.5" />
+            <Copy className="size-3.5" />
           )}
         </Button>
       </div>

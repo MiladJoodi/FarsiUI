@@ -1,6 +1,6 @@
 "use client"
+import { Plus } from "lucide-react"
 
-import { IconPlus } from "@tabler/icons-react"
 
 import { Button } from "@/styles/base-nova/ui/button"
 import {
@@ -14,7 +14,7 @@ export default function ButtonGroupSplit() {
       <Button variant="secondary">دکمه</Button>
       <ButtonGroupSeparator />
       <Button size="icon" variant="secondary">
-        <IconPlus />
+        <Plus />
       </Button>
     </ButtonGroup>
   )

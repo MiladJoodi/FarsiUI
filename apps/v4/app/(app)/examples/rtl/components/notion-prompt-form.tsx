@@ -1,17 +1,7 @@
 "use client"
+import { ArrowUp, AtSign, Book, CircleFadingPlus, Globe, LayoutGrid, Paperclip, Plus, X } from "lucide-react"
 
 import { useMemo, useState } from "react"
-import {
-  IconApps,
-  IconArrowUp,
-  IconAt,
-  IconBook,
-  IconCircleDashedPlus,
-  IconPaperclip,
-  IconPlus,
-  IconWorld,
-  IconX,
-} from "@tabler/icons-react"
 
 import { useLanguageContext } from "@/components/language-selector"
 import {
@@ -255,7 +245,7 @@ export function NotionPromptForm() {
                     }
                     onFocusCapture={(e) => e.stopPropagation()}
                   >
-                    <IconAt /> {!hasMentions && t.addContext}
+                    <AtSign /> {!hasMentions && t.addContext}
                   </TooltipTrigger>
                   <TooltipContent>{t.mentionTooltip}</TooltipContent>
                 </Tooltip>
@@ -310,7 +300,7 @@ export function NotionPromptForm() {
                     >
                       <MentionableIcon item={item} />
                       {item.title}
-                      <IconX />
+                      <X />
                     </InputGroupButton>
                   )
                 })}
@@ -327,7 +317,7 @@ export function NotionPromptForm() {
                     />
                   }
                 >
-                  <IconPaperclip />
+                  <Paperclip />
                 </TooltipTrigger>
                 <TooltipContent>{t.attachFile}</TooltipContent>
               </Tooltip>
@@ -389,7 +379,7 @@ export function NotionPromptForm() {
                     <InputGroupButton size="sm" className="rounded-full" />
                   }
                 >
-                  <IconWorld /> {t.allSources}
+                  <Globe /> {t.allSources}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   side="top"
@@ -401,7 +391,7 @@ export function NotionPromptForm() {
                     <DropdownMenuItem
                       render={
                         <label htmlFor="rtl-web-search">
-                          <IconWorld /> {t.webSearch}{" "}
+                          <Globe /> {t.webSearch}{" "}
                           <Switch
                             id="rtl-web-search"
                             className="ms-auto"
@@ -418,7 +408,7 @@ export function NotionPromptForm() {
                     <DropdownMenuItem
                       render={
                         <label htmlFor="rtl-apps">
-                          <IconApps /> {t.appsIntegrations}
+                          <LayoutGrid /> {t.appsIntegrations}
                           <Switch
                             id="rtl-apps"
                             className="ms-auto"
@@ -430,7 +420,7 @@ export function NotionPromptForm() {
                       onSelect={(e) => e.preventDefault()}
                     ></DropdownMenuItem>
                     <DropdownMenuItem>
-                      <IconCircleDashedPlus /> {t.allSourcesAccess}
+                      <CircleFadingPlus /> {t.allSourcesAccess}
                     </DropdownMenuItem>
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger>
@@ -485,13 +475,13 @@ export function NotionPromptForm() {
                       </DropdownMenuSubContent>
                     </DropdownMenuSub>
                     <DropdownMenuItem>
-                      <IconBook /> {t.helpCenter}
+                      <Book /> {t.helpCenter}
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
-                      <IconPlus /> {t.connectApps}
+                      <Plus /> {t.connectApps}
                     </DropdownMenuItem>
                     <DropdownMenuLabel className="text-xs text-muted-foreground">
                       {t.searchSourcesNote}
@@ -505,7 +495,7 @@ export function NotionPromptForm() {
                 variant="default"
                 size="icon-sm"
               >
-                <IconArrowUp />
+                <ArrowUp />
               </InputGroupButton>
             </InputGroupAddon>
           </InputGroup>

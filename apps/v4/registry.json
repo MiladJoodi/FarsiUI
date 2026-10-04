@@ -683,8 +683,7 @@
         "@dnd-kit/sortable",
         "@dnd-kit/utilities",
         "@tanstack/react-table",
-        "zod",
-        "@tabler/icons-react"
+        "zod"
       ],
       "registryDependencies": [
         "sidebar",

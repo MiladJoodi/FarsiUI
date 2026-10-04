@@ -1,5 +1,4 @@
-import { IconBell } from "@tabler/icons-react"
-import { RefreshCcwIcon } from "lucide-react"
+import { Bell, RefreshCcwIcon } from "lucide-react"
 
 import { Button } from "@/styles/radix-nova/ui/button"
 import {
@@ -16,7 +15,7 @@ export default function EmptyMuted() {
     <Empty className="h-full bg-muted/30">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <IconBell />
+          <Bell />
         </EmptyMedia>
         <EmptyTitle>No Notifications</EmptyTitle>
         <EmptyDescription className="max-w-xs text-pretty">

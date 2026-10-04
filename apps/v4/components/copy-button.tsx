@@ -1,7 +1,7 @@
 "use client"
+import { Check, Copy } from "lucide-react"
 
 import * as React from "react"
-import { IconCheck, IconCopy } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import { trackEvent, type Event } from "@/lib/events"
@@ -115,7 +115,7 @@ export function CopyButton({
       {...props}
     >
       <span className="sr-only">Copy</span>
-      {hasCopied ? <IconCheck /> : <IconCopy />}
+      {hasCopied ? <Check /> : <Copy />}
     </Button>
   )
 }

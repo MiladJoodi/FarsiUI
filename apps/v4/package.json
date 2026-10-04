@@ -47,7 +47,6 @@
     "@farsiui/helpers": "workspace:*",
     "@farsiui/react": "workspace:*",
     "@streamdown/code": "^1.1.1",
-    "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/postcss": "^4.3.0",
     "@tanstack/ai": "0.40.0",
     "@tanstack/ai-client": "0.20.0",

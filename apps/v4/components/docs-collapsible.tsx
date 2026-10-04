@@ -1,7 +1,7 @@
 "use client"
+import { ChevronDown } from "lucide-react"
 
 import * as React from "react"
-import { IconChevronDown } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import {
@@ -91,7 +91,7 @@ export function DocsCollapsible({
           >
             {title}
           </h2>
-          <IconChevronDown
+          <ChevronDown
             className={cn(
               "size-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out",
               "group-data-[state=open]/docs-collapsible:rotate-180"

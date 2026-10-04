@@ -207,7 +207,7 @@ export function CardsDemoMobile() {
       >
         <CardsColumns forceAll />
       </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-28 bg-linear-to-b from-background via-background/55 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-12 bg-linear-to-b from-muted to-transparent dark:from-background" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
@@ -224,7 +224,7 @@ export function CardsDemo() {
     >
       <CardsSkeletonRails />
       <CardsColumns />
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-32 bg-linear-to-b from-background via-background/55 to-transparent lg:h-40" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-14 bg-linear-to-b from-muted to-transparent lg:h-16 dark:from-background" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
   )

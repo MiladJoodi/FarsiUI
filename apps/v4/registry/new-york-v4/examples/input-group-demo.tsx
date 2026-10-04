@@ -1,5 +1,4 @@
-import { IconCheck, IconInfoCircle, IconPlus } from "@tabler/icons-react"
-import { ArrowUpIcon, Search } from "lucide-react"
+import { ArrowUpIcon, Check, Info, Plus, Search } from "lucide-react"
 
 import {
   DropdownMenu,
@@ -41,7 +40,7 @@ export default function InputGroupDemo() {
           <Tooltip>
             <TooltipTrigger asChild>
               <InputGroupButton className="rounded-full" size="icon-xs">
-                <IconInfoCircle />
+                <Info />
               </InputGroupButton>
             </TooltipTrigger>
             <TooltipContent>This is content in a tooltip.</TooltipContent>
@@ -56,7 +55,7 @@ export default function InputGroupDemo() {
             className="rounded-full"
             size="icon-xs"
           >
-            <IconPlus />
+            <Plus />
           </InputGroupButton>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -89,7 +88,7 @@ export default function InputGroupDemo() {
         <InputGroupInput placeholder="@shadcn" />
         <InputGroupAddon align="inline-end">
           <div className="flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <IconCheck className="size-3" />
+            <Check className="size-3" />
           </div>
         </InputGroupAddon>
       </InputGroup>

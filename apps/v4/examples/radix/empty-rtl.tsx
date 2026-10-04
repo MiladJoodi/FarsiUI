@@ -1,8 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { IconFolderCode } from "@tabler/icons-react"
-import { ArrowUpRightIcon } from "lucide-react"
+import { ArrowUpRightIcon, FolderCode } from "lucide-react"
 
 import {
   useTranslation,
@@ -60,7 +59,7 @@ export default function EmptyRtl() {
     <Empty dir={dir}>
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <IconFolderCode />
+          <FolderCode />
         </EmptyMedia>
         <EmptyTitle>{t.title}</EmptyTitle>
         <EmptyDescription>{t.description}</EmptyDescription>

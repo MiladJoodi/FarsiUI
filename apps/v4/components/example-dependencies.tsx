@@ -1,7 +1,7 @@
 "use client"
+import { ChevronDown } from "lucide-react"
 
 import * as React from "react"
-import { IconChevronDown } from "@tabler/icons-react"
 import { cn } from "cn"
 
 import {
@@ -38,7 +38,7 @@ export function ExampleDependencies({
         )}
       >
         <span className="text-sm font-medium">وابستگی‌ها</span>
-        <IconChevronDown
+        <ChevronDown
           className={cn(
             "size-4 shrink-0 text-muted-foreground transition-transform duration-200",
             "group-data-[state=open]/example-deps:rotate-180"

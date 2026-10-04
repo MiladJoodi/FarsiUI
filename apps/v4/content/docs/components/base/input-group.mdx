@@ -4,8 +4,8 @@ description: افزودن addon، دکمه و محتوای کمکی به ورو�
 base: base
 component: true
 ---
+import { Info } from "lucide-react"
 
-import { IconInfoCircle } from "@tabler/icons-react"
 
 <ComponentVariantPreview
   styleName="base-nova"
@@ -352,7 +352,7 @@ attribute به نام `data-slot="input-group-control"` را به ورودی س�
   ]}
 />
 
-<Callout icon={<IconInfoCircle />} title="ناوبری فوکوس">
+<Callout icon={<Info />} title="ناوبری فوکوس">
   برای ناوبری درست فوکوس، `InputGroupAddon` باید بعد از ورودی قرار بگیرد.
   با `align` جایگاه addon را تنظیم کنید.
 </Callout>

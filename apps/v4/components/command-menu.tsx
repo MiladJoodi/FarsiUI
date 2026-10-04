@@ -2,10 +2,9 @@
 
 import * as React from "react"
 import { usePathname, useRouter } from "next/navigation"
-import { IconArrowRight } from "@tabler/icons-react"
 import { cn } from "cn"
 import { useDocsSearch } from "fumadocs-core/search/client"
-import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react"
+import { ArrowRight, CornerDownLeftIcon, SquareDashedIcon } from "lucide-react"
 import { Dialog as DialogPrimitive } from "radix-ui"
 
 import { type Color, type ColorPalette } from "@/lib/colors"
@@ -201,7 +200,7 @@ export function CommandMenu({
               runCommand(() => router.push(item.href))
             }}
           >
-            <IconArrowRight className="rtl:rotate-180" />
+            <ArrowRight className="rtl:rotate-180" />
             {item.label}
           </CommandMenuItem>
         ))}
@@ -281,7 +280,7 @@ export function CommandMenu({
                 {isComponent ? (
                   <div className="aspect-square size-4 rounded-full border border-dashed border-muted-foreground" />
                 ) : (
-                  <IconArrowRight className="rtl:rotate-180" />
+                  <ArrowRight className="rtl:rotate-180" />
                 )}
                 {item.name}
               </CommandMenuItem>

@@ -1,28 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {
-  IconEye,
-  IconGitBranch,
-  IconGitFork,
-  IconMinus,
-  IconPlus,
-} from "@tabler/icons-react"
-import {
-  ArchiveIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  CalendarPlusIcon,
-  CircleFadingArrowUpIcon,
-  ClockIcon,
-  ListFilterIcon,
-  MailCheckIcon,
-  MoreHorizontalIcon,
-  PlusIcon,
-  TagIcon,
-  Trash2Icon,
-} from "lucide-react"
+import { ArchiveIcon, ArrowLeftIcon, ArrowRightIcon, ArrowUpIcon, CalendarPlusIcon, CircleFadingArrowUpIcon, ClockIcon, Eye, GitBranch, GitFork, ListFilterIcon, MailCheckIcon, Minus, MoreHorizontalIcon, Plus, PlusIcon, TagIcon, Trash2Icon } from "lucide-react"
 import { cn } from "cn"
 
 import { CopyButton } from "@/components/copy-button"
@@ -117,10 +96,10 @@ function PreviewDemo({
       <div className="flex gap-2">
         <Button type="button" variant="outline" size={effectiveSize} tabIndex={-1}>
           فورک
-          <IconGitFork data-icon="inline-end" />
+          <GitFork data-icon="inline-end" />
         </Button>
         <Button type="button" variant="outline" size={effectiveSize} tabIndex={-1}>
-          <IconGitBranch data-icon="inline-start" /> شاخه جدید
+          <GitBranch data-icon="inline-start" /> شاخه جدید
         </Button>
       </div>
     )
@@ -485,7 +464,7 @@ export function ComponentVariantPreviewClient({
               onClick={() => stepSize(-1)}
               className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
             >
-              <IconMinus className="size-3.5" />
+              <Minus className="size-3.5" />
             </button>
             <span className="min-w-16 px-1 text-center text-xs text-muted-foreground">
               {BUTTON_SIZE_OPTIONS[sizeIndex]?.label}
@@ -497,7 +476,7 @@ export function ComponentVariantPreviewClient({
               onClick={() => stepSize(1)}
               className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-30"
             >
-              <IconPlus className="size-3.5" />
+              <Plus className="size-3.5" />
             </button>
           </div>
         </div>
@@ -556,7 +535,7 @@ export function ComponentVariantPreviewClient({
                 className="relative z-10 gap-1.5 rounded-lg bg-background font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
                 onClick={() => setCodeOpen(true)}
               >
-                <IconEye className="size-4" />
+                <Eye className="size-4" />
                 مشاهده کد
               </Button>
             </div>

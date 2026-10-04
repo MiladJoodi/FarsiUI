@@ -1,9 +1,4 @@
-import {
-  IconBookmark,
-  IconHeart,
-  IconInbox,
-  IconStar,
-} from "@tabler/icons-react"
+import { Bookmark, Heart, Inbox, Star } from "lucide-react"
 
 import {
   Empty,
@@ -19,7 +14,7 @@ export default function EmptyIcon() {
       <Empty>
         <EmptyHeader>
           <EmptyMedia variant="icon">
-            <IconInbox />
+            <Inbox />
           </EmptyMedia>
           <EmptyTitle>No messages</EmptyTitle>
           <EmptyDescription>
@@ -31,7 +26,7 @@ export default function EmptyIcon() {
       <Empty>
         <EmptyHeader>
           <EmptyMedia variant="icon">
-            <IconStar />
+            <Star />
           </EmptyMedia>
           <EmptyTitle>No favorites</EmptyTitle>
           <EmptyDescription>
@@ -43,7 +38,7 @@ export default function EmptyIcon() {
       <Empty>
         <EmptyHeader>
           <EmptyMedia variant="icon">
-            <IconHeart />
+            <Heart />
           </EmptyMedia>
           <EmptyTitle>No likes yet</EmptyTitle>
           <EmptyDescription>
@@ -55,7 +50,7 @@ export default function EmptyIcon() {
       <Empty>
         <EmptyHeader>
           <EmptyMedia variant="icon">
-            <IconBookmark />
+            <Bookmark />
           </EmptyMedia>
           <EmptyTitle>No bookmarks</EmptyTitle>
           <EmptyDescription>

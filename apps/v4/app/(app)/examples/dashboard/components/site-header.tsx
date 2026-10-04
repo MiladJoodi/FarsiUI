@@ -1,4 +1,4 @@
-import { IconCirclePlusFilled } from "@tabler/icons-react"
+import { CirclePlus } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 
@@ -9,7 +9,7 @@ export function SiteHeader() {
         <h1 className="text-base font-medium">Documents</h1>
         <div className="ml-auto flex items-center gap-2">
           <Button size="sm" className="hidden h-7 sm:flex">
-            <IconCirclePlusFilled />
+            <CirclePlus />
             <span>Quick Create</span>
           </Button>
         </div>

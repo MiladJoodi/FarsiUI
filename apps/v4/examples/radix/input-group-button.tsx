@@ -1,12 +1,7 @@
 "use client"
+import { Check, Copy, Info, Star } from "lucide-react"
 
 import * as React from "react"
-import {
-  IconCheck,
-  IconCopy,
-  IconInfoCircle,
-  IconStar,
-} from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import {
@@ -38,7 +33,7 @@ export default function InputGroupButtonExample() {
               copyToClipboard("https://x.com/shadcn")
             }}
           >
-            {isCopied ? <IconCheck /> : <IconCopy />}
+            {isCopied ? <Check /> : <Copy />}
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
@@ -47,7 +42,7 @@ export default function InputGroupButtonExample() {
           <PopoverTrigger asChild>
             <InputGroupAddon>
               <InputGroupButton variant="secondary" size="icon-xs">
-                <IconInfoCircle />
+                <Info />
               </InputGroupButton>
             </InputGroupAddon>
           </PopoverTrigger>
@@ -68,7 +63,7 @@ export default function InputGroupButtonExample() {
             onClick={() => setIsFavorite(!isFavorite)}
             size="icon-xs"
           >
-            <IconStar
+            <Star
               data-favorite={isFavorite}
               className="data-[favorite=true]:fill-blue-600 data-[favorite=true]:stroke-blue-600"
             />

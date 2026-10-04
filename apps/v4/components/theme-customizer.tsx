@@ -1,7 +1,7 @@
 "use client"
+import { Check, Copy } from "lucide-react"
 
 import * as React from "react"
-import { IconCheck, IconCopy } from "@tabler/icons-react"
 import { cn } from "cn"
 import template from "lodash/template"
 
@@ -146,7 +146,7 @@ export function CopyCodeButton({
             className={cn("group/button hidden cursor-pointer sm:flex", className)}
             {...props}
           >
-            <IconCopy />
+            <Copy />
             <span className="group-data-[size=icon-sm]/button:sr-only">
               Copy Code
             </span>
@@ -233,7 +233,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 }}
               >
                 <span className="sr-only">Copy</span>
-                {hasCopied ? <IconCheck /> : <IconCopy />}
+                {hasCopied ? <Check /> : <Copy />}
               </Button>
               <code data-line-numbers data-language="css">
                 <span data-line className="line text-code-foreground">
@@ -313,7 +313,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 }}
               >
                 <span className="sr-only">Copy</span>
-                {hasCopied ? <IconCheck /> : <IconCopy />}
+                {hasCopied ? <Check /> : <Copy />}
               </Button>
               <code data-line-numbers data-language="css">
                 <span data-line className="line text-code-foreground">
@@ -394,7 +394,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 }}
               >
                 <span className="sr-only">Copy</span>
-                {hasCopied ? <IconCheck /> : <IconCopy />}
+                {hasCopied ? <Check /> : <Copy />}
               </Button>
               <code data-line-numbers data-language="css">
                 <span data-line className="line">

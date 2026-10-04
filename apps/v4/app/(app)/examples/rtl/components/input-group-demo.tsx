@@ -1,12 +1,6 @@
 "use client"
 
-import {
-  IconCheck,
-  IconChevronDown,
-  IconInfoCircle,
-  IconPlus,
-} from "@tabler/icons-react"
-import { ArrowUpIcon, Search } from "lucide-react"
+import { ArrowUpIcon, Check, ChevronDown, Info, Plus, Search } from "lucide-react"
 
 import { useLanguageContext } from "@/components/language-selector"
 import {
@@ -88,7 +82,7 @@ export function InputGroupDemo() {
                 />
               }
             >
-              <IconInfoCircle />
+              <Info />
             </TooltipTrigger>
             <TooltipContent>{t.tooltipContent}</TooltipContent>
           </Tooltip>
@@ -103,11 +97,11 @@ export function InputGroupDemo() {
             size="icon-xs"
             aria-label={t.add}
           >
-            <IconPlus />
+            <Plus />
           </InputGroupButton>
           <DropdownMenu>
             <DropdownMenuTrigger render={<InputGroupButton variant="ghost" />}>
-              <IconChevronDown />
+              <ChevronDown />
             </DropdownMenuTrigger>
             <DropdownMenuContent side="top" align="start">
               <DropdownMenuItem>{t.auto}</DropdownMenuItem>
@@ -131,7 +125,7 @@ export function InputGroupDemo() {
         <InputGroupInput placeholder="shadcn" />
         <InputGroupAddon align="inline-end">
           <div className="flex size-4 items-center justify-center rounded-full bg-primary text-foreground">
-            <IconCheck className="size-3 text-white" />
+            <Check className="size-3 text-white" />
           </div>
         </InputGroupAddon>
       </InputGroup>

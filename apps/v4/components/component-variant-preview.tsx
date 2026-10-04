@@ -72,7 +72,7 @@ export function Example() {
   }
 
   if (example.demo === "with-icon") {
-    return `import { IconGitBranch, IconGitFork } from "@tabler/icons-react"
+    return `import { GitBranch, GitFork } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Example() {
@@ -80,10 +80,10 @@ export function Example() {
     <div className="flex gap-2">
       <Button variant="outline"${sizeProp(size)}>
         فورک
-        <IconGitFork data-icon="inline-end" />
+        <GitFork data-icon="inline-end" />
       </Button>
       <Button variant="outline"${sizeProp(size)}>
-        <IconGitBranch data-icon="inline-start" /> شاخه جدید
+        <GitBranch data-icon="inline-start" /> شاخه جدید
       </Button>
     </div>
   )

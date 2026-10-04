@@ -1,6 +1,6 @@
 "use client"
+import { Check, Copy } from "lucide-react"
 
-import { IconCheck, IconCopy } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 
@@ -26,9 +26,9 @@ export function DocsPageLinks({ page, url }: { page: string; url: string }) {
             className="inline-flex cursor-pointer items-center gap-2 transition-colors hover:text-foreground"
           >
             {isCopied ? (
-              <IconCheck className="size-4" />
+              <Check className="size-4" />
             ) : (
-              <IconCopy className="size-4" />
+              <Copy className="size-4" />
             )}
             Copy page
           </button>

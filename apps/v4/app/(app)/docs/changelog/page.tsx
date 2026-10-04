@@ -1,6 +1,6 @@
+import { Rss } from "lucide-react"
 import Link from "next/link"
 import { mdxComponents } from "@/mdx-components"
-import { IconRss } from "@tabler/icons-react"
 
 import { getChangelogPages, type ChangelogPageData } from "@/lib/changelog"
 import { absoluteUrl } from "@/lib/utils"
@@ -66,7 +66,7 @@ export default function ChangelogPage() {
               </h1>
               <Button variant="secondary" size="sm" asChild>
                 <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
-                  <IconRss />
+                  <Rss />
                   RSS
                 </a>
               </Button>

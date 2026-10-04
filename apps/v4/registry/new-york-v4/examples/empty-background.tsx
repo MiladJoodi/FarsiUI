@@ -1,5 +1,4 @@
-import { IconBell } from "@tabler/icons-react"
-import { RefreshCcwIcon } from "lucide-react"
+import { Bell, RefreshCcwIcon } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
@@ -16,7 +15,7 @@ export default function EmptyMuted() {
     <Empty className="h-full bg-gradient-to-b from-muted/50 from-30% to-background">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <IconBell />
+          <Bell />
         </EmptyMedia>
         <EmptyTitle>No Notifications</EmptyTitle>
         <EmptyDescription>

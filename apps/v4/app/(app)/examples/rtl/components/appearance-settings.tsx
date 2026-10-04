@@ -1,7 +1,7 @@
 "use client"
+import { Minus, Plus } from "lucide-react"
 
 import * as React from "react"
-import { IconMinus, IconPlus } from "@tabler/icons-react"
 
 import { useLanguageContext } from "@/components/language-selector"
 import { Button } from "@/styles/base-nova/ui-rtl/button"
@@ -142,7 +142,7 @@ export function AppearanceSettings() {
                 onClick={() => handleGpuAdjustment(-1)}
                 disabled={gpuCount <= 1}
               >
-                <IconMinus />
+                <Minus />
               </Button>
               <Button
                 variant="outline"
@@ -152,7 +152,7 @@ export function AppearanceSettings() {
                 onClick={() => handleGpuAdjustment(1)}
                 disabled={gpuCount >= 99}
               >
-                <IconPlus />
+                <Plus />
               </Button>
             </ButtonGroup>
           </Field>

@@ -1,4 +1,4 @@
-import { IconPlus } from "@tabler/icons-react"
+import { Plus } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
@@ -12,7 +12,7 @@ export default function ButtonGroupSplit() {
       <Button variant="secondary">Button</Button>
       <ButtonGroupSeparator />
       <Button size="icon" variant="secondary">
-        <IconPlus />
+        <Plus />
       </Button>
     </ButtonGroup>
   )
