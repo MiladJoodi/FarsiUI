@@ -30,6 +30,7 @@ import {
   DocsPreviewSwitcher,
   DocsPreviewSwitcherStage,
 } from "@/components/docs-preview-switcher"
+import { ExampleDependencies } from "@/components/example-dependencies"
 import { PreviewThemeScope } from "@/components/preview-theme-scope"
 import {
   BUTTON_SIZE_OPTIONS,
@@ -563,6 +564,7 @@ export function ComponentVariantPreviewClient({
         )}
         </div>
       </div>
+      <ExampleDependencies dependencies={active.dependencies} />
     </div>
   )
 }

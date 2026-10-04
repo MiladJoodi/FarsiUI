@@ -304,6 +304,25 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "drawer-dialog-demo",
+    title: "Drawer Dialog",
+    type: "registry:example",
+    registryDependencies: [
+      "drawer",
+      "dialog",
+      "button",
+      "input",
+      "label",
+      "use-media-query",
+    ],
+    files: [
+      {
+        path: "examples/drawer-dialog-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "dropdown-menu-example",
     title: "Dropdown Menu",
     type: "registry:example",

@@ -169,7 +169,7 @@ export const examples: Registry["items"] = [
   {
     name: "breadcrumb-responsive",
     type: "registry:example",
-    registryDependencies: ["breadcrumb"],
+    registryDependencies: ["breadcrumb", "use-media-query"],
     files: [
       {
         path: "examples/breadcrumb-responsive.tsx",
@@ -620,7 +620,7 @@ export const examples: Registry["items"] = [
   {
     name: "combobox-responsive",
     type: "registry:example",
-    registryDependencies: ["combobox", "popover", "drawer"],
+    registryDependencies: ["combobox", "popover", "drawer", "use-media-query"],
     files: [
       {
         path: "examples/combobox-responsive.tsx",
@@ -1360,7 +1360,32 @@ export const examples: Registry["items"] = [
   {
     name: "drawer-dialog",
     type: "registry:example",
-    registryDependencies: ["drawer", "dialog"],
+    registryDependencies: [
+      "drawer",
+      "dialog",
+      "button",
+      "input",
+      "label",
+      "use-media-query",
+    ],
+    files: [
+      {
+        path: "examples/drawer-dialog.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "drawer-dialog-demo",
+    type: "registry:example",
+    registryDependencies: [
+      "drawer",
+      "dialog",
+      "button",
+      "input",
+      "label",
+      "use-media-query",
+    ],
     files: [
       {
         path: "examples/drawer-dialog.tsx",

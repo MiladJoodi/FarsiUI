@@ -5,6 +5,7 @@ import { IconEye } from "@tabler/icons-react"
 import { cn } from "cn"
 import { I18nProvider } from "react-aria-components"
 
+import { ExampleDependencies } from "@/components/example-dependencies"
 import {
   LanguageProvider,
   useTranslation,
@@ -24,6 +25,7 @@ export function ComponentPreviewTabs({
   component,
   source,
   sourcePreview,
+  dependencies,
   direction = "ltr",
   styleName,
   ...props
@@ -35,6 +37,7 @@ export function ComponentPreviewTabs({
   component: React.ReactNode
   source: React.ReactNode
   sourcePreview?: React.ReactNode
+  dependencies?: string[]
   direction?: "ltr" | "rtl"
   styleName?: string
 }) {
@@ -42,80 +45,81 @@ export function ComponentPreviewTabs({
   const base = styleName?.match(/^(base|radix|aria)-/)?.[1] || "base"
 
   return (
-    <div
-      data-slot="component-preview"
-      dir={direction}
-      className={cn(
-        "group relative mt-4 mb-12 flex flex-col overflow-hidden rounded-2xl border",
-        className
-      )}
-      {...props}
-    >
-      {direction === "rtl" ? (
-        <LanguageProvider defaultLanguage="ar">
-          <PreviewWrapper
-            align={align}
-            chromeLessOnMobile={chromeLessOnMobile}
-            previewClassName={previewClassName}
-            styleName={styleName}
-          >
-            <DirectionProviderWrapper base={base}>
+    <div className="mt-4 mb-12">
+      <div
+        data-slot="component-preview"
+        dir={direction}
+        className={cn(
+          "group relative flex flex-col overflow-hidden rounded-2xl border",
+          className
+        )}
+        {...props}
+      >
+        {direction === "rtl" ? (
+          <LanguageProvider defaultLanguage="ar">
+            <PreviewWrapper
+              align={align}
+              chromeLessOnMobile={chromeLessOnMobile}
+              previewClassName={previewClassName}
+              styleName={styleName}
+            >
+              <DirectionProviderWrapper base={base}>
+                {component}
+              </DirectionProviderWrapper>
+            </PreviewWrapper>
+          </LanguageProvider>
+        ) : (
+          <DirectionProviderWrapper base={base} dir="ltr">
+            <PreviewWrapper
+              align={align}
+              chromeLessOnMobile={chromeLessOnMobile}
+              previewClassName={previewClassName}
+              styleName={styleName}
+              dir="ltr"
+            >
               {component}
-            </DirectionProviderWrapper>
-          </PreviewWrapper>
-        </LanguageProvider>
-      ) : (
-        <DirectionProviderWrapper base={base} dir="ltr">
-          <PreviewWrapper
-            align={align}
-            chromeLessOnMobile={chromeLessOnMobile}
-            previewClassName={previewClassName}
-            styleName={styleName}
-            dir="ltr"
+            </PreviewWrapper>
+          </DirectionProviderWrapper>
+        )}
+        {!hideCode && (
+          <div
+            data-slot="code"
+            data-not-typeset
+            data-mobile-code-visible={isMobileCodeVisible}
+            className="relative overflow-hidden **:data-[slot=copy-button]:right-4 **:data-[slot=copy-button]:hidden data-[mobile-code-visible=true]:**:data-[slot=copy-button]:flex [&_[data-rehype-pretty-code-figure]]:m-0! [&_[data-rehype-pretty-code-figure]]:rounded-t-none [&_[data-rehype-pretty-code-figure]]:border-t [&_pre]:max-h-72"
           >
-            {component}
-          </PreviewWrapper>
-        </DirectionProviderWrapper>
-      )}
-      {!hideCode && (
-        <div
-          data-slot="code"
-          data-not-typeset
-          data-mobile-code-visible={isMobileCodeVisible}
-          className="relative overflow-hidden **:data-[slot=copy-button]:right-4 **:data-[slot=copy-button]:hidden data-[mobile-code-visible=true]:**:data-[slot=copy-button]:flex [&_[data-rehype-pretty-code-figure]]:m-0! [&_[data-rehype-pretty-code-figure]]:rounded-t-none [&_[data-rehype-pretty-code-figure]]:border-t [&_pre]:max-h-72"
-        >
-          {isMobileCodeVisible ? (
-            <>
-              {source}
-            </>
-          ) : (
-            <div className="relative">
-              {sourcePreview}
-              <div className="absolute inset-0 flex items-center justify-center pb-4">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, var(--color-code), color-mix(in oklab, var(--color-code) 60%, transparent), transparent)",
-                  }}
-                />
-                <Button
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  className="relative z-10 gap-1.5 rounded-lg bg-background font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
-                  onClick={() => {
-                    setIsMobileCodeVisible(true)
-                  }}
-                >
-                  <IconEye className="size-4" />
-                  مشاهده کد
-                </Button>
+            {isMobileCodeVisible ? (
+              <>{source}</>
+            ) : (
+              <div className="relative">
+                {sourcePreview}
+                <div className="absolute inset-0 flex items-center justify-center pb-4">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to top, var(--color-code), color-mix(in oklab, var(--color-code) 60%, transparent), transparent)",
+                    }}
+                  />
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className="relative z-10 gap-1.5 rounded-lg bg-background font-sans text-foreground shadow-none hover:bg-muted dark:bg-background dark:text-foreground dark:hover:bg-muted"
+                    onClick={() => {
+                      setIsMobileCodeVisible(true)
+                    }}
+                  >
+                    <IconEye className="size-4" />
+                    مشاهده کد
+                  </Button>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        )}
+      </div>
+      <ExampleDependencies dependencies={dependencies} />
     </div>
   )
 }

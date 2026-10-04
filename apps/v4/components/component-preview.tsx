@@ -1,12 +1,13 @@
 import * as React from "react"
 import Image from "next/image"
 
-import { getRegistryComponent } from "@/lib/registry"
+import { extractHookDependencies } from "@/lib/example-dependencies"
+import { getDemoItem, getRegistryComponent } from "@/lib/registry"
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
 import { PreviewThemeIframe } from "@/components/preview-theme-scope"
 
-export function ComponentPreview({
+export async function ComponentPreview({
   name,
   type,
   className,
@@ -91,6 +92,9 @@ export function ComponentPreview({
     )
   }
 
+  const demo = await getDemoItem(name, styleName)
+  const dependencies = extractHookDependencies(demo?.files?.[0]?.content)
+
   const content = (
     <ComponentPreviewTabs
       className={className}
@@ -113,6 +117,7 @@ export function ComponentPreview({
           maxLines={3}
         />
       }
+      dependencies={dependencies}
       chromeLessOnMobile={chromeLessOnMobile}
       direction={direction}
       styleName={styleName}

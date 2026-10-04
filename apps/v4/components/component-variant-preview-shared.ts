@@ -33,6 +33,8 @@ export type VariantPreviewItem = {
   /** When false, size stepper does not apply to this demo. */
   sizeable?: boolean
   sized?: Partial<Record<ButtonSizeId, VariantPreviewSizedCode>>
+  /** Example-only registry hook dependencies (from real imports). */
+  dependencies?: string[]
 }
 
 export type VariantPreviewLayout = "gallery" | "switcher"

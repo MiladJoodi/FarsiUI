@@ -1,6 +1,7 @@
 import type { ComponentType } from "react"
 import { Suspense } from "react"
 
+import { extractHookDependencies } from "@/lib/example-dependencies"
 import { formatCode } from "@/lib/format-code"
 import { highlightCode } from "@/lib/highlight-code"
 import { getDemoItem, getRegistryComponent } from "@/lib/registry"
@@ -296,6 +297,7 @@ export async function ComponentVariantPreview({
             demo: example.demo,
             sizeable,
             sized: Object.keys(sized).length > 0 ? sized : undefined,
+            dependencies: extractHookDependencies(raw ?? code),
           } satisfies VariantPreviewItem,
           Component,
         }

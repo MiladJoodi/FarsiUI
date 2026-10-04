@@ -57,7 +57,9 @@
   {
     "name": "alert-dialog",
     "type": "registry:ui",
-    "registryDependencies": ["button"],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/alert-dialog.tsx",
@@ -114,7 +116,9 @@
   {
     "name": "attachment",
     "type": "registry:ui",
-    "registryDependencies": ["button"],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/attachment.tsx",
@@ -259,7 +263,9 @@
   {
     "name": "button-group",
     "type": "registry:ui",
-    "registryDependencies": ["separator"],
+    "registryDependencies": [
+      "separator"
+    ],
     "files": [
       {
         "path": "ui/button-group.tsx",
@@ -286,11 +292,23 @@
   {
     "name": "calendar",
     "type": "registry:ui",
-    "dependencies": ["react-day-picker@latest", "date-fns"],
-    "registryDependencies": ["button", "digits"],
+    "dependencies": [
+      "react-day-picker@^10.0.0",
+      "date-fns",
+      "date-fns-jalali",
+      "@date-fns/tz"
+    ],
+    "registryDependencies": [
+      "button",
+      "digits"
+    ],
     "files": [
       {
         "path": "ui/calendar.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/day-picker-persian.tsx",
         "type": "registry:ui"
       }
     ],
@@ -299,7 +317,7 @@
         "base": {
           "docs": "https://farsiui.ir/docs/components/base/calendar",
           "examples": "https://farsiui.ir/code/apps/v4/registry/bases/base/examples/calendar-example.tsx",
-          "api": "https://react-day-picker.js.org"
+          "api": "https://daypicker.dev"
         },
         "aria": {
           "docs": "https://farsiui.ir/docs/components/aria/calendar",
@@ -309,7 +327,7 @@
         "radix": {
           "docs": "https://farsiui.ir/docs/components/radix/calendar",
           "examples": "https://farsiui.ir/code/apps/v4/registry/bases/radix/examples/calendar-example.tsx",
-          "api": "https://react-day-picker.js.org"
+          "api": "https://daypicker.dev"
         }
       }
     }
@@ -349,8 +367,12 @@
         "type": "registry:ui"
       }
     ],
-    "registryDependencies": ["button"],
-    "dependencies": ["embla-carousel-react"],
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "embla-carousel-react"
+    ],
     "meta": {
       "links": {
         "base": {
@@ -380,8 +402,13 @@
         "type": "registry:ui"
       }
     ],
-    "registryDependencies": ["card", "digits"],
-    "dependencies": ["recharts@3.8.0"],
+    "registryDependencies": [
+      "card",
+      "digits"
+    ],
+    "dependencies": [
+      "recharts@3.8.0"
+    ],
     "meta": {
       "links": {
         "base": {
@@ -460,8 +487,13 @@
   {
     "name": "combobox",
     "type": "registry:ui",
-    "registryDependencies": ["button", "input-group"],
-    "dependencies": ["@base-ui/react"],
+    "registryDependencies": [
+      "button",
+      "input-group"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
     "files": [
       {
         "path": "ui/combobox.tsx",
@@ -491,8 +523,13 @@
   {
     "name": "command",
     "type": "registry:ui",
-    "dependencies": ["cmdk"],
-    "registryDependencies": ["dialog", "input-group"],
+    "dependencies": [
+      "cmdk"
+    ],
+    "registryDependencies": [
+      "dialog",
+      "input-group"
+    ],
     "files": [
       {
         "path": "ui/command.tsx",
@@ -551,7 +588,9 @@
   {
     "name": "dialog",
     "type": "registry:ui",
-    "registryDependencies": ["button"],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/dialog.tsx",
@@ -581,7 +620,9 @@
   {
     "name": "direction",
     "type": "registry:ui",
-    "dependencies": ["@base-ui/react"],
+    "dependencies": [
+      "@base-ui/react"
+    ],
     "files": [
       {
         "path": "ui/direction.tsx",
@@ -608,7 +649,9 @@
   {
     "name": "drawer",
     "type": "registry:ui",
-    "dependencies": ["@base-ui/react"],
+    "dependencies": [
+      "@base-ui/react"
+    ],
     "files": [
       {
         "path": "ui/drawer.tsx",
@@ -693,7 +736,10 @@
   {
     "name": "field",
     "type": "registry:ui",
-    "registryDependencies": ["label", "separator"],
+    "registryDependencies": [
+      "label",
+      "separator"
+    ],
     "files": [
       {
         "path": "ui/field.tsx",
@@ -753,7 +799,10 @@
   {
     "name": "input",
     "type": "registry:ui",
-    "registryDependencies": ["digits", "use-persian-digits-input"],
+    "registryDependencies": [
+      "digits",
+      "use-persian-digits-input"
+    ],
     "files": [
       {
         "path": "ui/input.tsx",
@@ -781,7 +830,11 @@
   {
     "name": "input-group",
     "type": "registry:ui",
-    "registryDependencies": ["button", "input", "textarea"],
+    "registryDependencies": [
+      "button",
+      "input",
+      "textarea"
+    ],
     "files": [
       {
         "path": "ui/input-group.tsx",
@@ -809,8 +862,12 @@
   {
     "name": "input-otp",
     "type": "registry:ui",
-    "dependencies": ["input-otp"],
-    "registryDependencies": ["digits"],
+    "dependencies": [
+      "input-otp"
+    ],
+    "registryDependencies": [
+      "digits"
+    ],
     "files": [
       {
         "path": "ui/input-otp.tsx",
@@ -840,7 +897,9 @@
   {
     "name": "item",
     "type": "registry:ui",
-    "registryDependencies": ["separator"],
+    "registryDependencies": [
+      "separator"
+    ],
     "files": [
       {
         "path": "ui/item.tsx",
@@ -941,7 +1000,9 @@
   {
     "name": "menubar",
     "type": "registry:ui",
-    "registryDependencies": ["dropdown-menu"],
+    "registryDependencies": [
+      "dropdown-menu"
+    ],
     "files": [
       {
         "path": "ui/menubar.tsx",
@@ -984,8 +1045,12 @@
   {
     "name": "message-scroller",
     "type": "registry:ui",
-    "dependencies": ["@farsiui/react"],
-    "registryDependencies": ["button"],
+    "dependencies": [
+      "@farsiui/react"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/message-scroller.tsx",
@@ -1054,7 +1119,9 @@
   {
     "name": "pagination",
     "type": "registry:ui",
-    "registryDependencies": ["button"],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/pagination.tsx",
@@ -1081,7 +1148,9 @@
   {
     "name": "persian-digits",
     "type": "registry:ui",
-    "registryDependencies": ["digits"],
+    "registryDependencies": [
+      "digits"
+    ],
     "files": [
       {
         "path": "ui/persian-digits.tsx",
@@ -1121,7 +1190,9 @@
   {
     "name": "progress",
     "type": "registry:ui",
-    "registryDependencies": ["digits"],
+    "registryDependencies": [
+      "digits"
+    ],
     "files": [
       {
         "path": "ui/progress.tsx",
@@ -1151,8 +1222,13 @@
   {
     "name": "questionnaire",
     "type": "registry:ui",
-    "dependencies": ["@farsiui/react"],
-    "registryDependencies": ["button", "digits"],
+    "dependencies": [
+      "@farsiui/react"
+    ],
+    "registryDependencies": [
+      "button",
+      "digits"
+    ],
     "files": [
       {
         "path": "ui/questionnaire.tsx",
@@ -1208,7 +1284,9 @@
   {
     "name": "resizable",
     "type": "registry:ui",
-    "dependencies": ["react-resizable-panels"],
+    "dependencies": [
+      "react-resizable-panels"
+    ],
     "files": [
       {
         "path": "ui/resizable.tsx",
@@ -1324,7 +1402,9 @@
   {
     "name": "sheet",
     "type": "registry:ui",
-    "registryDependencies": ["button"],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/sheet.tsx",
@@ -1444,7 +1524,10 @@
   {
     "name": "sonner",
     "type": "registry:ui",
-    "dependencies": ["sonner", "next-themes"],
+    "dependencies": [
+      "sonner",
+      "next-themes"
+    ],
     "files": [
       {
         "path": "ui/sonner.tsx",
@@ -1585,7 +1668,10 @@
   {
     "name": "textarea",
     "type": "registry:ui",
-    "registryDependencies": ["digits", "use-persian-digits-input"],
+    "registryDependencies": [
+      "digits",
+      "use-persian-digits-input"
+    ],
     "files": [
       {
         "path": "ui/textarea.tsx",
@@ -1613,8 +1699,12 @@
   {
     "name": "toast",
     "type": "registry:ui",
-    "dependencies": ["@base-ui/react"],
-    "registryDependencies": ["button"],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/toast.tsx",
@@ -1663,7 +1753,9 @@
   {
     "name": "toggle-group",
     "type": "registry:ui",
-    "registryDependencies": ["toggle"],
+    "registryDependencies": [
+      "toggle"
+    ],
     "files": [
       {
         "path": "ui/toggle-group.tsx",

@@ -67,6 +67,11 @@ function getRegistryEntry(name: string, styleName: string) {
   return getStyleIndex(styleName)?.[name] ?? getBaseIndex(styleName)?.[name]
 }
 
+/** Sync metadata lookup for docs (registryDependencies, type, etc.). */
+export function getRegistryMeta(name: string, styleName: string) {
+  return getRegistryEntry(name, styleName) ?? null
+}
+
 // Lazy components live in per-style __components__ shards (separate from the
 // metadata indexes) so consumers only pull the requested style's dynamic
 // imports into their module graph. Lookups mirror getRegistryEntry.
