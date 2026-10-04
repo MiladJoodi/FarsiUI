@@ -196,7 +196,7 @@ export default function DataTableRtl() {
 
             return (
               <div className="text-end font-normal tracking-normal [font-variant-numeric:normal]">
-                {formatted} $
+                {formatted} تومان
               </div>
             )
           },

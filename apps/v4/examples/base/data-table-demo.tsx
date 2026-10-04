@@ -44,36 +44,11 @@ import {
   TableRow,
 } from "@/styles/base-nova/ui/table"
 
-const features = tableFeatures({
-  columnFilteringFeature,
-  columnVisibilityFeature,
-  rowPaginationFeature,
-  rowSelectionFeature,
-  rowSortingFeature,
-  filteredRowModel: createFilteredRowModel(),
-  paginatedRowModel: createPaginatedRowModel(),
-  sortedRowModel: createSortedRowModel(),
-  filterFns: { includesString: filterFn_includesString },
-  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
-})
-
-const columnHelper = createColumnHelper<typeof features, Payment>()
-
-const statusLabel: Record<Payment["status"], string> = {
-  success: "موفق",
-  processing: "در حال پردازش",
-  failed: "ناموفق",
-  pending: "در انتظار",
-}
-
-const columnLabel: Record<string, string> = {
-  status: "وضعیت",
-  email: "ایمیل",
-  amount: "مبلغ",
-}
-
-function toPersianDigits(value: number | string) {
-  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+type Payment = {
+  id: string
+  amount: number
+  status: "pending" | "processing" | "success" | "failed"
+  email: string
 }
 
 const data: Payment[] = [
@@ -109,37 +84,64 @@ const data: Payment[] = [
   },
 ]
 
-export type Payment = {
-  id: string
-  amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
+const statusLabel: Record<Payment["status"], string> = {
+  success: "موفق",
+  processing: "در حال پردازش",
+  failed: "ناموفق",
+  pending: "در انتظار",
 }
 
-export const columns = columnHelper.columns([
+const columnLabel: Record<string, string> = {
+  status: "وضعیت",
+  email: "ایمیل",
+  amount: "مبلغ",
+}
+
+function toPersianDigits(value: number | string) {
+  return String(value).replace(
+    /\d/g,
+    (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!
+  )
+}
+
+const features = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  sortFns: {
+    alphanumeric: sortFn_alphanumeric,
+    text: sortFn_text,
+  },
+})
+
+const columnHelper = createColumnHelper<typeof features, Payment>()
+
+const columns = columnHelper.columns([
   columnHelper.display({
     id: "select",
     header: ({ table }) => (
-      <div className="flex items-center justify-center ps-1">
-        <Checkbox
-          checked={table.getIsAllPageRowsSelected()}
-          indeterminate={
-            table.getIsSomePageRowsSelected() &&
-            !table.getIsAllPageRowsSelected()
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="انتخاب همه"
-        />
-      </div>
+      <Checkbox
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={
+          table.getIsSomePageRowsSelected() &&
+          !table.getIsAllPageRowsSelected()
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="انتخاب همه"
+      />
     ),
     cell: ({ row }) => (
-      <div className="flex items-center justify-center ps-1">
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="انتخاب ردیف"
-        />
-      </div>
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="انتخاب ردیف"
+      />
     ),
     enableSorting: false,
     enableHiding: false,
@@ -151,37 +153,31 @@ export const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor("email", {
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          size="sm"
-          className="-ms-2 h-8"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          ایمیل
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        size="sm"
+        className="-ms-2 h-8"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        ایمیل
+        <ArrowUpDown />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("email")}</div>
+    ),
   }),
   columnHelper.accessor("amount", {
     header: () => <div className="text-end">مبلغ</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
-      const formatted = toPersianDigits(
-        amount.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-      )
+      const amount = Number(row.getValue("amount"))
+      const formatted = new Intl.NumberFormat("fa-IR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount)
 
-      return (
-        <div className="text-end font-normal tracking-normal [font-variant-numeric:normal]">
-          {formatted} $
-        </div>
-      )
+      return <div className="text-end font-medium">{formatted} تومان</div>
     },
   }),
   columnHelper.display({
@@ -195,11 +191,13 @@ export const columns = columnHelper.columns([
         <div className="flex justify-center">
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon-xs" />}
-            >
-              <span className="sr-only">باز کردن منو</span>
-              <MoreHorizontal />
-            </DropdownMenuTrigger>
+              render={
+                <Button variant="ghost" size="icon-xs">
+                  <span className="sr-only">باز کردن منو</span>
+                  <MoreHorizontal />
+                </Button>
+              }
+            />
             <DropdownMenuContent align="start" className="w-44">
               <DropdownMenuGroup>
                 <DropdownMenuLabel>اقدام‌ها</DropdownMenuLabel>
@@ -209,7 +207,9 @@ export const columns = columnHelper.columns([
                   کپی شناسه پرداخت
                 </DropdownMenuItem>
               </DropdownMenuGroup>
+
               <DropdownMenuSeparator />
+
               <DropdownMenuGroup>
                 <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
                 <DropdownMenuItem>جزئیات پرداخت</DropdownMenuItem>
@@ -224,9 +224,8 @@ export const columns = columnHelper.columns([
 
 export default function DataTableDemo() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
+  const [columnFilters, setColumnFilters] =
+    React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] =
     React.useState<ColumnVisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
@@ -252,57 +251,61 @@ export default function DataTableDemo() {
       <div className="flex items-center gap-2 py-4">
         <Input
           placeholder="فیلتر ایمیل..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          value={
+            (table.getColumn("email")?.getFilterValue() as string) ?? ""
+          }
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
+
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={<Button variant="outline" className="ms-auto" />}
-          >
-            ستون‌ها <ChevronDown />
-          </DropdownMenuTrigger>
+            render={
+              <Button variant="outline" className="ms-auto">
+                ستون‌ها
+                <ChevronDown />
+              </Button>
+            }
+          />
           <DropdownMenuContent align="start" className="w-44">
             <DropdownMenuGroup>
               {table
                 .getAllColumns()
                 .filter((column) => column.getCanHide())
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
-                    >
-                      {columnLabel[column.id] ?? column.id}
-                    </DropdownMenuCheckboxItem>
-                  )
-                })}
+                .map((column) => (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {columnLabel[column.id] ?? column.id}
+                  </DropdownMenuCheckboxItem>
+                ))}
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+
       <div className="overflow-x-auto rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder ? null : (
-                        <table.FlexRender header={header} />
-                      )}
-                    </TableHead>
-                  )
-                })}
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder ? null : (
+                      <table.FlexRender header={header} />
+                    )}
+                  </TableHead>
+                ))}
               </TableRow>
             ))}
           </TableHeader>
+
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
@@ -330,12 +333,17 @@ export default function DataTableDemo() {
           </TableBody>
         </Table>
       </div>
+
       <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {toPersianDigits(table.getFilteredSelectedRowModel().rows.length)} از{" "}
-          {toPersianDigits(table.getFilteredRowModel().rows.length)} ردیف انتخاب
-          شده.
+          {toPersianDigits(
+            table.getFilteredSelectedRowModel().rows.length
+          )}{" "}
+          از{" "}
+          {toPersianDigits(table.getFilteredRowModel().rows.length)} ردیف
+          انتخاب شده.
         </div>
+
         <div className="flex gap-2">
           <Button
             variant="outline"
@@ -345,6 +353,7 @@ export default function DataTableDemo() {
           >
             قبلی
           </Button>
+
           <Button
             variant="outline"
             size="sm"
