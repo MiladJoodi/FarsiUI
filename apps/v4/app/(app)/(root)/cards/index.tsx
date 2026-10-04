@@ -1,6 +1,7 @@
 "use client"
 
 import type { MouseEvent, ReactNode } from "react"
+import { cn } from "cn"
 import MessageScrollerDemo from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
@@ -191,15 +192,19 @@ function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
  * Mobile: desktop collage zoomed into 140vw (shadcn pattern).
  * `zoom` keeps layout height correct; fades match CardsDemo exactly.
  */
+/** Soft handoff from page header (background) into the collage (muted). */
+const COLLAGE_SURFACE =
+  "bg-muted [background-image:linear-gradient(to_bottom,var(--background)_0%,var(--background)_1.25rem,var(--muted)_5.5rem)] dark:bg-background dark:[background-image:none]"
+
 export function CardsDemoMobile() {
   return (
-    <div className="relative w-full overflow-hidden bg-muted dark:bg-background">
+    <div className={cn("relative w-full overflow-hidden", COLLAGE_SURFACE)}>
       <div
         data-slot="demo"
         dir="rtl"
         lang="fa"
         aria-hidden="true"
-        className="theme-container pointer-events-none max-w-none bg-muted px-12 pt-4 pb-0! [--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+        className="theme-container pointer-events-none max-w-none bg-transparent px-12 pt-6 pb-0! [--gap:--spacing(6)] [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
         style={{
           width: MOBILE_DESIGN_WIDTH,
           zoom: `calc(140vw / ${MOBILE_DESIGN_WIDTH}px)`,
@@ -207,7 +212,6 @@ export function CardsDemoMobile() {
       >
         <CardsColumns forceAll />
       </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-12 bg-linear-to-b from-muted to-transparent dark:from-background" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
@@ -220,11 +224,13 @@ export function CardsDemo() {
       dir="rtl"
       lang="fa"
       onClickCapture={preventDemoHashNavigation}
-      className="theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden bg-muted px-12 pt-4 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:px-12 min-[1900px]:pt-6 min-[1900px]:[--gap:--spacing(10)]! lg:px-6 lg:pt-4 lg:[--gap:--spacing(6)] dark:bg-background [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]"
+      className={cn(
+        "theme-container relative flex w-full max-w-none flex-col gap-(--gap) overflow-hidden px-12 pt-6 pb-0! [--gap:--spacing(8)] 3xl:[--gap:--spacing(8)] min-[1900px]:px-12 min-[1900px]:pt-8 min-[1900px]:[--gap:--spacing(10)]! lg:px-6 lg:pt-6 lg:[--gap:--spacing(6)] [font-variant-numeric:normal] [&_*]:[font-variant-numeric:normal]",
+        COLLAGE_SURFACE
+      )}
     >
       <CardsSkeletonRails />
       <CardsColumns />
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-14 bg-linear-to-b from-muted to-transparent lg:h-16 dark:from-background" />
       <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
   )
