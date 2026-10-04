@@ -36,7 +36,9 @@ function ComponentCard({ component }: { component: PageTreePage }) {
   return (
     <section className="flex min-w-0 flex-col gap-2">
       <div className="flex min-w-0 items-baseline gap-2">
-        <h2 className="shrink-0 text-sm font-semibold tracking-tight">{fa}</h2>
+        <h2 className="shrink-0 text-sm font-semibold tracking-tight text-primary">
+          {fa}
+        </h2>
         {en ? (
           <>
             <span

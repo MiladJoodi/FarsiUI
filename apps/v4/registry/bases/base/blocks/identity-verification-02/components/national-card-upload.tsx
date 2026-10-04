@@ -240,7 +240,7 @@ export default function NationalCardUpload() {
         <CardContent>
           <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl border border-dashed bg-muted/40">
             {preview ? (
-              // eslint-disable-next-line @next/next/no-img-element
+               
               <img
                 src={preview}
                 alt="پیش‌نمایش کارت ملی"

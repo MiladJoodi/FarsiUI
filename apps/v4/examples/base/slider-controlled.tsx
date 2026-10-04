@@ -5,6 +5,10 @@ import * as React from "react"
 import { Label } from "@/styles/base-nova/ui/label"
 import { Slider } from "@/styles/base-nova/ui/slider"
 
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 export default function SliderControlled() {
   const [value, setValue] = React.useState([0.3, 0.7])
 
@@ -13,7 +17,7 @@ export default function SliderControlled() {
       <div className="flex items-center justify-between gap-2">
         <Label htmlFor="slider-demo-temperature">دما</Label>
         <span className="text-sm text-muted-foreground">
-          {value.join(", ")}
+          {value.map(toPersianDigits).join("، ")}
         </span>
       </div>
       <Slider

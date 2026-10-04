@@ -2,2499 +2,1782 @@
   {
     "name": "account-billing-01",
     "description": "خلاصهٔ سادهٔ صورتحساب و پرداخت.",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-billing-02",
     "description": "تب طرح و پرداخت با ایمیل فاکتور LTR.",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-billing-03",
     "description": "دوره و ارز با Select راست‌چین و تمدید خودکار.",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-billing-04",
     "description": "کارت، تاریخچه فاکتور و منوی عملیات RTL.",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-billing-05",
     "description": "مرکز کامل طرح، پرداخت، فاکتور و منوی RTL.",
-    "categories": [
-      "account-billing"
-    ]
+    "categories": ["account-billing"]
   },
   {
     "name": "account-notifications-01",
     "description": "سوئیچ کانال‌های ایمیل، پیامک و مرورگر.",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-notifications-02",
     "description": "تب محصول/امنیت/بازاریابی با ایمیل LTR.",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-notifications-03",
     "description": "زمان‌بندی و تواتر با Select راست‌چین.",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-notifications-04",
     "description": "صندوق اعلان با فیلتر و منوی عملیات RTL.",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-notifications-05",
     "description": "مرکز کامل کانال‌ها، ماتریس انواع و خلاصهٔ ایمیل.",
-    "categories": [
-      "account-notifications"
-    ]
+    "categories": ["account-notifications"]
   },
   {
     "name": "account-settings-01",
     "description": "سوئیچ‌های ساده برای ترجیحات پایهٔ حساب.",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "account-settings-02",
     "description": "تب‌های حساب، امنیت و اعلان با ایمیل LTR.",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "account-settings-03",
     "description": "ظاهر، زبان و شهر با Select راست‌چین.",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "account-settings-04",
     "description": "نشست‌ها با منوی عملیات RTL و ایمیل بازیابی.",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "account-settings-05",
     "description": "مرکز کامل با ناوبری، منوی RTL و منطقه خطر.",
-    "categories": [
-      "account-settings"
-    ]
+    "categories": ["account-settings"]
   },
   {
     "name": "activity-01",
     "description": "فید سادهٔ فعالیت‌های اخیر.",
-    "categories": [
-      "activity"
-    ]
+    "categories": ["activity"]
   },
   {
     "name": "activity-02",
     "description": "خط زمانی تیم با ایمیل چپ‌چین.",
-    "categories": [
-      "activity"
-    ]
+    "categories": ["activity"]
   },
   {
     "name": "activity-03",
     "description": "جستجو و فیلتر نوع با Select راست‌چین.",
-    "categories": [
-      "activity"
-    ]
+    "categories": ["activity"]
   },
   {
     "name": "activity-04",
     "description": "فعالیت‌های گروه‌بندی‌شده با منوی عملیات RTL.",
-    "categories": [
-      "activity"
-    ]
+    "categories": ["activity"]
   },
   {
     "name": "activity-05",
     "description": "مرکز فعالیت با فیلتر، مرتب‌سازی و خلاصه ایمیل.",
-    "categories": [
-      "activity"
-    ]
+    "categories": ["activity"]
   },
   {
     "name": "advanced-filters-01",
     "description": "کشو ساده با چک‌باکس و اعمال فیلتر.",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "advanced-filters-02",
     "description": "پنل Sheet با Select RTL و سوییچ.",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "advanced-filters-03",
     "description": "کشو با جستجو، برند، قیمت و ایمیل LTR.",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "advanced-filters-04",
     "description": "چیپ فعال، مرتب‌سازی Dropdown و Sheet.",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "advanced-filters-05",
     "description": "مرکز پیشرفته با پیش‌فرض، facets و فهرست نتایج.",
-    "categories": [
-      "advanced-filters"
-    ]
+    "categories": ["advanced-filters"]
   },
   {
     "name": "analytics-01",
     "description": "نمودار میله‌ای بازدید هفتگی.",
-    "categories": [
-      "analytics"
-    ]
+    "categories": ["analytics"]
   },
   {
     "name": "analytics-02",
     "description": "نمودار ناحیه‌ای ارگانیک در برابر تبلیغات.",
-    "categories": [
-      "analytics"
-    ]
+    "categories": ["analytics"]
   },
   {
     "name": "analytics-03",
     "description": "قیف تبدیل از بازدید تا پرداخت.",
-    "categories": [
-      "analytics"
-    ]
+    "categories": ["analytics"]
   },
   {
     "name": "analytics-04",
     "description": "نمودار دایره‌ای منابع ترافیک با Select.",
-    "categories": [
-      "analytics"
-    ]
+    "categories": ["analytics"]
   },
   {
     "name": "analytics-05",
     "description": "کاوش صفحه با نمودار، جدول، فیلتر و ایمیل.",
-    "categories": [
-      "analytics"
-    ]
+    "categories": ["analytics"]
   },
   {
     "name": "article-01",
     "description": "مقالهٔ متنی ساده با عنوان و تاریخ شمسی.",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "article-02",
     "description": "سربرگ با بج، نویسنده و جداکننده.",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "article-03",
     "description": "کاور، اشتراک‌گذاری و برچسب‌ها.",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "article-04",
     "description": "فهرست مطالب و مقالات مرتبط در ستون کناری.",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "article-05",
     "description": "مجله کامل با کاور، فهرست، خبرنامه و دیدگاه.",
-    "categories": [
-      "article"
-    ]
+    "categories": ["article"]
   },
   {
     "name": "attachment-list-01",
     "description": "فهرست ساده پیوست‌ها با نام و اندازه LTR.",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "attachment-list-02",
     "description": "پیوست‌ها با بج نوع و دکمه دانلود.",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "attachment-list-03",
     "description": "جستجو، Select نوع و ایمیل اطلاع‌رسانی LTR.",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "attachment-list-04",
     "description": "چیپ فیلتر، Progress و منوی عملیات RTL.",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "attachment-list-05",
     "description": "مرکز پیوست با منبع، انتخاب چندتایی و تنظیمات.",
-    "categories": [
-      "attachment-list"
-    ]
+    "categories": ["attachment-list"]
   },
   {
     "name": "avatar-upload-01",
     "description": "آواتار ساده با دکمه انتخاب تصویر.",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "avatar-upload-02",
     "description": "پیش‌نمایش، Progress و حذف تصویر.",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "avatar-upload-03",
     "description": "فرم با Select برش، ایمیل LTR و سوییچ نمایش.",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "avatar-upload-04",
     "description": "تاریخچه تصاویر و منوی عملیات RTL.",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "avatar-upload-05",
     "description": "مرکز آپلود با پیشنهادها، دراپ‌زون و تنظیمات کناری.",
-    "categories": [
-      "avatar-upload"
-    ]
+    "categories": ["avatar-upload"]
   },
   {
     "name": "banner-01",
     "description": "نوار اطلاع‌رسانی ساده با لینک.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-02",
     "description": "بنر تخفیف با آیکون، بج و دکمه.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-03",
     "description": "بنر هشدار قابل‌بستن برای نگهداری سیستم.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-04",
     "description": "بنر رویداد دو ستونه با تصویر.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "banner-05",
     "description": "بنر پروموی تمام‌عرض با تصویر، کد تخفیف و بستن.",
-    "categories": [
-      "banner"
-    ]
+    "categories": ["banner"]
   },
   {
     "name": "bento-01",
     "description": "شبکهٔ سادهٔ ۲×۲ با کاشی‌های متنی هم‌اندازه.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-02",
     "description": "بنتو با کاشی بزرگ دو در دو و کاشی‌های آیکون‌دار.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-03",
     "description": "بنتو با کاشی تصویر داشبورد و کاشی‌های متنی.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-04",
     "description": "بنتو با آمار، آواتار تیم و کاشی‌های قابلیت.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "bento-05",
     "description": "بنتو کامل تعاملی با تصویر، CTA، آمار و انتخاب‌گر.",
-    "categories": [
-      "bento"
-    ]
+    "categories": ["bento"]
   },
   {
     "name": "billing-01",
     "description": "خلاصه صورتحساب دوره با تاریخ شمسی.",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "billing-02",
     "description": "کارت دوره با پیشرفت و سررسید.",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "billing-03",
     "description": "تنظیمات چرخه و رسید دوره.",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "billing-04",
     "description": "داشبورد ریز هزینه و پرداخت بعدی.",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "billing-05",
     "description": "هزینه، مصرف و تنظیمات دوره با تب.",
-    "categories": [
-      "billing"
-    ]
+    "categories": ["billing"]
   },
   {
     "name": "blog-grid-01",
     "description": "فهرست سادهٔ سه‌ستونه با عنوان و خلاصه.",
-    "categories": [
-      "blog-grid"
-    ]
+    "categories": ["blog-grid"]
   },
   {
     "name": "blog-grid-02",
     "description": "کارت‌های مقاله با کاور رنگی و دسته.",
-    "categories": [
-      "blog-grid"
-    ]
+    "categories": ["blog-grid"]
   },
   {
     "name": "blog-grid-03",
     "description": "مقالهٔ ویژه، فیلتر و فهرست کنار هم.",
-    "categories": [
-      "blog-grid"
-    ]
+    "categories": ["blog-grid"]
   },
   {
     "name": "blog-grid-04",
     "description": "جستجو و دسته‌بندی با کارت نویسنده.",
-    "categories": [
-      "blog-grid"
-    ]
+    "categories": ["blog-grid"]
   },
   {
     "name": "blog-grid-05",
     "description": "مجله کامل با ویژه، فیلتر، خبرنامه و صفحه‌بندی.",
-    "categories": [
-      "blog-grid"
-    ]
+    "categories": ["blog-grid"]
   },
   {
     "name": "booking-01",
     "description": "رزرو ساده با تقویم شمسی و اسلات ساعت.",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "booking-02",
     "description": "انتخاب خدمت، تاریخ شمسی و ساعت.",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "booking-03",
     "description": "فرم رزرو با ایمیل، موبایل و یادآوری.",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "booking-04",
     "description": "رزرو چندمرحله‌ای با متخصص و خلاصه.",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "booking-05",
     "description": "رزرو پیشرفته با تب، خلاصه و تأیید.",
-    "categories": [
-      "booking"
-    ]
+    "categories": ["booking"]
   },
   {
     "name": "breadcrumb-block-01",
     "description": "مسیر سادهٔ سه‌سطحی.",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "breadcrumb-block-02",
     "description": "مسیر بالای عنوان و توضیح صفحه.",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "breadcrumb-block-03",
     "description": "مسیر با بخش میانی جمع‌شده (ellipsis).",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "breadcrumb-block-04",
     "description": "مسیرهای میانی داخل منوی کشویی.",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "breadcrumb-block-05",
     "description": "مسیر کامل با عنوان، اکشن‌ها و متادیتا.",
-    "categories": [
-      "breadcrumb-block"
-    ]
+    "categories": ["breadcrumb-block"]
   },
   {
     "name": "calendar-block-01",
     "description": "تقویم شمسی ساده با نمایش تاریخ جلالی.",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "calendar-block-02",
     "description": "تقویم شمسی با میانبرهای امروز و روزهای بعد.",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "calendar-block-03",
     "description": "بازهٔ شمسی دو‌ماهه، Select و ایمیل LTR.",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "calendar-block-04",
     "description": "تقویم شمسی با رویداد روز و منوی عملیات RTL.",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "calendar-block-05",
     "description": "مرکز تقویم شمسی با فیلتر رویداد، ساعت و دعوت ایمیل.",
-    "categories": [
-      "calendar-block"
-    ]
+    "categories": ["calendar-block"]
   },
   {
     "name": "chat-01",
     "description": "گفتگوی ساده با حباب پیام و ورودی فارسی.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "chat-02",
     "description": "ترد با آواتار، زمان و ایمیل LTR.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "chat-03",
     "description": "فهرست گفتگو و فیلتر Select راست‌چین.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "chat-04",
     "description": "عملیات پیام و گفتگو با منوی RTL.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "chat-05",
     "description": "مرکز کامل مخاطبین، فیلتر و ارسال با Textarea.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "checkout-01",
     "description": "فرم سادهٔ تسویه با ایمیل چپ‌چین.",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "checkout-02",
     "description": "ارسال دو ستونه با Select استان و روش پرداخت.",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "checkout-03",
     "description": "تسویه چندمرحله‌ای تماس، ارسال و پرداخت.",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "checkout-04",
     "description": "دفترچه آدرس Dropdown RTL و فیلد کارت LTR.",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "checkout-05",
     "description": "تسویه کامل با تصویر کالا، تخفیف و گزینه‌های ارسال.",
-    "categories": [
-      "checkout"
-    ]
+    "categories": ["checkout"]
   },
   {
     "name": "coming-soon-01",
     "description": "به‌زودی ساده با بج Coming Soon انگلیسی.",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "coming-soon-02",
     "description": "کارت انتظار با ایمیل اطلاع‌رسانی.",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "coming-soon-03",
     "description": "به‌زودی با تصویر محصول و لیست انتظار.",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "coming-soon-04",
     "description": "قابلیت در داشبورد با پیش‌نمایش تصویری.",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "coming-soon-05",
     "description": "به‌زودی متحرک با ساعت شنی و بج انگلیسی.",
-    "categories": [
-      "coming-soon"
-    ]
+    "categories": ["coming-soon"]
   },
   {
     "name": "comments-01",
     "description": "فهرست سادهٔ دیدگاه با فرم ارسال فارسی.",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comments-02",
     "description": "ترد تو در تو با پسند و ایمیل LTR.",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comments-03",
     "description": "فیلتر وضعیت و اعلان ایمیل با Select RTL.",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comments-04",
     "description": "جستجو، مرتب‌سازی و منوی عملیات RTL.",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comments-05",
     "description": "مرکز مدیریت با تأیید، اسپم و ایمیل مدیر.",
-    "categories": [
-      "comments"
-    ]
+    "categories": ["comments"]
   },
   {
     "name": "comparison-01",
     "description": "جدول قبل/بعد بدون قیمت پلن.",
-    "categories": [
-      "comparison"
-    ]
+    "categories": ["comparison"]
   },
   {
     "name": "comparison-02",
     "description": "دو کارت مسیر: ساخت دستی در برابر FarsiUI.",
-    "categories": [
-      "comparison"
-    ]
+    "categories": ["comparison"]
   },
   {
     "name": "comparison-03",
     "description": "ماتریس قابلیت ابزارهای UI فارسی.",
-    "categories": [
-      "comparison"
-    ]
+    "categories": ["comparison"]
   },
   {
     "name": "comparison-04",
     "description": "انتخاب دو گزینه با Select راست‌چین.",
-    "categories": [
-      "comparison"
-    ]
+    "categories": ["comparison"]
   },
   {
     "name": "comparison-05",
     "description": "جدول قابل جستجو، مرتب‌سازی و ارسال ایمیل.",
-    "categories": [
-      "comparison"
-    ]
+    "categories": ["comparison"]
   },
   {
     "name": "contact-01",
     "description": "اطلاعات تماس ساده: ایمیل، تلفن و آدرس.",
-    "categories": [
-      "contact"
-    ]
+    "categories": ["contact"]
   },
   {
     "name": "contact-02",
     "description": "فرم پیام داخل کارت با ایمیل LTR.",
-    "categories": [
-      "contact"
-    ]
+    "categories": ["contact"]
   },
   {
     "name": "contact-03",
     "description": "دو ستونه: اطلاعات دفتر و فرم پیام.",
-    "categories": [
-      "contact"
-    ]
+    "categories": ["contact"]
   },
   {
     "name": "contact-04",
     "description": "فرم با Select موضوع راست‌چین.",
-    "categories": [
-      "contact"
-    ]
+    "categories": ["contact"]
   },
   {
     "name": "contact-05",
     "description": "مرکز تماس با تب، Select، DropdownMenu و سوئیچ تماس.",
-    "categories": [
-      "contact"
-    ]
+    "categories": ["contact"]
   },
   {
     "name": "contact-form-01",
     "description": "فرم تماس ساده با وضعیت ارسال.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-02",
     "description": "فرم ارسال بازخورد با انتخاب نوع.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-03",
     "description": "فرم تماس دو ستونه با اطلاعات تماس.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "contact-form-04",
     "description": "همکاری تجاری با سوئیچ درخواست تماس.",
-    "categories": [
-      "contact-form"
-    ]
+    "categories": ["contact-form"]
   },
   {
     "name": "conversation-01",
     "description": "مکالمهٔ ساده با موضوع و پاسخ فارسی.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-02",
     "description": "ترد با شرکت‌کنندگان و ایمیل LTR.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-03",
     "description": "وضعیت Select RTL و دعوت با ایمیل LTR.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-04",
     "description": "اولویت و منوی عملیات پیام RTL.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "conversation-05",
     "description": "مرکز سه‌ستونه با دعوت همکار و فیلتر RTL.",
-    "categories": [
-      "chat"
-    ]
+    "categories": ["chat"]
   },
   {
     "name": "cta-01",
     "description": "فراخوان سادهٔ مرکزی با یک دکمه.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-02",
     "description": "فراخوان با بج و دو دکمهٔ اصلی / فرعی.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-03",
     "description": "کارت فراخوان با فرم ایمیل و وضعیت تأیید.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-04",
     "description": "فراخوان دو ستونه با تصویر داشبورد.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "cta-05",
     "description": "فراخوان تمام‌عرض با تصویر، دو CTA و اثبات اجتماعی.",
-    "categories": [
-      "cta"
-    ]
+    "categories": ["cta"]
   },
   {
     "name": "dashboard-02",
     "description": "سه کارت شاخص ساده بدون سایدبار.",
-    "categories": [
-      "dashboard"
-    ]
+    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-03",
     "description": "شاخص‌ها به‌همراه فهرست فعالیت اخیر.",
-    "categories": [
-      "dashboard"
-    ]
+    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-04",
     "description": "نمودار فروش با Select بازهٔ زمانی راست‌چین.",
-    "categories": [
-      "dashboard"
-    ]
+    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-05",
     "description": "میز کار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
-    "categories": [
-      "dashboard"
-    ]
+    "categories": ["dashboard"]
   },
   {
     "name": "dashboard-settings-01",
     "description": "سوئیچ‌های سادهٔ اعلان ایمیل، پیامک و مرورگر.",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-settings-02",
     "description": "تب‌های حساب، امنیت و اعلان با ایمیل چپ‌چین.",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-settings-03",
     "description": "ظاهر و زبان با Select راست‌چین.",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-settings-04",
     "description": "فضای کاری، نقش اعضا و دعوت با منوی RTL.",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-settings-05",
     "description": "کنسول پیشرفته با API، وب‌هوک و ناوبری کناری.",
-    "categories": [
-      "dashboard-settings"
-    ]
+    "categories": ["dashboard-settings"]
   },
   {
     "name": "dashboard-stats-01",
     "description": "چهار کارت شاخص عملیاتی ساده.",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "dashboard-stats-02",
     "description": "کارت شاخص با اسپارک‌لاین و درصد تغییر.",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "dashboard-stats-03",
     "description": "KPI زنده کنار اهداف با Progress.",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "dashboard-stats-04",
     "description": "درآمد کانال‌ها با Select بازه راست‌چین.",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "dashboard-stats-05",
     "description": "مرکز آمار با جستجو، فیلتر، مرتب‌سازی و ایمیل.",
-    "categories": [
-      "dashboard-stats"
-    ]
+    "categories": ["dashboard-stats"]
   },
   {
     "name": "data-table-block-01",
     "description": "جدول سادهٔ کاربران با وضعیت و تاریخ.",
-    "categories": [
-      "data-table-block"
-    ]
+    "categories": ["data-table-block"]
   },
   {
     "name": "data-table-block-02",
     "description": "جدول با آواتار، نقش و ایمیل چپ‌چین.",
-    "categories": [
-      "data-table-block"
-    ]
+    "categories": ["data-table-block"]
   },
   {
     "name": "data-table-block-03",
     "description": "جستجو و فیلتر وضعیت با Select راست‌چین.",
-    "categories": [
-      "data-table-block"
-    ]
+    "categories": ["data-table-block"]
   },
   {
     "name": "data-table-block-04",
     "description": "سفارش‌ها با صفحه‌بندی و نمایش ستون‌ها.",
-    "categories": [
-      "data-table-block"
-    ]
+    "categories": ["data-table-block"]
   },
   {
     "name": "data-table-block-05",
     "description": "جدول کامل با انتخاب، منوی عملیات و دعوت ایمیل.",
-    "categories": [
-      "data-table-block"
-    ]
+    "categories": ["data-table-block"]
   },
   {
     "name": "datetime-picker-01",
     "description": "تقویم شمسی توکار با انتخاب ساعت.",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "datetime-picker-02",
     "description": "پاپ‌اور تاریخ شمسی و ورودی ساعت.",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "datetime-picker-03",
     "description": "فرم بازه تاریخ شمسی با شروع و پایان.",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "datetime-picker-04",
     "description": "داشبورد با میان‌بر تاریخ و ساعت.",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "datetime-picker-05",
     "description": "یک‌روزه، بازه، تقویم توکار و گزینه‌ها.",
-    "categories": [
-      "datetime-picker"
-    ]
+    "categories": ["datetime-picker"]
   },
   {
     "name": "document-verification-01",
     "description": "بارگذاری مدرک با پیش‌نمایش و پیشرفت آپلود.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-02",
     "description": "چک‌لیست مدارک موردنیاز با وضعیت بارگذاری.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-03",
     "description": "تنظیمات تأیید مدارک با سوئیچ‌های راست‌چین.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-04",
     "description": "صفحه دو ستونه بارگذاری مدرک با تصویر کاور.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "document-verification-05",
     "description": "وضعیت‌های بررسی مدارک: در حال بررسی تا رد.",
-    "categories": [
-      "document-verification"
-    ]
+    "categories": ["document-verification"]
   },
   {
     "name": "empty-search-01",
     "description": "حالت خالی ساده با آیکن و دکمه بازگشت.",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-search-02",
     "description": "کارت خالی با عبارت LTR و پیشنهادهای جستجو.",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-search-03",
     "description": "نوار جستجو، Select RTL و ایمیل LTR.",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-search-04",
     "description": "چیپ فیلتر، جستجوهای اخیر و منوی عملیات RTL.",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-search-05",
     "description": "صفحه کامل با سایدبار فیلتر، دسته‌های محبوب و اطلاع‌رسانی.",
-    "categories": [
-      "empty-search"
-    ]
+    "categories": ["empty-search"]
   },
   {
     "name": "empty-state-01",
     "description": "حالت خالی ساده با آیکون صندوق.",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "empty-state-02",
     "description": "کارت خالی پروژه با آیکون و دو CTA.",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "empty-state-03",
     "description": "حالت خالی با تصویر واقعی فروشگاه.",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "empty-state-04",
     "description": "خالی داخل صفحه فهرست با فیلتر و جستجو.",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "empty-state-05",
     "description": "حالت خالی متحرک با آیکون و حلقهٔ نرم.",
-    "categories": [
-      "empty-state"
-    ]
+    "categories": ["empty-state"]
   },
   {
     "name": "error-state-01",
     "description": "خطای ساده با آیکون هشدار.",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "error-state-02",
     "description": "کارت خطای سرور با کد و دو CTA.",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "error-state-03",
     "description": "خطای بارگذاری با تصویر واقعی.",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "error-state-04",
     "description": "خطا داخل صفحه داشبورد گزارش.",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "error-state-05",
     "description": "خطای آفلاین متحرک با آیکون.",
-    "categories": [
-      "error-state"
-    ]
+    "categories": ["error-state"]
   },
   {
     "name": "event-details-01",
     "description": "کارت ساده جزئیات رویداد با تاریخ شمسی.",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-details-02",
     "description": "کارت رویداد با مهمان‌ها، بج و پذیرش/رد.",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-details-03",
     "description": "فرم ویرایش رویداد با زمان LTR و ایمیل.",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-details-04",
     "description": "داشبورد جزئیات با دستور جلسه و شرکت‌کنندگان.",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-details-05",
     "description": "جزئیات پیشرفته با تب، ویرایش و پیوست.",
-    "categories": [
-      "event-details"
-    ]
+    "categories": ["event-details"]
   },
   {
     "name": "event-list-01",
     "description": "فهرست ساده رویداد با تاریخ شمسی.",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "event-list-02",
     "description": "کارت روز/ماه شمسی، بج نوع و مکان.",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "event-list-03",
     "description": "جستجو، Select نوع و دعوت ایمیل LTR.",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "event-list-04",
     "description": "چیپ فیلتر، وضعیت و منوی عملیات RTL.",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "event-list-05",
     "description": "مرکز رویداد با گروه، انتخاب چندتایی و تنظیمات.",
-    "categories": [
-      "event-list"
-    ]
+    "categories": ["event-list"]
   },
   {
     "name": "faq-01",
     "description": "آکاردئون سادهٔ مرکزی با چند پرسش.",
-    "categories": [
-      "faq"
-    ]
+    "categories": ["faq"]
   },
   {
     "name": "faq-02",
     "description": "پرسش‌ها داخل کارت با بج و توضیح.",
-    "categories": [
-      "faq"
-    ]
+    "categories": ["faq"]
   },
   {
     "name": "faq-03",
     "description": "دو ستونه: معرفی و آکاردئون.",
-    "categories": [
-      "faq"
-    ]
+    "categories": ["faq"]
   },
   {
     "name": "faq-04",
     "description": "تب عمومی، صورتحساب و فنی با آکاردئون.",
-    "categories": [
-      "faq"
-    ]
+    "categories": ["faq"]
   },
   {
     "name": "faq-05",
     "description": "جستجو، فیلتر، مرتب‌سازی و فرم ایمیل پشتیبانی.",
-    "categories": [
-      "faq"
-    ]
+    "categories": ["faq"]
   },
   {
     "name": "feature-split-01",
     "description": "دو بخشی ساده: عنوان، توضیح و یک تصویر.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-02",
     "description": "دو بخشی با بج، چک‌لیست و دو CTA.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-03",
     "description": "تصویر تمام‌ارتفاع لبه‌به‌لبه در کنار متن.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-04",
     "description": "دو بخشی با آمار، نکات کلیدی و پیش‌نمایش محصول.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "feature-split-05",
     "description": "دو بخشی تعاملی: انتخاب قابلیت و تعویض پیش‌نمایش.",
-    "categories": [
-      "feature-split"
-    ]
+    "categories": ["feature-split"]
   },
   {
     "name": "features-01",
     "description": "شبکهٔ سادهٔ سه ستونه با آیکون و توضیح کوتاه.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-02",
     "description": "کارت‌های ویژگی با آیکون، توضیح و لینک جزئیات.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-03",
     "description": "ردیف‌های متناوب متن و تصویر برای معرفی قابلیت‌ها.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-04",
     "description": "شبکهٔ بنتویی با کارت بزرگ تصویر و کارت‌های کوچک.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "features-05",
     "description": "نمایش کامل با تب دسته‌ها، لیست قابلیت و تصویر محصول.",
-    "categories": [
-      "features"
-    ]
+    "categories": ["features"]
   },
   {
     "name": "file-manager-01",
     "description": "فهرست ساده پوشه و فایل.",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-manager-02",
     "description": "جستجو، مسیر LTR و فهرست فایل.",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-manager-03",
     "description": "پوشه‌ها، Select مرتب‌سازی و ایمیل اشتراک LTR.",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-manager-04",
     "description": "چیپ فیلتر، نمای فهرست/شبکه و منوی عملیات RTL.",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-manager-05",
     "description": "مدیر کامل با سایدبار پوشه، جدول و انتخاب چندتایی.",
-    "categories": [
-      "file-manager"
-    ]
+    "categories": ["file-manager"]
   },
   {
     "name": "file-upload-01",
     "description": "ناحیهٔ رها کردن ساده و دکمه بارگذاری.",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "file-upload-02",
     "description": "پیشرفت بارگذاری و نام فایل LTR.",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "file-upload-03",
     "description": "فرم با Select RTL، مسیر و ایمیل LTR.",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "file-upload-04",
     "description": "فهرست فایل‌ها با Progress و منوی عملیات RTL.",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "file-upload-05",
     "description": "مرکز بارگذاری با تنظیمات کناری و صف فایل‌ها.",
-    "categories": [
-      "file-upload"
-    ]
+    "categories": ["file-upload"]
   },
   {
     "name": "filters-01",
     "description": "سوییچ‌های پایهٔ موجودی، تخفیف و ارسال سریع.",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "filters-02",
     "description": "Selectهای دسته‌بندی، مرتب‌سازی و محدوده با RTL.",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "filters-03",
     "description": "جستجو، برند، قیمت LTR و ایمیل فروشنده.",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "filters-04",
     "description": "چیپ فعال، مرتب‌سازی و منوی عملیات RTL.",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "filters-05",
     "description": "مرکز فیلتر با سایدبار، facets و فهرست نتایج.",
-    "categories": [
-      "filters"
-    ]
+    "categories": ["filters"]
   },
   {
     "name": "footer-01",
     "description": "پابرگ ساده با کپی‌رایت.",
-    "categories": [
-      "footer"
-    ]
+    "categories": ["footer"]
   },
   {
     "name": "footer-02",
     "description": "لوگو، لینک‌های افقی و سال.",
-    "categories": [
-      "footer"
-    ]
+    "categories": ["footer"]
   },
   {
     "name": "footer-03",
     "description": "پابرگ چندستونه با معرفی برند.",
-    "categories": [
-      "footer"
-    ]
+    "categories": ["footer"]
   },
   {
     "name": "footer-04",
     "description": "عضویت خبرنامه به‌همراه ستون لینک‌ها.",
-    "categories": [
-      "footer"
-    ]
+    "categories": ["footer"]
   },
   {
     "name": "footer-05",
     "description": "پابرگ کامل با شبکه اجتماعی، خبرنامه و لینک‌های حقوقی.",
-    "categories": [
-      "footer"
-    ]
+    "categories": ["footer"]
   },
   {
     "name": "forgot-password-01",
     "description": "فرم بازیابی رمز عبور با ایمیل و پیام تأیید ارسال.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-02",
     "description": "بازیابی رمز عبور با شماره موبایل و کد تأیید.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-03",
     "description": "انتخاب روش بازیابی بین ایمیل و موبایل.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-04",
     "description": "صفحه بازیابی دو ستونه با تصویر کاور.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "forgot-password-05",
     "description": "بازیابی متمرکز با برند و وضعیت ارسال.",
-    "categories": [
-      "forgot-password"
-    ]
+    "categories": ["forgot-password"]
   },
   {
     "name": "header-01",
     "description": "سربرگ ساده فقط با عنوان صفحه.",
-    "categories": [
-      "header"
-    ]
+    "categories": ["header"]
   },
   {
     "name": "header-02",
     "description": "عنوان، توضیح کوتاه و یک دکمهٔ اکشن.",
-    "categories": [
-      "header"
-    ]
+    "categories": ["header"]
   },
   {
     "name": "header-03",
     "description": "مسیر صفحه، عنوان و دکمه‌های اکشن.",
-    "categories": [
-      "header"
-    ]
+    "categories": ["header"]
   },
   {
     "name": "header-04",
     "description": "سربرگ با توضیح و تب‌های بخش.",
-    "categories": [
-      "header"
-    ]
+    "categories": ["header"]
   },
   {
     "name": "header-05",
     "description": "سربرگ کامل با بج، تیم، اکشن و متادیتا.",
-    "categories": [
-      "header"
-    ]
+    "categories": ["header"]
   },
   {
     "name": "hero-01",
     "description": "معرفی سادهٔ مرکزی با برند، عنوان و یک دکمه.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-02",
     "description": "معرفی با بج، دو CTA و پس‌زمینهٔ ملایم.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-03",
     "description": "معرفی دو ستونه با تصویر تمام‌ارتفاع.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-04",
     "description": "معرفی تمام‌عرض با تصویر پس‌زمینه و پوشش گرادیان.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "hero-05",
     "description": "معرفی کامل با ناوبری، اثبات اجتماعی و تصویر محصول.",
-    "categories": [
-      "hero"
-    ]
+    "categories": ["hero"]
   },
   {
     "name": "identity-verification-01",
     "description": "فرم اطلاعات هویتی با نام، کد ملی، تاریخ تولد و موبایل.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-02",
     "description": "احراز هویت با آپلود کارت ملی و پیش‌نمایش مدرک.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-03",
     "description": "بررسی هویت با ثبت‌احوال، OTP و نتیجه تأیید.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-04",
     "description": "احراز هویت چندمرحله‌ای برای اطلاعات، موبایل، مدرک و تأیید.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-05",
     "description": "بررسی خلاصه اطلاعات و ویرایش هر بخش قبل از تأیید نهایی.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-06",
     "description": "وضعیت‌های احراز هویت: بررسی، تأیید، نیاز به اصلاح و رد.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "identity-verification-07",
     "description": "داشبورد حساب کاربری با وضعیت احراز هویت و اقدام بعدی.",
-    "categories": [
-      "identity-verification"
-    ]
+    "categories": ["identity-verification"]
   },
   {
     "name": "image-gallery-01",
     "description": "شبکهٔ سادهٔ شش تصویر.",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "image-gallery-02",
     "description": "کارت تصویر با عنوان و بج دسته.",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "image-gallery-03",
     "description": "جستجو، Select RTL و اشتراک ایمیل LTR.",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "image-gallery-04",
     "description": "پیش‌نمایش Dialog، چیپ فیلتر و منوی عملیات RTL.",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "image-gallery-05",
     "description": "مرکز گالری با آلبوم، فیلتر و پیش‌نمایش.",
-    "categories": [
-      "image-gallery"
-    ]
+    "categories": ["image-gallery"]
   },
   {
     "name": "inbox-01",
     "description": "فهرست سادهٔ صندوق پیام با آواتار و پیش‌نمایش.",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "inbox-02",
     "description": "خوانده‌نشده با نشان تعداد فارسی و ایمیل چپ‌چین.",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "inbox-03",
     "description": "جستجو و فیلتر پوشه با انتخابگر راست‌چین.",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "inbox-04",
     "description": "مرتب‌سازی و منوی عملیات ردیف راست‌چین.",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "inbox-05",
     "description": "مرکز کامل با پوشه، انتخاب گروهی و فوروارد ایمیل.",
-    "categories": [
-      "inbox"
-    ]
+    "categories": ["inbox"]
   },
   {
     "name": "invoice-01",
     "description": "خلاصه ساده فاکتور با تاریخ شمسی.",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "invoice-02",
     "description": "سند فاکتور با ردیف‌ها و مالیات.",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "invoice-03",
     "description": "فرم صدور فاکتور با فیلدهای LTR.",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "invoice-04",
     "description": "فهرست فاکتورها با فیلتر وضعیت.",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "invoice-05",
     "description": "جزئیات سند، جدول ردیف و فعالیت.",
-    "categories": [
-      "invoice"
-    ]
+    "categories": ["invoice"]
   },
   {
     "name": "license-plate-01",
     "description": "فرم ثبت پلاک خودرو با تأیید نهایی.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-02",
     "description": "ورود پلاک با پنل جزئیات و نوع حرف.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-03",
     "description": "ثبت خودرو همراه با پلاک و نوع وسیله.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-04",
     "description": "صفحه دو ستونه ثبت پلاک با تصویر کاور.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "license-plate-05",
     "description": "ثبت پلاک تاکسی فقط با حرف ت.",
-    "categories": [
-      "license-plate"
-    ]
+    "categories": ["license-plate"]
   },
   {
     "name": "loading-state-01",
     "description": "اسپینر تمام‌صفحه ساده.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-02",
     "description": "اسکلتون کارت با تصویر و متن.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-03",
     "description": "اسکلتون فهرست کاربران.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-04",
     "description": "اسکلتون جدول داده.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-05",
     "description": "اسکلتون فرم.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-06",
     "description": "اسکلتون داشبورد و آمار.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-07",
     "description": "اسپینر داخل دکمه و بج.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-08",
     "description": "اورلی بارگذاری روی محتوا.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-09",
     "description": "نوار پیشرفت و حالت نامشخص.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "loading-state-10",
     "description": "گالری اسکلتون + اسپینر Empty.",
-    "categories": [
-      "loading-state"
-    ]
+    "categories": ["loading-state"]
   },
   {
     "name": "login-01",
     "description": "فرم ورود ساده.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-02",
     "description": "صفحه ورود دو ستونه با تصویر کاور.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-03",
     "description": "صفحه ورود با پس‌زمینه ملایم.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-04",
     "description": "صفحه ورود با فرم و تصویر.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "login-05",
     "description": "صفحه ورود فقط با ایمیل.",
-    "categories": [
-      "authentication",
-      "login"
-    ]
+    "categories": ["authentication", "login"]
   },
   {
     "name": "logo-cloud-01",
     "description": "ردیف سادهٔ لوگو با خاکستری‌سازی و هاور.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-02",
     "description": "شبکهٔ کارت‌دار برای نمایش لوگوهای مشتریان.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-03",
     "description": "دو ردیف مارکی متحرک از لوگوها.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-04",
     "description": "ویترین لوگو با آمار تیم و راهنمای جایگزینی فایل.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "logo-cloud-05",
     "description": "ویترین کامل لوگو با شبکه، اثبات اجتماعی و CTA.",
-    "categories": [
-      "logo-cloud"
-    ]
+    "categories": ["logo-cloud"]
   },
   {
     "name": "maintenance-01",
     "description": "تعمیر و نگهداری ساده با آیکون آچار.",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "maintenance-02",
     "description": "کارت نگهداری برنامه‌ریزی‌شده با زمان و CTA.",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "maintenance-03",
     "description": "تعمیر و نگهداری با تصویر تیم فنی.",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "maintenance-04",
     "description": "محدودیت سرویس داخل داشبورد با زمان‌بندی.",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "maintenance-05",
     "description": "تعمیر و نگهداری متحرک با آچار و چرخ‌دنده.",
-    "categories": [
-      "maintenance"
-    ]
+    "categories": ["maintenance"]
   },
   {
     "name": "media-grid-01",
     "description": "شبکهٔ ساده تصویر، ویدیو، صوت و سند.",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "media-grid-02",
     "description": "کارت رسانه با بج نوع و اندازه LTR.",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "media-grid-03",
     "description": "جستجو، Select نوع/مرتب‌سازی و ایمیل اشتراک LTR.",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "media-grid-04",
     "description": "چیپ فیلتر و منوی عملیات RTL برای هر رسانه.",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "media-grid-05",
     "description": "کتابخانه رسانه با فیلتر نوع، انتخاب چندتایی و تنظیمات.",
-    "categories": [
-      "media-grid"
-    ]
+    "categories": ["media-grid"]
   },
   {
     "name": "message-list-01",
     "description": "فهرست سادهٔ پیام با آواتار و پیش‌نمایش.",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "message-list-02",
     "description": "خوانده‌نشده، ایمیل LTR و نشان تعداد.",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "message-list-03",
     "description": "جستجو و فیلتر پوشه با Select راست‌چین.",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "message-list-04",
     "description": "مرتب‌سازی و منوی عملیات ردیف RTL.",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "message-list-05",
     "description": "مرکز کامل با پوشه، انتخاب گروهی و فوروارد ایمیل.",
-    "categories": [
-      "message-list"
-    ]
+    "categories": ["message-list"]
   },
   {
     "name": "mobile-navigation-01",
     "description": "منوی کشویی ساده از پایین با لینک‌ها.",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "mobile-navigation-02",
     "description": "شیت کناری با لینک‌ها و دکمه‌های ورود/شروع.",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "mobile-navigation-03",
     "description": "میانبرهای آیکونی در دراور پایین.",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "mobile-navigation-04",
     "description": "منوی گروه‌بندی‌شده با بخش‌های جمع‌شونده.",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "mobile-navigation-05",
     "description": "منوی کامل با پروفایل، جستجو، لینک و اکشن‌ها.",
-    "categories": [
-      "mobile-navigation"
-    ]
+    "categories": ["mobile-navigation"]
   },
   {
     "name": "national-id-01",
     "description": "فرم ورود کد ملی با اعتبارسنجی و تأیید.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-02",
     "description": "اعتبارسنجی لحظه‌ای کد ملی با پنل نتیجه.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-03",
     "description": "فرم مشخصات هویتی با نام، کد ملی و تاریخ تولد.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-04",
     "description": "صفحه دو ستونه ورود کد ملی با تصویر کاور.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "national-id-05",
     "description": "ورود متمرکز کد ملی با نشان وضعیت اعتبار.",
-    "categories": [
-      "national-id"
-    ]
+    "categories": ["national-id"]
   },
   {
     "name": "navbar-01",
     "description": "نوار ساده با لوگو، لینک‌ها و ورود.",
-    "categories": [
-      "navbar"
-    ]
+    "categories": ["navbar"]
   },
   {
     "name": "navbar-02",
     "description": "نوار با CTA و منوی موبایل شیت.",
-    "categories": [
-      "navbar"
-    ]
+    "categories": ["navbar"]
   },
   {
     "name": "navbar-03",
     "description": "لینک‌های مرکزی با جستجو و شیت موبایل.",
-    "categories": [
-      "navbar"
-    ]
+    "categories": ["navbar"]
   },
   {
     "name": "navbar-04",
     "description": "منوی کشویی محصولات با Navigation Menu.",
-    "categories": [
-      "navbar"
-    ]
+    "categories": ["navbar"]
   },
   {
     "name": "navbar-05",
     "description": "نوار اپ با بنر، جستجو، آواتار و منوی موبایل.",
-    "categories": [
-      "navbar"
-    ]
+    "categories": ["navbar"]
   },
   {
     "name": "newsletter-01",
     "description": "عضویت سادهٔ مرکزی با ایمیل و وضعیت تأیید.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-02",
     "description": "کارت خبرنامه با لیست مزایا و عضویت.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-03",
     "description": "خبرنامه دو ستونه با پیش‌نمایش شماره‌های اخیر.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-04",
     "description": "انتخاب موضوع‌های خبرنامه با سوئیچ.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-05",
     "description": "بخش کامل خبرنامه با مزایا، عضویت و اثبات اجتماعی.",
-    "categories": [
-      "newsletter"
-    ]
+    "categories": ["newsletter"]
   },
   {
     "name": "newsletter-form-01",
     "description": "عضویت خبرنامه با تأیید ایمیل.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-02",
     "description": "فرم عضویت فشردهٔ درون‌خطی.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-03",
     "description": "خبرنامه موضوعی با سوئیچ‌های RTL.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "newsletter-form-04",
     "description": "عضویت متمرکز با برند و وضعیت تأیید.",
-    "categories": [
-      "newsletter-form"
-    ]
+    "categories": ["newsletter-form"]
   },
   {
     "name": "not-found-block-01",
     "description": "۴۰۴ ساده با آیکون.",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "not-found-block-02",
     "description": "کارت ۴۰۴ با خانه و جستجو.",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "not-found-block-03",
     "description": "۴۰۴ با تصویر مسیر.",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "not-found-block-04",
     "description": "محصول/منبع پیدا نشد داخل صفحه.",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "not-found-block-05",
     "description": "۴۰۴ متحرک با بج وضعیت.",
-    "categories": [
-      "not-found-block"
-    ]
+    "categories": ["not-found-block"]
   },
   {
     "name": "notifications-01",
     "description": "فهرست سادهٔ اعلان‌های اخیر.",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "notifications-02",
     "description": "اعلان با آیکون نوع و نشان خوانده‌نشده.",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "notifications-03",
     "description": "جستجو، فیلتر Select RTL و ایمیل هشدار LTR.",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "notifications-04",
     "description": "منوی عملیات RTL و علامت‌گذاری گروهی.",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "notifications-05",
     "description": "مرکز کامل با دسته، خلاصه ایمیل و منوی RTL.",
-    "categories": [
-      "notifications"
-    ]
+    "categories": ["notifications"]
   },
   {
     "name": "order-history-01",
     "description": "جدول سادهٔ سفارش‌ها با وضعیت و مبلغ.",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-history-02",
     "description": "کارت سفارش با تصویر و جزئیات کوتاه.",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-history-03",
     "description": "جستجو و فیلتر وضعیت با Select راست‌چین.",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-history-04",
     "description": "جدول با منوی عملیات راست‌چین.",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-history-05",
     "description": "مرکز کامل با آمار، فیلتر، صفحه‌بندی و ارسال رسید.",
-    "categories": [
-      "order-history"
-    ]
+    "categories": ["order-history"]
   },
   {
     "name": "order-summary-01",
     "description": "خلاصه سادهٔ اقلام و جمع کل.",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "order-summary-02",
     "description": "کارت خلاصه با تصویر کالا و وضعیت پرداخت.",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "order-summary-03",
     "description": "جزئیات باز/بسته و Select فرمت رسید راست‌چین.",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "order-summary-04",
     "description": "منوی عملیات RTL و آدرس تحویل.",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "order-summary-05",
     "description": "تأیید سفارش با تایم‌لاین، تحویل و ارسال رسید ایمیل.",
-    "categories": [
-      "order-summary"
-    ]
+    "categories": ["order-summary"]
   },
   {
     "name": "otp-01",
     "description": "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "otp"
-    ]
+    "categories": ["otp"]
   },
   {
     "name": "otp-02",
     "description": "تأیید کد یکبارمصرف — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "otp"
-    ]
+    "categories": ["otp"]
   },
   {
     "name": "payment-01",
     "description": "خلاصه ساده مبلغ قابل پرداخت.",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-02",
     "description": "انتخاب روش پرداخت با رادیو.",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-03",
     "description": "فرم کارت بانکی با فیلدهای LTR.",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-04",
     "description": "داشبورد پرداخت با کارت ذخیره‌شده و خلاصه.",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-05",
     "description": "پرداخت پیشرفته با کارت، کیف پول و رمز پویا.",
-    "categories": [
-      "payment"
-    ]
+    "categories": ["payment"]
   },
   {
     "name": "payment-methods-01",
     "description": "فهرست ساده کارت‌های ذخیره‌شده.",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "payment-methods-02",
     "description": "کارت‌های روش پرداخت با بج پیش‌فرض.",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "payment-methods-03",
     "description": "فرم افزودن کارت با فیلدهای LTR.",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "payment-methods-04",
     "description": "مدیریت فهرست با پیش‌فرض و منوی عملیات.",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "payment-methods-05",
     "description": "فیلتر، افزودن کارت و تنظیمات پیشرفته.",
-    "categories": [
-      "payment-methods"
-    ]
+    "categories": ["payment-methods"]
   },
   {
     "name": "personal-info-01",
     "description": "فرم اطلاعات شخصی ساده داخل کارت.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-02",
     "description": "فرم پروفایل مرکزی با نام، تماس و بیو.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-03",
     "description": "فرم اطلاعات شخصی همراه با آدرس و استان.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-04",
     "description": "فرم دو ستونه اطلاعات شخصی با تصویر کاور.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "personal-info-05",
     "description": "ویرایش پروفایل با آواتار و تنظیمات نمایش.",
-    "categories": [
-      "personal-info"
-    ]
+    "categories": ["personal-info"]
   },
   {
     "name": "plan-selection-01",
     "description": "انتخاب طرح در فلو با رادیو و دکمه ادامه.",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "plan-selection-02",
     "description": "کارت‌های انتخاب‌پذیر در مرحله راه‌اندازی.",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "plan-selection-03",
     "description": "پیکربندی ارتقا: طرح، صندلی و زمان اعمال.",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "plan-selection-04",
     "description": "ویزارد با نشان مرحله و خلاصه قبل از پرداخت.",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "plan-selection-05",
     "description": "فلو کامل انتخاب طرح با تیم و تأیید.",
-    "categories": [
-      "plan-selection"
-    ]
+    "categories": ["plan-selection"]
   },
   {
     "name": "preview"
@@ -2508,859 +1791,606 @@
   {
     "name": "pricing-01",
     "description": "دو پلن ساده با قیمت و دکمه.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-02",
     "description": "سه کارت پلن با لیست امکانات و پلن پیشنهادی.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-03",
     "description": "قیمت‌گذاری با سوئیچ ماهانه / سالانه.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-04",
     "description": "جدول مقایسهٔ قابلیت‌های پلن‌ها.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "pricing-05",
     "description": "صفحهٔ کامل قیمت با سوئیچ، اثبات اجتماعی و پرسش‌های رایج.",
-    "categories": [
-      "pricing"
-    ]
+    "categories": ["pricing"]
   },
   {
     "name": "product-details-01",
     "description": "صفحهٔ ساده: تصویر، قیمت و افزودن به سبد.",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-details-02",
     "description": "گالری تصاویر و انتخاب سایز با Select راست‌چین.",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-details-03",
     "description": "رنگ، اندازه، تعداد و امتیاز محصول.",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-details-04",
     "description": "تب توضیحات/مشخصات/نظرات و منوی اشتراک RTL.",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-details-05",
     "description": "صفحهٔ کامل: گالری، واریانت، FAQ، مرتبط و اطلاع ایمیل.",
-    "categories": [
-      "product-details"
-    ]
+    "categories": ["product-details"]
   },
   {
     "name": "product-grid-01",
     "description": "شبکهٔ سادهٔ محصولات با تصویر و قیمت.",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "product-grid-02",
     "description": "کارت محصول با نشان، امتیاز و افزودن به سبد.",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "product-grid-03",
     "description": "جستجو و فیلتر دسته با Select راست‌چین.",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "product-grid-04",
     "description": "مرتب‌سازی، علاقه‌مندی و منوی عملیات RTL.",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "product-grid-05",
     "description": "فروشگاه کامل با فیلتر، نمایش شبکه/لیست و خبرنامه.",
-    "categories": [
-      "product-grid"
-    ]
+    "categories": ["product-grid"]
   },
   {
     "name": "profile-01",
     "description": "نمای سادهٔ پروفایل با آواتار و بیو.",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-02",
     "description": "کارت پروفایل با آمار، نشان و دکمه‌های تعامل.",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-03",
     "description": "فرم ویرایش با پلیس‌هولدر فارسی و ایمیل LTR.",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-04",
     "description": "کاور، منوی عملیات RTL و تب نمای کلی/فعالیت.",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-05",
     "description": "مرکز کامل با ناوبری، ویرایش، حریم خصوصی و منوهای RTL.",
-    "categories": [
-      "profile"
-    ]
+    "categories": ["profile"]
   },
   {
     "name": "profile-form-01",
     "description": "ویرایش پروفایل با نام نمایشی و بیو.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-02",
     "description": "پروفایل عمومی با آواتار و اطلاعات تماس.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-03",
     "description": "لینک‌های اجتماعی و سوئیچ‌های حریم خصوصی RTL.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "profile-form-04",
     "description": "تکمیل پروفایل دو ستونه با تصویر کاور.",
-    "categories": [
-      "profile-form"
-    ]
+    "categories": ["profile-form"]
   },
   {
     "name": "recent-items-01",
     "description": "لیست سادهٔ موارد اخیراً بازشده.",
-    "categories": [
-      "recent-items"
-    ]
+    "categories": ["recent-items"]
   },
   {
     "name": "recent-items-02",
     "description": "کارت‌ها با مسیر چپ‌چین و ایمیل مالک.",
-    "categories": [
-      "recent-items"
-    ]
+    "categories": ["recent-items"]
   },
   {
     "name": "recent-items-03",
     "description": "جستجو و فیلتر نوع با Select راست‌چین.",
-    "categories": [
-      "recent-items"
-    ]
+    "categories": ["recent-items"]
   },
   {
     "name": "recent-items-04",
     "description": "سنجاق و منوی عملیات راست‌چین.",
-    "categories": [
-      "recent-items"
-    ]
+    "categories": ["recent-items"]
   },
   {
     "name": "recent-items-05",
     "description": "مرکز موارد اخیر با فیلتر، سنجاق و اشتراک ایمیل.",
-    "categories": [
-      "recent-items"
-    ]
+    "categories": ["recent-items"]
   },
   {
     "name": "reset-password-01",
     "description": "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "reset-password"
-    ]
+    "categories": ["reset-password"]
   },
   {
     "name": "reset-password-02",
     "description": "تغییر رمز عبور — نمونهٔ راست‌چین فارسی",
-    "categories": [
-      "reset-password"
-    ]
+    "categories": ["reset-password"]
   },
   {
     "name": "schedule-01",
     "description": "برنامه ساده روز با تاریخ شمسی.",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "schedule-02",
     "description": "کارت‌های اسلات روز با نوع و مکان.",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "schedule-03",
     "description": "فرم افزودن اسلات با زمان LTR.",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "schedule-04",
     "description": "برد هفتگی شمسی از شنبه تا جمعه.",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "schedule-05",
     "description": "محور روز، فیلتر، فهرست و تنظیمات.",
-    "categories": [
-      "schedule"
-    ]
+    "categories": ["schedule"]
   },
   {
     "name": "search-01",
     "description": "نوار جستجوی ساده با پلیس‌هولدر فارسی.",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-02",
     "description": "جستجوهای اخیر و پیشنهاد با ایمیل LTR.",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-03",
     "description": "فیلتر دسته Select RTL و جستجوی ایمیل LTR.",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-04",
     "description": "جستجوی سریع با منوی عملیات RTL.",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-05",
     "description": "مرکز جستجو با ناوبری دسته و نتایج.",
-    "categories": [
-      "search"
-    ]
+    "categories": ["search"]
   },
   {
     "name": "search-results-01",
     "description": "فهرست سادهٔ نتایج با تعداد.",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "search-results-02",
     "description": "نتایج با مسیر LTR، نشان نوع و جستجوی مجدد.",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "search-results-03",
     "description": "مرتب‌سازی و فیلتر Select RTL با ایمیل LTR.",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "search-results-04",
     "description": "ذخیره نتیجه و منوی عملیات RTL.",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "search-results-05",
     "description": "صفحهٔ کامل با فیلتر کناری و صفحه‌بندی.",
-    "categories": [
-      "search-results"
-    ]
+    "categories": ["search-results"]
   },
   {
     "name": "security-settings-01",
     "description": "سوئیچ‌های ساده برای دو مرحله‌ای و هشدار ورود.",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "security-settings-02",
     "description": "تب رمز عبور و دو مرحله‌ای با ایمیل LTR.",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "security-settings-03",
     "description": "روش تأیید و مهلت نشست با Select راست‌چین.",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "security-settings-04",
     "description": "نشست‌ها با منوی عملیات RTL و تغییر رمز.",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "security-settings-05",
     "description": "مرکز امنیت با کد بازیابی، تاریخچه ورود و منوی RTL.",
-    "categories": [
-      "security-settings"
-    ]
+    "categories": ["security-settings"]
   },
   {
     "name": "sessions-01",
     "description": "کارت سادهٔ نشست فعال همین دستگاه.",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "sessions-02",
     "description": "تب نشست‌های فعال و ایمیل هشدار LTR.",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "sessions-03",
     "description": "مهلت و شهر با Select راست‌چین.",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "sessions-04",
     "description": "فهرست نشست با فیلتر و منوی عملیات RTL.",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "sessions-05",
     "description": "مرکز کامل فعال، معتبر، تنظیمات و تاریخچه.",
-    "categories": [
-      "sessions"
-    ]
+    "categories": ["sessions"]
   },
   {
     "name": "shopping-cart-01",
     "description": "لیست سادهٔ سبد با تصویر و جمع کل.",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "shopping-cart-02",
     "description": "تغییر تعداد، حذف آیتم و خلاصه سفارش.",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "shopping-cart-03",
     "description": "کد تخفیف فارسی و Select روش ارسال راست‌چین.",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "shopping-cart-04",
     "description": "منوی عملیات RTL، ذخیره برای بعد و بسته‌بندی هدیه.",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "shopping-cart-05",
     "description": "سبد کامل با پیشنهاد، تخفیف، ارسال و رسید ایمیل.",
-    "categories": [
-      "shopping-cart"
-    ]
+    "categories": ["shopping-cart"]
   },
   {
     "name": "sidebar-01",
     "description": "سایدبار با آیکن، offcanvas راست‌چین.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-02",
     "description": "سایدبار متنی بدون آیکن.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-03",
     "description": "منوی تو در تو با گروه‌های جمع‌شونده.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-04",
     "description": "سایدبار شناور با کشوی نرم Popover.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-05",
     "description": "جمع‌شونده به نوار آیکن (inset).",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "sidebar-06",
     "description": "سایدبار راست‌چین با منوی جمع‌شونده و حساب کاربری.",
-    "categories": [
-      "sidebar",
-      "dashboard"
-    ]
+    "categories": ["sidebar", "dashboard"]
   },
   {
     "name": "signup-01",
     "description": "فرم ثبت‌نام ساده.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-02",
     "description": "صفحه ثبت‌نام دو ستونه با تصویر کاور.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-03",
     "description": "صفحه ثبت‌نام با پس‌زمینه ملایم.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-04",
     "description": "صفحه ثبت‌نام با فرم و تصویر.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "signup-05",
     "description": "فرم ثبت‌نام ساده با ورود اجتماعی.",
-    "categories": [
-      "authentication",
-      "signup"
-    ]
+    "categories": ["authentication", "signup"]
   },
   {
     "name": "sort-filter-01",
     "description": "دو Select پایه برای مرتب‌سازی و فیلتر.",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "sort-filter-02",
     "description": "چیپ فیلتر و منوی مرتب‌سازی RTL.",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "sort-filter-03",
     "description": "جستجو، Selectها، قیمت و ایمیل LTR.",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "sort-filter-04",
     "description": "نوار ابزار با چیپ، Dropdown مرتب‌سازی و منو.",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "sort-filter-05",
     "description": "مرکز کامل با سایدبار مرتب‌سازی/فیلتر و نتایج.",
-    "categories": [
-      "sort-filter"
-    ]
+    "categories": ["sort-filter"]
   },
   {
     "name": "stats-01",
     "description": "سه عدد بزرگ مرکزی با برچسب فارسی.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-02",
     "description": "کارت‌های KPI با روند صعودی/نزولی فارسی.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-03",
     "description": "اهداف ماه شمسی با نوار پیشرفت.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-04",
     "description": "نمودار میله‌ای هفتهٔ شمسی با آمار کناری.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "stats-05",
     "description": "داشبورد کامل با تب دوره، شهرها و گزارش.",
-    "categories": [
-      "stats"
-    ]
+    "categories": ["stats"]
   },
   {
     "name": "steps-01",
     "description": "فهرست شماره‌دار سادهٔ مراحل.",
-    "categories": [
-      "steps"
-    ]
+    "categories": ["steps"]
   },
   {
     "name": "steps-02",
     "description": "کارت‌های مرحله با شماره و بج.",
-    "categories": [
-      "steps"
-    ]
+    "categories": ["steps"]
   },
   {
     "name": "steps-03",
     "description": "زمان‌بندی عمودی با وضعیت انجام.",
-    "categories": [
-      "steps"
-    ]
+    "categories": ["steps"]
   },
   {
     "name": "steps-04",
     "description": "مراحل تعاملی با Select نوع فرآیند.",
-    "categories": [
-      "steps"
-    ]
+    "categories": ["steps"]
   },
   {
     "name": "steps-05",
     "description": "ویزارد کامل با فرم و انتخابگر.",
-    "categories": [
-      "steps"
-    ]
+    "categories": ["steps"]
   },
   {
     "name": "subscription-01",
     "description": "وضعیت اشتراک فعلی با تمدید شمسی.",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "subscription-02",
     "description": "مصرف دوره، تمدید و کارت پرداخت.",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "subscription-03",
     "description": "فرم تغییر طرح یا لغو اشتراک.",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "subscription-04",
     "description": "داشبورد مصرف و صورت‌حساب دوره.",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "subscription-05",
     "description": "وضعیت، تغییر طرح و لغو با تب.",
-    "categories": [
-      "subscription"
-    ]
+    "categories": ["subscription"]
   },
   {
     "name": "success-state-01",
     "description": "موفقیت ساده با آیکون تیک.",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "success-state-02",
     "description": "کارت پرداخت موفق با کد پیگیری.",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "success-state-03",
     "description": "موفقیت با تصویر جشن ثبت‌نام.",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "success-state-04",
     "description": "موفقیت انتشار داخل داشبورد استقرار.",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "success-state-05",
     "description": "موفقیت متحرک با تیک و حلقهٔ سبز.",
-    "categories": [
-      "success-state"
-    ]
+    "categories": ["success-state"]
   },
   {
     "name": "support-form-01",
     "description": "درخواست پشتیبانی با انتخاب موضوع و شماره پیگیری.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-02",
     "description": "تیکت پشتیبانی با انتخاب اولویت.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-03",
     "description": "درخواست پشتیبانی چندمرحله‌ای با بازبینی نهایی.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "support-form-04",
     "description": "وضعیت تیکت پشتیبانی با تب‌های باز / در انتظار / حل‌شده.",
-    "categories": [
-      "support-form"
-    ]
+    "categories": ["support-form"]
   },
   {
     "name": "team-01",
     "description": "فهرست متنی سادهٔ اعضای تیم.",
-    "categories": [
-      "team"
-    ]
+    "categories": ["team"]
   },
   {
     "name": "team-02",
     "description": "کارت عضو با آواتار، نقش و واحد.",
-    "categories": [
-      "team"
-    ]
+    "categories": ["team"]
   },
   {
     "name": "team-03",
     "description": "عضو ویژه کنار فهرست کوتاه تیم.",
-    "categories": [
-      "team"
-    ]
+    "categories": ["team"]
   },
   {
     "name": "team-04",
     "description": "فیلتر واحد با Select راست‌چین.",
-    "categories": [
-      "team"
-    ]
+    "categories": ["team"]
   },
   {
     "name": "team-05",
     "description": "جستجو، فیلتر، مرتب‌سازی و فرم پیوستن.",
-    "categories": [
-      "team"
-    ]
+    "categories": ["team"]
   },
   {
     "name": "testimonials-01",
     "description": "یک نقل‌قول مرکزی با آواتار و نقش.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-02",
     "description": "سه کارت نظر با ستاره و عکس پروفایل.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-03",
     "description": "داستان ویژه با تصویر بزرگ و دو نظر کناری.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-04",
     "description": "تعویض نظر با تب و آواتار مشتریان.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "testimonials-05",
     "description": "گالری کامل نظرات با امتیاز، تصویر و CTA.",
-    "categories": [
-      "testimonials"
-    ]
+    "categories": ["testimonials"]
   },
   {
     "name": "user-management-01",
     "description": "جدول سادهٔ کاربران با وضعیت و تاریخ عضویت.",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "user-management-02",
     "description": "جدول با آواتار، نقش و ایمیل چپ‌چین.",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "user-management-03",
     "description": "جستجو و فیلتر وضعیت و نقش با Select راست‌چین.",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "user-management-04",
     "description": "انتخاب گروهی، تغییر نقش و منوی عملیات RTL.",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "user-management-05",
     "description": "مرکز کامل با آمار، فیلتر، صفحه‌بندی و دعوت.",
-    "categories": [
-      "user-management"
-    ]
+    "categories": ["user-management"]
   },
   {
     "name": "wishlist-01",
     "description": "شبکهٔ سادهٔ علاقه‌مندی با تصویر و قیمت.",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   },
   {
     "name": "wishlist-02",
     "description": "کارت با افزودن به سبد و حذف از لیست.",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   },
   {
     "name": "wishlist-03",
     "description": "جستجو و فیلتر دسته با Select راست‌چین.",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   },
   {
     "name": "wishlist-04",
     "description": "مرتب‌سازی و منوی عملیات RTL با وضعیت موجودی.",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   },
   {
     "name": "wishlist-05",
     "description": "مرکز کامل با انتخاب گروهی، شبکه/لیست و اشتراک ایمیل.",
-    "categories": [
-      "wishlist"
-    ]
+    "categories": ["wishlist"]
   }
 ]

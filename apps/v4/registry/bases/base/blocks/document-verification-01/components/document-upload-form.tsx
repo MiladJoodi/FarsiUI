@@ -134,7 +134,7 @@ export default function DocumentUploadForm() {
               className="flex min-h-32 w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed bg-muted/40 px-4 py-6 text-center transition-colors hover:bg-muted/70"
             >
               {preview ? (
-                // eslint-disable-next-line @next/next/no-img-element
+                 
                 <img
                   src={preview}
                   alt="پیش‌نمایش مدرک"

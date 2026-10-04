@@ -241,7 +241,7 @@ export async function ComponentVariantPreview({
         // Build sized source strings; only highlight the default size to keep SSR fast.
         const sizedEntries = await Promise.all(
           BUTTON_SIZE_OPTIONS.map(async (option) => {
-            let sizedSource =
+            const sizedSource =
               example.demo === "as-link"
                 ? buildAsLinkCode(option.id)
                 : buildSizedCode(example, option.id)
