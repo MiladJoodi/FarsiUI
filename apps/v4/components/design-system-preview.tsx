@@ -5,13 +5,23 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
   type ReactNode,
 } from "react"
 
 import {
+  DESIGN_SYSTEM_STORAGE_KEY,
+  DESIGN_SYSTEM_STYLE_CLASS,
+  normalizeDesignSystemId,
+  persistDesignSystemId,
+  type DesignSystemCookieId,
+} from "@/lib/design-system"
+import {
+  isDesignSystemStyleLoaded,
   loadDesignSystemStyle,
   markDefaultDesignSystemStyleLoaded,
+  markDesignSystemStyleLoaded,
   schedulePrefetchDesignSystemStyles,
   type LoadableDesignSystemId,
 } from "@/lib/design-system-style-loader"
@@ -68,7 +78,6 @@ export const DESIGN_SYSTEM_PRESETS = [
 export type DesignSystemId = (typeof DESIGN_SYSTEM_PRESETS)[number]["id"]
 
 const DEFAULT_DESIGN_SYSTEM: DesignSystemId = "default"
-const STORAGE_KEY = "design-system-preview"
 
 type DesignSystemPreviewContextType = {
   designSystemId: DesignSystemId
@@ -89,16 +98,6 @@ function resolvePreset(id: string) {
     DESIGN_SYSTEM_PRESETS.find((preset) => preset.id === id) ??
     DESIGN_SYSTEM_PRESETS[0]
   )
-}
-
-function normalizeStoredId(stored: string | null): DesignSystemId | null {
-  if (!stored) return null
-  // Aether was replaced by Glass (فیروزه).
-  const id = stored === "aether" ? "glass" : stored
-  if (DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) {
-    return id as DesignSystemId
-  }
-  return null
 }
 
 function applyStyleRootToBody(body: HTMLElement, styleRootClass: string) {
@@ -133,38 +132,59 @@ export function DesignSystemPreviewProvider({
   children: ReactNode
   initialDesignSystem?: DesignSystemId
 }) {
-  const [designSystemId, setDesignSystemIdState] = useState<DesignSystemId>(
-    () => initialDesignSystem ?? DEFAULT_DESIGN_SYSTEM
-  )
+  const bootId = initialDesignSystem ?? DEFAULT_DESIGN_SYSTEM
+  const [designSystemId, setDesignSystemIdState] =
+    useState<DesignSystemId>(bootId)
   const [hydrated, setHydrated] = useState(false)
-  const [styleReady, setStyleReady] = useState(
-    () => (initialDesignSystem ?? DEFAULT_DESIGN_SYSTEM) === "default"
-  )
+  const [styleReady, setStyleReady] = useState(true)
 
-  useEffect(() => {
+  // Before paint: honor localStorage if it differs from the cookie-based boot,
+  // and load that CSS immediately so we never flash an unstyled shell.
+  useLayoutEffect(() => {
     markDefaultDesignSystemStyleLoaded()
-    const raw = window.localStorage.getItem(STORAGE_KEY)
+    if (bootId !== "default") {
+      markDesignSystemStyleLoaded(bootId as LoadableDesignSystemId)
+    }
+
+    const raw = window.localStorage.getItem(DESIGN_SYSTEM_STORAGE_KEY)
     if (raw === "aether") {
-      window.localStorage.setItem(STORAGE_KEY, "glass")
+      window.localStorage.setItem(DESIGN_SYSTEM_STORAGE_KEY, "glass")
     }
-    const stored = normalizeStoredId(raw)
-    if (stored) {
-      if (stored !== "default") setStyleReady(false)
-      setDesignSystemIdState(stored)
+    const stored = normalizeDesignSystemId(raw) as DesignSystemId
+    const next = stored
+    const preset = resolvePreset(next)
+
+    setDesignSystemIdState(next)
+    persistDesignSystemId(next as DesignSystemCookieId)
+
+    if (isDesignSystemStyleLoaded(next as LoadableDesignSystemId)) {
+      applyStyleRootClass(preset.styleRootClass)
+      setStyleReady(true)
+      setHydrated(true)
+      schedulePrefetchDesignSystemStyles(next as LoadableDesignSystemId)
+      return
     }
-    setHydrated(true)
-    // Warm other style chunks in idle time so the picker opens without hitch.
-    schedulePrefetchDesignSystemStyles(
-      (stored ?? DEFAULT_DESIGN_SYSTEM) as LoadableDesignSystemId
-    )
-  }, [])
+
+    setStyleReady(false)
+    void loadDesignSystemStyle(next as LoadableDesignSystemId)
+      .then(() => {
+        applyStyleRootClass(preset.styleRootClass)
+        setStyleReady(true)
+      })
+      .catch(() => setStyleReady(true))
+      .finally(() => {
+        setHydrated(true)
+        schedulePrefetchDesignSystemStyles(next as LoadableDesignSystemId)
+      })
+  }, [bootId])
 
   useEffect(() => {
     if (!hydrated) return
-    window.localStorage.setItem(STORAGE_KEY, designSystemId)
+    persistDesignSystemId(designSystemId as DesignSystemCookieId)
   }, [designSystemId, hydrated])
 
-  // Load CSS chunk for the active design system, then apply body + iframe classes.
+  // Load CSS for the active design system, then swap body + iframe classes.
+  // Keep the previous style-* class until the new chunk is ready (no FOUC).
   useEffect(() => {
     if (!hydrated) return
 
@@ -172,8 +192,13 @@ export function DesignSystemPreviewProvider({
     const id = designSystemId as LoadableDesignSystemId
     const preset = resolvePreset(designSystemId)
 
-    setStyleReady(id === "default")
+    if (isDesignSystemStyleLoaded(id)) {
+      applyStyleRootClass(preset.styleRootClass)
+      setStyleReady(true)
+      return
+    }
 
+    setStyleReady(false)
     void loadDesignSystemStyle(id)
       .then(() => {
         if (cancelled) return
@@ -193,7 +218,9 @@ export function DesignSystemPreviewProvider({
   useEffect(() => {
     if (!hydrated || !styleReady) return
 
-    const styleRootClass = resolvePreset(designSystemId).styleRootClass
+    const styleRootClass =
+      DESIGN_SYSTEM_STYLE_CLASS[designSystemId as DesignSystemCookieId] ??
+      resolvePreset(designSystemId).styleRootClass
     const seen = new WeakSet<HTMLIFrameElement>()
     const controller = new AbortController()
     const { signal } = controller
@@ -235,6 +262,7 @@ export function DesignSystemPreviewProvider({
 
   const setDesignSystemId = useCallback((id: DesignSystemId) => {
     if (DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) {
+      persistDesignSystemId(id as DesignSystemCookieId)
       setDesignSystemIdState(id)
     }
   }, [])

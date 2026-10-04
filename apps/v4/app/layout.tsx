@@ -1,9 +1,15 @@
 import type { Metadata } from "next"
-import { headers } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { cn } from "cn"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 
 import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
+import {
+  DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
+  DESIGN_SYSTEM_COOKIE,
+  importDesignSystemChunk,
+  normalizeDesignSystemId,
+} from "@/lib/design-system"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
 import {
   activeUiFontStyle,
@@ -22,7 +28,7 @@ import { TooltipProvider as RadixTooltipProvider } from "@/registry/bases/radix/
 import { Toaster as BaseToaster } from "@/styles/base-nova/ui/toast"
 
 import "@/app/globals.css"
-/* Default design system only — comfort/glass/rose CSS chunks load on demand. */
+/* Default design system — other picker styles load via cookie (below) or on demand. */
 import "@/app/styles/chunk-nova.css"
 import "@/app/(app)/(typeset)/typeset.css"
 
@@ -89,11 +95,18 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  const initialDesignSystem = normalizeDesignSystemId(
+    cookieStore.get(DESIGN_SYSTEM_COOKIE)?.value
+  )
+  // Include the saved design-system CSS in the first HTML response (no FOUC).
+  await importDesignSystemChunk(initialDesignSystem)
+
   return (
     <html
       lang="fa"
@@ -138,19 +151,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                var ds = localStorage.getItem('design-system-preview') || 'default';
-                if (ds === 'aether') { ds = 'glass'; localStorage.setItem('design-system-preview', ds); }
-                var styleMap = { default: 'style-nova', comfort: 'style-vega', glass: 'style-glass', rose: 'style-rose', nili: 'style-nili', khesht: 'style-khesht' };
-                var styleClass = styleMap[ds] || 'style-nova';
-                var applyStyle = function () {
-                  document.body.classList.add(styleClass);
-                };
-                if (document.body) applyStyle();
-                else document.addEventListener('DOMContentLoaded', applyStyle);
-              } catch (_) {}
-            `,
+            __html: DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
           }}
         />
         <script
@@ -168,7 +169,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ActiveThemeProvider>
-            <DesignSystemPreviewProvider>
+            <DesignSystemPreviewProvider
+              initialDesignSystem={initialDesignSystem}
+            >
               <FontPreviewProvider>
                 <NuqsAdapter>
                   <BaseTooltipProvider delay={0}>

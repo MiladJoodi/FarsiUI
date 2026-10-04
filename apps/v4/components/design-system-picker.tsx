@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+import { CheckIcon, ChevronDownIcon } from "lucide-react"
 import { cn } from "cn"
 
 import {
@@ -7,14 +9,12 @@ import {
   type DesignSystemId,
 } from "@/components/design-system-preview"
 import { schedulePrefetchDesignSystemStyles } from "@/lib/design-system-style-loader"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/styles/base-nova/ui/select"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/new-york-v4/ui/popover"
 
 export function DesignSystemPicker({
   className,
@@ -22,51 +22,90 @@ export function DesignSystemPicker({
 }: React.ComponentProps<"div"> & { fullWidth?: boolean }) {
   const { designSystemId, setDesignSystemId, presets } =
     useDesignSystemPreview()
+  const [open, setOpen] = React.useState(false)
+  const active =
+    presets.find((preset) => preset.id === designSystemId) ?? presets[0]
 
-  const items = presets.map((preset) => ({
-    label: preset.label,
-    value: preset.id,
-  }))
+  const warm = () => schedulePrefetchDesignSystemStyles(designSystemId)
 
   return (
-    <div className={cn("flex items-center", fullWidth && "w-full", className)}>
-      <Select
-        items={items}
-        value={designSystemId}
-        modal={false}
-        onValueChange={(value) => {
-          if (value) setDesignSystemId(value as DesignSystemId)
+    <div
+      dir="rtl"
+      className={cn("flex items-center", fullWidth && "w-full", className)}
+    >
+      <Popover
+        open={open}
+        onOpenChange={(next) => {
+          setOpen(next)
+          if (next) warm()
         }}
+        modal={false}
       >
-        <SelectTrigger
-          id="design-system-picker"
-          size="sm"
-          aria-label="سیستم طراحی"
-          className={cn(
-            "h-8 min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none",
-            fullWidth ? "w-full" : "w-auto"
-          )}
-          onPointerEnter={() =>
-            schedulePrefetchDesignSystemStyles(designSystemId)
-          }
-          onFocus={() => schedulePrefetchDesignSystemStyles(designSystemId)}
+        <PopoverTrigger asChild>
+          <Button
+            id="design-system-picker"
+            type="button"
+            variant="outline"
+            size="sm"
+            aria-label="سیستم طراحی"
+            aria-haspopup="listbox"
+            aria-expanded={open}
+            className={cn(
+              "h-8 min-w-0 cursor-pointer justify-between gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none",
+              fullWidth ? "w-full" : "w-auto"
+            )}
+            onPointerEnter={warm}
+            onFocus={warm}
+          >
+            <span className="truncate">{active.label}</span>
+            <ChevronDownIcon
+              className={cn(
+                "size-3.5 shrink-0 text-muted-foreground transition-transform duration-100",
+                open && "rotate-180"
+              )}
+            />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          dir="rtl"
+          align="end"
+          side="bottom"
+          sideOffset={6}
+          className="w-44 p-1.5 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"
         >
-          <SelectValue placeholder="پیشفرض" />
-        </SelectTrigger>
-        <SelectContent align="end" alignItemWithTrigger={false}>
-          <SelectGroup>
-            {items.map((item) => (
-              <SelectItem
-                key={item.value}
-                value={item.value}
-                className="cursor-pointer"
-              >
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
+          <div
+            role="listbox"
+            aria-label="سیستم طراحی"
+            className="flex flex-col gap-0.5"
+          >
+            {presets.map((preset) => {
+              const selected = designSystemId === preset.id
+              return (
+                <button
+                  key={preset.id}
+                  type="button"
+                  role="option"
+                  aria-selected={selected}
+                  className={cn(
+                    "flex w-full cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
+                    "hover:bg-accent hover:text-accent-foreground",
+                    selected && "bg-accent/70"
+                  )}
+                  onClick={() => {
+                    setDesignSystemId(preset.id as DesignSystemId)
+                    setOpen(false)
+                  }}
+                >
+                  <span className="flex-1 text-start">{preset.label}</span>
+                  {selected ? (
+                    <CheckIcon className="size-3.5 shrink-0" aria-hidden />
+                  ) : null}
+                </button>
+              )
+            })}
+          </div>
+        </PopoverContent>
+      </Popover>
     </div>
   )
 }

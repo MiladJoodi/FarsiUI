@@ -1,15 +1,12 @@
 /**
  * Lazy-load design-system CSS chunks used by the Header picker.
  * Default (nova) is shipped with the app shell; others load on demand.
+ * Active non-default styles are also imported from the root layout via cookie.
  */
 
-export type LoadableDesignSystemId =
-  | "default"
-  | "comfort"
-  | "glass"
-  | "rose"
-  | "nili"
-  | "khesht"
+import type { DesignSystemCookieId } from "@/lib/design-system"
+
+export type LoadableDesignSystemId = DesignSystemCookieId
 
 const loaded = new Set<LoadableDesignSystemId>()
 const inflight = new Map<LoadableDesignSystemId, Promise<void>>()
@@ -25,6 +22,10 @@ const LOADERS: Record<LoadableDesignSystemId, () => Promise<unknown>> = {
 
 export function isDesignSystemStyleLoaded(id: LoadableDesignSystemId) {
   return loaded.has(id)
+}
+
+export function markDesignSystemStyleLoaded(id: LoadableDesignSystemId) {
+  loaded.add(id)
 }
 
 /** Ensure a design-system CSS chunk is loaded (idempotent). */
@@ -50,7 +51,7 @@ export function loadDesignSystemStyle(
   return promise
 }
 
-/** Prefetch every picker style except the active one (fire-and-forget). */
+/** Prefetch every picker style except the active one (parallel). */
 export function prefetchDesignSystemStyles(
   except?: LoadableDesignSystemId
 ): void {
@@ -63,8 +64,8 @@ export function prefetchDesignSystemStyles(
 let prefetchScheduled = false
 
 /**
- * Prefetch remaining design-system CSS during idle time so opening the
- * select stays snappy (avoids injecting several large stylesheets on click).
+ * Warm remaining design-system CSS soon after mount (parallel, short delay)
+ * so opening pickers / switching styles stays snappy.
  */
 export function schedulePrefetchDesignSystemStyles(
   except?: LoadableDesignSystemId
@@ -72,31 +73,12 @@ export function schedulePrefetchDesignSystemStyles(
   if (typeof window === "undefined" || prefetchScheduled) return
   prefetchScheduled = true
 
-  const run = () => {
-    const ids = (Object.keys(LOADERS) as LoadableDesignSystemId[]).filter(
-      (id) => id !== except && !loaded.has(id)
-    )
-
-    let index = 0
-    const next = () => {
-      if (index >= ids.length) return
-      const id = ids[index++]
-      void loadDesignSystemStyle(id).finally(() => {
-        if (typeof window.requestIdleCallback === "function") {
-          window.requestIdleCallback(next, { timeout: 1500 })
-        } else {
-          window.setTimeout(next, 50)
-        }
-      })
-    }
-
-    next()
-  }
+  const run = () => prefetchDesignSystemStyles(except)
 
   if (typeof window.requestIdleCallback === "function") {
-    window.requestIdleCallback(run, { timeout: 2000 })
+    window.requestIdleCallback(run, { timeout: 800 })
   } else {
-    window.setTimeout(run, 250)
+    window.setTimeout(run, 100)
   }
 }
 
