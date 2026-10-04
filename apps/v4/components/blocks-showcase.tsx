@@ -6,23 +6,23 @@ import Link from "next/link"
 import type { FeaturedBlockSample } from "@/lib/blocks-featured"
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 
-/** Soft wireframe fills — readable without looking heavy. */
-const fill = "bg-muted-foreground/8"
-const fillMid = "bg-muted-foreground/12"
-const fillBold = "bg-muted-foreground/18"
+/** Soft fills tuned for short (aspect-16/5) cards — same density as /docs/components. */
+const fill = "bg-muted-foreground/10"
+const fillMid = "bg-muted-foreground/16"
+const fillBold = "bg-muted-foreground/24"
 const surface =
-  "rounded-lg border border-border/70 bg-background shadow-sm"
+  "rounded-md border border-border/70 bg-background shadow-sm"
 
-/** Outer shell shared by every category: light stage + white card. */
+/** Outer shell: grey stage + white card (same pattern as component wireframes). */
 function WireStage({
   children,
-  className = "w-[88%]",
+  className = "w-full max-w-[94%]",
 }: {
   children: ReactNode
   className?: string
 }) {
   return (
-    <div className="flex size-full items-center justify-center bg-muted/50 p-1.5">
+    <div className="flex size-full items-center justify-center bg-muted p-2">
       <div className={`flex flex-col overflow-hidden ${surface} ${className}`}>
         {children}
       </div>
@@ -33,21 +33,21 @@ function WireStage({
 /** login-01 — کارت ورود روی پس‌زمینهٔ خاکستری */
 function WireframeFormsAuth() {
   return (
-    <WireStage className="w-[90%] gap-1.5 p-2">
-      <div className={`h-2.5 w-1/2 rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-3/4 rounded-sm ${fill}`} />
-      <div className="mt-1 space-y-1">
-        <div className={`h-1.5 w-1/3 rounded-sm ${fillMid}`} />
-        <div className={`h-6 w-full rounded-md border border-border/60 ${fill}`} />
+    <WireStage className="w-full max-w-[94%] gap-0.5 p-1.5">
+      <div className={`h-1.5 w-1/2 rounded-sm ${fillBold}`} />
+      <div className={`h-1 w-3/4 rounded-sm ${fill}`} />
+      <div className="mt-0.5 space-y-0.5">
+        <div className={`h-1 w-1/3 rounded-sm ${fillMid}`} />
+        <div className={`h-4 w-full rounded-sm border border-border/60 ${fill}`} />
       </div>
-      <div className="space-y-1">
+      <div className="space-y-0.5">
         <div className="flex justify-between gap-2">
-          <div className={`h-1.5 w-1/3 rounded-sm ${fillMid}`} />
-          <div className={`h-1.5 w-1/4 rounded-sm ${fill}`} />
+          <div className={`h-1 w-1/3 rounded-sm ${fillMid}`} />
+          <div className={`h-1 w-1/4 rounded-sm ${fill}`} />
         </div>
-        <div className={`h-6 w-full rounded-md border border-border/60 ${fill}`} />
+        <div className={`h-4 w-full rounded-sm border border-border/60 ${fill}`} />
       </div>
-      <div className={`mt-0.5 h-7 w-full rounded-md ${fillBold}`} />
+      <div className={`mt-0.5 h-5 w-full rounded-sm ${fillBold}`} />
     </WireStage>
   )
 }
@@ -55,12 +55,12 @@ function WireframeFormsAuth() {
 /** hero-01 — تیتر درشت + CTA داخل کارت */
 function WireframeMarketing() {
   return (
-    <WireStage className="w-[92%] items-center gap-1.5 px-3 py-3">
-      <div className={`h-1.5 w-10 rounded-full ${fillMid}`} />
-      <div className={`h-3 w-[85%] rounded-sm ${fillBold}`} />
-      <div className={`h-3 w-[62%] rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-[52%] rounded-sm ${fill}`} />
-      <div className={`mt-1 h-6 w-[4.5rem] rounded-md ${fillBold}`} />
+    <WireStage className="w-full max-w-[94%] items-center gap-1 px-2.5 py-2">
+      <div className={`h-1 w-8 rounded-full ${fillMid}`} />
+      <div className={`h-2 w-[85%] rounded-sm ${fillBold}`} />
+      <div className={`h-2 w-[62%] rounded-sm ${fillBold}`} />
+      <div className={`h-1 w-[52%] rounded-sm ${fill}`} />
+      <div className={`mt-0.5 h-5 w-14 rounded-md ${fillBold}`} />
     </WireStage>
   )
 }
@@ -68,33 +68,33 @@ function WireframeMarketing() {
 /** sidebar-01 — نوار کناری + محتوا داخل کارت */
 function WireframeNavigation() {
   return (
-    <WireStage className="h-[88%] w-[92%] flex-row">
+    <WireStage className="h-full w-full max-w-none flex-row">
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-7 items-center gap-1.5 border-b border-border/60 px-2">
-          <div className={`size-3.5 rounded-sm ${fillMid}`} />
-          <div className={`h-1.5 w-8 rounded-sm ${fill}`} />
+        <div className="flex h-5 items-center gap-1 border-b border-border/60 px-1.5">
+          <div className={`size-2.5 rounded-sm ${fillMid}`} />
+          <div className={`h-1 w-6 rounded-sm ${fill}`} />
           <div className={`h-1 w-1 rounded-full ${fill}`} />
-          <div className={`h-1.5 w-10 rounded-sm ${fillMid}`} />
+          <div className={`h-1 w-8 rounded-sm ${fillMid}`} />
         </div>
-        <div className="flex flex-1 flex-col gap-1.5 p-2">
-          <div className="grid grid-cols-3 gap-1.5">
+        <div className="flex flex-1 flex-col gap-1 p-1.5">
+          <div className="grid grid-cols-3 gap-1">
             {[0, 1, 2].map((i) => (
-              <div key={i} className={`aspect-4/3 rounded-md ${fill}`} />
+              <div key={i} className={`aspect-4/3 rounded-sm ${fill}`} />
             ))}
           </div>
-          <div className={`min-h-0 flex-1 rounded-md ${fill}`} />
+          <div className={`min-h-0 flex-1 rounded-sm ${fill}`} />
         </div>
       </div>
-      <aside className="flex w-[34%] flex-col gap-1.5 border-s border-border/60 bg-muted/40 p-2">
-        <div className={`mb-1 h-2.5 w-3/4 rounded-sm ${fillBold}`} />
-        {[0, 1, 2, 3, 4].map((i) => (
+      <aside className="flex w-[34%] flex-col gap-1 border-s border-border/60 bg-muted/40 p-1.5">
+        <div className={`mb-0.5 h-1.5 w-3/4 rounded-sm ${fillBold}`} />
+        {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            className={`h-2 rounded-sm ${i === 1 ? fillBold : fillMid}`}
+            className={`h-1.5 rounded-sm ${i === 1 ? fillBold : fillMid}`}
             style={{ width: `${90 - i * 10}%` }}
           />
         ))}
-        <div className={`mt-auto h-5 w-full rounded-md ${fillMid}`} />
+        <div className={`mt-auto h-4 w-full rounded-sm ${fillMid}`} />
       </aside>
     </WireStage>
   )
@@ -103,26 +103,25 @@ function WireframeNavigation() {
 /** blog-grid-01 — سه ستون متن داخل کارت */
 function WireframeContent() {
   return (
-    <WireStage className="w-[90%] justify-center gap-3 px-3 py-3">
-      <div className="border-b border-border/50 pb-2">
-        <div className={`h-3 w-2/5 rounded-sm ${fillBold}`} />
-        <div className={`mt-1.5 h-1.5 w-1/2 rounded-sm ${fill}`} />
+    <WireStage className="w-full max-w-[94%] justify-center gap-1.5 px-2 py-1.5">
+      <div className="border-b border-border/50 pb-1">
+        <div className={`h-2 w-2/5 rounded-sm ${fillBold}`} />
+        <div className={`mt-1 h-1 w-1/2 rounded-sm ${fill}`} />
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-1.5">
         {[
-          ["w-1/2", "w-full", "w-4/5", "w-full", "w-3/4"],
-          ["w-2/3", "w-full", "w-full", "w-5/6", "w-1/2"],
-          ["w-1/3", "w-full", "w-3/4", "w-full", "w-2/3"],
+          ["w-1/2", "w-full", "w-4/5", "w-full"],
+          ["w-2/3", "w-full", "w-full", "w-5/6"],
+          ["w-1/3", "w-full", "w-3/4", "w-full"],
         ].map((lines, i) => (
           <div
             key={i}
-            className="flex flex-col gap-1 border-s border-border/50 ps-2 first:border-s-0 first:ps-0"
+            className="flex flex-col gap-0.5 border-s border-border/50 ps-1.5 first:border-s-0 first:ps-0"
           >
-            <div className={`h-1.5 rounded-sm ${fill} ${lines[0]}`} />
-            <div className={`mt-0.5 h-2 rounded-sm ${fillBold} ${lines[1]}`} />
-            <div className={`h-2 rounded-sm ${fillBold} ${lines[2]}`} />
-            <div className={`h-1.5 rounded-sm ${fill} ${lines[3]}`} />
-            <div className={`h-1.5 rounded-sm ${fill} ${lines[4]}`} />
+            <div className={`h-1 rounded-sm ${fill} ${lines[0]}`} />
+            <div className={`mt-0.5 h-1.5 rounded-sm ${fillBold} ${lines[1]}`} />
+            <div className={`h-1.5 rounded-sm ${fillBold} ${lines[2]}`} />
+            <div className={`h-1 rounded-sm ${fill} ${lines[3]}`} />
           </div>
         ))}
       </div>
@@ -133,20 +132,20 @@ function WireframeContent() {
 /** dashboard-01 — کارت آمار + نمودار داخل کارت */
 function WireframeDashboard() {
   return (
-    <WireStage className="h-[88%] w-[92%] flex-row">
+    <WireStage className="h-full w-full max-w-none flex-row">
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-6 items-center border-b border-border/60 px-2">
-          <div className={`h-2 w-14 rounded-sm ${fillBold}`} />
+        <div className="flex h-5 items-center border-b border-border/60 px-1.5">
+          <div className={`h-1.5 w-12 rounded-sm ${fillBold}`} />
         </div>
-        <div className="flex flex-1 flex-col gap-1.5 p-1.5">
+        <div className="flex flex-1 flex-col gap-1 p-1">
           <div className="grid grid-cols-2 gap-1">
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="flex flex-col gap-1 rounded-md border border-border/60 bg-muted/30 p-1.5"
+                className="flex flex-col gap-0.5 rounded-sm border border-border/60 bg-muted/30 p-1"
               >
                 <div className={`h-1 w-1/2 rounded-sm ${fill}`} />
-                <div className={`h-2.5 w-3/4 rounded-sm ${fillBold}`} />
+                <div className={`h-2 w-3/4 rounded-sm ${fillBold}`} />
               </div>
             ))}
           </div>
@@ -188,16 +187,16 @@ function WireframeDashboard() {
 /** product-grid-01 — سه محصول داخل کارت */
 function WireframeCommerce() {
   return (
-    <WireStage className="w-[90%] justify-center gap-2.5 px-3 py-3">
-      <div className={`h-2.5 w-2/5 rounded-sm ${fillBold}`} />
-      <div className="grid grid-cols-3 gap-2">
+    <WireStage className="w-full max-w-[94%] justify-center gap-1.5 px-2 py-1.5">
+      <div className={`h-1.5 w-2/5 rounded-sm ${fillBold}`} />
+      <div className="grid grid-cols-3 gap-1.5">
         {[0, 1, 2].map((i) => (
-          <div key={i} className="flex flex-col gap-1.5">
+          <div key={i} className="flex flex-col gap-1">
             <div
-              className={`aspect-square rounded-lg ${i === 1 ? fillBold : fillMid}`}
+              className={`aspect-square rounded-md ${i === 1 ? fillBold : fillMid}`}
             />
-            <div className={`h-2 w-full rounded-sm ${fillBold}`} />
-            <div className={`h-1.5 w-2/3 rounded-sm ${fill}`} />
+            <div className={`h-1.5 w-full rounded-sm ${fillBold}`} />
+            <div className={`h-1 w-2/3 rounded-sm ${fill}`} />
           </div>
         ))}
       </div>
@@ -208,14 +207,14 @@ function WireframeCommerce() {
 /** profile-01 — آواتار داخل کارت */
 function WireframeAccount() {
   return (
-    <WireStage className="w-[90%] items-center gap-1.5 px-3 py-3">
+    <WireStage className="w-full max-w-[94%] items-center gap-1 px-2.5 py-2">
       <div
-        className={`size-14 rounded-full border-2 border-muted ${fillBold} shadow-sm`}
+        className={`size-8 rounded-full border-2 border-muted ${fillBold} shadow-sm`}
       />
-      <div className={`mt-0.5 h-2.5 w-20 rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-16 rounded-sm ${fillMid}`} />
-      <div className={`mt-1 h-1.5 w-28 rounded-sm ${fill}`} />
-      <div className={`h-1.5 w-20 rounded-sm ${fill}`} />
+      <div className={`h-1.5 w-16 rounded-sm ${fillBold}`} />
+      <div className={`h-1 w-12 rounded-sm ${fillMid}`} />
+      <div className={`mt-0.5 h-1 w-24 rounded-sm ${fill}`} />
+      <div className={`h-1 w-16 rounded-sm ${fill}`} />
     </WireStage>
   )
 }
@@ -223,28 +222,28 @@ function WireframeAccount() {
 /** chat-01 — حباب‌های چت داخل کارت */
 function WireframeCommunication() {
   return (
-    <WireStage className="h-[90%] w-[90%]">
-      <div className="flex h-7 items-center gap-2 border-b border-border/60 px-2.5">
-        <div className={`size-4 rounded-full ${fillMid}`} />
-        <div className={`h-2 w-12 rounded-sm ${fillBold}`} />
+    <WireStage className="h-full w-full max-w-none">
+      <div className="flex h-5 items-center gap-1.5 border-b border-border/60 px-1.5">
+        <div className={`size-3 rounded-full ${fillMid}`} />
+        <div className={`h-1.5 w-10 rounded-sm ${fillBold}`} />
       </div>
-      <div className="flex flex-1 flex-col justify-center gap-2 p-2.5">
-        <div className="flex items-end gap-1.5">
-          <div className={`size-4 shrink-0 rounded-full ${fillMid}`} />
-          <div className={`h-8 w-[62%] rounded-2xl rounded-ss-sm ${fill}`} />
+      <div className="flex flex-1 flex-col justify-center gap-1 p-1.5">
+        <div className="flex items-end gap-1">
+          <div className={`size-3 shrink-0 rounded-full ${fillMid}`} />
+          <div className={`h-5 w-[62%] rounded-xl rounded-ss-sm ${fill}`} />
         </div>
-        <div className="flex flex-row-reverse items-end gap-1.5">
-          <div className={`size-4 shrink-0 rounded-full ${fillBold}`} />
-          <div className={`h-8 w-[55%] rounded-2xl rounded-se-sm ${fillBold}`} />
+        <div className="flex flex-row-reverse items-end gap-1">
+          <div className={`size-3 shrink-0 rounded-full ${fillBold}`} />
+          <div className={`h-5 w-[55%] rounded-xl rounded-se-sm ${fillBold}`} />
         </div>
-        <div className="flex items-end gap-1.5">
-          <div className={`size-4 shrink-0 rounded-full ${fillMid}`} />
-          <div className={`h-6 w-[40%] rounded-2xl rounded-ss-sm ${fill}`} />
+        <div className="flex items-end gap-1">
+          <div className={`size-3 shrink-0 rounded-full ${fillMid}`} />
+          <div className={`h-4 w-[40%] rounded-xl rounded-ss-sm ${fill}`} />
         </div>
       </div>
-      <div className="flex gap-1.5 border-t border-border/60 p-2">
-        <div className={`h-6 flex-1 rounded-full border border-border/60 ${fill}`} />
-        <div className={`h-6 w-10 rounded-full ${fillBold}`} />
+      <div className="flex gap-1 border-t border-border/60 p-1.5">
+        <div className={`h-5 flex-1 rounded-full border border-border/60 ${fill}`} />
+        <div className={`h-5 w-8 rounded-full ${fillBold}`} />
       </div>
     </WireStage>
   )
@@ -253,13 +252,13 @@ function WireframeCommunication() {
 /** search-01 — نوار جستجو داخل کارت */
 function WireframeSearch() {
   return (
-    <WireStage className="w-[86%] gap-2.5 p-3">
-      <div className={`h-2.5 w-1/3 rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-1/2 rounded-sm ${fill}`} />
-      <div className="mt-1 flex items-center gap-1.5 rounded-lg border-2 border-border/70 bg-muted/30 p-1">
-        <div className={`ms-1 size-3.5 rounded-sm ${fillMid}`} />
-        <div className={`h-2 flex-1 rounded-sm ${fill}`} />
-        <div className={`h-7 w-14 rounded-md ${fillBold}`} />
+    <WireStage className="w-full max-w-[94%] gap-1 p-1.5">
+      <div className={`h-1.5 w-1/3 rounded-sm ${fillBold}`} />
+      <div className={`h-1 w-1/2 rounded-sm ${fill}`} />
+      <div className="mt-0.5 flex items-center gap-1 rounded-md border border-border/70 bg-muted/30 p-0.5">
+        <div className={`ms-1 size-2.5 rounded-sm ${fillMid}`} />
+        <div className={`h-1.5 flex-1 rounded-sm ${fill}`} />
+        <div className={`h-5 w-12 rounded-md ${fillBold}`} />
       </div>
     </WireStage>
   )
@@ -268,20 +267,19 @@ function WireframeSearch() {
 /** file-upload-01 — dropzone داخل کارت */
 function WireframeMedia() {
   return (
-    <WireStage className="w-[88%]">
-      <div className="space-y-1 p-2.5">
-        <div className={`h-2.5 w-2/5 rounded-sm ${fillBold}`} />
-        <div className={`h-1.5 w-3/5 rounded-sm ${fill}`} />
+    <WireStage className="w-full max-w-[94%]">
+      <div className="space-y-0.5 p-1.5">
+        <div className={`h-1.5 w-2/5 rounded-sm ${fillBold}`} />
+        <div className={`h-1 w-3/5 rounded-sm ${fill}`} />
       </div>
-      <div className="px-2.5 pb-2.5">
-        <div className="flex h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-muted-foreground/25 bg-muted/20">
-          <div className={`size-6 rounded-md ${fillMid}`} />
-          <div className={`h-1.5 w-16 rounded-sm ${fillMid}`} />
-          <div className={`h-1 w-12 rounded-sm ${fill}`} />
+      <div className="px-1.5 pb-1.5">
+        <div className="flex h-12 flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-muted-foreground/25 bg-muted/20">
+          <div className={`size-4 rounded-md ${fillMid}`} />
+          <div className={`h-1 w-12 rounded-sm ${fillMid}`} />
         </div>
       </div>
-      <div className="border-t border-border/60 p-2">
-        <div className={`h-7 w-full rounded-md ${fillBold}`} />
+      <div className="border-t border-border/60 p-1.5">
+        <div className={`h-5 w-full rounded-md ${fillBold}`} />
       </div>
     </WireStage>
   )
@@ -290,26 +288,26 @@ function WireframeMedia() {
 /** calendar-block-01 — تقویم داخل کارت */
 function WireframeCalendar() {
   return (
-    <WireStage className="w-[86%]">
-      <div className="flex items-center justify-between px-2.5 pt-2.5 pb-1">
-        <div className={`h-2.5 w-14 rounded-sm ${fillBold}`} />
-        <div className="flex gap-1">
-          <div className={`size-4 rounded-sm ${fill}`} />
-          <div className={`size-4 rounded-sm ${fill}`} />
+    <WireStage className="w-full max-w-[94%]">
+      <div className="flex items-center justify-between px-1.5 pt-1.5 pb-0.5">
+        <div className={`h-1.5 w-12 rounded-sm ${fillBold}`} />
+        <div className="flex gap-0.5">
+          <div className={`size-3 rounded-sm ${fill}`} />
+          <div className={`size-3 rounded-sm ${fill}`} />
         </div>
       </div>
-      <div className="grid grid-cols-7 gap-1 px-2.5 py-2">
+      <div className="grid grid-cols-7 gap-0.5 px-1.5 py-1">
         {Array.from({ length: 7 }).map((_, i) => (
           <div
             key={`d-${i}`}
-            className={`mx-auto h-1 w-2 rounded-sm ${fillMid}`}
+            className={`mx-auto h-1 w-1.5 rounded-sm ${fillMid}`}
           />
         ))}
-        {Array.from({ length: 28 }).map((_, i) => (
+        {Array.from({ length: 21 }).map((_, i) => (
           <div
             key={i}
-            className={`mx-auto flex size-4 items-center justify-center rounded-full ${
-              i === 15
+            className={`mx-auto flex size-3 items-center justify-center rounded-full ${
+              i === 10
                 ? fillBold
                 : i % 7 === 5 || i % 7 === 6
                   ? "bg-transparent"
@@ -325,37 +323,37 @@ function WireframeCalendar() {
 /** plan-selection-01 — پلن‌ها داخل کارت */
 function WireframeBilling() {
   return (
-    <WireStage className="w-[88%]">
-      <div className="space-y-1 p-2.5">
-        <div className={`h-1.5 w-14 rounded-sm ${fill}`} />
-        <div className={`h-2.5 w-2/5 rounded-sm ${fillBold}`} />
+    <WireStage className="w-full max-w-[94%]">
+      <div className="space-y-0.5 p-1.5">
+        <div className={`h-1 w-12 rounded-sm ${fill}`} />
+        <div className={`h-1.5 w-2/5 rounded-sm ${fillBold}`} />
       </div>
-      <div className="space-y-1.5 px-2.5 pb-2.5">
+      <div className="space-y-1 px-1.5 pb-1.5">
         {[0, 1, 2].map((i) => (
           <div
             key={i}
-            className={`flex items-center justify-between rounded-lg border px-2 py-2 ${
+            className={`flex items-center justify-between rounded-md border px-1.5 py-1 ${
               i === 1
                 ? "border-muted-foreground/25 bg-muted/40"
                 : "border-border/60"
             }`}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <div
-                className={`size-3.5 rounded-full border-2 ${
+                className={`size-2.5 rounded-full border-2 ${
                   i === 1
                     ? "border-muted-foreground/35 bg-muted-foreground/25"
                     : "border-muted-foreground/20"
                 }`}
               />
-              <div className={`h-2 w-12 rounded-sm ${fillBold}`} />
+              <div className={`h-1.5 w-10 rounded-sm ${fillBold}`} />
             </div>
-            <div className={`h-2 w-10 rounded-sm ${fillMid}`} />
+            <div className={`h-1.5 w-8 rounded-sm ${fillMid}`} />
           </div>
         ))}
       </div>
-      <div className="border-t border-border/60 p-2">
-        <div className={`h-7 w-full rounded-md ${fillBold}`} />
+      <div className="border-t border-border/60 p-1.5">
+        <div className={`h-5 w-full rounded-md ${fillBold}`} />
       </div>
     </WireStage>
   )
@@ -364,14 +362,14 @@ function WireframeBilling() {
 /** empty-state-01 — empty state داخل کارت */
 function WireframeStates() {
   return (
-    <WireStage className="w-[90%] items-center gap-1.5 px-3 py-3">
-      <div className="flex size-10 items-center justify-center rounded-xl border border-border/60 bg-muted/60">
-        <div className={`size-4 rounded-md ${fillMid}`} />
+    <WireStage className="w-full max-w-[94%] items-center gap-1 px-2.5 py-2">
+      <div className="flex size-7 items-center justify-center rounded-lg border border-border/60 bg-muted/60">
+        <div className={`size-3 rounded-md ${fillMid}`} />
       </div>
-      <div className={`mt-0.5 h-2 w-20 rounded-sm ${fillBold}`} />
-      <div className={`h-1.5 w-28 rounded-sm ${fill}`} />
-      <div className={`h-1.5 w-20 rounded-sm ${fill}`} />
-      <div className={`mt-1 h-6 w-[4.5rem] rounded-md ${fillBold}`} />
+      <div className={`h-1.5 w-16 rounded-sm ${fillBold}`} />
+      <div className={`h-1 w-24 rounded-sm ${fill}`} />
+      <div className={`h-1 w-16 rounded-sm ${fill}`} />
+      <div className={`mt-0.5 h-5 w-14 rounded-md ${fillBold}`} />
     </WireStage>
   )
 }
@@ -395,7 +393,7 @@ const WIREFRAMES: Record<string, () => JSX.Element> = {
 function CategoryWireframe({ slug }: { slug: string }) {
   const Frame = WIREFRAMES[slug] ?? WireframeStates
   return (
-    <div aria-hidden className="relative aspect-16/9 overflow-hidden">
+    <div aria-hidden className="relative aspect-16/5 overflow-hidden">
       <Frame />
     </div>
   )
@@ -403,11 +401,11 @@ function CategoryWireframe({ slug }: { slug: string }) {
 
 function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
   return (
-    <section className="flex min-w-0 flex-col gap-1.5">
+    <section className="flex min-w-0 flex-col gap-2">
       <div className="flex min-w-0 items-baseline gap-2">
         <h2
           data-block-title=""
-          className="shrink-0 font-semibold tracking-tight text-primary"
+          className="shrink-0 text-sm font-semibold tracking-tight text-primary"
         >
           {sample.categoryTitle}
         </h2>
@@ -418,7 +416,7 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
         <span
           dir="ltr"
           lang="en"
-          className="shrink-0 font-sans text-[12px] tracking-normal text-muted-foreground"
+          className="shrink-0 text-xs tracking-wide text-muted-foreground"
         >
           {sample.categoryEn}
         </span>
@@ -446,7 +444,7 @@ export function BlocksShowcase({
       <div
         dir="rtl"
         lang="fa"
-        className="grid grid-cols-1 gap-3 pb-8 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-2 grid grid-cols-1 gap-5 pb-8 sm:grid-cols-2 lg:grid-cols-4"
       >
         {samples.map((sample) => (
           <SampleCard key={sample.categorySlug} sample={sample} />

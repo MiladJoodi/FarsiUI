@@ -23,11 +23,12 @@ export default function SkillsInstallPage() {
   return (
     <div
       data-slot="docs"
+      data-docs-kind="docs"
       dir="rtl"
       lang="fa"
       className="flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
     >
-      <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8">
+      <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
         <header className="flex flex-col gap-2">
           <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
             نحوه نصب
@@ -38,28 +39,20 @@ export default function SkillsInstallPage() {
           </p>
         </header>
 
-        <section className="space-y-3">
-          <h2 className="font-heading scroll-m-24 text-[length:var(--docs-h2)] font-medium tracking-tight">
-            نصب سریع با CLI
-          </h2>
-          <p className="text-muted-foreground">
-            داخل ریشهٔ پروژه این دستور را بزنید:
-          </p>
+        <div className="typeset w-full flex-1">
+          <h2>نصب سریع با CLI</h2>
+          <p>داخل ریشهٔ پروژه این دستور را بزنید:</p>
           {example ? (
             <SkillCopyCommand command={example.installCommand} />
           ) : null}
-        </section>
 
-        <section className="space-y-3">
-          <h2 className="font-heading scroll-m-24 text-[length:var(--docs-h2)] font-medium tracking-tight">
-            نصب دستی
-          </h2>
-          <p className="text-muted-foreground">
+          <h2>نصب دستی</h2>
+          <p>
             فایل را دانلود کنید یا خودتان بسازید و در یکی از مسیرهای زیر بگذارید
             — نه مستقیم کنار فایل‌های ریشهٔ پروژه:
           </p>
 
-          <div className="space-y-2">
+          <div data-not-typeset="" className="my-4 space-y-2">
             {(example?.installTargets ?? [])
               .filter((target) => target.id !== "other")
               .map((target) => (
@@ -73,10 +66,10 @@ export default function SkillsInstallPage() {
           </div>
 
           {example ? (
-            <div className="space-y-2 pt-1">
-              <p className="text-muted-foreground">
+            <>
+              <p>
                 برای ابزارهای دیگر می‌توانید در{" "}
-                <bdi dir="ltr" className="font-mono text-foreground">
+                <bdi dir="ltr" className="font-mono">
                   AGENTS.md
                 </bdi>{" "}
                 هم ارجاع بدهید:
@@ -99,20 +92,14 @@ export default function SkillsInstallPage() {
                   {example.agentsHint}
                 </pre>
               </figure>
-            </div>
+            </>
           ) : null}
-        </section>
 
-        <section className="rounded-xl border border-dashed px-4 py-3 text-muted-foreground">
-          بعد از نصب، از{" "}
-          <Link
-            href="/skills"
-            className="font-medium text-foreground underline-offset-4 hover:underline"
-          >
-            معرفی
-          </Link>{" "}
-          یا فهرست کناری مهارت را باز کنید.
-        </section>
+          <p>
+            بعد از نصب، از <Link href="/skills">معرفی</Link> یا فهرست کناری
+            مهارت را باز کنید.
+          </p>
+        </div>
       </div>
     </div>
   )

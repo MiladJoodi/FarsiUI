@@ -4,75 +4,68 @@ export default function SkillsPage() {
   return (
     <div
       data-slot="docs"
+      data-docs-kind="docs"
       dir="rtl"
       lang="fa"
       className="flex scroll-mt-24 items-stretch pb-8 text-base leading-[1.7] xl:w-full"
     >
-      <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8">
+      <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
         <header className="flex flex-col gap-2">
           <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
             مهارت‌ها
           </h1>
-          <div className="docs-page-description space-y-3 text-pretty text-muted-foreground">
-            <p>
-              مهارت‌ها فایل‌های{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                Markdown
-              </bdi>{" "}
-              هستند که به{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                Agent
-              </bdi>{" "}
-              یاد می‌دهند یک کار مشخص را چطور انجام دهد. ابزارهایی مثل{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                Claude Code
-              </bdi>
-              ،{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                Cursor
-              </bdi>{" "}
-              و{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                Codex
-              </bdi>{" "}
-              قبل از کار این دستورالعمل‌ها را می‌خوانند.
-            </p>
-            <p>
-              هر مهارت یک فایل{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
-                SKILL.md
-              </bdi>{" "}
-              است. برای کارهای فارسی، مهارت‌هایی مثل فارسی محاوره‌ای، متن رابط
-              کاربری، تقویم شمسی و اعتبارسنجی ایرانی آماده کرده‌ایم.
-            </p>
-          </div>
+          <p className="docs-page-description text-pretty text-muted-foreground">
+            فایل‌های Markdown برای آموزش Agent — مناسب Claude Code، Cursor و
+            Codex.
+          </p>
         </header>
 
-        <section className="space-y-3">
-          <h2 className="font-heading scroll-m-24 text-[length:var(--docs-h2)] font-medium tracking-tight">
-            از کجا شروع کنید
-          </h2>
-          <ol className="list-decimal space-y-2 pe-5 text-muted-foreground marker:text-foreground/50">
-            <li className="leading-[1.7]">
-              از فهرست کناری، مهارت موردنظر را انتخاب کنید.
-            </li>
-            <li className="leading-[1.7]">
+        <div className="typeset w-full flex-1">
+          <p>
+            مهارت‌ها فایل‌های{" "}
+            <bdi dir="ltr" className="font-medium">
+              Markdown
+            </bdi>{" "}
+            هستند که به{" "}
+            <bdi dir="ltr" className="font-medium">
+              Agent
+            </bdi>{" "}
+            یاد می‌دهند یک کار مشخص را چطور انجام دهد. ابزارهایی مثل{" "}
+            <bdi dir="ltr" className="font-medium">
+              Claude Code
+            </bdi>
+            ،{" "}
+            <bdi dir="ltr" className="font-medium">
+              Cursor
+            </bdi>{" "}
+            و{" "}
+            <bdi dir="ltr" className="font-medium">
+              Codex
+            </bdi>{" "}
+            قبل از کار این دستورالعمل‌ها را می‌خوانند.
+          </p>
+          <p>
+            هر مهارت یک فایل{" "}
+            <bdi dir="ltr" className="font-medium">
+              SKILL.md
+            </bdi>{" "}
+            است. برای کارهای فارسی، مهارت‌هایی مثل فارسی محاوره‌ای، متن رابط
+            کاربری، تقویم شمسی و اعتبارسنجی ایرانی آماده کرده‌ایم.
+          </p>
+
+          <h2>از کجا شروع کنید</h2>
+          <ol>
+            <li>از فهرست کناری، مهارت موردنظر را انتخاب کنید.</li>
+            <li>
               فایل{" "}
-              <bdi dir="ltr" className="font-medium text-foreground">
+              <bdi dir="ltr" className="font-medium">
                 SKILL.md
               </bdi>{" "}
               را کپی یا دانلود کنید و در مسیر ابزار خود بگذارید. راهنمای مسیرها
-              در{" "}
-              <Link
-                href="/skills/install"
-                className="font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                نحوه نصب
-              </Link>{" "}
-              است.
+              در <Link href="/skills/install">نحوه نصب</Link> است.
             </li>
           </ol>
-        </section>
+        </div>
       </div>
     </div>
   )

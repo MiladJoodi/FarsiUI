@@ -148,6 +148,7 @@ export default async function Page(props: {
           }
         >
           <div className="flex flex-col gap-2">
+            {!isComponentsIndex ? (
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between md:items-start">
                 <h1 className="docs-page-title flex scroll-m-24 items-center gap-2.5 font-semibold tracking-tight">
@@ -238,6 +239,7 @@ export default async function Page(props: {
                 </div>
               ) : null}
             </div>
+            ) : null}
           </div>
           <div className="typeset w-full flex-1 *:data-[slot=alert]:first:mt-0">
             <MDX components={mdxComponents} />
