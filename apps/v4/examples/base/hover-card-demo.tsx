@@ -18,7 +18,10 @@ export default function HoverCardDemo() {
         </HoverCardTrigger>
         <HoverCardContent dir="rtl" className="flex w-64 flex-col gap-0.5">
           <div className="font-semibold">نکست‌جی‌اس</div>
-          <div>فریم‌ورک ری‌اکت — ساخته و نگهداری‌شده توسط ورسل.</div>
+          <div>
+            فریم‌ورک ری‌اکت برای ساخت وب‌اپ‌های مدرن؛ توسعه و پشتیبانی توسط
+            Vercel.
+          </div>
           <div className="mt-1 text-xs text-muted-foreground">
             عضویت از آذر ۱۴۰۰
           </div>

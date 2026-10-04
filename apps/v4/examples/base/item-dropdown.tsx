@@ -48,26 +48,24 @@ export default function ItemDropdown() {
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           انتخاب <ChevronDownIcon />
         </DropdownMenuTrigger>
-        <DropdownMenuContent dir="rtl" className="w-56" align="start">
-          <DropdownMenuGroup>
+        <DropdownMenuContent dir="rtl" className="w-72" align="start">
+          <DropdownMenuGroup className="gap-0.5 p-1">
             {people.map((person) => (
               <DropdownMenuItem key={person.email} className="p-0">
-                <Item size="xs" dir="rtl" className="w-full p-2 text-start">
+                <Item size="sm" dir="rtl" className="w-full px-3 py-2.5 text-start">
                   <ItemMedia>
-                    <Avatar className="size-[--spacing(6.5)]">
+                    <Avatar className="size-8">
                       <AvatarImage src={person.avatar} className="grayscale" />
                       <AvatarFallback>
                         {person.username.charAt(0)}
                       </AvatarFallback>
                     </Avatar>
                   </ItemMedia>
-                  <ItemContent className="gap-0 text-start">
+                  <ItemContent className="gap-0.5 text-start">
                     <ItemTitle className="w-full text-start">
                       {person.username}
                     </ItemTitle>
-                    <ItemDescription className="leading-none">
-                      {person.email}
-                    </ItemDescription>
+                    <ItemDescription>{person.email}</ItemDescription>
                   </ItemContent>
                 </Item>
               </DropdownMenuItem>

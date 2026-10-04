@@ -19,7 +19,10 @@ function InputOTP({
       data-slot="input-otp"
       containerClassName={cn(
         "cn-input-otp flex items-center has-disabled:opacity-50",
-        containerClassName
+        containerClassName,
+        // Keep slot order LTR even inside RTL pages; the library's
+        // invisible input is always LTR, so the container must match.
+        "[direction:ltr]"
       )}
       spellCheck={false}
       className={cn(

@@ -656,6 +656,7 @@
   /* MARK: Input OTP */
   .cn-input-otp {
     @apply gap-2;
+    direction: ltr;
   }
 
   .cn-input-otp-group {
