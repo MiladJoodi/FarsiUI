@@ -3,13 +3,12 @@ import Link from "next/link"
 import { getColors } from "@/lib/colors"
 import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
-import { CommandMenu } from "@/components/command-menu"
 import { ContactLink } from "@/components/contact-link"
 import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
-import { HeaderDesignControls } from "@/components/header-design-controls"
 import { ModeSwitcher } from "@/components/mode-switcher"
+import { SiteHeaderActions } from "@/components/site-header-actions"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 export function SiteHeader() {
@@ -43,24 +42,15 @@ export function SiteHeader() {
           </Link>
           <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
           <div className="ms-auto flex min-w-0 items-center gap-1.5 sm:gap-2 md:flex-1 md:justify-end">
-            <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-              <CommandMenu
-                tree={pageTree}
-                colors={colors}
-                navItems={siteConfig.navItems}
-              />
-            </div>
-            <Separator
-              orientation="vertical"
-              className="ms-2 hidden lg:block"
+            <SiteHeaderActions
+              tree={pageTree}
+              colors={colors}
+              navItems={siteConfig.navItems}
             />
-            <HeaderDesignControls />
             <Separator orientation="vertical" className="hidden sm:block" />
             <div className="flex shrink-0 items-center gap-0.5">
               <GitHubLink />
-              {/* Desktop: contact in header. Mobile: contact lives in the nav menu. */}
               <ContactLink className="hidden lg:inline-flex" />
-              {/* Mobile: dark toggle where contact sat; desktop keeps it too. */}
               <ModeSwitcher />
             </div>
           </div>

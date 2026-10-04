@@ -10,7 +10,10 @@ import {
 } from "@/components/page-header"
 import { Button } from "@/registry/bases/radix/ui/button"
 
-import { CardsDemo, CardsDemoMobile } from "./cards"
+import {
+  CardsDemoDeferred,
+  CardsDemoMobileDeferred,
+} from "./cards-deferred"
 
 const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
@@ -128,10 +131,10 @@ export default function IndexPage() {
         <div className="container min-w-0 overflow-x-clip md:px-0 lg:max-w-none">
           {/* Mobile collage is wider than the viewport — clip here so the page never scrolls sideways. */}
           <section className="relative -mx-4 overflow-x-clip md:hidden">
-            <CardsDemoMobile />
+            <CardsDemoMobileDeferred />
           </section>
           <section className="hidden md:block">
-            <CardsDemo />
+            <CardsDemoDeferred />
           </section>
         </div>
       </div>

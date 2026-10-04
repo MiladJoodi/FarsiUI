@@ -165,6 +165,7 @@ export function DesignSystemPreviewProvider({
   }, [designSystemId, hydrated])
 
   // Sync style root onto lazy-loaded same-origin preview iframes.
+  // Avoid observing every body mutation on pages with no iframes (homepage).
   useEffect(() => {
     if (!hydrated) return
 
@@ -174,6 +175,8 @@ export function DesignSystemPreviewProvider({
     const seen = new WeakSet<HTMLIFrameElement>()
     const controller = new AbortController()
     const { signal } = controller
+    let observer: MutationObserver | null = null
+    let pollId: number | null = null
 
     const track = (iframe: HTMLIFrameElement) => {
       if (seen.has(iframe)) return
@@ -197,16 +200,38 @@ export function DesignSystemPreviewProvider({
       }
     }
 
-    scan(document)
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        mutation.addedNodes.forEach(scan)
-      }
-    })
-    observer.observe(document.body, { childList: true, subtree: true })
+    const startObserver = () => {
+      if (observer || signal.aborted) return
+      scan(document)
+      observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          mutation.addedNodes.forEach(scan)
+        }
+      })
+      observer.observe(document.body, { childList: true, subtree: true })
+    }
+
+    if (document.querySelector("iframe")) {
+      startObserver()
+    } else {
+      let tries = 0
+      pollId = window.setInterval(() => {
+        tries += 1
+        if (document.querySelector("iframe")) {
+          if (pollId !== null) window.clearInterval(pollId)
+          pollId = null
+          startObserver()
+        } else if (tries >= 40) {
+          if (pollId !== null) window.clearInterval(pollId)
+          pollId = null
+        }
+      }, 500)
+    }
+
     return () => {
       controller.abort()
-      observer.disconnect()
+      if (pollId !== null) window.clearInterval(pollId)
+      observer?.disconnect()
     }
   }, [designSystemId, hydrated])
 

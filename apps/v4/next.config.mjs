@@ -40,13 +40,17 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   enablePrerenderSourceMaps: false,
   experimental: {
-    cpus: 1,
+    // Cap workers on Vercel only — locally this made first compile / refresh feel frozen.
+    ...(process.env.VERCEL
+      ? {
+          cpus: 1,
+          staticGenerationMaxConcurrency: 2,
+          staticGenerationMinPagesPerWorker: 50,
+        }
+      : {}),
     webpackBuildWorker: true,
     webpackMemoryOptimizations: true,
     serverSourceMaps: false,
-    // Fewer parallel static workers → less peak RAM on Vercel.
-    staticGenerationMaxConcurrency: 2,
-    staticGenerationMinPagesPerWorker: 50,
     // Rewrite barrel imports to deep imports so a single icon doesn't pull the
     // whole package into the module graph. Next already optimizes lucide-react,
     // date-fns and lodash-es by default; these are the heavy icon packages this
