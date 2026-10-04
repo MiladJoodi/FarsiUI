@@ -72,7 +72,8 @@ export function ListIndexNav({
           side="right"
           dir="rtl"
           lang="fa"
-          className="w-[min(100%,20rem)] gap-0 p-0 sm:max-w-sm"
+          className="w-[min(100%,20rem)] gap-0 p-0 data-[state=closed]:duration-200 data-[state=open]:duration-200 sm:max-w-sm"
+          onOpenAutoFocus={(event) => event.preventDefault()}
         >
           <SheetHeader className="border-b border-border/80 px-4 py-3 text-start">
             <SheetTitle className="text-base">{title}</SheetTitle>
