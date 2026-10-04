@@ -37,44 +37,6 @@ const HeaderDesignControls = dynamic(
   }
 )
 
-function useHeaderHeavyReady(timeoutMs = 2500) {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    let cancelled = false
-    const enable = () => {
-      if (!cancelled) setReady(true)
-    }
-
-    // Prefer idle after first paint so logo/nav/theme toggle hydrate first.
-    const idleId =
-      typeof window.requestIdleCallback === "function"
-        ? window.requestIdleCallback(enable, { timeout: timeoutMs })
-        : null
-    const fallbackId =
-      idleId === null ? window.setTimeout(enable, 400) : null
-
-    const onInteract = () => enable()
-    window.addEventListener("pointerdown", onInteract, {
-      once: true,
-      passive: true,
-    })
-    window.addEventListener("keydown", onInteract, { once: true })
-
-    return () => {
-      cancelled = true
-      if (idleId !== null && typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleId)
-      }
-      if (fallbackId !== null) window.clearTimeout(fallbackId)
-      window.removeEventListener("pointerdown", onInteract)
-      window.removeEventListener("keydown", onInteract)
-    }
-  }, [timeoutMs])
-
-  return ready
-}
-
 export function SiteHeaderActions({
   tree,
   colors,
@@ -84,28 +46,98 @@ export function SiteHeaderActions({
   colors: ColorPalette[]
   navItems?: { href: string; label: string }[]
 }) {
-  const ready = useHeaderHeavyReady()
+  // Only load heavy header widgets when the user asks for them — never on
+  // global pointerdown/idle (that was stealing the first click's main thread).
+  const [loadSearch, setLoadSearch] = useState(false)
+  const [loadStudio, setLoadStudio] = useState(false)
+
+  useEffect(() => {
+    // #region agent log
+    const t = Math.round(performance.now())
+    const dbg = (window as Window & {
+      __farsiHeaderDebug?: { headerActionsMount?: number }
+    }).__farsiHeaderDebug
+    if (dbg) dbg.headerActionsMount = t
+    fetch("http://127.0.0.1:7896/ingest/5b150b1c-f596-4344-bc6e-c0563c0599de", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "bf5044",
+      },
+      body: JSON.stringify({
+        sessionId: "bf5044",
+        runId: "post-fix",
+        hypothesisId: "A",
+        location: "site-header-actions.tsx:mount",
+        message: "SiteHeaderActions mounted",
+        data: {
+          t,
+          treeChildCount: Array.isArray(tree?.children)
+            ? tree.children.length
+            : -1,
+          colorsCount: colors?.length ?? -1,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {})
+    // #endregion
+  }, [tree, colors])
+
+  useEffect(() => {
+    if (!loadSearch && !loadStudio) return
+    // #region agent log
+    const t = Math.round(performance.now())
+    const dbg = (window as Window & {
+      __farsiHeaderDebug?: { headerHeavyReady?: number }
+    }).__farsiHeaderDebug
+    if (dbg) dbg.headerHeavyReady = t
+    fetch("http://127.0.0.1:7896/ingest/5b150b1c-f596-4344-bc6e-c0563c0599de", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "bf5044",
+      },
+      body: JSON.stringify({
+        sessionId: "bf5044",
+        runId: "post-fix",
+        hypothesisId: "A",
+        location: "site-header-actions.tsx:enable",
+        message: "header heavy ready",
+        data: { t, reason: "explicit", loadSearch, loadStudio },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {})
+    // #endregion
+  }, [loadSearch, loadStudio])
 
   return (
     <>
       <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-        {ready ? (
+        {loadSearch ? (
           <CommandMenu tree={tree} colors={colors} navItems={navItems} />
         ) : (
-          <div
-            aria-hidden
-            className="h-8 w-full max-w-56 rounded-lg bg-muted/60 md:w-56"
-          />
+          <button
+            type="button"
+            className="h-8 w-full max-w-56 rounded-lg bg-muted/60 text-start text-sm text-muted-foreground md:w-56 px-3"
+            onClick={() => setLoadSearch(true)}
+          >
+            جستجو...
+          </button>
         )}
       </div>
       <Separator
         orientation="vertical"
         className="ms-2 hidden lg:block"
       />
-      {ready ? (
+      {loadStudio ? (
         <HeaderDesignControls />
       ) : (
-        <div aria-hidden className="h-8 w-[4.5rem] rounded-md bg-muted/60" />
+        <button
+          type="button"
+          aria-label="دیزاین"
+          className="h-8 w-[4.5rem] rounded-md bg-muted/60"
+          onClick={() => setLoadStudio(true)}
+        />
       )}
     </>
   )
