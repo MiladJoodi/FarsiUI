@@ -1,12 +1,7 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/registry/bases/base/ui/card"
+import { Card, CardContent, CardHeader } from "@/registry/bases/base/ui/card"
 import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
-const bars = [30, 70, 80, 60, 90, 75, 100, 85]
+const bars = [32, 74, 82, 63, 89, 76, 100, 84]
 
 export function PowerUsage() {
   return (
@@ -16,19 +11,24 @@ export function PowerUsage() {
         <Skeleton className="h-4 w-24 rounded-md" />
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <div className="flex h-[140px] w-full items-end gap-2">
-          {bars.map((height, i) => (
-            <div
-              key={i}
-              className="flex h-full flex-1 flex-col justify-end gap-1.5"
-            >
+        <div className="flex w-full flex-col gap-1.5">
+          <div className="flex h-[120px] w-full items-end gap-2">
+            {bars.map((height, i) => (
               <Skeleton
-                className="w-full rounded-t rounded-b-none"
+                key={i}
+                className="min-h-2 flex-1 rounded-t rounded-b-none"
                 style={{ height: `${height}%` }}
               />
-              <Skeleton className="mx-auto h-3 w-5 rounded-md" />
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="flex w-full gap-2">
+            {bars.map((_, i) => (
+              <Skeleton
+                key={i}
+                className="mx-auto h-2.5 w-5 flex-1 rounded-md"
+              />
+            ))}
+          </div>
         </div>
         <Skeleton className="h-px w-full rounded-none" />
         <div className="grid grid-cols-2 gap-4">
@@ -42,13 +42,6 @@ export function PowerUsage() {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2">
-        <Skeleton className="h-3 w-24 rounded-md" />
-        <div className="flex w-full items-center gap-2">
-          <Skeleton className="h-2 flex-1 rounded-full" />
-          <Skeleton className="h-3 w-10 rounded-md" />
-        </div>
-      </CardFooter>
     </Card>
   )
 }

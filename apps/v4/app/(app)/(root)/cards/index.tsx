@@ -1,12 +1,13 @@
 "use client"
 
-import type { MouseEvent, ReactNode } from "react"
+import type { MouseEvent } from "react"
 import { cn } from "cn"
 
 import { AccountAccess } from "./account-access"
 import { AnalyticsCard } from "./analytics-card"
 import { AttachmentCard } from "./attachment-card"
 import { ClaimableBalance } from "./claimable-balance"
+import { CollageColumns } from "./collage-columns"
 import { CalendarCard } from "./combobox-date-picker"
 import { ContextMenuCard } from "./context-menu-card"
 import { ContributionHistory } from "./contribution-history"
@@ -35,19 +36,35 @@ import { UIElements } from "./ui-elements"
 /** Design width of the mobile collage before it is scaled into 140vw (shadcn pattern). */
 const MOBILE_DESIGN_WIDTH = 1600
 
-/**
- * Decorative strip pinned to the bottom fade only.
- * Height matches the fade overlay so duplicates never form a full extra row.
- */
-function FadeTail({ children }: { children: ReactNode }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none mt-auto h-40 shrink-0 overflow-hidden lg:h-48"
-    >
-      <div className="flex flex-col gap-(--gap)">{children}</div>
-    </div>
-  )
+const LIVE_CARDS = {
+  UIElements,
+  CalendarCard,
+  SidebarNav,
+  MenubarCard,
+  SyncingStateCard,
+  PayoutThreshold,
+  ContributionHistory,
+  ClaimableBalance,
+  DividendIncome,
+  TabsCard,
+  FaqCard,
+  NewMilestone,
+  SavingsTargets,
+  AccountAccess,
+  DropdownDrawerHover,
+  ShortcutsCard,
+  MessageScrollerStatic,
+  Payments,
+  PopoverSliderToastToggle,
+  ContextMenuCard,
+  AttachmentCard,
+  InviteTeamCard,
+  EmptyDistributeTrack,
+  AnalyticsCard,
+  NotificationSettings,
+  PowerUsage,
+  MarkerAvatarAlert,
+  SocialLinksCard,
 }
 
 function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
@@ -56,80 +73,6 @@ function preventDemoHashNavigation(event: MouseEvent<HTMLDivElement>) {
   const anchor = target.closest("a[href='#']")
   if (!anchor) return
   event.preventDefault()
-}
-
-/** Same five columns / same cards as desktop — always fully visible in the mobile collage. */
-function CardsColumns({ forceAll = false }: { forceAll?: boolean }) {
-  const col = (visibleFrom: string) =>
-    forceAll
-      ? "flex h-full min-w-0 flex-col gap-(--gap)"
-      : `hidden h-full flex-col gap-(--gap) ${visibleFrom}`
-
-  return (
-    <div
-      className={
-        forceAll
-          ? "relative z-10 grid grid-cols-5 items-stretch gap-(--gap) **:data-[slot=card]:w-full"
-          : "relative z-10 mx-auto grid items-stretch gap-(--gap) **:data-[slot=card]:w-full min-[1400px]:grid-cols-4! min-[1900px]:grid-cols-5! md:max-w-3xl md:grid-cols-2 lg:max-w-none lg:grid-cols-3 xl:max-w-[1600px] 2xl:max-w-[1900px]"
-      }
-    >
-      <div className="flex h-full min-w-0 flex-col gap-(--gap)">
-        <UIElements />
-        <CalendarCard />
-        <SidebarNav />
-        <MenubarCard />
-        <SyncingStateCard />
-        <PayoutThreshold />
-        <FadeTail>
-          <PayoutThreshold />
-        </FadeTail>
-      </div>
-      <div className={col("lg:flex")}>
-        <ContributionHistory />
-        <ClaimableBalance />
-        <DividendIncome />
-        <TabsCard />
-        <FaqCard />
-        <FadeTail>
-          <ClaimableBalance />
-        </FadeTail>
-      </div>
-      <div className={col("min-[1400px]:flex")}>
-        <NewMilestone />
-        <SavingsTargets />
-        <AccountAccess />
-        <DropdownDrawerHover />
-        <ShortcutsCard />
-        <FadeTail>
-          <AccountAccess />
-        </FadeTail>
-      </div>
-      <div className={col("md:flex")}>
-        <div className="**:[.text-center.text-xs]:hidden">
-          <MessageScrollerStatic />
-        </div>
-        <Payments />
-        <PopoverSliderToastToggle />
-        <ContextMenuCard />
-        <AttachmentCard />
-        <InviteTeamCard />
-        <FadeTail>
-          <Payments />
-        </FadeTail>
-      </div>
-      <div className={col("min-[1900px]:flex")}>
-        <EmptyDistributeTrack />
-        <AnalyticsCard />
-        <NotificationSettings />
-        <PowerUsage />
-        <MarkerAvatarAlert />
-        <SocialLinksCard />
-        <FadeTail>
-          <NotificationSettings />
-        </FadeTail>
-      </div>
-    </div>
-  )
 }
 
 /** Soft handoff from page header (background) into the collage (muted). */
@@ -156,7 +99,7 @@ export function CardsDemoMobile() {
           zoom: `calc(140vw / ${MOBILE_DESIGN_WIDTH}px)`,
         }}
       >
-        <CardsColumns forceAll />
+        <CollageColumns forceAll cards={LIVE_CARDS} />
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
@@ -176,7 +119,7 @@ export function CardsDemo() {
         COLLAGE_SURFACE
       )}
     >
-      <CardsColumns />
+      <CollageColumns cards={LIVE_CARDS} />
       <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
   )

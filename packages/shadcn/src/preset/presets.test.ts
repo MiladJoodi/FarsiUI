@@ -3,10 +3,12 @@ import prompts from "prompts"
 import { beforeEach, describe, expect, it, vi } from "vitest"
 
 import {
-  DEFAULT_PRESETS,
+  DESIGN_SYSTEM_INSTALL_PRESETS,
   promptForBase,
+  promptForPreset,
   resolveCreateUrl,
   resolveInitUrl,
+  resolvePresetByName,
 } from "./presets"
 
 vi.mock("prompts", () => ({
@@ -37,19 +39,47 @@ describe("promptForBase", () => {
     vi.mocked(prompts).mockReset()
   })
 
-  it("should offer and return the aria base", async () => {
-    vi.mocked(prompts).mockResolvedValue({ base: "aria" })
+  it("always returns Base UI without prompting", async () => {
+    await expect(promptForBase()).resolves.toBe("base")
+    expect(prompts).not.toHaveBeenCalled()
+  })
+})
 
-    await expect(promptForBase()).resolves.toBe("aria")
+describe("promptForPreset", () => {
+  beforeEach(() => {
+    vi.mocked(prompts).mockReset()
+  })
+
+  it("lists only the six Finglish design systems", async () => {
+    vi.mocked(prompts).mockResolvedValue({ selectedPreset: "default" })
+
+    await promptForPreset({ rtl: false, base: "base" })
+
     expect(prompts).toHaveBeenCalledWith(
       expect.objectContaining({
-        choices: [
-          { title: "Base UI (Recommended)", value: "base" },
-          { title: "React Aria", value: "aria" },
-          { title: "Radix UI", value: "radix" },
-        ],
+        choices: DESIGN_SYSTEM_INSTALL_PRESETS.map((preset) => ({
+          title: preset.title,
+          description: preset.description,
+          value: preset.id,
+        })),
       })
     )
+    expect(DESIGN_SYSTEM_INSTALL_PRESETS.map((p) => p.title)).toEqual([
+      "Default",
+      "Aram",
+      "Firoozeh",
+      "Rose",
+      "Nili",
+      "Khesht",
+    ])
+  })
+})
+
+describe("resolvePresetByName", () => {
+  it("maps design-system ids to style presets", () => {
+    expect(resolvePresetByName("default")?.style).toBe("nova")
+    expect(resolvePresetByName("comfort")?.style).toBe("vega")
+    expect(resolvePresetByName("glass")?.title).toBe("Firoozeh")
   })
 })
 

@@ -1,9 +1,52 @@
 import type { PresetConfig } from "./preset"
 
+/** Design systems shown in `farsiui init` / `add` — Finglish titles only. */
+export const DESIGN_SYSTEM_INSTALL_PRESETS = [
+  {
+    id: "default",
+    title: "Default",
+    description: "Standard and clear",
+    style: "nova",
+  },
+  {
+    id: "comfort",
+    title: "Aram",
+    description: "Soft and open",
+    style: "vega",
+  },
+  {
+    id: "glass",
+    title: "Firoozeh",
+    description: "Glass turquoise",
+    style: "glass",
+  },
+  {
+    id: "rose",
+    title: "Rose",
+    description: "Warm and soft",
+    style: "rose",
+  },
+  {
+    id: "nili",
+    title: "Nili",
+    description: "Cool and dark",
+    style: "nili",
+  },
+  {
+    id: "khesht",
+    title: "Khesht",
+    description: "Earthy and bold",
+    style: "khesht",
+  },
+] as const
+
+export type DesignSystemInstallId =
+  (typeof DESIGN_SYSTEM_INSTALL_PRESETS)[number]["id"]
+
 export const DEFAULT_PRESETS = {
   nova: {
-    title: "Nova",
-    description: "Lucide / Geist",
+    title: "Default",
+    description: "Standard and clear",
     style: "nova",
     baseColor: "neutral",
     theme: "neutral",
@@ -17,8 +60,8 @@ export const DEFAULT_PRESETS = {
     rtl: false,
   },
   vega: {
-    title: "Vega",
-    description: "Lucide / Inter",
+    title: "Aram",
+    description: "Soft and open",
     style: "vega",
     baseColor: "neutral",
     theme: "neutral",
@@ -137,8 +180,8 @@ export const DEFAULT_PRESETS = {
     rtl: false,
   },
   glass: {
-    title: "فیروزه",
-    description: "Lucide / Geist",
+    title: "Firoozeh",
+    description: "Glass turquoise",
     style: "glass",
     baseColor: "neutral",
     theme: "neutral",
@@ -152,8 +195,8 @@ export const DEFAULT_PRESETS = {
     rtl: false,
   },
   rose: {
-    title: "رز",
-    description: "Lucide / Geist",
+    title: "Rose",
+    description: "Warm and soft",
     style: "rose",
     baseColor: "neutral",
     theme: "neutral",
@@ -167,8 +210,8 @@ export const DEFAULT_PRESETS = {
     rtl: false,
   },
   nili: {
-    title: "نیلی",
-    description: "Lucide / Geist",
+    title: "Nili",
+    description: "Cool and dark",
     style: "nili",
     baseColor: "neutral",
     theme: "neutral",
@@ -182,8 +225,8 @@ export const DEFAULT_PRESETS = {
     rtl: false,
   },
   khesht: {
-    title: "خشت",
-    description: "Lucide / Geist",
+    title: "Khesht",
+    description: "Earthy and bold",
     style: "khesht",
     baseColor: "neutral",
     theme: "neutral",

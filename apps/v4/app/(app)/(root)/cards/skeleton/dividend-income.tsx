@@ -39,7 +39,6 @@ export function DividendIncome() {
                   />
                 ))}
               </div>
-              <Skeleton className="hidden h-4 w-16 rounded-md bg-muted-foreground/15 md:block" />
             </div>
           ))}
         </div>

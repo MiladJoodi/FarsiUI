@@ -10,9 +10,10 @@ import {
 } from "@/src/preset/preset"
 import {
   DEFAULT_PRESETS,
-  promptForBase,
+  DESIGN_SYSTEM_INSTALL_PRESETS,
   promptForPreset,
   resolveInitUrl,
+  resolvePresetByName,
   resolveRegistryBaseConfig,
 } from "@/src/preset/presets"
 import { getRegistryBaseColors, getRegistryStyles } from "@/src/registry/api"
@@ -181,6 +182,12 @@ export const init = new Command()
         cwd: path.resolve(opts.cwd),
       })
       const presetsByName = new Map(Object.entries(DEFAULT_PRESETS))
+      for (const designSystem of DESIGN_SYSTEM_INSTALL_PRESETS) {
+        const preset = resolvePresetByName(designSystem.id)
+        if (preset) {
+          presetsByName.set(designSystem.id, preset)
+        }
+      }
 
       let presetBase: PresetBase | undefined
 
@@ -188,6 +195,11 @@ export const init = new Command()
         options.template = options.template || "next"
         options.base = options.base || "base"
         options.reinstall = options.reinstall ?? false
+      }
+
+      // FarsiUI installs Base UI only — never prompt for component library.
+      if (!options.base) {
+        options.base = "base"
       }
 
       if (options.template && !(options.template in templates)) {
@@ -207,9 +219,11 @@ export const init = new Command()
         !isUrl(options.preset) &&
         !isPresetCode(options.preset)
       ) {
-        const knownPresetNames = Array.from(presetsByName.keys())
+        const knownPresetNames = DESIGN_SYSTEM_INSTALL_PRESETS.map(
+          (preset) => preset.id
+        )
 
-        if (!presetsByName.has(options.preset)) {
+        if (!presetsByName.has(options.preset) && !resolvePresetByName(options.preset)) {
           logger.error(
             `Invalid preset: ${highlighter.info(
               options.preset
@@ -389,12 +403,7 @@ export const init = new Command()
           options.monorepo = monorepo
         }
 
-        // Prompt for base if not provided.
-        if (!options.base) {
-          options.base = await promptForBase()
-        }
-
-        // Show interactive preset list.
+        // Show interactive design-system list (Base UI is already selected).
         options.preset = true
       }
 
@@ -449,7 +458,8 @@ export const init = new Command()
             )
             presetBase = undefined
           } else {
-            const preset = presetsByName.get(presetArg)
+            const preset =
+              presetsByName.get(presetArg) ?? resolvePresetByName(presetArg)
             if (!preset) {
               throw new Error(`Unknown preset: ${presetArg}`)
             }
@@ -476,20 +486,10 @@ export const init = new Command()
           ? getBase(existingConfig.style)
           : undefined)
 
-      // If a components.json exists but could not be parsed, we cannot know
-      // the current base, so never pick one silently.
-      const unknownExistingBase = hasExistingConfig && !existingConfig
-
       if (!resolvedBase) {
-        if (components.length > 0 && !unknownExistingBase) {
-          // When initializing from a registry item, default to base.
-          // The registry:base config will override this.
-          resolvedBase = "base"
-        } else {
-          const base = await promptForBase()
-          resolvedBase = base
-          options.base = base
-        }
+        // FarsiUI defaults to Base UI — no interactive library picker.
+        resolvedBase = "base"
+        options.base = "base"
       }
 
       // Build the --defaults URL now that base is resolved.

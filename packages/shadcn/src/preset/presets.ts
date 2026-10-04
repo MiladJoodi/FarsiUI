@@ -12,10 +12,34 @@ import open from "open"
 import prompts from "prompts"
 import { type z } from "zod"
 
-import { DEFAULT_PRESETS } from "./defaults"
+import {
+  DEFAULT_PRESETS,
+  DESIGN_SYSTEM_INSTALL_PRESETS,
+} from "./defaults"
 import { type PresetBase } from "./preset"
 
-export { DEFAULT_PRESETS } from "./defaults"
+export {
+  DEFAULT_PRESETS,
+  DESIGN_SYSTEM_INSTALL_PRESETS,
+} from "./defaults"
+
+/** Resolve a CLI preset name (`default`, `nova`, `firoozeh` alias via id, …). */
+export function resolvePresetByName(name: string) {
+  const designSystem = DESIGN_SYSTEM_INSTALL_PRESETS.find(
+    (preset) => preset.id === name || preset.title.toLowerCase() === name.toLowerCase()
+  )
+  if (designSystem) {
+    const preset = DEFAULT_PRESETS[designSystem.style]
+    return preset
+      ? {
+          ...preset,
+          title: designSystem.title,
+          description: designSystem.description,
+        }
+      : undefined
+  }
+  return DEFAULT_PRESETS[name as keyof typeof DEFAULT_PRESETS]
+}
 
 export function resolveCreateUrl(
   searchParams?: Partial<{
@@ -142,19 +166,9 @@ export function resolveInitUrl(
   return `${SHADCN_URL}/init?${params.toString()}`
 }
 
+/** FarsiUI ships Base UI only for now — no interactive library picker. */
 export async function promptForBase() {
-  const { base } = await prompts({
-    type: "select",
-    name: "base",
-    message: `Select a ${highlighter.info("component library")}`,
-    choices: [
-      { title: "Base UI (Recommended)", value: "base" },
-      { title: "React Aria", value: "aria" },
-      { title: "Radix UI", value: "radix" },
-    ],
-  })
-  if (!base) process.exit(1)
-  return base as PresetBase
+  return "base" as PresetBase
 }
 
 export async function promptForPreset(options: {
@@ -163,49 +177,22 @@ export async function promptForPreset(options: {
   template?: string
   pointer?: boolean
 }) {
-  const presets = Object.entries(DEFAULT_PRESETS)
-
   const { selectedPreset } = await prompts({
     type: "select",
     name: "selectedPreset",
-    message: `Which ${highlighter.info("preset")} would you like to use?`,
-    choices: [
-      ...presets.map(([name, preset]) => ({
-        title: preset.title,
-        description: preset.description,
-        value: name,
-      })),
-      {
-        title: "Custom",
-        description: `Build your own at ${highlighter.info(`${SHADCN_URL}/create`)}`,
-        value: "custom",
-      },
-    ],
+    message: `Which ${highlighter.info("design system")} would you like to use?`,
+    choices: DESIGN_SYSTEM_INSTALL_PRESETS.map((preset) => ({
+      title: preset.title,
+      description: preset.description,
+      value: preset.id,
+    })),
   })
 
   if (!selectedPreset) {
     process.exit(1)
   }
 
-  if (selectedPreset === "custom") {
-    const createUrl = resolveCreateUrl({
-      command: "init",
-      rtl: options.rtl,
-      pointer: options.pointer,
-      base: options.base,
-      ...(options.template && { template: options.template }),
-    })
-    await promptToOpenPresetBuilder({
-      createUrl,
-      followUp: `Then ${highlighter.info(
-        "copy and run the command"
-      )} from farsiui.ir.`,
-    })
-
-    process.exit(0)
-  }
-
-  const preset = DEFAULT_PRESETS[selectedPreset as keyof typeof DEFAULT_PRESETS]
+  const preset = resolvePresetByName(selectedPreset)
   if (!preset) {
     process.exit(1)
   }
