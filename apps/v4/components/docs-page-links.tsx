@@ -20,8 +20,10 @@ export function DocsPageLinks({ page, url }: { page: string; url: string }) {
       <ul className="flex flex-col gap-2 text-[0.8rem] text-muted-foreground">
         <li>
           <button
+            type="button"
+            data-slot="copy-button"
             onClick={() => copyToClipboard(page)}
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex cursor-pointer items-center gap-2 transition-colors hover:text-foreground"
           >
             {isCopied ? (
               <IconCheck className="size-4" />

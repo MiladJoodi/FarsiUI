@@ -56,7 +56,7 @@ function FadeTail({ children }: { children: ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none mt-auto h-64 shrink-0 overflow-hidden lg:h-80"
+      className="pointer-events-none mt-auto h-40 shrink-0 overflow-hidden lg:h-48"
     >
       <div className="flex flex-col gap-(--gap)">{children}</div>
     </div>
@@ -208,8 +208,8 @@ export function CardsDemoMobile() {
         <CardsColumns forceAll />
       </div>
       {/* Identical to CardsDemo fades — on the outer frame so zoom doesn't crush them. */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent dark:via-background/80" />
     </div>
   )
 }
@@ -225,8 +225,8 @@ export function CardsDemo() {
     >
       <CardsSkeletonRails />
       <CardsColumns />
-      <div className="absolute inset-x-0 top-0 z-1 h-120 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
-      <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-80 dark:via-background/80" />
+      <div className="absolute inset-x-0 top-0 z-1 h-24 bg-linear-to-b from-background via-muted to-transparent dark:hidden" />
+      <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-linear-to-t from-background via-muted/80 to-transparent lg:h-48 dark:via-background/80" />
     </div>
   )
 }

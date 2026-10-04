@@ -232,6 +232,11 @@
   @apply bg-linear-to-b from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none;
 }
 
+/* All site copy controls use pointer cursor. */
+[data-slot="copy-button"] {
+  cursor: pointer;
+}
+
 @utility theme-container {
   @apply font-sans;
 
@@ -722,19 +727,6 @@ body[class*="theme-"],
     @apply rounded-xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800;
   }
 
-  :where([dir="rtl"]) [data-slot="accordion-trigger"] {
-    flex-direction: row-reverse;
-    text-align: right;
-  }
-
-  :where([dir="rtl"]) [data-slot="accordion-trigger"] [data-slot="accordion-trigger-icons"] {
-    margin-inline-start: 0;
-    margin-inline-end: auto;
-  }
-
-  :where([dir="rtl"]) [data-slot="accordion-content-inner"] {
-    text-align: right;
-  }
 }
 
 @keyframes docs-collapsible-down {

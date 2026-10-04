@@ -390,7 +390,8 @@ function CopyCssButton({
   return (
     <Button
       variant="outline"
-      className="w-fit"
+      data-slot="copy-button"
+      className="w-fit cursor-pointer"
       size="sm"
       disabled={!css}
       onClick={async () => {
@@ -443,7 +444,8 @@ function CopyPromptButton({
   return (
     <Button
       variant="outline"
-      className="w-fit"
+      data-slot="copy-button"
+      className="w-fit cursor-pointer"
       size="sm"
       onClick={async () => {
         await navigator.clipboard.writeText(prompt)

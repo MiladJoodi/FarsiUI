@@ -368,7 +368,8 @@ export function BlockCard({
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="size-7 shrink-0"
+                    data-slot="copy-button"
+                    className="size-7 shrink-0 cursor-pointer"
                     disabled={!activeFile?.content}
                     title="کپی کد"
                     onClick={() => {

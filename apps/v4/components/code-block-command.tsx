@@ -118,7 +118,7 @@ export function CodeBlockCommand({
         data-slot="copy-button"
         size="icon"
         variant="ghost"
-        className="absolute top-2 right-2 z-10 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100"
+        className="absolute top-2 right-2 z-10 size-7 cursor-pointer opacity-70 hover:opacity-100 focus-visible:opacity-100"
         onClick={copyCommand}
       >
         <span className="sr-only">Copy</span>

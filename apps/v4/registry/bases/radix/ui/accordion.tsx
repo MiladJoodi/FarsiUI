@@ -44,30 +44,37 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "cn-accordion-trigger group/accordion-trigger relative flex flex-1 items-start justify-between border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50",
+          "cn-accordion-trigger group/accordion-trigger relative flex flex-1 items-start gap-3 border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50",
           className
         )}
         {...props}
       >
-        {children}
-        <IconPlaceholder
-          lucide="ChevronDownIcon"
-          tabler="IconChevronDown"
-          data-slot="accordion-trigger-icon"
-          hugeicons="ArrowDown01Icon"
-          phosphor="CaretDownIcon"
-          remixicon="RiArrowDownSLine"
-          className="cn-accordion-trigger-icon pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
-        />
-        <IconPlaceholder
-          lucide="ChevronUpIcon"
-          tabler="IconChevronUp"
-          data-slot="accordion-trigger-icon"
-          hugeicons="ArrowUp01Icon"
-          phosphor="CaretUpIcon"
-          remixicon="RiArrowUpSLine"
-          className="cn-accordion-trigger-icon pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
-        />
+        {/* Icon first so RTL keeps the chevron on the inline-start (right). */}
+        <span
+          className="relative size-4 shrink-0"
+          data-slot="accordion-trigger-icons"
+          aria-hidden
+        >
+          <IconPlaceholder
+            lucide="ChevronDownIcon"
+            tabler="IconChevronDown"
+            data-slot="accordion-trigger-icon"
+            hugeicons="ArrowDown01Icon"
+            phosphor="CaretDownIcon"
+            remixicon="RiArrowDownSLine"
+            className="cn-accordion-trigger-icon pointer-events-none size-4 shrink-0 group-aria-expanded/accordion-trigger:hidden"
+          />
+          <IconPlaceholder
+            lucide="ChevronUpIcon"
+            tabler="IconChevronUp"
+            data-slot="accordion-trigger-icon"
+            hugeicons="ArrowUp01Icon"
+            phosphor="CaretUpIcon"
+            remixicon="RiArrowUpSLine"
+            className="cn-accordion-trigger-icon pointer-events-none absolute inset-0 size-4 shrink-0 hidden group-aria-expanded/accordion-trigger:block"
+          />
+        </span>
+        <span className="min-w-0 flex-1 text-start">{children}</span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

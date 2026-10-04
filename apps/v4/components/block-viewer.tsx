@@ -221,7 +221,8 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
         <Separator orientation="vertical" className="mx-0.5 h-4!" />
         <Button
           variant="ghost"
-          className="h-6 w-fit max-w-[min(100%,18rem)] gap-1.5 rounded-sm px-2 shadow-none"
+          data-slot="copy-button"
+          className="h-6 w-fit max-w-[min(100%,18rem)] cursor-pointer gap-1.5 rounded-sm px-2 shadow-none"
           size="sm"
           title="کپی دستور نصب"
           onClick={() => {
@@ -498,7 +499,8 @@ function BlockCopyCodeButton() {
     <Button
       variant="ghost"
       size="icon"
-      className="size-7"
+      data-slot="copy-button"
+      className="size-7 cursor-pointer"
       onClick={() => {
         copyToClipboard(content)
         trackEvent({

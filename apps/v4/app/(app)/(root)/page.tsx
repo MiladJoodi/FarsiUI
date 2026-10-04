@@ -13,7 +13,7 @@ import { Button } from "@/styles/radix-luma/ui/button"
 import { CardsDemo, CardsDemoMobile } from "./cards"
 
 const slogan = "چند قدم جلوتر شروع کنید"
-const title = "کتابخانه کامپوننت UI فارسی"
+const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
 const description =
   "مخزن کامپوننت‌های استاندارد، راست‌چین و قابل شخصی‌سازی برای React."
@@ -109,7 +109,7 @@ export default function IndexPage() {
       <PageHeader
         dir="rtl"
         lang="fa"
-        className="md:**:[.container]:pb-8 lg:**:[.container]:pb-12"
+        className="**:[.container]:py-6 md:**:[.container]:py-8 lg:**:[.container]:py-10"
       >
         <p className="max-w-4xl text-lg font-medium tracking-tight text-muted-foreground sm:text-xl">
           {slogan}

@@ -37,7 +37,8 @@ export function PresetShare() {
             type="submit"
             size="icon"
             variant="ghost"
-            className="absolute top-1 right-1 size-7"
+            data-slot="copy-button"
+            className="absolute top-1 right-1 size-7 cursor-pointer"
           >
             <span className="sr-only">Copy</span>
             <Copy className="size-3.5" />

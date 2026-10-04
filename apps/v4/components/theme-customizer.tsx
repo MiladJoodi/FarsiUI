@@ -122,7 +122,10 @@ export function CopyCodeButton({
     <>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button className={cn("sm:hidden", className)} {...props}>
+          <Button
+            className={cn("cursor-pointer sm:hidden", className)}
+            {...props}
+          >
             Copy Code
           </Button>
         </DrawerTrigger>
@@ -140,7 +143,7 @@ export function CopyCodeButton({
         <DialogTrigger asChild>
           <Button
             data-size={props.size}
-            className={cn("group/button hidden sm:flex", className)}
+            className={cn("group/button hidden cursor-pointer sm:flex", className)}
             {...props}
           >
             <IconCopy />
@@ -214,7 +217,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 data-slot="copy-button"
                 size="icon"
                 variant="ghost"
-                className="absolute top-3 right-2 z-10 size-7 bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
+                className="absolute top-3 right-2 z-10 size-7 cursor-pointer bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
                 onClick={() => {
                   copyToClipboardWithMeta(
                     getThemeCodeOKLCH(activeThemeOKLCH, 0.65),
@@ -294,7 +297,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 data-slot="copy-button"
                 size="icon"
                 variant="ghost"
-                className="absolute top-3 right-2 z-10 size-7 bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
+                className="absolute top-3 right-2 z-10 size-7 cursor-pointer bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
                 onClick={() => {
                   copyToClipboardWithMeta(
                     getThemeCodeHSLV4(activeTheme, 0.65),
@@ -378,7 +381,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
                 data-slot="copy-button"
                 size="icon"
                 variant="ghost"
-                className="absolute top-3 right-2 z-10 size-7 bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
+                className="absolute top-3 right-2 z-10 size-7 cursor-pointer bg-code text-code-foreground shadow-none hover:opacity-100 focus-visible:opacity-100"
                 onClick={() => {
                   copyToClipboardWithMeta(getThemeCode(activeTheme, 0.5), {
                     name: "copy_theme_code",
