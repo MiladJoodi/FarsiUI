@@ -163,24 +163,36 @@ Run with no options for a full registry build, or target a single artifact:
   --style <style|all>     Rebuild local generated style files under styles/<style>/ui.
   --registry <style|all>  Rebuild installable registry JSON under public/r/styles/<style>.
 
-<style> must be "all" or a known final style id (e.g. base-nova, radix-nova, base-sera, new-york-v4).
+<style> must be "all", a known final style id (e.g. base-nova), or a comma-separated list.
 Flags can be combined, e.g. --style base-nova --registry base-nova.`
 
 function getKnownStyleNames() {
   return new Set(getStylesToBuild().map((style) => style.name))
 }
 
-function assertKnownTarget(flag: "--style" | "--registry", target: string) {
+function parseStyleTargets(target: string): string[] {
   if (target === "all") {
-    return
+    return ["all"]
   }
 
+  return target
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+}
+
+function assertKnownTarget(flag: "--style" | "--registry", target: string) {
   const knownStyleNames = getKnownStyleNames()
-  if (!knownStyleNames.has(target)) {
-    const valid = ["all", ...Array.from(knownStyleNames)].join(", ")
-    throw new Error(
-      `Unknown ${flag} target "${target}". Valid targets: ${valid}.\n\n${USAGE}`
-    )
+  for (const part of parseStyleTargets(target)) {
+    if (part === "all") {
+      continue
+    }
+    if (!knownStyleNames.has(part)) {
+      const valid = ["all", ...Array.from(knownStyleNames)].join(", ")
+      throw new Error(
+        `Unknown ${flag} target "${part}". Valid targets: ${valid}.\n\n${USAGE}`
+      )
+    }
   }
 }
 
@@ -235,11 +247,17 @@ function isFullBuild(options: BuildOptions) {
 function getTargetStyles(target: "all" | string | null) {
   const stylesToBuild = getStylesToBuild()
 
-  if (target === "all") {
+  if (target === null) {
+    return []
+  }
+
+  const parts = parseStyleTargets(target)
+  if (parts.includes("all")) {
     return stylesToBuild
   }
 
-  return stylesToBuild.filter((style) => style.name === target)
+  const wanted = new Set(parts)
+  return stylesToBuild.filter((style) => wanted.has(style.name))
 }
 
 function stripFileExtension(filePath: string) {
@@ -784,6 +802,12 @@ async function runTargetedBuild(options: BuildOptions) {
     await runTargetedRegistryBuild(options.registry)
   }
 
+  // Keep installable preset catalog in sync whenever DS styles/registries change.
+  if (options.style !== null || options.registry !== null || options.indexes) {
+    console.log("\n⚙️ Building public/r/config.json...")
+    await buildConfig()
+  }
+
   await saveTransformCache()
 }
 
@@ -807,10 +831,15 @@ async function runExamplesBuild() {
 }
 
 async function runTargetedStyleBuild(target: "all" | string) {
-  if (target !== "all" && !getStyleCombination(target)) {
-    throw new Error(
-      `--style ${target} is not supported because it is a legacy source registry. Use --registry ${target}.`
-    )
+  const requested = parseStyleTargets(target)
+  if (!requested.includes("all")) {
+    for (const styleName of requested) {
+      if (!getStyleCombination(styleName)) {
+        throw new Error(
+          `--style ${styleName} is not supported because it is a legacy source registry. Use --registry ${styleName}.`
+        )
+      }
+    }
   }
 
   // styles/<style>/ui only exists for generated base/style combinations, so we

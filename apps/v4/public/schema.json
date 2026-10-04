@@ -16,6 +16,10 @@
         "radix-luma",
         "radix-sera",
         "radix-rhea",
+        "radix-glass",
+        "radix-rose",
+        "radix-nili",
+        "radix-khesht",
         "base-vega",
         "base-nova",
         "base-aether",
@@ -25,6 +29,10 @@
         "base-luma",
         "base-sera",
         "base-rhea",
+        "base-glass",
+        "base-rose",
+        "base-nili",
+        "base-khesht",
         "aria-vega",
         "aria-nova",
         "aria-aether",
@@ -33,7 +41,11 @@
         "aria-mira",
         "aria-luma",
         "aria-sera",
-        "aria-rhea"
+        "aria-rhea",
+        "aria-glass",
+        "aria-rose",
+        "aria-nili",
+        "aria-khesht"
       ]
     },
     "tailwind": {

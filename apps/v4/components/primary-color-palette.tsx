@@ -75,8 +75,13 @@ export function PrimaryColorPalette({
   const currentLabel = THEME_LABELS[current] ?? current
   const [open, setOpen] = React.useState(false)
 
-  // Glass / Rose own their accents; Primary Color must not recolor them.
-  if (designSystemId === "glass" || designSystemId === "rose") {
+  // Owned-accent design systems; Primary Color must not recolor them.
+  if (
+    designSystemId === "glass" ||
+    designSystemId === "rose" ||
+    designSystemId === "nili" ||
+    designSystemId === "khesht"
+  ) {
     return null
   }
 

@@ -18,10 +18,10 @@
   --glass-brand: #12b5a8;
   --glass-brand-foreground: #f4fffe;
   --glass-chart-1: #0d9e96;
-  --glass-chart-2: #12b5a8;
-  --glass-chart-3: #0ea5e9;
-  --glass-chart-4: #3f69d3;
-  --glass-chart-5: #3d6369;
+  --glass-chart-2: #0284c7;
+  --glass-chart-3: #6366f1;
+  --glass-chart-4: #d97706;
+  --glass-chart-5: #64748b;
 
   --background: #e6f4f6;
   --foreground: #001923;
@@ -39,7 +39,7 @@
   --accent-foreground: #001923;
   --destructive: #e11d48;
   --border: #00192314;
-  --input: #ffffffcc;
+  --input: #00192333;
   --ring: var(--glass-ring);
 
   --sidebar: #fffffff0;
@@ -102,7 +102,6 @@
 
   --card: var(--surface);
   --popover: var(--overlay);
-  --input: var(--field);
 
   color-scheme: light;
 }
@@ -118,10 +117,10 @@
   --glass-brand: #81edc1;
   --glass-brand-foreground: #001b17;
   --glass-chart-1: #60eae2;
-  --glass-chart-2: #81edc1;
-  --glass-chart-3: #41dca5;
-  --glass-chart-4: #3f69d3;
-  --glass-chart-5: #a1c6ca;
+  --glass-chart-2: #38bdf8;
+  --glass-chart-3: #a5b4fc;
+  --glass-chart-4: #fbbf24;
+  --glass-chart-5: #94a3b8;
 
   --background: #001923;
   --foreground: #eef7f8;
@@ -189,7 +188,6 @@
 
   --card: var(--surface);
   --popover: var(--overlay);
-  --input: var(--field);
 
   color-scheme: dark;
 }
@@ -277,6 +275,7 @@
 .style-glass .cn-input-group,
 .style-glass .cn-native-select,
 .style-glass .cn-input-otp-slot,
+.style-glass .cn-combobox-input,
 .style-glass [data-slot="input"],
 .style-glass [data-slot="textarea"],
 .style-glass [data-slot="select-trigger"],
@@ -318,6 +317,7 @@
 .style-glass .cn-toggle-variant-outline,
 .style-glass .cn-pagination-link[data-active="true"],
 .style-glass .cn-pagination-link[aria-current="page"],
+.style-glass .cn-input-group-button,
 .style-glass [data-slot="button"][data-variant="outline"],
 .style-glass [data-slot="button"][data-variant="secondary"],
 .style-glass [data-slot="toggle"][data-variant="outline"],
@@ -352,6 +352,48 @@
   -webkit-backdrop-filter: none;
 }
 
+/* Selection controls — unchecked must stay visible on glass surfaces */
+.style-glass .cn-checkbox,
+.style-glass [data-slot="checkbox"],
+.style-glass .cn-radio-group-item,
+.style-glass [data-slot="radio-group-item"] {
+  background-color: var(--field) !important;
+  border-color: var(--field-border) !important;
+  border-style: solid !important;
+  border-width: 1.5px !important;
+  box-shadow: none !important;
+}
+
+.style-glass .cn-checkbox[data-checked="true"],
+.style-glass .cn-checkbox[aria-checked="true"],
+.style-glass [data-slot="checkbox"][data-checked="true"],
+.style-glass [data-slot="checkbox"][aria-checked="true"],
+.style-glass .cn-radio-group-item[data-checked="true"],
+.style-glass .cn-radio-group-item[aria-checked="true"],
+.style-glass [data-slot="radio-group-item"][data-checked="true"],
+.style-glass [data-slot="radio-group-item"][aria-checked="true"] {
+  background-color: var(--glass-primary) !important;
+  border-color: var(--glass-primary) !important;
+  color: var(--glass-primary-foreground) !important;
+}
+
+.style-glass .cn-switch,
+.style-glass [data-slot="switch"] {
+  border: 1px solid var(--field-border) !important;
+}
+
+.style-glass .cn-switch[aria-checked="false"],
+.style-glass .cn-switch[data-unchecked],
+.style-glass [data-slot="switch"][aria-checked="false"] {
+  background-color: var(--muted) !important;
+}
+
+.style-glass .cn-switch[aria-checked="true"],
+.style-glass [data-slot="switch"][aria-checked="true"] {
+  background-color: var(--glass-primary) !important;
+  border-color: var(--glass-primary) !important;
+}
+
 .style-glass .cn-chart-tooltip,
 .style-glass [data-slot="chart-tooltip"],
 .style-glass .recharts-tooltip-wrapper {
@@ -383,6 +425,7 @@
 .style-glass .cn-menubar-content,
 .style-glass .cn-menubar-sub-content,
 .style-glass .cn-navigation-menu-viewport,
+.style-glass .cn-tooltip-content,
 .style-glass [data-slot="dialog-content"],
 .style-glass [data-slot="alert-dialog-content"],
 .style-glass [data-slot="popover-content"],
@@ -398,7 +441,8 @@
 .style-glass [data-slot="context-menu-sub-content"],
 .style-glass [data-slot="menubar-content"],
 .style-glass [data-slot="menubar-sub-content"],
-.style-glass [data-slot="navigation-menu-viewport"] {
+.style-glass [data-slot="navigation-menu-viewport"],
+.style-glass [data-slot="tooltip-content"] {
   background-color: var(--overlay) !important;
   border-color: var(--surface-border) !important;
   border-radius: var(--radius-overlay) !important;
@@ -464,6 +508,21 @@ html body.style-glass {
   --chart-4: var(--glass-chart-4);
   --chart-5: var(--glass-chart-5);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-primary: var(--glass-primary);
   --color-primary-foreground: var(--glass-primary-foreground);
   --color-ring: var(--glass-ring);
@@ -528,6 +587,21 @@ html.dark body.style-glass {
   --chart-4: var(--glass-chart-4);
   --chart-5: var(--glass-chart-5);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-primary: var(--glass-primary);
   --color-primary-foreground: var(--glass-primary-foreground);
   --color-ring: var(--glass-ring);

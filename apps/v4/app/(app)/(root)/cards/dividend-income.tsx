@@ -23,6 +23,7 @@ const HOLDINGS = [
     name: "ونگارد",
     shares: "۴۵۰ سهم",
     amount: "۱٬۸۴۲٬۱۰۰ تومان",
+    color: "var(--chart-1)",
     data: [
       { q: "Q1", value: 380 },
       { q: "Q2", value: 420 },
@@ -34,6 +35,7 @@ const HOLDINGS = [
     name: "S&P 500 VOO",
     shares: "۱۱۲ سهم",
     amount: "۹۲۸٬۴۰۰ تومان",
+    color: "var(--chart-2)",
     data: [
       { q: "Q1", value: 180 },
       { q: "Q2", value: 210 },
@@ -45,6 +47,7 @@ const HOLDINGS = [
     name: "اپل AAPL",
     shares: "۸۵ سهم",
     amount: "۳۴۰٬۰۰۰ تومان",
+    color: "var(--chart-3)",
     data: [
       { q: "Q1", value: 60 },
       { q: "Q2", value: 70 },
@@ -56,6 +59,7 @@ const HOLDINGS = [
     name: "ریالتی اینکام",
     shares: "۳۲۰ سهم",
     amount: "۱٬۱۳۹٬۵۰۰ تومان",
+    color: "var(--chart-4)",
     data: [
       { q: "Q1", value: 240 },
       { q: "Q2", value: 260 },
@@ -100,8 +104,9 @@ export function DividendIncome() {
                 {holding.data.map((item) => (
                   <div
                     key={item.q}
-                    className="min-h-1 flex-1 rounded-t-sm bg-chart-2"
+                    className="min-h-1 flex-1 rounded-t-sm"
                     style={{
+                      backgroundColor: holding.color,
                       height: `${(item.value / Math.max(...holding.data.map((point) => point.value))) * 100}%`,
                     }}
                   />

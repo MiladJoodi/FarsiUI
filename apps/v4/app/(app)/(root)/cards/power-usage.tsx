@@ -33,8 +33,11 @@ export function PowerUsage() {
             {chartData.map((item) => (
               <div
                 key={item.hour}
-                className="min-h-2 flex-1 rounded-t bg-chart-2"
-                style={{ height: `${(item.usage / maxUsage) * 100}%` }}
+                className="min-h-2 flex-1 rounded-t"
+                style={{
+                  backgroundColor: "var(--chart-1)",
+                  height: `${(item.usage / maxUsage) * 100}%`,
+                }}
               />
             ))}
           </div>

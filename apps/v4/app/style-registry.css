@@ -11,6 +11,8 @@
 @import "../registry/styles/style-aether.css" layer(base);
 @import "../registry/styles/style-glass.css" layer(base);
 @import "../registry/styles/style-rose.css" layer(base);
+@import "../registry/styles/style-nili.css" layer(base);
+@import "../registry/styles/style-khesht.css" layer(base);
 
 /*
  * Unlayered design-system tokens after layered recipes.
@@ -20,3 +22,5 @@
 @import "../registry/styles/aether-tokens.css";
 @import "../registry/styles/glass-tokens.css";
 @import "../registry/styles/rose-tokens.css";
+@import "../registry/styles/nili-tokens.css";
+@import "../registry/styles/khesht-tokens.css";

@@ -53,7 +53,7 @@ export async function ComponentPreview({
         />
         <div className="absolute inset-0 hidden w-[1600px] bg-background md:block">
           <PreviewThemeIframe
-            src={`/view/${styleName}/${name}`}
+            src={`/view/${styleName}/${name}?embed=1`}
             styleName={styleName}
             className="size-full"
           />
@@ -101,6 +101,7 @@ export async function ComponentPreview({
       previewClassName={previewClassName}
       align={align}
       hideCode={hideCode}
+      name={name}
       component={React.createElement(Component)}
       source={
         <ComponentSource

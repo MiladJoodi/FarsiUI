@@ -42,8 +42,11 @@ export function PreviewThemeScope({
       className={cn(
         `theme-${theme}`,
         styleRootClass,
-        // Atmospheric shells (Glass mesh / Rose clay hatch) need a clipped preview.
-        (styleRootClass === "style-glass" || styleRootClass === "style-rose") &&
+        // Atmospheric shells need a clipped preview.
+        (styleRootClass === "style-glass" ||
+          styleRootClass === "style-rose" ||
+          styleRootClass === "style-nili" ||
+          styleRootClass === "style-khesht") &&
           "overflow-hidden rounded-xl"
       )}
     >
@@ -51,7 +54,9 @@ export function PreviewThemeScope({
         className={cn(
           "theme-container",
           (styleRootClass === "style-glass" ||
-            styleRootClass === "style-rose") &&
+            styleRootClass === "style-rose" ||
+            styleRootClass === "style-nili" ||
+            styleRootClass === "style-khesht") &&
             "bg-transparent",
           className
         )}

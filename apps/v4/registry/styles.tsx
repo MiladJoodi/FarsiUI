@@ -208,6 +208,112 @@ export const STYLES = [
       </svg>
     ),
   },
+  {
+    name: "glass",
+    title: "فیروزه",
+    description: "Frosted teal glass surfaces.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 24 24"
+        fill="none"
+        role="img"
+        color="currentColor"
+      >
+        <path
+          d="M4 8C4 5.79086 5.79086 4 8 4H16C18.2091 4 20 5.79086 20 8V16C20 18.2091 18.2091 20 16 20H8C5.79086 20 4 18.2091 4 16V8Z"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M8 12H16"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.45"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "rose",
+    title: "رز",
+    description: "Soft clay with pill controls.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 24 24"
+        fill="none"
+        role="img"
+        color="currentColor"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="3.5"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "nili",
+    title: "نیلی",
+    description: "Cool signal / circuit language.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 24 24"
+        fill="none"
+        role="img"
+        color="currentColor"
+      >
+        <path
+          d="M4 7H20M4 12H14M4 17H17"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "khesht",
+    title: "خشت",
+    description: "Adobe brick / neo-brutal blocks.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 24 24"
+        fill="none"
+        role="img"
+        color="currentColor"
+      >
+        <path
+          d="M3 7H21V11H3V7ZM3 13H13V17H3V13ZM15 13H21V17H15V13Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
 ] as const
 
 export type Style = (typeof STYLES)[number]

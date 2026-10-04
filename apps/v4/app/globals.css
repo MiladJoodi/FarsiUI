@@ -13,6 +13,10 @@
 @source "../styles/base-sera/**/*.tsx";
 @source "../styles/base-vega/**/*.tsx";
 @source "../styles/base-aether/**/*.tsx";
+@source "../styles/base-glass/**/*.tsx";
+@source "../styles/base-rose/**/*.tsx";
+@source "../styles/base-nili/**/*.tsx";
+@source "../styles/base-khesht/**/*.tsx";
 @source "../styles/aria-luma/**/*.tsx";
 @source "../styles/aria-lyra/**/*.tsx";
 @source "../styles/aria-maia/**/*.tsx";
@@ -22,6 +26,10 @@
 @source "../styles/aria-sera/**/*.tsx";
 @source "../styles/aria-vega/**/*.tsx";
 @source "../styles/aria-aether/**/*.tsx";
+@source "../styles/aria-glass/**/*.tsx";
+@source "../styles/aria-rose/**/*.tsx";
+@source "../styles/aria-nili/**/*.tsx";
+@source "../styles/aria-khesht/**/*.tsx";
 @source "../styles/radix-luma/**/*.tsx";
 @source "../styles/radix-lyra/**/*.tsx";
 @source "../styles/radix-maia/**/*.tsx";
@@ -31,6 +39,10 @@
 @source "../styles/radix-sera/**/*.tsx";
 @source "../styles/radix-vega/**/*.tsx";
 @source "../styles/radix-aether/**/*.tsx";
+@source "../styles/radix-glass/**/*.tsx";
+@source "../styles/radix-rose/**/*.tsx";
+@source "../styles/radix-nili/**/*.tsx";
+@source "../styles/radix-khesht/**/*.tsx";
 
 @custom-variant style-vega (&:where(.style-vega *));
 @custom-variant style-nova (&:where(.style-nova *));
@@ -41,6 +53,10 @@
 @custom-variant style-sera (&:where(.style-sera *));
 @custom-variant style-rhea (&:where(.style-rhea *));
 @custom-variant style-aether (&:where(.style-aether *));
+@custom-variant style-glass (&:where(.style-glass *));
+@custom-variant style-rose (&:where(.style-rose *));
+@custom-variant style-nili (&:where(.style-nili *));
+@custom-variant style-khesht (&:where(.style-khesht *));
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant fixed (&:is(.layout-fixed *));
@@ -191,6 +207,8 @@
   /* Anchor jumps clear the sticky header; typeset's scroll-margin adds air. */
   html {
     scroll-padding-top: var(--header-height);
+    /* Keep layout stable when overlays lock/unlock page scroll. */
+    scrollbar-gutter: stable;
   }
 
   /* Mobile: when the main header hides on scroll, فهرست sits at the top. */

@@ -1,5 +1,7 @@
 import { type Metadata } from "next"
 
+import { ContactForm } from "@/components/contact-form"
+
 const title = "تماس با ما"
 const description = "راه‌های ارتباط با تیم فارسیUI."
 
@@ -36,19 +38,12 @@ export default function ContactPage() {
 
         <div className="typeset w-full flex-1">
           <p>
-            این صفحه به‌زودی با فرم تماس، ایمیل پشتیبانی و لینک‌های شبکه‌های
-            اجتماعی تکمیل می‌شود.
+            سؤال، پیشنهاد یا گزارش مشکل دارید؟ فرم زیر را پر کنید تا پیام‌تان
+            مستقیم به تیم فارسیUI برسد.
           </p>
 
-          <div className="not-typeset mt-6 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-xl border border-dashed border-border bg-muted/30 p-5">
-              <p className="text-sm font-medium text-foreground">ایمیل</p>
-              <p className="mt-1 text-sm text-muted-foreground">به‌زودی</p>
-            </div>
-            <div className="rounded-xl border border-dashed border-border bg-muted/30 p-5">
-              <p className="text-sm font-medium text-foreground">فرم پیام</p>
-              <p className="mt-1 text-sm text-muted-foreground">به‌زودی</p>
-            </div>
+          <div className="not-typeset mt-6">
+            <ContactForm />
           </div>
         </div>
       </div>

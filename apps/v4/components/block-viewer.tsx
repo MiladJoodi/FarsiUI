@@ -29,6 +29,7 @@ import {
 } from "@/lib/registry"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
+import { useDesignSystemPreview } from "@/components/design-system-preview"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -144,6 +145,8 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
   const { setView, view, item, setIframeKey, viewport, setViewport } =
     useBlockViewer()
   const { copyToClipboard, isCopied } = useCopyToClipboard()
+  const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  const previewStyleName = designSystemStyleName || styleName
   const installCommand = `npx farsiui@latest add ${item.name}`
 
   return (
@@ -201,7 +204,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
           asChild
           title="باز کردن در تب جدید"
         >
-          <Link href={`/view/${styleName}/${item.name}`} target="_blank">
+          <Link href={`/view/${previewStyleName}/${item.name}`} target="_blank">
             <span className="sr-only">باز کردن در تب جدید</span>
             <Fullscreen />
           </Link>
@@ -247,18 +250,20 @@ function BlockViewerIframe({
   styleName: Style["name"]
 }) {
   const { item, iframeKey } = useBlockViewer()
+  const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  const previewStyleName = designSystemStyleName || styleName
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const { scrollShield, dismissShield } = useIframeScrollPassthrough(
     iframeRef,
-    [iframeKey, item.name, styleName]
+    [iframeKey, item.name, previewStyleName]
   )
 
   return (
     <div className="relative size-full min-h-0">
       <iframe
         ref={iframeRef}
-        key={iframeKey}
-        src={`/view/${styleName}/${item.name}?embed=1`}
+        key={`${iframeKey}-${previewStyleName}`}
+        src={`/view/${previewStyleName}/${item.name}?embed=1`}
         height={item.meta?.iframeHeight ?? 930}
         loading="lazy"
         title={item.name}

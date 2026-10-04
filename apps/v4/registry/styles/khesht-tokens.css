@@ -1,0 +1,609 @@
+/**
+ * Khesht (خشت) — adobe / brick-block language for FarsiUI.
+ *
+ * Warm clay paper, terracotta primary, charcoal ink + umber hard offsets.
+ * Neo-brutal structure without cream/saffron/black poster clichés.
+ *
+ * Unlayered so these beat `.theme-*` Primary Color overrides.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — adobe clay                                                         */
+/* -------------------------------------------------------------------------- */
+
+.style-khesht {
+  --khesht-primary: #c45a2c;
+  --khesht-primary-foreground: #fff8f3;
+  --khesht-ring: #c45a2c;
+  --khesht-brand: #8f3f1f;
+  --khesht-brand-foreground: #fff8f3;
+  --khesht-ink: #2a2118;
+  --khesht-offset: #8f3f1f;
+  --khesht-chart-1: #c45a2c;
+  --khesht-chart-2: #8f6a3a;
+  --khesht-chart-3: #3f6f5e;
+  --khesht-chart-4: #b45309;
+  --khesht-chart-5: #6b5b4c;
+
+  --background: #f3ebe2;
+  --foreground: var(--khesht-ink);
+  --card: #fbf6ef;
+  --card-foreground: var(--khesht-ink);
+  --popover: #fffdf9;
+  --popover-foreground: var(--khesht-ink);
+  --primary: var(--khesht-primary);
+  --primary-foreground: var(--khesht-primary-foreground);
+  --secondary: #fbf6ef;
+  --secondary-foreground: var(--khesht-ink);
+  --muted: #e8ddd0;
+  --muted-foreground: #6b5b4c;
+  --accent: #eddccc;
+  --accent-foreground: var(--khesht-ink);
+  --destructive: #c0392b;
+  --border: var(--khesht-ink);
+  --input: var(--khesht-ink);
+  --ring: var(--khesht-ring);
+
+  --sidebar: #fbf6ef;
+  --sidebar-foreground: var(--khesht-ink);
+  --sidebar-primary: var(--khesht-primary);
+  --sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --sidebar-accent: #eddccc;
+  --sidebar-accent-foreground: var(--khesht-ink);
+  --sidebar-border: var(--khesht-ink);
+  --sidebar-ring: var(--khesht-ring);
+
+  --chart-1: var(--khesht-chart-1);
+  --chart-2: var(--khesht-chart-2);
+  --chart-3: var(--khesht-chart-3);
+  --chart-4: var(--khesht-chart-4);
+  --chart-5: var(--khesht-chart-5);
+
+  /* Soft adobe block — not razor-zero, not pill */
+  --radius: 0.5rem;
+  --radius-field: 0.375rem;
+  --radius-surface: 0.625rem;
+  --radius-overlay: 0.625rem;
+  --radius-control: 0.375rem;
+  --radius-4xl: 0.75rem;
+  --radius-3xl: 0.625rem;
+  --radius-2xl: 0.5rem;
+  --radius-xl: 0.5rem;
+  --radius-lg: 0.375rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+
+  --surface: #fbf6ef;
+  --surface-muted: #e8ddd0;
+  --surface-border: var(--khesht-ink);
+  --surface-filter: none;
+  --surface-opacity: 1;
+  --surface-foreground: var(--khesht-ink);
+
+  --field: #fffdf9;
+  --field-border: var(--khesht-ink);
+  --field-shadow: none;
+
+  --control: #fbf6ef;
+  --control-border: var(--khesht-ink);
+  --control-shadow: 4px 4px 0 0 var(--khesht-offset);
+
+  --overlay: #fffdf9;
+  --overlay-shadow: 6px 6px 0 0 var(--khesht-offset);
+
+  --shadow-surface: 5px 5px 0 0 var(--khesht-offset);
+  --shadow-field: none;
+  --shadow-overlay: 6px 6px 0 0 var(--khesht-offset);
+  --shadow-control: 4px 4px 0 0 var(--khesht-offset);
+  --shadow-press: 0 0 0 0 transparent;
+
+  --motion-fast: 140ms;
+  --motion-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --press: translate(3px, 3px);
+  --line: 2px;
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+  /* Keep --input as ink border (shadcn border-input); do not remap to field fill */
+
+  color-scheme: light;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark — fired clay night                                                    */
+/* -------------------------------------------------------------------------- */
+
+.dark .style-khesht {
+  --khesht-primary: #e08a55;
+  --khesht-primary-foreground: #1f1610;
+  --khesht-ring: #e08a55;
+  --khesht-brand: #c45a2c;
+  --khesht-brand-foreground: #fff8f3;
+  --khesht-ink: #f3ebe2;
+  --khesht-offset: #c45a2c;
+  --khesht-chart-1: #e08a55;
+  --khesht-chart-2: #d4a574;
+  --khesht-chart-3: #6bb39a;
+  --khesht-chart-4: #e0b45a;
+  --khesht-chart-5: #b89a82;
+
+  --background: #1a1511;
+  --foreground: #f3ebe2;
+  --card: #241e18;
+  --card-foreground: #f3ebe2;
+  --popover: #2c241c;
+  --popover-foreground: #f3ebe2;
+  --primary: var(--khesht-primary);
+  --primary-foreground: var(--khesht-primary-foreground);
+  --secondary: #241e18;
+  --secondary-foreground: #f3ebe2;
+  --muted: #2c241c;
+  --muted-foreground: #b89a82;
+  --accent: #342a20;
+  --accent-foreground: #f3ebe2;
+  --destructive: #e06a5a;
+  --border: #f3ebe2;
+  --input: #f3ebe2;
+  --ring: var(--khesht-ring);
+
+  --sidebar: #241e18;
+  --sidebar-foreground: #f3ebe2;
+  --sidebar-primary: var(--khesht-primary);
+  --sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --sidebar-accent: #342a20;
+  --sidebar-accent-foreground: #f3ebe2;
+  --sidebar-border: #f3ebe2;
+  --sidebar-ring: var(--khesht-ring);
+
+  --chart-1: var(--khesht-chart-1);
+  --chart-2: var(--khesht-chart-2);
+  --chart-3: var(--khesht-chart-3);
+  --chart-4: var(--khesht-chart-4);
+  --chart-5: var(--khesht-chart-5);
+
+  --surface: #241e18;
+  --surface-muted: #2c241c;
+  --surface-border: #f3ebe2;
+  --surface-foreground: #f3ebe2;
+
+  --field: #241e18;
+  --field-border: #f3ebe2;
+  --field-shadow: none;
+
+  --control: #241e18;
+  --control-border: #f3ebe2;
+  --control-shadow: 4px 4px 0 0 var(--khesht-offset);
+
+  --overlay: #2c241c;
+  --overlay-shadow: 6px 6px 0 0 var(--khesht-offset);
+
+  --shadow-surface: 5px 5px 0 0 var(--khesht-offset);
+  --shadow-field: none;
+  --shadow-overlay: 6px 6px 0 0 var(--khesht-offset);
+  --shadow-control: 4px 4px 0 0 var(--khesht-offset);
+  --shadow-press: 0 0 0 0 transparent;
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Atmosphere — quiet brick courses                                           */
+/* -------------------------------------------------------------------------- */
+
+.style-khesht [data-slot="layout"] {
+  background-color: transparent;
+}
+
+.style-khesht [data-slot="header-primary-colors"] {
+  display: none !important;
+}
+
+.style-khesht [data-collage-surface] {
+  background-color: #f3ebe2 !important;
+  background-image:
+    linear-gradient(rgb(42 33 24 / 0.05) 1px, transparent 1px),
+    radial-gradient(42% 34% at 12% 0%, #c45a2c1a, transparent 70%) !important;
+  background-size: 100% 22px, auto !important;
+  background-attachment: scroll !important;
+  color-scheme: light;
+}
+
+.dark .style-khesht [data-collage-surface] {
+  background-color: #1a1511 !important;
+  background-image:
+    linear-gradient(rgb(243 235 226 / 0.06) 1px, transparent 1px),
+    radial-gradient(42% 34% at 12% 0%, #e08a5522, transparent 70%) !important;
+  background-size: 100% 22px, auto !important;
+  color-scheme: dark;
+}
+
+.style-khesht {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgb(42 33 24 / 0.045) 1px, transparent 1px),
+    radial-gradient(42% 34% at 12% 0%, #c45a2c14, transparent 70%);
+  background-size: 100% 22px, auto !important;
+  background-attachment: fixed;
+  background-repeat: repeat, no-repeat !important;
+}
+
+.dark .style-khesht {
+  background-image:
+    linear-gradient(rgb(243 235 226 / 0.05) 1px, transparent 1px),
+    radial-gradient(42% 34% at 12% 0%, #e08a551a, transparent 70%);
+  background-size: 100% 22px, auto !important;
+  background-repeat: repeat, no-repeat !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Brick-block fills — ink border + umber offset                              */
+/* -------------------------------------------------------------------------- */
+
+.style-khesht .cn-card,
+.style-khesht .cn-alert,
+.style-khesht [data-slot="card"] {
+  background-color: var(--surface) !important;
+  border: var(--line) solid var(--surface-border) !important;
+  border-radius: var(--radius-surface) !important;
+  box-shadow: var(--shadow-surface) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--card-foreground);
+}
+
+.style-khesht .cn-input,
+.style-khesht .cn-textarea,
+.style-khesht .cn-select-trigger,
+.style-khesht .cn-input-group,
+.style-khesht .cn-native-select,
+.style-khesht .cn-input-otp-slot,
+.style-khesht .cn-combobox-input,
+.style-khesht [data-slot="input"],
+.style-khesht [data-slot="textarea"],
+.style-khesht [data-slot="select-trigger"],
+.style-khesht [data-slot="input-group"],
+.style-khesht [data-slot="input-group-control"],
+.style-khesht [data-slot="combobox-input"] {
+  background-color: var(--field) !important;
+  border: var(--line) solid var(--field-border) !important;
+  border-radius: var(--radius-field) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--foreground);
+}
+
+.style-khesht .cn-button,
+.style-khesht [data-slot="button"],
+.style-khesht [data-slot="input-group-button"] {
+  border-radius: var(--radius-control) !important;
+  border-width: var(--line) !important;
+  border-style: solid !important;
+  font-weight: 700;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease),
+    color var(--motion-fast) var(--motion-ease);
+}
+
+.style-khesht .cn-button-variant-default {
+  background-color: var(--khesht-primary) !important;
+  color: var(--khesht-primary-foreground) !important;
+  border-color: var(--surface-border) !important;
+  box-shadow: var(--shadow-control) !important;
+}
+
+.style-khesht .cn-button-variant-default:active,
+.style-khesht .cn-button-variant-outline:active,
+.style-khesht .cn-button-variant-secondary:active,
+.style-khesht [data-slot="button"]:active {
+  transform: var(--press);
+  box-shadow: var(--shadow-press) !important;
+}
+
+.style-khesht .cn-button-variant-outline,
+.style-khesht .cn-button-variant-secondary,
+.style-khesht .cn-menubar,
+.style-khesht .cn-toggle-variant-outline,
+.style-khesht .cn-pagination-link[data-active="true"],
+.style-khesht .cn-pagination-link[aria-current="page"],
+.style-khesht .cn-input-group-button,
+.style-khesht [data-slot="button"][data-variant="outline"],
+.style-khesht [data-slot="button"][data-variant="secondary"],
+.style-khesht [data-slot="toggle"][data-variant="outline"],
+.style-khesht [data-slot="input-group-button"] {
+  background-color: var(--control) !important;
+  border: var(--line) solid var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+  border-radius: var(--radius-control) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--foreground);
+}
+
+.style-khesht .cn-button-variant-ghost:hover,
+.style-khesht .cn-button-variant-ghost[aria-expanded="true"],
+.style-khesht [data-slot="button"][data-variant="ghost"]:hover,
+.style-khesht [data-slot="button"][data-variant="ghost"][aria-expanded="true"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+}
+
+.style-khesht .cn-item-variant-muted,
+.style-khesht .cn-empty-media,
+.style-khesht [data-slot="item"][data-variant="muted"],
+.style-khesht [data-slot="empty-media"] {
+  background-color: var(--control) !important;
+  border: 2px solid var(--control-border) !important;
+  box-shadow: 3px 3px 0 0 var(--khesht-offset) !important;
+  border-radius: var(--radius-control) !important;
+  backdrop-filter: none !important;
+}
+
+.style-khesht .cn-dialog-content,
+.style-khesht .cn-alert-dialog-content,
+.style-khesht .cn-popover-content,
+.style-khesht .cn-sheet-content,
+.style-khesht .cn-drawer-content,
+.style-khesht .cn-drawer-popup,
+.style-khesht .cn-dropdown-menu-content,
+.style-khesht .cn-dropdown-menu-sub-content,
+.style-khesht .cn-select-content,
+.style-khesht .cn-combobox-content,
+.style-khesht .cn-hover-card-content,
+.style-khesht .cn-context-menu-content,
+.style-khesht .cn-context-menu-sub-content,
+.style-khesht .cn-menubar-content,
+.style-khesht .cn-menubar-sub-content,
+.style-khesht .cn-navigation-menu-viewport,
+.style-khesht .cn-chart-tooltip,
+.style-khesht .cn-tooltip-content,
+.style-khesht [data-slot="dialog-content"],
+.style-khesht [data-slot="alert-dialog-content"],
+.style-khesht [data-slot="popover-content"],
+.style-khesht [data-slot="sheet-content"],
+.style-khesht [data-slot="drawer-content"],
+.style-khesht [data-slot="drawer"],
+.style-khesht [data-slot="dropdown-menu-content"],
+.style-khesht [data-slot="dropdown-menu-sub-content"],
+.style-khesht [data-slot="select-content"],
+.style-khesht [data-slot="combobox-content"],
+.style-khesht [data-slot="hover-card-content"],
+.style-khesht [data-slot="context-menu-content"],
+.style-khesht [data-slot="context-menu-sub-content"],
+.style-khesht [data-slot="menubar-content"],
+.style-khesht [data-slot="menubar-sub-content"],
+.style-khesht [data-slot="navigation-menu-viewport"],
+.style-khesht [data-slot="tooltip-content"],
+.style-khesht [data-slot="chart-tooltip"] {
+  background-color: var(--overlay) !important;
+  border: var(--line) solid var(--surface-border) !important;
+  border-radius: var(--radius-overlay) !important;
+  box-shadow: var(--shadow-overlay) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--popover-foreground);
+}
+
+/* Selection controls — unchecked must stay visible on card surfaces */
+.style-khesht .cn-checkbox,
+.style-khesht [data-slot="checkbox"],
+.style-khesht .cn-radio-group-item,
+.style-khesht [data-slot="radio-group-item"] {
+  background-color: var(--field) !important;
+  border-color: var(--field-border) !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+  box-shadow: none !important;
+}
+
+.style-khesht .cn-checkbox[data-checked="true"],
+.style-khesht .cn-checkbox[aria-checked="true"],
+.style-khesht [data-slot="checkbox"][data-checked="true"],
+.style-khesht [data-slot="checkbox"][aria-checked="true"],
+.style-khesht .cn-radio-group-item[data-checked="true"],
+.style-khesht .cn-radio-group-item[aria-checked="true"],
+.style-khesht [data-slot="radio-group-item"][data-checked="true"],
+.style-khesht [data-slot="radio-group-item"][aria-checked="true"] {
+  background-color: var(--khesht-primary) !important;
+  border-color: var(--surface-border) !important;
+  color: var(--khesht-primary-foreground) !important;
+}
+
+.style-khesht .cn-switch,
+.style-khesht [data-slot="switch"] {
+  border-color: var(--field-border) !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+}
+
+.style-khesht .cn-switch[aria-checked="false"],
+.style-khesht .cn-switch[data-unchecked],
+.style-khesht [data-slot="switch"][aria-checked="false"] {
+  background-color: var(--muted) !important;
+}
+
+.style-khesht .cn-switch[aria-checked="true"],
+.style-khesht [data-slot="switch"][aria-checked="true"] {
+  background-color: var(--khesht-primary) !important;
+  border-color: var(--surface-border) !important;
+}
+
+.style-khesht .cn-badge,
+.style-khesht [data-slot="badge"] {
+  border-radius: var(--radius-control) !important;
+  border: 2px solid var(--surface-border) !important;
+  box-shadow: 2px 2px 0 0 var(--khesht-offset);
+}
+
+.style-khesht .cn-chart-tooltip {
+  border-radius: var(--radius-overlay) !important;
+  box-shadow: var(--shadow-overlay) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accent ownership                                                           */
+/* -------------------------------------------------------------------------- */
+
+html body.style-khesht.theme-default,
+html body.style-khesht.theme-neutral,
+html body.style-khesht.theme-blue,
+html body.style-khesht.theme-green,
+html body.style-khesht.theme-amber,
+html body.style-khesht.theme-rose,
+html body.style-khesht.theme-purple,
+html body.style-khesht.theme-orange,
+html body.style-khesht.theme-teal,
+html body.style-khesht.theme-red,
+html body.style-khesht.theme-yellow,
+html body.style-khesht.theme-violet,
+html body.style-khesht.theme-default .theme-container,
+html body.style-khesht.theme-neutral .theme-container,
+html body.style-khesht.theme-blue .theme-container,
+html body.style-khesht.theme-green .theme-container,
+html body.style-khesht.theme-amber .theme-container,
+html body.style-khesht.theme-rose .theme-container,
+html body.style-khesht.theme-purple .theme-container,
+html body.style-khesht.theme-orange .theme-container,
+html body.style-khesht.theme-teal .theme-container,
+html body.style-khesht.theme-red .theme-container,
+html body.style-khesht.theme-yellow .theme-container,
+html body.style-khesht.theme-violet .theme-container,
+html body.style-khesht.theme-default [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-neutral [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-blue [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-green [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-amber [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-rose [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-purple [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-orange [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-teal [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-red [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-yellow [data-radix-popper-content-wrapper],
+html body.style-khesht.theme-violet [data-radix-popper-content-wrapper],
+html body.style-khesht .theme-container,
+html body.style-khesht [data-radix-popper-content-wrapper],
+html body.style-khesht {
+  --primary: var(--khesht-primary);
+  --primary-foreground: var(--khesht-primary-foreground);
+  --ring: var(--khesht-ring);
+  --sidebar-primary: var(--khesht-primary);
+  --sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --sidebar-ring: var(--khesht-ring);
+  --chart-1: var(--khesht-chart-1);
+  --chart-2: var(--khesht-chart-2);
+  --chart-3: var(--khesht-chart-3);
+  --chart-4: var(--khesht-chart-4);
+  --chart-5: var(--khesht-chart-5);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--khesht-primary);
+  --color-primary-foreground: var(--khesht-primary-foreground);
+  --color-ring: var(--khesht-ring);
+  --color-chart-1: var(--khesht-chart-1);
+  --color-chart-2: var(--khesht-chart-2);
+  --color-chart-3: var(--khesht-chart-3);
+  --color-chart-4: var(--khesht-chart-4);
+  --color-chart-5: var(--khesht-chart-5);
+  --color-sidebar-primary: var(--khesht-primary);
+  --color-sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --color-sidebar-ring: var(--khesht-ring);
+}
+
+html.dark body.style-khesht.theme-default,
+html.dark body.style-khesht.theme-neutral,
+html.dark body.style-khesht.theme-blue,
+html.dark body.style-khesht.theme-green,
+html.dark body.style-khesht.theme-amber,
+html.dark body.style-khesht.theme-rose,
+html.dark body.style-khesht.theme-purple,
+html.dark body.style-khesht.theme-orange,
+html.dark body.style-khesht.theme-teal,
+html.dark body.style-khesht.theme-red,
+html.dark body.style-khesht.theme-yellow,
+html.dark body.style-khesht.theme-violet,
+html.dark body.style-khesht.theme-default .theme-container,
+html.dark body.style-khesht.theme-neutral .theme-container,
+html.dark body.style-khesht.theme-blue .theme-container,
+html.dark body.style-khesht.theme-green .theme-container,
+html.dark body.style-khesht.theme-amber .theme-container,
+html.dark body.style-khesht.theme-rose .theme-container,
+html.dark body.style-khesht.theme-purple .theme-container,
+html.dark body.style-khesht.theme-orange .theme-container,
+html.dark body.style-khesht.theme-teal .theme-container,
+html.dark body.style-khesht.theme-red .theme-container,
+html.dark body.style-khesht.theme-yellow .theme-container,
+html.dark body.style-khesht.theme-violet .theme-container,
+html.dark body.style-khesht.theme-default [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-neutral [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-blue [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-green [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-amber [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-rose [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-purple [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-orange [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-teal [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-red [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-yellow [data-radix-popper-content-wrapper],
+html.dark body.style-khesht.theme-violet [data-radix-popper-content-wrapper],
+html.dark body.style-khesht .theme-container,
+html.dark body.style-khesht [data-radix-popper-content-wrapper],
+html.dark body.style-khesht {
+  --primary: var(--khesht-primary);
+  --primary-foreground: var(--khesht-primary-foreground);
+  --ring: var(--khesht-ring);
+  --sidebar-primary: var(--khesht-primary);
+  --sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --sidebar-ring: var(--khesht-ring);
+  --chart-1: var(--khesht-chart-1);
+  --chart-2: var(--khesht-chart-2);
+  --chart-3: var(--khesht-chart-3);
+  --chart-4: var(--khesht-chart-4);
+  --chart-5: var(--khesht-chart-5);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--khesht-primary);
+  --color-primary-foreground: var(--khesht-primary-foreground);
+  --color-ring: var(--khesht-ring);
+  --color-chart-1: var(--khesht-chart-1);
+  --color-chart-2: var(--khesht-chart-2);
+  --color-chart-3: var(--khesht-chart-3);
+  --color-chart-4: var(--khesht-chart-4);
+  --color-chart-5: var(--khesht-chart-5);
+  --color-sidebar-primary: var(--khesht-primary);
+  --color-sidebar-primary-foreground: var(--khesht-primary-foreground);
+  --color-sidebar-ring: var(--khesht-ring);
+}

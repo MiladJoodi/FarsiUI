@@ -15,7 +15,7 @@ import { CardsDemo, CardsDemoMobile } from "./cards"
 const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} — ${title}`
 const description =
-  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی و آماده برای React"
+  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی و کامپوننت‌های آماده"
 
 const structuredData = {
   "@context": "https://schema.org",

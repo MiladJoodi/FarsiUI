@@ -71,6 +71,56 @@ describe("buildRegistryBase", () => {
     expect(result.cssVars?.theme?.["radius-control"]).toBe("var(--radius-lg)")
   })
 
+  it.each([
+    {
+      style: "glass" as const,
+      primary: "#0d9e96",
+      controlHmd: "2.25rem",
+      radiusControl: "var(--radius-lg)",
+      surface: "#ffffffb8",
+    },
+    {
+      style: "rose" as const,
+      primary: "#de3951",
+      controlHmd: "2.375rem",
+      radiusControl: "999px",
+      surface: "#fff4f4",
+    },
+    {
+      style: "nili" as const,
+      primary: "#0d9f8a",
+      controlHmd: "1.875rem",
+      radiusControl: "0.5rem",
+      surface: "#f7fbfa",
+    },
+    {
+      style: "khesht" as const,
+      primary: "#c45a2c",
+      controlHmd: "2.25rem",
+      radiusControl: "0.375rem",
+      surface: "#fbf6ef",
+    },
+  ])(
+    "installs $style design-system palette, density, and role tokens",
+    ({ style, primary, controlHmd, radiusControl, surface }) => {
+      const result = buildRegistryBase({
+        ...DEFAULT_CONFIG,
+        base: "base",
+        style,
+        font: "geist",
+      })
+
+      expect(result.name).toBe(`base-${style}`)
+      expect(result.config.style).toBe(`base-${style}`)
+      expect(result.cssVars?.light?.primary).toBe(primary)
+      expect(result.cssVars?.light?.surface).toBe(surface)
+      expect(result.cssVars?.light?.["shadow-control"]).toBeTruthy()
+      expect(result.cssVars?.dark?.["shadow-control"]).toBeTruthy()
+      expect(result.cssVars?.theme?.["control-h-md"]).toBe(controlHmd)
+      expect(result.cssVars?.theme?.["radius-control"]).toBe(radiusControl)
+    }
+  )
+
   it("adds a heading font dependency when a distinct heading font is selected", () => {
     const result = buildRegistryBase({
       ...DEFAULT_CONFIG,

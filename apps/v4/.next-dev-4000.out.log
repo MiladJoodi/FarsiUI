@@ -1,0 +1,91 @@
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:4000
+- Network:       http://172.16.24.146:4000
+✓ Ready in 622ms
+✓ Running next.config.mjs took 89ms
+[MDX] generated files in 33.231500000000096ms
+[MDX] started dev server
+- Experiments (use with caution):
+  · cpus: 1
+  · optimizePackageImports
+  ⨯ serverSourceMaps
+  · staticGenerationMaxConcurrency: 2
+  · staticGenerationMinPagesPerWorker: 50
+  ✓ webpackBuildWorker
+  ✓ webpackMemoryOptimizations
+
+○ Compiling / ...
+ GET / 200 in 1245ms (next.js: 42ms, application-code: 1203ms)
+ GET / 200 in 1868ms (next.js: 49ms, application-code: 1819ms)
+ GET / 200 in 819ms (next.js: 8ms, application-code: 811ms)
+✓ Finished filesystem cache database compaction in 11.8s
+○ Compiling /blocks/[...categories] ...
+✓ Finished writing to filesystem cache in 20.6s
+✓ Finished filesystem cache database compaction in 59s
+✓ Finished filesystem cache database compaction in 10.9s
+ GET /blocks/navigation 200 in 3.4min (next.js: 2.7min, generate-params: 41s, application-code: 1295ms)
+✓ Finished filesystem cache database compaction in 12.1s
+ GET /blocks/dashboard 200 in 17.0s (next.js: 278ms, generate-params: 13ms, application-code: 16.7s)
+○ Compiling /view/[style]/[name] ...
+ GET /view/base-nova/dashboard-05?embed=1 200 in 34.1s (next.js: 23.0s, generate-params: 4.7s, application-code: 6.4s)
+ GET /view/base-nova/sidebar-03?embed=1 200 in 34.1s (next.js: 23.1s, generate-params: 5.4s, application-code: 5.6s)
+ GET /view/base-nova/dashboard-03?embed=1 200 in 34.1s (next.js: 23.2s, generate-params: 5.5s, application-code: 5.4s)
+ GET /view/base-nova/dashboard-04?embed=1 200 in 34.1s (next.js: 23.3s, generate-params: 5.7s, application-code: 5.1s)
+ GET /view/base-nova/sidebar-02?embed=1 200 in 34.2s (next.js: 23.2s, generate-params: 6.0s, application-code: 4.9s)
+ GET /view/base-nova/sidebar-05?embed=1 200 in 34.2s (next.js: 23.3s, generate-params: 6.1s, application-code: 4.7s)
+ GET /view/base-nova/sidebar-04?embed=1 200 in 2.5s (next.js: 60ms, generate-params: 12ms, application-code: 2.5s)
+ GET /view/base-nova/sidebar-06?embed=1 200 in 2.5s (next.js: 457ms, generate-params: 0.1ms, application-code: 2.1s)
+ GET /view/base-nova/sidebar-01?embed=1 200 in 2.6s (next.js: 768ms, generate-params: 0.0ms, application-code: 1795ms)
+ GET /view/base-nova/dashboard-02?embed=1 200 in 2.6s (next.js: 1131ms, generate-params: 0.0ms, application-code: 1438ms)
+✓ Finished writing to filesystem cache in 21.1s
+○ Compiling /charts/[type] ...
+ GET /charts/area 200 in 55s (next.js: 33.3s, generate-params: 19.4s, application-code: 2.0s)
+✓ Finished writing to filesystem cache in 11.6s
+ GET /view/new-york-v4/chart-area-stacked-expand 200 in 26.9s (next.js: 208ms, generate-params: 17ms, application-code: 26.7s)
+ GET /view/new-york-v4/chart-area-legend 200 in 26.9s (next.js: 23.1s, generate-params: 0.0ms, application-code: 3.8s)
+ GET /view/new-york-v4/chart-area-axes 200 in 26.9s (next.js: 17.9s, generate-params: 0.0ms, application-code: 9.1s)
+ GET /view/new-york-v4/chart-area-step 200 in 27.0s (next.js: 23.4s, generate-params: 0.0ms, application-code: 3.6s)
+ GET /view/new-york-v4/chart-area-gradient 200 in 26.9s (next.js: 23.6s, generate-params: 0.0ms, application-code: 3.3s)
+ GET /view/new-york-v4/chart-area-interactive 200 in 27.0s (next.js: 24.1s, generate-params: 0.1ms, application-code: 2.9s)
+✓ Finished filesystem cache database compaction in 33.9s
+ GET /view/new-york-v4/chart-area-linear 200 in 25.4s (next.js: 24.5s, generate-params: 15ms, application-code: 939ms)
+ GET /view/new-york-v4/chart-area-default 200 in 25.5s (next.js: 24.7s, generate-params: 0.0ms, application-code: 703ms)
+ GET /view/new-york-v4/chart-area-stacked 200 in 34.9s (next.js: 34.3s, generate-params: 0.0ms, application-code: 622ms)
+ GET /view/new-york-v4/chart-area-icons 200 in 36.4s (next.js: 35.5s, generate-params: 0.0ms, application-code: 836ms)
+○ Compiling /docs/[[...slug]] ...
+✓ Finished filesystem cache database compaction in 29.3s
+ GET /docs/components/base/button 200 in 110s (next.js: 69s, generate-params: 36.8s, application-code: 4.0s)
+✓ Finished filesystem cache database compaction in 27.3s
+✓ Finished filesystem cache database compaction in 16.7s
+✓ Compiled in 17.4s
+ GET /docs/components/base/button 200 in 1190ms (next.js: 166ms, generate-params: 10ms, application-code: 1014ms)
+ GET / 200 in 5.1s (next.js: 5.1s, application-code: 60ms)
+✓ Compiled in 5.5s
+ GET / 200 in 420ms (next.js: 262ms, application-code: 159ms)
+ GET /docs/components/base/button 200 in 1369ms (next.js: 216ms, generate-params: 16ms, application-code: 1138ms)
+✓ Compiled in 3.5s
+ GET / 200 in 1302ms (next.js: 24ms, application-code: 1278ms)
+ GET /docs/components/base/button 200 in 1389ms (next.js: 203ms, generate-params: 16ms, application-code: 1170ms)
+✓ Compiled in 6s
+ GET / 200 in 987ms (next.js: 17ms, application-code: 970ms)
+ GET /docs/components/base/button 200 in 1112ms (next.js: 267ms, generate-params: 12ms, application-code: 833ms)
+✓ Finished writing to filesystem cache in 23.7s
+✓ Finished filesystem cache database compaction in 114s
+✓ Finished filesystem cache database compaction in 63s
+✓ Finished filesystem cache database compaction in 24.5s
+✓ Finished filesystem cache database compaction in 24.5s
+ GET / 200 in 45s (next.js: 43s, application-code: 1669ms)
+ GET / 200 in 1264ms (next.js: 15ms, application-code: 1250ms)
+ GET /docs/components/base/button 200 in 5.1s (next.js: 1329ms, generate-params: 20ms, application-code: 3.7s)
+✓ Compiled in 408.7s
+ GET /docs/components/base/button 200 in 2.5s (next.js: 102ms, generate-params: 0.0ms, application-code: 2.4s)
+✓ Finished filesystem cache database compaction in 17.4s
+✓ Finished filesystem cache database compaction in 101s
+✓ Finished writing to filesystem cache in 17.6s
+✓ Finished filesystem cache database compaction in 4.4min
+✓ Finished writing to filesystem cache in 38.3s
+○ Compiling /contact ...
+✓ Finished writing to filesystem cache in 2.4min
+  Reload env: .env.local
+✓ Finished writing to filesystem cache in 12.2s
+[?25h

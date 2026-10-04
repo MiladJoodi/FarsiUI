@@ -93,4 +93,47 @@ describe("resolveDensityInStyleMap", () => {
     expect(resolved["cn-button-size-xs"]).toContain("size-3.5")
     expect(getDensityBakeUtilities("aether")["h-(--control-h-md)"]).toBe("h-9")
   })
+
+  it.each([
+    {
+      style: "glass",
+      rounded: "rounded-lg",
+      height: "h-9",
+      padding: "px-3",
+    },
+    {
+      style: "rose",
+      rounded: "rounded-full",
+      height: "h-9.5",
+      padding: "px-3.5",
+    },
+    {
+      style: "nili",
+      rounded: "rounded-md",
+      height: "h-7.5",
+      padding: "px-2.25",
+    },
+    {
+      style: "khesht",
+      rounded: "rounded-[0.375rem]",
+      height: "h-9",
+      padding: "px-3.5",
+    },
+  ] as const)(
+    "resolves $style design-system density into concrete bake classes",
+    ({ style, rounded, height, padding }) => {
+      const resolved = resolveDensityInStyleMap(
+        {
+          "cn-button": "rounded-(--radius-control)",
+          "cn-button-size-default":
+            "h-(--control-h-md) px-(--space-control-x)",
+        },
+        style
+      )
+
+      expect(resolved["cn-button"]).toContain(rounded)
+      expect(resolved["cn-button-size-default"]).toBe(`${height} ${padding}`)
+      expect(getDensityBakeUtilities(style)["h-(--control-h-md)"]).toBe(height)
+    }
+  )
 })

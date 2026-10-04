@@ -11,6 +11,7 @@ import { BASES, type Base } from "@/registry/bases"
 import { getDensityCssVars } from "@/registry/densities"
 import { getEffectCssVars } from "@/registry/effects"
 import { bodyFonts, fonts, headingFonts } from "@/registry/fonts"
+import { getStyleInstallTokens } from "@/registry/style-install-tokens"
 import { STYLES, type Style } from "@/registry/styles"
 import { THEMES, type Theme } from "@/registry/themes"
 
@@ -688,6 +689,53 @@ export const PRESETS: Preset[] = [
     menuColor: "default",
     radius: "default",
   },
+  // Installable Design Systems (glass / rose / nili / khesht) × bases.
+  ...(["radix", "base", "aria"] as const).flatMap((base) =>
+    (
+      [
+        {
+          style: "glass",
+          title: "فیروزه",
+          description: "Glass / Lucide / Geist",
+        },
+        {
+          style: "rose",
+          title: "رز",
+          description: "Rose / Lucide / Geist",
+        },
+        {
+          style: "nili",
+          title: "نیلی",
+          description: "Nili / Lucide / Geist",
+        },
+        {
+          style: "khesht",
+          title: "خشت",
+          description: "Khesht / Lucide / Geist",
+        },
+      ] as const
+    ).map(
+      (entry) =>
+        ({
+          name: `${base}-${entry.style}`,
+          title: `${entry.title} (${base === "radix" ? "Radix" : base === "aria" ? "Aria" : "Base"})`,
+          description: entry.description,
+          base,
+          style: entry.style,
+          baseColor: "neutral",
+          theme: "neutral",
+          chartColor: "neutral",
+          iconLibrary: "lucide",
+          font: "geist",
+          fontHeading: "inherit",
+          item: "Item",
+          rtl: false,
+          menuAccent: "subtle",
+          menuColor: "default",
+          radius: "default",
+        }) satisfies Preset
+    )
+  ),
 ]
 
 export function getThemesForBaseColor(baseColorName: string) {
@@ -782,6 +830,14 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
       if (chartLight?.[key]) lightVars[key] = chartLight[key]
       if (chartDark?.[key]) darkVars[key] = chartDark[key]
     }
+  }
+
+  // Design-system install tokens beat theme/baseColor/charts so glass/rose/nili/
+  // khesht keep their palette when installed via CLI (*-tokens.css parity).
+  const styleTokens = getStyleInstallTokens(config.style)
+  if (styleTokens) {
+    Object.assign(lightVars, styleTokens.light)
+    Object.assign(darkVars, styleTokens.dark)
   }
 
   // Apply menu accent transformation.

@@ -75,16 +75,40 @@ describe("parseStyle", () => {
     `)
   })
 
-  it("ignores rules without @apply", () => {
+  it("converts raw CSS declarations to Tailwind arbitrary utilities", () => {
     const css = `
       .cn-button {
         color: red;
+        box-shadow: var(--shadow-control);
+        background-color: var(--control);
+        border-color: var(--control-border);
+        border-radius: var(--radius-control);
       }
     `
 
     const result = createStyleMap(css)
 
-    expect(result).toMatchInlineSnapshot(`{}`)
+    expect(result).toMatchInlineSnapshot(`
+      {
+        "cn-button": "text-[red] shadow-[var(--shadow-control)] bg-[var(--control)] border-[var(--control-border)] rounded-[var(--radius-control)]",
+      }
+    `)
+  })
+
+  it("merges raw declarations with @apply utilities", () => {
+    const css = `
+      .cn-button-variant-default {
+        box-shadow: var(--shadow-control);
+        @apply border-primary/20 bg-primary text-primary-foreground;
+      }
+    `
+
+    const result = createStyleMap(css)
+
+    expect(result["cn-button-variant-default"]).toContain(
+      "shadow-[var(--shadow-control)]"
+    )
+    expect(result["cn-button-variant-default"]).toContain("bg-primary")
   })
 
   it("handles size variants", () => {

@@ -8,6 +8,8 @@ export type LoadableDesignSystemId =
   | "comfort"
   | "glass"
   | "rose"
+  | "nili"
+  | "khesht"
 
 const loaded = new Set<LoadableDesignSystemId>()
 const inflight = new Map<LoadableDesignSystemId, Promise<void>>()
@@ -17,6 +19,8 @@ const LOADERS: Record<LoadableDesignSystemId, () => Promise<unknown>> = {
   comfort: () => import("@/app/styles/chunk-vega.css"),
   glass: () => import("@/app/styles/chunk-glass.css"),
   rose: () => import("@/app/styles/chunk-rose.css"),
+  nili: () => import("@/app/styles/chunk-nili.css"),
+  khesht: () => import("@/app/styles/chunk-khesht.css"),
 }
 
 export function isDesignSystemStyleLoaded(id: LoadableDesignSystemId) {

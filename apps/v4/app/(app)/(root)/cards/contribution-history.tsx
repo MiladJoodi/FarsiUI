@@ -25,6 +25,7 @@ const chartData = [
   { month: "اسفند", amount: 900, fill: "var(--chart-3)" },
   { month: "فروردین", amount: 1300, fill: "var(--chart-4)" },
   { month: "اردیبهشت", amount: 750, fill: "var(--chart-5)" },
+  { month: "خرداد", amount: 1050, fill: "var(--chart-1)" },
 ]
 
 const chartConfig = {

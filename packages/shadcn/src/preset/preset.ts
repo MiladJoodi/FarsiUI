@@ -38,6 +38,12 @@ export const PRESET_STYLES = [
   "luma",
   "sera",
   "rhea",
+  // Append-only: never reorder. Aether + installable design systems.
+  "aether",
+  "glass",
+  "rose",
+  "nili",
+  "khesht",
 ] as const
 
 export const PRESET_BASE_COLORS = [

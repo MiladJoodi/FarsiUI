@@ -1,0 +1,31 @@
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:4000
+- Network:       http://172.16.24.146:4000
+- Environments: .env.local
+✓ Ready in 513ms
+✓ Running next.config.mjs took 85ms
+[MDX] generated files in 24.35200000000009ms
+[MDX] started dev server
+⚠ Slow filesystem detected. The benchmark took 204ms. If \\?\I:\Github\new\FarsiUI\apps\v4\.next\dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · cpus: 1
+  · optimizePackageImports
+  ⨯ serverSourceMaps
+  · staticGenerationMaxConcurrency: 2
+  · staticGenerationMinPagesPerWorker: 50
+  ✓ webpackBuildWorker
+  ✓ webpackMemoryOptimizations
+
+○ Compiling / ...
+⨯ The directory at "i:\Github\new\FarsiUI\apps\v4\.next\dev" was deleted.
+
+Deleting this directory while Next.js is running can lead to undefined behavior. Restarting the server to recover...
+[MDX] closing dev server
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:4000
+- Network:       http://172.16.24.146:4000
+- Environments: .env.local
+✓ Ready in 6.3s
+✓ Running next.config.mjs took 1072ms
+[?25h

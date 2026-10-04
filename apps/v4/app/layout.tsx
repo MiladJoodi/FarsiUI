@@ -142,7 +142,7 @@ export default function RootLayout({
               try {
                 var ds = localStorage.getItem('design-system-preview') || 'default';
                 if (ds === 'aether') { ds = 'glass'; localStorage.setItem('design-system-preview', ds); }
-                var styleMap = { default: 'style-nova', comfort: 'style-vega', glass: 'style-glass', rose: 'style-rose' };
+                var styleMap = { default: 'style-nova', comfort: 'style-vega', glass: 'style-glass', rose: 'style-rose', nili: 'style-nili', khesht: 'style-khesht' };
                 var styleClass = styleMap[ds] || 'style-nova';
                 var applyStyle = function () {
                   document.body.classList.add(styleClass);

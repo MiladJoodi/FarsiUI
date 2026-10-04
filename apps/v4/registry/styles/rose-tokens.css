@@ -18,10 +18,10 @@
   --rose-brand: #bf50a0;
   --rose-brand-foreground: #fcfcfc;
   --rose-chart-1: #de3951;
-  --rose-chart-2: #bf50a0;
+  --rose-chart-2: #c45a7a;
   --rose-chart-3: #d6810c;
-  --rose-chart-4: #00915f;
-  --rose-chart-5: #7d585a;
+  --rose-chart-4: #2a8f6e;
+  --rose-chart-5: #8a6a6c;
 
   /* Exact VibeFarsi pomegranate palette */
   --background: #fce5e6;
@@ -40,7 +40,7 @@
   --accent-foreground: #3b1b1e;
   --destructive: #cc2823;
   --border: #3b1b1e17;
-  --input: #3b1b1e1f;
+  --input: #3b1b1e40;
   --ring: var(--rose-ring);
 
   --sidebar: #fff4f4;
@@ -111,6 +111,8 @@
 
   --motion-fast: 420ms;
   --motion-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: light;
 }
 
 /* Dark — deeper clay, same pomegranate accent */
@@ -121,9 +123,9 @@
   --rose-brand: #d97bb8;
   --rose-brand-foreground: #1a0c0e;
   --rose-chart-1: #f2556d;
-  --rose-chart-2: #d97bb8;
+  --rose-chart-2: #e08aa4;
   --rose-chart-3: #e8a03a;
-  --rose-chart-4: #3dba8c;
+  --rose-chart-4: #4dc49a;
   --rose-chart-5: #d4b0b3;
 
   --background: #2a1416;
@@ -142,7 +144,7 @@
   --accent-foreground: #fff4f4;
   --destructive: #ff6b66;
   --border: #ffffff1a;
-  --input: #ffffff24;
+  --input: #ffffff45;
   --ring: var(--rose-ring);
 
   --sidebar: #3a1c20;
@@ -188,6 +190,8 @@
     inset 0 -3px 0 0 #00000040, inset 0 2px 0 0 #ffffff14,
     0 10px 20px -10px #00000080;
   --shadow-press: inset 0 2px 5px 0 #00000066;
+
+  color-scheme: dark;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -271,9 +275,10 @@
 .style-rose .cn-alert,
 .style-rose [data-slot="card"] {
   background-color: var(--surface) !important;
-  border-color: var(--surface-border);
+  border-color: var(--surface-border) !important;
   border-radius: var(--radius-surface) !important;
   box-shadow: var(--shadow-surface) !important;
+  color: var(--card-foreground);
 }
 
 .style-rose .cn-input,
@@ -281,18 +286,25 @@
 .style-rose .cn-select-trigger,
 .style-rose .cn-input-group,
 .style-rose .cn-native-select,
+.style-rose .cn-input-otp-slot,
+.style-rose .cn-combobox-input,
 .style-rose [data-slot="input"],
 .style-rose [data-slot="textarea"],
 .style-rose [data-slot="select-trigger"],
-.style-rose [data-slot="input-group"] {
+.style-rose [data-slot="input-group"],
+.style-rose [data-slot="input-group-control"],
+.style-rose [data-slot="combobox-input"] {
   background-color: var(--field) !important;
   border-color: var(--field-border) !important;
   border-radius: var(--radius-field) !important;
   box-shadow: var(--field-shadow) !important;
+  color: var(--foreground);
 }
 
 .style-rose .cn-button,
-.style-rose [data-slot="button"] {
+.style-rose .cn-input-group-button,
+.style-rose [data-slot="button"],
+.style-rose [data-slot="input-group-button"] {
   border-radius: var(--radius-control) !important;
   transition:
     transform var(--motion-fast) var(--motion-ease),
@@ -313,12 +325,94 @@
 .style-rose .cn-button-variant-outline,
 .style-rose .cn-button-variant-secondary,
 .style-rose .cn-menubar,
+.style-rose .cn-toggle-variant-outline,
 .style-rose .cn-pagination-link[data-active="true"],
-.style-rose .cn-pagination-link[aria-current="page"] {
+.style-rose .cn-pagination-link[aria-current="page"],
+.style-rose .cn-input-group-button,
+.style-rose [data-slot="button"][data-variant="outline"],
+.style-rose [data-slot="button"][data-variant="secondary"],
+.style-rose [data-slot="toggle"][data-variant="outline"],
+.style-rose [data-slot="input-group-button"] {
   background-color: var(--control) !important;
   border-color: var(--control-border) !important;
   box-shadow: var(--shadow-control) !important;
   border-radius: var(--radius-control) !important;
+  color: var(--foreground);
+}
+
+.style-rose .cn-button-variant-ghost:hover,
+.style-rose .cn-button-variant-ghost[aria-expanded="true"],
+.style-rose [data-slot="button"][data-variant="ghost"]:hover,
+.style-rose [data-slot="button"][data-variant="ghost"][aria-expanded="true"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+}
+
+.style-rose .cn-item-variant-muted,
+.style-rose .cn-empty-media,
+.style-rose [data-slot="item"][data-variant="muted"],
+.style-rose [data-slot="empty-media"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control);
+  color: var(--foreground);
+}
+
+/* Selection controls — unchecked must stay visible on clay surfaces */
+.style-rose .cn-checkbox,
+.style-rose [data-slot="checkbox"],
+.style-rose .cn-radio-group-item,
+.style-rose [data-slot="radio-group-item"] {
+  background-color: var(--field) !important;
+  border-color: color-mix(in oklab, var(--foreground) 35%, transparent) !important;
+  border-style: solid !important;
+  border-width: 1.5px !important;
+  box-shadow: none !important;
+}
+
+.style-rose .cn-checkbox[data-checked="true"],
+.style-rose .cn-checkbox[aria-checked="true"],
+.style-rose [data-slot="checkbox"][data-checked="true"],
+.style-rose [data-slot="checkbox"][aria-checked="true"],
+.style-rose .cn-radio-group-item[data-checked="true"],
+.style-rose .cn-radio-group-item[aria-checked="true"],
+.style-rose [data-slot="radio-group-item"][data-checked="true"],
+.style-rose [data-slot="radio-group-item"][aria-checked="true"] {
+  background-color: var(--rose-primary) !important;
+  border-color: var(--rose-primary) !important;
+  color: var(--rose-primary-foreground) !important;
+}
+
+.style-rose .cn-switch,
+.style-rose [data-slot="switch"] {
+  border: 1.5px solid color-mix(in oklab, var(--foreground) 28%, transparent) !important;
+}
+
+.style-rose .cn-switch[aria-checked="false"],
+.style-rose .cn-switch[data-unchecked],
+.style-rose [data-slot="switch"][aria-checked="false"] {
+  background-color: var(--muted) !important;
+}
+
+.style-rose .cn-switch[aria-checked="true"],
+.style-rose [data-slot="switch"][aria-checked="true"] {
+  background-color: var(--rose-primary) !important;
+  border-color: var(--rose-primary) !important;
+}
+
+.style-rose .cn-chart-tooltip,
+.style-rose [data-slot="chart-tooltip"],
+.style-rose .recharts-tooltip-wrapper {
+  isolation: isolate;
+}
+
+.style-rose .cn-chart-tooltip,
+.style-rose [data-slot="chart-tooltip"] {
+  background-color: var(--overlay) !important;
+  border-color: var(--surface-border) !important;
+  box-shadow: var(--shadow-overlay) !important;
+  color: var(--popover-foreground);
 }
 
 /* Nested menus / drawers / sheets / popovers — portaled on body */
@@ -338,6 +432,7 @@
 .style-rose .cn-menubar-content,
 .style-rose .cn-menubar-sub-content,
 .style-rose .cn-navigation-menu-viewport,
+.style-rose .cn-tooltip-content,
 .style-rose [data-slot="dialog-content"],
 .style-rose [data-slot="alert-dialog-content"],
 .style-rose [data-slot="popover-content"],
@@ -353,11 +448,13 @@
 .style-rose [data-slot="context-menu-sub-content"],
 .style-rose [data-slot="menubar-content"],
 .style-rose [data-slot="menubar-sub-content"],
-.style-rose [data-slot="navigation-menu-viewport"] {
+.style-rose [data-slot="navigation-menu-viewport"],
+.style-rose [data-slot="tooltip-content"] {
   background-color: var(--overlay) !important;
   border-color: var(--surface-border) !important;
   border-radius: var(--radius-overlay) !important;
   box-shadow: var(--shadow-overlay) !important;
+  color: var(--popover-foreground);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -416,6 +513,21 @@ html body.style-rose {
   --chart-4: var(--rose-chart-4);
   --chart-5: var(--rose-chart-5);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-primary: var(--rose-primary);
   --color-primary-foreground: var(--rose-primary-foreground);
   --color-ring: var(--rose-ring);
@@ -480,6 +592,21 @@ html.dark body.style-rose {
   --chart-4: var(--rose-chart-4);
   --chart-5: var(--rose-chart-5);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-primary: var(--rose-primary);
   --color-primary-foreground: var(--rose-primary-foreground);
   --color-ring: var(--rose-ring);

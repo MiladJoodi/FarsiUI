@@ -1,0 +1,604 @@
+/**
+ * Nili (نیلی) — signal / circuit language for FarsiUI.
+ *
+ * Cool slate-teal canvas, solid hairlines, soft-tech radius,
+ * quiet grid (not CRT scanlines / dashed phosphor / side accent bars).
+ *
+ * Unlayered so these beat `.theme-*` Primary Color overrides.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — cool signal paper                                                  */
+/* -------------------------------------------------------------------------- */
+
+.style-nili {
+  --nili-primary: #0d9f8a;
+  --nili-primary-foreground: #f3fffc;
+  --nili-ring: #0d9f8a;
+  --nili-brand: #2b6fff;
+  --nili-brand-foreground: #f5f8ff;
+  --nili-chart-1: #0d9f8a;
+  --nili-chart-2: #1f7a8c;
+  --nili-chart-3: #3d6bb3;
+  --nili-chart-4: #c9852b;
+  --nili-chart-5: #5a6f78;
+
+  --background: #eef4f3;
+  --foreground: #0d1716;
+  --card: #f7fbfa;
+  --card-foreground: #0d1716;
+  --popover: #ffffff;
+  --popover-foreground: #0d1716;
+  --primary: var(--nili-primary);
+  --primary-foreground: var(--nili-primary-foreground);
+  --secondary: #dce8e6;
+  --secondary-foreground: #0d1716;
+  --muted: #e2ebea;
+  --muted-foreground: #4d6360;
+  --accent: #d4ebe6;
+  --accent-foreground: #0d1716;
+  --destructive: #d64545;
+  --border: #0d17161f;
+  --input: #0d171645;
+  --ring: var(--nili-ring);
+
+  --sidebar: #f7fbfa;
+  --sidebar-foreground: #0d1716;
+  --sidebar-primary: var(--nili-primary);
+  --sidebar-primary-foreground: var(--nili-primary-foreground);
+  --sidebar-accent: #d4ebe6;
+  --sidebar-accent-foreground: #0d1716;
+  --sidebar-border: #0d17161f;
+  --sidebar-ring: var(--nili-ring);
+
+  --chart-1: var(--nili-chart-1);
+  --chart-2: var(--nili-chart-2);
+  --chart-3: var(--nili-chart-3);
+  --chart-4: var(--nili-chart-4);
+  --chart-5: var(--nili-chart-5);
+
+  /* Soft-tech, not razor terminal */
+  --radius: 0.625rem;
+  --radius-field: 0.5rem;
+  --radius-surface: 0.75rem;
+  --radius-overlay: 0.75rem;
+  --radius-control: 0.5rem;
+  --radius-4xl: 0.875rem;
+  --radius-3xl: 0.75rem;
+  --radius-2xl: 0.625rem;
+  --radius-xl: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+
+  --surface: #f7fbfa;
+  --surface-muted: #e2ebea;
+  --surface-border: #0d17161f;
+  --surface-filter: none;
+  --surface-opacity: 1;
+  --surface-foreground: #0d1716;
+
+  --field: #ffffff;
+  --field-border: #0d17162e;
+  --field-shadow: inset 0 0 0 1px #0d9f8a14;
+
+  --control: #f7fbfa;
+  --control-border: #0d171624;
+  --control-shadow: 0 1px 0 #ffffffcc inset;
+
+  --overlay: #ffffff;
+  --overlay-shadow: 0 18px 40px -24px #0d171655, 0 0 0 1px #0d9f8a22;
+
+  --shadow-surface: 0 1px 0 #ffffffb3 inset, 0 10px 28px -22px #0d9f8a33;
+  --shadow-field: inset 0 0 0 1px #0d9f8a14;
+  --shadow-overlay: 0 18px 40px -24px #0d171655, 0 0 0 1px #0d9f8a22;
+  --shadow-control: 0 1px 0 #ffffffcc inset;
+  --shadow-press: inset 0 1px 2px #0d171622;
+
+  --motion-fast: 180ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --press: scale(0.98);
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+
+  color-scheme: light;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark — slate signal board                                                  */
+/* -------------------------------------------------------------------------- */
+
+.dark .style-nili {
+  --nili-primary: #3de0c5;
+  --nili-primary-foreground: #041412;
+  --nili-ring: #3de0c5;
+  --nili-brand: #6b9bff;
+  --nili-brand-foreground: #071018;
+  --nili-chart-1: #3de0c5;
+  --nili-chart-2: #5ec4d4;
+  --nili-chart-3: #7aa2e8;
+  --nili-chart-4: #e0b45a;
+  --nili-chart-5: #7a9190;
+
+  --background: #0a1214;
+  --foreground: #e6f4f1;
+  --card: #101a1d;
+  --card-foreground: #e6f4f1;
+  --popover: #132024;
+  --popover-foreground: #e6f4f1;
+  --primary: var(--nili-primary);
+  --primary-foreground: var(--nili-primary-foreground);
+  --secondary: #182428;
+  --secondary-foreground: #e6f4f1;
+  --muted: #142022;
+  --muted-foreground: #8aa3a0;
+  --accent: #1a2c30;
+  --accent-foreground: #e6f4f1;
+  --destructive: #f07171;
+  --border: #3de0c526;
+  --input: #3de0c566;
+  --ring: var(--nili-ring);
+
+  --sidebar: #101a1d;
+  --sidebar-foreground: #e6f4f1;
+  --sidebar-primary: var(--nili-primary);
+  --sidebar-primary-foreground: var(--nili-primary-foreground);
+  --sidebar-accent: #1a2c30;
+  --sidebar-accent-foreground: #e6f4f1;
+  --sidebar-border: #3de0c526;
+  --sidebar-ring: var(--nili-ring);
+
+  --chart-1: var(--nili-chart-1);
+  --chart-2: var(--nili-chart-2);
+  --chart-3: var(--nili-chart-3);
+  --chart-4: var(--nili-chart-4);
+  --chart-5: var(--nili-chart-5);
+
+  --surface: #101a1d;
+  --surface-muted: #142022;
+  --surface-border: #3de0c526;
+  --surface-foreground: #e6f4f1;
+
+  --field: #0d1619;
+  --field-border: #3de0c540;
+  --field-shadow: inset 0 0 0 1px #3de0c514;
+
+  --control: #101a1d;
+  --control-border: #3de0c533;
+  --control-shadow: 0 0 0 1px #3de0c51f inset;
+
+  --overlay: #132024;
+  --overlay-shadow: 0 22px 50px -28px #000000b3, 0 0 0 1px #3de0c533;
+
+  --shadow-surface: 0 0 0 1px #3de0c51a inset, 0 12px 32px -24px #3de0c540;
+  --shadow-field: inset 0 0 0 1px #3de0c514;
+  --shadow-overlay: 0 22px 50px -28px #000000b3, 0 0 0 1px #3de0c533;
+  --shadow-control: 0 0 0 1px #3de0c51f inset;
+  --shadow-press: inset 0 1px 3px #00000066;
+
+  --card: var(--surface);
+  --popover: var(--overlay);
+
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Atmosphere — quiet technical grid (not CRT scanlines)                      */
+/* -------------------------------------------------------------------------- */
+
+.style-nili [data-slot="layout"] {
+  background-color: transparent;
+}
+
+.style-nili [data-slot="header-primary-colors"] {
+  display: none !important;
+}
+
+.style-nili [data-collage-surface] {
+  background-color: #eef4f3 !important;
+  background-image:
+    linear-gradient(rgb(13 23 22 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 23 22 / 0.04) 1px, transparent 1px),
+    radial-gradient(50% 40% at 85% 0%, #0d9f8a22, transparent 70%) !important;
+  background-size: 28px 28px, 28px 28px, auto !important;
+  background-attachment: scroll !important;
+  color-scheme: light;
+}
+
+.dark .style-nili [data-collage-surface] {
+  background-color: #0a1214 !important;
+  background-image:
+    linear-gradient(rgb(61 224 197 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(61 224 197 / 0.05) 1px, transparent 1px),
+    radial-gradient(45% 35% at 80% 0%, #3de0c526, transparent 70%) !important;
+  background-size: 28px 28px, 28px 28px, auto !important;
+  background-repeat: repeat, repeat, no-repeat !important;
+  color-scheme: dark;
+}
+
+.style-nili {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgb(13 23 22 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(13 23 22 / 0.035) 1px, transparent 1px),
+    radial-gradient(50% 40% at 85% 0%, #0d9f8a1a, transparent 70%);
+  background-size: 28px 28px, 28px 28px, auto !important;
+  background-attachment: fixed;
+  background-repeat: repeat, repeat, no-repeat !important;
+}
+
+.dark .style-nili {
+  background-image:
+    linear-gradient(rgb(61 224 197 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(61 224 197 / 0.045) 1px, transparent 1px),
+    radial-gradient(45% 35% at 80% 0%, #3de0c522, transparent 70%);
+  background-size: 28px 28px, 28px 28px, auto !important;
+  background-repeat: repeat, repeat, no-repeat !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Signal fills — solid hairlines, no side accent bar                         */
+/* -------------------------------------------------------------------------- */
+
+.style-nili .cn-card,
+.style-nili .cn-alert,
+.style-nili [data-slot="card"] {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--surface-border) !important;
+  border-radius: var(--radius-surface) !important;
+  box-shadow: var(--shadow-surface) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--card-foreground);
+}
+
+.style-nili .cn-input,
+.style-nili .cn-textarea,
+.style-nili .cn-select-trigger,
+.style-nili .cn-input-group,
+.style-nili .cn-native-select,
+.style-nili .cn-input-otp-slot,
+.style-nili .cn-combobox-input,
+.style-nili [data-slot="input"],
+.style-nili [data-slot="textarea"],
+.style-nili [data-slot="select-trigger"],
+.style-nili [data-slot="input-group"],
+.style-nili [data-slot="input-group-control"],
+.style-nili [data-slot="combobox-input"] {
+  background-color: var(--field) !important;
+  border: 1px solid var(--field-border) !important;
+  border-radius: var(--radius-field) !important;
+  box-shadow: var(--field-shadow) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--foreground);
+}
+
+.style-nili .cn-button,
+.style-nili [data-slot="button"],
+.style-nili [data-slot="input-group-button"] {
+  border-radius: var(--radius-control) !important;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    color var(--motion-fast) var(--motion-ease);
+}
+
+.style-nili .cn-button-variant-default {
+  background-color: var(--nili-primary) !important;
+  color: var(--nili-primary-foreground) !important;
+  border: 1px solid color-mix(in oklab, var(--nili-primary) 70%, #000) !important;
+  box-shadow: 0 0 0 1px #ffffff22 inset, 0 8px 20px -12px var(--nili-primary) !important;
+}
+
+.style-nili .cn-button-variant-default:active,
+.style-nili [data-slot="button"]:active {
+  transform: var(--press);
+  box-shadow: var(--shadow-press) !important;
+}
+
+.style-nili .cn-button-variant-outline,
+.style-nili .cn-button-variant-secondary,
+.style-nili .cn-menubar,
+.style-nili .cn-toggle-variant-outline,
+.style-nili .cn-pagination-link[data-active="true"],
+.style-nili .cn-pagination-link[aria-current="page"],
+.style-nili .cn-input-group-button,
+.style-nili [data-slot="button"][data-variant="outline"],
+.style-nili [data-slot="button"][data-variant="secondary"],
+.style-nili [data-slot="toggle"][data-variant="outline"],
+.style-nili [data-slot="input-group-button"] {
+  background-color: var(--control) !important;
+  border: 1px solid var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+  border-radius: var(--radius-control) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--foreground);
+}
+
+.style-nili .cn-button-variant-ghost:hover,
+.style-nili .cn-button-variant-ghost[aria-expanded="true"],
+.style-nili [data-slot="button"][data-variant="ghost"]:hover,
+.style-nili [data-slot="button"][data-variant="ghost"][aria-expanded="true"] {
+  background-color: var(--control) !important;
+  border-color: var(--control-border) !important;
+  box-shadow: var(--shadow-control) !important;
+}
+
+.style-nili .cn-item-variant-muted,
+.style-nili .cn-empty-media,
+.style-nili [data-slot="item"][data-variant="muted"],
+.style-nili [data-slot="empty-media"] {
+  background-color: var(--control) !important;
+  border: 1px solid var(--control-border) !important;
+  box-shadow: none !important;
+  border-radius: var(--radius-control) !important;
+  backdrop-filter: none !important;
+}
+
+.style-nili .cn-dialog-content,
+.style-nili .cn-alert-dialog-content,
+.style-nili .cn-popover-content,
+.style-nili .cn-sheet-content,
+.style-nili .cn-drawer-content,
+.style-nili .cn-drawer-popup,
+.style-nili .cn-dropdown-menu-content,
+.style-nili .cn-dropdown-menu-sub-content,
+.style-nili .cn-select-content,
+.style-nili .cn-combobox-content,
+.style-nili .cn-hover-card-content,
+.style-nili .cn-context-menu-content,
+.style-nili .cn-context-menu-sub-content,
+.style-nili .cn-menubar-content,
+.style-nili .cn-menubar-sub-content,
+.style-nili .cn-navigation-menu-viewport,
+.style-nili .cn-chart-tooltip,
+.style-nili .cn-tooltip-content,
+.style-nili [data-slot="dialog-content"],
+.style-nili [data-slot="alert-dialog-content"],
+.style-nili [data-slot="popover-content"],
+.style-nili [data-slot="sheet-content"],
+.style-nili [data-slot="drawer-content"],
+.style-nili [data-slot="drawer"],
+.style-nili [data-slot="dropdown-menu-content"],
+.style-nili [data-slot="dropdown-menu-sub-content"],
+.style-nili [data-slot="select-content"],
+.style-nili [data-slot="combobox-content"],
+.style-nili [data-slot="hover-card-content"],
+.style-nili [data-slot="context-menu-content"],
+.style-nili [data-slot="context-menu-sub-content"],
+.style-nili [data-slot="menubar-content"],
+.style-nili [data-slot="menubar-sub-content"],
+.style-nili [data-slot="navigation-menu-viewport"],
+.style-nili [data-slot="tooltip-content"],
+.style-nili [data-slot="chart-tooltip"] {
+  background-color: var(--overlay) !important;
+  border: 1px solid var(--surface-border) !important;
+  border-radius: var(--radius-overlay) !important;
+  box-shadow: var(--shadow-overlay) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: var(--popover-foreground);
+}
+
+.style-nili .cn-chart-tooltip,
+.style-nili [data-slot="chart-tooltip"],
+.style-nili .recharts-tooltip-wrapper {
+  isolation: isolate;
+}
+
+/* Selection controls — unchecked must stay visible on card surfaces */
+.style-nili .cn-checkbox,
+.style-nili [data-slot="checkbox"],
+.style-nili .cn-radio-group-item,
+.style-nili [data-slot="radio-group-item"] {
+  background-color: var(--field) !important;
+  border-color: var(--field-border) !important;
+  border-style: solid !important;
+  border-width: 1.5px !important;
+  box-shadow: none !important;
+}
+
+.style-nili .cn-checkbox[data-checked="true"],
+.style-nili .cn-checkbox[aria-checked="true"],
+.style-nili [data-slot="checkbox"][data-checked="true"],
+.style-nili [data-slot="checkbox"][aria-checked="true"],
+.style-nili .cn-radio-group-item[data-checked="true"],
+.style-nili .cn-radio-group-item[aria-checked="true"],
+.style-nili [data-slot="radio-group-item"][data-checked="true"],
+.style-nili [data-slot="radio-group-item"][aria-checked="true"] {
+  background-color: var(--nili-primary) !important;
+  border-color: var(--nili-primary) !important;
+  color: var(--nili-primary-foreground) !important;
+}
+
+.style-nili .cn-switch,
+.style-nili [data-slot="switch"] {
+  border: 1px solid var(--field-border) !important;
+}
+
+.style-nili .cn-switch[aria-checked="false"],
+.style-nili .cn-switch[data-unchecked],
+.style-nili [data-slot="switch"][aria-checked="false"] {
+  background-color: var(--muted) !important;
+}
+
+.style-nili .cn-switch[aria-checked="true"],
+.style-nili [data-slot="switch"][aria-checked="true"] {
+  background-color: var(--nili-primary) !important;
+  border-color: var(--nili-primary) !important;
+}
+
+.style-nili .cn-badge,
+.style-nili [data-slot="badge"] {
+  border-radius: 999px !important;
+  border: 1px solid var(--surface-border) !important;
+  background-color: var(--control) !important;
+  color: var(--foreground);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accent ownership                                                           */
+/* -------------------------------------------------------------------------- */
+
+html body.style-nili.theme-default,
+html body.style-nili.theme-neutral,
+html body.style-nili.theme-blue,
+html body.style-nili.theme-green,
+html body.style-nili.theme-amber,
+html body.style-nili.theme-rose,
+html body.style-nili.theme-purple,
+html body.style-nili.theme-orange,
+html body.style-nili.theme-teal,
+html body.style-nili.theme-red,
+html body.style-nili.theme-yellow,
+html body.style-nili.theme-violet,
+html body.style-nili.theme-default .theme-container,
+html body.style-nili.theme-neutral .theme-container,
+html body.style-nili.theme-blue .theme-container,
+html body.style-nili.theme-green .theme-container,
+html body.style-nili.theme-amber .theme-container,
+html body.style-nili.theme-rose .theme-container,
+html body.style-nili.theme-purple .theme-container,
+html body.style-nili.theme-orange .theme-container,
+html body.style-nili.theme-teal .theme-container,
+html body.style-nili.theme-red .theme-container,
+html body.style-nili.theme-yellow .theme-container,
+html body.style-nili.theme-violet .theme-container,
+html body.style-nili.theme-default [data-radix-popper-content-wrapper],
+html body.style-nili.theme-neutral [data-radix-popper-content-wrapper],
+html body.style-nili.theme-blue [data-radix-popper-content-wrapper],
+html body.style-nili.theme-green [data-radix-popper-content-wrapper],
+html body.style-nili.theme-amber [data-radix-popper-content-wrapper],
+html body.style-nili.theme-rose [data-radix-popper-content-wrapper],
+html body.style-nili.theme-purple [data-radix-popper-content-wrapper],
+html body.style-nili.theme-orange [data-radix-popper-content-wrapper],
+html body.style-nili.theme-teal [data-radix-popper-content-wrapper],
+html body.style-nili.theme-red [data-radix-popper-content-wrapper],
+html body.style-nili.theme-yellow [data-radix-popper-content-wrapper],
+html body.style-nili.theme-violet [data-radix-popper-content-wrapper],
+html body.style-nili .theme-container,
+html body.style-nili [data-radix-popper-content-wrapper],
+html body.style-nili {
+  --primary: var(--nili-primary);
+  --primary-foreground: var(--nili-primary-foreground);
+  --ring: var(--nili-ring);
+  --sidebar-primary: var(--nili-primary);
+  --sidebar-primary-foreground: var(--nili-primary-foreground);
+  --sidebar-ring: var(--nili-ring);
+  --chart-1: var(--nili-chart-1);
+  --chart-2: var(--nili-chart-2);
+  --chart-3: var(--nili-chart-3);
+  --chart-4: var(--nili-chart-4);
+  --chart-5: var(--nili-chart-5);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--nili-primary);
+  --color-primary-foreground: var(--nili-primary-foreground);
+  --color-ring: var(--nili-ring);
+  --color-chart-1: var(--nili-chart-1);
+  --color-chart-2: var(--nili-chart-2);
+  --color-chart-3: var(--nili-chart-3);
+  --color-chart-4: var(--nili-chart-4);
+  --color-chart-5: var(--nili-chart-5);
+  --color-sidebar-primary: var(--nili-primary);
+  --color-sidebar-primary-foreground: var(--nili-primary-foreground);
+  --color-sidebar-ring: var(--nili-ring);
+}
+
+html.dark body.style-nili.theme-default,
+html.dark body.style-nili.theme-neutral,
+html.dark body.style-nili.theme-blue,
+html.dark body.style-nili.theme-green,
+html.dark body.style-nili.theme-amber,
+html.dark body.style-nili.theme-rose,
+html.dark body.style-nili.theme-purple,
+html.dark body.style-nili.theme-orange,
+html.dark body.style-nili.theme-teal,
+html.dark body.style-nili.theme-red,
+html.dark body.style-nili.theme-yellow,
+html.dark body.style-nili.theme-violet,
+html.dark body.style-nili.theme-default .theme-container,
+html.dark body.style-nili.theme-neutral .theme-container,
+html.dark body.style-nili.theme-blue .theme-container,
+html.dark body.style-nili.theme-green .theme-container,
+html.dark body.style-nili.theme-amber .theme-container,
+html.dark body.style-nili.theme-rose .theme-container,
+html.dark body.style-nili.theme-purple .theme-container,
+html.dark body.style-nili.theme-orange .theme-container,
+html.dark body.style-nili.theme-teal .theme-container,
+html.dark body.style-nili.theme-red .theme-container,
+html.dark body.style-nili.theme-yellow .theme-container,
+html.dark body.style-nili.theme-violet .theme-container,
+html.dark body.style-nili.theme-default [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-neutral [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-blue [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-green [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-amber [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-rose [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-purple [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-orange [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-teal [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-red [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-yellow [data-radix-popper-content-wrapper],
+html.dark body.style-nili.theme-violet [data-radix-popper-content-wrapper],
+html.dark body.style-nili .theme-container,
+html.dark body.style-nili [data-radix-popper-content-wrapper],
+html.dark body.style-nili {
+  --primary: var(--nili-primary);
+  --primary-foreground: var(--nili-primary-foreground);
+  --ring: var(--nili-ring);
+  --sidebar-primary: var(--nili-primary);
+  --sidebar-primary-foreground: var(--nili-primary-foreground);
+  --sidebar-ring: var(--nili-ring);
+  --chart-1: var(--nili-chart-1);
+  --chart-2: var(--nili-chart-2);
+  --chart-3: var(--nili-chart-3);
+  --chart-4: var(--nili-chart-4);
+  --chart-5: var(--nili-chart-5);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--nili-primary);
+  --color-primary-foreground: var(--nili-primary-foreground);
+  --color-ring: var(--nili-ring);
+  --color-chart-1: var(--nili-chart-1);
+  --color-chart-2: var(--nili-chart-2);
+  --color-chart-3: var(--nili-chart-3);
+  --color-chart-4: var(--nili-chart-4);
+  --color-chart-5: var(--nili-chart-5);
+  --color-sidebar-primary: var(--nili-primary);
+  --color-sidebar-primary-foreground: var(--nili-primary-foreground);
+  --color-sidebar-ring: var(--nili-ring);
+}

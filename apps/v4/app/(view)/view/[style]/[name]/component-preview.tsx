@@ -17,14 +17,16 @@ export function ComponentPreview({
   /** Visual style root (e.g. style-nova) — must live on body so portals inherit it. */
   styleClass?: string | null
 }) {
+  // Full /view tab: lock body to the URL style. Embed iframes: leave body alone
+  // so the parent DesignSystemPreviewProvider picker can sync style-* live.
   React.useEffect(() => {
-    if (!styleClass) return
+    if (embed || !styleClass) return
     const { body } = document
     body.classList.add(styleClass)
     return () => {
       body.classList.remove(styleClass)
     }
-  }, [styleClass])
+  }, [embed, styleClass])
 
   // Demo blocks use href="#" placeholders — stop hash jumps / iframe reloads in previews.
   React.useEffect(() => {
@@ -61,7 +63,9 @@ export function ComponentPreview({
       </style>
       <div
         className={cn(
-          styleClass,
+          // Embed: style root lives on body via parent sync — avoid nesting a
+          // conflicting style-* wrapper from the registry URL.
+          !embed && styleClass,
           embed
             ? staticPreview
               ? "h-full min-h-full bg-transparent"

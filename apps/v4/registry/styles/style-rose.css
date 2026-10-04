@@ -173,15 +173,22 @@
   }
 
   .cn-button-variant-default {
+    box-shadow: var(--shadow-control);
     @apply bg-primary text-primary-foreground hover:bg-primary/80 active:not-aria-[haspopup]:bg-primary/70;
   }
 
   .cn-button-variant-outline {
-    @apply border-border bg-background text-foreground hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground;
+    background-color: var(--control);
+    border-color: var(--control-border);
+    box-shadow: var(--shadow-control);
+    @apply text-foreground hover:bg-muted hover:text-foreground active:not-aria-[haspopup]:bg-muted/80 aria-expanded:bg-muted aria-expanded:text-foreground;
   }
 
   .cn-button-variant-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] active:not-aria-[haspopup]:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_8%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground;
+    background-color: var(--control);
+    border-color: var(--control-border);
+    box-shadow: var(--shadow-control);
+    @apply text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] active:not-aria-[haspopup]:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_8%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground;
   }
 
   .cn-button-variant-ghost {
@@ -700,7 +707,11 @@
 
   /* MARK: Input */
   .cn-input {
-    @apply dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-transparent px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-3 aria-invalid:ring-3 md:text-sm;
+    background-color: var(--field);
+    border-color: var(--field-border);
+    border-radius: var(--radius-field);
+    box-shadow: var(--field-shadow);
+    @apply focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-(--control-h-md) border px-(--space-control-x) py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-3 aria-invalid:ring-3 md:text-(length:--text-control);
   }
 
   /* MARK: Input OTP */

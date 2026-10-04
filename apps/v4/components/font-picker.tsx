@@ -28,6 +28,7 @@ export function FontPicker({ className }: React.ComponentProps<"div">) {
       <Select
         items={items.map(({ label, value }) => ({ label, value }))}
         value={fontId}
+        modal={false}
         onValueChange={(value) => {
           if (value) setFontId(value as UiFontId)
         }}
@@ -36,12 +37,16 @@ export function FontPicker({ className }: React.ComponentProps<"div">) {
           id="font-picker"
           size="sm"
           aria-label="فونت"
-          className="h-8 min-w-[8.5rem] cursor-pointer border-border/80 bg-background/80 text-xs shadow-none"
+          className="h-8 w-auto min-w-0 cursor-pointer justify-start gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none *:data-[slot=select-value]:flex-none"
           style={{ fontFamily: `var(${activeFont.cssVar})` }}
         >
           <SelectValue placeholder="فونت" />
         </SelectTrigger>
-        <SelectContent align="end" className="min-w-[10rem]">
+        <SelectContent
+          align="end"
+          alignItemWithTrigger={false}
+          className="min-w-[10rem]"
+        >
           <SelectGroup>
             {items.map((item) => (
               <SelectItem

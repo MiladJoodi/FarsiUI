@@ -16,7 +16,7 @@ import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { useThemeConfig } from "@/components/active-theme"
+import { useDesignSystemPreview } from "@/components/design-system-preview"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -112,7 +112,10 @@ export function BlockCard({
   const [previewLoaded, setPreviewLoaded] = React.useState(false)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
-  const { activeTheme } = useThemeConfig()
+  const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  // Prefer the header Design System style (e.g. base-glass) over the page's
+  // default registry style so blocks match the installable style.
+  const previewStyleName = designSystemStyleName || styleName
   const isPhone = useMediaQuery("(max-width: 767px)")
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)")
   const previewViewport = resolvePreviewViewport(viewport, isPhone, isTablet)
@@ -128,51 +131,24 @@ export function BlockCard({
 
   React.useEffect(() => {
     setPreviewLoaded(false)
-  }, [styleName, item.name])
+  }, [previewStyleName, item.name])
 
-  const syncIframeTheme = React.useCallback(() => {
-    const body = iframeRef.current?.contentDocument?.body
-    if (!body) return
-    const theme =
-      activeTheme === "default" ? "neutral" : activeTheme
-    const styleMatch = styleName.match(/^(?:base|radix|aria)-(.+)$/)
-    const styleRoot = styleMatch ? `style-${styleMatch[1]}` : "style-nova"
-
-    Array.from(body.classList)
-      .filter(
-        (className) =>
-          className.startsWith("theme-") || className.startsWith("style-")
-      )
-      .forEach((className) => body.classList.remove(className))
-
-    body.classList.add(`theme-${theme}`, styleRoot)
-    if (theme.endsWith("-scaled")) {
-      body.classList.add("theme-scaled")
-    }
-  }, [activeTheme, styleName])
-
+  // theme-* / style-* on the iframe body come from ActiveThemeProvider +
+  // DesignSystemPreviewProvider (header pickers).
   const handleIframeLoad = React.useCallback(() => {
     setPreviewLoaded(true)
-    syncIframeTheme()
-  }, [syncIframeTheme])
-
-  React.useEffect(() => {
-    syncIframeTheme()
-  }, [syncIframeTheme])
+  }, [])
 
   const { scrollShield, dismissShield } = useIframeScrollPassthrough(
     iframeRef,
-    [styleName, item.name, syncIframeTheme]
+    [previewStyleName, item.name]
   )
 
   React.useEffect(() => {
     const iframe = iframeRef.current
     if (!iframe) return
 
-    const onLoad = () => {
-      setPreviewLoaded(true)
-      syncIframeTheme()
-    }
+    const onLoad = () => setPreviewLoaded(true)
     iframe.addEventListener("load", onLoad)
     if (iframe.contentDocument?.readyState === "complete") {
       onLoad()
@@ -181,7 +157,7 @@ export function BlockCard({
     return () => {
       iframe.removeEventListener("load", onLoad)
     }
-  }, [styleName, item.name, syncIframeTheme])
+  }, [previewStyleName, item.name])
 
   const flatFiles = React.useMemo(() => {
     return files.map((file) => {
@@ -257,7 +233,7 @@ export function BlockCard({
               title="باز کردن در تب جدید"
             >
               <Link
-                href={`/view/${styleName}/${item.name}`}
+                href={`/view/${previewStyleName}/${item.name}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -299,7 +275,7 @@ export function BlockCard({
                 ) : null}
                 <iframe
                   ref={iframeRef}
-                  src={`/view/${styleName}/${item.name}?embed=1`}
+                  src={`/view/${previewStyleName}/${item.name}?embed=1`}
                   title={item.name}
                   height={iframeHeight}
                   loading="lazy"

@@ -5,13 +5,17 @@ import * as React from "react"
 import { cn } from "cn"
 import { I18nProvider } from "react-aria-components"
 
+import { useDesignSystemPreview } from "@/components/design-system-preview"
 import { ExampleDependencies } from "@/components/example-dependencies"
 import {
   LanguageProvider,
   useTranslation,
   type Translations,
 } from "@/components/language-selector"
-import { PreviewThemeScope } from "@/components/preview-theme-scope"
+import {
+  PreviewThemeIframe,
+  PreviewThemeScope,
+} from "@/components/preview-theme-scope"
 import { DirectionProvider as BaseDirectionProvider } from "@/registry/bases/base/ui/direction"
 import { DirectionProvider as RadixDirectionProvider } from "@/registry/bases/radix/ui/direction"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -22,6 +26,7 @@ export function ComponentPreviewTabs({
   align = "center",
   hideCode = false,
   chromeLessOnMobile = false,
+  name,
   component,
   source,
   sourcePreview,
@@ -34,6 +39,8 @@ export function ComponentPreviewTabs({
   align?: "center" | "start" | "end"
   hideCode?: boolean
   chromeLessOnMobile?: boolean
+  /** Demo/registry item name — used to load the active Design System bake. */
+  name?: string
   component: React.ReactNode
   source: React.ReactNode
   sourcePreview?: React.ReactNode
@@ -42,7 +49,10 @@ export function ComponentPreviewTabs({
   styleName?: string
 }) {
   const [isMobileCodeVisible, setIsMobileCodeVisible] = React.useState(false)
-  const base = styleName?.match(/^(base|radix|aria)-/)?.[1] || "base"
+  const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  const previewStyleName = designSystemStyleName || styleName || "base-nova"
+  const base = previewStyleName.match(/^(base|radix|aria)-/)?.[1] || "base"
+  const useInstallablePreview = Boolean(name)
 
   return (
     <div className="mt-4 mb-12">
@@ -55,13 +65,31 @@ export function ComponentPreviewTabs({
         )}
         {...props}
       >
-        {direction === "rtl" ? (
+        {useInstallablePreview ? (
+          <div
+            data-slot="preview"
+            dir={direction}
+            data-chromeless={chromeLessOnMobile}
+            className={cn(
+              "relative w-full overflow-hidden data-[chromeless=true]:h-auto",
+              chromeLessOnMobile ? "h-auto min-h-56" : "h-72",
+              previewClassName
+            )}
+          >
+            <PreviewThemeIframe
+              key={previewStyleName}
+              src={`/view/${previewStyleName}/${name}?embed=1`}
+              styleName={previewStyleName}
+              className="absolute inset-0 size-full border-0"
+            />
+          </div>
+        ) : direction === "rtl" ? (
           <LanguageProvider defaultLanguage="ar">
             <PreviewWrapper
               align={align}
               chromeLessOnMobile={chromeLessOnMobile}
               previewClassName={previewClassName}
-              styleName={styleName}
+              styleName={previewStyleName}
             >
               <DirectionProviderWrapper base={base}>
                 {component}
@@ -74,7 +102,7 @@ export function ComponentPreviewTabs({
               align={align}
               chromeLessOnMobile={chromeLessOnMobile}
               previewClassName={previewClassName}
-              styleName={styleName}
+              styleName={previewStyleName}
               dir="ltr"
             >
               {component}
