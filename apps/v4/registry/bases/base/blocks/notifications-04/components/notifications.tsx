@@ -97,7 +97,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function NotificationsActions() {
+export default function NotificationsActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [filter, setFilter] = React.useState("همه")

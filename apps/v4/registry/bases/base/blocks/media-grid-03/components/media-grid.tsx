@@ -87,7 +87,7 @@ const ICONS = {
   file: FileIcon,
 } as const
 
-export function MediaGridFilter() {
+export default function MediaGridFilter() {
   const [type, setType] = React.useState("همه")
   const [sort, setSort] = React.useState("جدیدترین")
 

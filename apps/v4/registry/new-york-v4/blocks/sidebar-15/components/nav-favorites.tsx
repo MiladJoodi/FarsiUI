@@ -25,7 +25,7 @@ import {
   useSidebar,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function NavFavorites({
+export default function NavFavorites({
   favorites,
 }: {
   favorites: {

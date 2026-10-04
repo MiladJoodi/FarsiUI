@@ -1,7 +1,7 @@
 import { Checkbox } from "@/styles/base-nova/ui/checkbox"
 import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 
-export function CheckboxInvalid() {
+export default function CheckboxInvalid() {
   return (
     <FieldGroup className="mx-auto w-56" dir="rtl">
       <Field orientation="horizontal" data-invalid>

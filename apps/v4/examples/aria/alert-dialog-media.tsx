@@ -13,7 +13,7 @@ import {
 } from "@/styles/aria-nova/ui/alert-dialog"
 import { Button } from "@/styles/aria-nova/ui/button"
 
-export function AlertDialogWithMedia() {
+export default function AlertDialogWithMedia() {
   return (
     <AlertDialogTrigger>
       <Button variant="outline">Share Project</Button>

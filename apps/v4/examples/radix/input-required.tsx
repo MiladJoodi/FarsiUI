@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputRequired() {
+export default function InputRequired() {
   return (
     <Field>
       <FieldLabel htmlFor="input-required">

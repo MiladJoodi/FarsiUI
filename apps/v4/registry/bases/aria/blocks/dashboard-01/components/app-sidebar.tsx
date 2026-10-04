@@ -2,10 +2,10 @@
 
 import * as React from "react"
 
-import { NavDocuments } from "@/registry/bases/aria/blocks/dashboard-01/components/nav-documents"
-import { NavMain } from "@/registry/bases/aria/blocks/dashboard-01/components/nav-main"
-import { NavSecondary } from "@/registry/bases/aria/blocks/dashboard-01/components/nav-secondary"
-import { NavUser } from "@/registry/bases/aria/blocks/dashboard-01/components/nav-user"
+import NavDocuments from "@/registry/bases/aria/blocks/dashboard-01/components/nav-documents"
+import NavMain from "@/registry/bases/aria/blocks/dashboard-01/components/nav-main"
+import NavSecondary from "@/registry/bases/aria/blocks/dashboard-01/components/nav-secondary"
+import NavUser from "@/registry/bases/aria/blocks/dashboard-01/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -245,7 +245,7 @@ const data = {
     },
   ],
 }
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="offcanvas" dir="rtl" lang="fa" {...props}>
       <SidebarHeader>

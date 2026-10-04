@@ -4,7 +4,7 @@ import * as React from "react"
 import { SearchIcon } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -78,7 +78,7 @@ const chartConfig = {
   value: { label: "مقدار", color: "var(--primary)" },
 } satisfies ChartConfig
 
-export function AnalyticsExplorer() {
+export default function AnalyticsExplorer() {
   const [query, setQuery] = React.useState("")
   const [metric, setMetric] = React.useState<Metric>("بازدید")
   const [sort, setSort] = React.useState<SortKey>("بازدید")

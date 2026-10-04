@@ -121,7 +121,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function NotificationsHub() {
+export default function NotificationsHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [tab, setTab] = React.useState<NavId>("همه")
   const [status, setStatus] = React.useState("همه")

@@ -1,7 +1,7 @@
 import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchSizes() {
+export default function SwitchSizes() {
   return (
     <FieldGroup dir="rtl" className="w-full max-w-[10rem]">
       <Field orientation="horizontal">

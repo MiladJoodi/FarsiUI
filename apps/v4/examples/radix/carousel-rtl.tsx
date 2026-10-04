@@ -37,7 +37,7 @@ function toArabicNumerals(num: number): string {
     .join("")
 }
 
-export function CarouselRtl() {
+export default function CarouselRtl() {
   const { dir, language } = useTranslation(translations, "ar")
 
   const formatNumber = (num: number): string => {

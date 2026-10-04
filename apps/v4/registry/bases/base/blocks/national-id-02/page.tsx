@@ -1,4 +1,4 @@
-import { NationalIdValidator } from "@/registry/bases/base/blocks/national-id-02/components/national-id-validator"
+import NationalIdValidator from "@/registry/bases/base/blocks/national-id-02/components/national-id-validator"
 
 export default function Page() {
   return (

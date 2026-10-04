@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function BannerSplit() {
+export default function BannerSplit() {
   return (
     <div
       dir="rtl"

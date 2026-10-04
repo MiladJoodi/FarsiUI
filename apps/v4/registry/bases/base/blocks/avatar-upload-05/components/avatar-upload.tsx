@@ -55,7 +55,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AvatarUploadHub() {
+export default function AvatarUploadHub() {
   const [preview, setPreview] = React.useState<string>(SUGGESTIONS[0])
   const [fileName, setFileName] = React.useState("avatar.jpg")
   const [progress, setProgress] = React.useState(100)

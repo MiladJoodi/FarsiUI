@@ -31,7 +31,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartRtl() {
+export default function ChartRtl() {
   return (
     <div dir="rtl">
       <ChartContainer config={chartConfig} className="min-h-[200px] w-full">

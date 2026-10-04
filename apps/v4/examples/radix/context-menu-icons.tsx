@@ -14,7 +14,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/radix-nova/ui/context-menu"
 
-export function ContextMenuIcons() {
+export default function ContextMenuIcons() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">

@@ -21,7 +21,7 @@ import {
 
 const SUGGESTIONS = ["هدفون", "ساعت هوشمند", "لامپ رومیزی"] as const
 
-export function EmptySearchCard() {
+export default function EmptySearchCard() {
   return (
     <section
       dir="rtl"

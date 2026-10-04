@@ -9,7 +9,7 @@ import {
   ItemTitle,
 } from "@/styles/aria-nova/ui/item"
 
-export function OutlineItemGroup() {
+export default function OutlineItemGroup() {
   return (
     <ItemGroup>
       <Item variant="outline">

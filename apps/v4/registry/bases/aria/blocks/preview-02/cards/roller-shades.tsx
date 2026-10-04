@@ -16,7 +16,7 @@ import {
   ToggleGroupItem,
 } from "@/registry/bases/aria/ui/toggle-group"
 
-export function RollerShades() {
+export default function RollerShades() {
   const [position, setPosition] = React.useState([50])
 
   const preset =

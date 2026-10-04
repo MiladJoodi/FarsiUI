@@ -9,7 +9,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/radix-nova/ui/context-menu"
 
-export function ContextMenuDestructive() {
+export default function ContextMenuDestructive() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex aspect-video w-full max-w-xs items-center justify-center rounded-xl border border-dashed text-sm">

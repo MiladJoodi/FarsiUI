@@ -1,4 +1,4 @@
-import { PersonalInfoForm } from "@/registry/bases/base/blocks/personal-info-01/components/personal-info-form"
+import PersonalInfoForm from "@/registry/bases/base/blocks/personal-info-01/components/personal-info-form"
 
 export default function Page() {
   return (

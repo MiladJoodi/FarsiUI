@@ -1,6 +1,6 @@
 import { Skeleton } from "@/styles/base-nova/ui/skeleton"
 
-export function SkeletonRtl() {
+export default function SkeletonRtl() {
   return (
     <div dir="rtl" className="flex items-center gap-4">
       <Skeleton className="h-12 w-12 rounded-full" />

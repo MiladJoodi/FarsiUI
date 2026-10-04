@@ -26,7 +26,7 @@ const items = [
   { name: "notes" },
 ] as const
 
-export function QuestionnaireResume() {
+export default function QuestionnaireResume() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

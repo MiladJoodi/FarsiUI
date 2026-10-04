@@ -46,7 +46,7 @@ const deliveryLabels: Record<string, string> = {
   handoff: "تحویل بررسی جزئی",
 }
 
-export function QuestionnaireAnimated() {
+export default function QuestionnaireAnimated() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

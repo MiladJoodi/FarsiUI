@@ -42,7 +42,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function NavbarMega() {
+export default function NavbarMega() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="sticky top-0 z-40 border-b bg-background">

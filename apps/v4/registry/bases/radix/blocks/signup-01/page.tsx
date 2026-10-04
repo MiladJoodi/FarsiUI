@@ -1,4 +1,4 @@
-import { SignupForm } from "@/registry/bases/radix/blocks/signup-01/components/signup-form"
+import SignupForm from "@/registry/bases/radix/blocks/signup-01/components/signup-form"
 
 export default function Page() {
   return (

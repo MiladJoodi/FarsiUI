@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/styles/base-nova/ui/select"
 
-export function SelectGroups() {
+export default function SelectGroups() {
   const fruits = [
     { label: "سیب", value: "apple" },
     { label: "موز", value: "banana" },

@@ -25,7 +25,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function EventDetailsSimple() {
+export default function EventDetailsSimple() {
   return (
     <section
       dir="rtl"

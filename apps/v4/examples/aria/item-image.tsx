@@ -30,7 +30,7 @@ const music = [
   },
 ]
 
-export function ItemImage() {
+export default function ItemImage() {
   return (
     <div className="flex w-full max-w-md flex-col gap-6">
       <ItemGroup className="gap-4">

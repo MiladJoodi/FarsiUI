@@ -24,7 +24,7 @@ const ITEMS = [
   },
 ] as const
 
-export function FaqSimple() {
+export default function FaqSimple() {
   return (
     <div
       dir="rtl"

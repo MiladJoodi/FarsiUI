@@ -122,7 +122,7 @@ const user = {
   avatar: "/avatars/shadcn.jpg",
 }
 
-export function SidebarRtl() {
+export default function SidebarRtl() {
   return (
     <DirectionProvider direction="rtl">
       <div dir="rtl">

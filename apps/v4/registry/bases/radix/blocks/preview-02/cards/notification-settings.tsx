@@ -47,7 +47,7 @@ const NOTIFICATIONS = [
   },
 ]
 
-export function NotificationSettings() {
+export default function NotificationSettings() {
   const [checked, setChecked] = React.useState<Record<string, boolean>>(
     Object.fromEntries(NOTIFICATIONS.map((n) => [n.id, n.defaultChecked]))
   )

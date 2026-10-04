@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
-export function LoadingOverlay() {
+export default function LoadingOverlay() {
   return (
     <section
       dir="rtl"

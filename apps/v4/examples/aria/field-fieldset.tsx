@@ -8,7 +8,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function FieldFieldset() {
+export default function FieldFieldset() {
   return (
     <FieldSet className="w-full max-w-sm">
       <FieldLegend>Address Information</FieldLegend>

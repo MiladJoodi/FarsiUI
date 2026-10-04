@@ -8,7 +8,7 @@ import { Button } from "@/styles/aria-nova/ui/button"
 import { Calendar } from "@/styles/aria-nova/ui/calendar"
 import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
 
-export function DatePickerDemo() {
+export default function DatePickerDemo() {
   const [date, setDate] = React.useState<CalendarDate | null>(null)
 
   return (

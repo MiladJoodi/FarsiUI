@@ -1,4 +1,4 @@
-import { LicensePlateSplit } from "@/registry/bases/base/blocks/license-plate-04/components/license-plate-split"
+import LicensePlateSplit from "@/registry/bases/base/blocks/license-plate-04/components/license-plate-split"
 
 export default function Page() {
   return (

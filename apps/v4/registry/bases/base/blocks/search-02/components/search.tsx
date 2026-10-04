@@ -27,7 +27,7 @@ const SUGGESTIONS = [
   { label: "name@example.com", tag: "ایمیل", ltr: true },
 ] as const
 
-export function SearchSuggestions() {
+export default function SearchSuggestions() {
   return (
     <section
       dir="rtl"

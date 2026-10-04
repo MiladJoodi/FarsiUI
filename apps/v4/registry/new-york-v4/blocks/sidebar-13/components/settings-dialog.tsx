@@ -60,7 +60,7 @@ const data = {
   ],
 }
 
-export function SettingsDialog() {
+export default function SettingsDialog() {
   const [open, setOpen] = React.useState(true)
 
   return (

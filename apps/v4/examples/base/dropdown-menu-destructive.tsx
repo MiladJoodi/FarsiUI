@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function DropdownMenuDestructive() {
+export default function DropdownMenuDestructive() {
   return (
     <div dir="rtl">
       <DropdownMenu>

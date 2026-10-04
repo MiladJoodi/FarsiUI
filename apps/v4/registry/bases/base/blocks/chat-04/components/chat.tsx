@@ -65,7 +65,7 @@ const STATUS_ITEMS = [
   { value: "بسته", label: "بسته" },
 ] as const
 
-export function ChatActions() {
+export default function ChatActions() {
   const [messages, setMessages] = React.useState(INITIAL)
   const [draft, setDraft] = React.useState("")
   const [status, setStatus] = React.useState("باز")

@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/base-nova/ui/toggle-group"
 
-export function ToggleGroupSpacing() {
+export default function ToggleGroupSpacing() {
   return (
     <div dir="rtl">
       <ToggleGroup

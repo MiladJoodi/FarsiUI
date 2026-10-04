@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/radix/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function IndexInvesting() {
+export default function IndexInvesting() {
   return (
     <Card>
       <CardHeader>

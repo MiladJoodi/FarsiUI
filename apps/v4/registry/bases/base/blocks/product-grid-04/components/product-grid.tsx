@@ -84,7 +84,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function ProductGridWishlist() {
+export default function ProductGridWishlist() {
   const [sort, setSort] = React.useState<SortKey>("پیشنهادی")
   const [wishlist, setWishlist] = React.useState(() => new Set(["2", "5"]))
   const [openId, setOpenId] = React.useState<string | null>(null)

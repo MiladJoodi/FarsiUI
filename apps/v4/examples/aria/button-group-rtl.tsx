@@ -81,7 +81,7 @@ const translations: Translations = {
   },
 }
 
-export function ButtonGroupRtl() {
+export default function ButtonGroupRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
   const [label, setLabel] = React.useState("personal")
 

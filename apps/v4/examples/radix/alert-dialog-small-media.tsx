@@ -14,7 +14,7 @@ import {
 } from "@/styles/radix-nova/ui/alert-dialog"
 import { Button } from "@/styles/radix-nova/ui/button"
 
-export function AlertDialogSmallWithMedia() {
+export default function AlertDialogSmallWithMedia() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/radix-nova/ui/dropdown-menu"
 
-export function DropdownMenuBasic() {
+export default function DropdownMenuBasic() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

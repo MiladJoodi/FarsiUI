@@ -8,7 +8,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuShortcuts() {
+export default function ContextMenuShortcuts() {
   return (
     <div dir="rtl">
       <ContextMenu>

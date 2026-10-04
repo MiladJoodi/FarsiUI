@@ -26,7 +26,7 @@ const items = [
 
 type ItemName = "permission" | "verification"
 
-export function QuestionnaireNavigationState() {
+export default function QuestionnaireNavigationState() {
   const [item, setItem] = React.useState<ItemName>("permission")
   const [statuses, setStatuses] = React.useState<
     Record<ItemName, QuestionnaireItemStatus>

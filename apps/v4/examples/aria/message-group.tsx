@@ -11,7 +11,7 @@ import {
   MessageGroup,
 } from "@/styles/aria-rhea/ui/message"
 
-export function MessageGroupDemo() {
+export default function MessageGroupDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-6 py-12">
       <MessageGroup>

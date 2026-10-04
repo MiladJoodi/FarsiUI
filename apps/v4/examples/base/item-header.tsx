@@ -30,7 +30,7 @@ const models = [
   },
 ]
 
-export function ItemHeaderDemo() {
+export default function ItemHeaderDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-xl flex-col gap-6">
       <ItemGroup className="grid grid-cols-3 gap-4">

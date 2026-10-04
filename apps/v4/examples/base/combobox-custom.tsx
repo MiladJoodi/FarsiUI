@@ -90,7 +90,7 @@ const countries = [
   },
 ]
 
-export function ComboboxWithCustomItems() {
+export default function ComboboxWithCustomItems() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox

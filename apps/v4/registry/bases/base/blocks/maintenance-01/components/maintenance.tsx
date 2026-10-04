@@ -12,7 +12,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function MaintenanceSimple() {
+export default function MaintenanceSimple() {
   return (
     <section
       dir="rtl"

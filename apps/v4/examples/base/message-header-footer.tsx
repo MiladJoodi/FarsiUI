@@ -6,7 +6,7 @@ import {
   MessageHeader,
 } from "@/styles/base-rhea/ui/message"
 
-export function MessageHeaderFooterDemo() {
+export default function MessageHeaderFooterDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message>

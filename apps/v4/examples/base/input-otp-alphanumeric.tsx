@@ -9,7 +9,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPAlphanumeric() {
+export default function InputOTPAlphanumeric() {
   return (
     <div dir="rtl">
       <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>

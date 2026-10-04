@@ -1,4 +1,4 @@
-import { NationalIdSplit } from "@/registry/bases/base/blocks/national-id-04/components/national-id-split"
+import NationalIdSplit from "@/registry/bases/base/blocks/national-id-04/components/national-id-split"
 
 export default function Page() {
   return (

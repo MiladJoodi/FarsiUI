@@ -51,7 +51,7 @@ const pieChartConfig = {
   },
 } satisfies ChartConfig
 
-export function PieChartCard() {
+export default function PieChartCard() {
   const totalVisitors = pieChartData.reduce(
     (sum, item) => sum + item.visitors,
     0

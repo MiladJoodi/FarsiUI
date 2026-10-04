@@ -1,4 +1,4 @@
-import { ConversationHub } from "@/registry/bases/base/blocks/conversation-05/components/conversation"
+import ConversationHub from "@/registry/bases/base/blocks/conversation-05/components/conversation"
 
 export default function Page() {
   return <ConversationHub />

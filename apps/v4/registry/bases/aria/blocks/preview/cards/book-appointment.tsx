@@ -21,7 +21,7 @@ import {
 } from "@/registry/bases/aria/ui/toggle-group"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function BookAppointment() {
+export default function BookAppointment() {
   return (
     <Card>
       <CardHeader>

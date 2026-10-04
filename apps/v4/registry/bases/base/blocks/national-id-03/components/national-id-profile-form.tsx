@@ -106,7 +106,7 @@ function NationalIdField({
   )
 }
 
-export function NationalIdProfileForm() {
+export default function NationalIdProfileForm() {
   const [digits, setDigits] = React.useState("")
   const valid = isValid(digits)
 

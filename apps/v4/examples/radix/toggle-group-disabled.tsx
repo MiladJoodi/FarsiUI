@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/radix-nova/ui/toggle-group"
 
-export function ToggleGroupDisabled() {
+export default function ToggleGroupDisabled() {
   return (
     <ToggleGroup disabled type="multiple">
       <ToggleGroupItem value="bold" aria-label="Toggle bold">

@@ -1,4 +1,4 @@
-import { DocumentSplitUpload } from "@/registry/bases/base/blocks/document-verification-04/components/document-split-upload"
+import DocumentSplitUpload from "@/registry/bases/base/blocks/document-verification-04/components/document-split-upload"
 
 export default function Page() {
   return (

@@ -19,7 +19,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function NotFoundCard() {
+export default function NotFoundCard() {
   return (
     <section
       dir="rtl"

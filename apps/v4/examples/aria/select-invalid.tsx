@@ -14,7 +14,7 @@ const items = [
   { label: "Blueberry", value: "blueberry" },
 ]
 
-export function SelectInvalid() {
+export default function SelectInvalid() {
   return (
     <Field data-invalid className="w-full max-w-48">
       <FieldLabel>Fruit</FieldLabel>

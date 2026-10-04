@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/aria/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function IndexInvesting() {
+export default function IndexInvesting() {
   return (
     <Card>
       <CardHeader>

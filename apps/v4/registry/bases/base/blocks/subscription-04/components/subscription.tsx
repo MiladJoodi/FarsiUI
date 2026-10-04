@@ -46,7 +46,7 @@ const USAGE = [
   { label: "API", value: 85, detail: "۸۵٬۰۰۰ از ۱۰۰٬۰۰۰" },
 ] as const
 
-export function SubscriptionDashboard() {
+export default function SubscriptionDashboard() {
   return (
     <section
       dir="rtl"

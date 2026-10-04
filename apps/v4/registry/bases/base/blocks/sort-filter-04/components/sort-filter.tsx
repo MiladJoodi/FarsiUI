@@ -47,7 +47,7 @@ const SORT_ITEMS = [
   { value: "محبوب‌ترین", label: "محبوب‌ترین" },
 ] as const
 
-export function SortFilterBar() {
+export default function SortFilterBar() {
   const [chips, setChips] = React.useState<Chip[]>([
     { id: "stock", label: "موجود" },
     { id: "cat", label: "صوتی" },

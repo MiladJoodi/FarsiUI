@@ -26,7 +26,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactSelect() {
+export default function ContactSelect() {
   const [topic, setTopic] = React.useState("support")
 
   return (

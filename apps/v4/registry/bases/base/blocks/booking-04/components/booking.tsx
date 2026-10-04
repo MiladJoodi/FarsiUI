@@ -86,7 +86,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function BookingDashboard() {
+export default function BookingDashboard() {
   const [step, setStep] = React.useState(0)
   const [staffId, setStaffId] = React.useState<(typeof STAFF)[number]["id"]>("۱")
   const [open, setOpen] = React.useState(false)

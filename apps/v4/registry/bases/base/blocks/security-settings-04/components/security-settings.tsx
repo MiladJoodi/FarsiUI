@@ -81,7 +81,7 @@ const TIMEOUT_ITEMS = [
   { value: "۹۰ روز", label: "۹۰ روز" },
 ] as const
 
-export function SecuritySettingsSessions() {
+export default function SecuritySettingsSessions() {
   const [sessions, setSessions] = React.useState(INITIAL)
   const [openId, setOpenId] = React.useState<string | null>(null)
 

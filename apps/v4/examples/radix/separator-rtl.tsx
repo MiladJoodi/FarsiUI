@@ -38,7 +38,7 @@ const translations: Translations = {
   },
 }
 
-export function SeparatorRtl() {
+export default function SeparatorRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/styles/aria-nova/ui/select"
 
-export function SelectGroups() {
+export default function SelectGroups() {
   const fruits = [
     { label: "Apple", value: "apple" },
     { label: "Banana", value: "banana" },

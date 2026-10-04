@@ -26,7 +26,7 @@ How about a quote? How does this look?
 Now let's try a code block. It should have line numbers, a copy button and syntax highlighting.
 
 \`\`\`tsx
-export function Greeting({ name }: { name: string }) {
+export default function Greeting({ name }: { name: string }) {
   return <p>Hello, {name}!</p>
 }
 \`\`\`
@@ -34,7 +34,7 @@ export function Greeting({ name }: { name: string }) {
 If you need more plugins, you can pass them to the \`Markdown\` component.
 `
 
-export function MarkdownDemo() {
+export default function MarkdownDemo() {
   return (
     <div className="max-w-md">
       <Markdown>{markdown}</Markdown>

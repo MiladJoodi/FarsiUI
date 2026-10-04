@@ -1,4 +1,4 @@
-import { AccountIdentityDashboard } from "@/registry/bases/base/blocks/identity-verification-07/components/account-identity-dashboard"
+import AccountIdentityDashboard from "@/registry/bases/base/blocks/identity-verification-07/components/account-identity-dashboard"
 
 export default function Page() {
   return (

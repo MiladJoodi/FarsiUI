@@ -56,7 +56,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function StepsWizard() {
+export default function StepsWizard() {
   const [step, setStep] = React.useState(1)
   const [priority, setPriority] = React.useState<Priority>("عادی")
   const [topic, setTopic] = React.useState<Topic>("راه‌اندازی")

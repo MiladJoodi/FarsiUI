@@ -56,7 +56,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function WishlistCards() {
+export default function WishlistCards() {
   const [items, setItems] = React.useState(INITIAL)
 
   return (

@@ -25,7 +25,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactFormFeedback() {
+export default function ContactFormFeedback() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

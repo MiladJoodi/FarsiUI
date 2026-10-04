@@ -1,4 +1,4 @@
-import { ContactFormBusiness } from "@/registry/bases/base/blocks/contact-form-04/components/contact-form"
+import ContactFormBusiness from "@/registry/bases/base/blocks/contact-form-04/components/contact-form"
 
 export default function Page() {
   return (

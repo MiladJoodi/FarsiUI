@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuRadioGroupDemo() {
+export default function DropdownMenuRadioGroupDemo() {
   const [position, setPosition] = React.useState("bottom")
 
   return (

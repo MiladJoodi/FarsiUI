@@ -36,7 +36,7 @@ const DENSITY_ITEMS = [
   { value: "باز", label: "باز" },
 ] as const
 
-export function DashboardSettingsAppearance() {
+export default function DashboardSettingsAppearance() {
   return (
     <section
       dir="rtl"

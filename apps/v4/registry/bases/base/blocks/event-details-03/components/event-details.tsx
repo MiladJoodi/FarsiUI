@@ -72,7 +72,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function EventDetailsForm() {
+export default function EventDetailsForm() {
   const [type, setType] = React.useState("جلسه")
   const [start, setStart] = React.useState("۱۰:۰۰")
   const [end, setEnd] = React.useState("۱۱:۳۰")

@@ -36,7 +36,7 @@ const SORT_ITEMS = [
   { value: "محبوب‌ترین", label: "محبوب‌ترین" },
 ] as const
 
-export function SortFilterChips() {
+export default function SortFilterChips() {
   const [active, setActive] = React.useState<string[]>(["موجود"])
   const [sort, setSort] = React.useState("جدیدترین")
 

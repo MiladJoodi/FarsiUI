@@ -10,7 +10,7 @@ import {
 } from "@/styles/aria-nova/ui/input-group"
 import { Tooltip, TooltipTrigger } from "@/styles/aria-nova/ui/tooltip"
 
-export function ButtonGroupNested() {
+export default function ButtonGroupNested() {
   return (
     <ButtonGroup>
       <ButtonGroup>

@@ -1,4 +1,4 @@
-import { NationalIdCentered } from "@/registry/bases/base/blocks/national-id-05/components/national-id-centered"
+import NationalIdCentered from "@/registry/bases/base/blocks/national-id-05/components/national-id-centered"
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import { EventListSimple } from "@/registry/bases/base/blocks/event-list-01/components/event-list"
+import EventListSimple from "@/registry/bases/base/blocks/event-list-01/components/event-list"
 
 export default function Page() {
   return <EventListSimple />

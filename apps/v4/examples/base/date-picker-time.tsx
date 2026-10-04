@@ -22,7 +22,7 @@ function formatDate(date: Date) {
   })
 }
 
-export function DatePickerTime() {
+export default function DatePickerTime() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(undefined)
   const [time, setTime] = React.useState("10:30:00")

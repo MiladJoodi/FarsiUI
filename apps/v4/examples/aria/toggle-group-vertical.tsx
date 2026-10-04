@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupVertical() {
+export default function ToggleGroupVertical() {
   return (
     <ToggleGroup
       selectionMode="multiple"

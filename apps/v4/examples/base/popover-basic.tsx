@@ -8,7 +8,7 @@ import {
   PopoverTrigger,
 } from "@/styles/base-nova/ui/popover"
 
-export function PopoverBasic() {
+export default function PopoverBasic() {
   return (
     <div dir="rtl">
       <Popover>

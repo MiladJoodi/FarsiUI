@@ -16,7 +16,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function CheckoutSimple() {
+export default function CheckoutSimple() {
   return (
     <section
       dir="rtl"

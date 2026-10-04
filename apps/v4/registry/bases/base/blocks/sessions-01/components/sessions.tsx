@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 
-export function SessionsSimple() {
+export default function SessionsSimple() {
   return (
     <section
       dir="rtl"

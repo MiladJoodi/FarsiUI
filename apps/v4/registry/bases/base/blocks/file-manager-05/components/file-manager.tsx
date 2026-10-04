@@ -98,7 +98,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function FileManagerHub() {
+export default function FileManagerHub() {
   const [folder, setFolder] = React.useState("اسناد")
   const [sort, setSort] = React.useState("تاریخ")
   const [type, setType] = React.useState("همه")

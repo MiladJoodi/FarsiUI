@@ -10,7 +10,7 @@ import {
   ItemTitle,
 } from "@/styles/aria-nova/ui/item"
 
-export function ItemDemo() {
+export default function ItemDemo() {
   return (
     <div className="flex w-full max-w-md flex-col gap-6">
       <Item variant="outline">

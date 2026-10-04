@@ -8,7 +8,7 @@ import {
   FieldSet,
 } from "@/styles/base-nova/ui/field"
 
-export function CheckboxGroup() {
+export default function CheckboxGroup() {
   return (
     <FieldSet dir="rtl">
       <FieldLegend variant="label">

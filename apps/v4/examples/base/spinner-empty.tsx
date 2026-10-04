@@ -9,7 +9,7 @@ import {
 } from "@/styles/base-nova/ui/empty"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function SpinnerEmpty() {
+export default function SpinnerEmpty() {
   return (
     <div dir="rtl">
       <Empty className="w-full">

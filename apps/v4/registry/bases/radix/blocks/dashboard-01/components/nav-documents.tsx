@@ -18,7 +18,7 @@ import {
 } from "@/registry/bases/radix/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NavDocuments({
+export default function NavDocuments({
   items,
 }: {
   items: {

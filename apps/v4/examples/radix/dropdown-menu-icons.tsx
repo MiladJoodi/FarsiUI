@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/radix-nova/ui/dropdown-menu"
 
-export function DropdownMenuIcons() {
+export default function DropdownMenuIcons() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

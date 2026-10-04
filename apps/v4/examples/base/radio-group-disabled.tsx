@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
-export function RadioGroupDisabled() {
+export default function RadioGroupDisabled() {
   return (
     <div dir="rtl">
       <RadioGroup defaultValue="option2" className="w-fit">

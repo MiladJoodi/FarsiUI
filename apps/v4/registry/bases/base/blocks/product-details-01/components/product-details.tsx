@@ -9,7 +9,7 @@ const PRODUCT = {
     "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&auto=format&fit=crop&q=80",
 } as const
 
-export function ProductDetailsSimple() {
+export default function ProductDetailsSimple() {
   return (
     <section
       dir="rtl"

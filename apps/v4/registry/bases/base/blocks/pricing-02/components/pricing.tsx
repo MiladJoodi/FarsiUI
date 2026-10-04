@@ -45,7 +45,7 @@ const PLANS = [
   },
 ] as const
 
-export function PricingCards() {
+export default function PricingCards() {
   return (
     <section
       dir="rtl"

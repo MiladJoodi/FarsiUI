@@ -73,7 +73,7 @@ const TYPE_ITEMS = [
 
 type TypeFilter = (typeof TYPE_ITEMS)[number]["value"]
 
-export function ActivityFilterable() {
+export default function ActivityFilterable() {
   const [query, setQuery] = React.useState("")
   const [type, setType] = React.useState<TypeFilter>("همه")
 

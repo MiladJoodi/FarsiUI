@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function HeroFullBleed() {
+export default function HeroFullBleed() {
   return (
     <section
       dir="rtl"

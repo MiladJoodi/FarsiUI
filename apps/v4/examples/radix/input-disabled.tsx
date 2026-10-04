@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputDisabled() {
+export default function InputDisabled() {
   return (
     <Field data-disabled>
       <FieldLabel htmlFor="input-demo-disabled">Email</FieldLabel>

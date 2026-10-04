@@ -24,7 +24,7 @@ import {
 } from "@/registry/bases/radix/ui/input-group"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function PromptInput({
+export default function PromptInput({
   onSubmit,
   status,
   className,

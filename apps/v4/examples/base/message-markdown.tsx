@@ -9,7 +9,7 @@ const response = `این‌طور مارک‌داون را در پیام رند�
 3. از حباب \`ghost\` استفاده کنید تا پاسخ بدون قاب باشد.
 `
 
-export function MessageMarkdownDemo() {
+export default function MessageMarkdownDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message align="end">

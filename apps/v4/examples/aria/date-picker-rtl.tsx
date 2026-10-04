@@ -34,7 +34,7 @@ const translations: Translations = {
   },
 }
 
-export function DatePickerRtl() {
+export default function DatePickerRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
   const [date, setDate] = React.useState<CalendarDate | null>(null)
 

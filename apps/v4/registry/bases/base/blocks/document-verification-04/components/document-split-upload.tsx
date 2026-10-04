@@ -13,7 +13,7 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function DocumentSplitUpload() {
+export default function DocumentSplitUpload() {
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [done, setDone] = React.useState(false)
   const inputRef = React.useRef<HTMLInputElement>(null)

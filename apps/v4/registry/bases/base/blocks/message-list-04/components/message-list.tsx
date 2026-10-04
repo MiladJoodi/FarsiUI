@@ -97,7 +97,7 @@ const SORT_ITEMS = [
   { value: "ستاره‌دار", label: "ستاره‌دار" },
 ] as const
 
-export function MessageListActions() {
+export default function MessageListActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState("جدیدترین")

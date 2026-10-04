@@ -46,7 +46,7 @@ const SORT_OPTIONS = [
   { value: "اندازه", label: "اندازه" },
 ]
 
-export function FileManagerActions() {
+export default function FileManagerActions() {
   const [items, setItems] = React.useState(ITEMS)
   const [chips, setChips] = React.useState(["اسناد", "PDF"])
   const [sort, setSort] = React.useState("نام")

@@ -7,7 +7,7 @@ import { STYLES } from "@/registry/styles"
 import { FONTS } from "@/lib/font-options"
 import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
-export function StyleOverview() {
+export default function StyleOverview() {
   const [params] = useDesignSystemSearchParams()
 
   const currentFont = React.useMemo(

@@ -53,7 +53,7 @@ const translations: Translations = {
   },
 }
 
-export function CollapsibleRtl() {
+export default function CollapsibleRtl() {
   const { dir, t } = useTranslation(translations, "ar")
   const [isOpen, setIsOpen] = React.useState(false)
 

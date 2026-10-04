@@ -129,7 +129,7 @@ function buildEvents(): EventItem[] {
   ]
 }
 
-export function CalendarBlockHub() {
+export default function CalendarBlockHub() {
   const [events] = React.useState(buildEvents)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [month, setMonth] = React.useState<Date>(new Date())

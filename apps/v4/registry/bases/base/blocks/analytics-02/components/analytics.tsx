@@ -38,7 +38,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function AnalyticsArea() {
+export default function AnalyticsArea() {
   return (
     <section
       dir="rtl"

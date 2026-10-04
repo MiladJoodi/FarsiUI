@@ -12,7 +12,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-rhea/ui/tooltip"
 
-export function BubbleTooltipDemo() {
+export default function BubbleTooltipDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-4 py-12">
       <Bubble variant="secondary">

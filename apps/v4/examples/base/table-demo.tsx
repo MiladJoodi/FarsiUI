@@ -54,7 +54,7 @@ const invoices = [
   },
 ]
 
-export function TableDemo() {
+export default function TableDemo() {
   return (
     <Table dir="rtl">
       <TableCaption>فهرستی از فاکتورهای اخیر شما.</TableCaption>

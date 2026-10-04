@@ -20,7 +20,7 @@ const FEATURES = [
   },
 ] as const
 
-export function FeaturesSimple() {
+export default function FeaturesSimple() {
   return (
     <section
       dir="rtl"

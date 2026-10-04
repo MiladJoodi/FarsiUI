@@ -4,7 +4,7 @@ import {
   NativeSelectOption,
 } from "@/styles/base-nova/ui/native-select"
 
-export function NativeSelectGroups() {
+export default function NativeSelectGroups() {
   return (
     <div dir="rtl">
       <NativeSelect>

@@ -38,7 +38,7 @@ const CITY_ITEMS = [
   { value: "اصفهان", label: "اصفهان" },
 ] as const
 
-export function CheckoutSteps() {
+export default function CheckoutSteps() {
   const [step, setStep] = React.useState(0)
 
   return (

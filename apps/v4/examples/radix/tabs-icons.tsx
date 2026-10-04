@@ -2,7 +2,7 @@ import { AppWindowIcon, CodeIcon } from "lucide-react"
 
 import { Tabs, TabsList, TabsTrigger } from "@/styles/radix-nova/ui/tabs"
 
-export function TabsIcons() {
+export default function TabsIcons() {
   return (
     <Tabs defaultValue="preview">
       <TabsList>

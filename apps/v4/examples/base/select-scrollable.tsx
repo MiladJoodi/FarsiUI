@@ -59,7 +59,7 @@ const items = [
   ...southAmerica,
 ]
 
-export function SelectScrollable() {
+export default function SelectScrollable() {
   return (
     <div dir="rtl">
       <Select items={items}>

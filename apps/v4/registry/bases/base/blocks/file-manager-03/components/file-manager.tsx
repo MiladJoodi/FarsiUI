@@ -42,7 +42,7 @@ const FILES = [
   { name: "budget.xlsx", size: "۵۱۲ کیلوبایت" },
 ] as const
 
-export function FileManagerPanel() {
+export default function FileManagerPanel() {
   const [sort, setSort] = React.useState("نام")
 
   return (

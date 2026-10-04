@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/aria-nova/ui/slider"
 
-export function SliderVertical() {
+export default function SliderVertical() {
   return (
     <div className="mx-auto flex w-full max-w-xs items-center justify-center gap-6">
       <Slider

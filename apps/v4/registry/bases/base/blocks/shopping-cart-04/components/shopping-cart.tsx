@@ -58,7 +58,7 @@ function formatFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ShoppingCartActions() {
+export default function ShoppingCartActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [saved, setSaved] = React.useState<CartItem[]>([])
   const [giftWrap, setGiftWrap] = React.useState(false)

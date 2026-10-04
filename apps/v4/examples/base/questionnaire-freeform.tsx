@@ -35,7 +35,7 @@ const approachLabels: Record<string, string> = {
   rewrite: "پیاده‌سازی را به‌طور کامل جایگزین کند",
 }
 
-export function QuestionnaireFreeform() {
+export default function QuestionnaireFreeform() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

@@ -27,7 +27,7 @@ import { Textarea } from "@/registry/bases/aria/ui/textarea"
 import { FONTS } from "@/lib/font-options"
 import { useDesignSystemSearchParams } from "@/lib/design-system-search-params"
 
-export function TypographySpecimen() {
+export default function TypographySpecimen() {
   const [params] = useDesignSystemSearchParams()
 
   const currentFont = React.useMemo(

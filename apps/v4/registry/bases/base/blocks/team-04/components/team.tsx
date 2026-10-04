@@ -83,7 +83,7 @@ const MEMBERS = [
 
 const DEPTS = ["همه", "محصول", "مهندسی", "طراحی", "رشد", "پشتیبانی"] as const
 
-export function TeamFilter() {
+export default function TeamFilter() {
   const [dept, setDept] = React.useState("همه")
 
   const filtered =

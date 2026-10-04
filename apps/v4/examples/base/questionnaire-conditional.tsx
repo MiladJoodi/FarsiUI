@@ -36,7 +36,7 @@ const approvalLabels: Record<string, string> = {
   sensitive: "فقط برای اقدامات حساس",
 }
 
-export function QuestionnaireConditional() {
+export default function QuestionnaireConditional() {
   const [runtime, setRuntime] = React.useState("local")
   const items = React.useMemo(
     () => [

@@ -9,7 +9,7 @@ import {
   PaginationPrevious,
 } from "@/styles/base-nova/ui/pagination"
 
-export function PaginationDemo() {
+export default function PaginationDemo() {
   return (
     <div dir="rtl" lang="fa">
       <Pagination>

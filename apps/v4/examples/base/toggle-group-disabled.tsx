@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/base-nova/ui/toggle-group"
 
-export function ToggleGroupDisabled() {
+export default function ToggleGroupDisabled() {
   return (
     <div dir="rtl">
       <ToggleGroup disabled>

@@ -2,7 +2,7 @@ import { BoldIcon, ItalicIcon } from "lucide-react"
 
 import { Toggle } from "@/styles/radix-nova/ui/toggle"
 
-export function ToggleOutline() {
+export default function ToggleOutline() {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Toggle variant="outline" aria-label="Toggle italic">

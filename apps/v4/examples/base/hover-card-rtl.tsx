@@ -17,7 +17,7 @@ const logicalSides = [
   { side: "inline-end", label: "پایان خط" },
 ] as const
 
-export function HoverCardRtl() {
+export default function HoverCardRtl() {
   return (
     <div dir="rtl" className="grid gap-4">
       <div className="flex flex-wrap justify-center gap-2">

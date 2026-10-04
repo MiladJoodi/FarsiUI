@@ -20,7 +20,7 @@ import {
   FieldSet,
 } from "@/registry/bases/base/ui/field"
 
-export function ContributionsActivity() {
+export default function ContributionsActivity() {
   return (
     <Card>
       <CardHeader>

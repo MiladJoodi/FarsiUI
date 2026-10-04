@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
 
-export function RadioGroupDisabled() {
+export default function RadioGroupDisabled() {
   return (
     <RadioGroup aria-label="Radios" defaultValue="option2" className="w-fit">
       <Field orientation="horizontal" data-disabled>

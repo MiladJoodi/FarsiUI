@@ -1,6 +1,6 @@
 "use client"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
@@ -13,7 +13,7 @@ const SIDE = [
   { label: "میانگین زمان", value: "۴٫۸ دقیقه" },
 ] as const
 
-export function StatsSpotlight() {
+export default function StatsSpotlight() {
   return (
     <section
       dir="rtl"

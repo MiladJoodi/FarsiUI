@@ -90,7 +90,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function FaqSearch() {
+export default function FaqSearch() {
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("popular")

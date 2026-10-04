@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/styles/aria-nova/ui/popover"
 
-export function PopoverForm() {
+export default function PopoverForm() {
   return (
     <>
       <PopoverTrigger>

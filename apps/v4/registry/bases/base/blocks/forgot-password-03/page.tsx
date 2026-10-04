@@ -1,4 +1,4 @@
-import { ForgotPasswordMethods } from "@/registry/bases/base/blocks/forgot-password-03/components/forgot-password-methods"
+import ForgotPasswordMethods from "@/registry/bases/base/blocks/forgot-password-03/components/forgot-password-methods"
 
 export default function Page() {
   return (

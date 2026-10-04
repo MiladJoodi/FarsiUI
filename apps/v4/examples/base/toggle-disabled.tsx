@@ -1,6 +1,6 @@
 import { Toggle } from "@/styles/base-nova/ui/toggle"
 
-export function ToggleDisabled() {
+export default function ToggleDisabled() {
   return (
     <div dir="rtl" className="flex flex-wrap items-center gap-2">
       <Toggle aria-label="غیرفعال" disabled>

@@ -12,7 +12,7 @@ import {
   InputGroupInput,
 } from "@/styles/radix-nova/ui/input-group"
 
-export function CalendarWithTime() {
+export default function CalendarWithTime() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), new Date().getMonth(), 12)
   )

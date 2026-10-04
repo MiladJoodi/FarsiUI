@@ -18,7 +18,7 @@ import {
   MenubarTrigger,
 } from "@/styles/radix-nova/ui/menubar"
 
-export function MenubarIcons() {
+export default function MenubarIcons() {
   return (
     <Menubar className="w-72">
       <MenubarMenu>

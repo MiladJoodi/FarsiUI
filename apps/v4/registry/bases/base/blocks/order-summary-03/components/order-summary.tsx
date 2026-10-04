@@ -46,7 +46,7 @@ const FORMAT_ITEMS = [
   { value: "فایل PDF", label: "فایل PDF" },
 ] as const
 
-export function OrderSummaryExpandable() {
+export default function OrderSummaryExpandable() {
   const [open, setOpen] = React.useState(true)
 
   return (

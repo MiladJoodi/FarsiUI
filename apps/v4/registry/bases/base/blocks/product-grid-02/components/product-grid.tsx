@@ -41,7 +41,7 @@ const PRODUCTS = [
   },
 ] as const
 
-export function ProductGridCards() {
+export default function ProductGridCards() {
   return (
     <section
       dir="rtl"

@@ -19,7 +19,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function EmptyStateIconCard() {
+export default function EmptyStateIconCard() {
   return (
     <section
       dir="rtl"

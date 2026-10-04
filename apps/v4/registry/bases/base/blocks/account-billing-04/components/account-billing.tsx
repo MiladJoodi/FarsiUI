@@ -75,7 +75,7 @@ const FILTER_ITEMS = [
   { value: "ناموفق", label: "ناموفق" },
 ] as const
 
-export function AccountBillingHistory() {
+export default function AccountBillingHistory() {
   const [filter, setFilter] = React.useState("همه")
   const [cardOpen, setCardOpen] = React.useState(false)
   const [openId, setOpenId] = React.useState<string | null>(null)

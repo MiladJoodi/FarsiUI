@@ -75,7 +75,7 @@ const PLANS = [
   },
 ] as const
 
-export function PlanSelectionFancy() {
+export default function PlanSelectionFancy() {
   const [plan, setPlan] = React.useState("pro")
   const [yearly, setYearly] = React.useState(true)
   const [seats, setSeats] = React.useState<SeatValue>("۳")

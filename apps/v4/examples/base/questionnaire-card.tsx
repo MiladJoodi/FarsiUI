@@ -53,7 +53,7 @@ const outputLabels: Record<string, string> = {
   review: "تحویل کامل بررسی",
 }
 
-export function QuestionnaireCard() {
+export default function QuestionnaireCard() {
   const taskTitleId = React.useId()
   const outputTitleId = React.useId()
 

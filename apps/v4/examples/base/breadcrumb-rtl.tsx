@@ -59,7 +59,7 @@ const translations: Translations = {
   },
 }
 
-export function BreadcrumbRtl() {
+export default function BreadcrumbRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   return (

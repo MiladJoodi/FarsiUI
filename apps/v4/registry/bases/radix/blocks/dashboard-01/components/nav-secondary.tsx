@@ -10,7 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/registry/bases/radix/ui/sidebar"
 
-export function NavSecondary({
+export default function NavSecondary({
   items,
   ...props
 }: {

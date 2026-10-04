@@ -5,7 +5,7 @@ import * as React from "react"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function NewsletterSimple() {
+export default function NewsletterSimple() {
   const [done, setDone] = React.useState(false)
 
   return (

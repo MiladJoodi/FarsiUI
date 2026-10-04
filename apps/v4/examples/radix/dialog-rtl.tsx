@@ -60,7 +60,7 @@ const translations: Translations = {
   },
 }
 
-export function DialogRtl() {
+export default function DialogRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   return (

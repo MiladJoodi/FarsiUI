@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/registry/bases/aria/ui/card"
 import { Skeleton } from "@/registry/bases/aria/ui/skeleton"
 
-export function LoadingCard() {
+export default function LoadingCard() {
   return (
     <Card>
       <CardHeader>

@@ -15,7 +15,7 @@ import {
 } from "@/registry/bases/radix/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function SidebarNav() {
+export default function SidebarNav() {
   return (
     <div className="grid grid-cols-2 items-start gap-6">
       <Card className="overflow-hidden py-0">

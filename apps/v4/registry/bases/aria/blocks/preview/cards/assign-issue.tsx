@@ -41,7 +41,7 @@ const users = [
   "rauchg",
 ]
 
-export function AssignIssue() {
+export default function AssignIssue() {
   return (
     <Card className="w-full max-w-sm" size="sm">
       <CardHeader className="border-b">

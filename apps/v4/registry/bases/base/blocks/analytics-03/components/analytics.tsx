@@ -1,4 +1,4 @@
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
@@ -20,7 +20,7 @@ const STEPS = [
   { label: "پرداخت", display: "۶۴۰", width: 6.4, widthLabel: "٪۶٫۴" },
 ] as const
 
-export function AnalyticsFunnel() {
+export default function AnalyticsFunnel() {
   return (
     <section
       dir="rtl"

@@ -1,4 +1,4 @@
-import { IdentityReview } from "@/registry/bases/base/blocks/identity-verification-05/components/identity-review"
+import IdentityReview from "@/registry/bases/base/blocks/identity-verification-05/components/identity-review"
 
 export default function Page() {
   return (

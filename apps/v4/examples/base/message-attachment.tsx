@@ -14,7 +14,7 @@ import {
 import { Bubble, BubbleContent } from "@/styles/base-rhea/ui/bubble"
 import { Message, MessageContent } from "@/styles/base-rhea/ui/message"
 
-export function MessageAttachmentDemo() {
+export default function MessageAttachmentDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message align="end">

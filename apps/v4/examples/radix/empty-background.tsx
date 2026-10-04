@@ -11,7 +11,7 @@ import {
   EmptyTitle,
 } from "@/styles/radix-nova/ui/empty"
 
-export function EmptyMuted() {
+export default function EmptyMuted() {
   return (
     <Empty className="h-full bg-muted/30">
       <EmptyHeader>

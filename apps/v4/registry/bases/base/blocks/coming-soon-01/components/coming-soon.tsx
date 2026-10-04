@@ -13,7 +13,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function ComingSoonSimple() {
+export default function ComingSoonSimple() {
   return (
     <section
       dir="rtl"

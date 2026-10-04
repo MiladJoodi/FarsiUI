@@ -48,7 +48,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function DropdownMenuComplex() {
+export default function DropdownMenuComplex() {
   const [notifications, setNotifications] = React.useState({
     email: true,
     sms: false,

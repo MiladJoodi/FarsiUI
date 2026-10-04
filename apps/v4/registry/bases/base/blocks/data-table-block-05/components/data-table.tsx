@@ -109,7 +109,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function DataTableHub() {
+export default function DataTableHub() {
   const [query, setQuery] = React.useState("")
   const [team, setTeam] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("نام")

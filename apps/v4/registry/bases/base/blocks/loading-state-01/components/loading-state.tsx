@@ -2,7 +2,7 @@
 
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
-export function LoadingSpinnerSimple() {
+export default function LoadingSpinnerSimple() {
   return (
     <section
       dir="rtl"

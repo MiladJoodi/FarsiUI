@@ -30,7 +30,7 @@ import { Slider } from "@/registry/bases/radix/ui/slider"
 import { Textarea } from "@/registry/bases/radix/ui/textarea"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function PayoutThreshold() {
+export default function PayoutThreshold() {
   const [amount, setAmount] = React.useState([2500])
 
   return (

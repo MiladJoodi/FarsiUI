@@ -2,12 +2,7 @@
 
 import * as React from "react"
 
-import {
-  EMPTY_PLATE,
-  isPlate,
-  PlateInput,
-  type PlateValue,
-} from "@/registry/bases/base/blocks/license-plate-03/components/plate-input"
+import PlateInput, { EMPTY_PLATE, isPlate, type PlateValue } from "@/registry/bases/base/blocks/license-plate-03/components/plate-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -32,7 +27,7 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
-export function LicensePlateVehicleForm() {
+export default function LicensePlateVehicleForm() {
   const [plate, setPlate] = React.useState<PlateValue>(EMPTY_PLATE)
   const [vehicleType, setVehicleType] = React.useState("sedan")
   const complete = isPlate(plate)

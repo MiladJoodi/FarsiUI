@@ -7,7 +7,7 @@ import { Button } from "@/styles/radix-nova/ui/button"
 import { Calendar } from "@/styles/radix-nova/ui/calendar"
 import { Card, CardContent, CardFooter } from "@/styles/radix-nova/ui/card"
 
-export function CalendarWithPresets() {
+export default function CalendarWithPresets() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), 1, 12)
   )

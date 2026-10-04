@@ -31,7 +31,7 @@ const ORDERS = [
   },
 ] as const
 
-export function OrderHistoryCards() {
+export default function OrderHistoryCards() {
   return (
     <section
       dir="rtl"

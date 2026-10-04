@@ -1,4 +1,4 @@
-import { ForgotPasswordCentered } from "@/registry/bases/base/blocks/forgot-password-05/components/forgot-password-centered"
+import ForgotPasswordCentered from "@/registry/bases/base/blocks/forgot-password-05/components/forgot-password-centered"
 
 export default function Page() {
   return (

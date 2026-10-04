@@ -33,7 +33,7 @@ import {
   BreadcrumbSeparator,
 } from "@/registry/bases/base/ui/breadcrumb"
 
-export function NotFoundInContext() {
+export default function NotFoundInContext() {
   return (
     <section
       dir="rtl"

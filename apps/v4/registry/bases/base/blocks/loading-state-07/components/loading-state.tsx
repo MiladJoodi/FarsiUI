@@ -12,7 +12,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
-export function LoadingButtonsInline() {
+export default function LoadingButtonsInline() {
   return (
     <section
       dir="rtl"

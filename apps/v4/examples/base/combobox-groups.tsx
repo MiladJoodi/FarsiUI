@@ -49,7 +49,7 @@ const timezones = [
   },
 ] as const
 
-export function ComboboxWithGroupsAndSeparator() {
+export default function ComboboxWithGroupsAndSeparator() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={timezones}>

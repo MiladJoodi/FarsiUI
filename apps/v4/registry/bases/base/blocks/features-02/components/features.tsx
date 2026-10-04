@@ -39,7 +39,7 @@ const FEATURES = [
   },
 ] as const
 
-export function FeaturesCards() {
+export default function FeaturesCards() {
   return (
     <section
       dir="rtl"

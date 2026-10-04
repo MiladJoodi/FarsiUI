@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/aria-nova/ui/tabs"
 
-export function TabsVertical() {
+export default function TabsVertical() {
   return (
     <Tabs defaultSelectedKey="account" orientation="vertical">
       <TabsList>

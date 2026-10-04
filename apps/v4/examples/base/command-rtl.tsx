@@ -20,7 +20,7 @@ import {
   CommandShortcut,
 } from "@/styles/base-nova/ui/command"
 
-export function CommandRtl() {
+export default function CommandRtl() {
   return (
     <Command className="max-w-sm rounded-lg border" dir="rtl">
       <CommandInput placeholder="دستور بنویسید یا جستجو کنید..." />

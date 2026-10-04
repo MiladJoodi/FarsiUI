@@ -24,7 +24,7 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function PersonalInfoForm({
+export default function PersonalInfoForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {

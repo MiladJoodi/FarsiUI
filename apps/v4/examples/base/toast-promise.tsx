@@ -3,7 +3,7 @@
 import { Button } from "@/styles/base-nova/ui/button"
 import { toast } from "@/styles/base-nova/ui/toast"
 
-export function ToastPromise() {
+export default function ToastPromise() {
   function showToast() {
     toast.promise(
       new Promise<{ name: string }>((resolve) => {

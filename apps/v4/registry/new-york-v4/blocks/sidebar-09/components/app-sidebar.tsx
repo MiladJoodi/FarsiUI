@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-react"
 
-import { NavUser } from "@/registry/new-york-v4/blocks/sidebar-09/components/nav-user"
+import NavUser from "@/registry/new-york-v4/blocks/sidebar-09/components/nav-user"
 import { Label } from "@/registry/new-york-v4/ui/label"
 import {
   Sidebar,
@@ -143,7 +143,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // Note: I'm using state to show active item.
   // IRL you should use the url/router.
   const [activeItem, setActiveItem] = React.useState(data.navMain[0])

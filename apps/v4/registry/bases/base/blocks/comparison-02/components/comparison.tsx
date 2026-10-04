@@ -30,7 +30,7 @@ const OPTIONS = [
   },
 ] as const
 
-export function ComparisonCards() {
+export default function ComparisonCards() {
   return (
     <div
       dir="rtl"

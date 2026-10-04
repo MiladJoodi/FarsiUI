@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/base-nova/ui/slider"
 
-export function SliderVertical() {
+export default function SliderVertical() {
   return (
     <div
       dir="rtl"

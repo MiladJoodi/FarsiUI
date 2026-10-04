@@ -33,7 +33,7 @@ const STATUS_ITEMS = [
   { value: "بسته", label: "بسته" },
 ] as const
 
-export function ConversationStatus() {
+export default function ConversationStatus() {
   const [status, setStatus] = React.useState("باز")
 
   return (

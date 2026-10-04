@@ -2,7 +2,7 @@ import { AppWindowIcon, CodeIcon } from "lucide-react"
 
 import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
-export function TabsIcons() {
+export default function TabsIcons() {
   return (
     <Tabs defaultValue="preview" dir="rtl">
       <TabsList>

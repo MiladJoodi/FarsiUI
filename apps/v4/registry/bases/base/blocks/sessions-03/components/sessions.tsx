@@ -40,7 +40,7 @@ const CITY_ITEMS = [
   { value: "مشهد", label: "مشهد" },
 ] as const
 
-export function SessionsPreferences() {
+export default function SessionsPreferences() {
   return (
     <section
       dir="rtl"

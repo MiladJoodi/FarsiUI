@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { NavMain } from "@/registry/bases/radix/blocks/sidebar-06/components/nav-main"
-import { SidebarOptInForm } from "@/registry/bases/radix/blocks/sidebar-06/components/sidebar-opt-in-form"
+import NavMain from "@/registry/bases/radix/blocks/sidebar-06/components/nav-main"
+import SidebarOptInForm from "@/registry/bases/radix/blocks/sidebar-06/components/sidebar-opt-in-form"
 import {
   Sidebar,
   SidebarContent,
@@ -147,7 +147,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar side="right" {...props}>
       <SidebarHeader>

@@ -1,6 +1,6 @@
 import { Separator } from "@/styles/base-nova/ui/separator"
 
-export function SeparatorList() {
+export default function SeparatorList() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-2 text-sm">
       <dl className="flex items-center justify-between">

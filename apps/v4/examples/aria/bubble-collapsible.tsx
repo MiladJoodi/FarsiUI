@@ -17,7 +17,7 @@ I also recommend keeping the change in the style file instead of the primitive s
 
 const previewLength = 180
 
-export function BubbleCollapsible() {
+export default function BubbleCollapsible() {
   const [open, setOpen] = React.useState(false)
   const isLong = text.length > previewLength
   const preview = `${text.slice(0, previewLength)}...`

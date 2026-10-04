@@ -84,7 +84,7 @@ const ROLE_ITEMS = [
   { value: "مشاهده‌گر", label: "مشاهده‌گر" },
 ] as const
 
-export function UserManagementFilterable() {
+export default function UserManagementFilterable() {
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState("همه")
   const [role, setRole] = React.useState("همه")

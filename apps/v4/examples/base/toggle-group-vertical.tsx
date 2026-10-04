@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/base-nova/ui/toggle-group"
 
-export function ToggleGroupVertical() {
+export default function ToggleGroupVertical() {
   return (
     <div dir="rtl">
       <ToggleGroup

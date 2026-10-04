@@ -1,4 +1,4 @@
-import { IdentityCivilCheck } from "@/registry/bases/base/blocks/identity-verification-03/components/identity-civil-check"
+import IdentityCivilCheck from "@/registry/bases/base/blocks/identity-verification-03/components/identity-civil-check"
 
 export default function Page() {
   return (

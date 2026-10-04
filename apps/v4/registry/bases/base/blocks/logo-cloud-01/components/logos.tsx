@@ -21,7 +21,7 @@ const SIZE_CLASS: Record<LogoSize, string> = {
   lg: "h-10 w-[9rem]",
 }
 
-export function LogoImage({
+export default function LogoImage({
   src,
   alt,
   scale = 1,

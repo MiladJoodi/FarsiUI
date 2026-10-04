@@ -69,7 +69,7 @@ const MEMBERS = [
   },
 ] as const
 
-export function DashboardSettingsTeam() {
+export default function DashboardSettingsTeam() {
   const [members, setMembers] = React.useState(MEMBERS.map((m) => ({ ...m })))
   const [openId, setOpenId] = React.useState<string | null>(null)
 

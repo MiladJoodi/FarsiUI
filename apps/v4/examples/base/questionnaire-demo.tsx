@@ -97,7 +97,7 @@ const timingLabels: Record<string, string> = {
   backlog: "به بک‌لاگ اضافه شود",
 }
 
-export function QuestionnaireDemo() {
+export default function QuestionnaireDemo() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

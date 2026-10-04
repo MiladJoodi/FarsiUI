@@ -22,7 +22,7 @@ const rowsPerPage = [
   { value: "100", label: "۱۰۰" },
 ]
 
-export function PaginationIconsOnly() {
+export default function PaginationIconsOnly() {
   return (
     <div dir="rtl" className="flex items-center justify-between gap-4">
       <Field orientation="horizontal" className="w-fit">

@@ -20,7 +20,7 @@ const LINKS = [
   { href: "#", label: "تماس" },
 ] as const
 
-export function MobileNavSheet() {
+export default function MobileNavSheet() {
   const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
 
   return (

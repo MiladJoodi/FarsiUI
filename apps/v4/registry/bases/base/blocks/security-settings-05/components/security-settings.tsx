@@ -89,7 +89,7 @@ const FILTER_ITEMS = [
   { value: "ناموفق", label: "ناموفق" },
 ] as const
 
-export function SecuritySettingsHub() {
+export default function SecuritySettingsHub() {
   const [section, setSection] = React.useState<NavId>("password")
   const [copied, setCopied] = React.useState(false)
   const [moreOpen, setMoreOpen] = React.useState(false)

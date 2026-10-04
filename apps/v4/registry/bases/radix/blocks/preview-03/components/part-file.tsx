@@ -40,7 +40,7 @@ function getFilename(part: FileUIPart) {
   return part.mediaType.startsWith("image/") ? "Image file" : "File"
 }
 
-export function PartFile({
+export default function PartFile({
   part,
   className,
 }: { part: FileUIPart } & Omit<React.ComponentProps<"div">, "part">) {

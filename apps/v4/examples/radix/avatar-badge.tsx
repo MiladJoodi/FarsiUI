@@ -5,7 +5,7 @@ import {
   AvatarImage,
 } from "@/styles/radix-nova/ui/avatar"
 
-export function AvatarWithBadge() {
+export default function AvatarWithBadge() {
   return (
     <Avatar>
       <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

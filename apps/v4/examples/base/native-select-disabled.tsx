@@ -3,7 +3,7 @@ import {
   NativeSelectOption,
 } from "@/styles/base-nova/ui/native-select"
 
-export function NativeSelectDisabled() {
+export default function NativeSelectDisabled() {
   return (
     <div dir="rtl">
       <NativeSelect disabled>

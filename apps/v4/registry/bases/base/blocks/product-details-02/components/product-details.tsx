@@ -24,7 +24,7 @@ const SIZE_ITEMS = [
   { value: "بزرگ", label: "بزرگ (L)" },
 ] as const
 
-export function ProductDetailsGallery() {
+export default function ProductDetailsGallery() {
   const [active, setActive] = React.useState(0)
 
   return (

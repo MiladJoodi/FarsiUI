@@ -81,7 +81,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function DatetimePickerDashboard() {
+export default function DatetimePickerDashboard() {
   const [dateOpen, setDateOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [time, setTime] = React.useState<TimeValue>("۱۰:۰۰")

@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/styles/base-nova/ui/card"
 
-export function CardSmall() {
+export default function CardSmall() {
   const featureName = "گزارش‌های زمان‌بندی‌شده"
 
   return (

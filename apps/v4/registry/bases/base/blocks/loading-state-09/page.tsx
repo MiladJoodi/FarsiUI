@@ -1,4 +1,4 @@
-import { LoadingProgress } from "@/registry/bases/base/blocks/loading-state-09/components/loading-state"
+import LoadingProgress from "@/registry/bases/base/blocks/loading-state-09/components/loading-state"
 
 export default function Page() {
   return <LoadingProgress />

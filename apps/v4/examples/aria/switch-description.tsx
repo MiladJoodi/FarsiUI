@@ -6,7 +6,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Switch } from "@/styles/aria-nova/ui/switch"
 
-export function SwitchDescription() {
+export default function SwitchDescription() {
   return (
     <Field orientation="horizontal" className="max-w-sm">
       <FieldContent>

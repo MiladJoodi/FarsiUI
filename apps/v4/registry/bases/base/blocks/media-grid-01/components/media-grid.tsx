@@ -18,7 +18,7 @@ const ICONS = {
   file: FileIcon,
 } as const
 
-export function MediaGridSimple() {
+export default function MediaGridSimple() {
   return (
     <section
       dir="rtl"

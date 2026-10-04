@@ -11,7 +11,7 @@ import {
 import { Input } from "@/styles/base-nova/ui/input"
 import { Label } from "@/styles/base-nova/ui/label"
 
-export function CardRtl() {
+export default function CardRtl() {
   return (
     <Card className="w-full max-w-sm" dir="rtl">
       <CardHeader>

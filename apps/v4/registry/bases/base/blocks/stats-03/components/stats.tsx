@@ -1,6 +1,6 @@
 "use client"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Progress } from "@/registry/bases/base/ui/progress"
 
@@ -38,7 +38,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => FA[Number(d)]!)
 }
 
-export function StatsGoals() {
+export default function StatsGoals() {
   return (
     <section
       dir="rtl"

@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function DropdownMenuShortcuts() {
+export default function DropdownMenuShortcuts() {
   return (
     <div dir="rtl">
       <DropdownMenu>

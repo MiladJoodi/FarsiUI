@@ -7,7 +7,7 @@ import { useLocale, type DateRange } from "react-aria-components"
 import { RangeCalendar } from "@/styles/aria-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/aria-nova/ui/card"
 
-export function CalendarCustomDays() {
+export default function CalendarCustomDays() {
   const { locale } = useLocale()
   const [range, setRange] = React.useState<DateRange | undefined>({
     start: new CalendarDate(new Date().getFullYear(), 12, 8),

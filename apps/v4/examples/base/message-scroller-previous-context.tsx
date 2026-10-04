@@ -82,7 +82,7 @@ const chat = createChat()
 const initialMessages = chat.get(2)
 const transport = chat.transport({ delayMs: 35 })
 
-export function MessageScrollerPreviousContext() {
+export default function MessageScrollerPreviousContext() {
   const [demoKey, setDemoKey] = React.useState(0)
   const [peek, setPeek] = React.useState(DEFAULT_PEEK)
   const { messages, sendMessage, setMessages, status } = useChat({

@@ -80,7 +80,7 @@ function QuestionList({
   )
 }
 
-export function FaqTabs() {
+export default function FaqTabs() {
   return (
     <div
       dir="rtl"

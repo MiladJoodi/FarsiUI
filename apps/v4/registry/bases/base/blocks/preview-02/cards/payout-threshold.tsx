@@ -37,7 +37,7 @@ const CURRENCIES = [
   { label: "JPY — Japanese Yen", value: "jpy" },
 ]
 
-export function PayoutThreshold() {
+export default function PayoutThreshold() {
   const [amount, setAmount] = React.useState([2500])
 
   return (

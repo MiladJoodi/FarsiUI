@@ -13,7 +13,7 @@ const ROWS = [
   { label: "بلوک احراز هویت بومی", values: [false, false, true] },
 ] as const
 
-export function ComparisonMatrix() {
+export default function ComparisonMatrix() {
   return (
     <div
       dir="rtl"

@@ -16,7 +16,7 @@ const USERS = [
   { name: "رضا نوری", status: "فعال", joined: "۱۴۰۵/۰۷/۱۳" },
 ] as const
 
-export function UserManagementSimple() {
+export default function UserManagementSimple() {
   return (
     <section
       dir="rtl"

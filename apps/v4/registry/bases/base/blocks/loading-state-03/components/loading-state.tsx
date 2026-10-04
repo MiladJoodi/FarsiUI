@@ -7,7 +7,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
-export function LoadingListSkeleton() {
+export default function LoadingListSkeleton() {
   return (
     <section
       dir="rtl"

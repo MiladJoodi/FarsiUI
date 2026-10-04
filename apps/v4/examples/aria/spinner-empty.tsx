@@ -9,7 +9,7 @@ import {
 } from "@/styles/aria-nova/ui/empty"
 import { Spinner } from "@/styles/aria-nova/ui/spinner"
 
-export function SpinnerEmpty() {
+export default function SpinnerEmpty() {
   return (
     <Empty className="w-full">
       <EmptyHeader>

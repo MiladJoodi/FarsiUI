@@ -12,7 +12,7 @@ import {
 import { Input } from "@/styles/base-nova/ui/input"
 import { Label } from "@/styles/base-nova/ui/label"
 
-export function DialogCloseButton() {
+export default function DialogCloseButton() {
   return (
     <div dir="rtl">
       <Dialog>

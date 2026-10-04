@@ -7,7 +7,7 @@ import {
   CollapsibleTrigger,
 } from "@/styles/radix-nova/ui/collapsible"
 
-export function CollapsibleBasic() {
+export default function CollapsibleBasic() {
   return (
     <Card className="mx-auto w-full max-w-sm">
       <CardContent>

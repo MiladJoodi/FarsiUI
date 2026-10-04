@@ -1,4 +1,4 @@
-export function ShimmerNone() {
+export default function ShimmerNone() {
   return (
     <div
       dir="rtl"

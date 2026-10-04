@@ -63,7 +63,7 @@ const IMAGES = [
   },
 ] as const
 
-export function ImageGalleryLightbox() {
+export default function ImageGalleryLightbox() {
   const [active, setActive] = React.useState<(typeof IMAGES)[number] | null>(
     null
   )

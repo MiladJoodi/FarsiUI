@@ -72,7 +72,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function FiltersHub() {
+export default function FiltersHub() {
   const [cats, setCats] = React.useState<string[]>(["صوتی"])
   const [stockOnly, setStockOnly] = React.useState(true)
   const [sort, setSort] = React.useState("جدیدترین")

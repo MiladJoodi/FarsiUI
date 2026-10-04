@@ -20,7 +20,7 @@ const FILES = [
   { name: "logo.svg", size: "۱۸ کیلوبایت", date: "هفتهٔ پیش" },
 ] as const
 
-export function FileManagerBrowse() {
+export default function FileManagerBrowse() {
   return (
     <section
       dir="rtl"

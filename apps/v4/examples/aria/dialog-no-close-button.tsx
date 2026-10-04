@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/styles/aria-nova/ui/dialog"
 
-export function DialogNoCloseButton() {
+export default function DialogNoCloseButton() {
   return (
     <DialogTrigger>
       <Button variant="outline">No Close Button</Button>

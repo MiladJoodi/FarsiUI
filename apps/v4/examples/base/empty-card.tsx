@@ -10,7 +10,7 @@ import {
   EmptyTitle,
 } from "@/styles/base-nova/ui/empty"
 
-export function EmptyInCard() {
+export default function EmptyInCard() {
   return (
     <div dir="rtl">
       <Empty>

@@ -3,7 +3,7 @@ import {
   NativeSelectOption,
 } from "@/styles/aria-nova/ui/native-select"
 
-export function NativeSelectInvalid() {
+export default function NativeSelectInvalid() {
   return (
     <NativeSelect aria-invalid="true">
       <NativeSelectOption value="">Error state</NativeSelectOption>

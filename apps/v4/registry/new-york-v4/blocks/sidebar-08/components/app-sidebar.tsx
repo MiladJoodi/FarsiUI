@@ -14,10 +14,10 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-import { NavMain } from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-main"
-import { NavProjects } from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-projects"
-import { NavSecondary } from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-secondary"
-import { NavUser } from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-user"
+import NavMain from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-main"
+import NavProjects from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-projects"
+import NavSecondary from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-secondary"
+import NavUser from "@/registry/new-york-v4/blocks/sidebar-08/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -152,7 +152,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>

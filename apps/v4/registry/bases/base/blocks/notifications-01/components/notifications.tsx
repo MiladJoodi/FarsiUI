@@ -26,7 +26,7 @@ const ITEMS = [
   },
 ] as const
 
-export function NotificationsSimple() {
+export default function NotificationsSimple() {
   return (
     <section
       dir="rtl"

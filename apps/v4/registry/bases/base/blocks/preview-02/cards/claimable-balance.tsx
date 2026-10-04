@@ -10,7 +10,7 @@ import {
 import { Item, ItemContent } from "@/registry/bases/base/ui/item"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function ClaimableBalance() {
+export default function ClaimableBalance() {
   return (
     <Card>
       <CardHeader>

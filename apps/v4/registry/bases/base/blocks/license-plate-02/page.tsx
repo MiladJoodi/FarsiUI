@@ -1,4 +1,4 @@
-import { LicensePlateInspector } from "@/registry/bases/base/blocks/license-plate-02/components/license-plate-inspector"
+import LicensePlateInspector from "@/registry/bases/base/blocks/license-plate-02/components/license-plate-inspector"
 
 export default function Page() {
   return (

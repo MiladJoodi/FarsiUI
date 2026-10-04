@@ -8,7 +8,7 @@ import {
   AttachmentTitle,
 } from "@/styles/aria-rhea/ui/attachment"
 
-export function AttachmentSizes() {
+export default function AttachmentSizes() {
   return (
     <div className="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
       <Attachment size="default" className="w-full">

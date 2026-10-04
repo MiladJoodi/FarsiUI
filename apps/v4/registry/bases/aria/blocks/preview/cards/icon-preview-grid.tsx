@@ -120,7 +120,7 @@ const PREVIEW_ICONS = [
   },
 ] satisfies Record<IconLibraryName, string>[]
 
-export function IconPreviewGrid() {
+export default function IconPreviewGrid() {
   return (
     <Card>
       <CardContent>

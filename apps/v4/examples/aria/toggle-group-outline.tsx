@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupOutline() {
+export default function ToggleGroupOutline() {
   return (
     <ToggleGroup variant="outline" defaultSelectedKeys={["all"]}>
       <ToggleGroupItem id="all" aria-label="Toggle all">

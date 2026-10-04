@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Plus } from "lucide-react"
 
-import { Calendars } from "@/registry/new-york-v4/blocks/sidebar-12/components/calendars"
-import { DatePicker } from "@/registry/new-york-v4/blocks/sidebar-12/components/date-picker"
-import { NavUser } from "@/registry/new-york-v4/blocks/sidebar-12/components/nav-user"
+import Calendars from "@/registry/new-york-v4/blocks/sidebar-12/components/calendars"
+import DatePicker from "@/registry/new-york-v4/blocks/sidebar-12/components/date-picker"
+import NavUser from "@/registry/new-york-v4/blocks/sidebar-12/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -39,7 +39,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader className="h-16 border-b border-sidebar-border">

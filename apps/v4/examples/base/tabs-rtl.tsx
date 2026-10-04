@@ -12,7 +12,7 @@ import {
   TabsTrigger,
 } from "@/styles/base-nova/ui/tabs"
 
-export function TabsRtl() {
+export default function TabsRtl() {
   return (
     <Tabs defaultValue="overview" className="w-full max-w-sm" dir="rtl">
       <TabsList>

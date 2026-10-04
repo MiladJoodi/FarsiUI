@@ -6,7 +6,7 @@ import {
 } from "@/styles/base-nova/ui/item"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function SpinnerDemo() {
+export default function SpinnerDemo() {
   return (
     <div
       dir="rtl"

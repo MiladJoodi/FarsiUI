@@ -7,7 +7,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
 
-export function RadioGroupChoiceCard() {
+export default function RadioGroupChoiceCard() {
   return (
     <RadioGroup defaultValue="plus" className="max-w-sm">
       <FieldLabel htmlFor="plus-plan">

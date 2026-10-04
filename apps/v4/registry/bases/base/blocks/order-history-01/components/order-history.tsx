@@ -29,7 +29,7 @@ const ORDERS = [
   },
 ] as const
 
-export function OrderHistorySimple() {
+export default function OrderHistorySimple() {
   return (
     <section
       dir="rtl"

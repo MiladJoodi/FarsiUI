@@ -44,7 +44,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuComplex() {
+export default function DropdownMenuComplex() {
   const [notifications, setNotifications] = React.useState<Selection>(
     new Set(["email", "push"])
   )

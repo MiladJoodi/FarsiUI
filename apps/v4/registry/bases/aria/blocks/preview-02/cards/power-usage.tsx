@@ -38,7 +38,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function PowerUsage() {
+export default function PowerUsage() {
   const [params] = useDesignSystemSearchParams()
   const isRounded = !["lyra", "sera"].includes(params.style)
   return (

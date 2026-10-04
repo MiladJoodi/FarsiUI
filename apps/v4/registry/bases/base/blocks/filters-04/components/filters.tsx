@@ -48,7 +48,7 @@ const SORT_ITEMS = [
   { value: "گران‌ترین", label: "گران‌ترین" },
 ] as const
 
-export function FiltersChips() {
+export default function FiltersChips() {
   const [chips, setChips] = React.useState<Chip[]>([
     { id: "cat", label: "صوتی" },
     { id: "stock", label: "موجود" },

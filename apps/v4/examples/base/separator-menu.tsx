@@ -1,6 +1,6 @@
 import { Separator } from "@/styles/base-nova/ui/separator"
 
-export function SeparatorMenu() {
+export default function SeparatorMenu() {
   return (
     <div dir="rtl" className="flex items-center gap-2 text-sm md:gap-4">
       <div className="flex flex-col gap-1">

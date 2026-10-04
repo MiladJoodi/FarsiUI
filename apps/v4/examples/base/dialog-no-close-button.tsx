@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/styles/base-nova/ui/dialog"
 
-export function DialogNoCloseButton() {
+export default function DialogNoCloseButton() {
   return (
     <div dir="rtl">
       <Dialog>

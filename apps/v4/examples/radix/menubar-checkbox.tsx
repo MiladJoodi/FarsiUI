@@ -9,7 +9,7 @@ import {
   MenubarTrigger,
 } from "@/styles/radix-nova/ui/menubar"
 
-export function MenubarCheckbox() {
+export default function MenubarCheckbox() {
   return (
     <Menubar className="w-72">
       <MenubarMenu>

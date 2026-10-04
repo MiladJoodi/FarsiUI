@@ -13,7 +13,7 @@ const tags = [
   "امنیت",
 ]
 
-export function ScrollFadeHorizontal() {
+export default function ScrollFadeHorizontal() {
   return (
     <div
       className="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border"

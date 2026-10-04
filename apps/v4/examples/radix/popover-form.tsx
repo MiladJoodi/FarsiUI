@@ -10,7 +10,7 @@ import {
   PopoverTrigger,
 } from "@/styles/radix-nova/ui/popover"
 
-export function PopoverForm() {
+export default function PopoverForm() {
   return (
     <Popover>
       <PopoverTrigger asChild>

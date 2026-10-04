@@ -1,6 +1,6 @@
 "use client"
 
-import { SignupForm } from "@/registry/bases/aria/blocks/signup-02/components/signup-form"
+import SignupForm from "@/registry/bases/aria/blocks/signup-02/components/signup-form"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function SignupPage() {

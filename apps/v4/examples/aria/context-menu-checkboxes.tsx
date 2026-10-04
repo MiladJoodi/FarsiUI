@@ -10,7 +10,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuCheckboxes() {
+export default function ContextMenuCheckboxes() {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["bookmarks-bar", "developer-tools"])
   )

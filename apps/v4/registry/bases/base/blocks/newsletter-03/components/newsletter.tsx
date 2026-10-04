@@ -13,7 +13,7 @@ const ISSUES = [
   { week: "هفتهٔ ۳۷", title: "نکته‌های تایپ فارسی در فرم" },
 ] as const
 
-export function NewsletterSplit() {
+export default function NewsletterSplit() {
   const [done, setDone] = React.useState(false)
 
   return (

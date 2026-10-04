@@ -10,7 +10,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function FieldResponsive() {
+export default function FieldResponsive() {
   return (
     <div className="w-full max-w-lg">
       <form>

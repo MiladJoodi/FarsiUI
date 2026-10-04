@@ -7,7 +7,7 @@ import {
   SelectValue,
 } from "@/styles/base-nova/ui/select"
 
-export function SelectDisabled() {
+export default function SelectDisabled() {
   const items = [
     { label: "انتخاب میوه", value: null },
     { label: "سیب", value: "apple" },

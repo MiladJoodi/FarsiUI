@@ -12,7 +12,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuGroups() {
+export default function ContextMenuGroups() {
   return (
     <ContextMenuTrigger>
       <Pressable>

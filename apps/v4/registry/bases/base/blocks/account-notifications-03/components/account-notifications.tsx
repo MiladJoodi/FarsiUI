@@ -48,7 +48,7 @@ const TIME_ITEMS = [
   { value: "۰۸:۰۰", label: "۰۸:۰۰" },
 ] as const
 
-export function AccountNotificationsSchedule() {
+export default function AccountNotificationsSchedule() {
   return (
     <section
       dir="rtl"

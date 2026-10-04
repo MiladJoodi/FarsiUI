@@ -15,7 +15,7 @@ import {
   CommandShortcut,
 } from "@/styles/radix-nova/ui/command"
 
-export function CommandWithShortcuts() {
+export default function CommandWithShortcuts() {
   const [open, setOpen] = React.useState(false)
 
   return (

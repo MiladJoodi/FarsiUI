@@ -41,7 +41,7 @@ const people = [
   },
 ]
 
-export function ItemDropdown() {
+export default function ItemDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

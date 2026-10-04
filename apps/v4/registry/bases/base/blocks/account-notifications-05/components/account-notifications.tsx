@@ -99,7 +99,7 @@ const DAY_ITEMS = [
   { value: "جمعه", label: "جمعه" },
 ] as const
 
-export function AccountNotificationsHub() {
+export default function AccountNotificationsHub() {
   const [section, setSection] = React.useState<NavId>("channels")
   const [moreOpen, setMoreOpen] = React.useState(false)
 

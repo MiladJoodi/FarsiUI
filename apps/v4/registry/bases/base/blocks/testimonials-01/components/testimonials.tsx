@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 
-export function TestimonialsSimple() {
+export default function TestimonialsSimple() {
   return (
     <section
       dir="rtl"

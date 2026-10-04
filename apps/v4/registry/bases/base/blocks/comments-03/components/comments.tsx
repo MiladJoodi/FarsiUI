@@ -69,7 +69,7 @@ const STATUS_ITEMS = [
   { value: "در انتظار", label: "در انتظار" },
 ] as const
 
-export function CommentsFilter() {
+export default function CommentsFilter() {
   const [sort, setSort] = React.useState("جدیدترین")
   const [status, setStatus] = React.useState("همه")
 

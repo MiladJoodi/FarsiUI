@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/radix/ui/empty"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function EmptyConnectBank() {
+export default function EmptyConnectBank() {
   return (
     <Card>
       <CardContent>

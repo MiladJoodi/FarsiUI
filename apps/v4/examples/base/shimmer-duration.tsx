@@ -1,4 +1,4 @@
-export function ShimmerDuration() {
+export default function ShimmerDuration() {
   return (
     <div
       dir="rtl"

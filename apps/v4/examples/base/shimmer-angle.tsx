@@ -1,4 +1,4 @@
-export function ShimmerAngle() {
+export default function ShimmerAngle() {
   return (
     <div
       dir="rtl"

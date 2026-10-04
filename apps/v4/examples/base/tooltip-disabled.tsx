@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/styles/base-nova/ui/tooltip"
 
-export function TooltipDisabled() {
+export default function TooltipDisabled() {
   return (
     <div dir="rtl">
       <Tooltip>

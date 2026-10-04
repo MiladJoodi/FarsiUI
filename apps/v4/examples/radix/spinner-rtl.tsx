@@ -38,7 +38,7 @@ const translations: Translations = {
   },
 }
 
-export function SpinnerRtl() {
+export default function SpinnerRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

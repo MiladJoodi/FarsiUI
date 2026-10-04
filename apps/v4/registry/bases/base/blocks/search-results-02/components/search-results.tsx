@@ -43,7 +43,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function SearchResultsCards() {
+export default function SearchResultsCards() {
   return (
     <section
       dir="rtl"

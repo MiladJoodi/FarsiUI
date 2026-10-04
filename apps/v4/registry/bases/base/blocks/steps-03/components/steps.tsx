@@ -27,7 +27,7 @@ const STEPS = [
   },
 ] as const
 
-export function StepsTimeline() {
+export default function StepsTimeline() {
   return (
     <div
       dir="rtl"

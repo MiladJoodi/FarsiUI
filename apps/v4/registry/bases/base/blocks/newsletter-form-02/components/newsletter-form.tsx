@@ -3,7 +3,7 @@
 import { Button } from "@/registry/bases/base/ui/button"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function NewsletterInline() {
+export default function NewsletterInline() {
   return (
     <div
       dir="rtl"

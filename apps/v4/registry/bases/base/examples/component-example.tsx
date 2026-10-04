@@ -67,7 +67,7 @@ import {
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function ComponentExample() {
+export default function ComponentExample() {
   return (
     <ExampleWrapper>
       <CardExample />

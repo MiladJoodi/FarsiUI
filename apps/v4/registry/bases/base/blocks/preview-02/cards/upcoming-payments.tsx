@@ -20,7 +20,7 @@ import {
   ItemTitle,
 } from "@/registry/bases/base/ui/item"
 
-export function UpcomingPayments() {
+export default function UpcomingPayments() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
 
   return (

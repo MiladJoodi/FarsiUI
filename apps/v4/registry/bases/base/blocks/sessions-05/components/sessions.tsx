@@ -66,7 +66,7 @@ const STATUS_ITEMS = [
   { value: "ناموفق", label: "ناموفق" },
 ] as const
 
-export function SessionsHub() {
+export default function SessionsHub() {
   const [section, setSection] = React.useState<NavId>("active")
   const [moreOpen, setMoreOpen] = React.useState(false)
   const [openId, setOpenId] = React.useState<string | null>(null)

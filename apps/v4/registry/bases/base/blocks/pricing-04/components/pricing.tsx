@@ -16,7 +16,7 @@ const ROWS = [
   { label: "پشتیبانی اختصاصی", values: [false, false, true] },
 ] as const
 
-export function PricingCompare() {
+export default function PricingCompare() {
   return (
     <section
       dir="rtl"

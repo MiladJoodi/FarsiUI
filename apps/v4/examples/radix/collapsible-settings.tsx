@@ -19,7 +19,7 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function CollapsibleSettings() {
+export default function CollapsibleSettings() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (

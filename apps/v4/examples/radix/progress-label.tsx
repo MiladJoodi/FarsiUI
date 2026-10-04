@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/radix-nova/ui/field"
 import { Progress } from "@/styles/radix-nova/ui/progress"
 
-export function ProgressWithLabel() {
+export default function ProgressWithLabel() {
   return (
     <Field className="w-full max-w-sm">
       <FieldLabel htmlFor="progress-upload">

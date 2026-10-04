@@ -8,7 +8,7 @@ import {
   ItemTitle,
 } from "@/styles/base-nova/ui/item"
 
-export function ItemLink() {
+export default function ItemLink() {
   return (
     <div dir="rtl" className="flex w-full max-w-md flex-col gap-4">
       <Item render={<a href="#" />}>

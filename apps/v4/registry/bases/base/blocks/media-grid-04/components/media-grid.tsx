@@ -96,7 +96,7 @@ const SORT_OPTIONS = [
   { value: "اندازه", label: "اندازه" },
 ]
 
-export function MediaGridActions() {
+export default function MediaGridActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [chips, setChips] = React.useState(["ویدیو", "تصویر"])
   const [sort, setSort] = React.useState("جدیدترین")

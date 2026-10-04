@@ -66,7 +66,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function ProductGridFilterable() {
+export default function ProductGridFilterable() {
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")
 

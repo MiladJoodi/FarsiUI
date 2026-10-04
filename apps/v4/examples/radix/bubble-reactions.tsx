@@ -9,7 +9,7 @@ import {
 } from "@/styles/radix-rhea/ui/bubble"
 import { Button } from "@/styles/radix-rhea/ui/button"
 
-export function BubbleReactionsDemo() {
+export default function BubbleReactionsDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-12 py-12">
       <Bubble variant="muted" align="end">

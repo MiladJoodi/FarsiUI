@@ -27,7 +27,7 @@ import {
 } from "@/registry/bases/base/ui/item"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function Payments() {
+export default function Payments() {
   return (
     <Card>
       <CardHeader className="flex flex-col gap-3">

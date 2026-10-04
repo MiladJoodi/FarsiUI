@@ -107,12 +107,12 @@ return (
 
 <DocsCollapsible title="تقویم شمسی">
 
-در FarsiUI، `Calendar` به‌صورت پیش‌فرض از `react-day-picker/persian` استفاده می‌کند. ماه‌ها، روزها و اعداد به‌صورت شمسی نمایش داده می‌شوند.
+در FarsiUI، `Calendar` به‌صورت پیش‌فرض روی تقویم شمسی (Jalali) با `react-day-picker@10` کار می‌کند. ماه‌ها، روزها و اعداد فارسی هستند و منطق شمسی از طریق `components/ui/day-picker-persian.tsx` (بر پایه `DateLib` + `date-fns-jalali`) تأمین می‌شود.
 
 اگر به تقویم میلادی نیاز دارید، در `components/ui/calendar.tsx` ایمپورت `DayPicker` را به نسخه معمولی تغییر دهید:
 
 ```diff
-- import { DayPicker } from "react-day-picker/persian"
+- import { DayPicker } from "@/components/ui/day-picker-persian"
 + import { DayPicker } from "react-day-picker"
 ```
 

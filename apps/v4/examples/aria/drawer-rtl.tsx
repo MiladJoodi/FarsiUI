@@ -146,7 +146,7 @@ const deliveryTimes: Array<{
   },
 ]
 
-export function DrawerRtl() {
+export default function DrawerRtl() {
   const { dir, language, t } = useTranslation(translations, "ar")
   const [open, setOpen] = React.useState(false)
   const [deliveryTime, setDeliveryTime] = React.useState("asap")

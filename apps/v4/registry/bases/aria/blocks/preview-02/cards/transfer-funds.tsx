@@ -37,7 +37,7 @@ const TO_ACCOUNTS = [
   { label: "Investment (··3349) — $18,200.00", value: "investment" },
 ]
 
-export function TransferFunds() {
+export default function TransferFunds() {
   return (
     <Card>
       <CardHeader>

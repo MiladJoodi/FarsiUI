@@ -4,12 +4,9 @@ import * as React from "react"
 import { useChat } from "@ai-sdk/react"
 
 import { createChat, getMessageText } from "@/lib/ai"
-import {
-  getReasoningLevelLabel,
-  PartReasoning,
-} from "@/registry/bases/radix/blocks/preview-03/components/part-reasoning"
-import { PartText } from "@/registry/bases/radix/blocks/preview-03/components/part-text"
-import { PromptInput } from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
+import PartReasoning, { getReasoningLevelLabel } from "@/registry/bases/radix/blocks/preview-03/components/part-reasoning"
+import PartText from "@/registry/bases/radix/blocks/preview-03/components/part-text"
+import PromptInput from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
 import { Example } from "@/registry/bases/radix/components/example"
 import { Button } from "@/registry/bases/radix/ui/button"
 import {
@@ -100,7 +97,7 @@ Measure it with a screen recording and count frames between click and visual res
 const initialMessages = chat.get(0)
 const transport = chat.transport()
 
-export function ReasoningChat() {
+export default function ReasoningChat() {
   const { status, messages, sendMessage, setMessages } = useChat({
     messages: initialMessages,
     transport,

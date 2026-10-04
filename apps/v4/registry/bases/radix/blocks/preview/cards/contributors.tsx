@@ -34,7 +34,7 @@ const usernames = [
   "solid",
 ]
 
-export function Contributors() {
+export default function Contributors() {
   return (
     <Card className="max-w-sm">
       <CardHeader>

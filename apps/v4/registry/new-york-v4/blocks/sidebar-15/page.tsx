@@ -1,5 +1,5 @@
-import { SidebarLeft } from "@/registry/new-york-v4/blocks/sidebar-15/components/sidebar-left"
-import { SidebarRight } from "@/registry/new-york-v4/blocks/sidebar-15/components/sidebar-right"
+import SidebarLeft from "@/registry/new-york-v4/blocks/sidebar-15/components/sidebar-left"
+import SidebarRight from "@/registry/new-york-v4/blocks/sidebar-15/components/sidebar-right"
 import {
   Breadcrumb,
   BreadcrumbItem,

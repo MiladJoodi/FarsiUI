@@ -5,7 +5,7 @@ import { InfoIcon, XIcon } from "lucide-react"
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function BannerDismissible() {
+export default function BannerDismissible() {
   const [open, setOpen] = React.useState(true)
 
   return (

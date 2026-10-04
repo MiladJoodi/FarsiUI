@@ -86,7 +86,7 @@ const WEEK_EVENTS: Record<
   6: [],
 }
 
-export function ScheduleWeekBoard() {
+export default function ScheduleWeekBoard() {
   const [weekStart, setWeekStart] = React.useState(() =>
     startOfWeek(new Date())
   )

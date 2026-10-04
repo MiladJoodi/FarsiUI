@@ -49,7 +49,7 @@ const outputLabels: Record<string, string> = {
   handoff: "تحویل جزئیات پیاده‌سازی",
 }
 
-export function QuestionnaireControlled() {
+export default function QuestionnaireControlled() {
   const [item, setItem] = React.useState("scope")
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

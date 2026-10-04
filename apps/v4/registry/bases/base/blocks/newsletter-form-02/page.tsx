@@ -1,4 +1,4 @@
-import { NewsletterInline } from "@/registry/bases/base/blocks/newsletter-form-02/components/newsletter-form"
+import NewsletterInline from "@/registry/bases/base/blocks/newsletter-form-02/components/newsletter-form"
 
 export default function Page() {
   return (

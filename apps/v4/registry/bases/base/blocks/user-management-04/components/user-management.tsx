@@ -93,7 +93,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function UserManagementActions() {
+export default function UserManagementActions() {
   const [users, setUsers] = React.useState(INITIAL)
   const [selected, setSelected] = React.useState<string[]>([])
   const [bulkRole, setBulkRole] = React.useState("ویرایشگر")

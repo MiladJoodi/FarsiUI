@@ -8,7 +8,7 @@ const tags = Array.from({ length: 50 }, (_, i) => {
   return `نسخه ۱.۲.۰ — بتا ${n.toLocaleString("fa-IR")}`
 })
 
-export function ScrollAreaRtl() {
+export default function ScrollAreaRtl() {
   return (
     <div dir="rtl">
       <ScrollArea className="h-72 w-48 rounded-md border">

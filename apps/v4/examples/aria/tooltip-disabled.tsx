@@ -1,7 +1,7 @@
 import { Button } from "@/styles/aria-nova/ui/button"
 import { Tooltip, TooltipTrigger } from "@/styles/aria-nova/ui/tooltip"
 
-export function TooltipDisabled() {
+export default function TooltipDisabled() {
   return (
     <>
       <TooltipTrigger>

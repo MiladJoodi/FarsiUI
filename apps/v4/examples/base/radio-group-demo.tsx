@@ -1,7 +1,7 @@
 import { Label } from "@/styles/base-nova/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
-export function RadioGroupDemo() {
+export default function RadioGroupDemo() {
   return (
     <div dir="rtl">
       <RadioGroup defaultValue="comfortable" className="w-fit">

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { CheckIcon, UploadIcon } from "lucide-react"
 
-import { NationalIdInput } from "@/registry/bases/base/blocks/identity-verification-04/components/national-id-input"
+import NationalIdInput from "@/registry/bases/base/blocks/identity-verification-04/components/national-id-input"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -29,7 +29,7 @@ const STEPS = [
   { id: 4, title: "تأیید نهایی" },
 ] as const
 
-export function MultiStepIdentity() {
+export default function MultiStepIdentity() {
   const [step, setStep] = React.useState(1)
   const [data, setData] = React.useState({
     firstName: "مریم",

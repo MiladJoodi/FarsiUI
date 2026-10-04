@@ -19,7 +19,7 @@ import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactFormBusiness() {
+export default function ContactFormBusiness() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

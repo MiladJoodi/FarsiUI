@@ -12,7 +12,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function SearchSimple() {
+export default function SearchSimple() {
   return (
     <section
       dir="rtl"

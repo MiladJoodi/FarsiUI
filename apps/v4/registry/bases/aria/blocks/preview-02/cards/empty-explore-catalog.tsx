@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/aria/ui/empty"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function EmptyExploreCatalog() {
+export default function EmptyExploreCatalog() {
   return (
     <Card>
       <CardContent>

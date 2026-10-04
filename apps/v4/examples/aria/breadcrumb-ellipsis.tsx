@@ -11,7 +11,7 @@ import {
   BreadcrumbPage,
 } from "@/styles/aria-nova/ui/breadcrumb"
 
-export function BreadcrumbEllipsisDemo() {
+export default function BreadcrumbEllipsisDemo() {
   return (
     <Breadcrumb>
       <BreadcrumbList>

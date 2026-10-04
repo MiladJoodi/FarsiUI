@@ -17,7 +17,7 @@ const frameworks = [
   "Astro",
 ] as const
 
-export function ComboboxDisabled() {
+export default function ComboboxDisabled() {
   return (
     <Combobox allowsEmptyCollection aria-label="Framework">
       <ComboboxInput placeholder="Select a framework" disabled />

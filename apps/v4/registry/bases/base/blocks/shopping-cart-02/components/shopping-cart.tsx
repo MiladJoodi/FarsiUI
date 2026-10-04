@@ -56,7 +56,7 @@ function formatFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ShoppingCartEditable() {
+export default function ShoppingCartEditable() {
   const [items, setItems] = React.useState(INITIAL)
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0)

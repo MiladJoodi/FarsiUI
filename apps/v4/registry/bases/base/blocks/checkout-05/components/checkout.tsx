@@ -68,7 +68,7 @@ const PAY_ITEMS = [
   { value: "پرداخت در محل", label: "پرداخت در محل" },
 ] as const
 
-export function CheckoutHub() {
+export default function CheckoutHub() {
   const [sameBilling, setSameBilling] = React.useState(true)
   const [newsletter, setNewsletter] = React.useState(true)
   const [coupon, setCoupon] = React.useState("")

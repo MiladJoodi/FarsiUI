@@ -5,7 +5,7 @@ const ITEMS = [
   { name: "کیف چرم دستی", qty: "۱", price: "۳٬۱۵۰٬۰۰۰" },
 ] as const
 
-export function OrderSummarySimple() {
+export default function OrderSummarySimple() {
   return (
     <section
       dir="rtl"

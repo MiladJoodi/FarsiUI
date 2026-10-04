@@ -28,7 +28,7 @@ const ITEMS = [
   },
 ] as const
 
-export function InboxSimple() {
+export default function InboxSimple() {
   return (
     <section
       dir="rtl"

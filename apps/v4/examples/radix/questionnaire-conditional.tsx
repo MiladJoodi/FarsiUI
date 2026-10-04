@@ -18,7 +18,7 @@ import {
   QuestionnaireTitle,
 } from "@/styles/radix-nova/ui/questionnaire"
 
-export function QuestionnaireConditional() {
+export default function QuestionnaireConditional() {
   const [runtime, setRuntime] = React.useState("local")
   const items = React.useMemo(
     () => [

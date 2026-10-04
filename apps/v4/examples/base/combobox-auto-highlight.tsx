@@ -17,7 +17,7 @@ const frameworks = [
   "آسترو",
 ] as const
 
-export function ComboboxAutoHighlight() {
+export default function ComboboxAutoHighlight() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={frameworks} autoHighlight>

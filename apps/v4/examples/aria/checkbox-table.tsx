@@ -39,7 +39,7 @@ const tableData = [
   },
 ]
 
-export function CheckboxInTable() {
+export default function CheckboxInTable() {
   return (
     <Table aria-label="Users" selectionMode="multiple">
       <TableHeader>

@@ -15,7 +15,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function BreadcrumbSimple() {
+export default function BreadcrumbSimple() {
   return (
     <div
       dir="rtl"

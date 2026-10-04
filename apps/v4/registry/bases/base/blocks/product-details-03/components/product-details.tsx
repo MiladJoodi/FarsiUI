@@ -36,7 +36,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ProductDetailsVariants() {
+export default function ProductDetailsVariants() {
   const [active, setActive] = React.useState(0)
   const [color, setColor] = React.useState<(typeof COLORS)[number]["id"]>("مشکی")
   const [qty, setQty] = React.useState(1)

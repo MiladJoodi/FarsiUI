@@ -1,4 +1,4 @@
-export function ShimmerRtl() {
+export default function ShimmerRtl() {
   return (
     <div
       dir="rtl"

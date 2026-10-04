@@ -28,7 +28,7 @@ const items = [
   },
 ] as const
 
-export function QuestionnaireMultiple() {
+export default function QuestionnaireMultiple() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

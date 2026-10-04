@@ -9,7 +9,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuDestructive() {
+export default function ContextMenuDestructive() {
   return (
     <div dir="rtl">
       <ContextMenu>

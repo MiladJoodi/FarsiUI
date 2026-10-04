@@ -86,7 +86,7 @@ const POSTS = [
   },
 ] as const
 
-export function BlogGridShowcase() {
+export default function BlogGridShowcase() {
   const [sort, setSort] = React.useState("newest")
   const [done, setDone] = React.useState(false)
 

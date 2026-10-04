@@ -15,7 +15,7 @@ import {
 } from "@/registry/bases/radix/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function VersionSwitcher({
+export default function VersionSwitcher({
   versions,
   defaultVersion,
 }: {

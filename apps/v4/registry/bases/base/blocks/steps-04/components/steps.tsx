@@ -46,7 +46,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function StepsInteractive() {
+export default function StepsInteractive() {
   const [flow, setFlow] = React.useState<FlowKey>("شروع محصول")
   const [step, setStep] = React.useState(0)
   const steps = FLOWS[flow]

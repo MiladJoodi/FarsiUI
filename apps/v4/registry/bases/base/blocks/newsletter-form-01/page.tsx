@@ -1,4 +1,4 @@
-import { NewsletterCard } from "@/registry/bases/base/blocks/newsletter-form-01/components/newsletter-form"
+import NewsletterCard from "@/registry/bases/base/blocks/newsletter-form-01/components/newsletter-form"
 
 export default function Page() {
   return (

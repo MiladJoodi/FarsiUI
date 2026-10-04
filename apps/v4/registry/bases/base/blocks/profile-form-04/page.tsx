@@ -1,4 +1,4 @@
-import { ProfileFormSplit } from "@/registry/bases/base/blocks/profile-form-04/components/profile-form"
+import ProfileFormSplit from "@/registry/bases/base/blocks/profile-form-04/components/profile-form"
 
 export default function Page() {
   return (

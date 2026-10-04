@@ -21,7 +21,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuAvatar() {
+export default function DropdownMenuAvatar() {
   return (
     <DropdownMenuTrigger>
       <Button variant="ghost" size="icon" className="rounded-full">

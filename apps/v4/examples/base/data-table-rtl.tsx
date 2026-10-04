@@ -112,7 +112,7 @@ const data: Payment[] = [
   },
 ]
 
-export function DataTableRtl() {
+export default function DataTableRtl() {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

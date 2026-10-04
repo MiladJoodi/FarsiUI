@@ -1,6 +1,6 @@
 import { Badge } from "@/styles/aria-nova/ui/badge"
 
-export function BadgeVariants() {
+export default function BadgeVariants() {
   return (
     <div className="flex flex-wrap gap-2">
       <Badge>Default</Badge>

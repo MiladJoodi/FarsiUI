@@ -44,7 +44,7 @@ const SORT_ITEMS = [
 const sheetPanelClass =
   "flex w-[min(100%-1.5rem,20rem)] flex-col gap-0 overflow-x-hidden p-4 sm:inset-y-3 sm:end-3 sm:h-[calc(100%-1.5rem)] sm:max-w-sm sm:rounded-xl"
 
-export function AdvancedFiltersSheet() {
+export default function AdvancedFiltersSheet() {
   const [category, setCategory] = React.useState("همه")
   const [sort, setSort] = React.useState("جدیدترین")
 

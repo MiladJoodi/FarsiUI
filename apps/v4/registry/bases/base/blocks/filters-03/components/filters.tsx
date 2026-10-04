@@ -40,7 +40,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function FiltersPanel() {
+export default function FiltersPanel() {
   const [brands, setBrands] = React.useState<string[]>(["آرام"])
   const [category, setCategory] = React.useState("همه")
 

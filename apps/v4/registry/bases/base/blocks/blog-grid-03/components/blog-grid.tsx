@@ -46,7 +46,7 @@ const POSTS = [
 
 const FILTERS = ["همه", "محصول", "طراحی", "فرم", "داستان مشتری"] as const
 
-export function BlogGridFeatured() {
+export default function BlogGridFeatured() {
   const [filter, setFilter] = React.useState<(typeof FILTERS)[number]>("همه")
 
   return (

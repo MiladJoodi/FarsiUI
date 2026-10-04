@@ -6,7 +6,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Switch } from "@/styles/radix-nova/ui/switch"
 
-export function SwitchDescription() {
+export default function SwitchDescription() {
   return (
     <Field orientation="horizontal" className="max-w-sm">
       <FieldContent>

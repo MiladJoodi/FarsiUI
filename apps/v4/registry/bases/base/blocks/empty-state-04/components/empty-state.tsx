@@ -33,7 +33,7 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
-export function EmptyStateInContext() {
+export default function EmptyStateInContext() {
   return (
     <section
       dir="rtl"

@@ -72,7 +72,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AttachmentListActions() {
+export default function AttachmentListActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [chips, setChips] = React.useState(["PDF", "تصویر"])
   const [sort, setSort] = React.useState("جدیدترین")

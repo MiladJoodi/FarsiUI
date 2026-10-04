@@ -1,4 +1,4 @@
-import { ForgotPasswordSplit } from "@/registry/bases/base/blocks/forgot-password-04/components/forgot-password-split"
+import ForgotPasswordSplit from "@/registry/bases/base/blocks/forgot-password-04/components/forgot-password-split"
 
 export default function Page() {
   return (

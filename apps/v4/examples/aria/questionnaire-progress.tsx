@@ -24,7 +24,7 @@ const items = [
   { name: "delivery", required: true },
 ] as const
 
-export function QuestionnaireProgressExample() {
+export default function QuestionnaireProgressExample() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

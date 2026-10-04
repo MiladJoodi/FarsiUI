@@ -12,7 +12,7 @@ import { Field, FieldGroup } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 import { Label } from "@/styles/aria-nova/ui/label"
 
-export function DialogDemo() {
+export default function DialogDemo() {
   return (
     <DialogTrigger>
       <form>

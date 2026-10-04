@@ -24,7 +24,7 @@ const COMMENTS = [
   },
 ] as const
 
-export function CommentsSimple() {
+export default function CommentsSimple() {
   return (
     <section
       dir="rtl"

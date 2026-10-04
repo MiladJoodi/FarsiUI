@@ -9,7 +9,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuGroups() {
+export default function ContextMenuGroups() {
   return (
     <div dir="rtl">
       <ContextMenu>

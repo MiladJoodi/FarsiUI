@@ -10,7 +10,7 @@ import {
   BreadcrumbPage,
 } from "@/styles/aria-nova/ui/breadcrumb"
 
-export function BreadcrumbLinkDemo() {
+export default function BreadcrumbLinkDemo() {
   return (
     <Breadcrumb>
       <BreadcrumbList>

@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuCheckboxesIcons() {
+export default function DropdownMenuCheckboxesIcons() {
   const [notifications, setNotifications] = React.useState<Selection>(
     new Set(["email", "push"])
   )

@@ -44,7 +44,7 @@ const TILES = [
   },
 ] as const
 
-export function BentoIcons() {
+export default function BentoIcons() {
   return (
     <section
       dir="rtl"

@@ -2,7 +2,7 @@ import { FileTextIcon, GitBranchIcon, SearchIcon } from "lucide-react"
 
 import { Marker, MarkerContent, MarkerIcon } from "@/styles/base-rhea/ui/marker"
 
-export function MarkerBorderDemo() {
+export default function MarkerBorderDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-3 py-12">
       <Marker variant="border">

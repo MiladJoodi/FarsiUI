@@ -19,7 +19,7 @@ const shortcuts = [
   { label: "Toggle Sidebar", keys: ["⌘", "B"] },
 ] as const
 
-export function Shortcuts() {
+export default function Shortcuts() {
   return (
     <Card>
       <CardContent>

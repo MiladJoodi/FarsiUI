@@ -48,7 +48,7 @@ const ENV_ITEMS = [
 
 type NavId = (typeof NAV)[number]["id"]
 
-export function DashboardSettingsConsole() {
+export default function DashboardSettingsConsole() {
   const [section, setSection] = React.useState<NavId>("general")
   const [copied, setCopied] = React.useState(false)
   const apiKey = "fui_live_••••••••••••9a2f"

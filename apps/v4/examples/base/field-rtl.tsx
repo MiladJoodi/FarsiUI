@@ -46,7 +46,7 @@ const years = [
   { label: "۲۰۲۹", value: "2029" },
 ]
 
-export function FieldRtl() {
+export default function FieldRtl() {
   return (
     <div className="w-full max-w-md py-6" dir="rtl">
       <form>

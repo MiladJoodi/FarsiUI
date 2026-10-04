@@ -6,7 +6,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function BannerSimple() {
+export default function BannerSimple() {
   return (
     <div
       dir="rtl"

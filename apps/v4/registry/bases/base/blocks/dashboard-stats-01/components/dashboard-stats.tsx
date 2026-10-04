@@ -1,4 +1,4 @@
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import {
   Card,
   CardContent,
@@ -14,7 +14,7 @@ const STATS = [
   { label: "آپتایم", value: "۹۹٫۹٪", hint: "۳۰ روز" },
 ] as const
 
-export function DashboardStatsSimple() {
+export default function DashboardStatsSimple() {
   return (
     <section
       dir="rtl"

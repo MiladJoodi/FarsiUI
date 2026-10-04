@@ -8,7 +8,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Switch } from "@/styles/aria-nova/ui/switch"
 
-export function SwitchChoiceCard() {
+export default function SwitchChoiceCard() {
   return (
     <FieldGroup className="w-full max-w-sm">
       <FieldLabel htmlFor="switch-share">

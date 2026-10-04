@@ -7,9 +7,9 @@ import {
   type DayButton,
   type Locale,
 } from "react-day-picker"
-import { DayPicker } from "react-day-picker/persian"
 
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
+import { DayPicker } from "@/registry/bases/base/ui/day-picker-persian"
 import {
   formatNumber,
   resolveNumericLocale,

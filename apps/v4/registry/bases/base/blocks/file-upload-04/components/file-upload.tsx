@@ -63,7 +63,7 @@ function formatSize(bytes: number) {
   return `${toFa(kb)} کیلوبایت`
 }
 
-export function FileUploadList() {
+export default function FileUploadList() {
   const [files, setFiles] = React.useState(INITIAL)
   const [headerOpen, setHeaderOpen] = React.useState(false)
   const [openId, setOpenId] = React.useState<string | null>(null)

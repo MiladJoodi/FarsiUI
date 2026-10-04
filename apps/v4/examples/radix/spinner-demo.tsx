@@ -6,7 +6,7 @@ import {
 } from "@/styles/radix-nova/ui/item"
 import { Spinner } from "@/styles/radix-nova/ui/spinner"
 
-export function SpinnerDemo() {
+export default function SpinnerDemo() {
   return (
     <div className="flex w-full max-w-xs flex-col gap-4 [--radius:1rem]">
       <Item variant="muted">

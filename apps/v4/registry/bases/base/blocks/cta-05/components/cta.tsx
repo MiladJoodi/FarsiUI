@@ -11,7 +11,7 @@ const AVATARS = [
   { src: "/avatars/04.png", fallback: "نپ" },
 ] as const
 
-export function CtaFullBleed() {
+export default function CtaFullBleed() {
   return (
     <section
       dir="rtl"

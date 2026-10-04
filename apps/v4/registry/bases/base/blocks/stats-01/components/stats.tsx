@@ -1,6 +1,6 @@
 "use client"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 
 const STATS = [
   { value: "۱۲٬۴۸۰", label: "کاربر فعال" },
@@ -8,7 +8,7 @@ const STATS = [
   { value: "۴٫۲٪", label: "نرخ تبدیل" },
 ] as const
 
-export function StatsSimple() {
+export default function StatsSimple() {
   return (
     <section
       dir="rtl"

@@ -37,7 +37,7 @@ const CURRENCY_ITEMS = [
   { value: "دلار", label: "دلار" },
 ] as const
 
-export function AccountBillingInvoices() {
+export default function AccountBillingInvoices() {
   return (
     <section
       dir="rtl"

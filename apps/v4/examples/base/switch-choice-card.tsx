@@ -8,7 +8,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchChoiceCard() {
+export default function SwitchChoiceCard() {
   return (
     <FieldGroup dir="rtl" className="w-full max-w-sm">
       <FieldLabel htmlFor="switch-share">

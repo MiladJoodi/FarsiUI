@@ -74,7 +74,7 @@ const STATUSES: Record<
   },
 }
 
-export function DocumentStatusGallery() {
+export default function DocumentStatusGallery() {
   const [status, setStatus] = React.useState<StatusKey>("pending")
 
   return (

@@ -1,6 +1,6 @@
 "use client"
 
-import { LoginForm } from "@/registry/bases/base/blocks/login-02/components/login-form"
+import LoginForm from "@/registry/bases/base/blocks/login-02/components/login-form"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function LoginPage() {

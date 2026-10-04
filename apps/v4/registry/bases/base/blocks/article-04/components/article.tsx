@@ -23,7 +23,7 @@ const RELATED = [
   },
 ] as const
 
-export function ArticleSidebar() {
+export default function ArticleSidebar() {
   return (
     <div
       dir="rtl"

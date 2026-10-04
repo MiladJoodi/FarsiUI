@@ -24,7 +24,7 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
-export function DashboardSettingsTabs() {
+export default function DashboardSettingsTabs() {
   return (
     <section
       dir="rtl"

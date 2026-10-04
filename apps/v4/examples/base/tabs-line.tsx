@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
-export function TabsLine() {
+export default function TabsLine() {
   return (
     <Tabs defaultValue="overview" dir="rtl">
       <TabsList variant="line">

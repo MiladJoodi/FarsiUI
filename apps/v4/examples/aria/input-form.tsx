@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/styles/aria-nova/ui/select"
 
-export function InputForm() {
+export default function InputForm() {
   const countries = [
     { label: "United States", value: "us" },
     { label: "United Kingdom", value: "uk" },

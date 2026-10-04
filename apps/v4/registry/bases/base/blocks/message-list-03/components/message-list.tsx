@@ -75,7 +75,7 @@ const FOLDER_ITEMS = [
   { value: "بایگانی", label: "بایگانی" },
 ] as const
 
-export function MessageListFilter() {
+export default function MessageListFilter() {
   const [query, setQuery] = React.useState("")
   const [folder, setFolder] = React.useState("همه")
 

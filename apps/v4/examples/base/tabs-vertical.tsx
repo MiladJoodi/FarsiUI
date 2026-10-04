@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
-export function TabsVertical() {
+export default function TabsVertical() {
   return (
     <Tabs defaultValue="account" orientation="vertical" dir="rtl">
       <TabsList>

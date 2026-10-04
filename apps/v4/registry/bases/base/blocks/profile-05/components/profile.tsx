@@ -58,7 +58,7 @@ const VISIBILITY_ITEMS = [
   { value: "خصوصی", label: "خصوصی" },
 ] as const
 
-export function ProfileHub() {
+export default function ProfileHub() {
   const [section, setSection] = React.useState<NavId>("public")
   const [visibility, setVisibility] = React.useState("عمومی")
   const [shareOpen, setShareOpen] = React.useState(false)

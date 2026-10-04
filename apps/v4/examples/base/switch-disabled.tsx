@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchDisabled() {
+export default function SwitchDisabled() {
   return (
     <Field
       orientation="horizontal"

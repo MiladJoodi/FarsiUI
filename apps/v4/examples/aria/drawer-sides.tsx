@@ -10,7 +10,7 @@ import {
   DrawerTrigger,
 } from "@/styles/aria-nova/ui/drawer"
 
-export function DrawerWithSides() {
+export default function DrawerWithSides() {
   return (
     <Drawer swipeDirection="left">
       <DrawerTrigger render={<Button variant="secondary" />}>

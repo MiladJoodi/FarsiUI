@@ -26,7 +26,7 @@ const ITEMS = [
   },
 ] as const
 
-export function OrderSummaryCards() {
+export default function OrderSummaryCards() {
   return (
     <section
       dir="rtl"

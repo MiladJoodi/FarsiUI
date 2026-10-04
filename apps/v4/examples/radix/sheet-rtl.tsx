@@ -59,7 +59,7 @@ const translations: Translations = {
   },
 }
 
-export function SheetRtl() {
+export default function SheetRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   return (

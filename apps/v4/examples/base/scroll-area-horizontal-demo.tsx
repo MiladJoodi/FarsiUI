@@ -17,7 +17,7 @@ const places = [
   },
 ] as const
 
-export function ScrollAreaHorizontalDemo() {
+export default function ScrollAreaHorizontalDemo() {
   return (
     <div dir="rtl" className="w-full max-w-md">
       <ScrollArea className="overflow-hidden rounded-md border">

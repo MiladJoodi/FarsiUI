@@ -7,7 +7,7 @@ import {
   SelectValue,
 } from "@/styles/aria-nova/ui/select"
 
-export function SelectDisabled() {
+export default function SelectDisabled() {
   const items = [
     { label: "Apple", value: "apple" },
     { label: "Banana", value: "banana" },

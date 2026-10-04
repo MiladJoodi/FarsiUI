@@ -17,7 +17,7 @@ const logicalSides = [
   { side: "inline-end" as const, label: "پایان خط" },
 ]
 
-export function TooltipRtl() {
+export default function TooltipRtl() {
   return (
     <div dir="rtl" className="grid gap-4">
       <div className="flex flex-wrap justify-center gap-2">

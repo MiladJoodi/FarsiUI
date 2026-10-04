@@ -13,7 +13,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function SuccessAnimated() {
+export default function SuccessAnimated() {
   return (
     <section
       dir="rtl"

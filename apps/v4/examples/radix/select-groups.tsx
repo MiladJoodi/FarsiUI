@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/styles/radix-nova/ui/select"
 
-export function SelectGroups() {
+export default function SelectGroups() {
   return (
     <Select>
       <SelectTrigger className="w-full max-w-48">

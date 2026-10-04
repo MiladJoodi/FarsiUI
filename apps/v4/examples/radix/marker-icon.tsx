@@ -6,7 +6,7 @@ import {
   MarkerIcon,
 } from "@/styles/radix-rhea/ui/marker"
 
-export function MarkerIconDemo() {
+export default function MarkerIconDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-12 py-12">
       <Marker>

@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/styles/radix-nova/ui/select"
 
-export function SelectInvalid() {
+export default function SelectInvalid() {
   return (
     <Field data-invalid className="w-full max-w-48">
       <FieldLabel>Fruit</FieldLabel>

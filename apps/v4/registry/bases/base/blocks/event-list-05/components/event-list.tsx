@@ -160,7 +160,7 @@ function buildEvents(): EventItem[] {
   ]
 }
 
-export function EventListHub() {
+export default function EventListHub() {
   const [events] = React.useState(buildEvents)
   const [group, setGroup] = React.useState("همه")
   const [query, setQuery] = React.useState("")

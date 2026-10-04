@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/radix-nova/ui/tabs"
 
-export function TabsVertical() {
+export default function TabsVertical() {
   return (
     <Tabs defaultValue="account" orientation="vertical">
       <TabsList>

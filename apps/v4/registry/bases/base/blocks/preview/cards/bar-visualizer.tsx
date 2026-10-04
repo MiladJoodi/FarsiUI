@@ -464,7 +464,7 @@ const BarVisualizer = React.memo(
 
 BarVisualizer.displayName = "BarVisualizer"
 
-export function BarVisualizerCard() {
+export default function BarVisualizerCard() {
   const [state, setState] = React.useState<AgentState>("speaking")
 
   return (

@@ -102,7 +102,7 @@ const AGENDA = [
   { time: "۱۱:۰۰", title: "سؤالات باز و جمع‌بندی" },
 ] as const
 
-export function EventDetailsDashboard() {
+export default function EventDetailsDashboard() {
   const [moreOpen, setMoreOpen] = React.useState(false)
 
   return (

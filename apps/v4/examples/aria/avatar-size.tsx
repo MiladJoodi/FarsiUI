@@ -4,7 +4,7 @@ import {
   AvatarImage,
 } from "@/styles/aria-nova/ui/avatar"
 
-export function AvatarSizeExample() {
+export default function AvatarSizeExample() {
   return (
     <div className="flex flex-wrap items-center gap-2 grayscale">
       <Avatar size="sm">

@@ -40,7 +40,7 @@ const translations: Translations = {
   },
 }
 
-export function SwitchRtl() {
+export default function SwitchRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

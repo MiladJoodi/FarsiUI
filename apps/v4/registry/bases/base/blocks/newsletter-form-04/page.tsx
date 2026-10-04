@@ -1,4 +1,4 @@
-import { NewsletterCentered } from "@/registry/bases/base/blocks/newsletter-form-04/components/newsletter-form"
+import NewsletterCentered from "@/registry/bases/base/blocks/newsletter-form-04/components/newsletter-form"
 
 export default function Page() {
   return (

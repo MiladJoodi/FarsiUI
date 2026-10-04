@@ -10,7 +10,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function PersonalInfoForm({
+export default function PersonalInfoForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {

@@ -3,7 +3,7 @@ import { ButtonGroup } from "@/styles/aria-nova/ui/button-group"
 import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputButtonGroup() {
+export default function InputButtonGroup() {
   return (
     <Field>
       <FieldLabel htmlFor="input-button-group">Search</FieldLabel>

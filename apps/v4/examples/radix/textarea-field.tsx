@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Textarea } from "@/styles/radix-nova/ui/textarea"
 
-export function TextareaField() {
+export default function TextareaField() {
   return (
     <Field>
       <FieldLabel htmlFor="textarea-message">Message</FieldLabel>

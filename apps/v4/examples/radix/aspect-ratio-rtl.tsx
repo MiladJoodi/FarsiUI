@@ -30,7 +30,7 @@ const translations: Translations = {
   },
 }
 
-export function AspectRatioRtl() {
+export default function AspectRatioRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

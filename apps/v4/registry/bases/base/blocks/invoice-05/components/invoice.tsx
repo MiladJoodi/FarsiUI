@@ -69,7 +69,7 @@ const ACTIVITY = [
   { label: "پیش‌نویس ایجاد شد", date: ISSUE_DATE },
 ] as const
 
-export function InvoiceFancy() {
+export default function InvoiceFancy() {
   const [copied, setCopied] = React.useState(false)
 
   function copyId() {

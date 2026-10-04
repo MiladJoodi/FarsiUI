@@ -42,7 +42,7 @@ const ACTIVE = [
   },
 ]
 
-export function SessionsTabs() {
+export default function SessionsTabs() {
   return (
     <section
       dir="rtl"

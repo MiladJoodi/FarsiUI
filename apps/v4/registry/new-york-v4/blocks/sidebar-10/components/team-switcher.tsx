@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function TeamSwitcher({
+export default function TeamSwitcher({
   teams,
 }: {
   teams: {

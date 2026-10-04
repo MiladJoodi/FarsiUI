@@ -70,7 +70,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function DatetimePickerPopover() {
+export default function DatetimePickerPopover() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [time, setTime] = React.useState<TimeValue>("۱۴:۳۰")

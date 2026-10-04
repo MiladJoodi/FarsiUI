@@ -8,7 +8,7 @@ import {
   InputOTPSlot,
 } from "@/styles/radix-nova/ui/input-otp"
 
-export function InputOTPFourDigits() {
+export default function InputOTPFourDigits() {
   return (
     <InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS}>
       <InputOTPGroup>

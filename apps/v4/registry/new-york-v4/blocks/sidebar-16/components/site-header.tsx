@@ -2,7 +2,7 @@
 
 import { SidebarIcon } from "lucide-react"
 
-import { SearchForm } from "@/registry/new-york-v4/blocks/sidebar-16/components/search-form"
+import SearchForm from "@/registry/new-york-v4/blocks/sidebar-16/components/search-form"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,7 +15,7 @@ import { Button } from "@/registry/new-york-v4/ui/button"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { useSidebar } from "@/registry/new-york-v4/ui/sidebar"
 
-export function SiteHeader() {
+export default function SiteHeader() {
   const { toggleSidebar } = useSidebar()
 
   return (

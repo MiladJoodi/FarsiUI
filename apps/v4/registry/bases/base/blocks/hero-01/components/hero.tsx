@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function HeroSimple() {
+export default function HeroSimple() {
   return (
     <section
       dir="rtl"

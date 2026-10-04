@@ -16,7 +16,7 @@ const items = [
   { label: "Pineapple", value: "pineapple" },
 ]
 
-export function SelectDemo() {
+export default function SelectDemo() {
   return (
     <Select placeholder="Select a fruit" className="w-full max-w-48">
       <SelectTrigger>

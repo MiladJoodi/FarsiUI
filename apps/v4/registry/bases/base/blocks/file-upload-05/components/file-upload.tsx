@@ -77,7 +77,7 @@ function formatSize(bytes: number) {
   return `${toFa(kb)} کیلوبایت`
 }
 
-export function FileUploadHub() {
+export default function FileUploadHub() {
   const [files, setFiles] = React.useState(INITIAL)
   const [folder, setFolder] = React.useState("اسناد")
   const [headerOpen, setHeaderOpen] = React.useState(false)

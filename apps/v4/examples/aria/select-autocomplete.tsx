@@ -67,7 +67,7 @@ const countries = [
   },
 ]
 
-export function SelectAutocomplete() {
+export default function SelectAutocomplete() {
   const { contains } = useFilter({ sensitivity: "base" })
   return (
     <Select placeholder="Select country" className="w-full max-w-48">

@@ -7,7 +7,7 @@ import { Button } from "@/styles/aria-nova/ui/button"
 import { Calendar } from "@/styles/aria-nova/ui/calendar"
 import { Card, CardContent, CardFooter } from "@/styles/aria-nova/ui/card"
 
-export function CalendarWithPresets() {
+export default function CalendarWithPresets() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     new CalendarDate(new Date().getFullYear(), 2, 12)
   )

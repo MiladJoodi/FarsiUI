@@ -1,4 +1,4 @@
-import { ProfileFormSimple } from "@/registry/bases/base/blocks/profile-form-01/components/profile-form"
+import ProfileFormSimple from "@/registry/bases/base/blocks/profile-form-01/components/profile-form"
 
 export default function Page() {
   return (

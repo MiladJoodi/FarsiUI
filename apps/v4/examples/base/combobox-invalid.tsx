@@ -17,7 +17,7 @@ const frameworks = [
   "آسترو",
 ] as const
 
-export function ComboboxInvalid() {
+export default function ComboboxInvalid() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={frameworks}>

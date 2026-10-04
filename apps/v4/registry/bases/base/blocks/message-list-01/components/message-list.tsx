@@ -28,7 +28,7 @@ const MESSAGES = [
   },
 ] as const
 
-export function MessageListSimple() {
+export default function MessageListSimple() {
   return (
     <section
       dir="rtl"

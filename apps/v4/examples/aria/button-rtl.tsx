@@ -39,7 +39,7 @@ const translations: Translations = {
   },
 }
 
-export function ButtonRtl() {
+export default function ButtonRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

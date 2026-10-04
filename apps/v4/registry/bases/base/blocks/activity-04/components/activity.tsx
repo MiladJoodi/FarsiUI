@@ -73,7 +73,7 @@ const GROUPS = [
   },
 ] as const
 
-export function ActivityGrouped() {
+export default function ActivityGrouped() {
   const [hidden, setHidden] = React.useState<string[]>([])
   const [read, setRead] = React.useState<string[]>([])
   const [openId, setOpenId] = React.useState<string | null>(null)

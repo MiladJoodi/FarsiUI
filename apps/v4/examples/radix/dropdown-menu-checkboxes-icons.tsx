@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/radix-nova/ui/dropdown-menu"
 
-export function DropdownMenuCheckboxesIcons() {
+export default function DropdownMenuCheckboxesIcons() {
   const [notifications, setNotifications] = React.useState({
     email: true,
     sms: false,

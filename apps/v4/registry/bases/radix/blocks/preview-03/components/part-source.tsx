@@ -17,7 +17,7 @@ function getHostname(url: string) {
   }
 }
 
-export function PartSource({
+export default function PartSource({
   part,
   className,
 }: { part: SourcePart } & Omit<React.ComponentProps<"div">, "part">) {

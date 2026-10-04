@@ -6,7 +6,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuSides() {
+export default function ContextMenuSides() {
   return (
     <div dir="rtl" className="grid w-full max-w-md grid-cols-2 gap-4">
       <ContextMenu>

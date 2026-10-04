@@ -11,7 +11,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function PaymentSimple() {
+export default function PaymentSimple() {
   return (
     <section
       dir="rtl"

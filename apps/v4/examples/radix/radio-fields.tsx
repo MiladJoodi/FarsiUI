@@ -10,7 +10,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
 
-export function RadioFields() {
+export default function RadioFields() {
   return (
     <FieldGroup>
       <FieldSet>

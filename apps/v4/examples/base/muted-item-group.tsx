@@ -8,7 +8,7 @@ import {
   ItemTitle,
 } from "@/styles/base-nova/ui/item"
 
-export function MutedItemGroup() {
+export default function MutedItemGroup() {
   return (
     <ItemGroup>
       <Item variant="muted">

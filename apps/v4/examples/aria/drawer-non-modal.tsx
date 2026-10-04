@@ -9,7 +9,7 @@ import {
   DrawerTrigger,
 } from "@/styles/aria-nova/ui/drawer"
 
-export function DrawerNonModal() {
+export default function DrawerNonModal() {
   return (
     <Drawer modal={false} disablePointerDismissal swipeDirection="right">
       <DrawerTrigger render={<Button variant="outline" />}>

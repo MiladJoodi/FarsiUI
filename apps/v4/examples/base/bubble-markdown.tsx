@@ -1,7 +1,7 @@
 import { Markdown } from "@/components/markdown"
 import { Bubble, BubbleContent } from "@/styles/base-rhea/ui/bubble"
 
-export function BubbleMarkdownDemo() {
+export default function BubbleMarkdownDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-4">
       <Bubble align="end" variant="muted">

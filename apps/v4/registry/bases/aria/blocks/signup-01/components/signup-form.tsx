@@ -14,7 +14,7 @@ import {
 } from "@/registry/bases/aria/ui/field"
 import { Input } from "@/registry/bases/aria/ui/input"
 
-export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
+export default function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   return (
     <Card dir="rtl" lang="fa" {...props}>
       <CardHeader>

@@ -50,7 +50,7 @@ const PERIOD_ITEMS = (Object.keys(SERIES) as Period[]).map((key) => ({
   label: key,
 }))
 
-export function DashboardChart() {
+export default function DashboardChart() {
   const [period, setPeriod] = React.useState<Period>("هفته")
   const bars = SERIES[period]
   const max = Math.max(...bars.map((b) => b.value))

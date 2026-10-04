@@ -9,7 +9,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuBasic() {
+export default function ContextMenuBasic() {
   return (
     <ContextMenuTrigger>
       <Pressable>

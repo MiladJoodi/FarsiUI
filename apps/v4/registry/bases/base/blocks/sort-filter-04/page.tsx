@@ -1,4 +1,4 @@
-import { SortFilterBar } from "@/registry/bases/base/blocks/sort-filter-04/components/sort-filter"
+import SortFilterBar from "@/registry/bases/base/blocks/sort-filter-04/components/sort-filter"
 
 export default function Page() {
   return <SortFilterBar />

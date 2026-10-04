@@ -45,7 +45,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function DashboardOps() {
+export default function DashboardOps() {
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("عنوان")

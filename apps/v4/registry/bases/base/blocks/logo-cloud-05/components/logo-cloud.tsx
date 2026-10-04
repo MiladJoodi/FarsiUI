@@ -1,11 +1,11 @@
 "use client"
 
-import { LOGOS, LogoImage } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
+import LogoImage, { LOGOS } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function LogoCloudShowcase() {
+export default function LogoCloudShowcase() {
   return (
     <section
       dir="rtl"

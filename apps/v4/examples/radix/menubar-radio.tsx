@@ -13,7 +13,7 @@ import {
   MenubarTrigger,
 } from "@/styles/radix-nova/ui/menubar"
 
-export function MenubarRadio() {
+export default function MenubarRadio() {
   const [user, setUser] = React.useState("benoit")
   const [theme, setTheme] = React.useState("system")
 

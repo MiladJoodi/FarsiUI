@@ -32,7 +32,7 @@ const translations: Translations = {
   },
 }
 
-export function ScrollAreaRtl() {
+export default function ScrollAreaRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

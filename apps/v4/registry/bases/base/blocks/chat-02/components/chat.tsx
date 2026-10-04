@@ -38,7 +38,7 @@ const MESSAGES = [
   },
 ] as const
 
-export function ChatThread() {
+export default function ChatThread() {
   return (
     <section
       dir="rtl"

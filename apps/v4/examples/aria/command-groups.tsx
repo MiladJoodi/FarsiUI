@@ -23,7 +23,7 @@ import {
   CommandShortcut,
 } from "@/styles/aria-nova/ui/command"
 
-export function CommandWithGroups() {
+export default function CommandWithGroups() {
   const [open, setOpen] = React.useState(false)
 
   return (

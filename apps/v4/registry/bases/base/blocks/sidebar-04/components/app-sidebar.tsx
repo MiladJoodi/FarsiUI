@@ -99,7 +99,7 @@ function SoftMenu({
   )
 }
 
-export function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar side="right" variant="floating" collapsible="offcanvas">
       <SidebarHeader className="gap-2 border-b p-3">

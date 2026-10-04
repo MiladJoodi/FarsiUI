@@ -27,7 +27,7 @@ const items = [
 const itemClassName =
   "data-active:animate-in data-active:fade-in-0 data-active:slide-in-from-bottom-2 data-active:duration-300 motion-reduce:animate-none"
 
-export function QuestionnaireAnimated() {
+export default function QuestionnaireAnimated() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

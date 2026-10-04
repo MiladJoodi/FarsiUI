@@ -68,7 +68,7 @@ const FAQ = [
   },
 ] as const
 
-export function PricingShowcase() {
+export default function PricingShowcase() {
   const [yearly, setYearly] = React.useState(true)
 
   return (

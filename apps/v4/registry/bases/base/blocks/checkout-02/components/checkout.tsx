@@ -40,7 +40,7 @@ const PROVINCE_ITEMS = [
   { value: "خراسان رضوی", label: "خراسان رضوی" },
 ] as const
 
-export function CheckoutSplit() {
+export default function CheckoutSplit() {
   return (
     <section
       dir="rtl"

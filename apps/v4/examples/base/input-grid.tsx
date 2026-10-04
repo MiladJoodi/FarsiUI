@@ -1,7 +1,7 @@
 import { Field, FieldGroup, FieldLabel } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputGrid() {
+export default function InputGrid() {
   return (
     <FieldGroup dir="rtl" className="grid max-w-sm grid-cols-2">
       <Field>

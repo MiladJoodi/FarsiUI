@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/radix/ui/empty"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function EmptyDistributeTrack() {
+export default function EmptyDistributeTrack() {
   return (
     <Card>
       <CardContent>

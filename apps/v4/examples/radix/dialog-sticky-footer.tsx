@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/styles/radix-nova/ui/dialog"
 
-export function DialogStickyFooter() {
+export default function DialogStickyFooter() {
   return (
     <Dialog>
       <DialogTrigger asChild>

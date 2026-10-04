@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
-export function SyncingState() {
+export default function SyncingState() {
   return (
     <Card>
       <CardContent className="p-0">

@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/registry/bases/radix/ui/card"
 
-export function EnvironmentVariables() {
+export default function EnvironmentVariables() {
   return (
     <Card>
       <CardHeader>

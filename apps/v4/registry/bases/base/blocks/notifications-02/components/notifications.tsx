@@ -44,7 +44,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function NotificationsUnread() {
+export default function NotificationsUnread() {
   const unread = ITEMS.filter((i) => i.unread).length
 
   return (

@@ -44,7 +44,7 @@ const sleepChartConfig = {
   },
 } satisfies ChartConfig
 
-export function SleepReport() {
+export default function SleepReport() {
   return (
     <Card>
       <CardHeader>

@@ -123,7 +123,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function InboxHub() {
+export default function InboxHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [folder, setFolder] = React.useState("صندوق ورودی")
   const [query, setQuery] = React.useState("")

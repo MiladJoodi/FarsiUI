@@ -156,7 +156,7 @@ const components = [
   },
 ] as const
 
-export function NavigationMenuRtl() {
+export default function NavigationMenuRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   return (

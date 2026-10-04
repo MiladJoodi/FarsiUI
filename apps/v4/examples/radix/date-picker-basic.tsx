@@ -12,7 +12,7 @@ import {
   PopoverTrigger,
 } from "@/styles/radix-nova/ui/popover"
 
-export function DatePickerSimple() {
+export default function DatePickerSimple() {
   const [date, setDate] = React.useState<Date>()
 
   return (

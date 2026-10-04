@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/styles/aria-nova/ui/card"
 
-export function CardSmall() {
+export default function CardSmall() {
   const featureName = "Scheduled reports"
 
   return (

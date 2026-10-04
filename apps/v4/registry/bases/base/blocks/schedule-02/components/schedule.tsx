@@ -54,7 +54,7 @@ const SLOTS = [
   },
 ] as const
 
-export function ScheduleDayCards() {
+export default function ScheduleDayCards() {
   return (
     <section
       dir="rtl"

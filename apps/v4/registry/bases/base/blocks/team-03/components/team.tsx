@@ -37,7 +37,7 @@ const MEMBERS = [
   },
 ] as const
 
-export function TeamFeatured() {
+export default function TeamFeatured() {
   return (
     <div
       dir="rtl"

@@ -19,7 +19,7 @@ import {
   DialogTrigger,
 } from "@/styles/radix-rhea/ui/dialog"
 
-export function AttachmentTriggerDemo() {
+export default function AttachmentTriggerDemo() {
   return (
     <div className="mx-auto w-full max-w-sm py-12">
       <Dialog>

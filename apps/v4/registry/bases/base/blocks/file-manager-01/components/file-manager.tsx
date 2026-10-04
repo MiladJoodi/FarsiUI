@@ -18,7 +18,7 @@ const ITEMS = [
   { kind: "file" as const, name: "invoice.pdf", meta: "۱٫۲ مگابایت" },
 ]
 
-export function FileManagerSimple() {
+export default function FileManagerSimple() {
   return (
     <section
       dir="rtl"

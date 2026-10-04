@@ -59,7 +59,7 @@ function formatExp(value: string) {
   return `${fa.slice(0, 2)}/${fa.slice(2)}`
 }
 
-export function PaymentFancy() {
+export default function PaymentFancy() {
   const [paid, setPaid] = React.useState(false)
   const [saveCard, setSaveCard] = React.useState(true)
   const [otp, setOtp] = React.useState("")

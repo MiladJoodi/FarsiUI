@@ -19,7 +19,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function MaintenanceCard() {
+export default function MaintenanceCard() {
   return (
     <section
       dir="rtl"

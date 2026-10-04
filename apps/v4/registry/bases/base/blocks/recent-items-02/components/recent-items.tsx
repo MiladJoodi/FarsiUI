@@ -48,7 +48,7 @@ const ICONS = {
   folder: FolderIcon,
 } as const
 
-export function RecentItemsCards() {
+export default function RecentItemsCards() {
   return (
     <section
       dir="rtl"

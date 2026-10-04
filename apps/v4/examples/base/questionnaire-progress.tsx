@@ -53,7 +53,7 @@ function toPersianDigits(value: number) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
 }
 
-export function QuestionnaireProgressExample() {
+export default function QuestionnaireProgressExample() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

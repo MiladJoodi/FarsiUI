@@ -101,7 +101,7 @@ function getMessageText(message: UIMessage) {
     .join("")
 }
 
-export function TanStackAiHelperDemo() {
+export default function TanStackAiHelperDemo() {
   const { messages, append, status, setMessages } = useChat({
     initialMessages,
     connection,

@@ -59,7 +59,7 @@ function isValid(digits: string) {
   return rem < 2 ? check === rem : check === 11 - rem
 }
 
-export function NationalIdValidator() {
+export default function NationalIdValidator() {
   const [digits, setDigits] = React.useState("")
   const complete = digits.length === 10
   const valid = isValid(digits)

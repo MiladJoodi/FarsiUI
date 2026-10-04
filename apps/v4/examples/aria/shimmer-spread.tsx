@@ -1,4 +1,4 @@
-export function ShimmerSpread() {
+export default function ShimmerSpread() {
   return (
     <div
       dir="rtl"

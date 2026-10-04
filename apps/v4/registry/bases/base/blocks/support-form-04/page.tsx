@@ -1,4 +1,4 @@
-import { SupportTicketStatus } from "@/registry/bases/base/blocks/support-form-04/components/support-form"
+import SupportTicketStatus from "@/registry/bases/base/blocks/support-form-04/components/support-form"
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import { LicensePlateTaxi } from "@/registry/bases/base/blocks/license-plate-05/components/license-plate-taxi"
+import LicensePlateTaxi from "@/registry/bases/base/blocks/license-plate-05/components/license-plate-taxi"
 
 export default function Page() {
   return (

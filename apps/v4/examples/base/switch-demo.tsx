@@ -1,7 +1,7 @@
 import { Label } from "@/styles/base-nova/ui/label"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchDemo() {
+export default function SwitchDemo() {
   return (
     <div dir="rtl" className="flex items-center gap-2">
       <Switch id="airplane-mode" />

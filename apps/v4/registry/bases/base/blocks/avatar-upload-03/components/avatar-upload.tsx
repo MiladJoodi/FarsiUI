@@ -45,7 +45,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AvatarUploadForm() {
+export default function AvatarUploadForm() {
   const [preview, setPreview] = React.useState<string | null>(null)
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [progress, setProgress] = React.useState(0)

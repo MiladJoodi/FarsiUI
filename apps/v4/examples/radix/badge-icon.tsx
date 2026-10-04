@@ -2,7 +2,7 @@ import { BadgeCheck, BookmarkIcon } from "lucide-react"
 
 import { Badge } from "@/styles/radix-nova/ui/badge"
 
-export function BadgeWithIconLeft() {
+export default function BadgeWithIconLeft() {
   return (
     <div className="flex flex-wrap gap-2">
       <Badge variant="secondary">

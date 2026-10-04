@@ -16,7 +16,7 @@ import {
   SidebarSeparator,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function Calendars({
+export default function Calendars({
   calendars,
 }: {
   calendars: {

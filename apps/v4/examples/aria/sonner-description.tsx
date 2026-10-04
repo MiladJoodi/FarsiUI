@@ -4,7 +4,7 @@ import { toast } from "sonner"
 
 import { Button } from "@/styles/aria-nova/ui/button"
 
-export function SonnerDescription() {
+export default function SonnerDescription() {
   return (
     <Button
       onClick={() =>

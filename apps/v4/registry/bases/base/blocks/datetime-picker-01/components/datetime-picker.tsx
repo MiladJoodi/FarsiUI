@@ -55,7 +55,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function DatetimePickerSimple() {
+export default function DatetimePickerSimple() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [time, setTime] = React.useState<TimeValue>("۱۰:۰۰")
 

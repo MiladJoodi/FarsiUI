@@ -27,7 +27,7 @@ const ITEMS = [
   { label: "پشتیبانی", icon: MessagesSquareIcon },
 ] as const
 
-export function MobileNavIcons() {
+export default function MobileNavIcons() {
   const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
 
   return (

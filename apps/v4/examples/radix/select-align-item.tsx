@@ -19,7 +19,7 @@ import {
 } from "@/styles/radix-nova/ui/select"
 import { Switch } from "@/styles/radix-nova/ui/switch"
 
-export function SelectAlignItem() {
+export default function SelectAlignItem() {
   const [alignItemWithTrigger, setAlignItemWithTrigger] = React.useState(true)
 
   return (

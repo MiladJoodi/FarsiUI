@@ -83,7 +83,7 @@ const FILTER_ITEMS = [
   { value: "سایر", label: "سایر" },
 ] as const
 
-export function SessionsList() {
+export default function SessionsList() {
   const [sessions, setSessions] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [filter, setFilter] = React.useState("همه")

@@ -53,7 +53,7 @@ const GUESTS = [
   },
 ] as const
 
-export function EventDetailsCard() {
+export default function EventDetailsCard() {
   return (
     <section
       dir="rtl"

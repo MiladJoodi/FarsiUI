@@ -1,4 +1,4 @@
-import { LicensePlateVehicleForm } from "@/registry/bases/base/blocks/license-plate-03/components/license-plate-vehicle-form"
+import LicensePlateVehicleForm from "@/registry/bases/base/blocks/license-plate-03/components/license-plate-vehicle-form"
 
 export default function Page() {
   return (

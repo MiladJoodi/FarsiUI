@@ -33,7 +33,7 @@ const images = [
   },
 ]
 
-export function AttachmentImage() {
+export default function AttachmentImage() {
   return (
     <div className="mx-auto w-full max-w-sm py-12">
       <AttachmentGroup className="w-full">

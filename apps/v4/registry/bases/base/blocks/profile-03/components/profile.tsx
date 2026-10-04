@@ -34,7 +34,7 @@ const CITY_ITEMS = [
   { value: "تبریز", label: "تبریز" },
 ] as const
 
-export function ProfileEdit() {
+export default function ProfileEdit() {
   return (
     <section
       dir="rtl"

@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputRequired() {
+export default function InputRequired() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="input-required">

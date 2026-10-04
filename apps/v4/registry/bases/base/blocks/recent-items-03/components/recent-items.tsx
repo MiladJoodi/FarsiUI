@@ -62,7 +62,7 @@ const TYPE_ITEMS = [
 
 type TypeFilter = (typeof TYPE_ITEMS)[number]["value"]
 
-export function RecentItemsFilterable() {
+export default function RecentItemsFilterable() {
   const [query, setQuery] = React.useState("")
   const [type, setType] = React.useState<TypeFilter>("همه")
 

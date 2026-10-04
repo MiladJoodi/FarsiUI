@@ -1,4 +1,4 @@
-import { ForgotPasswordForm } from "@/registry/bases/base/blocks/forgot-password-01/components/forgot-password-form"
+import ForgotPasswordForm from "@/registry/bases/base/blocks/forgot-password-01/components/forgot-password-form"
 
 export default function Page() {
   return (

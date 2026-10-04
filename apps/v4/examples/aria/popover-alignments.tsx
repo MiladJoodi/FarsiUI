@@ -1,7 +1,7 @@
 import { Button } from "@/styles/aria-nova/ui/button"
 import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
 
-export function PopoverAlignments() {
+export default function PopoverAlignments() {
   return (
     <>
       <div className="flex gap-6">

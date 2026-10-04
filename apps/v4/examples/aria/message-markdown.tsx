@@ -9,7 +9,7 @@ const response = `Here's how to render markdown in a message:
 3. Use a \`ghost\` bubble so the response is unframed.
 `
 
-export function MessageMarkdownDemo() {
+export default function MessageMarkdownDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message align="end">

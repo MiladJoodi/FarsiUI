@@ -101,7 +101,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AdvancedFiltersHub() {
+export default function AdvancedFiltersHub() {
   const [open, setOpen] = React.useState(false)
   const [cats, setCats] = React.useState<string[]>(["صوتی"])
   const [stockOnly, setStockOnly] = React.useState(true)

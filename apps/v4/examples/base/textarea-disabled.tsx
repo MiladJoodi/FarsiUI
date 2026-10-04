@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
-export function TextareaDisabled() {
+export default function TextareaDisabled() {
   return (
     <Field data-disabled dir="rtl">
       <FieldLabel htmlFor="textarea-disabled">پیام</FieldLabel>

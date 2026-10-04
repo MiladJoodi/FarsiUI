@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "@/styles/base-nova/ui/table"
 
-export function TableActions() {
+export default function TableActions() {
   return (
     <Table dir="rtl">
       <TableHeader>

@@ -109,8 +109,6 @@ export async function formatCode(code: string, styleName: string) {
     }
   )
 
-  code = code.replaceAll("export default", "export")
-
   try {
     const styleMap = await getStyleMap(styleName)
     const transformed = await transformStyle(code, { styleMap })

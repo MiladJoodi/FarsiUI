@@ -42,7 +42,7 @@ const spacingOptions = [
   },
 ]
 
-export function CardSpacing() {
+export default function CardSpacing() {
   const [spacing, setSpacing] = React.useState("4")
   const selectedSpacing = spacingOptions.find(
     (option) => option.value === spacing

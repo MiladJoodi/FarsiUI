@@ -1,6 +1,6 @@
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
@@ -45,7 +45,7 @@ const STATS = [
   },
 ] as const
 
-export function DashboardStatsCards() {
+export default function DashboardStatsCards() {
   return (
     <section
       dir="rtl"

@@ -13,7 +13,7 @@ import { Field, FieldGroup } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 import { Label } from "@/styles/radix-nova/ui/label"
 
-export function DialogDemo() {
+export default function DialogDemo() {
   return (
     <Dialog>
       <form>

@@ -42,7 +42,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ContributionHistory() {
+export default function ContributionHistory() {
   const [params] = useDesignSystemSearchParams()
   const isRounded = !["lyra", "sera"].includes(params.style)
 

@@ -119,7 +119,7 @@ function NationalIdField({
   )
 }
 
-export function IdentityCivilCheck() {
+export default function IdentityCivilCheck() {
   const [step, setStep] = React.useState<Step>("info")
   const [digits, setDigits] = React.useState("")
   const [mobile, setMobile] = React.useState("09121234567")

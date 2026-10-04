@@ -10,7 +10,7 @@ import {
   FieldSet,
 } from "@/styles/aria-nova/ui/field"
 
-export function FieldCheckbox() {
+export default function FieldCheckbox() {
   return (
     <FieldGroup className="w-full max-w-xs">
       <FieldSet>

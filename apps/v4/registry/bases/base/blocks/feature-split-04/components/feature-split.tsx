@@ -29,7 +29,7 @@ const HIGHLIGHTS = [
   },
 ] as const
 
-export function FeatureSplitStats() {
+export default function FeatureSplitStats() {
   return (
     <section
       dir="rtl"

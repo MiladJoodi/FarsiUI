@@ -13,7 +13,7 @@ import {
   InputGroupInput,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function CalendarWithTime() {
+export default function CalendarWithTime() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     new CalendarDate(new Date().getFullYear(), new Date().getMonth() + 1, 12)
   )

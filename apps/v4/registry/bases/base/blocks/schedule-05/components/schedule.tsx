@@ -146,7 +146,7 @@ const INITIAL: Slot[] = [
   },
 ]
 
-export function ScheduleFancy() {
+export default function ScheduleFancy() {
   const [slots, setSlots] = React.useState(INITIAL)
   const [filter, setFilter] = React.useState("همه")
   const [busy, setBusy] = React.useState(true)

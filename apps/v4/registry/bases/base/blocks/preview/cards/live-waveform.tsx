@@ -488,7 +488,7 @@ const LiveWaveform = ({
   )
 }
 
-export function LiveWaveformCard() {
+export default function LiveWaveformCard() {
   const [active, setActive] = useState(false)
   const [processing, setProcessing] = useState(true)
   const [mode, setMode] = useState<"static" | "scrolling">("static")

@@ -7,7 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@/styles/radix-nova/ui/breadcrumb"
 
-export function BreadcrumbBasic() {
+export default function BreadcrumbBasic() {
   return (
     <Breadcrumb>
       <BreadcrumbList>

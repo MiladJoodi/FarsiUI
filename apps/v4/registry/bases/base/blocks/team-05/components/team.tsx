@@ -109,7 +109,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function TeamDirectory() {
+export default function TeamDirectory() {
   const [query, setQuery] = React.useState("")
   const [dept, setDept] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("name")

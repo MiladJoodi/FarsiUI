@@ -13,7 +13,7 @@ import {
   PopoverTrigger,
 } from "@/styles/radix-nova/ui/popover"
 
-export function DataPickerWithDropdowns() {
+export default function DataPickerWithDropdowns() {
   const [date, setDate] = React.useState<Date>()
   const [open, setOpen] = React.useState(false)
 

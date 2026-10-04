@@ -8,7 +8,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Switch } from "@/styles/radix-nova/ui/switch"
 
-export function SwitchChoiceCard() {
+export default function SwitchChoiceCard() {
   return (
     <FieldGroup className="w-full max-w-sm">
       <FieldLabel htmlFor="switch-share">

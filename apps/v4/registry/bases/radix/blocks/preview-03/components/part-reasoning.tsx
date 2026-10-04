@@ -40,7 +40,7 @@ function PartReasoningTrigger({ label }: { label?: string }) {
   )
 }
 
-export function PartReasoning({
+export default function PartReasoning({
   part,
   label,
   className,

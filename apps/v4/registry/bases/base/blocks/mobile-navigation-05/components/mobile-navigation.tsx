@@ -31,7 +31,7 @@ const LINKS = [
   { label: "تنظیمات", icon: SettingsIcon },
 ] as const
 
-export function MobileNavShowcase() {
+export default function MobileNavShowcase() {
   const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
 
   return (

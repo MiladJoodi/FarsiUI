@@ -15,7 +15,7 @@ import { Label } from "@/registry/bases/base/ui/label"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
-export function DocumentPreferences() {
+export default function DocumentPreferences() {
   const [publicDocs, setPublicDocs] = React.useState(false)
   const [notifySms, setNotifySms] = React.useState(true)
   const [autoResubmit, setAutoResubmit] = React.useState(false)

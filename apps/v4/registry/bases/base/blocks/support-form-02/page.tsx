@@ -1,4 +1,4 @@
-import { SupportPriorityForm } from "@/registry/bases/base/blocks/support-form-02/components/support-form"
+import SupportPriorityForm from "@/registry/bases/base/blocks/support-form-02/components/support-form"
 
 export default function Page() {
   return (

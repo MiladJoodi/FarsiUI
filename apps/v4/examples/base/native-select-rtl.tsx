@@ -3,7 +3,7 @@ import {
   NativeSelectOption,
 } from "@/styles/base-nova/ui/native-select"
 
-export function NativeSelectRtl() {
+export default function NativeSelectRtl() {
   return (
     <div dir="rtl">
       <NativeSelect>

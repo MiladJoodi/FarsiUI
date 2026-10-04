@@ -13,7 +13,7 @@ import {
   CommandList,
 } from "@/styles/base-nova/ui/command"
 
-export function CommandBasic() {
+export default function CommandBasic() {
   const [open, setOpen] = React.useState(false)
 
   return (

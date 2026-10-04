@@ -21,7 +21,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPForm() {
+export default function InputOTPForm() {
   return (
     <Card dir="rtl" className="mx-auto max-w-md">
       <CardHeader>

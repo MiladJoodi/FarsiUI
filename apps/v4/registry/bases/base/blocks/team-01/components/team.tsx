@@ -7,7 +7,7 @@ const MEMBERS = [
   { name: "رضا کاظمی", role: "رشد محصول" },
 ] as const
 
-export function TeamSimple() {
+export default function TeamSimple() {
   return (
     <div
       dir="rtl"

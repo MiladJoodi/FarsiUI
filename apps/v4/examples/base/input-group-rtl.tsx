@@ -18,7 +18,7 @@ import {
 } from "@/styles/base-nova/ui/input-group"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function InputGroupRtl() {
+export default function InputGroupRtl() {
   return (
     <div dir="rtl" className="grid w-full max-w-sm gap-6">
       <InputGroup className="max-w-xs">

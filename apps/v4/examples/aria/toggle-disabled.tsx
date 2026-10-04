@@ -1,6 +1,6 @@
 import { Toggle } from "@/styles/aria-nova/ui/toggle"
 
-export function ToggleDisabled() {
+export default function ToggleDisabled() {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Toggle aria-label="Toggle disabled" isDisabled>

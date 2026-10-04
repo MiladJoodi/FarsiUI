@@ -23,7 +23,7 @@ const IMAGES = [
   "https://images.unsplash.com/photo-1546435770-a3e426b57678?w=800&auto=format&fit=crop&q=80",
 ] as const
 
-export function ProductDetailsTabs() {
+export default function ProductDetailsTabs() {
   const [active, setActive] = React.useState(0)
   const [liked, setLiked] = React.useState(false)
   const [shareOpen, setShareOpen] = React.useState(false)

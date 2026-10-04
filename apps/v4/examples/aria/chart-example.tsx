@@ -24,7 +24,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartExample() {
+export default function ChartExample() {
   return (
     <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
       <BarChart accessibilityLayer data={chartData}>

@@ -36,7 +36,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function AnalyticsCard() {
+export default function AnalyticsCard() {
   return (
     <Card className="mx-auto w-full max-w-sm data-[size=sm]:pb-0" size="sm">
       <CardHeader>

@@ -4,7 +4,7 @@ import {
   ResizablePanelGroup,
 } from "@/styles/base-nova/ui/resizable"
 
-export function ResizableRtl() {
+export default function ResizableRtl() {
   return (
     <div dir="rtl">
       <ResizablePanelGroup

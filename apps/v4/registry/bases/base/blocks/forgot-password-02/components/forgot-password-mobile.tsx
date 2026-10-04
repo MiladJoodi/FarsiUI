@@ -29,7 +29,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function ForgotPasswordMobile() {
+export default function ForgotPasswordMobile() {
   const [step, setStep] = React.useState<"phone" | "otp">("phone")
   const [phone, setPhone] = React.useState("09121234567")
   const [otp, setOtp] = React.useState("")

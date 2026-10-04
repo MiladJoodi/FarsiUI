@@ -11,7 +11,7 @@ import {
   EmptyTitle,
 } from "@/styles/base-nova/ui/empty"
 
-export function EmptyMuted() {
+export default function EmptyMuted() {
   return (
     <div dir="rtl" className="h-full">
       <Empty className="h-full bg-muted/30">

@@ -13,7 +13,7 @@ import {
   AvatarFallback,
 } from "@/registry/bases/base/ui/avatar"
 
-export function AvatarUploadSimple() {
+export default function AvatarUploadSimple() {
   return (
     <section
       dir="rtl"

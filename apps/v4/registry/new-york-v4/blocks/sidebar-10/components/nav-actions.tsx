@@ -98,7 +98,7 @@ const data = [
   ],
 ]
 
-export function NavActions() {
+export default function NavActions() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   React.useEffect(() => {

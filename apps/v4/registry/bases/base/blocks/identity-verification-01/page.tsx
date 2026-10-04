@@ -1,4 +1,4 @@
-import { IdentityInfoForm } from "@/registry/bases/base/blocks/identity-verification-01/components/identity-info-form"
+import IdentityInfoForm from "@/registry/bases/base/blocks/identity-verification-01/components/identity-info-form"
 
 export default function Page() {
   return (

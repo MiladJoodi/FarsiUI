@@ -30,7 +30,7 @@ const ITEMS = [
   },
 ] as const
 
-export function FaqSplit() {
+export default function FaqSplit() {
   return (
     <div
       dir="rtl"

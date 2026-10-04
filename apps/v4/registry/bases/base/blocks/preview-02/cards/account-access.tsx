@@ -20,7 +20,7 @@ import {
 } from "@/registry/bases/base/ui/item"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function AccountAccess() {
+export default function AccountAccess() {
   return (
     <Card>
       <CardHeader>

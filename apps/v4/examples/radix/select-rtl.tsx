@@ -68,7 +68,7 @@ const translations: Translations = {
   },
 }
 
-export function SelectRtl() {
+export default function SelectRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
   const [selectedFruit, setSelectedFruit] = React.useState<string>("")
 

@@ -68,7 +68,7 @@ const OFFICES: Record<
   },
 }
 
-export function ContactHub() {
+export default function ContactHub() {
   const [topic, setTopic] = React.useState("sales")
   const [office, setOffice] = React.useState<OfficeKey>("tehran")
   const [callBack, setCallBack] = React.useState(false)

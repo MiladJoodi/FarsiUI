@@ -46,7 +46,7 @@ const users = [
   "rauchg",
 ]
 
-export function AssignIssue() {
+export default function AssignIssue() {
   const anchor = useComboboxAnchor()
   return (
     <Card className="w-full max-w-sm" size="sm">

@@ -13,7 +13,7 @@ import {
 } from "@/styles/aria-nova/ui/alert-dialog"
 import { Button } from "@/styles/aria-nova/ui/button"
 
-export function AlertDialogDestructive() {
+export default function AlertDialogDestructive() {
   return (
     <AlertDialogTrigger>
       <Button variant="destructive">Delete Chat</Button>

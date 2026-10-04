@@ -123,7 +123,6 @@ export function processMdxForLLMs(content: string, style: Style["name"]) {
         `@/registry/${effectiveStyle}/`,
         "@/components/"
       )
-      source = source.replaceAll("export default", "export")
 
       return `\`\`\`tsx
 ${source}

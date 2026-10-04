@@ -1,4 +1,4 @@
-import { ScheduleSlotForm } from "@/registry/bases/base/blocks/schedule-03/components/schedule"
+import ScheduleSlotForm from "@/registry/bases/base/blocks/schedule-03/components/schedule"
 
 export default function Page() {
   return <ScheduleSlotForm />

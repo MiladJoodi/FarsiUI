@@ -41,7 +41,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-nova/ui/tooltip"
 
-export function InputGroupWithTooltip({
+export default function InputGroupWithTooltip({
   country,
   setCountry,
 }: {

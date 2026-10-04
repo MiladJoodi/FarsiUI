@@ -11,7 +11,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Label } from "@/styles/base-nova/ui/label"
 
-export function CheckboxRtl() {
+export default function CheckboxRtl() {
   return (
     <FieldGroup className="max-w-sm" dir="rtl">
       <Field orientation="horizontal">

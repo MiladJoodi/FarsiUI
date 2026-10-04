@@ -133,7 +133,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function MediaGridHub() {
+export default function MediaGridHub() {
   const [type, setType] = React.useState("همه")
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState("جدیدترین")

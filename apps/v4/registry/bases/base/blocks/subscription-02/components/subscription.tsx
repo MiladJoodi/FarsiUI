@@ -41,7 +41,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function SubscriptionUsageCard() {
+export default function SubscriptionUsageCard() {
   return (
     <section
       dir="rtl"

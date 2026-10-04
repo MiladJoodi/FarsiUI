@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputField() {
+export default function InputField() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="input-field-username">نام کاربری</FieldLabel>

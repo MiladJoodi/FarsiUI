@@ -6,7 +6,7 @@ import { es } from "react-day-picker/locale"
 import { Calendar } from "@/styles/radix-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/radix-nova/ui/card"
 
-export function CalendarBookedDates() {
+export default function CalendarBookedDates() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(new Date().getFullYear(), 1, 3)
   )

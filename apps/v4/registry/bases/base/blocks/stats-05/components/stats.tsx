@@ -4,7 +4,7 @@ import * as React from "react"
 import { cn } from "cn"
 import { ArrowUpIcon, MapPinIcon } from "lucide-react"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
@@ -86,7 +86,7 @@ function CountUp({ value }: { value: string }) {
   )
 }
 
-export function StatsShowcase() {
+export default function StatsShowcase() {
   const [period, setPeriod] = React.useState("month")
 
   return (

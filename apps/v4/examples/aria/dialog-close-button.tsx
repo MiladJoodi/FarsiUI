@@ -11,7 +11,7 @@ import {
 import { Input } from "@/styles/aria-nova/ui/input"
 import { Label } from "@/styles/aria-nova/ui/label"
 
-export function DialogCloseButton() {
+export default function DialogCloseButton() {
   return (
     <DialogTrigger>
       <Button variant="outline">Share</Button>

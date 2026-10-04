@@ -7,7 +7,7 @@ import {
   FieldLabel,
 } from "@/styles/base-nova/ui/field"
 
-export function CheckboxDescription() {
+export default function CheckboxDescription() {
   return (
     <FieldGroup className="mx-auto w-72" dir="rtl">
       <Field orientation="horizontal">

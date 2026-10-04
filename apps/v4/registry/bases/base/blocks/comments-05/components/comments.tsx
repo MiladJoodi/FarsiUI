@@ -100,7 +100,7 @@ const SORT_ITEMS = [
   { value: "قدیمی‌ترین", label: "قدیمی‌ترین" },
 ] as const
 
-export function CommentsHub() {
+export default function CommentsHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [tab, setTab] = React.useState<NavId>("همه")
   const [sort, setSort] = React.useState("جدیدترین")

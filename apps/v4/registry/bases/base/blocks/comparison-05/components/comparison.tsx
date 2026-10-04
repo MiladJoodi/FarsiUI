@@ -49,7 +49,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function ComparisonHub() {
+export default function ComparisonHub() {
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState<SortKey>("پیش‌فرض")
 

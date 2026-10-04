@@ -3,7 +3,7 @@ import { GitBranchIcon, SearchIcon } from "lucide-react"
 import { Marker, MarkerContent, MarkerIcon } from "@/styles/aria-rhea/ui/marker"
 import { Spinner } from "@/styles/aria-rhea/ui/spinner"
 
-export function MarkerDemo() {
+export default function MarkerDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker>

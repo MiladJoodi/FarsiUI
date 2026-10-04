@@ -90,7 +90,7 @@ const translations: Translations = {
   },
 }
 
-export function ContextMenuRtl() {
+export default function ContextMenuRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set(["bookmarks"])

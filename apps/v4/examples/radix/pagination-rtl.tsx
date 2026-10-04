@@ -49,7 +49,7 @@ function toArabicNumerals(num: number): string {
     .join("")
 }
 
-export function PaginationRtl() {
+export default function PaginationRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   const formatNumber = (num: number): string => {

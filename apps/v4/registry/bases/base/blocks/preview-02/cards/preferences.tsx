@@ -34,7 +34,7 @@ const CURRENCIES = [
   { label: "JPY — Japanese Yen", value: "jpy" },
 ]
 
-export function Preferences() {
+export default function Preferences() {
   return (
     <Card>
       <CardHeader>

@@ -18,7 +18,7 @@ import {
   CommandShortcut,
 } from "@/styles/radix-nova/ui/command"
 
-export function CommandDemo() {
+export default function CommandDemo() {
   return (
     <Command className="max-w-sm rounded-lg border">
       <CommandInput placeholder="Type a command or search..." />

@@ -1,4 +1,4 @@
-import { LicensePlateForm } from "@/registry/bases/base/blocks/license-plate-01/components/license-plate-form"
+import LicensePlateForm from "@/registry/bases/base/blocks/license-plate-01/components/license-plate-form"
 
 export default function Page() {
   return (

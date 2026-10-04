@@ -59,7 +59,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function BillingSettingsForm() {
+export default function BillingSettingsForm() {
   const [cycle, setCycle] = React.useState<CycleValue>("ماهانه")
   const [currency, setCurrency] = React.useState<CurrencyValue>("تومان")
   const [autoPay, setAutoPay] = React.useState(true)

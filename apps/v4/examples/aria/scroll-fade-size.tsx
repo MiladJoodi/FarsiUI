@@ -2,7 +2,7 @@ function toPersianDigits(value: number | string) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
 }
 
-export function ScrollFadeSize() {
+export default function ScrollFadeSize() {
   return (
     <div className="mx-auto flex w-full max-w-xs flex-col gap-6" dir="rtl">
       <div className="flex flex-col gap-3">

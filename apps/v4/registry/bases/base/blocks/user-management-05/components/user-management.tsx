@@ -164,7 +164,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function UserManagementHub() {
+export default function UserManagementHub() {
   const [users, setUsers] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState("همه")

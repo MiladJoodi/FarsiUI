@@ -17,7 +17,7 @@ const ITEMS = [
   { name: "photo-cover.jpg", size: "۳٫۱ مگابایت" },
 ] as const
 
-export function AttachmentListSimple() {
+export default function AttachmentListSimple() {
   return (
     <section
       dir="rtl"

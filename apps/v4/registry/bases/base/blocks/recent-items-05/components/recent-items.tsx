@@ -106,7 +106,7 @@ const SORT_ITEMS = [
 
 type SortKey = (typeof SORT_ITEMS)[number]["value"]
 
-export function RecentItemsHub() {
+export default function RecentItemsHub() {
   const [query, setQuery] = React.useState("")
   const [type, setType] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("اخیر")

@@ -13,7 +13,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function SignupForm({
+export default function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {

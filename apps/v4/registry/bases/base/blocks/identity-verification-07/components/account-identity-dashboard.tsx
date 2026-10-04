@@ -62,7 +62,7 @@ const STEPS: {
   },
 ]
 
-export function AccountIdentityDashboard() {
+export default function AccountIdentityDashboard() {
   const [docUploaded, setDocUploaded] = React.useState(false)
   const completed = STEPS.filter((s) => s.state === "done").length + (docUploaded ? 1 : 0)
   const total = STEPS.length

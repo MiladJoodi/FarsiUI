@@ -52,7 +52,7 @@ const translations: Translations = {
   },
 }
 
-export function CheckboxRtl() {
+export default function CheckboxRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

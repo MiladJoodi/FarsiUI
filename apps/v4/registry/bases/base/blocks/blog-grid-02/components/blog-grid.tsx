@@ -54,7 +54,7 @@ const POSTS = [
   },
 ] as const
 
-export function BlogGridCards() {
+export default function BlogGridCards() {
   return (
     <section
       dir="rtl"

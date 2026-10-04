@@ -6,7 +6,7 @@ import { type DateRange } from "react-aria-components"
 
 import { RangeCalendar } from "@/styles/aria-nova/ui/calendar"
 
-export function CalendarRange() {
+export default function CalendarRange() {
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>({
     start: new CalendarDate(new Date().getFullYear(), 1, 12),
     end: new CalendarDate(new Date().getFullYear(), 1, 12).add({ days: 30 }),

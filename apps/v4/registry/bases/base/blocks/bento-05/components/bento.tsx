@@ -19,7 +19,7 @@ const HIGHLIGHTS = [
   { id: "theme", title: "تم‌ها", desc: "روشن و تیره هماهنگ" },
 ] as const
 
-export function BentoShowcase() {
+export default function BentoShowcase() {
   const [active, setActive] = React.useState<(typeof HIGHLIGHTS)[number]["id"]>(
     "blocks"
   )

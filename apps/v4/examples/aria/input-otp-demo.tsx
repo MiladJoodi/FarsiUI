@@ -4,7 +4,7 @@ import {
   InputOTPSlot,
 } from "@/styles/aria-nova/ui/input-otp"
 
-export function InputOTPDemo() {
+export default function InputOTPDemo() {
   return (
     <InputOTP maxLength={6} defaultValue="123456">
       <InputOTPGroup>

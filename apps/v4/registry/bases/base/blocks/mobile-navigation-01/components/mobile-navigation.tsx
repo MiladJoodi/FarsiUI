@@ -14,7 +14,7 @@ import {
 
 const LINKS = ["خانه", "محصولات", "قیمت‌ها", "پشتیبانی"] as const
 
-export function MobileNavSimple() {
+export default function MobileNavSimple() {
   const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
 
   return (

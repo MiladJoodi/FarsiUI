@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/styles/base-nova/ui/select"
 
-export function SelectRtl() {
+export default function SelectRtl() {
   const fruits = [
     { label: "سیب", value: "apple" },
     { label: "موز", value: "banana" },

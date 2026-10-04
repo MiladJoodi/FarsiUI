@@ -35,7 +35,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function FooterShowcase() {
+export default function FooterShowcase() {
   const [done, setDone] = React.useState(false)
 
   return (

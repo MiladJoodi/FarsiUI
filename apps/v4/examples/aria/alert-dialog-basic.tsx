@@ -10,7 +10,7 @@ import {
 } from "@/styles/aria-nova/ui/alert-dialog"
 import { Button } from "@/styles/aria-nova/ui/button"
 
-export function AlertDialogBasic() {
+export default function AlertDialogBasic() {
   return (
     <AlertDialogTrigger>
       <Button variant="outline">Show Dialog</Button>

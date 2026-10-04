@@ -56,7 +56,7 @@ const TICKETS: Record<
   },
 }
 
-export function SupportTicketStatus() {
+export default function SupportTicketStatus() {
   const [status, setStatus] = React.useState<StatusKey>("open")
   const current = TICKETS[status]
 

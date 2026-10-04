@@ -3,7 +3,7 @@ import { ButtonGroup } from "@/styles/radix-nova/ui/button-group"
 import { Field, FieldLabel } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputButtonGroup() {
+export default function InputButtonGroup() {
   return (
     <Field>
       <FieldLabel htmlFor="input-button-group">Search</FieldLabel>

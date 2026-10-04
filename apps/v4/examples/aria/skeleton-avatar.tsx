@@ -1,6 +1,6 @@
 import { Skeleton } from "@/styles/aria-nova/ui/skeleton"
 
-export function SkeletonAvatar() {
+export default function SkeletonAvatar() {
   return (
     <div className="flex w-fit items-center gap-4">
       <Skeleton className="size-10 shrink-0 rounded-full" />

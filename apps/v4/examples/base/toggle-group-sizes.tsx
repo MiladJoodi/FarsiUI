@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/base-nova/ui/toggle-group"
 
-export function ToggleGroupSizes() {
+export default function ToggleGroupSizes() {
   return (
     <div dir="rtl" className="flex flex-col gap-4">
       <ToggleGroup size="sm" defaultValue={["top"]} variant="outline">

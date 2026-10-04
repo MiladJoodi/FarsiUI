@@ -1,6 +1,6 @@
 "use client"
 
-import { NationalIdInput } from "@/registry/bases/base/blocks/identity-verification-01/components/national-id-input"
+import NationalIdInput from "@/registry/bases/base/blocks/identity-verification-01/components/national-id-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -17,7 +17,7 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function IdentityInfoForm() {
+export default function IdentityInfoForm() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

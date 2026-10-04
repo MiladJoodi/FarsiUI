@@ -11,7 +11,7 @@ import {
   EmptyTitle,
 } from "@/styles/base-nova/ui/empty"
 
-export function EmptyRtl() {
+export default function EmptyRtl() {
   return (
     <div dir="rtl">
       <Empty>

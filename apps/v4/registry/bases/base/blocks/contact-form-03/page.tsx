@@ -1,4 +1,4 @@
-import { ContactFormSplit } from "@/registry/bases/base/blocks/contact-form-03/components/contact-form"
+import ContactFormSplit from "@/registry/bases/base/blocks/contact-form-03/components/contact-form"
 
 export default function Page() {
   return (

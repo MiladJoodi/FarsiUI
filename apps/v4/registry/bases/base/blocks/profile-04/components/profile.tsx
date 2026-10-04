@@ -45,7 +45,7 @@ const ACTIVITY = [
   },
 ] as const
 
-export function ProfileCover() {
+export default function ProfileCover() {
   const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (

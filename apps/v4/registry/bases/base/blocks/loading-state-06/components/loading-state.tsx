@@ -7,7 +7,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
-export function LoadingDashboardSkeleton() {
+export default function LoadingDashboardSkeleton() {
   return (
     <section
       dir="rtl"

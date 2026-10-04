@@ -12,7 +12,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function NotFoundSimple() {
+export default function NotFoundSimple() {
   return (
     <section
       dir="rtl"

@@ -51,7 +51,7 @@ const BANK_ITEMS = [
   { value: "سامان", label: "سامان" },
 ] as const
 
-export function CheckoutAddressBook() {
+export default function CheckoutAddressBook() {
   const [selected, setSelected] = React.useState<(typeof ADDRESSES)[number]>(
     ADDRESSES[0]
   )

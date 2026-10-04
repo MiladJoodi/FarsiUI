@@ -1,8 +1,8 @@
 import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
 
-import { NavMain } from "@/registry/new-york-v4/blocks/sidebar-06/components/nav-main"
-import { SidebarOptInForm } from "@/registry/new-york-v4/blocks/sidebar-06/components/sidebar-opt-in-form"
+import NavMain from "@/registry/new-york-v4/blocks/sidebar-06/components/nav-main"
+import SidebarOptInForm from "@/registry/new-york-v4/blocks/sidebar-06/components/sidebar-opt-in-form"
 import {
   Sidebar,
   SidebarContent,
@@ -145,7 +145,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>

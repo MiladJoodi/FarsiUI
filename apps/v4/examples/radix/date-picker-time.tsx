@@ -14,7 +14,7 @@ import {
   PopoverTrigger,
 } from "@/styles/radix-nova/ui/popover"
 
-export function DatePickerTime() {
+export default function DatePickerTime() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(undefined)
 

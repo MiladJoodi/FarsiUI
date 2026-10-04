@@ -65,7 +65,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function PaymentMethodsDashboard() {
+export default function PaymentMethodsDashboard() {
   const [methods, setMethods] = React.useState(INITIAL)
 
   function setDefault(id: string) {

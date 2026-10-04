@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/radix-nova/ui/tabs"
 
-export function TabsLine() {
+export default function TabsLine() {
   return (
     <Tabs defaultValue="overview">
       <TabsList variant="line">

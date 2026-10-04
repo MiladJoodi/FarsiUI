@@ -10,7 +10,7 @@ import { I18nProvider } from "react-aria-components"
 
 import { Calendar } from "@/styles/aria-nova/ui-rtl/calendar"
 
-export function CalendarRtl() {
+export default function CalendarRtl() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     today(getLocalTimeZone())
   )

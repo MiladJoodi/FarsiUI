@@ -34,7 +34,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function EmptySearchForm() {
+export default function EmptySearchForm() {
   const [category, setCategory] = React.useState("همه دسته‌ها")
 
   return (

@@ -22,7 +22,7 @@ import {
 } from "@/registry/bases/aria/ui/native-select"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 
-export function GithubProfile() {
+export default function GithubProfile() {
   return (
     <Card className="mx-auto w-full max-w-md">
       <CardHeader>

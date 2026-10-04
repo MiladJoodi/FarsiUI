@@ -1,4 +1,4 @@
-import { DocumentPreferences } from "@/registry/bases/base/blocks/document-verification-03/components/document-preferences"
+import DocumentPreferences from "@/registry/bases/base/blocks/document-verification-03/components/document-preferences"
 
 export default function Page() {
   return (

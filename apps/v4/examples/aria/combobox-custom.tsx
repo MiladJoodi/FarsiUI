@@ -67,7 +67,7 @@ const countries = [
   },
 ]
 
-export function ComboboxWithCustomItems() {
+export default function ComboboxWithCustomItems() {
   return (
     <Combobox allowsEmptyCollection aria-label="Country">
       <ComboboxInput placeholder="Search countries..." />

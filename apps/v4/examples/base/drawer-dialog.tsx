@@ -24,7 +24,7 @@ import {
 import { Input } from "@/styles/base-rhea/ui/input"
 import { Label } from "@/styles/base-rhea/ui/label"
 
-export function DrawerDialogDemo() {
+export default function DrawerDialogDemo() {
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
 

@@ -12,7 +12,7 @@ import {
   TabsTrigger,
 } from "@/styles/aria-nova/ui/tabs"
 
-export function TabsDemo() {
+export default function TabsDemo() {
   return (
     <Tabs defaultSelectedKey="overview" className="w-[400px]">
       <TabsList>

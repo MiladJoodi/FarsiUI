@@ -58,7 +58,7 @@ const RECENT = [
   { id: "فاکتور-۱۰۳۸", amount: "۴۹۹٬۰۰۰", status: "پرداخت‌شده" },
 ] as const
 
-export function BillingDashboard() {
+export default function BillingDashboard() {
   return (
     <section
       dir="rtl"

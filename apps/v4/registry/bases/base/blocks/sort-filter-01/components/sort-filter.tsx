@@ -36,7 +36,7 @@ const FILTER_ITEMS = [
   { value: "تخفیف‌دار", label: "تخفیف‌دار" },
 ] as const
 
-export function SortFilterSimple() {
+export default function SortFilterSimple() {
   const [sort, setSort] = React.useState("جدیدترین")
   const [filter, setFilter] = React.useState("همه")
 

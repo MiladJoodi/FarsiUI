@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/styles/base-nova/ui/card"
 
-export function CardEdgeToEdge() {
+export default function CardEdgeToEdge() {
   return (
     <Card className="mx-auto w-full max-w-sm" dir="rtl">
       <CardHeader>

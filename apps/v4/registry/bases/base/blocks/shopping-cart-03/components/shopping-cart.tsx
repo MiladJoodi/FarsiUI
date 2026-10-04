@@ -62,7 +62,7 @@ function formatFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ShoppingCartCoupon() {
+export default function ShoppingCartCoupon() {
   const [items, setItems] = React.useState(INITIAL)
   const [coupon, setCoupon] = React.useState("")
   const [applied, setApplied] = React.useState(false)

@@ -106,7 +106,7 @@ function buildEvents(): EventItem[] {
   ]
 }
 
-export function EventListActions() {
+export default function EventListActions() {
   const [events, setEvents] = React.useState(buildEvents)
   const [chips, setChips] = React.useState(["جلسه", "پیش‌رو"])
   const [sort, setSort] = React.useState("تاریخ")

@@ -1,4 +1,4 @@
-import { MultiStepIdentity } from "@/registry/bases/base/blocks/identity-verification-04/components/multi-step-identity"
+import MultiStepIdentity from "@/registry/bases/base/blocks/identity-verification-04/components/multi-step-identity"
 
 export default function Page() {
   return (

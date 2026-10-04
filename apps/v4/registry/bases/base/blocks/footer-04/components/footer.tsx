@@ -21,7 +21,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function FooterNewsletter() {
+export default function FooterNewsletter() {
   const [done, setDone] = React.useState(false)
 
   return (

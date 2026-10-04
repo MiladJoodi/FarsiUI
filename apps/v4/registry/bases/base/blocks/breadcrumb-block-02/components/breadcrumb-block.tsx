@@ -15,7 +15,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function BreadcrumbWithTitle() {
+export default function BreadcrumbWithTitle() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="border-b px-6 py-8 md:px-10">

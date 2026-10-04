@@ -13,7 +13,7 @@ const PERKS = [
   "بدون تبلیغات مزاحم",
 ] as const
 
-export function NewsletterCard() {
+export default function NewsletterCard() {
   const [done, setDone] = React.useState(false)
 
   return (

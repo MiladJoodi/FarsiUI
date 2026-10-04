@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/registry/new-york-v4/blocks/sidebar-09/components/app-sidebar"
+import AppSidebar from "@/registry/new-york-v4/blocks/sidebar-09/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,

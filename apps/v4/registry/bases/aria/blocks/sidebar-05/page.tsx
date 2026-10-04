@@ -1,6 +1,6 @@
 "use client"
 
-import { AppSidebar } from "@/registry/bases/aria/blocks/sidebar-05/components/app-sidebar"
+import AppSidebar from "@/registry/bases/aria/blocks/sidebar-05/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,

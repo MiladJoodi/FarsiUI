@@ -6,7 +6,7 @@ import {
   InputGroupInput,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupDemo() {
+export default function InputGroupDemo() {
   return (
     <InputGroup className="max-w-xs">
       <InputGroupInput placeholder="Search..." />

@@ -33,7 +33,7 @@ const images = [
   },
 ]
 
-export function AttachmentDemo() {
+export default function AttachmentDemo() {
   return (
     <div className="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
       <AttachmentGroup>

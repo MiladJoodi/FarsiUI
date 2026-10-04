@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuDemo() {
+export default function DropdownMenuDemo() {
   return (
     <DropdownMenuTrigger>
       <Button variant="outline">Open</Button>

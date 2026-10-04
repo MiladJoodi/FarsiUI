@@ -31,7 +31,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function DocumentUploadForm() {
+export default function DocumentUploadForm() {
   const [docType, setDocType] = React.useState("national-card")
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [preview, setPreview] = React.useState<string | null>(null)

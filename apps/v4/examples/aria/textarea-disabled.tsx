@@ -1,7 +1,7 @@
 import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Textarea } from "@/styles/aria-nova/ui/textarea"
 
-export function TextareaDisabled() {
+export default function TextareaDisabled() {
   return (
     <Field data-disabled>
       <FieldLabel htmlFor="textarea-disabled">Message</FieldLabel>

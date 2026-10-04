@@ -45,7 +45,7 @@ const QUICK = [
   { title: "تنظیمات", icon: "SettingsIcon" },
 ] as const
 
-export function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar side="right" collapsible="icon" variant="inset">
       <SidebarHeader>

@@ -10,7 +10,7 @@ import { RangeCalendar } from "@/styles/aria-nova/ui/calendar"
 import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
 
-export function DatePickerWithRange() {
+export default function DatePickerWithRange() {
   const [date, setDate] = React.useState<DateRange | undefined>({
     start: new CalendarDate(new Date().getFullYear(), 1, 20),
     end: new CalendarDate(new Date().getFullYear(), 1, 20).add({ days: 20 }),

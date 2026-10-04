@@ -33,7 +33,7 @@ const SCENES = {
   focus: { brightness: [100], colorTemp: [85], volume: [0], fade: [0] },
 } as const
 
-export function KitchenIsland() {
+export default function KitchenIsland() {
   const [enabled, setEnabled] = React.useState(true)
   const [scene, setScene] = React.useState("cooking")
   const [brightness, setBrightness] = React.useState([90])

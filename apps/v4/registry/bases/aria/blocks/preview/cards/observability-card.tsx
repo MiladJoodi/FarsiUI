@@ -11,7 +11,7 @@ import {
 } from "@/registry/bases/aria/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function ObservabilityCard() {
+export default function ObservabilityCard() {
   return (
     <Card className="relative w-full max-w-md overflow-hidden pt-0">
       <div className="absolute inset-0 z-30 aspect-video bg-primary opacity-50 mix-blend-color" />

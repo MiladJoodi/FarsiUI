@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 
-export function ChartTooltipDemo() {
+export default function ChartTooltipDemo() {
   return (
     <div
       dir="rtl"

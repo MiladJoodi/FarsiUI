@@ -12,7 +12,7 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function NewsletterCentered() {
+export default function NewsletterCentered() {
   const [status, setStatus] = React.useState<"idle" | "done">("idle")
 
   return (

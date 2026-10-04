@@ -14,7 +14,7 @@ import {
 
 const SNAP_POINTS = ["31rem", 1]
 
-export function DrawerSnapPoints() {
+export default function DrawerSnapPoints() {
   return (
     <div dir="rtl">
       <Drawer snapPoints={SNAP_POINTS} showSwipeHandle>

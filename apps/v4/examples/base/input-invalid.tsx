@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputInvalid() {
+export default function InputInvalid() {
   return (
     <Field data-invalid dir="rtl">
       <FieldLabel htmlFor="input-invalid">ورودی نامعتبر</FieldLabel>

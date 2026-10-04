@@ -19,7 +19,7 @@ import {
   InputGroupTextarea,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupInCard() {
+export default function InputGroupInCard() {
   return (
     <Card className="w-full">
       <CardHeader>

@@ -5,7 +5,7 @@ const ROWS = [
   { label: "زمان راه‌اندازی", before: "هفته‌ها", after: "ساعت‌ها" },
 ] as const
 
-export function ComparisonSimple() {
+export default function ComparisonSimple() {
   return (
     <div
       dir="rtl"

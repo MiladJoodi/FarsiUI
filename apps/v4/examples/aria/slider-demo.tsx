@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/aria-nova/ui/slider"
 
-export function SliderDemo() {
+export default function SliderDemo() {
   return (
     <Slider
       aria-label="Slider"

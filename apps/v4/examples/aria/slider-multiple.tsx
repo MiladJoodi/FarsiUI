@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/aria-nova/ui/slider"
 
-export function SliderMultiple() {
+export default function SliderMultiple() {
   return (
     <Slider
       aria-label="Multiple slider"

@@ -18,7 +18,7 @@ const METHODS = [
   { bank: "سامان", last4: "۹۱۰۳", exp: "۱۲/۰۶" },
 ] as const
 
-export function PaymentMethodsSimple() {
+export default function PaymentMethodsSimple() {
   return (
     <section
       dir="rtl"

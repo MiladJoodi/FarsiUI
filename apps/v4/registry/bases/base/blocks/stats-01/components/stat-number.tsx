@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { cn } from "cn"
 
 /** Keep Persian figures tight — avoid inherited tracking / tabular gaps. */
-export function StatNumber({
+export default function StatNumber({
   value,
   className,
 }: {

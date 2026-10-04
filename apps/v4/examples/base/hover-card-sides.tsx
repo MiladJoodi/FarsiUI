@@ -12,7 +12,7 @@ const HOVER_CARD_SIDES = [
   { side: "right", label: "راست" },
 ] as const
 
-export function HoverCardSides() {
+export default function HoverCardSides() {
   return (
     <div dir="rtl" className="flex flex-wrap justify-center gap-2">
       {HOVER_CARD_SIDES.map(({ side, label }) => (

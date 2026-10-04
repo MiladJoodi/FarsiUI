@@ -24,7 +24,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartBarDemoAxis() {
+export default function ChartBarDemoAxis() {
   return (
     <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
       <BarChart accessibilityLayer data={chartData}>

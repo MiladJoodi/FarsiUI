@@ -217,12 +217,6 @@ async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
     : path.join(process.cwd(), file.path)
   let code = await fs.readFile(absolutePath, "utf-8")
 
-  // Some registry items uses default export.
-  // We want to use named export instead.
-  if (file.type !== "registry:page") {
-    code = code.replaceAll("export default", "export")
-  }
-
   // Fix imports.
   code = fixImport(code)
 

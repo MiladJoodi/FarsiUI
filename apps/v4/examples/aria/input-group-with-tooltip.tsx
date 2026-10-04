@@ -33,7 +33,7 @@ import {
 } from "@/styles/aria-nova/ui/popover"
 import { Tooltip, TooltipTrigger } from "@/styles/aria-nova/ui/tooltip"
 
-export function InputGroupWithTooltip({
+export default function InputGroupWithTooltip({
   country,
   setCountry,
 }: {

@@ -11,7 +11,7 @@ import {
   InputGroupInput,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupInlineEnd() {
+export default function InputGroupInlineEnd() {
   return (
     <Field className="max-w-sm">
       <FieldLabel htmlFor="inline-end-input">Input</FieldLabel>

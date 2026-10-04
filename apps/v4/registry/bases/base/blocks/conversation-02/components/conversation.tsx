@@ -39,7 +39,7 @@ const REPLIES = [
   },
 ] as const
 
-export function ConversationThread() {
+export default function ConversationThread() {
   return (
     <section
       dir="rtl"

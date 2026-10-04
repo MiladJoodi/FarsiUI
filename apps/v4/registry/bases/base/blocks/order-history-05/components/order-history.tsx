@@ -147,7 +147,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function OrderHistoryHub() {
+export default function OrderHistoryHub() {
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("تاریخ")

@@ -77,7 +77,7 @@ const EVENTS = [
   },
 ] as const
 
-export function EventListCards() {
+export default function EventListCards() {
   return (
     <section
       dir="rtl"

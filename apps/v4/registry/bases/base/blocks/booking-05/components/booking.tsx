@@ -93,7 +93,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function BookingFancy() {
+export default function BookingFancy() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [service, setService] = React.useState<ServiceId>("مشاوره")

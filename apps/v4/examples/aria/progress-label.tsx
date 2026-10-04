@@ -4,7 +4,7 @@ import {
   ProgressValue,
 } from "@/styles/aria-nova/ui/progress"
 
-export function ProgressWithLabel() {
+export default function ProgressWithLabel() {
   return (
     <Progress value={56} className="w-full max-w-sm">
       <ProgressLabel>Upload progress</ProgressLabel>

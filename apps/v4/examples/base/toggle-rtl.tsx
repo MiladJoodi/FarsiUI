@@ -2,7 +2,7 @@ import { BookmarkIcon } from "lucide-react"
 
 import { Toggle } from "@/styles/base-nova/ui/toggle"
 
-export function ToggleRtl() {
+export default function ToggleRtl() {
   return (
     <div dir="rtl">
       <Toggle aria-label="نشانه‌گذاری" size="sm" variant="outline">

@@ -33,7 +33,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function StepsCards() {
+export default function StepsCards() {
   return (
     <div
       dir="rtl"

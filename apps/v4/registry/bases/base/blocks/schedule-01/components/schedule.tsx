@@ -32,7 +32,7 @@ const SLOTS = [
   { time: "۱۶:۰۰", title: "برنامه‌ریزی اسپرینت" },
 ] as const
 
-export function ScheduleSimple() {
+export default function ScheduleSimple() {
   return (
     <section
       dir="rtl"

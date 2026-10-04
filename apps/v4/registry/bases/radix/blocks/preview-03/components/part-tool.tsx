@@ -43,7 +43,7 @@ function formatValue(value: unknown) {
   return JSON.stringify(value, null, 2)
 }
 
-export function PartTool({
+export default function PartTool({
   part,
   className,
 }: { part: ToolPart } & Omit<React.ComponentProps<"div">, "part">) {

@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/aria-nova/ui/tabs"
 
-export function TabsLine() {
+export default function TabsLine() {
   return (
     <Tabs defaultSelectedKey="overview">
       <TabsList variant="line">

@@ -80,7 +80,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ProductDetailsHub() {
+export default function ProductDetailsHub() {
   const [active, setActive] = React.useState(0)
   const [qty, setQty] = React.useState(1)
   const [liked, setLiked] = React.useState(false)

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/registry/bases/base/ui/card"
 import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
-export function LoadingCard() {
+export default function LoadingCard() {
   return (
     <Card>
       <CardHeader>

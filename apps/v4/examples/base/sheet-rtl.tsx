@@ -12,7 +12,7 @@ import {
   SheetTrigger,
 } from "@/styles/base-nova/ui/sheet"
 
-export function SheetRtl() {
+export default function SheetRtl() {
   return (
     <div dir="rtl">
       <Sheet>

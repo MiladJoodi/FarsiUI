@@ -7,7 +7,7 @@ import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function HeaderShowcase() {
+export default function HeaderShowcase() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="border-b">

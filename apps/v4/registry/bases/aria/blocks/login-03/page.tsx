@@ -1,6 +1,6 @@
 "use client"
 
-import { LoginForm } from "@/registry/bases/aria/blocks/login-03/components/login-form"
+import LoginForm from "@/registry/bases/aria/blocks/login-03/components/login-form"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export default function LoginPage() {

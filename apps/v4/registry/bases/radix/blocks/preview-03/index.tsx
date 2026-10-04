@@ -1,7 +1,7 @@
-import { FilesChat } from "@/registry/bases/radix/blocks/preview-03/cards/files-chat"
-import { GroupChat } from "@/registry/bases/radix/blocks/preview-03/cards/group-chat"
-import { ReasoningChat } from "@/registry/bases/radix/blocks/preview-03/cards/reasoning-chat"
-import { SimpleChat } from "@/registry/bases/radix/blocks/preview-03/cards/simple-chat"
+import FilesChat from "@/registry/bases/radix/blocks/preview-03/cards/files-chat"
+import GroupChat from "@/registry/bases/radix/blocks/preview-03/cards/group-chat"
+import ReasoningChat from "@/registry/bases/radix/blocks/preview-03/cards/reasoning-chat"
+import SimpleChat from "@/registry/bases/radix/blocks/preview-03/cards/simple-chat"
 import { Spinner } from "@/registry/bases/radix/ui/spinner"
 
 export default function Preview03Example() {

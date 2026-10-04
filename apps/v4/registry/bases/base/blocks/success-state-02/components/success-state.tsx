@@ -19,7 +19,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function SuccessCard() {
+export default function SuccessCard() {
   return (
     <section
       dir="rtl"

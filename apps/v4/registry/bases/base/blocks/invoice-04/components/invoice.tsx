@@ -89,7 +89,7 @@ function statusVariant(
   return "default"
 }
 
-export function InvoiceList() {
+export default function InvoiceList() {
   const [filter, setFilter] = React.useState<FilterValue>("همه")
   const visible =
     filter === "همه"

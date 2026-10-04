@@ -58,7 +58,7 @@ function formatExp(value: string) {
   return `${fa.slice(0, 2)}/${fa.slice(2)}`
 }
 
-export function PaymentMethodsAddForm() {
+export default function PaymentMethodsAddForm() {
   const [type, setType] = React.useState<TypeValue>("کارت بانکی")
   const [card, setCard] = React.useState("")
   const [exp, setExp] = React.useState("")

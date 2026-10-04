@@ -12,7 +12,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function EmptySearchSimple() {
+export default function EmptySearchSimple() {
   return (
     <section
       dir="rtl"

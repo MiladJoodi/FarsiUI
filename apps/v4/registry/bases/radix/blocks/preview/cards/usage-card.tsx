@@ -97,7 +97,7 @@ function CircularGauge({ percentage }: { percentage: number }) {
   )
 }
 
-export function UsageCard() {
+export default function UsageCard() {
   return (
     <Card className="w-full max-w-sm gap-4">
       <CardHeader>

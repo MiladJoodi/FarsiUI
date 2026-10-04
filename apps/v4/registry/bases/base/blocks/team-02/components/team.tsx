@@ -58,7 +58,7 @@ const MEMBERS = [
   },
 ] as const
 
-export function TeamCards() {
+export default function TeamCards() {
   return (
     <div
       dir="rtl"

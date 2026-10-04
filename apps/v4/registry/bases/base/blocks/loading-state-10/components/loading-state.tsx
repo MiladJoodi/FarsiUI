@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 
-export function LoadingMediaGallery() {
+export default function LoadingMediaGallery() {
   return (
     <section
       dir="rtl"

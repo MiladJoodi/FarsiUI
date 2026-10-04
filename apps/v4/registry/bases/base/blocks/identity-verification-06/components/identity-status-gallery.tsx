@@ -76,7 +76,7 @@ const STATUSES: Record<
   },
 }
 
-export function IdentityStatusGallery() {
+export default function IdentityStatusGallery() {
   const [status, setStatus] = React.useState<StatusKey>("pending")
   const current = STATUSES[status]
 

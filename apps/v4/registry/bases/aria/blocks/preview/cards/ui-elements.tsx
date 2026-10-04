@@ -48,7 +48,7 @@ import { Switch } from "@/registry/bases/aria/ui/switch"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function UIElements() {
+export default function UIElements() {
   const [sliderValue, setSliderValue] = React.useState<number[]>([500])
   const handleSliderValueChange = React.useCallback(
     (value: number | readonly number[]) => {

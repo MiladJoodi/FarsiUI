@@ -12,8 +12,9 @@ export default defineConfig({
         rehypePrettyCode,
         {
           theme: {
-            dark: "github-dark",
-            light: "github-light",
+            // VS Code Default Dark+ / Light+
+            dark: "dark-plus",
+            light: "light-plus",
           },
           transformers,
         },

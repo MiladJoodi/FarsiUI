@@ -5,7 +5,7 @@ import { Separator } from "@/styles/radix-nova/ui/separator"
 
 const tags = Array.from({ length: 50 }, (_, i) => `v1.2.0-beta.${50 - i}`)
 
-export function ScrollAreaDemo() {
+export default function ScrollAreaDemo() {
   return (
     <ScrollArea className="h-72 w-48 rounded-md border">
       <div className="p-4">

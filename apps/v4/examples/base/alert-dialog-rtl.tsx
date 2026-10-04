@@ -72,7 +72,7 @@ const translations: Translations = {
   },
 }
 
-export function AlertDialogRtl() {
+export default function AlertDialogRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   return (

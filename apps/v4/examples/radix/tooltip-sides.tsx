@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-nova/ui/tooltip"
 
-export function TooltipSides() {
+export default function TooltipSides() {
   return (
     <div className="flex flex-wrap gap-2">
       {(["left", "top", "bottom", "right"] as const).map((side) => (

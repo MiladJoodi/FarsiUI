@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
@@ -64,7 +64,7 @@ const PERIOD_ITEMS = (Object.keys(DATA) as Period[]).map((key) => ({
   label: key,
 }))
 
-export function DashboardStatsPeriod() {
+export default function DashboardStatsPeriod() {
   const [period, setPeriod] = React.useState<Period>("هفته")
   const current = DATA[period]
 

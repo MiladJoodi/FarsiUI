@@ -1,4 +1,4 @@
-import { NationalIdProfileForm } from "@/registry/bases/base/blocks/national-id-03/components/national-id-profile-form"
+import NationalIdProfileForm from "@/registry/bases/base/blocks/national-id-03/components/national-id-profile-form"
 
 export default function Page() {
   return (

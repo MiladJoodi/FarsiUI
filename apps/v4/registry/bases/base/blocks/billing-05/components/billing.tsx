@@ -87,7 +87,7 @@ const USAGE = [
   { label: "فضا", value: 45, detail: "۹ / ۲۰ گیگابایت" },
 ] as const
 
-export function BillingFancy() {
+export default function BillingFancy() {
   const [autoPay, setAutoPay] = React.useState(true)
   const [cycle, setCycle] = React.useState<CycleValue>("ماهانه")
 

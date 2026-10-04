@@ -98,7 +98,7 @@ const translations: Translations = {
   },
 }
 
-export function TabsRtl() {
+export default function TabsRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

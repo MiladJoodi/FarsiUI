@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/styles/base-nova/ui/card"
 import { Skeleton } from "@/styles/base-nova/ui/skeleton"
 
-export function SkeletonCard() {
+export default function SkeletonCard() {
   return (
     <Card dir="rtl" className="w-full max-w-xs">
       <CardHeader>

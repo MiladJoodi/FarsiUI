@@ -1,6 +1,6 @@
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function SpinnerSize() {
+export default function SpinnerSize() {
   return (
     <div dir="rtl" className="flex items-center gap-6">
       <Spinner className="size-3" />

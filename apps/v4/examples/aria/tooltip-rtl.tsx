@@ -49,7 +49,7 @@ const translations: Translations = {
 const physicalSides = ["left", "top", "bottom", "right"] as const
 const logicalPlacements = ["start", "end"] as const
 
-export function TooltipRtl() {
+export default function TooltipRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

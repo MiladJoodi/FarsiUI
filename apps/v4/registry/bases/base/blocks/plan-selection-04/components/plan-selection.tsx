@@ -46,7 +46,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function PlanSelectionWizard() {
+export default function PlanSelectionWizard() {
   const [plan, setPlan] = React.useState("pro")
   const [yearly, setYearly] = React.useState(true)
   const [compare, setCompare] = React.useState(false)

@@ -43,7 +43,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function SortFilterToolbar() {
+export default function SortFilterToolbar() {
   const [sort, setSort] = React.useState("جدیدترین")
   const [category, setCategory] = React.useState("همه")
 

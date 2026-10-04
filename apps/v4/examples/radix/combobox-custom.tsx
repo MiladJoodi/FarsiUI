@@ -68,7 +68,7 @@ const countries = [
   },
 ]
 
-export function ComboboxWithCustomItems() {
+export default function ComboboxWithCustomItems() {
   return (
     <Combobox
       items={countries.filter((country) => country.code !== "")}

@@ -1,4 +1,4 @@
-import { DocumentChecklist } from "@/registry/bases/base/blocks/document-verification-02/components/document-checklist"
+import DocumentChecklist from "@/registry/bases/base/blocks/document-verification-02/components/document-checklist"
 
 export default function Page() {
   return (

@@ -26,7 +26,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function CalendarBlockSimple() {
+export default function CalendarBlockSimple() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
 
   return (

@@ -43,7 +43,7 @@ const trendPercent =
     : Math.round(((latestVisitors - previousVisitors) / previousVisitors) * 100)
 const trendPrefix = trendPercent > 0 ? "+" : ""
 
-export function Visitors() {
+export default function Visitors() {
   return (
     <Card className="pb-0">
       <CardHeader>

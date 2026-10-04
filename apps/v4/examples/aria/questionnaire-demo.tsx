@@ -46,7 +46,7 @@ const items = [
   },
 ] as const
 
-export function QuestionnaireDemo() {
+export default function QuestionnaireDemo() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

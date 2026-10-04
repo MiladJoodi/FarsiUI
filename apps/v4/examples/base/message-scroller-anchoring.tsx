@@ -78,7 +78,7 @@ const scriptedMessages: ChatMessage[] = [
   },
 ]
 
-export function MessageScrollerAnchoring() {
+export default function MessageScrollerAnchoring() {
   const [anchorRole, setAnchorRole] = React.useState<AnchorRole>("user")
   const [messages, setMessages] = React.useState<ChatMessage[]>([])
   const [messageIndex, setMessageIndex] = React.useState(0)

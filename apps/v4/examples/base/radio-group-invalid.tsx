@@ -7,7 +7,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
-export function RadioGroupInvalid() {
+export default function RadioGroupInvalid() {
   return (
     <div dir="rtl">
       <FieldSet className="w-full max-w-xs">

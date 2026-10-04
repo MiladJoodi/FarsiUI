@@ -8,7 +8,7 @@ import {
 } from "@/registry/bases/radix/ui/card"
 import { Separator } from "@/registry/bases/radix/ui/separator"
 
-export function AlbumCard() {
+export default function AlbumCard() {
   return (
     <Card>
       <CardContent className="flex flex-col gap-4">

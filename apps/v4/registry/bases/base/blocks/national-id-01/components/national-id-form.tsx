@@ -110,7 +110,7 @@ function NationalIdField({
   )
 }
 
-export function NationalIdForm() {
+export default function NationalIdForm() {
   const [digits, setDigits] = React.useState("")
   const [done, setDone] = React.useState(false)
   const valid = isValid(digits)

@@ -34,7 +34,7 @@ const ACTIVITY = [
   },
 ] as const
 
-export function DashboardActivity() {
+export default function DashboardActivity() {
   return (
     <section
       dir="rtl"

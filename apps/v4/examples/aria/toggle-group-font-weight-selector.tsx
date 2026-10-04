@@ -12,7 +12,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupFontWeightSelector() {
+export default function ToggleGroupFontWeightSelector() {
   const [fontWeight, setFontWeight] = React.useState("normal")
   return (
     <Field>

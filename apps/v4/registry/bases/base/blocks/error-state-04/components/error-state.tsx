@@ -30,7 +30,7 @@ import {
 } from "@/registry/bases/base/ui/popover"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function ErrorStateInContext() {
+export default function ErrorStateInContext() {
   return (
     <section
       dir="rtl"

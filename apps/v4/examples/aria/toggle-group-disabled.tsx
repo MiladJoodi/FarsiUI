@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupDisabled() {
+export default function ToggleGroupDisabled() {
   return (
     <ToggleGroup isDisabled>
       <ToggleGroupItem id="bold" aria-label="Toggle bold">

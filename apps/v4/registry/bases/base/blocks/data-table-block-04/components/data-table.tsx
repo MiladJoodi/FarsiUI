@@ -107,7 +107,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function DataTablePaginated() {
+export default function DataTablePaginated() {
   const [pageSize, setPageSize] = React.useState("5")
   const [page, setPage] = React.useState(0)
   const [colsOpen, setColsOpen] = React.useState(false)

@@ -1,9 +1,9 @@
 "use client"
 
-import { LOGOS, LogoImage } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
+import LogoImage, { LOGOS } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
 import { Badge } from "@/registry/bases/base/ui/badge"
 
-export function LogoCloudSplit() {
+export default function LogoCloudSplit() {
   const primary = LOGOS.slice(0, 4)
   const secondary = LOGOS.slice(4)
 

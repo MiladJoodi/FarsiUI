@@ -6,7 +6,7 @@ import { Bubble, BubbleContent } from "@/registry/bases/radix/ui/bubble"
 
 type PartTextVariant = "default" | "bubble"
 
-export function PartText({
+export default function PartText({
   part,
   role,
   variant,

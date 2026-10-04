@@ -11,7 +11,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactSplit() {
+export default function ContactSplit() {
   return (
     <div
       dir="rtl"

@@ -8,7 +8,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPFourDigits() {
+export default function InputOTPFourDigits() {
   return (
     <div dir="rtl">
       <InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS}>

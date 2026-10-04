@@ -21,7 +21,7 @@ const ITEMS = [
   },
 ] as const
 
-export function WishlistSimple() {
+export default function WishlistSimple() {
   return (
     <section
       dir="rtl"

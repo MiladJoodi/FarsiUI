@@ -1,4 +1,4 @@
-export function TypographyH4() {
+export default function TypographyH4() {
   return (
     <h4
       dir="rtl"

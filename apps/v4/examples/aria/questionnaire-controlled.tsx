@@ -30,7 +30,7 @@ const itemLabels: Record<string, string> = {
   output: "Final output",
 }
 
-export function QuestionnaireControlled() {
+export default function QuestionnaireControlled() {
   const [item, setItem] = React.useState("scope")
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

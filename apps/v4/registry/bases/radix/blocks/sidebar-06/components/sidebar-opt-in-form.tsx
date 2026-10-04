@@ -8,7 +8,7 @@ import {
 } from "@/registry/bases/radix/ui/card"
 import { SidebarInput } from "@/registry/bases/radix/ui/sidebar"
 
-export function SidebarOptInForm() {
+export default function SidebarOptInForm() {
   return (
     <Card className="gap-2 py-4 shadow-none">
       <CardHeader className="px-4">

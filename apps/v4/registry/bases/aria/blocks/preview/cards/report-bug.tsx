@@ -21,7 +21,7 @@ import {
 } from "@/registry/bases/aria/ui/select"
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 
-export function ReportBug() {
+export default function ReportBug() {
   return (
     <Card>
       <CardHeader>

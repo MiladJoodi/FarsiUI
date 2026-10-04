@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/aria-nova/ui/tabs"
 
-export function TabsDisabled() {
+export default function TabsDisabled() {
   return (
     <Tabs defaultSelectedKey="home">
       <TabsList>

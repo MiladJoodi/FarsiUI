@@ -15,11 +15,11 @@ import {
   Trash2,
 } from "lucide-react"
 
-import { NavFavorites } from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-favorites"
-import { NavMain } from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-main"
-import { NavSecondary } from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-secondary"
-import { NavWorkspaces } from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-workspaces"
-import { TeamSwitcher } from "@/registry/new-york-v4/blocks/sidebar-15/components/team-switcher"
+import NavFavorites from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-favorites"
+import NavMain from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-main"
+import NavSecondary from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-secondary"
+import NavWorkspaces from "@/registry/new-york-v4/blocks/sidebar-15/components/nav-workspaces"
+import TeamSwitcher from "@/registry/new-york-v4/blocks/sidebar-15/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -258,7 +258,7 @@ const data = {
   ],
 }
 
-export function SidebarLeft({
+export default function SidebarLeft({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (

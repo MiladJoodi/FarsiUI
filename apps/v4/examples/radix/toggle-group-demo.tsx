@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/radix-nova/ui/toggle-group"
 
-export function ToggleGroupDemo() {
+export default function ToggleGroupDemo() {
   return (
     <ToggleGroup variant="outline" type="multiple">
       <ToggleGroupItem value="bold" aria-label="Toggle bold">

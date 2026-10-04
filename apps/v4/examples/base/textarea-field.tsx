@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
-export function TextareaField() {
+export default function TextareaField() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="textarea-message">پیام</FieldLabel>

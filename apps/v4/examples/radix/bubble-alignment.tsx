@@ -1,6 +1,6 @@
 import { Bubble, BubbleContent } from "@/styles/radix-rhea/ui/bubble"
 
-export function BubbleAlignmentDemo() {
+export default function BubbleAlignmentDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Bubble variant="muted">

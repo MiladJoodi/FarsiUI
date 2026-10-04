@@ -28,7 +28,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function BillingPeriodSimple() {
+export default function BillingPeriodSimple() {
   return (
     <section
       dir="rtl"

@@ -18,7 +18,7 @@ import {
 } from "@/styles/radix-rhea/ui/attachment"
 import { Spinner } from "@/styles/radix-rhea/ui/spinner"
 
-export function AttachmentStates() {
+export default function AttachmentStates() {
   return (
     <div className="mx-auto flex w-full max-w-sm flex-col gap-2 py-12">
       <Attachment state="idle" className="w-full">

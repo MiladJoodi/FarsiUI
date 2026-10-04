@@ -10,7 +10,7 @@ import {
 import { Item, ItemContent } from "@/registry/bases/aria/ui/item"
 import { Separator } from "@/registry/bases/aria/ui/separator"
 
-export function ClaimableBalance() {
+export default function ClaimableBalance() {
   return (
     <Card>
       <CardHeader>

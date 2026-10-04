@@ -1,8 +1,8 @@
 "use client"
 
-import { LOGOS, LogoImage } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
+import LogoImage, { LOGOS } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
 
-export function LogoCloudGrid() {
+export default function LogoCloudGrid() {
   return (
     <section
       dir="rtl"

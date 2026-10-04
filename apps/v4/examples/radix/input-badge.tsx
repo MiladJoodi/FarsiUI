@@ -2,7 +2,7 @@ import { Badge } from "@/styles/radix-nova/ui/badge"
 import { Field, FieldLabel } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputBadge() {
+export default function InputBadge() {
   return (
     <Field>
       <FieldLabel htmlFor="input-badge">

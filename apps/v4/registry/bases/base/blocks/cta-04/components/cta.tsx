@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function CtaSplit() {
+export default function CtaSplit() {
   return (
     <section
       dir="rtl"

@@ -4,7 +4,7 @@ import {
   SidebarGroupContent,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function DatePicker() {
+export default function DatePicker() {
   return (
     <SidebarGroup className="px-0">
       <SidebarGroupContent>

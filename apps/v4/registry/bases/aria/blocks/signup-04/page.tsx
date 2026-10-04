@@ -1,4 +1,4 @@
-import { SignupForm } from "@/registry/bases/aria/blocks/signup-04/components/signup-form"
+import SignupForm from "@/registry/bases/aria/blocks/signup-04/components/signup-form"
 
 export default function SignupPage() {
   return (

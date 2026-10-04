@@ -1,4 +1,4 @@
-import { ProfileFormAvatar } from "@/registry/bases/base/blocks/profile-form-02/components/profile-form"
+import ProfileFormAvatar from "@/registry/bases/base/blocks/profile-form-02/components/profile-form"
 
 export default function Page() {
   return (

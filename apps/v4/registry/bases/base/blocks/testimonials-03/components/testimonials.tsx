@@ -20,7 +20,7 @@ const SIDE = [
   },
 ] as const
 
-export function TestimonialsFeatured() {
+export default function TestimonialsFeatured() {
   return (
     <section
       dir="rtl"

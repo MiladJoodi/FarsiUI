@@ -58,7 +58,7 @@ const INITIAL: Order[] = [
   },
 ]
 
-export function OrderHistoryActions() {
+export default function OrderHistoryActions() {
   const [orders, setOrders] = React.useState(INITIAL)
   const [openId, setOpenId] = React.useState<string | null>(null)
 

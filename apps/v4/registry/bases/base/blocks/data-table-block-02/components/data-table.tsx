@@ -43,7 +43,7 @@ const ROWS = [
   },
 ] as const
 
-export function DataTableWithEmail() {
+export default function DataTableWithEmail() {
   return (
     <section
       dir="rtl"

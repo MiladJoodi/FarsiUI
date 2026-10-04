@@ -44,7 +44,7 @@ const COMMENTS = [
   },
 ] as const
 
-export function ArticleMagazine() {
+export default function ArticleMagazine() {
   const [done, setDone] = React.useState(false)
 
   return (

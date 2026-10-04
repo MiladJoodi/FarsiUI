@@ -20,7 +20,7 @@ function formatDate(date: Date) {
   })
 }
 
-export function DatePickerDemo() {
+export default function DatePickerDemo() {
   const [date, setDate] = React.useState<Date>()
 
   return (

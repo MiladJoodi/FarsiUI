@@ -49,7 +49,7 @@ const ITEMS = [
   },
 ] as const
 
-export function RecentItemsPinned() {
+export default function RecentItemsPinned() {
   const [pinned, setPinned] = React.useState(
     () => new Set(ITEMS.filter((i) => i.pinned).map((i) => i.id))
   )

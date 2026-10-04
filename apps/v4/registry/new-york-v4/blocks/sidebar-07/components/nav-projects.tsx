@@ -25,7 +25,7 @@ import {
   useSidebar,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function NavProjects({
+export default function NavProjects({
   projects,
 }: {
   projects: {

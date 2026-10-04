@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/registry/bases/base/ui/card"
 import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
-export function SkeletonLoading() {
+export default function SkeletonLoading() {
   return (
     <Card>
       <CardContent className="flex flex-col gap-4">

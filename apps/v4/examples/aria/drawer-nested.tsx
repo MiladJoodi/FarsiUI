@@ -13,7 +13,7 @@ import {
   DrawerTrigger,
 } from "@/styles/aria-nova/ui/drawer"
 
-export function DrawerNested() {
+export default function DrawerNested() {
   const isMobile = useIsMobile()
 
   const swipeDirection = isMobile ? "down" : "right"

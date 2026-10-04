@@ -3,13 +3,7 @@
 import * as React from "react"
 
 import { IconPlaceholder } from "@/components/icon-placeholder"
-import {
-  EMPTY_PLATE,
-  isPlate,
-  PlateInput,
-  stringifyPlate,
-  type PlateValue,
-} from "@/registry/bases/base/blocks/license-plate-05/components/plate-input"
+import PlateInput, { EMPTY_PLATE, isPlate, stringifyPlate, type PlateValue } from "@/registry/bases/base/blocks/license-plate-05/components/plate-input"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -23,7 +17,7 @@ function toFa(value: string) {
   return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function LicensePlateTaxi() {
+export default function LicensePlateTaxi() {
   const [plate, setPlate] = React.useState<PlateValue>(EMPTY_PLATE)
   const complete = isPlate(plate)
 

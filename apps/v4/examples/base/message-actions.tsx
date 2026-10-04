@@ -13,7 +13,7 @@ import {
   MessageFooter,
 } from "@/styles/base-rhea/ui/message"
 
-export function MessageActionsDemo() {
+export default function MessageActionsDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Message>

@@ -81,7 +81,7 @@ const miniChartConfig = {
   },
 } satisfies ChartConfig
 
-export function DividendIncome() {
+export default function DividendIncome() {
   const [params] = useDesignSystemSearchParams()
   const isRounded = !["lyra", "sera"].includes(params.style)
   return (

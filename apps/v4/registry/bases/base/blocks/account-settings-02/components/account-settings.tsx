@@ -25,7 +25,7 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
-export function AccountSettingsTabs() {
+export default function AccountSettingsTabs() {
   return (
     <section
       dir="rtl"

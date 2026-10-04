@@ -5,7 +5,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputFile() {
+export default function InputFile() {
   return (
     <Field>
       <FieldLabel htmlFor="picture">Picture</FieldLabel>

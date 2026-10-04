@@ -9,7 +9,7 @@ import { Calendar } from "@/styles/aria-nova/ui/calendar"
 import { Field, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
 
-export function DataPickerWithDropdowns() {
+export default function DataPickerWithDropdowns() {
   const [date, setDate] = React.useState<CalendarDate>()
   const [open, setOpen] = React.useState(false)
 

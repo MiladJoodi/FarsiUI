@@ -54,7 +54,7 @@ const invoices = [
   },
 ]
 
-export function TableFooterExample() {
+export default function TableFooterExample() {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>

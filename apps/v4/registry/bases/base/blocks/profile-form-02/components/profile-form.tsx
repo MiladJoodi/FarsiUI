@@ -18,7 +18,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function ProfileFormAvatar() {
+export default function ProfileFormAvatar() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

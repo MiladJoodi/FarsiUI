@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from "@/styles/aria-nova/ui/dialog"
 
-export function DialogScrollableContent() {
+export default function DialogScrollableContent() {
   return (
     <DialogTrigger>
       <Button variant="outline">Scrollable Content</Button>

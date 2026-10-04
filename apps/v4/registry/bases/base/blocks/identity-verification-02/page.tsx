@@ -1,4 +1,4 @@
-import { NationalCardUpload } from "@/registry/bases/base/blocks/identity-verification-02/components/national-card-upload"
+import NationalCardUpload from "@/registry/bases/base/blocks/identity-verification-02/components/national-card-upload"
 
 export default function Page() {
   return (

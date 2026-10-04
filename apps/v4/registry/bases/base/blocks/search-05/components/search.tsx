@@ -96,7 +96,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function SearchHub() {
+export default function SearchHub() {
   const [query, setQuery] = React.useState("دکمه")
   const [tab, setTab] = React.useState<NavId>("همه")
   const [sort, setSort] = React.useState("مرتبط‌ترین")

@@ -39,7 +39,7 @@ const LINES = [
   { name: "پشتیبانی اولویت‌دار", qty: "۱", amount: "۱۵۰٬۰۰۰" },
 ] as const
 
-export function InvoiceDocument() {
+export default function InvoiceDocument() {
   return (
     <section
       dir="rtl"

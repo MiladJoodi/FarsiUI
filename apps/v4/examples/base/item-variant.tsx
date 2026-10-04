@@ -8,7 +8,7 @@ import {
   ItemTitle,
 } from "@/styles/base-nova/ui/item"
 
-export function ItemVariant() {
+export default function ItemVariant() {
   return (
     <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
       <Item>

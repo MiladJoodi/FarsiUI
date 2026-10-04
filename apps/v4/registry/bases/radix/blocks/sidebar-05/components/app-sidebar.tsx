@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { SearchForm } from "@/registry/bases/radix/blocks/sidebar-05/components/search-form"
+import SearchForm from "@/registry/bases/radix/blocks/sidebar-05/components/search-form"
 import {
   Collapsible,
   CollapsibleContent,
@@ -164,7 +164,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar side="right" {...props}>
       <SidebarHeader>

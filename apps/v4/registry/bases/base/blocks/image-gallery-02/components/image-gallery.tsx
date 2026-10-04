@@ -36,7 +36,7 @@ const IMAGES = [
   },
 ] as const
 
-export function ImageGalleryCards() {
+export default function ImageGalleryCards() {
   return (
     <section
       dir="rtl"

@@ -58,7 +58,7 @@ function formatJalaliShort(date: Date) {
   })
 }
 
-export function CalendarBlockRange() {
+export default function CalendarBlockRange() {
   const today = new Date()
   const [range, setRange] = React.useState<DateRange | undefined>({
     from: today,

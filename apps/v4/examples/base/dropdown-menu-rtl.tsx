@@ -22,7 +22,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function DropdownMenuRtl() {
+export default function DropdownMenuRtl() {
   const [showStatusBar, setShowStatusBar] = React.useState(true)
   const [position, setPosition] = React.useState("bottom")
 

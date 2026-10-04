@@ -47,7 +47,7 @@ const ITEMS = [
   },
 ] as const
 
-export function FeatureSplitInteractive() {
+export default function FeatureSplitInteractive() {
   const [active, setActive] = React.useState<(typeof ITEMS)[number]["id"]>(
     "dashboard"
   )

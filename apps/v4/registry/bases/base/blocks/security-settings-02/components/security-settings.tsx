@@ -25,7 +25,7 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
-export function SecuritySettingsTabs() {
+export default function SecuritySettingsTabs() {
   return (
     <section
       dir="rtl"

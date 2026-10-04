@@ -1,8 +1,8 @@
 import * as React from "react"
 import { ChevronRight } from "lucide-react"
 
-import { SearchForm } from "@/registry/new-york-v4/blocks/sidebar-02/components/search-form"
-import { VersionSwitcher } from "@/registry/new-york-v4/blocks/sidebar-02/components/version-switcher"
+import SearchForm from "@/registry/new-york-v4/blocks/sidebar-02/components/search-form"
+import VersionSwitcher from "@/registry/new-york-v4/blocks/sidebar-02/components/version-switcher"
 import {
   Collapsible,
   CollapsibleContent,
@@ -163,7 +163,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>

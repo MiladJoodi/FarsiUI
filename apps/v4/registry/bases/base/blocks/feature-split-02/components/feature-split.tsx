@@ -11,7 +11,7 @@ const POINTS = [
   "آمادهٔ کپی در پروژهٔ Next.js",
 ] as const
 
-export function FeatureSplitChecklist() {
+export default function FeatureSplitChecklist() {
   return (
     <section
       dir="rtl"

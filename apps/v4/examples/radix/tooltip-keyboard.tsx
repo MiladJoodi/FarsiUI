@@ -8,7 +8,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-nova/ui/tooltip"
 
-export function TooltipKeyboard() {
+export default function TooltipKeyboard() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>

@@ -5,7 +5,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputRequired() {
+export default function InputRequired() {
   return (
     <Field>
       <FieldLabel htmlFor="input-required">

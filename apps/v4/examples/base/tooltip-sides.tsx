@@ -12,7 +12,7 @@ const TOOLTIP_SIDES = [
   { side: "right", label: "راست" },
 ] as const
 
-export function TooltipSides() {
+export default function TooltipSides() {
   return (
     <div dir="rtl" className="flex flex-wrap gap-2">
       {TOOLTIP_SIDES.map(({ side, label }) => (

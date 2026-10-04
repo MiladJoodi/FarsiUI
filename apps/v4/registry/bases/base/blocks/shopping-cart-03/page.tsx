@@ -1,4 +1,4 @@
-import { ShoppingCartCoupon } from "@/registry/bases/base/blocks/shopping-cart-03/components/shopping-cart"
+import ShoppingCartCoupon from "@/registry/bases/base/blocks/shopping-cart-03/components/shopping-cart"
 
 export default function Page() {
   return <ShoppingCartCoupon />

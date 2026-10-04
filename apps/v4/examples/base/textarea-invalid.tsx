@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Textarea } from "@/styles/base-nova/ui/textarea"
 
-export function TextareaInvalid() {
+export default function TextareaInvalid() {
   return (
     <Field data-invalid dir="rtl">
       <FieldLabel htmlFor="textarea-invalid">پیام</FieldLabel>

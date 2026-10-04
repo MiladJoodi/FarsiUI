@@ -4,7 +4,7 @@ import { toast } from "sonner"
 
 import { Button } from "@/styles/radix-nova/ui/button"
 
-export function SonnerDemo() {
+export default function SonnerDemo() {
   return (
     <Button
       variant="outline"

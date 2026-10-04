@@ -1,4 +1,4 @@
-import { LoginForm } from "@/registry/new-york-v4/blocks/login-05/components/login-form"
+import LoginForm from "@/registry/new-york-v4/blocks/login-05/components/login-form"
 
 export default function LoginPage() {
   return (

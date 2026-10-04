@@ -53,7 +53,7 @@ const chat = createChat()
 const history = chat.get()
 const INITIAL_VISIBLE_COUNT = 5
 
-export function MessageScrollerLoadHistory() {
+export default function MessageScrollerLoadHistory() {
   const [demoKey, setDemoKey] = React.useState(0)
   const [visibleCount, setVisibleCount] = React.useState(INITIAL_VISIBLE_COUNT)
   const visibleMessages = history.slice(-visibleCount)

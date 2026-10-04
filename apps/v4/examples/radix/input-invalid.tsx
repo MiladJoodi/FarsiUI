@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputInvalid() {
+export default function InputInvalid() {
   return (
     <Field data-invalid>
       <FieldLabel htmlFor="input-invalid">Invalid Input</FieldLabel>

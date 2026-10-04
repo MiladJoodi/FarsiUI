@@ -35,7 +35,7 @@ const items: Item[] = [
   { name: "renderer.tsx", meta: "TSX · 12 KB", icon: FileCodeIcon },
 ]
 
-export function AttachmentGroupDemo() {
+export default function AttachmentGroupDemo() {
   return (
     <div className="mx-auto w-full max-w-sm py-12">
       <AttachmentGroup className="w-full">

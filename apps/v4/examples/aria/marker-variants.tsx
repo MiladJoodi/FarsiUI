@@ -1,6 +1,6 @@
 import { Marker, MarkerContent } from "@/styles/aria-rhea/ui/marker"
 
-export function MarkerVariantsDemo() {
+export default function MarkerVariantsDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker>

@@ -10,7 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function NavSecondary({
+export default function NavSecondary({
   items,
   ...props
 }: {

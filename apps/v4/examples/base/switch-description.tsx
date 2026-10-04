@@ -6,7 +6,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchDescription() {
+export default function SwitchDescription() {
   return (
     <Field orientation="horizontal" className="max-w-sm" dir="rtl">
       <FieldContent>

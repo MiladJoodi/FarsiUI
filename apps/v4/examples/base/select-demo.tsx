@@ -17,7 +17,7 @@ const items = [
   { label: "آناناس", value: "pineapple" },
 ]
 
-export function SelectDemo() {
+export default function SelectDemo() {
   return (
     <div dir="rtl">
       <Select items={items}>

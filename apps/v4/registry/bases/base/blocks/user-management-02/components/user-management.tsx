@@ -43,7 +43,7 @@ const USERS = [
   },
 ] as const
 
-export function UserManagementWithRoles() {
+export default function UserManagementWithRoles() {
   return (
     <section
       dir="rtl"

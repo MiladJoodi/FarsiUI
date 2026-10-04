@@ -67,7 +67,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function SubscriptionManageForm() {
+export default function SubscriptionManageForm() {
   const [action, setAction] = React.useState<ActionValue>("تغییر طرح")
   const [plan, setPlan] = React.useState<PlanValue>("تیم")
   const [period, setPeriod] = React.useState<PeriodValue>("ماهانه")

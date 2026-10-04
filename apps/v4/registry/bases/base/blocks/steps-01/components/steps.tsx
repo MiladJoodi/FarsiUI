@@ -21,7 +21,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function StepsSimple() {
+export default function StepsSimple() {
   return (
     <div
       dir="rtl"

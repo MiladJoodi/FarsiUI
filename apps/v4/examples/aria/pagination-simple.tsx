@@ -5,7 +5,7 @@ import {
   PaginationLink,
 } from "@/styles/aria-nova/ui/pagination"
 
-export function PaginationSimple() {
+export default function PaginationSimple() {
   return (
     <Pagination>
       <PaginationContent>

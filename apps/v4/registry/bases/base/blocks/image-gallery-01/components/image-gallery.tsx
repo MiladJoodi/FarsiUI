@@ -27,7 +27,7 @@ const IMAGES = [
   },
 ] as const
 
-export function ImageGallerySimple() {
+export default function ImageGallerySimple() {
   return (
     <section
       dir="rtl"

@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/bases/base/ui/card"
 
-export function FileUploadSimple() {
+export default function FileUploadSimple() {
   return (
     <section
       dir="rtl"

@@ -1,4 +1,4 @@
-export function TypographyInlineCode() {
+export default function TypographyInlineCode() {
   return (
     <code
       dir="ltr"

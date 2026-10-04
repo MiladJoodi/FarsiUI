@@ -133,7 +133,7 @@ export interface PlateInputProps {
  * پلاک خودرو — خود پلاک LTR است (۱۲ ب ۳۴۵ | ایران ۱۱)،
  * و انتخاب حرف با پیکر RTL انجام می‌شود.
  */
-export function PlateInput({
+export default function PlateInput({
   value,
   defaultValue = EMPTY_PLATE,
   onChange,

@@ -17,7 +17,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function NoTeamMembers() {
+export default function NoTeamMembers() {
   return (
     <Card>
       <CardContent>

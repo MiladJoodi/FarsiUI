@@ -8,7 +8,7 @@ const PARAGRAPHS = [
   "جداکنندهٔ ظریف بین سربرگ و بدنه کمک می‌کند چشم از معرفی به خواندن بلغزد — نه اینکه با کارت یا سایهٔ اضافه حواس‌پرتی بسازید.",
 ] as const
 
-export function ArticleWithAuthor() {
+export default function ArticleWithAuthor() {
   return (
     <div
       dir="rtl"

@@ -12,7 +12,7 @@ import {
 } from "@/registry/bases/base/ui/breadcrumb"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function HeaderBreadcrumb() {
+export default function HeaderBreadcrumb() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="border-b px-6 py-6 md:px-10">

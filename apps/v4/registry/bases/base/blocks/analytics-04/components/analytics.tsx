@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Cell, Pie, PieChart } from "recharts"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import {
   Card,
@@ -59,7 +59,7 @@ const chartConfig = {
   referral: { label: "ارجاع", color: "var(--chart-4)" },
 } satisfies ChartConfig
 
-export function AnalyticsSources() {
+export default function AnalyticsSources() {
   const [range, setRange] = React.useState<Range>("هفته")
   const data = SOURCES[range].map((item) => ({
     ...item,

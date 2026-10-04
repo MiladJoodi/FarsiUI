@@ -37,7 +37,7 @@ const ITEMS = [
   },
 ] as const
 
-export function TestimonialsCards() {
+export default function TestimonialsCards() {
   return (
     <section
       dir="rtl"

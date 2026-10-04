@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { SearchForm } from "@/registry/new-york-v4/blocks/sidebar-01/components/search-form"
-import { VersionSwitcher } from "@/registry/new-york-v4/blocks/sidebar-01/components/version-switcher"
+import SearchForm from "@/registry/new-york-v4/blocks/sidebar-01/components/search-form"
+import VersionSwitcher from "@/registry/new-york-v4/blocks/sidebar-01/components/version-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -147,7 +147,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>

@@ -17,7 +17,7 @@ import {
   MessageFooter,
 } from "@/styles/aria-rhea/ui/message"
 
-export function MessageDemo() {
+export default function MessageDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-6 py-12">
       <Message align="end">

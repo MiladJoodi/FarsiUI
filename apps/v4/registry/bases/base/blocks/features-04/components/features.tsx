@@ -34,7 +34,7 @@ const SMALL = [
   },
 ] as const
 
-export function FeaturesBento() {
+export default function FeaturesBento() {
   return (
     <section
       dir="rtl"

@@ -68,7 +68,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ChatSplit() {
+export default function ChatSplit() {
   const [filter, setFilter] = React.useState("همه")
   const [query, setQuery] = React.useState("")
 

@@ -10,7 +10,7 @@ import {
   EmptyTitle,
 } from "@/styles/radix-nova/ui/empty"
 
-export function EmptyInCard() {
+export default function EmptyInCard() {
   return (
     <Empty>
       <EmptyHeader>

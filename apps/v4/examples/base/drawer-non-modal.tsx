@@ -9,7 +9,7 @@ import {
   DrawerTrigger,
 } from "@/styles/base-rhea/ui/drawer"
 
-export function DrawerNonModal() {
+export default function DrawerNonModal() {
   return (
     <div dir="rtl">
       <Drawer modal={false} disablePointerDismissal swipeDirection="right">

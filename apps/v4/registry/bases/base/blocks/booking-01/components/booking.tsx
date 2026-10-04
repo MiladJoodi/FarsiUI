@@ -32,7 +32,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function BookingSimple() {
+export default function BookingSimple() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [slot, setSlot] = React.useState<SlotValue>(SLOTS[0])
 

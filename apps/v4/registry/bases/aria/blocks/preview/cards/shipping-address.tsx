@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/registry/bases/aria/ui/select"
 
-export function ShippingAddress() {
+export default function ShippingAddress() {
   return (
     <Card>
       <CardHeader>

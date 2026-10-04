@@ -1,4 +1,4 @@
-import { ForgotPasswordMobile } from "@/registry/bases/base/blocks/forgot-password-02/components/forgot-password-mobile"
+import ForgotPasswordMobile from "@/registry/bases/base/blocks/forgot-password-02/components/forgot-password-mobile"
 
 export default function Page() {
   return (

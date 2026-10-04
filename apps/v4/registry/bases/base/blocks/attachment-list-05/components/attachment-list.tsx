@@ -115,7 +115,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AttachmentListHub() {
+export default function AttachmentListHub() {
   const [source, setSource] = React.useState("همه")
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState("جدیدترین")

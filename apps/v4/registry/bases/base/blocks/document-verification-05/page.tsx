@@ -1,4 +1,4 @@
-import { DocumentStatusGallery } from "@/registry/bases/base/blocks/document-verification-05/components/document-status-gallery"
+import DocumentStatusGallery from "@/registry/bases/base/blocks/document-verification-05/components/document-status-gallery"
 
 export default function Page() {
   return (

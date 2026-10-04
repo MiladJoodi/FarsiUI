@@ -70,7 +70,7 @@ const translations: Translations = {
   },
 }
 
-export function CommandRtl() {
+export default function CommandRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

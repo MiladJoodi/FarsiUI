@@ -43,7 +43,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function BillingPeriodCard() {
+export default function BillingPeriodCard() {
   return (
     <section
       dir="rtl"

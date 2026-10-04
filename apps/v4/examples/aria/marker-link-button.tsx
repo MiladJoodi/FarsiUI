@@ -5,7 +5,7 @@ import { toast } from "sonner"
 
 import { Marker, MarkerContent, MarkerIcon } from "@/styles/aria-rhea/ui/marker"
 
-export function MarkerLinkButtonDemo() {
+export default function MarkerLinkButtonDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker render={(props) => <a href="#links-and-buttons" {...props} />}>

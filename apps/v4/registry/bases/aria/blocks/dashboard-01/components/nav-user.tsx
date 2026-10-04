@@ -21,7 +21,7 @@ import {
 } from "@/registry/bases/aria/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NavUser({
+export default function NavUser({
   user,
 }: {
   user: {

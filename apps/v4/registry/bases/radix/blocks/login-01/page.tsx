@@ -1,4 +1,4 @@
-import { LoginForm } from "@/registry/bases/radix/blocks/login-01/components/login-form"
+import LoginForm from "@/registry/bases/radix/blocks/login-01/components/login-form"
 
 export default function Page() {
   return (

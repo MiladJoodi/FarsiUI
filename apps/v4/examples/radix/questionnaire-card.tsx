@@ -40,7 +40,7 @@ const items = [
   },
 ] as const
 
-export function QuestionnaireCard() {
+export default function QuestionnaireCard() {
   const taskTitleId = React.useId()
   const outputTitleId = React.useId()
 

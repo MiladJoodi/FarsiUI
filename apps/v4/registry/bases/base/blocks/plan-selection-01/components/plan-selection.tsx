@@ -21,7 +21,7 @@ const PLANS = [
   { id: "team", name: "تیم", price: "۸۹۹٬۰۰۰" },
 ] as const
 
-export function PlanSelectionSimple() {
+export default function PlanSelectionSimple() {
   const [plan, setPlan] = React.useState("pro")
   const selected = PLANS.find((p) => p.id === plan)!
 

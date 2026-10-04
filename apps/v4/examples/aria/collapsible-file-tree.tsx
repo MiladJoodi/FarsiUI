@@ -34,7 +34,7 @@ function OutlineIcon({ kind }: { kind: OutlineKind }) {
   return <BracesIcon />
 }
 
-export function CollapsibleFileTree() {
+export default function CollapsibleFileTree() {
   const fileTree: FileTreeItem[] = [
     {
       name: "components",

@@ -5,10 +5,10 @@ import { useChat } from "@ai-sdk/react"
 import type { UIMessage } from "ai"
 
 import { createChat, getMessageText } from "@/lib/ai"
-import { PartReasoning } from "@/registry/bases/radix/blocks/preview-03/components/part-reasoning"
-import { PartText } from "@/registry/bases/radix/blocks/preview-03/components/part-text"
-import { PartTool } from "@/registry/bases/radix/blocks/preview-03/components/part-tool"
-import { PromptInput } from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
+import PartReasoning from "@/registry/bases/radix/blocks/preview-03/components/part-reasoning"
+import PartText from "@/registry/bases/radix/blocks/preview-03/components/part-text"
+import PartTool from "@/registry/bases/radix/blocks/preview-03/components/part-tool"
+import PromptInput from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
 import { Example } from "@/registry/bases/radix/components/example"
 import { Button } from "@/registry/bases/radix/ui/button"
 import {
@@ -90,7 +90,7 @@ function isToolPart(part: {
   return part.type === "dynamic-tool" || part.type.startsWith("tool-")
 }
 
-export function ToolChat() {
+export default function ToolChat() {
   const { status, messages, sendMessage, setMessages } = useChat({
     messages: initialMessages,
     transport,

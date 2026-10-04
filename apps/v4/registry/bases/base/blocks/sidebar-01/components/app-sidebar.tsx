@@ -28,7 +28,7 @@ const SECONDARY = [
   { title: "بازخورد", icon: "SendIcon" },
 ] as const
 
-export function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar side="right" collapsible="offcanvas">
       <SidebarHeader>

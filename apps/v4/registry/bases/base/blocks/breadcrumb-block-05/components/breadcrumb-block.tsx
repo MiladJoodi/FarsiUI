@@ -25,7 +25,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function BreadcrumbShowcase() {
+export default function BreadcrumbShowcase() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="border-b">

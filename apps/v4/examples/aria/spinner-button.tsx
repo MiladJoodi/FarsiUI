@@ -1,7 +1,7 @@
 import { Button } from "@/styles/aria-nova/ui/button"
 import { Spinner } from "@/styles/aria-nova/ui/spinner"
 
-export function SpinnerButton() {
+export default function SpinnerButton() {
   return (
     <div className="flex flex-col items-center gap-4">
       <Button isDisabled size="sm">

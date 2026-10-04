@@ -9,7 +9,7 @@ import {
 } from "@/styles/radix-nova/ui/empty"
 import { Spinner } from "@/styles/radix-nova/ui/spinner"
 
-export function SpinnerEmpty() {
+export default function SpinnerEmpty() {
   return (
     <Empty className="w-full">
       <EmptyHeader>

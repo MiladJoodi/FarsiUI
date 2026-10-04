@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/radix-nova/ui/slider"
 
-export function SliderMultiple() {
+export default function SliderMultiple() {
   return (
     <Slider
       defaultValue={[10, 20, 70]}

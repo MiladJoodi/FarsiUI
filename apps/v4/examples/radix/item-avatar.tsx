@@ -15,7 +15,7 @@ import {
   ItemTitle,
 } from "@/styles/radix-nova/ui/item"
 
-export function ItemAvatar() {
+export default function ItemAvatar() {
   return (
     <div className="flex w-full max-w-lg flex-col gap-6">
       <Item variant="outline">

@@ -122,7 +122,7 @@ function NationalIdInput({
   )
 }
 
-export function NationalCardUpload() {
+export default function NationalCardUpload() {
   const [preview, setPreview] = React.useState<string | null>(null)
   const [fileName, setFileName] = React.useState<string | null>(null)
   const inputRef = React.useRef<HTMLInputElement>(null)

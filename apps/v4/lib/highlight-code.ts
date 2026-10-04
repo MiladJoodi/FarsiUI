@@ -61,7 +61,7 @@ export async function highlightCode(code: string, language: string = "tsx") {
   // Create cache key from code content and language.
   // Prefix bumps when Persian wrapping / highlighting output shape changes.
   const cacheKey = createHash("sha256")
-    .update(`fa-wrap-v1:${language}:${code}`)
+    .update(`fa-wrap-v2-vscode:${language}:${code}`)
     .digest("hex")
 
   // Check cache first.
@@ -73,8 +73,9 @@ export async function highlightCode(code: string, language: string = "tsx") {
   const html = await codeToHtml(code, {
     lang: language,
     themes: {
-      dark: "github-dark",
-      light: "github-light",
+      // VS Code Default Dark+ / Light+
+      dark: "dark-plus",
+      light: "light-plus",
     },
     transformers: [
       {

@@ -4,7 +4,7 @@ import { toast } from "sonner"
 
 import { Button } from "@/styles/aria-nova/ui/button"
 
-export function SonnerTypes() {
+export default function SonnerTypes() {
   return (
     <div className="flex flex-wrap gap-2">
       <Button variant="outline" onClick={() => toast("Event has been created")}>

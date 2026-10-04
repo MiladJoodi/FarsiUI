@@ -17,7 +17,7 @@ const frameworks = [
   "آسترو",
 ] as const
 
-export function ComboboxWithClear() {
+export default function ComboboxWithClear() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={frameworks} defaultValue={frameworks[0]}>

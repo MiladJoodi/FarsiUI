@@ -97,7 +97,7 @@ const INVOICE_ROWS = [
   },
 ] as const
 
-export function AccountBillingHub() {
+export default function AccountBillingHub() {
   const [section, setSection] = React.useState<NavId>("overview")
   const [plan, setPlan] = React.useState("pro")
   const [filter, setFilter] = React.useState("همه")

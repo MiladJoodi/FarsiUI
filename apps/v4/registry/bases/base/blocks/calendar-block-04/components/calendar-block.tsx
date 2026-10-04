@@ -83,7 +83,7 @@ function buildEvents(): EventItem[] {
   ]
 }
 
-export function CalendarBlockEvents() {
+export default function CalendarBlockEvents() {
   const [events] = React.useState(buildEvents)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [chips, setChips] = React.useState(["جلسات", "تحویل"])

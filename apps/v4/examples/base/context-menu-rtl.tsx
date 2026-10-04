@@ -20,7 +20,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuRtl() {
+export default function ContextMenuRtl() {
   const [people, setPeople] = React.useState("sara")
 
   return (

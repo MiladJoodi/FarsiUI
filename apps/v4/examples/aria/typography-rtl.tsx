@@ -136,7 +136,7 @@ const translations: Translations = {
   },
 }
 
-export function TypographyRtl() {
+export default function TypographyRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

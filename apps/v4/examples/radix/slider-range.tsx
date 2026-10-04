@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/radix-nova/ui/slider"
 
-export function SliderRange() {
+export default function SliderRange() {
   return (
     <Slider
       defaultValue={[25, 50]}

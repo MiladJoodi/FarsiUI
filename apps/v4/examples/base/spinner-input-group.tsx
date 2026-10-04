@@ -9,7 +9,7 @@ import {
 } from "@/styles/base-nova/ui/input-group"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function SpinnerInputGroup() {
+export default function SpinnerInputGroup() {
   return (
     <div dir="rtl" className="flex w-full max-w-md flex-col gap-4">
       <InputGroup>

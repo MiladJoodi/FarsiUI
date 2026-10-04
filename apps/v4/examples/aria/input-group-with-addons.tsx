@@ -25,7 +25,7 @@ import {
   InputGroupText,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupWithAddons() {
+export default function InputGroupWithAddons() {
   return (
     <FieldGroup>
       <Field>

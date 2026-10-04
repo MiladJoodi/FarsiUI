@@ -115,7 +115,7 @@ const translations: Translations = {
   },
 }
 
-export function DropdownMenuRtl() {
+export default function DropdownMenuRtl() {
   const { dir, language, t } = useTranslation(translations, "ar")
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set(["status-bar"])

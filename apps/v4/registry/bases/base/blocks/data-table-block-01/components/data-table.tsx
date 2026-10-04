@@ -15,7 +15,7 @@ const ROWS = [
   { name: "رضا نوری", status: "فعال", date: "۱۴۰۵/۰۷/۱۳" },
 ] as const
 
-export function DataTableSimple() {
+export default function DataTableSimple() {
   return (
     <section
       dir="rtl"

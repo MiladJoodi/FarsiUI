@@ -26,7 +26,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function SupportRequestForm() {
+export default function SupportRequestForm() {
   const [sent, setSent] = React.useState(false)
 
   if (sent) {

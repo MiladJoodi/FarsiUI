@@ -3,7 +3,7 @@
 import { Button } from "@/registry/bases/base/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/bases/base/ui/tabs"
 
-export function HeaderTabs() {
+export default function HeaderTabs() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <header className="border-b">

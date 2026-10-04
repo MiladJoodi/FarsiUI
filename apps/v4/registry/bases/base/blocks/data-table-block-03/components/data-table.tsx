@@ -70,7 +70,7 @@ const STATUS_ITEMS = [
 
 type Status = (typeof STATUS_ITEMS)[number]["value"]
 
-export function DataTableFilterable() {
+export default function DataTableFilterable() {
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState<Status>("همه")
 

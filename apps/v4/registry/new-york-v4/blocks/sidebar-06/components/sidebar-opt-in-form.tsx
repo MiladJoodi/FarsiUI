@@ -8,7 +8,7 @@ import {
 } from "@/registry/new-york-v4/ui/card"
 import { SidebarInput } from "@/registry/new-york-v4/ui/sidebar"
 
-export function SidebarOptInForm() {
+export default function SidebarOptInForm() {
   return (
     <Card className="gap-2 py-4 shadow-none">
       <CardHeader className="px-4">

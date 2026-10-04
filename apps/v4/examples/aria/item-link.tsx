@@ -8,7 +8,7 @@ import {
   ItemTitle,
 } from "@/styles/aria-nova/ui/item"
 
-export function ItemLink() {
+export default function ItemLink() {
   return (
     <div className="flex w-full max-w-md flex-col gap-4">
       <Item href="#">

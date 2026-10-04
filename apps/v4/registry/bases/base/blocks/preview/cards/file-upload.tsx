@@ -18,7 +18,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function FileUpload() {
+export default function FileUpload() {
   return (
     <Card>
       <CardHeader>

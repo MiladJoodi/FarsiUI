@@ -14,7 +14,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function HeroProductProof() {
+export default function HeroProductProof() {
   return (
     <div dir="rtl" lang="fa" className="min-h-svh bg-background">
       <header className="flex items-center justify-between gap-4 border-b px-6 py-4 md:px-10">

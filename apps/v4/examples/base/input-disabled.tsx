@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputDisabled() {
+export default function InputDisabled() {
   return (
     <Field data-disabled dir="rtl">
       <FieldLabel htmlFor="input-demo-disabled">ایمیل</FieldLabel>

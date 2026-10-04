@@ -1,7 +1,7 @@
 import { Badge } from "@/styles/aria-nova/ui/badge"
 import { Spinner } from "@/styles/aria-nova/ui/spinner"
 
-export function SpinnerBadge() {
+export default function SpinnerBadge() {
   return (
     <div className="flex items-center gap-4 [--radius:1.2rem]">
       <Badge>

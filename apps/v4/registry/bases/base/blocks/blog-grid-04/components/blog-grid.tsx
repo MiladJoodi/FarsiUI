@@ -89,7 +89,7 @@ const CATEGORY_ITEMS = [
   { value: "بازاریابی", label: "بازاریابی" },
 ] as const
 
-export function BlogGridFilter() {
+export default function BlogGridFilter() {
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")
 

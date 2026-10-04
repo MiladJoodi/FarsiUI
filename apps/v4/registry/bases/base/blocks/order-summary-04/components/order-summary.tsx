@@ -35,7 +35,7 @@ const ITEMS = [
   },
 ] as const
 
-export function OrderSummaryActions() {
+export default function OrderSummaryActions() {
   const [status, setStatus] = React.useState("آماده ارسال")
   const [menuOpen, setMenuOpen] = React.useState(false)
 

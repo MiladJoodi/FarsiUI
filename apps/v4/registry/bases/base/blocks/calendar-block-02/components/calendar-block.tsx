@@ -36,7 +36,7 @@ const PRESETS = [
   { label: "دو هفته دیگر", value: 14 },
 ] as const
 
-export function CalendarBlockPresets() {
+export default function CalendarBlockPresets() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [month, setMonth] = React.useState<Date>(new Date())
 

@@ -7,7 +7,7 @@ import {
 } from "@/styles/radix-nova/ui/input-group"
 import { Kbd } from "@/styles/radix-nova/ui/kbd"
 
-export function InputGroupKbd() {
+export default function InputGroupKbd() {
   return (
     <InputGroup className="max-w-sm">
       <InputGroupInput placeholder="Search..." />

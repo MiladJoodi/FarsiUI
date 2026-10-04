@@ -14,7 +14,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-nova/ui/tooltip"
 
-export function ButtonGroupNested() {
+export default function ButtonGroupNested() {
   return (
     <ButtonGroup>
       <ButtonGroup>

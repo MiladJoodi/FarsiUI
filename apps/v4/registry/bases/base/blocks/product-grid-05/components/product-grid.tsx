@@ -133,7 +133,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ProductGridHub() {
+export default function ProductGridHub() {
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("پیشنهادی")

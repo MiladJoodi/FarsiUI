@@ -27,7 +27,7 @@ import {
 } from "@/registry/bases/base/ui/radio-group"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function ReceivingMethod() {
+export default function ReceivingMethod() {
   return (
     <Card>
       <CardHeader>

@@ -66,7 +66,7 @@ const CHANNEL_ITEMS = [
   { value: "اعلان مرورگر", label: "اعلان مرورگر" },
 ] as const
 
-export function AccountSettingsHub() {
+export default function AccountSettingsHub() {
   const [section, setSection] = React.useState<NavId>("general")
   const [moreOpen, setMoreOpen] = React.useState(false)
 

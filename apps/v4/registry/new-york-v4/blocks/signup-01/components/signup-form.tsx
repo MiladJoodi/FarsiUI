@@ -14,7 +14,7 @@ import {
 } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
 
-export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
+export default function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   return (
     <Card {...props}>
       <CardHeader>

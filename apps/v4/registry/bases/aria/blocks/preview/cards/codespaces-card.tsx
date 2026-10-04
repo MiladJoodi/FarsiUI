@@ -48,7 +48,7 @@ import {
 import { Tooltip, TooltipTrigger } from "@/registry/bases/aria/ui/tooltip"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function CodespacesCard() {
+export default function CodespacesCard() {
   const [isCreatingCodespace, setIsCreatingCodespace] = React.useState(false)
   return (
     <Card>

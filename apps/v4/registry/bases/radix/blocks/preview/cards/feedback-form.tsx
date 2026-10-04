@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/radix/ui/native-select"
 import { Textarea } from "@/registry/bases/radix/ui/textarea"
 
-export function FeedbackForm() {
+export default function FeedbackForm() {
   return (
     <Card>
       <CardContent>

@@ -25,7 +25,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function MaintenanceInContext() {
+export default function MaintenanceInContext() {
   return (
     <section
       dir="rtl"

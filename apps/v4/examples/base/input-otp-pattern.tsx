@@ -9,7 +9,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPPattern() {
+export default function InputOTPPattern() {
   return (
     <Field dir="rtl" className="w-fit">
       <FieldLabel htmlFor="digits-only">فقط رقم</FieldLabel>

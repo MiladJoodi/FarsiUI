@@ -10,7 +10,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function AnomalyAlert() {
+export default function AnomalyAlert() {
   return (
     <Card>
       <CardContent>

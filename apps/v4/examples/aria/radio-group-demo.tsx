@@ -1,7 +1,7 @@
 import { Label } from "@/styles/aria-nova/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
 
-export function RadioGroupDemo() {
+export default function RadioGroupDemo() {
   return (
     <RadioGroup
       aria-label="Density"

@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/styles/base-nova/ui/card"
 
-export function CardImage() {
+export default function CardImage() {
   return (
     <Card className="relative mx-auto w-full max-w-sm pt-0" dir="rtl">
       <div className="absolute inset-0 z-30 aspect-video bg-black/35" />

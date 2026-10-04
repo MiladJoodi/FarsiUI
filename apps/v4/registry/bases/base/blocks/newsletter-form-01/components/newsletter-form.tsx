@@ -18,7 +18,7 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function NewsletterCard() {
+export default function NewsletterCard() {
   const [done, setDone] = React.useState(false)
   const [email, setEmail] = React.useState("")
 

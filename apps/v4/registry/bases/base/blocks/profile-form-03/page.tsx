@@ -1,4 +1,4 @@
-import { ProfileFormVisibility } from "@/registry/bases/base/blocks/profile-form-03/components/profile-form"
+import ProfileFormVisibility from "@/registry/bases/base/blocks/profile-form-03/components/profile-form"
 
 export default function Page() {
   return (

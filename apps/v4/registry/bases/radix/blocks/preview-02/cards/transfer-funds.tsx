@@ -27,7 +27,7 @@ import {
 import { Separator } from "@/registry/bases/radix/ui/separator"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function TransferFunds() {
+export default function TransferFunds() {
   return (
     <Card>
       <CardHeader>

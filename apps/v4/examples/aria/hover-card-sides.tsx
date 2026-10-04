@@ -5,7 +5,7 @@ import { HoverCard, HoverCardTrigger } from "@/styles/aria-nova/ui/hover-card"
 
 const HOVER_CARD_PLACEMENTS = ["left", "top", "bottom", "right"] as const
 
-export function HoverCardSides() {
+export default function HoverCardSides() {
   return (
     <div className="flex flex-wrap justify-center gap-2">
       {HOVER_CARD_PLACEMENTS.map((placement) => (

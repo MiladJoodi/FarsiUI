@@ -7,7 +7,7 @@ import {
   AvatarImage,
 } from "@/styles/radix-nova/ui/avatar"
 
-export function AvatarBadgeIconExample() {
+export default function AvatarBadgeIconExample() {
   return (
     <Avatar className="grayscale">
       <AvatarImage src="https://github.com/pranathip.png" alt="@pranathip" />

@@ -84,7 +84,7 @@ function QuestionList({
   )
 }
 
-export function Faq() {
+export default function Faq() {
   return (
     <Card>
       <CardContent>

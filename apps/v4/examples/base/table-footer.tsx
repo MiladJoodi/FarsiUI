@@ -30,7 +30,7 @@ const invoices = [
   },
 ]
 
-export function TableFooterExample() {
+export default function TableFooterExample() {
   return (
     <Table dir="rtl">
       <TableCaption>فهرستی از فاکتورهای اخیر شما.</TableCaption>

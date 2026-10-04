@@ -5,7 +5,7 @@ import {
   PaginationLink,
 } from "@/styles/base-nova/ui/pagination"
 
-export function PaginationSimple() {
+export default function PaginationSimple() {
   return (
     <div dir="rtl">
       <Pagination>

@@ -13,7 +13,7 @@ import {
 } from "@/registry/bases/base/ui/field"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function ForgotPasswordCentered() {
+export default function ForgotPasswordCentered() {
   const [email, setEmail] = React.useState("")
   const [status, setStatus] = React.useState<"idle" | "loading" | "sent">(
     "idle"

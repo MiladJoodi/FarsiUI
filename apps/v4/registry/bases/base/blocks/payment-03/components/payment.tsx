@@ -45,7 +45,7 @@ function formatExp(value: string) {
   return `${fa.slice(0, 2)}/${fa.slice(2)}`
 }
 
-export function PaymentCardForm() {
+export default function PaymentCardForm() {
   const [card, setCard] = React.useState("")
   const [exp, setExp] = React.useState("")
   const [cvv, setCvv] = React.useState("")

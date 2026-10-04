@@ -7,7 +7,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPRtl() {
+export default function InputOTPRtl() {
   return (
     <Field dir="rtl" className="mx-auto max-w-xs">
       <FieldLabel htmlFor="input-otp-rtl">کد تأیید</FieldLabel>

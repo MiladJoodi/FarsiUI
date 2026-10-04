@@ -106,7 +106,7 @@ function last4FromCard(value: string) {
   return toFaDigits(last)
 }
 
-export function PaymentMethodsFancy() {
+export default function PaymentMethodsFancy() {
   const [methods, setMethods] = React.useState(INITIAL)
   const [filter, setFilter] = React.useState<"all" | "card" | "wallet">("all")
   const [autoPay, setAutoPay] = React.useState(true)

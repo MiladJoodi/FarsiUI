@@ -27,7 +27,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function SavingsProgress() {
+export default function SavingsProgress() {
   return (
     <Card>
       <CardContent>

@@ -16,7 +16,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuIcons() {
+export default function ContextMenuIcons() {
   return (
     <ContextMenuTrigger>
       <Pressable>

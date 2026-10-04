@@ -16,7 +16,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function BreadcrumbCollapsed() {
+export default function BreadcrumbCollapsed() {
   return (
     <div
       dir="rtl"

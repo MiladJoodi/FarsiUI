@@ -1,6 +1,6 @@
 "use client"
 
-import { LOGOS, LogoImage } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
+import LogoImage, { LOGOS } from "@/registry/bases/base/blocks/logo-cloud-01/components/logos"
 
 function MarqueeRow({ reverse }: { reverse?: boolean }) {
   const items = [...LOGOS, ...LOGOS]
@@ -21,7 +21,7 @@ function MarqueeRow({ reverse }: { reverse?: boolean }) {
   )
 }
 
-export function LogoCloudMarquee() {
+export default function LogoCloudMarquee() {
   return (
     <section
       dir="rtl"

@@ -15,7 +15,7 @@ import {
   InputGroupInput,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupDropdown() {
+export default function InputGroupDropdown() {
   return (
     <div className="grid w-full max-w-sm gap-4">
       <InputGroup>

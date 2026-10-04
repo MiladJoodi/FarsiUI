@@ -5,7 +5,7 @@ import * as React from "react"
 import { Field, FieldDescription, FieldLabel } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputNumeric() {
+export default function InputNumeric() {
   const [amount, setAmount] = React.useState("123456")
   const [decimal, setDecimal] = React.useState("123.50")
   const [negative, setNegative] = React.useState("-123")

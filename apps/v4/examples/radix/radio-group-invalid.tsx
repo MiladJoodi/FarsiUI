@@ -7,7 +7,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
 
-export function RadioGroupInvalid() {
+export default function RadioGroupInvalid() {
   return (
     <FieldSet className="w-full max-w-xs">
       <FieldLegend variant="label">Notification Preferences</FieldLegend>

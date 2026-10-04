@@ -1,4 +1,4 @@
-export function TypographyH1() {
+export default function TypographyH1() {
   return (
     <h1
       dir="rtl"

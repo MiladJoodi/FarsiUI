@@ -66,7 +66,7 @@ const chartData = [
   { month: "june", desktop: 214, mobile: 140 },
 ]
 
-export function ChartRtl() {
+export default function ChartRtl() {
   const { t, dir } = useTranslation(translations, "ar")
 
   const chartConfig = {

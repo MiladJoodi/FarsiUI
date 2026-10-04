@@ -9,7 +9,7 @@ import {
   InputOTPSlot,
 } from "@/styles/radix-nova/ui/input-otp"
 
-export function InputOTPPattern() {
+export default function InputOTPPattern() {
   return (
     <Field className="w-fit">
       <FieldLabel htmlFor="digits-only">Digits Only</FieldLabel>

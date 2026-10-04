@@ -64,7 +64,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function EmptySearchHub() {
+export default function EmptySearchHub() {
   const [query, setQuery] = React.useState("محصول ناموجود خیلی خاص")
   const [chips, setChips] = React.useState(["موجود", "ارسال سریع"])
   const [stockOnly, setStockOnly] = React.useState(true)

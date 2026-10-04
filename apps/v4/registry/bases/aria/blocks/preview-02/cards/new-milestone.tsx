@@ -12,7 +12,7 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/registry/bases/aria/ui/field"
 import { Input } from "@/registry/bases/aria/ui/input"
 
-export function NewMilestone() {
+export default function NewMilestone() {
   return (
     <Card>
       <CardHeader>

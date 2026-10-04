@@ -78,7 +78,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ChatHub() {
+export default function ChatHub() {
   const [active, setActive] = React.useState("1")
   const [filter, setFilter] = React.useState("همه")
   const [query, setQuery] = React.useState("")

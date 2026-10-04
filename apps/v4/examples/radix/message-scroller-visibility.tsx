@@ -55,7 +55,7 @@ const chat = createChat()
 const messages = chat.get()
 const userMessages = messages.filter((message) => message.role === "user")
 
-export function MessageScrollerVisibility() {
+export default function MessageScrollerVisibility() {
   return (
     <MessageScrollerProvider scrollMargin={12}>
       <div className="relative flex flex-col gap-4">

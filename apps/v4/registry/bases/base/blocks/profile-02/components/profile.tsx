@@ -19,7 +19,7 @@ const STATS = [
   { label: "دنبال‌شونده", value: "۱۸۶" },
 ] as const
 
-export function ProfileCard() {
+export default function ProfileCard() {
   return (
     <section
       dir="rtl"

@@ -5,7 +5,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputFile() {
+export default function InputFile() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="picture">تصویر</FieldLabel>

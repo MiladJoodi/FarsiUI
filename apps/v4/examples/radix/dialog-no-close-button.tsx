@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/styles/radix-nova/ui/dialog"
 
-export function DialogNoCloseButton() {
+export default function DialogNoCloseButton() {
   return (
     <Dialog>
       <DialogTrigger asChild>

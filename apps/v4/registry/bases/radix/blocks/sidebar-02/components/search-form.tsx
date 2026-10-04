@@ -8,7 +8,7 @@ import {
 } from "@/registry/bases/radix/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function SearchForm({ ...props }: React.ComponentProps<"form">) {
+export default function SearchForm({ ...props }: React.ComponentProps<"form">) {
   return (
     <form {...props}>
       <SidebarGroup className="py-0">

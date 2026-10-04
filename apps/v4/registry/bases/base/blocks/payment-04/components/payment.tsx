@@ -75,7 +75,7 @@ function formatExp(value: string) {
   return `${fa.slice(0, 2)}/${fa.slice(2)}`
 }
 
-export function PaymentDashboard() {
+export default function PaymentDashboard() {
   const [method, setMethod] = React.useState("saved")
   const [cardId, setCardId] = React.useState("c1")
   const [card, setCard] = React.useState("")

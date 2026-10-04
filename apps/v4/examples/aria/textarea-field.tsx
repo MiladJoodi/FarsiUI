@@ -5,7 +5,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Textarea } from "@/styles/aria-nova/ui/textarea"
 
-export function TextareaField() {
+export default function TextareaField() {
   return (
     <Field>
       <FieldLabel htmlFor="textarea-message">Message</FieldLabel>

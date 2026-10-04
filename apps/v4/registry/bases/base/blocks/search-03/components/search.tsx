@@ -52,7 +52,7 @@ const CATEGORY_ITEMS = [
   { value: "بلوک", label: "بلوک" },
 ] as const
 
-export function SearchFilters() {
+export default function SearchFilters() {
   const [category, setCategory] = React.useState("همه")
   const [query, setQuery] = React.useState("دکمه")
 

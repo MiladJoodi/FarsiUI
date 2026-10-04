@@ -3,7 +3,7 @@
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function HeroBadgeCta() {
+export default function HeroBadgeCta() {
   return (
     <section
       dir="rtl"

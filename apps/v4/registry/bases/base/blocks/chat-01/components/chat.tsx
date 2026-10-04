@@ -15,7 +15,7 @@ const MESSAGES = [
   { who: "سارا", text: "مرسی، عالی شد.", me: false },
 ] as const
 
-export function ChatSimple() {
+export default function ChatSimple() {
   return (
     <section
       dir="rtl"

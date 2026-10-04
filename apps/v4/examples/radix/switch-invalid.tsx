@@ -6,7 +6,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Switch } from "@/styles/radix-nova/ui/switch"
 
-export function SwitchInvalid() {
+export default function SwitchInvalid() {
   return (
     <Field orientation="horizontal" className="max-w-sm" data-invalid>
       <FieldContent>

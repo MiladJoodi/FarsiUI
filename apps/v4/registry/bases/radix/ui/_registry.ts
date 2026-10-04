@@ -163,11 +163,20 @@ export const ui: Registry["items"] = [
   {
     name: "calendar",
     type: "registry:ui",
-    dependencies: ["react-day-picker@latest", "date-fns"],
+    dependencies: [
+      "react-day-picker@^10.0.0",
+      "date-fns",
+      "date-fns-jalali",
+      "@date-fns/tz",
+    ],
     registryDependencies: ["button", "digits"],
     files: [
       {
         path: "ui/calendar.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/day-picker-persian.tsx",
         type: "registry:ui",
       },
     ],
@@ -176,7 +185,7 @@ export const ui: Registry["items"] = [
         docs: "https://farsiui.ir/docs/components/radix/calendar",
         examples:
           "https://farsiui.ir/code/apps/v4/registry/bases/radix/examples/calendar-example.tsx",
-        api: "https://react-day-picker.js.org",
+        api: "https://daypicker.dev",
       },
     },
   },

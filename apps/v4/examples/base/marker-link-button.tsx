@@ -5,7 +5,7 @@ import { toast } from "sonner"
 
 import { Marker, MarkerContent, MarkerIcon } from "@/styles/base-rhea/ui/marker"
 
-export function MarkerLinkButtonDemo() {
+export default function MarkerLinkButtonDemo() {
   return (
     <div dir="rtl" className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker render={<a href="#links-and-buttons" />}>

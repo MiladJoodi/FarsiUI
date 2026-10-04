@@ -1,4 +1,4 @@
-import { FeatureSplitEdge } from "@/registry/bases/base/blocks/feature-split-03/components/feature-split"
+import FeatureSplitEdge from "@/registry/bases/base/blocks/feature-split-03/components/feature-split"
 
 export default function Page() {
   return <FeatureSplitEdge />

@@ -15,7 +15,7 @@ function toPersianDigits(value: number | string) {
   return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
 }
 
-export function CarouselRtl() {
+export default function CarouselRtl() {
   return (
     <Carousel
       dir="rtl"

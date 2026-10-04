@@ -29,7 +29,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function NavbarApp() {
+export default function NavbarApp() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <div className="border-b bg-muted/50 px-4 py-2 text-center text-xs text-muted-foreground md:px-6">

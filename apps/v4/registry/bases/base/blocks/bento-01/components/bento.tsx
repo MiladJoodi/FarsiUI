@@ -1,6 +1,6 @@
 "use client"
 
-export function BentoSimple() {
+export default function BentoSimple() {
   return (
     <section
       dir="rtl"

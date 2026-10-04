@@ -70,7 +70,7 @@ const IMAGES = [
   },
 ] as const
 
-export function ImageGalleryFilter() {
+export default function ImageGalleryFilter() {
   const [category, setCategory] = React.useState("همه")
   const [sort, setSort] = React.useState("جدیدترین")
 

@@ -21,7 +21,7 @@ import {
   InputOTPSlot,
 } from "@/styles/aria-nova/ui/input-otp"
 
-export function InputOTPForm() {
+export default function InputOTPForm() {
   return (
     <Card className="mx-auto max-w-md">
       <CardHeader>

@@ -33,7 +33,7 @@ import {
 } from "@/registry/bases/radix/ui/native-select"
 import { Progress } from "@/registry/bases/radix/ui/progress"
 
-export function SavingsTargets() {
+export default function SavingsTargets() {
   return (
     <div className="grid grid-cols-2 gap-(--gap)">
       <Card>

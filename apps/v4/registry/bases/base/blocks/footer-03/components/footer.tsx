@@ -23,7 +23,7 @@ function demoNavClick(event: React.MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 }
 
-export function FooterColumns() {
+export default function FooterColumns() {
   return (
     <div dir="rtl" lang="fa" className="flex min-h-svh flex-col bg-background">
       <main className="flex flex-1 items-center justify-center px-6 text-sm text-muted-foreground">

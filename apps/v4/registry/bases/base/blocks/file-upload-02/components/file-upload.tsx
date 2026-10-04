@@ -18,7 +18,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function FileUploadProgress() {
+export default function FileUploadProgress() {
   const [fileName, setFileName] = React.useState<string | null>("report.pdf")
   const [progress, setProgress] = React.useState(45)
   const inputRef = React.useRef<HTMLInputElement>(null)

@@ -110,7 +110,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function DatetimePickerFancy() {
+export default function DatetimePickerFancy() {
   const today = new Date()
   const [singleOpen, setSingleOpen] = React.useState(false)
   const [rangeOpen, setRangeOpen] = React.useState(false)

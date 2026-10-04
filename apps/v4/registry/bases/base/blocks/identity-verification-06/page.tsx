@@ -1,4 +1,4 @@
-import { IdentityStatusGallery } from "@/registry/bases/base/blocks/identity-verification-06/components/identity-status-gallery"
+import IdentityStatusGallery from "@/registry/bases/base/blocks/identity-verification-06/components/identity-status-gallery"
 
 export default function Page() {
   return (

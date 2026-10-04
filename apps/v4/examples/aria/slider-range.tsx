@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/aria-nova/ui/slider"
 
-export function SliderRange() {
+export default function SliderRange() {
   return (
     <Slider
       aria-label="Range"

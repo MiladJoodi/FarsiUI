@@ -1,5 +1,5 @@
-import { AppSidebar } from "@/registry/new-york-v4/blocks/sidebar-10/components/app-sidebar"
-import { NavActions } from "@/registry/new-york-v4/blocks/sidebar-10/components/nav-actions"
+import AppSidebar from "@/registry/new-york-v4/blocks/sidebar-10/components/app-sidebar"
+import NavActions from "@/registry/new-york-v4/blocks/sidebar-10/components/nav-actions"
 import {
   Breadcrumb,
   BreadcrumbItem,

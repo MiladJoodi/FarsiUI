@@ -104,7 +104,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function WishlistActions() {
+export default function WishlistActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [sort, setSort] = React.useState<SortKey>("جدیدترین")
   const [moved, setMoved] = React.useState(0)

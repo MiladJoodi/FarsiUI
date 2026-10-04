@@ -5,7 +5,7 @@ import { SparklesIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function BannerPromo() {
+export default function BannerPromo() {
   return (
     <div
       dir="rtl"

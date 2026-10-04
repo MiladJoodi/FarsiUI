@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/base-nova/ui/toggle-group"
 
-export function ToggleGroupRtl() {
+export default function ToggleGroupRtl() {
   return (
     <div dir="rtl">
       <ToggleGroup variant="outline" defaultValue={["list"]}>

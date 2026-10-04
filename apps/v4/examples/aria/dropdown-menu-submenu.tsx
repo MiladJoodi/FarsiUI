@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuSubmenu() {
+export default function DropdownMenuSubmenu() {
   return (
     <DropdownMenuTrigger>
       <Button variant="outline">Open</Button>

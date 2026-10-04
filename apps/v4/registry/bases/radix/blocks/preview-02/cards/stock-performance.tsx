@@ -64,7 +64,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function StockPerformance() {
+export default function StockPerformance() {
   const [ticker, setTicker] = React.useState("VOO")
 
   const data = CHART_DATA[ticker] ?? DEFAULT_DATA

@@ -61,7 +61,7 @@ const chat = createChat()
 const messages = chat.get()
 const userMessages = messages.filter((message) => message.role === "user")
 
-export function MessageScrollerCommands() {
+export default function MessageScrollerCommands() {
   return (
     <MessageScrollerProvider defaultScrollPosition="end">
       <div className="relative flex flex-col gap-4">

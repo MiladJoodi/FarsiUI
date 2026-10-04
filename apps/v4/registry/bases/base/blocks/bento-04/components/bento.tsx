@@ -18,7 +18,7 @@ const AVATARS = [
   { src: "/avatars/03.png", fallback: "سا" },
 ] as const
 
-export function BentoStats() {
+export default function BentoStats() {
   return (
     <section
       dir="rtl"

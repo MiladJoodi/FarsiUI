@@ -10,7 +10,7 @@ import {
 } from "@/registry/bases/base/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NavMain({
+export default function NavMain({
   items,
 }: {
   items: {

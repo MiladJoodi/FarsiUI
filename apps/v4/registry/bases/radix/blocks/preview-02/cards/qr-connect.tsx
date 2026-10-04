@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/bases/radix/ui/card"
 
-export function QrConnect() {
+export default function QrConnect() {
   return (
     <Card>
       <CardContent className="flex justify-center pt-6">

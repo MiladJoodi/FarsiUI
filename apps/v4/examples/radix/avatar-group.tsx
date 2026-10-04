@@ -5,7 +5,7 @@ import {
   AvatarImage,
 } from "@/styles/radix-nova/ui/avatar"
 
-export function AvatarGroupExample() {
+export default function AvatarGroupExample() {
   return (
     <AvatarGroup className="grayscale">
       <Avatar>

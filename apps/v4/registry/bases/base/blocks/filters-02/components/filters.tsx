@@ -44,7 +44,7 @@ const SORT_ITEMS = [
   { value: "گران‌ترین", label: "گران‌ترین" },
 ] as const
 
-export function FiltersSelects() {
+export default function FiltersSelects() {
   const [category, setCategory] = React.useState("همه")
   const [city, setCity] = React.useState("تهران")
   const [sort, setSort] = React.useState("جدیدترین")

@@ -59,7 +59,7 @@ const deliveryTimes = [
   },
 ]
 
-export function DrawerRtl() {
+export default function DrawerRtl() {
   const [open, setOpen] = React.useState(false)
   const [deliveryTime, setDeliveryTime] = React.useState("asap")
   const isMobile = useIsMobile()

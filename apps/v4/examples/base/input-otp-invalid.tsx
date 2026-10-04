@@ -9,7 +9,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPInvalid() {
+export default function InputOTPInvalid() {
   const [value, setValue] = React.useState("000000")
 
   return (

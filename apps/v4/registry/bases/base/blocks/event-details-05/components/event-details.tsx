@@ -133,7 +133,7 @@ const FILES = [
   { name: "notes.md", size: "۱۲ کیلوبایت" },
 ] as const
 
-export function EventDetailsFancy() {
+export default function EventDetailsFancy() {
   const [remind, setRemind] = React.useState(true)
   const [online, setOnline] = React.useState(true)
   const [copied, setCopied] = React.useState(false)

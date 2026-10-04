@@ -58,7 +58,7 @@ function formatAmount(value: string) {
   return toFaDigits(Number(digits).toLocaleString("en-US")).replace(/,/g, "٬")
 }
 
-export function InvoiceCreateForm() {
+export default function InvoiceCreateForm() {
   const [status, setStatus] = React.useState<StatusValue>("پیش‌نویس")
   const [qty, setQty] = React.useState<QtyValue>("۱")
   const [amount, setAmount] = React.useState("")

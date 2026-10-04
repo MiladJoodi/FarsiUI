@@ -22,7 +22,7 @@ import {
 } from "@/registry/bases/base/ui/radio-group"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function SupportPriorityForm() {
+export default function SupportPriorityForm() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

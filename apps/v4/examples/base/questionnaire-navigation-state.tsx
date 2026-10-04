@@ -39,7 +39,7 @@ const verificationLabels: Record<string, string> = {
   all: "تست‌ها، تایپ‌ها و کنترل کیفیت بصری",
 }
 
-export function QuestionnaireNavigationState() {
+export default function QuestionnaireNavigationState() {
   const [item, setItem] = React.useState<ItemName>("permission")
   const [statuses, setStatuses] = React.useState<
     Record<ItemName, QuestionnaireItemStatus>

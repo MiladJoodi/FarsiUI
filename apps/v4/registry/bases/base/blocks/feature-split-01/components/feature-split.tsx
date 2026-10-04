@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function FeatureSplitSimple() {
+export default function FeatureSplitSimple() {
   return (
     <section
       dir="rtl"

@@ -4,7 +4,7 @@ import { toast } from "sonner"
 
 import { Button } from "@/styles/radix-nova/ui/button"
 
-export function SonnerDescription() {
+export default function SonnerDescription() {
   return (
     <Button
       onClick={() =>

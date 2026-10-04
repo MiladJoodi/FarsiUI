@@ -65,7 +65,7 @@ export interface NationalIdInputProps {
  * کد ملی — ارقام فارسی با گروه‌بندی ۳-۶-۱ کارت ملی،
  * اعتبارسنجی checksum فقط وقتی ۱۰ رقم کامل شد.
  */
-export function NationalIdInput({
+export default function NationalIdInput({
   value,
   onChange,
   className,

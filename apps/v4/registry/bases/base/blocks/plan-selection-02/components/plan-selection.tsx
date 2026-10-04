@@ -28,7 +28,7 @@ const PLANS = [
   },
 ] as const
 
-export function PlanSelectionCards() {
+export default function PlanSelectionCards() {
   const [plan, setPlan] = React.useState("pro")
 
   return (

@@ -6,7 +6,7 @@ import { XIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function BannerFullBleed() {
+export default function BannerFullBleed() {
   const [open, setOpen] = React.useState(true)
 
   return (

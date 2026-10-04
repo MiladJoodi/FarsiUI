@@ -45,7 +45,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function EmptySearchRecent() {
+export default function EmptySearchRecent() {
   const [chips, setChips] = React.useState(["موجود", "تهران"])
   const [sort, setSort] = React.useState("جدیدترین")
   const [moreOpen, setMoreOpen] = React.useState(false)

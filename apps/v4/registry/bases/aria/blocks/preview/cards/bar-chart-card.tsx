@@ -48,7 +48,7 @@ const desktopDelta = Math.round(
 )
 const desktopDeltaPrefix = desktopDelta > 0 ? "+" : ""
 
-export function BarChartCard() {
+export default function BarChartCard() {
   const [params] = useDesignSystemSearchParams()
   const isRounded = !["lyra", "sera"].includes(params.style)
   return (

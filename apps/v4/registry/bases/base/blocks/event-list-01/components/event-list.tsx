@@ -31,7 +31,7 @@ const EVENTS = [
   { title: "تحویل نسخهٔ بتا", time: "۱۶:۰۰", date: addDays(today, 3) },
 ]
 
-export function EventListSimple() {
+export default function EventListSimple() {
   return (
     <section
       dir="rtl"

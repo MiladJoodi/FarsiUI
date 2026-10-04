@@ -12,7 +12,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function EmptyStateImage() {
+export default function EmptyStateImage() {
   return (
     <section
       dir="rtl"

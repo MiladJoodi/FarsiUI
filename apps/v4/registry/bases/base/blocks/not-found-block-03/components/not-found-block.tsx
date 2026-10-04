@@ -12,7 +12,7 @@ import {
   EmptyTitle,
 } from "@/registry/bases/base/ui/empty"
 
-export function NotFoundImage() {
+export default function NotFoundImage() {
   return (
     <section
       dir="rtl"

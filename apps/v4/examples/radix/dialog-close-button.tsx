@@ -12,7 +12,7 @@ import {
 import { Input } from "@/styles/radix-nova/ui/input"
 import { Label } from "@/styles/radix-nova/ui/label"
 
-export function DialogCloseButton() {
+export default function DialogCloseButton() {
   return (
     <Dialog>
       <DialogTrigger asChild>

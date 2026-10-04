@@ -73,7 +73,7 @@ const translations: Translations = {
   },
 }
 
-export function ComboboxRtl() {
+export default function ComboboxRtl() {
   const { dir, t, language } = useTranslation(translations, "ar")
 
   const categoryLabels: Record<string, string> = {

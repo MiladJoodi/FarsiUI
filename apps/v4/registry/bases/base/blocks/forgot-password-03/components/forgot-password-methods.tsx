@@ -19,7 +19,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/bases/base/ui/tabs"
 
-export function ForgotPasswordMethods() {
+export default function ForgotPasswordMethods() {
   const [done, setDone] = React.useState(false)
 
   if (done) {

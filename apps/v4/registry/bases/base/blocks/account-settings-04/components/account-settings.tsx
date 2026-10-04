@@ -76,7 +76,7 @@ const FREQ_ITEMS = [
   { value: "خاموش", label: "خاموش" },
 ] as const
 
-export function AccountSettingsSessions() {
+export default function AccountSettingsSessions() {
   const [sessions, setSessions] = React.useState(INITIAL)
   const [openId, setOpenId] = React.useState<string | null>(null)
 

@@ -16,7 +16,7 @@ import {
   TableRow,
 } from "@/styles/aria-nova/ui/table"
 
-export function TableActions() {
+export default function TableActions() {
   return (
     <Table aria-label="Products">
       <TableHeader>

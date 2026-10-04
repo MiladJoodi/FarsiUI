@@ -8,7 +8,7 @@ import {
   PaginationPrevious,
 } from "@/styles/base-nova/ui/pagination"
 
-export function PaginationRtl() {
+export default function PaginationRtl() {
   return (
     <div dir="rtl">
       <Pagination>

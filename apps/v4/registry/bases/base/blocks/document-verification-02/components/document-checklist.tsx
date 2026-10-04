@@ -27,7 +27,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function DocumentChecklist() {
+export default function DocumentChecklist() {
   const [status, setStatus] = React.useState<Record<string, DocStatus>>({
     national: "todo",
     birth: "todo",

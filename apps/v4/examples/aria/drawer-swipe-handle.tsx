@@ -12,7 +12,7 @@ import {
   DrawerTrigger,
 } from "@/styles/aria-nova/ui/drawer"
 
-export function DrawerSwipeHandle() {
+export default function DrawerSwipeHandle() {
   return (
     <Drawer showSwipeHandle>
       <DrawerTrigger render={<Button variant="secondary" />}>

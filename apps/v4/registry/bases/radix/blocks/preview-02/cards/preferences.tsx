@@ -27,7 +27,7 @@ import {
 import { Switch } from "@/registry/bases/radix/ui/switch"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function Preferences() {
+export default function Preferences() {
   return (
     <Card>
       <CardHeader>

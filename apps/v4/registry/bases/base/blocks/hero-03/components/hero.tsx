@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function HeroSplit() {
+export default function HeroSplit() {
   return (
     <section
       dir="rtl"

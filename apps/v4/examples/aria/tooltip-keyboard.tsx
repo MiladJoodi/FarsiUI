@@ -4,7 +4,7 @@ import { Button } from "@/styles/aria-nova/ui/button"
 import { Kbd } from "@/styles/aria-nova/ui/kbd"
 import { Tooltip, TooltipTrigger } from "@/styles/aria-nova/ui/tooltip"
 
-export function TooltipKeyboard() {
+export default function TooltipKeyboard() {
   return (
     <TooltipTrigger>
       <Button variant="outline" size="icon-sm">

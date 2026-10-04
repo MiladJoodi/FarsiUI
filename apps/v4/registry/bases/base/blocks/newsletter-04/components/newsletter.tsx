@@ -30,7 +30,7 @@ const TOPICS = [
   },
 ] as const
 
-export function NewsletterTopics() {
+export default function NewsletterTopics() {
   const [done, setDone] = React.useState(false)
 
   return (

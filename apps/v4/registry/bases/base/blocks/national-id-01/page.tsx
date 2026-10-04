@@ -1,4 +1,4 @@
-import { NationalIdForm } from "@/registry/bases/base/blocks/national-id-01/components/national-id-form"
+import NationalIdForm from "@/registry/bases/base/blocks/national-id-01/components/national-id-form"
 
 export default function Page() {
   return (

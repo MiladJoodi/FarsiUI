@@ -15,7 +15,7 @@ import {
   InputGroupTextarea,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupBlockStart() {
+export default function InputGroupBlockStart() {
   return (
     <FieldGroup className="max-w-sm">
       <Field>

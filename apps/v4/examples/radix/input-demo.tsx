@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Input } from "@/styles/radix-nova/ui/input"
 
-export function InputDemo() {
+export default function InputDemo() {
   return (
     <Field>
       <FieldLabel htmlFor="input-demo-api-key">API Key</FieldLabel>

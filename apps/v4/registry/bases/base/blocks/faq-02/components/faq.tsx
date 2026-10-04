@@ -36,7 +36,7 @@ const ITEMS = [
   },
 ] as const
 
-export function FaqCard() {
+export default function FaqCard() {
   return (
     <div
       dir="rtl"

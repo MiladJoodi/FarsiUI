@@ -8,7 +8,7 @@ import {
   FieldSet,
 } from "@/styles/aria-nova/ui/field"
 
-export function CheckboxGroup() {
+export default function CheckboxGroup() {
   return (
     <FieldSet>
       <FieldLegend variant="label">

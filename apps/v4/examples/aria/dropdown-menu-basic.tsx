@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/aria-nova/ui/dropdown-menu"
 
-export function DropdownMenuBasic() {
+export default function DropdownMenuBasic() {
   return (
     <DropdownMenuTrigger>
       <Button variant="outline">Open</Button>

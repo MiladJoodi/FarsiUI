@@ -17,7 +17,7 @@ const frameworks = [
   "Astro",
 ] as const
 
-export function ComboboxWithClear() {
+export default function ComboboxWithClear() {
   return (
     <Combobox
       defaultValue={frameworks[0]}

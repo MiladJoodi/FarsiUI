@@ -28,7 +28,7 @@ import {
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function InviteTeam() {
+export default function InviteTeam() {
   return (
     <Card>
       <CardHeader>

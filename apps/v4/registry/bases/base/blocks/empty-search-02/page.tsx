@@ -1,4 +1,4 @@
-import { EmptySearchCard } from "@/registry/bases/base/blocks/empty-search-02/components/empty-search"
+import EmptySearchCard from "@/registry/bases/base/blocks/empty-search-02/components/empty-search"
 
 export default function Page() {
   return <EmptySearchCard />

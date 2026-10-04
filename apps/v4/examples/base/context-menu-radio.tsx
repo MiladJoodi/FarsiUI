@@ -13,7 +13,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/base-nova/ui/context-menu"
 
-export function ContextMenuRadio() {
+export default function ContextMenuRadio() {
   const [user, setUser] = React.useState("sara")
   const [theme, setTheme] = React.useState("light")
 

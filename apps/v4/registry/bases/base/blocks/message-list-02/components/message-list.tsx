@@ -43,7 +43,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function MessageListUnread() {
+export default function MessageListUnread() {
   const totalUnread = MESSAGES.reduce((n, m) => n + m.unread, 0)
 
   return (

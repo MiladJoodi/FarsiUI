@@ -27,7 +27,7 @@ const ITEMS = [
   },
 ] as const
 
-export function ActivitySimple() {
+export default function ActivitySimple() {
   return (
     <section
       dir="rtl"

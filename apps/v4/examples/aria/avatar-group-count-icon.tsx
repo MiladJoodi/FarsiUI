@@ -8,7 +8,7 @@ import {
   AvatarImage,
 } from "@/styles/aria-nova/ui/avatar"
 
-export function AvatarGroupCountIconExample() {
+export default function AvatarGroupCountIconExample() {
   return (
     <AvatarGroup className="grayscale">
       <Avatar>

@@ -54,7 +54,7 @@ const invoices = [
   },
 ]
 
-export function TableDemo() {
+export default function TableDemo() {
   return (
     <figure className="w-full">
       <Table aria-label="Invoices">

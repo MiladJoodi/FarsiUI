@@ -12,7 +12,7 @@ import {
 } from "@/registry/bases/base/ui/toggle-group"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function CatalogToolbar() {
+export default function CatalogToolbar() {
   return (
     <div className="flex items-center gap-3">
       <InputGroup className="flex-1">

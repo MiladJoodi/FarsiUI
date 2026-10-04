@@ -7,7 +7,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/radix-nova/ui/radio-group"
 
-export function FieldRadio() {
+export default function FieldRadio() {
   return (
     <FieldSet className="w-full max-w-xs">
       <FieldLegend variant="label">Subscription Plan</FieldLegend>

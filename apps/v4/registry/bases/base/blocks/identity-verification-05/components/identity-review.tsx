@@ -3,7 +3,7 @@
 import * as React from "react"
 import { PencilIcon } from "lucide-react"
 
-import { NationalIdInput } from "@/registry/bases/base/blocks/identity-verification-05/components/national-id-input"
+import NationalIdInput from "@/registry/bases/base/blocks/identity-verification-05/components/national-id-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -33,7 +33,7 @@ const initial = {
   document: "کارت ملی — روی کارت",
 }
 
-export function IdentityReview() {
+export default function IdentityReview() {
   const [data, setData] = React.useState(initial)
   const [editing, setEditing] = React.useState<Section>(null)
   const [submitted, setSubmitted] = React.useState(false)

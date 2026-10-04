@@ -38,7 +38,7 @@ const countries = [
   { code: "eg", value: "egypt", label: "مصر", continent: "آفریقا" },
 ]
 
-export function ComboboxPopup() {
+export default function ComboboxPopup() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={countries} defaultValue={countries[0]}>

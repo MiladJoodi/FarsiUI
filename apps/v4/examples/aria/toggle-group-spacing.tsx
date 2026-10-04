@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupSpacing() {
+export default function ToggleGroupSpacing() {
   return (
     <ToggleGroup
       size="sm"

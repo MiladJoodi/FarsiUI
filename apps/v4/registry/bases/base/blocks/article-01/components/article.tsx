@@ -4,7 +4,7 @@ const PARAGRAPHS = [
   "وقتی بدنه کوتاه و خواناست، مرحلهٔ بعد افزودن نویسنده، کاور و فهرست مطالب است — نه برعکس.",
 ] as const
 
-export function ArticleSimple() {
+export default function ArticleSimple() {
   return (
     <div
       dir="rtl"

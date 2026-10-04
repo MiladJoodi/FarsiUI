@@ -41,7 +41,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function AdvancedFiltersPanel() {
+export default function AdvancedFiltersPanel() {
   const [brands, setBrands] = React.useState<string[]>(["آرام"])
   const [category, setCategory] = React.useState("صوتی")
 

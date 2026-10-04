@@ -48,7 +48,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AvatarUploadHistory() {
+export default function AvatarUploadHistory() {
   const [preview, setPreview] = React.useState<string>(HISTORY[0].src)
   const [fileName, setFileName] = React.useState("avatar-v3.jpg")
   const [progress, setProgress] = React.useState(100)

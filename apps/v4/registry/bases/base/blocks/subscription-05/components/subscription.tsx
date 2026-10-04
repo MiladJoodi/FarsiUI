@@ -83,7 +83,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function SubscriptionFancy() {
+export default function SubscriptionFancy() {
   const [autoRenew, setAutoRenew] = React.useState(true)
   const [cancelled, setCancelled] = React.useState(false)
   const [plan, setPlan] = React.useState<PlanValue>("تیم")

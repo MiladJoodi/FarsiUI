@@ -59,7 +59,7 @@ const ICONS = {
   file: FileIcon,
 } as const
 
-export function MediaGridCards() {
+export default function MediaGridCards() {
   return (
     <section
       dir="rtl"

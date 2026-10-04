@@ -31,7 +31,7 @@ import { Textarea } from "@/registry/bases/base/ui/textarea"
 
 const STEPS = ["اطلاعات", "جزئیات", "بازبینی"] as const
 
-export function SupportMultiStep() {
+export default function SupportMultiStep() {
   const [step, setStep] = React.useState(0)
   const [data, setData] = React.useState({
     name: "رضا کریمی",

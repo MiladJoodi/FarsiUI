@@ -75,7 +75,7 @@ const FOLDER_ITEMS = [
   { value: "بایگانی", label: "بایگانی" },
 ] as const
 
-export function InboxFilter() {
+export default function InboxFilter() {
   const [query, setQuery] = React.useState("")
   const [folder, setFolder] = React.useState("همه")
 

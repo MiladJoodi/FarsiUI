@@ -10,7 +10,7 @@ import {
   InputGroupInput,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputGroupWithButtons() {
+export default function InputGroupWithButtons() {
   return (
     <FieldGroup>
       <Field>

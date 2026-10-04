@@ -26,7 +26,7 @@ import {
 import { Input } from "@/styles/radix-nova/ui/input"
 import { Label } from "@/styles/radix-nova/ui/label"
 
-export function DrawerDialogDemo() {
+export default function DrawerDialogDemo() {
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
 

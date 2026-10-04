@@ -7,7 +7,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
 
-export function RadioGroupFieldset() {
+export default function RadioGroupFieldset() {
   return (
     <FieldSet className="w-full max-w-xs">
       <FieldLegend variant="label">Subscription Plan</FieldLegend>

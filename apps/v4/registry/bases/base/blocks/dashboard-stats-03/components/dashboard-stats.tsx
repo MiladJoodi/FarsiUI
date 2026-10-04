@@ -1,4 +1,4 @@
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -26,7 +26,7 @@ const KPIS = [
   { label: "تأخیر رابط", value: "۱۱۲ میلی‌ثانیه" },
 ] as const
 
-export function DashboardStatsGoals() {
+export default function DashboardStatsGoals() {
   return (
     <section
       dir="rtl"

@@ -3,7 +3,7 @@ import { ButtonGroup } from "@/styles/base-nova/ui/button-group"
 import { Field, FieldLabel } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputButtonGroup() {
+export default function InputButtonGroup() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="input-button-group">جستجو</FieldLabel>

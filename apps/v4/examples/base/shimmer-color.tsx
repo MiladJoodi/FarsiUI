@@ -1,4 +1,4 @@
-export function ShimmerColor() {
+export default function ShimmerColor() {
   return (
     <div
       dir="rtl"

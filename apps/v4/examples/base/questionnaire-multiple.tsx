@@ -36,7 +36,7 @@ const contextLabels: Record<string, string> = {
   history: "تاریخچهٔ اخیر کامیت‌ها",
 }
 
-export function QuestionnaireMultiple() {
+export default function QuestionnaireMultiple() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

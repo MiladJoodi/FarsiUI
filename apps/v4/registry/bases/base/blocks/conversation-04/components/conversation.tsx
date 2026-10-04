@@ -79,7 +79,7 @@ const PRIORITY_ITEMS = [
   { value: "بالا", label: "بالا" },
 ] as const
 
-export function ConversationActions() {
+export default function ConversationActions() {
   const [replies, setReplies] = React.useState(INITIAL)
   const [draft, setDraft] = React.useState("")
   const [priority, setPriority] = React.useState("عادی")

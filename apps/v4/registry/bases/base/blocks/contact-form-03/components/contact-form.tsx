@@ -11,7 +11,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactFormSplit() {
+export default function ContactFormSplit() {
   return (
     <Card dir="rtl" lang="fa" className="overflow-hidden p-0">
       <CardContent className="grid p-0 md:grid-cols-2">

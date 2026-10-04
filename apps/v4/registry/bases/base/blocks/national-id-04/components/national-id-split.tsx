@@ -52,7 +52,7 @@ function isValid(digits: string) {
   return rem < 2 ? check === rem : check === 11 - rem
 }
 
-export function NationalIdSplit() {
+export default function NationalIdSplit() {
   const [digits, setDigits] = React.useState("")
   const [done, setDone] = React.useState(false)
   const complete = digits.length === 10

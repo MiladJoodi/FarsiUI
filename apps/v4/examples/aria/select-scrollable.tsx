@@ -58,7 +58,7 @@ const items = [
   ...southAmerica,
 ]
 
-export function SelectScrollable() {
+export default function SelectScrollable() {
   return (
     <Select placeholder="Select a timezone" className="w-full max-w-64">
       <SelectTrigger>

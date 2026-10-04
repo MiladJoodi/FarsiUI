@@ -9,7 +9,7 @@ import {
   InputOTPSlot,
 } from "@/styles/aria-nova/ui/input-otp"
 
-export function InputOTPAlphanumeric() {
+export default function InputOTPAlphanumeric() {
   return (
     <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
       <InputOTPGroup>

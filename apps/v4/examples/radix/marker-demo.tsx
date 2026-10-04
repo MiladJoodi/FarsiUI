@@ -7,7 +7,7 @@ import {
 } from "@/styles/radix-rhea/ui/marker"
 import { Spinner } from "@/styles/radix-rhea/ui/spinner"
 
-export function MarkerDemo() {
+export default function MarkerDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker>

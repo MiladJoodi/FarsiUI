@@ -16,7 +16,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function LoadingProgress() {
+export default function LoadingProgress() {
   const [value, setValue] = React.useState(12)
 
   React.useEffect(() => {

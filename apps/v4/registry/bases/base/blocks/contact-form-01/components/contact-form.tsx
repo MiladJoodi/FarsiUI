@@ -19,7 +19,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ContactFormSimple() {
+export default function ContactFormSimple() {
   const [sent, setSent] = React.useState(false)
 
   if (sent) {

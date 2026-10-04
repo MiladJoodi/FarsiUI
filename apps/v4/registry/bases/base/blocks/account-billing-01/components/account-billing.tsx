@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/base/ui/card"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function AccountBillingSimple() {
+export default function AccountBillingSimple() {
   return (
     <section
       dir="rtl"

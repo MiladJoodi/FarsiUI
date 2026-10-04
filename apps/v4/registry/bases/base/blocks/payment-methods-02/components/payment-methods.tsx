@@ -39,7 +39,7 @@ const METHODS = [
   },
 ] as const
 
-export function PaymentMethodsCards() {
+export default function PaymentMethodsCards() {
   return (
     <section
       dir="rtl"

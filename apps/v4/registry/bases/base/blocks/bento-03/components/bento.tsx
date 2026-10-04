@@ -5,7 +5,7 @@ import { CheckIcon, LanguagesIcon, ShieldCheckIcon } from "lucide-react"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function BentoMedia() {
+export default function BentoMedia() {
   return (
     <section
       dir="rtl"

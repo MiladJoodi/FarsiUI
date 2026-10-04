@@ -21,7 +21,7 @@ const POSTS = [
   },
 ] as const
 
-export function BlogGridSimple() {
+export default function BlogGridSimple() {
   return (
     <section
       dir="rtl"

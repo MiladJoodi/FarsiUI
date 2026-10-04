@@ -22,7 +22,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/base-nova/ui/dropdown-menu"
 
-export function DropdownMenuAvatar() {
+export default function DropdownMenuAvatar() {
   return (
     <div dir="rtl">
       <DropdownMenu>

@@ -40,7 +40,7 @@ const TIMEOUT_ITEMS = [
   { value: "۹۰ روز", label: "۹۰ روز" },
 ] as const
 
-export function SecuritySettingsMethods() {
+export default function SecuritySettingsMethods() {
   return (
     <section
       dir="rtl"

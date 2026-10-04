@@ -14,7 +14,7 @@ import {
 } from "@/registry/bases/aria/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NavMain({
+export default function NavMain({
   items,
 }: {
   items: {

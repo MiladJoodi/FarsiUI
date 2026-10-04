@@ -20,7 +20,7 @@ const logicalSides = [
   { side: "inline-end" as const, label: "پایان" },
 ]
 
-export function PopoverRtl() {
+export default function PopoverRtl() {
   return (
     <div dir="rtl" className="grid gap-4">
       <div className="flex flex-wrap justify-center gap-2">

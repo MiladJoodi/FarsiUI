@@ -56,7 +56,7 @@ import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function Demo() {
+export default function Demo() {
   const [sliderValue, setSliderValue] = React.useState<number[]>([500])
   const handleSliderValueChange = React.useCallback(
     (value: number | readonly number[]) => {

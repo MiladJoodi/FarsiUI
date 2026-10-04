@@ -5,7 +5,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputDemo() {
+export default function InputDemo() {
   return (
     <Field>
       <FieldLabel htmlFor="input-demo-api-key">API Key</FieldLabel>

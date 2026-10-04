@@ -81,7 +81,7 @@ const CATEGORY_ITEMS = [
   { value: "خانه", label: "خانه" },
 ] as const
 
-export function WishlistFilterable() {
+export default function WishlistFilterable() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")

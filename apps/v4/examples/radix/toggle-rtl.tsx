@@ -30,7 +30,7 @@ const translations: Translations = {
   },
 }
 
-export function ToggleRtl() {
+export default function ToggleRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

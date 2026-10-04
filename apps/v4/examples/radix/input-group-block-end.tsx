@@ -13,7 +13,7 @@ import {
   InputGroupTextarea,
 } from "@/styles/radix-nova/ui/input-group"
 
-export function InputGroupBlockEnd() {
+export default function InputGroupBlockEnd() {
   return (
     <FieldGroup className="max-w-sm">
       <Field>

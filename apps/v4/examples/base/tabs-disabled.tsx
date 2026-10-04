@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from "@/styles/base-nova/ui/tabs"
 
-export function TabsDisabled() {
+export default function TabsDisabled() {
   return (
     <Tabs defaultValue="home" dir="rtl">
       <TabsList>

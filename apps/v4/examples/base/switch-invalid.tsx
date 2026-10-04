@@ -6,7 +6,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Switch } from "@/styles/base-nova/ui/switch"
 
-export function SwitchInvalid() {
+export default function SwitchInvalid() {
   return (
     <Field
       orientation="horizontal"

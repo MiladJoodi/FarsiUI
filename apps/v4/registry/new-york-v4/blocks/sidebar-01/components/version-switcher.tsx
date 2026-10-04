@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function VersionSwitcher({
+export default function VersionSwitcher({
   versions,
   defaultVersion,
 }: {

@@ -5,7 +5,7 @@ import {
 } from "@/styles/radix-nova/ui/field"
 import { Textarea } from "@/styles/radix-nova/ui/textarea"
 
-export function TextareaInvalid() {
+export default function TextareaInvalid() {
   return (
     <Field data-invalid>
       <FieldLabel htmlFor="textarea-invalid">Message</FieldLabel>

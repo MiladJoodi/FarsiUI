@@ -51,7 +51,7 @@ const timezones = [
   },
 ] as const
 
-export function ComboxboxInputGroup() {
+export default function ComboxboxInputGroup() {
   return (
     <div dir="rtl" className="w-full max-w-xs">
       <Combobox items={timezones}>

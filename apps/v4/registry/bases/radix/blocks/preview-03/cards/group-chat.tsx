@@ -5,8 +5,8 @@ import { useChat } from "@ai-sdk/react"
 import type { UIMessage } from "ai"
 
 import { createChat, getMessageText } from "@/lib/ai"
-import { PartText } from "@/registry/bases/radix/blocks/preview-03/components/part-text"
-import { PromptInput } from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
+import PartText from "@/registry/bases/radix/blocks/preview-03/components/part-text"
+import PromptInput from "@/registry/bases/radix/blocks/preview-03/components/prompt-input"
 import { Example } from "@/registry/bases/radix/components/example"
 import { Button } from "@/registry/bases/radix/ui/button"
 import {
@@ -134,7 +134,7 @@ const INITIAL_MESSAGE_COUNT = 0
 const initialMessages = chat.get(INITIAL_MESSAGE_COUNT)
 const transport = chat.transport()
 
-export function GroupChat() {
+export default function GroupChat() {
   const eventRunRef = React.useRef(0)
   const [events, setEvents] = React.useState<ScriptedChatEvent[]>(() =>
     scriptedEvents.filter((event) => event.order < INITIAL_MESSAGE_COUNT)

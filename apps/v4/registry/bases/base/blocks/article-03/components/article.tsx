@@ -13,7 +13,7 @@ const PARAGRAPHS = [
   "برچسب‌ها در پایین سربرگ کمک می‌کنند نوشته در فهرست و جستجو پیدا شود. سه برچسب معمولاً بهتر از ده بج کوچک است.",
 ] as const
 
-export function ArticleCover() {
+export default function ArticleCover() {
   return (
     <div
       dir="rtl"

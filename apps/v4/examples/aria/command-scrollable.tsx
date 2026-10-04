@@ -40,7 +40,7 @@ import {
   CommandShortcut,
 } from "@/styles/aria-nova/ui/command"
 
-export function CommandManyItems() {
+export default function CommandManyItems() {
   const [open, setOpen] = React.useState(false)
 
   return (

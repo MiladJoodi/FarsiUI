@@ -79,7 +79,7 @@ const TYPE_ITEMS = [
   { value: "محصول", label: "محصول" },
 ] as const
 
-export function NotificationsFilter() {
+export default function NotificationsFilter() {
   const [query, setQuery] = React.useState("")
   const [type, setType] = React.useState("همه")
 

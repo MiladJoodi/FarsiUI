@@ -122,7 +122,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function ImageGalleryHub() {
+export default function ImageGalleryHub() {
   const [album, setAlbum] = React.useState("همه")
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState("جدیدترین")

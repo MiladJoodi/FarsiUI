@@ -9,7 +9,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuSides() {
+export default function ContextMenuSides() {
   return (
     <div className="grid w-full max-w-sm grid-cols-2 gap-4">
       <ContextMenuTrigger>

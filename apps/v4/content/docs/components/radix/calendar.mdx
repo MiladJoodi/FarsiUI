@@ -90,11 +90,13 @@ You can use the `<Calendar>` component to build a date picker. See the [Date Pic
 
 ## Persian / Hijri / Jalali Calendar
 
-To use the Persian calendar, edit `components/ui/calendar.tsx` and replace `react-day-picker` with `react-day-picker/persian`.
+FarsiUI `Calendar` ships with Jalali/Persian support for `react-day-picker@10` via `components/ui/day-picker-persian.tsx` (`DateLib` + `date-fns-jalali`). A separate `/persian` package entry is not required.
+
+To switch to the Gregorian calendar, edit `components/ui/calendar.tsx`:
 
 ```diff
-- import { DayPicker } from "react-day-picker"
-+ import { DayPicker } from "react-day-picker/persian"
+- import { DayPicker } from "@/components/ui/day-picker-persian"
++ import { DayPicker } from "react-day-picker"
 ```
 
 <ComponentPreview

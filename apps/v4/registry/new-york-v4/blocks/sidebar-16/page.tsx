@@ -1,5 +1,5 @@
-import { AppSidebar } from "@/registry/new-york-v4/blocks/sidebar-16/components/app-sidebar"
-import { SiteHeader } from "@/registry/new-york-v4/blocks/sidebar-16/components/site-header"
+import AppSidebar from "@/registry/new-york-v4/blocks/sidebar-16/components/app-sidebar"
+import SiteHeader from "@/registry/new-york-v4/blocks/sidebar-16/components/site-header"
 import {
   SidebarInset,
   SidebarProvider,

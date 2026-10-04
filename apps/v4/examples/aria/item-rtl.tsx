@@ -47,7 +47,7 @@ const translations: Translations = {
   },
 }
 
-export function ItemRtl() {
+export default function ItemRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

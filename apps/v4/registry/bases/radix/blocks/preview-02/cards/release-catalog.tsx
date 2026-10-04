@@ -56,7 +56,7 @@ const HOLDINGS = [
   },
 ]
 
-export function ReleaseCatalog() {
+export default function ReleaseCatalog() {
   return (
     <Card>
       <CardHeader>

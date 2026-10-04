@@ -48,7 +48,7 @@ const NAV = [
   },
 ] as const
 
-export function AppSidebar() {
+export default function AppSidebar() {
   const [userOpen, setUserOpen] = React.useState(false)
 
   return (

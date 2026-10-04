@@ -19,10 +19,10 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-documents"
-import { NavMain } from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-main"
-import { NavSecondary } from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-secondary"
-import { NavUser } from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-user"
+import NavDocuments from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-documents"
+import NavMain from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-main"
+import NavSecondary from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-secondary"
+import NavUser from "@/registry/new-york-v4/blocks/dashboard-01/components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -150,7 +150,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>

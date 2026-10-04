@@ -59,7 +59,7 @@ const TABS = [
   },
 ] as const
 
-export function FeaturesShowcase() {
+export default function FeaturesShowcase() {
   const [tab, setTab] = React.useState("product")
 
   return (

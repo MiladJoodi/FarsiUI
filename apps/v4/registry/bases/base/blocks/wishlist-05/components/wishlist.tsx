@@ -150,7 +150,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function WishlistHub() {
+export default function WishlistHub() {
   const [items, setItems] = React.useState(INITIAL)
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")

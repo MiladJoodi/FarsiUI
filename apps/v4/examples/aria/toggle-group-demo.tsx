@@ -5,7 +5,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupDemo() {
+export default function ToggleGroupDemo() {
   return (
     <ToggleGroup variant="outline" selectionMode="multiple">
       <ToggleGroupItem id="bold" aria-label="Toggle bold">

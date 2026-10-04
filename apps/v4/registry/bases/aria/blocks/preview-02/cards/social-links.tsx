@@ -14,7 +14,7 @@ import {
 } from "@/registry/bases/aria/ui/input-group"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function SocialLinks() {
+export default function SocialLinks() {
   return (
     <Card>
       <CardHeader>

@@ -17,7 +17,7 @@ import {
 import { Kbd } from "@/registry/bases/radix/ui/kbd"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NotFound() {
+export default function NotFound() {
   return (
     <Card>
       <CardContent>

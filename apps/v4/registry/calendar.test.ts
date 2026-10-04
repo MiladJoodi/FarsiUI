@@ -19,11 +19,15 @@ function findFiles(dir: string, fileName: string): string[] {
 }
 
 describe("calendar registry items", () => {
+  // Aria calendars use react-aria-components, not react-day-picker.
   const sourceFiles = [
     ...findFiles(resolve(appDir, "registry/bases"), "calendar.tsx"),
     ...findFiles(resolve(appDir, "registry/new-york-v4"), "calendar.tsx"),
     ...findFiles(resolve(appDir, "styles"), "calendar.tsx"),
-  ]
+  ].filter((file) => {
+    const rel = relative(appDir, file).replaceAll("\\", "/")
+    return !rel.includes("/aria/") && !rel.includes("/aria-")
+  })
   // Only the frozen legacy styles are checked here: they have no .tsx source
   // and are maintained by editing the published JSON directly in git. All
   // other styles are generated from the sources checked above.
@@ -41,6 +45,20 @@ describe("calendar registry items", () => {
       expect(source).toContain(
         'month_grid: cn("w-full border-collapse", defaultClassNames.month_grid)'
       )
+    }
+  )
+
+  const persianCalendarSources = [
+    resolve(appDir, "registry/bases/base/ui/calendar.tsx"),
+    resolve(appDir, "registry/bases/radix/ui/calendar.tsx"),
+  ]
+
+  it.each(persianCalendarSources.map((file) => [relative(appDir, file), file]))(
+    "%s uses the RDP v10 Persian adapter (not react-day-picker/persian)",
+    (_, file) => {
+      const source = readFileSync(file, "utf-8")
+      expect(source).not.toContain("react-day-picker/persian")
+      expect(source).toContain("day-picker-persian")
     }
   )
 

@@ -1,4 +1,4 @@
-import { DocumentUploadForm } from "@/registry/bases/base/blocks/document-verification-01/components/document-upload-form"
+import DocumentUploadForm from "@/registry/bases/base/blocks/document-verification-01/components/document-upload-form"
 
 export default function Page() {
   return (

@@ -7,7 +7,7 @@ const ITEMS = [
   { title: "تنظیمات حساب", meta: "۳ روز پیش", type: "صفحه" },
 ] as const
 
-export function RecentItemsSimple() {
+export default function RecentItemsSimple() {
   return (
     <section
       dir="rtl"

@@ -26,7 +26,7 @@ import {
 } from "@/registry/bases/base/ui/table"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function RecentTransactions() {
+export default function RecentTransactions() {
   return (
     <Card>
       <CardHeader>

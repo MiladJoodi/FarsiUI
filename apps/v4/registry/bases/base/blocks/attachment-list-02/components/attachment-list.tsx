@@ -44,7 +44,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function AttachmentListCards() {
+export default function AttachmentListCards() {
   return (
     <section
       dir="rtl"

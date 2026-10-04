@@ -5,7 +5,7 @@ import {
   BubbleReactions,
 } from "@/styles/radix-rhea/ui/bubble"
 
-export function BubbleVariantsDemo() {
+export default function BubbleVariantsDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-12 py-12">
       <Bubble>

@@ -52,7 +52,7 @@ const START_ITEMS = [
 type SeatValue = (typeof SEAT_ITEMS)[number]["value"]
 type StartValue = (typeof START_ITEMS)[number]["value"]
 
-export function PlanSelectionConfigForm() {
+export default function PlanSelectionConfigForm() {
   const [plan, setPlan] = React.useState("pro")
   const [yearly, setYearly] = React.useState(false)
   const [seats, setSeats] = React.useState<SeatValue>("۳")

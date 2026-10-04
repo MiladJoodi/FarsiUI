@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/styles/aria-nova/ui/card"
 import { Skeleton } from "@/styles/aria-nova/ui/skeleton"
 
-export function SkeletonCard() {
+export default function SkeletonCard() {
   return (
     <Card className="w-full max-w-xs">
       <CardHeader>

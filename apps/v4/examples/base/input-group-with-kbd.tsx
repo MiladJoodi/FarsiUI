@@ -15,7 +15,7 @@ import {
 import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function InputGroupWithKbd() {
+export default function InputGroupWithKbd() {
   return (
     <FieldGroup>
       <Field>

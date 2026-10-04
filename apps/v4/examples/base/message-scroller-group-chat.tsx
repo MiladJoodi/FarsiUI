@@ -92,7 +92,7 @@ type GroupChatItem =
       scrollAnchor?: boolean
     }
 
-export function MessageScrollerGroupChat() {
+export default function MessageScrollerGroupChat() {
   const [demoKey, setDemoKey] = React.useState(0)
   const [rockyTurn, setRockyTurn] = React.useState<
     "idle" | "marker" | "message"

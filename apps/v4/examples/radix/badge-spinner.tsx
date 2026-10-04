@@ -1,7 +1,7 @@
 import { Badge } from "@/styles/radix-nova/ui/badge"
 import { Spinner } from "@/styles/radix-nova/ui/spinner"
 
-export function BadgeWithSpinner() {
+export default function BadgeWithSpinner() {
   return (
     <div className="flex flex-wrap gap-2">
       <Badge variant="destructive">

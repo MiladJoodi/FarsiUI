@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/bases/base/ui/avatar"
 
-export function ProfileSimple() {
+export default function ProfileSimple() {
   return (
     <section
       dir="rtl"

@@ -66,7 +66,7 @@ const SCOPE_ITEMS = [
   { value: "مستند", label: "مستند" },
 ] as const
 
-export function SearchCommand() {
+export default function SearchCommand() {
   const [query, setQuery] = React.useState("")
   const [scope, setScope] = React.useState("همه")
   const [headerOpen, setHeaderOpen] = React.useState(false)

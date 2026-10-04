@@ -73,7 +73,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function SearchResultsActions() {
+export default function SearchResultsActions() {
   const [sort, setSort] = React.useState("مرتبط‌ترین")
   const [saved, setSaved] = React.useState<string[]>([])
   const [headerOpen, setHeaderOpen] = React.useState(false)

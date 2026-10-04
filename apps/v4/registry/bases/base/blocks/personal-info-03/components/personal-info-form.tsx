@@ -28,7 +28,7 @@ import {
 } from "@/registry/bases/base/ui/select"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function PersonalInfoForm({
+export default function PersonalInfoForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {

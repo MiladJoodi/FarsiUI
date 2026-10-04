@@ -6,7 +6,7 @@ import { CalendarDate, isSameDay } from "@internationalized/date"
 import { Calendar } from "@/styles/aria-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/aria-nova/ui/card"
 
-export function CalendarBookedDates() {
+export default function CalendarBookedDates() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     new CalendarDate(new Date().getFullYear(), 2, 3)
   )

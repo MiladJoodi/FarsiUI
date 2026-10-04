@@ -7,7 +7,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/base-nova/ui/radio-group"
 
-export function RadioGroupChoiceCard() {
+export default function RadioGroupChoiceCard() {
   return (
     <div dir="rtl">
       <RadioGroup defaultValue="plus" className="max-w-sm">

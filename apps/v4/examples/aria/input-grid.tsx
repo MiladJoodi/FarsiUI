@@ -1,7 +1,7 @@
 import { Field, FieldGroup, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputGrid() {
+export default function InputGrid() {
   return (
     <FieldGroup className="grid max-w-sm grid-cols-2">
       <Field>

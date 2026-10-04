@@ -14,7 +14,7 @@ const REPLIES = [
   { who: "پشتیبانی", text: "سلام! تا فردا ارسال می‌شود.", me: true },
 ] as const
 
-export function ConversationSimple() {
+export default function ConversationSimple() {
   return (
     <section
       dir="rtl"

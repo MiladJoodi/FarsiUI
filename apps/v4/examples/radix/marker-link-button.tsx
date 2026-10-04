@@ -9,7 +9,7 @@ import {
   MarkerIcon,
 } from "@/styles/radix-rhea/ui/marker"
 
-export function MarkerLinkButtonDemo() {
+export default function MarkerLinkButtonDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Marker asChild>

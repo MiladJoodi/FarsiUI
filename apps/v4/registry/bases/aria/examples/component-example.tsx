@@ -62,7 +62,7 @@ import {
 import { Textarea } from "@/registry/bases/aria/ui/textarea"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function ComponentExample() {
+export default function ComponentExample() {
   return (
     <ExampleWrapper>
       <CardExample />

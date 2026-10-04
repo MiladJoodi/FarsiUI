@@ -370,7 +370,7 @@ function DraggableRow({
     </TableRow>
   )
 }
-export function DataTable({
+export default function DataTable({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[]

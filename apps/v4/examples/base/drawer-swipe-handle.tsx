@@ -12,7 +12,7 @@ import {
   DrawerTrigger,
 } from "@/styles/base-rhea/ui/drawer"
 
-export function DrawerSwipeHandle() {
+export default function DrawerSwipeHandle() {
   return (
     <div dir="rtl">
       <Drawer showSwipeHandle>

@@ -39,7 +39,7 @@ function isValidDate(date: Date | undefined) {
   return !isNaN(date.getTime())
 }
 
-export function DatePickerInput() {
+export default function DatePickerInput() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     parseDate("2025-06-01")

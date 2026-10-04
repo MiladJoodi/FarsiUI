@@ -46,7 +46,7 @@ const reviewLabels: Record<string, string> = {
   both: "تست‌ها و بازبینی دیف",
 }
 
-export function QuestionnaireSkipExample() {
+export default function QuestionnaireSkipExample() {
   const [constraintStatus, setConstraintStatus] =
     React.useState<QuestionnaireItemStatus>("unanswered")
 

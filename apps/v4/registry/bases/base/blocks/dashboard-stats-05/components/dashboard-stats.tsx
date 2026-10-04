@@ -3,7 +3,7 @@
 import * as React from "react"
 import { SearchIcon } from "lucide-react"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -88,7 +88,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function DashboardStatsHub() {
+export default function DashboardStatsHub() {
   const [query, setQuery] = React.useState("")
   const [category, setCategory] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("نام")

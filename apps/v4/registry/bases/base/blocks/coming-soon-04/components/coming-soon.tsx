@@ -21,7 +21,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function ComingSoonInContext() {
+export default function ComingSoonInContext() {
   return (
     <section
       dir="rtl"

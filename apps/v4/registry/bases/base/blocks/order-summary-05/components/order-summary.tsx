@@ -61,7 +61,7 @@ const SHIPPING_ITEMS = [
   { value: "عادی", label: "عادی" },
 ] as const
 
-export function OrderSummaryHub() {
+export default function OrderSummaryHub() {
   const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (

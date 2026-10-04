@@ -39,7 +39,7 @@ const ITEMS = [
   },
 ] as const
 
-export function ActivityTimeline() {
+export default function ActivityTimeline() {
   return (
     <section
       dir="rtl"

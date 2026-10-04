@@ -26,7 +26,7 @@ const PLANS = [
   },
 ] as const
 
-export function PricingSimple() {
+export default function PricingSimple() {
   return (
     <section
       dir="rtl"

@@ -5,7 +5,7 @@ import {
   PopoverTrigger,
 } from "@/styles/base-nova/ui/popover"
 
-export function PopoverAlignments() {
+export default function PopoverAlignments() {
   return (
     <div dir="rtl" className="flex gap-6">
       <Popover>

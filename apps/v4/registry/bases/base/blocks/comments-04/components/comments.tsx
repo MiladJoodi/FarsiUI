@@ -86,7 +86,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function CommentsActions() {
+export default function CommentsActions() {
   const [items, setItems] = React.useState(INITIAL)
   const [sort, setSort] = React.useState("جدیدترین")
   const [query, setQuery] = React.useState("")

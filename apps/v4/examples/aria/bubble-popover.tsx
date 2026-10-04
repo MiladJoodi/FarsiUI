@@ -14,7 +14,7 @@ import {
   PopoverTrigger,
 } from "@/styles/aria-rhea/ui/popover"
 
-export function BubblePopoverDemo() {
+export default function BubblePopoverDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-4 py-12">
       <Bubble align="end">

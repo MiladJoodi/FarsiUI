@@ -41,7 +41,7 @@ const verificationLabels: Record<string, string> = {
   manual: "تست دودی دستی",
 }
 
-export function QuestionnaireResume() {
+export default function QuestionnaireResume() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 

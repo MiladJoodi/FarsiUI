@@ -71,7 +71,7 @@ const STATUS_ITEMS = [
   { value: "بسته", label: "بسته" },
 ] as const
 
-export function ConversationHub() {
+export default function ConversationHub() {
   const [active, setActive] = React.useState("1")
   const [status, setStatus] = React.useState("باز")
   const [filter, setFilter] = React.useState("همه")

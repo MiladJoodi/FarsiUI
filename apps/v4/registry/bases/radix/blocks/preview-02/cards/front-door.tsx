@@ -9,7 +9,7 @@ import {
 } from "@/registry/bases/radix/ui/card"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function FrontDoor() {
+export default function FrontDoor() {
   return (
     <Card>
       <CardHeader>

@@ -67,7 +67,7 @@ const chat = createChat()
 const initialMessages = chat.get(0)
 const transport = chat.transport({ delayMs: 15 })
 
-export function MessageScrollerAnimation() {
+export default function MessageScrollerAnimation() {
   const { messages, sendMessage, setMessages, status } = useChat({
     messages: initialMessages,
     transport,

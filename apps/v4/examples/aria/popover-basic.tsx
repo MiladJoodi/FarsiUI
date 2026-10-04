@@ -7,7 +7,7 @@ import {
   PopoverTrigger,
 } from "@/styles/aria-nova/ui/popover"
 
-export function PopoverBasic() {
+export default function PopoverBasic() {
   return (
     <PopoverTrigger>
       <Button variant="outline">Open Popover</Button>

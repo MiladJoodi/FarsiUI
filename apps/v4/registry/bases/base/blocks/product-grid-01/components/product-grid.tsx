@@ -19,7 +19,7 @@ const PRODUCTS = [
   },
 ] as const
 
-export function ProductGridSimple() {
+export default function ProductGridSimple() {
   return (
     <section
       dir="rtl"

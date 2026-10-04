@@ -20,7 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/styles/radix-nova/ui/dropdown-menu"
 
-export function DropdownMenuAvatar() {
+export default function DropdownMenuAvatar() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

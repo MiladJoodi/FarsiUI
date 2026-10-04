@@ -14,7 +14,7 @@ const PERKS = [
   "داستان تیم‌های محصول",
 ] as const
 
-export function NewsletterShowcase() {
+export default function NewsletterShowcase() {
   const [done, setDone] = React.useState(false)
 
   return (

@@ -8,7 +8,7 @@ import {
   ItemTitle,
 } from "@/styles/radix-nova/ui/item"
 
-export function ItemVariant() {
+export default function ItemVariant() {
   return (
     <div className="flex w-full max-w-md flex-col gap-6">
       <Item>

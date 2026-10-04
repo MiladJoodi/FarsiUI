@@ -22,7 +22,7 @@ const frameworks = [
   "Astro",
 ] as const
 
-export function ComboboxMultiple() {
+export default function ComboboxMultiple() {
   return (
     <Combobox
       aria-label="Frameworks"

@@ -7,13 +7,13 @@ import {
   type DayButton,
   type Locale,
 } from "react-day-picker"
-import { DayPicker } from "react-day-picker/persian"
 
 import {
   formatNumber,
   resolveNumericLocale,
 } from "@/registry/bases/radix/lib/digits"
 import { Button, buttonVariants } from "@/registry/bases/radix/ui/button"
+import { DayPicker } from "@/registry/bases/radix/ui/day-picker-persian"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
 function Calendar({

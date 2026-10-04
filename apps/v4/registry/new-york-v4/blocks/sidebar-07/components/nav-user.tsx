@@ -30,7 +30,7 @@ import {
   useSidebar,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function NavUser({
+export default function NavUser({
   user,
 }: {
   user: {

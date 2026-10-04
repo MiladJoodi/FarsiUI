@@ -10,7 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/styles/base-nova/ui/collapsible"
 
-export function CollapsibleRtl() {
+export default function CollapsibleRtl() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (

@@ -29,7 +29,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function SubscriptionStatusSimple() {
+export default function SubscriptionStatusSimple() {
   return (
     <section
       dir="rtl"

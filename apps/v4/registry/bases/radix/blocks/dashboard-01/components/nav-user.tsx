@@ -22,7 +22,7 @@ import {
 } from "@/registry/bases/radix/ui/sidebar"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function NavUser({
+export default function NavUser({
   user,
 }: {
   user: {

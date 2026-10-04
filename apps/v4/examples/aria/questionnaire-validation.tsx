@@ -65,7 +65,7 @@ function ValidationProgress() {
   )
 }
 
-export function QuestionnaireValidation() {
+export default function QuestionnaireValidation() {
   const detailTitleId = React.useId()
   const audienceTitleId = React.useId()
   const [item, setItem] = React.useState("detail")

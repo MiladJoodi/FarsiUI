@@ -38,7 +38,7 @@ const ITEMS = [
   },
 ] as const
 
-export function TestimonialsSwitcher() {
+export default function TestimonialsSwitcher() {
   const [active, setActive] = React.useState("maryam")
 
   return (

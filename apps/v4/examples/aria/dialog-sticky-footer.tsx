@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/styles/aria-nova/ui/dialog"
 
-export function DialogStickyFooter() {
+export default function DialogStickyFooter() {
   return (
     <DialogTrigger>
       <Button variant="outline">Sticky Footer</Button>

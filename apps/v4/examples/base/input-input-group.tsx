@@ -8,7 +8,7 @@ import {
   InputGroupText,
 } from "@/styles/base-nova/ui/input-group"
 
-export function InputInputGroup() {
+export default function InputInputGroup() {
   return (
     <Field dir="rtl">
       <FieldLabel htmlFor="input-group-url">آدرس وب‌سایت</FieldLabel>

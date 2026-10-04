@@ -68,7 +68,7 @@ const STATUS_ITEMS = [
   { value: "لغو شده", label: "لغو شده" },
 ] as const
 
-export function OrderHistoryFilterable() {
+export default function OrderHistoryFilterable() {
   const [query, setQuery] = React.useState("")
   const [status, setStatus] = React.useState("همه")
 

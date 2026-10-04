@@ -46,7 +46,7 @@ const GRID = [
   },
 ] as const
 
-export function TestimonialsShowcase() {
+export default function TestimonialsShowcase() {
   return (
     <section
       dir="rtl"

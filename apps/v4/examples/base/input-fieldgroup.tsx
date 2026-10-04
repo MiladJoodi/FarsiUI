@@ -7,7 +7,7 @@ import {
 } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 
-export function InputFieldgroup() {
+export default function InputFieldgroup() {
   return (
     <FieldGroup dir="rtl">
       <Field>

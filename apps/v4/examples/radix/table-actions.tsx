@@ -17,7 +17,7 @@ import {
   TableRow,
 } from "@/styles/radix-nova/ui/table"
 
-export function TableActions() {
+export default function TableActions() {
   return (
     <Table>
       <TableHeader>

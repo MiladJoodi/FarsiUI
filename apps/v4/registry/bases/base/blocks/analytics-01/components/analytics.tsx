@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import {
   Card,
   CardContent,
@@ -34,7 +34,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function AnalyticsBars() {
+export default function AnalyticsBars() {
   return (
     <section
       dir="rtl"

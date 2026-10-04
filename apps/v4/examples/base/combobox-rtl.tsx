@@ -34,7 +34,7 @@ const categoryLabels: Record<(typeof categories)[number], string> = {
   health: "سلامت",
 }
 
-export function ComboboxRtl() {
+export default function ComboboxRtl() {
   const anchor = useComboboxAnchor()
 
   return (

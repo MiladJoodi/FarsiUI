@@ -22,7 +22,7 @@ const FITNESS_WEEKLY_LOAD = [
   { day: "S", load: 61 },
 ]
 
-export function WeeklyFitnessSummary() {
+export default function WeeklyFitnessSummary() {
   return (
     <Card>
       <CardHeader>

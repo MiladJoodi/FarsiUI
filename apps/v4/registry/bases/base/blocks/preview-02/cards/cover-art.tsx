@@ -9,7 +9,7 @@ import { Item } from "@/registry/bases/base/ui/item"
 import { Label } from "@/registry/bases/base/ui/label"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function CoverArt() {
+export default function CoverArt() {
   return (
     <Card>
       <CardContent className="flex flex-col gap-3">

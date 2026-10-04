@@ -38,7 +38,7 @@ const PLANS = [
   },
 ] as const
 
-export function PricingToggle() {
+export default function PricingToggle() {
   const [yearly, setYearly] = React.useState(true)
 
   return (

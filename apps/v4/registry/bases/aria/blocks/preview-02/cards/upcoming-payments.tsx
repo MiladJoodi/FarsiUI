@@ -25,7 +25,7 @@ import {
   ItemTitle,
 } from "@/registry/bases/aria/ui/item"
 
-export function UpcomingPayments() {
+export default function UpcomingPayments() {
   const [date, setDate] = React.useState<CalendarDate | undefined>(
     today(getLocalTimeZone())
   )

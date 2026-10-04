@@ -13,7 +13,7 @@ import { Field, FieldGroup } from "@/styles/base-nova/ui/field"
 import { Input } from "@/styles/base-nova/ui/input"
 import { Label } from "@/styles/base-nova/ui/label"
 
-export function DialogDemo() {
+export default function DialogDemo() {
   return (
     <div dir="rtl">
       <Dialog>

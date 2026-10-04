@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/aria-nova/ui/slider"
 
-export function SliderDisabled() {
+export default function SliderDisabled() {
   return (
     <Slider
       aria-label="Disabled slider"

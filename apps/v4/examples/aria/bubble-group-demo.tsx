@@ -5,7 +5,7 @@ import {
   BubbleReactions,
 } from "@/styles/aria-rhea/ui/bubble"
 
-export function BubbleGroupDemo() {
+export default function BubbleGroupDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-8 py-12">
       <Bubble variant="muted">

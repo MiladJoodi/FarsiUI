@@ -36,7 +36,7 @@ const people = [
   },
 ]
 
-export function ItemGroupExample() {
+export default function ItemGroupExample() {
   return (
     <ItemGroup className="max-w-sm">
       {people.map((person, index) => (

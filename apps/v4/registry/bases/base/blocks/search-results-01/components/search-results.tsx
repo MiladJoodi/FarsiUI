@@ -26,7 +26,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function SearchResultsSimple() {
+export default function SearchResultsSimple() {
   return (
     <section
       dir="rtl"

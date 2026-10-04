@@ -1,4 +1,4 @@
-import { ContactFormFeedback } from "@/registry/bases/base/blocks/contact-form-02/components/contact-form"
+import ContactFormFeedback from "@/registry/bases/base/blocks/contact-form-02/components/contact-form"
 
 export default function Page() {
   return (

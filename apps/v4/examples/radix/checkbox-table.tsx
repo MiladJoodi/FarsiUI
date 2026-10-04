@@ -39,7 +39,7 @@ const tableData = [
   },
 ]
 
-export function CheckboxInTable() {
+export default function CheckboxInTable() {
   const [selectedRows, setSelectedRows] = React.useState<Set<string>>(
     new Set(["1"])
   )

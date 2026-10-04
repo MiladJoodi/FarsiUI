@@ -71,7 +71,7 @@ const FEATURES = [
   { key: "docs", label: "مستندات فارسی" },
 ] as const
 
-export function ComparisonPicker() {
+export default function ComparisonPicker() {
   const [left, setLeft] = React.useState<OptionKey>("ساخت از صفر")
   const [right, setRight] = React.useState<OptionKey>("فارسی‌یوآی")
 

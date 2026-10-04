@@ -58,7 +58,7 @@ const data = [
   },
 ]
 
-export function DrawerDemo() {
+export default function DrawerDemo() {
   const [goal, setGoal] = React.useState(350)
 
   function onClick(adjustment: number) {

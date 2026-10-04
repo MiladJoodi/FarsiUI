@@ -78,7 +78,7 @@ const EVENTS = [
   },
 ] as const
 
-export function EventListFilter() {
+export default function EventListFilter() {
   const [query, setQuery] = React.useState("")
   const [kind, setKind] = React.useState("همه")
 

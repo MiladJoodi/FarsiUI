@@ -5,7 +5,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 
-export function InputField() {
+export default function InputField() {
   return (
     <Field>
       <FieldLabel htmlFor="input-field-username">Username</FieldLabel>

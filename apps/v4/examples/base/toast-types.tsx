@@ -3,7 +3,7 @@
 import { Button } from "@/styles/base-nova/ui/button"
 import { toast } from "@/styles/base-nova/ui/toast"
 
-export function ToastTypes() {
+export default function ToastTypes() {
   return (
     <div dir="rtl" className="flex flex-wrap gap-2">
       <Button

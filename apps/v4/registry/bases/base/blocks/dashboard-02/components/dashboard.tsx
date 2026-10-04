@@ -14,7 +14,7 @@ const STATS = [
   { label: "مشتریان فعال", value: "۱٬۲۰۸", unit: "نفر", delta: "٪۱۲+" },
 ] as const
 
-export function DashboardSimple() {
+export default function DashboardSimple() {
   return (
     <section
       dir="rtl"

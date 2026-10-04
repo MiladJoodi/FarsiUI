@@ -11,7 +11,7 @@ import {
   InputGroupInput,
 } from "@/styles/aria-nova/ui/input-group"
 
-export function InputGroupInlineStart() {
+export default function InputGroupInlineStart() {
   return (
     <Field className="max-w-sm">
       <FieldLabel htmlFor="inline-start-input">Input</FieldLabel>

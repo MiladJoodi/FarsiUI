@@ -26,7 +26,7 @@ const items = [
   },
 ]
 
-export function AccordionBasic() {
+export default function AccordionBasic() {
   return (
     <Accordion defaultExpandedKeys={["item-1"]} className="max-w-lg">
       {items.map((item) => (

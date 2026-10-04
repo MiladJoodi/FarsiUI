@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/styles/radix-nova/ui/tooltip"
 
-export function TooltipDisabled() {
+export default function TooltipDisabled() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>

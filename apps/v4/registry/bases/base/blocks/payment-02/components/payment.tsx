@@ -17,7 +17,7 @@ import { Label } from "@/registry/bases/base/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
 import { Separator } from "@/registry/bases/base/ui/separator"
 
-export function PaymentMethodsCard() {
+export default function PaymentMethodsCard() {
   const [method, setMethod] = React.useState("card")
 
   return (

@@ -54,7 +54,7 @@ const agentFeatures = [
   },
 ]
 
-export function ActivateAgentDialog() {
+export default function ActivateAgentDialog() {
   return (
     <Card>
       <CardHeader>

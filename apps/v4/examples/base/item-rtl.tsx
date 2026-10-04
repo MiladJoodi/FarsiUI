@@ -12,7 +12,7 @@ import {
   ItemTitle,
 } from "@/styles/base-nova/ui/item"
 
-export function ItemRtl() {
+export default function ItemRtl() {
   return (
     <div dir="rtl" className="flex w-full max-w-md flex-col gap-6">
       <Item variant="outline">

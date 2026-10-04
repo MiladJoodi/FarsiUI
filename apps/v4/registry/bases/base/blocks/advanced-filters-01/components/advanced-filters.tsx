@@ -22,7 +22,7 @@ const OPTIONS = [
   { id: "af1-sale", label: "تخفیف‌دار" },
 ] as const
 
-export function AdvancedFiltersSimple() {
+export default function AdvancedFiltersSimple() {
   return (
     <section
       dir="rtl"

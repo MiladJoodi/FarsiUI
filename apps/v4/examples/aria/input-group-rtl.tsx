@@ -71,7 +71,7 @@ const translations: Translations = {
   },
 }
 
-export function InputGroupRtl() {
+export default function InputGroupRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

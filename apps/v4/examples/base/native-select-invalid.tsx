@@ -3,7 +3,7 @@ import {
   NativeSelectOption,
 } from "@/styles/base-nova/ui/native-select"
 
-export function NativeSelectInvalid() {
+export default function NativeSelectInvalid() {
   return (
     <div dir="rtl">
       <NativeSelect aria-invalid="true">

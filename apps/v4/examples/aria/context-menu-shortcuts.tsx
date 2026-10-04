@@ -11,7 +11,7 @@ import {
   ContextMenuTrigger,
 } from "@/styles/aria-nova/ui/context-menu"
 
-export function ContextMenuShortcuts() {
+export default function ContextMenuShortcuts() {
   return (
     <ContextMenuTrigger>
       <Pressable>

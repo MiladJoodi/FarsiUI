@@ -46,7 +46,7 @@ function formatJalali(date: Date) {
   return `${weekday}، ${rest}`
 }
 
-export function BookingServiceCard() {
+export default function BookingServiceCard() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const [service, setService] = React.useState<ServiceId>("مشاوره")

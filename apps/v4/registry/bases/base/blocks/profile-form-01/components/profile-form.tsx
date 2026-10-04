@@ -17,7 +17,7 @@ import {
 import { Input } from "@/registry/bases/base/ui/input"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
 
-export function ProfileFormSimple() {
+export default function ProfileFormSimple() {
   return (
     <Card dir="rtl" lang="fa">
       <CardHeader>

@@ -13,7 +13,7 @@ import {
 import { Input } from "@/registry/bases/aria/ui/input"
 import { IconPlaceholder } from "@/components/icon-placeholder"
 
-export function LoginForm({
+export default function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {

@@ -8,7 +8,7 @@ import {
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 
-export function NavMain({
+export default function NavMain({
   items,
 }: {
   items: {

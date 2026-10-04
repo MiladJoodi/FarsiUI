@@ -16,7 +16,7 @@
   },
 ] as const
 
-export function ContactSimple() {
+export default function ContactSimple() {
   return (
     <div
       dir="rtl"

@@ -3,7 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/styles/aria-nova/ui/toggle-group"
 
-export function ToggleGroupSizes() {
+export default function ToggleGroupSizes() {
   return (
     <div className="flex flex-col gap-4">
       <ToggleGroup size="sm" defaultSelectedKeys={["top"]} variant="outline">

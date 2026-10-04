@@ -13,7 +13,7 @@ import {
 } from "@/styles/radix-nova/ui/item"
 import { Progress } from "@/styles/radix-nova/ui/progress"
 
-export function FileUploadList() {
+export default function FileUploadList() {
   const files = React.useMemo(
     () => [
       {

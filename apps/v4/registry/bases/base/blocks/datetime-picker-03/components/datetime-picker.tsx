@@ -84,7 +84,7 @@ function formatJalaliCompact(date: Date) {
   })
 }
 
-export function DatetimePickerRangeForm() {
+export default function DatetimePickerRangeForm() {
   const today = new Date()
   const [open, setOpen] = React.useState(false)
   const [range, setRange] = React.useState<DateRange | undefined>({

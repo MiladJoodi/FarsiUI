@@ -11,7 +11,7 @@ import { Label } from "@/registry/bases/base/ui/label"
 import { Separator } from "@/registry/bases/base/ui/separator"
 import { Switch } from "@/registry/bases/base/ui/switch"
 
-export function DashboardSettingsSimple() {
+export default function DashboardSettingsSimple() {
   return (
     <section
       dir="rtl"

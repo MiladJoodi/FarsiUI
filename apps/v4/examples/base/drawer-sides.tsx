@@ -10,7 +10,7 @@ import {
   DrawerTrigger,
 } from "@/styles/base-rhea/ui/drawer"
 
-export function DrawerWithSides() {
+export default function DrawerWithSides() {
   return (
     <div dir="rtl">
       <Drawer swipeDirection="left">

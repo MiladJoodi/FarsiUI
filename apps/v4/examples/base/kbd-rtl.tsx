@@ -2,7 +2,7 @@
 
 import { Kbd, KbdGroup } from "@/styles/base-nova/ui/kbd"
 
-export function KbdRtl() {
+export default function KbdRtl() {
   return (
     <div dir="rtl" className="flex flex-col items-center gap-4">
       <KbdGroup>

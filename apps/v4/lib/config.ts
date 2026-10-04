@@ -43,10 +43,6 @@ export const siteConfig = {
       label: "مستندات",
     },
     {
-      href: "/docs/components",
-      label: "کامپوننت‌ها",
-    },
-    {
       href: "/blocks",
       label: "بلوک‌ها",
     },

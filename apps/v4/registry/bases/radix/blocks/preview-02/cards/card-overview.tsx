@@ -39,7 +39,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function CardOverview() {
+export default function CardOverview() {
   return (
     <div className="grid grid-cols-2 gap-3">
       <Card>

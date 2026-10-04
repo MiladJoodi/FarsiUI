@@ -53,7 +53,7 @@ const translations: Translations = {
   },
 }
 
-export function ScrollFadeRtl() {
+export default function ScrollFadeRtl() {
   const { dir, t } = useTranslation(translations, "ar")
 
   return (

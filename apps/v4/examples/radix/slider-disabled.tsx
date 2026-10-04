@@ -1,6 +1,6 @@
 import { Slider } from "@/styles/radix-nova/ui/slider"
 
-export function SliderDisabled() {
+export default function SliderDisabled() {
   return (
     <Slider
       defaultValue={[50]}

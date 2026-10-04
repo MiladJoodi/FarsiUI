@@ -59,7 +59,7 @@ const SORT_ITEMS = [
 const sheetPanelClass =
   "flex w-[min(100%-1.5rem,22rem)] flex-col gap-0 overflow-x-hidden p-4 sm:inset-y-3 sm:end-3 sm:h-[calc(100%-1.5rem)] sm:max-w-sm sm:rounded-xl"
 
-export function AdvancedFiltersChips() {
+export default function AdvancedFiltersChips() {
   const [chips, setChips] = React.useState<Chip[]>([
     { id: "stock", label: "موجود" },
     { id: "city", label: "تهران" },

@@ -1,6 +1,6 @@
 "use client"
 
-import { AppSidebar } from "@/registry/bases/radix/blocks/sidebar-01/components/app-sidebar"
+import AppSidebar from "@/registry/bases/radix/blocks/sidebar-01/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,

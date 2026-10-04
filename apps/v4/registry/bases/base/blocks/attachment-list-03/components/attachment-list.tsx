@@ -58,7 +58,7 @@ const ITEMS = [
   },
 ] as const
 
-export function AttachmentListToolbar() {
+export default function AttachmentListToolbar() {
   const [type, setType] = React.useState("همه")
 
   return (

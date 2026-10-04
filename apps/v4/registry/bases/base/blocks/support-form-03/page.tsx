@@ -1,4 +1,4 @@
-import { SupportMultiStep } from "@/registry/bases/base/blocks/support-form-03/components/support-form"
+import SupportMultiStep from "@/registry/bases/base/blocks/support-form-03/components/support-form"
 
 export default function Page() {
   return (

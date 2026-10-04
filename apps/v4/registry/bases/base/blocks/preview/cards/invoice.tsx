@@ -42,7 +42,7 @@ function formatCurrency(value: number) {
   }).format(value)
 }
 
-export function Invoice() {
+export default function Invoice() {
   return (
     <Card>
       <CardHeader>

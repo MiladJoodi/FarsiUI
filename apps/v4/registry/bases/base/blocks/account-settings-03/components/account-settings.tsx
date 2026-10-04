@@ -49,7 +49,7 @@ const CITY_ITEMS = [
   { value: "مشهد", label: "مشهد" },
 ] as const
 
-export function AccountSettingsAppearance() {
+export default function AccountSettingsAppearance() {
   return (
     <section
       dir="rtl"

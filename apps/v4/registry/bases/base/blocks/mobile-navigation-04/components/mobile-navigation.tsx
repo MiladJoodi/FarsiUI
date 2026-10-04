@@ -32,7 +32,7 @@ const GROUPS = [
   },
 ] as const
 
-export function MobileNavGrouped() {
+export default function MobileNavGrouped() {
   const [frame, setFrame] = React.useState<HTMLDivElement | null>(null)
 
   return (

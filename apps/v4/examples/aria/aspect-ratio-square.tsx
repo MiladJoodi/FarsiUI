@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import { AspectRatio } from "@/styles/aria-nova/ui/aspect-ratio"
 
-export function AspectRatioSquare() {
+export default function AspectRatioSquare() {
   return (
     <AspectRatio
       ratio={1 / 1}

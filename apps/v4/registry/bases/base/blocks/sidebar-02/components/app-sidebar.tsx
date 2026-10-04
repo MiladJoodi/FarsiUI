@@ -37,7 +37,7 @@ const GROUPS = [
   },
 ] as const
 
-export function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar side="right" collapsible="offcanvas">
       <SidebarHeader className="border-b px-4 py-3">

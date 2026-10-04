@@ -10,7 +10,7 @@ import { Field, FieldGroup, FieldLabel } from "@/styles/aria-nova/ui/field"
 import { Input } from "@/styles/aria-nova/ui/input"
 import { Popover, PopoverTrigger } from "@/styles/aria-nova/ui/popover"
 
-export function DatePickerTime() {
+export default function DatePickerTime() {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<CalendarDate | undefined>(undefined)
 

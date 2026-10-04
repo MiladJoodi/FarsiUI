@@ -116,7 +116,7 @@ function toFa(n: number) {
   return String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function ActivityHub() {
+export default function ActivityHub() {
   const [query, setQuery] = React.useState("")
   const [channel, setChannel] = React.useState("همه")
   const [sort, setSort] = React.useState<SortKey>("جدیدترین")

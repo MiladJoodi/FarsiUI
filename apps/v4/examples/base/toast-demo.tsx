@@ -3,7 +3,7 @@
 import { Button } from "@/styles/base-nova/ui/button"
 import { toast } from "@/styles/base-nova/ui/toast"
 
-export function ToastDemo() {
+export default function ToastDemo() {
   function showToast() {
     const id = toast.add({
       title: "رویداد ساخته شد",

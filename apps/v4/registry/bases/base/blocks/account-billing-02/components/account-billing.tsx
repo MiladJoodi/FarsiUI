@@ -24,7 +24,7 @@ import {
   TabsTrigger,
 } from "@/registry/bases/base/ui/tabs"
 
-export function AccountBillingTabs() {
+export default function AccountBillingTabs() {
   return (
     <section
       dir="rtl"

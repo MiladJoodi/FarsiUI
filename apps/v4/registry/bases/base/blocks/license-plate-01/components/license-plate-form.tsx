@@ -2,14 +2,7 @@
 
 import * as React from "react"
 
-import {
-  EMPTY_PLATE,
-  isPlate,
-  PlateInput,
-  PLATE_LETTERS,
-  stringifyPlate,
-  type PlateValue,
-} from "@/registry/bases/base/blocks/license-plate-01/components/plate-input"
+import PlateInput, { EMPTY_PLATE, isPlate, PLATE_LETTERS, stringifyPlate, type PlateValue } from "@/registry/bases/base/blocks/license-plate-01/components/plate-input"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
   Card,
@@ -29,7 +22,7 @@ function toFa(value: string) {
   return value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]!)
 }
 
-export function LicensePlateForm() {
+export default function LicensePlateForm() {
   const [plate, setPlate] = React.useState<PlateValue>(EMPTY_PLATE)
   const [done, setDone] = React.useState(false)
   const complete = isPlate(plate)

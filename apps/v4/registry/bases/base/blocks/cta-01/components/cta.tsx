@@ -2,7 +2,7 @@
 
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function CtaSimple() {
+export default function CtaSimple() {
   return (
     <section
       dir="rtl"

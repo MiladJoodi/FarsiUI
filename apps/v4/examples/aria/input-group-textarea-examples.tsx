@@ -22,7 +22,7 @@ import {
 } from "@/styles/aria-nova/ui/input-group"
 import { Textarea } from "@/styles/aria-nova/ui/textarea"
 
-export function InputGroupTextareaExamples() {
+export default function InputGroupTextareaExamples() {
   return (
     <FieldGroup>
       <Field>

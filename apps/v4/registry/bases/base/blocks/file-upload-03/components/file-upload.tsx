@@ -40,7 +40,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function FileUploadForm() {
+export default function FileUploadForm() {
   const [fileName, setFileName] = React.useState<string | null>(null)
   const [progress, setProgress] = React.useState(0)
   const [fileType, setFileType] = React.useState("سند")

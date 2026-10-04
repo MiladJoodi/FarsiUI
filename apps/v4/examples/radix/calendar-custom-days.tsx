@@ -7,7 +7,7 @@ import { type DateRange } from "react-day-picker"
 import { Calendar, CalendarDayButton } from "@/styles/radix-nova/ui/calendar"
 import { Card, CardContent } from "@/styles/radix-nova/ui/card"
 
-export function CalendarCustomDays() {
+export default function CalendarCustomDays() {
   const [range, setRange] = React.useState<DateRange | undefined>({
     from: new Date(new Date().getFullYear(), 11, 8),
     to: addDays(new Date(new Date().getFullYear(), 11, 8), 10),

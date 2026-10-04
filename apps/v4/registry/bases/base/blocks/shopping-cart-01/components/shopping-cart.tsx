@@ -18,7 +18,7 @@ const ITEMS = [
   },
 ] as const
 
-export function ShoppingCartSimple() {
+export default function ShoppingCartSimple() {
   return (
     <section
       dir="rtl"

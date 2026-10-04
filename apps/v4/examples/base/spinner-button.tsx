@@ -1,7 +1,7 @@
 import { Button } from "@/styles/base-nova/ui/button"
 import { Spinner } from "@/styles/base-nova/ui/spinner"
 
-export function SpinnerButton() {
+export default function SpinnerButton() {
   return (
     <div dir="rtl" className="flex flex-col items-center gap-4">
       <Button disabled size="sm">

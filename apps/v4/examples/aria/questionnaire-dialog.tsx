@@ -33,7 +33,7 @@ const items = [
   { name: "tests", required: true },
 ] as const
 
-export function QuestionnaireDialog() {
+export default function QuestionnaireDialog() {
   const [open, setOpen] = React.useState(false)
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

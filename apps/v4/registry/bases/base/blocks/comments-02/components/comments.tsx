@@ -53,7 +53,7 @@ function toFa(n: number) {
   return n.toLocaleString("fa-IR")
 }
 
-export function CommentsThread() {
+export default function CommentsThread() {
   return (
     <section
       dir="rtl"

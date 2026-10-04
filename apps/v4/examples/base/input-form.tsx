@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/styles/base-nova/ui/select"
 
-export function InputForm() {
+export default function InputForm() {
   const countries = [
     { label: "ایران", value: "ir" },
     { label: "آمریکا", value: "us" },

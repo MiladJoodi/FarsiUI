@@ -3,7 +3,7 @@
 import { Badge } from "@/registry/bases/base/ui/badge"
 import { Button } from "@/registry/bases/base/ui/button"
 
-export function CtaDual() {
+export default function CtaDual() {
   return (
     <section
       dir="rtl"

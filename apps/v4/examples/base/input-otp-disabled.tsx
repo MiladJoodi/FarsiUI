@@ -5,7 +5,7 @@ import {
   InputOTPSlot,
 } from "@/styles/base-nova/ui/input-otp"
 
-export function InputOTPDisabled() {
+export default function InputOTPDisabled() {
   return (
     <div dir="rtl">
       <InputOTP id="disabled" maxLength={6} disabled value="123456">

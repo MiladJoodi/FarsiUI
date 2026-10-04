@@ -10,7 +10,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
 
-export function RadioFields() {
+export default function RadioFields() {
   return (
     <FieldGroup>
       <FieldSet>

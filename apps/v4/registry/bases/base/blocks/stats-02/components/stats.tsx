@@ -2,7 +2,7 @@
 
 import { ArrowDownIcon, ArrowUpIcon } from "lucide-react"
 
-import { StatNumber } from "@/registry/bases/base/blocks/stats-01/components/stat-number"
+import StatNumber from "@/registry/bases/base/blocks/stats-01/components/stat-number"
 import {
   Card,
   CardDescription,
@@ -41,7 +41,7 @@ const STATS = [
   },
 ] as const
 
-export function StatsTrendCards() {
+export default function StatsTrendCards() {
   return (
     <section
       dir="rtl"

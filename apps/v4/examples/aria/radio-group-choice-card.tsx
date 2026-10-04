@@ -7,7 +7,7 @@ import {
 } from "@/styles/aria-nova/ui/field"
 import { RadioGroup, RadioGroupItem } from "@/styles/aria-nova/ui/radio-group"
 
-export function RadioGroupChoiceCard() {
+export default function RadioGroupChoiceCard() {
   return (
     <RadioGroup aria-label="Plans" defaultValue="plus" className="max-w-sm">
       <FieldLabel htmlFor="plus-plan">

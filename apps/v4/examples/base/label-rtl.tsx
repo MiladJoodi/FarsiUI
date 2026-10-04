@@ -3,7 +3,7 @@
 import { Checkbox } from "@/styles/base-nova/ui/checkbox"
 import { Label } from "@/styles/base-nova/ui/label"
 
-export function LabelRtl() {
+export default function LabelRtl() {
   return (
     <div dir="rtl" className="flex gap-2">
       <Checkbox id="terms-rtl" />

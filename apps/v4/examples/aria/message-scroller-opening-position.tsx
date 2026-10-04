@@ -60,7 +60,7 @@ const positions = [
   label: string
 }>
 
-export function MessageScrollerOpeningPosition() {
+export default function MessageScrollerOpeningPosition() {
   const [positionKey, setPositionKey] = React.useState(0)
   const [position, setPosition] = React.useState<
     "start" | "end" | "last-anchor"

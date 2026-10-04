@@ -21,7 +21,7 @@ import {
 } from "@/registry/bases/base/ui/empty"
 import { Input } from "@/registry/bases/base/ui/input"
 
-export function ComingSoonCard() {
+export default function ComingSoonCard() {
   const [email, setEmail] = React.useState("")
 
   return (

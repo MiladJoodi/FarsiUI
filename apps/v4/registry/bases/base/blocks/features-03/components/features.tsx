@@ -26,7 +26,7 @@ const ROWS = [
   },
 ] as const
 
-export function FeaturesSplit() {
+export default function FeaturesSplit() {
   return (
     <section
       dir="rtl"
