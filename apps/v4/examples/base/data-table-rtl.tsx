@@ -79,6 +79,10 @@ const columnLabel: Record<string, string> = {
   amount: "مبلغ",
 }
 
+function toPersianDigits(value: number | string) {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]!)
+}
+
 const data: Payment[] = [
   {
     id: "m5gr84i9",
@@ -127,24 +131,28 @@ export default function DataTableRtl() {
         columnHelper.display({
           id: "select",
           header: ({ table }) => (
-            <Checkbox
-              checked={table.getIsAllPageRowsSelected()}
-              indeterminate={
-                table.getIsSomePageRowsSelected() &&
-                !table.getIsAllPageRowsSelected()
-              }
-              onCheckedChange={(value) =>
-                table.toggleAllPageRowsSelected(!!value)
-              }
-              aria-label="انتخاب همه"
-            />
+            <div className="flex items-center justify-center ps-1">
+              <Checkbox
+                checked={table.getIsAllPageRowsSelected()}
+                indeterminate={
+                  table.getIsSomePageRowsSelected() &&
+                  !table.getIsAllPageRowsSelected()
+                }
+                onCheckedChange={(value) =>
+                  table.toggleAllPageRowsSelected(!!value)
+                }
+                aria-label="انتخاب همه"
+              />
+            </div>
           ),
           cell: ({ row }) => (
-            <Checkbox
-              checked={row.getIsSelected()}
-              onCheckedChange={(value) => row.toggleSelected(!!value)}
-              aria-label="انتخاب ردیف"
-            />
+            <div className="flex items-center justify-center ps-1">
+              <Checkbox
+                checked={row.getIsSelected()}
+                onCheckedChange={(value) => row.toggleSelected(!!value)}
+                aria-label="انتخاب ردیف"
+              />
+            </div>
           ),
           enableSorting: false,
           enableHiding: false,
@@ -179,12 +187,18 @@ export default function DataTableRtl() {
           header: () => <div className="text-end">مبلغ</div>,
           cell: ({ row }) => {
             const amount = parseFloat(row.getValue("amount"))
-            const formatted = new Intl.NumberFormat("fa-IR", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            }).format(amount)
+            const formatted = toPersianDigits(
+              amount.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })
+            )
 
-            return <div className="text-end font-medium">{formatted} $</div>
+            return (
+              <div className="text-end font-normal tracking-normal [font-variant-numeric:normal]">
+                {formatted} $
+              </div>
+            )
           },
         }),
         columnHelper.display({

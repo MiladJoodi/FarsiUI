@@ -35,10 +35,10 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const ACTIVE_ITEM_CLASS =
-  "relative h-10 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent lg:h-8"
+  "relative h-10 w-full overflow-visible border border-transparent py-0 pe-1.5 ps-2 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-primary/20 data-[active=true]:bg-primary/10 data-[active=true]:text-primary lg:h-8"
 
 const ACTIVE_SECTION_CLASS =
-  "relative h-10 w-fit overflow-visible border border-transparent py-0 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent lg:h-8 3xl:fixed:w-full 3xl:fixed:max-w-48"
+  "relative h-10 w-fit overflow-visible border border-transparent py-0 text-[14px] font-medium after:absolute after:inset-x-0 after:inset-y-0 after:z-0 after:rounded-md data-[active=true]:border-primary/20 data-[active=true]:bg-primary/10 data-[active=true]:text-primary lg:h-8 3xl:fixed:w-full 3xl:fixed:max-w-48"
 
 const GROUP_TRIGGER_CLASS =
   "flex h-10 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[13px] font-medium text-muted-foreground outline-none hover:text-foreground lg:h-8"

@@ -358,7 +358,7 @@
   }
 
   .cn-command-input-group {
-    @apply bg-transparent border-transparent border-b-input px-3;
+    @apply gap-2 bg-transparent border-transparent border-b-input px-3;
   }
 
   .cn-command-input-icon {
@@ -1284,19 +1284,19 @@
   }
 
   .cn-table-head {
-    @apply text-muted-foreground h-12 px-3 text-start align-middle text-xs font-medium uppercase tracking-wider whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+    @apply text-muted-foreground h-12 px-3 text-start align-middle text-xs font-medium uppercase tracking-wider whitespace-nowrap [&:has([role=checkbox])]:pe-0;
   }
 
   .cn-table-head-aria {
-    @apply [&:has([data-slot=checkbox])]:pr-0;
+    @apply [&:has([data-slot=checkbox])]:pe-0;
   }
 
   .cn-table-cell {
-    @apply p-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+    @apply p-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pe-0;
   }
 
   .cn-table-cell-aria {
-    @apply [&:has([data-slot=checkbox])]:pr-0;
+    @apply [&:has([data-slot=checkbox])]:pe-0;
   }
 
   .cn-table-caption {
