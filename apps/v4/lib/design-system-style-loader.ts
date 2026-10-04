@@ -1,24 +1,16 @@
 /**
- * Lazy-load design-system CSS chunks used by the Header picker.
- * Default (nova) is shipped with the app shell; others load on demand.
- * Active non-default styles are also imported from the root layout via cookie.
+ * Picker design-system CSS is shipped eagerly with the app shell.
+ * These helpers stay as a sync API so call sites can keep a uniform shape.
  */
 
-import type { DesignSystemCookieId } from "@/lib/design-system"
+import {
+  DESIGN_SYSTEM_IDS,
+  type DesignSystemCookieId,
+} from "@/lib/design-system"
 
 export type LoadableDesignSystemId = DesignSystemCookieId
 
-const loaded = new Set<LoadableDesignSystemId>()
-const inflight = new Map<LoadableDesignSystemId, Promise<void>>()
-
-const LOADERS: Record<LoadableDesignSystemId, () => Promise<unknown>> = {
-  default: () => import("@/app/styles/chunk-nova.css"),
-  comfort: () => import("@/app/styles/chunk-vega.css"),
-  glass: () => import("@/app/styles/chunk-glass.css"),
-  rose: () => import("@/app/styles/chunk-rose.css"),
-  nili: () => import("@/app/styles/chunk-nili.css"),
-  khesht: () => import("@/app/styles/chunk-khesht.css"),
-}
+const loaded = new Set<LoadableDesignSystemId>(DESIGN_SYSTEM_IDS)
 
 export function isDesignSystemStyleLoaded(id: LoadableDesignSystemId) {
   return loaded.has(id)
@@ -28,61 +20,24 @@ export function markDesignSystemStyleLoaded(id: LoadableDesignSystemId) {
   loaded.add(id)
 }
 
-/** Ensure a design-system CSS chunk is loaded (idempotent). */
+/** No-op resolve — shell already imported every picker chunk. */
 export function loadDesignSystemStyle(
-  id: LoadableDesignSystemId
+  _id: LoadableDesignSystemId
 ): Promise<void> {
-  if (loaded.has(id)) return Promise.resolve()
-
-  const existing = inflight.get(id)
-  if (existing) return existing
-
-  const promise = LOADERS[id]()
-    .then(() => {
-      loaded.add(id)
-      inflight.delete(id)
-    })
-    .catch((error) => {
-      inflight.delete(id)
-      throw error
-    })
-
-  inflight.set(id, promise)
-  return promise
+  return Promise.resolve()
 }
 
-/** Prefetch every picker style except the active one (parallel). */
+/** No-op — nothing left to prefetch. */
 export function prefetchDesignSystemStyles(
-  except?: LoadableDesignSystemId
-): void {
-  for (const id of Object.keys(LOADERS) as LoadableDesignSystemId[]) {
-    if (id === except || loaded.has(id)) continue
-    void loadDesignSystemStyle(id)
-  }
-}
+  _except?: LoadableDesignSystemId
+): void {}
 
-let prefetchScheduled = false
-
-/**
- * Warm remaining design-system CSS soon after mount (parallel, short delay)
- * so opening pickers / switching styles stays snappy.
- */
+/** No-op — nothing left to prefetch. */
 export function schedulePrefetchDesignSystemStyles(
-  except?: LoadableDesignSystemId
-): void {
-  if (typeof window === "undefined" || prefetchScheduled) return
-  prefetchScheduled = true
+  _except?: LoadableDesignSystemId
+): void {}
 
-  const run = () => prefetchDesignSystemStyles(except)
-
-  if (typeof window.requestIdleCallback === "function") {
-    window.requestIdleCallback(run, { timeout: 800 })
-  } else {
-    window.setTimeout(run, 100)
-  }
-}
-
-/** Mark default as loaded when the shell already imported chunk-nova. */
+/** Kept for call-site compatibility; all picker styles are already loaded. */
 export function markDefaultDesignSystemStyleLoaded() {
   loaded.add("default")
 }

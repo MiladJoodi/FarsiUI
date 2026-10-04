@@ -47,8 +47,8 @@ export function persistDesignSystemId(id: DesignSystemCookieId) {
 }
 
 /**
- * Blocking bootstrap: class on body + cookie sync so the next request can
- * server-include the matching CSS chunk (avoids unstyled first paint).
+ * Blocking bootstrap: class on body + cookie sync for SSR agreement.
+ * Picker CSS ships eagerly with the shell, so class-before-CSS FOUC is gone.
  */
 export const DESIGN_SYSTEM_BOOTSTRAP_SCRIPT = `
   try {
@@ -71,29 +71,3 @@ export const DESIGN_SYSTEM_BOOTSTRAP_SCRIPT = `
     else document.addEventListener('DOMContentLoaded', applyStyle);
   } catch (_) {}
 `
-
-/** Server: import CSS for the cookie-selected design system (nova already in shell). */
-export async function importDesignSystemChunk(
-  id: DesignSystemCookieId
-): Promise<void> {
-  switch (id) {
-    case "comfort":
-      await import("@/app/styles/chunk-vega.css")
-      return
-    case "glass":
-      await import("@/app/styles/chunk-glass.css")
-      return
-    case "rose":
-      await import("@/app/styles/chunk-rose.css")
-      return
-    case "nili":
-      await import("@/app/styles/chunk-nili.css")
-      return
-    case "khesht":
-      await import("@/app/styles/chunk-khesht.css")
-      return
-    case "default":
-    default:
-      return
-  }
-}

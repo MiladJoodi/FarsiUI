@@ -8,7 +8,6 @@ import {
   useDesignSystemPreview,
   type DesignSystemId,
 } from "@/components/design-system-preview"
-import { schedulePrefetchDesignSystemStyles } from "@/lib/design-system-style-loader"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
@@ -26,21 +25,12 @@ export function DesignSystemPicker({
   const active =
     presets.find((preset) => preset.id === designSystemId) ?? presets[0]
 
-  const warm = () => schedulePrefetchDesignSystemStyles(designSystemId)
-
   return (
     <div
       dir="rtl"
       className={cn("flex items-center", fullWidth && "w-full", className)}
     >
-      <Popover
-        open={open}
-        onOpenChange={(next) => {
-          setOpen(next)
-          if (next) warm()
-        }}
-        modal={false}
-      >
+      <Popover open={open} onOpenChange={setOpen} modal={false}>
         <PopoverTrigger asChild>
           <Button
             id="design-system-picker"
@@ -54,8 +44,6 @@ export function DesignSystemPicker({
               "h-8 min-w-0 cursor-pointer justify-between gap-1 border-border/80 bg-background/80 pe-2 ps-2.5 text-xs shadow-none",
               fullWidth ? "w-full" : "w-auto"
             )}
-            onPointerEnter={warm}
-            onFocus={warm}
           >
             <span className="truncate">{active.label}</span>
             <ChevronDownIcon

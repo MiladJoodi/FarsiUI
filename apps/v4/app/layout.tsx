@@ -7,14 +7,15 @@ import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
 import {
   DESIGN_SYSTEM_BOOTSTRAP_SCRIPT,
   DESIGN_SYSTEM_COOKIE,
-  importDesignSystemChunk,
   normalizeDesignSystemId,
 } from "@/lib/design-system"
 import { DOCS_SIDEBAR_SCROLL_RESTORE_SCRIPT } from "@/lib/docs-sidebar-scroll"
 import {
-  activeUiFontStyle,
   fontVariables,
+  getUiFontStyle,
+  normalizeUiFontId,
   UI_FONT_BOOTSTRAP_SCRIPT,
+  UI_FONT_COOKIE,
 } from "@/lib/fonts"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { DesignSystemPreviewProvider } from "@/components/design-system-preview"
@@ -28,8 +29,13 @@ import { TooltipProvider as RadixTooltipProvider } from "@/registry/bases/radix/
 import { Toaster as BaseToaster } from "@/styles/base-nova/ui/toast"
 
 import "@/app/globals.css"
-/* Default design system — other picker styles load via cookie (below) or on demand. */
+/* All picker design systems ship with the shell — no lazy CSS FOUC on restore/switch. */
 import "@/app/styles/chunk-nova.css"
+import "@/app/styles/chunk-vega.css"
+import "@/app/styles/chunk-glass.css"
+import "@/app/styles/chunk-rose.css"
+import "@/app/styles/chunk-nili.css"
+import "@/app/styles/chunk-khesht.css"
 import "@/app/(app)/(typeset)/typeset.css"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -104,8 +110,9 @@ export default async function RootLayout({
   const initialDesignSystem = normalizeDesignSystemId(
     cookieStore.get(DESIGN_SYSTEM_COOKIE)?.value
   )
-  // Include the saved design-system CSS in the first HTML response (no FOUC).
-  await importDesignSystemChunk(initialDesignSystem)
+  const initialFontId = normalizeUiFontId(
+    cookieStore.get(UI_FONT_COOKIE)?.value
+  )
 
   return (
     <html
@@ -116,7 +123,7 @@ export default async function RootLayout({
         "font-sans",
         "[--header-height:calc(var(--spacing)*14)] lg:[--header-height:calc(var(--spacing)*16)]"
       )}
-      style={activeUiFontStyle}
+      style={getUiFontStyle(initialFontId)}
     >
       <head>
         <script
@@ -172,7 +179,7 @@ export default async function RootLayout({
             <DesignSystemPreviewProvider
               initialDesignSystem={initialDesignSystem}
             >
-              <FontPreviewProvider>
+              <FontPreviewProvider initialFontId={initialFontId}>
                 <NuqsAdapter>
                   <BaseTooltipProvider delay={0}>
                     <RadixTooltipProvider delayDuration={0}>

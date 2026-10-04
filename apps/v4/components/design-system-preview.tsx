@@ -17,18 +17,10 @@ import {
   persistDesignSystemId,
   type DesignSystemCookieId,
 } from "@/lib/design-system"
-import {
-  isDesignSystemStyleLoaded,
-  loadDesignSystemStyle,
-  markDefaultDesignSystemStyleLoaded,
-  markDesignSystemStyleLoaded,
-  schedulePrefetchDesignSystemStyles,
-  type LoadableDesignSystemId,
-} from "@/lib/design-system-style-loader"
 
 /**
- * Site Design System picker — maps to real installable registry styles
- * (`base-nova`, `base-glass`, …). CSS chunks still load on demand for preview.
+ * Site Design System picker — maps to real installable registry styles.
+ * Picker CSS ships eagerly with the app shell; switching is a sync class swap.
  */
 export const DESIGN_SYSTEM_PRESETS = [
   {
@@ -85,7 +77,7 @@ type DesignSystemPreviewContextType = {
   styleName: string
   styleRootClass: string
   presets: typeof DESIGN_SYSTEM_PRESETS
-  /** False while a non-default style chunk is still fetching. */
+  /** Always true — picker CSS is in the shell. */
   styleReady: boolean
 }
 
@@ -136,87 +128,31 @@ export function DesignSystemPreviewProvider({
   const [designSystemId, setDesignSystemIdState] =
     useState<DesignSystemId>(bootId)
   const [hydrated, setHydrated] = useState(false)
-  const [styleReady, setStyleReady] = useState(true)
 
-  // Before paint: honor localStorage if it differs from the cookie-based boot,
-  // and load that CSS immediately so we never flash an unstyled shell.
+  // Before paint: reconcile localStorage vs cookie boot, apply class sync.
   useLayoutEffect(() => {
-    markDefaultDesignSystemStyleLoaded()
-    if (bootId !== "default") {
-      markDesignSystemStyleLoaded(bootId as LoadableDesignSystemId)
-    }
-
     const raw = window.localStorage.getItem(DESIGN_SYSTEM_STORAGE_KEY)
     if (raw === "aether") {
       window.localStorage.setItem(DESIGN_SYSTEM_STORAGE_KEY, "glass")
     }
-    const stored = normalizeDesignSystemId(raw) as DesignSystemId
-    const next = stored
+    const next = normalizeDesignSystemId(raw) as DesignSystemId
     const preset = resolvePreset(next)
 
     setDesignSystemIdState(next)
     persistDesignSystemId(next as DesignSystemCookieId)
-
-    if (isDesignSystemStyleLoaded(next as LoadableDesignSystemId)) {
-      applyStyleRootClass(preset.styleRootClass)
-      setStyleReady(true)
-      setHydrated(true)
-      schedulePrefetchDesignSystemStyles(next as LoadableDesignSystemId)
-      return
-    }
-
-    setStyleReady(false)
-    void loadDesignSystemStyle(next as LoadableDesignSystemId)
-      .then(() => {
-        applyStyleRootClass(preset.styleRootClass)
-        setStyleReady(true)
-      })
-      .catch(() => setStyleReady(true))
-      .finally(() => {
-        setHydrated(true)
-        schedulePrefetchDesignSystemStyles(next as LoadableDesignSystemId)
-      })
-  }, [bootId])
+    applyStyleRootClass(preset.styleRootClass)
+    setHydrated(true)
+  }, [])
 
   useEffect(() => {
     if (!hydrated) return
     persistDesignSystemId(designSystemId as DesignSystemCookieId)
+    applyStyleRootClass(resolvePreset(designSystemId).styleRootClass)
   }, [designSystemId, hydrated])
-
-  // Load CSS for the active design system, then swap body + iframe classes.
-  // Keep the previous style-* class until the new chunk is ready (no FOUC).
-  useEffect(() => {
-    if (!hydrated) return
-
-    let cancelled = false
-    const id = designSystemId as LoadableDesignSystemId
-    const preset = resolvePreset(designSystemId)
-
-    if (isDesignSystemStyleLoaded(id)) {
-      applyStyleRootClass(preset.styleRootClass)
-      setStyleReady(true)
-      return
-    }
-
-    setStyleReady(false)
-    void loadDesignSystemStyle(id)
-      .then(() => {
-        if (cancelled) return
-        applyStyleRootClass(preset.styleRootClass)
-        setStyleReady(true)
-      })
-      .catch(() => {
-        if (!cancelled) setStyleReady(true)
-      })
-
-    return () => {
-      cancelled = true
-    }
-  }, [hydrated, designSystemId])
 
   // Sync style root onto lazy-loaded same-origin preview iframes.
   useEffect(() => {
-    if (!hydrated || !styleReady) return
+    if (!hydrated) return
 
     const styleRootClass =
       DESIGN_SYSTEM_STYLE_CLASS[designSystemId as DesignSystemCookieId] ??
@@ -258,13 +194,13 @@ export function DesignSystemPreviewProvider({
       controller.abort()
       observer.disconnect()
     }
-  }, [designSystemId, hydrated, styleReady])
+  }, [designSystemId, hydrated])
 
   const setDesignSystemId = useCallback((id: DesignSystemId) => {
-    if (DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) {
-      persistDesignSystemId(id as DesignSystemCookieId)
-      setDesignSystemIdState(id)
-    }
+    if (!DESIGN_SYSTEM_PRESETS.some((preset) => preset.id === id)) return
+    persistDesignSystemId(id as DesignSystemCookieId)
+    applyStyleRootClass(resolvePreset(id).styleRootClass)
+    setDesignSystemIdState(id)
   }, [])
 
   const preset = resolvePreset(designSystemId)
@@ -277,7 +213,7 @@ export function DesignSystemPreviewProvider({
         styleName: preset.styleName,
         styleRootClass: preset.styleRootClass,
         presets: DESIGN_SYSTEM_PRESETS,
-        styleReady,
+        styleReady: true,
       }}
     >
       {children}

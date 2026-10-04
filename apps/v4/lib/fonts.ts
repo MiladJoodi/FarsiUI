@@ -50,9 +50,28 @@ export type UiFontId = (typeof UI_FONTS)[number]["id"]
 
 export const DEFAULT_UI_FONT: UiFontId = "vazirmatn"
 export const UI_FONT_STORAGE_KEY = "ui-font-preview"
+export const UI_FONT_COOKIE = "ui-font-preview"
 
 export function isUiFontId(value: string): value is UiFontId {
   return UI_FONTS.some((font) => font.id === value)
+}
+
+export function normalizeUiFontId(
+  value: string | null | undefined
+): UiFontId {
+  if (value && isUiFontId(value)) return value
+  return DEFAULT_UI_FONT
+}
+
+/** Persist choice for SSR (cookie) + client restore (localStorage). */
+export function persistUiFontId(fontId: UiFontId) {
+  if (typeof document === "undefined") return
+  try {
+    window.localStorage.setItem(UI_FONT_STORAGE_KEY, fontId)
+    document.cookie = `${UI_FONT_COOKIE}=${fontId};path=/;max-age=31536000;samesite=lax`
+  } catch {
+    // Ignore quota / private mode.
+  }
 }
 
 export function getUiFontCssVar(fontId: UiFontId) {
@@ -126,9 +145,6 @@ const fontMono = localFont({
   adjustFontFallback: false,
 })
 
-/** Default SSR style before client hydration / localStorage. */
-export const activeUiFontStyle = getUiFontStyle(DEFAULT_UI_FONT)
-
 export const fontVariables = cn(
   fontVazirmatn.variable,
   fontEstedad.variable,
@@ -139,7 +155,7 @@ export const fontVariables = cn(
   fontMono.variable
 )
 
-/** Inline script: apply saved font before paint to avoid FOUC. */
+/** Inline script: apply saved font + cookie sync before paint. */
 export const UI_FONT_BOOTSTRAP_SCRIPT = `
   try {
     var fontMap = {
@@ -151,7 +167,9 @@ export const UI_FONT_BOOTSTRAP_SCRIPT = `
       'markazi-text': '--font-markazi-text'
     };
     var font = localStorage.getItem('${UI_FONT_STORAGE_KEY}') || '${DEFAULT_UI_FONT}';
-    var cssVar = fontMap[font] || fontMap['${DEFAULT_UI_FONT}'];
+    if (!fontMap[font]) font = '${DEFAULT_UI_FONT}';
+    document.cookie = '${UI_FONT_COOKIE}=' + font + ';path=/;max-age=31536000;samesite=lax';
+    var cssVar = fontMap[font];
     var root = document.documentElement;
     root.style.setProperty('--font-sans', 'var(' + cssVar + ')');
     root.style.setProperty('--font-heading', 'var(' + cssVar + ')');

@@ -5,6 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
   type ReactNode,
 } from "react"
@@ -13,6 +14,8 @@ import {
   DEFAULT_UI_FONT,
   getUiFontStyle,
   isUiFontId,
+  normalizeUiFontId,
+  persistUiFontId,
   UI_FONT_STORAGE_KEY,
   UI_FONTS,
   type UiFontId,
@@ -40,7 +43,6 @@ function applyUiFontStyle(target: HTMLElement, fontId: UiFontId) {
 function applyUiFontToDocument(fontId: UiFontId) {
   applyUiFontStyle(document.documentElement, fontId)
 
-  // Same-origin preview iframes (blocks /view) inherit family vars too.
   document.querySelectorAll("iframe").forEach((iframe) => {
     try {
       const root = iframe.contentDocument?.documentElement
@@ -51,31 +53,37 @@ function applyUiFontToDocument(fontId: UiFontId) {
   })
 }
 
-export function FontPreviewProvider({ children }: { children: ReactNode }) {
-  const [fontId, setFontIdState] = useState<UiFontId>(DEFAULT_UI_FONT)
+export function FontPreviewProvider({
+  children,
+  initialFontId,
+}: {
+  children: ReactNode
+  initialFontId?: UiFontId
+}) {
+  const bootId = initialFontId ?? DEFAULT_UI_FONT
+  const [fontId, setFontIdState] = useState<UiFontId>(bootId)
   const [hydrated, setHydrated] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const stored = window.localStorage.getItem(UI_FONT_STORAGE_KEY)
-    if (stored && isUiFontId(stored)) {
-      setFontIdState(stored)
-      applyUiFontToDocument(stored)
-    } else {
-      applyUiFontToDocument(DEFAULT_UI_FONT)
-    }
+    const next = normalizeUiFontId(stored)
+    setFontIdState(next)
+    persistUiFontId(next)
+    applyUiFontToDocument(next)
     setHydrated(true)
   }, [])
 
   useEffect(() => {
     if (!hydrated) return
-    window.localStorage.setItem(UI_FONT_STORAGE_KEY, fontId)
+    persistUiFontId(fontId)
     applyUiFontToDocument(fontId)
   }, [fontId, hydrated])
 
   const setFontId = useCallback((id: UiFontId) => {
-    if (isUiFontId(id)) {
-      setFontIdState(id)
-    }
+    if (!isUiFontId(id)) return
+    persistUiFontId(id)
+    applyUiFontToDocument(id)
+    setFontIdState(id)
   }, [])
 
   return (
