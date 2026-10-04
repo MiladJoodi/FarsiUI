@@ -27,7 +27,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -376,9 +375,6 @@ function DocsSidebarBody({
         ) : null}
         {filteredSections.length > 0 ? (
           <SidebarGroup className="p-1 pt-1">
-            <SidebarGroupLabel className="h-8 text-[13px] font-medium text-muted-foreground">
-              بخش‌ها
-            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu className="gap-0.5">
                 {filteredSections.map(({ name, href }) => (

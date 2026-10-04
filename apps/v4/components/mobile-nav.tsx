@@ -25,7 +25,7 @@ import {
 } from "@/registry/new-york-v4/ui/popover"
 
 const NAV_ICONS: Record<string, LucideIcon> = {
-  "/docs/installation": BookOpenIcon,
+  "/docs": BookOpenIcon,
   "/docs/components": LayoutGridIcon,
   "/blocks": LayoutTemplateIcon,
   "/showcase": SparklesIcon,
