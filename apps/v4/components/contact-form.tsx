@@ -146,7 +146,7 @@ export function ContactForm() {
               id="contact-name"
               name="name"
               autoComplete="name"
-              placeholder="علی رضایی"
+              placeholder="نام شما"
               value={values.name}
               disabled={isLoading}
               aria-invalid={!!fieldErrors.name || undefined}
@@ -194,7 +194,7 @@ export function ContactForm() {
             id="contact-message"
             name="message"
             placeholder="پیامتان را بنویسید…"
-            className="min-h-24 resize-y"
+            className="min-h-24 resize-none"
             value={values.message}
             disabled={isLoading}
             aria-invalid={!!fieldErrors.message || undefined}

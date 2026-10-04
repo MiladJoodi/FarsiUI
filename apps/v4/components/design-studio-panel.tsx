@@ -89,30 +89,7 @@ function StyleThumb({
   )
 }
 
-export function useDesignStudioSummary() {
-  const { designSystemId, presets } = useDesignSystemPreview()
-  const { fontId, fonts } = useFontPreview()
-  const { activeTheme } = useThemeConfig()
-  const showPrimaryColor = !OWNED_ACCENT_SYSTEMS.has(designSystemId)
-  const currentTheme = activeTheme === "default" ? "neutral" : activeTheme
-
-  const activeDs =
-    presets.find((preset) => preset.id === designSystemId) ?? presets[0]
-  const activeFont = fonts.find((font) => font.id === fontId) ?? fonts[0]
-  const colorLabel = THEME_LABELS[currentTheme] ?? currentTheme
-
-  const parts = [activeDs.label, activeFont.label]
-  if (showPrimaryColor) parts.push(colorLabel)
-
-  return {
-    activeDs,
-    activeFont,
-    colorLabel,
-    currentTheme,
-    showPrimaryColor,
-    summary: parts.join(" · "),
-  }
-}
+export { useDesignStudioSummary } from "@/components/design-studio-summary"
 
 /** Shared design studio body — used by desktop Popover and mobile Drawer. */
 export function DesignStudioPanel({

@@ -346,6 +346,39 @@ body[class*="theme-"],
   }
 }
 
+/* Thin, low-contrast scrollbar for sidebars and similar panels. */
+@utility scrollbar-soft {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--muted-foreground) 28%, transparent)
+    transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: color-mix(
+      in oklab,
+      var(--muted-foreground) 28%,
+      transparent
+    );
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(
+      in oklab,
+      var(--muted-foreground) 48%,
+      transparent
+    );
+  }
+}
+
 @utility border-ghost {
   @apply relative after:absolute after:inset-0 after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten;
 }

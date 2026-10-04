@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Bar, BarChart, Cell, XAxis } from "recharts"
 
 import { Button } from "@/registry/bases/base/ui/button"
@@ -18,6 +19,7 @@ import {
   type ChartConfig,
 } from "@/registry/bases/base/ui/chart"
 import { Item, ItemContent, ItemDescription } from "@/registry/bases/base/ui/item"
+import { Skeleton } from "@/registry/bases/base/ui/skeleton"
 
 const chartData = [
   { month: "دی", amount: 800, fill: "var(--chart-1)" },
@@ -35,7 +37,88 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+const SKELETON_BARS = [60, 80, 65, 95, 50, 100]
+
+function ContributionChartSkeleton() {
+  return (
+    <div
+      className="flex h-[200px] w-full items-end gap-3"
+      aria-hidden
+      aria-busy="true"
+    >
+      {SKELETON_BARS.map((height, index) => (
+        <div
+          key={index}
+          className="flex h-full flex-1 flex-col justify-end gap-2"
+        >
+          <Skeleton
+            className="w-full rounded-t-md rounded-b-none"
+            style={{ height: `${height}%` }}
+          />
+          <Skeleton className="mx-auto h-3 w-6 rounded-md" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function ContributionChart() {
+  return (
+    <ChartContainer
+      config={chartConfig}
+      className="aspect-auto h-[200px] w-full isolate overflow-hidden"
+      aria-label="فعالیت واریز ۶ ماه گذشته"
+      initialDimension={{ width: 360, height: 200 }}
+    >
+      <BarChart
+        accessibilityLayer
+        data={chartData}
+        margin={{ top: 8, left: 0, right: 0, bottom: 0 }}
+      >
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tick={{ fontSize: 12 }}
+        />
+        <ChartTooltip
+          cursor={false}
+          isAnimationActive={false}
+          content={
+            <ChartTooltipContent
+              indicator="dot"
+              nameKey="amount"
+              className="border-border/60 bg-popover text-popover-foreground shadow-lg backdrop-blur-none"
+            />
+          }
+        />
+        <Bar
+          dataKey="amount"
+          radius={8}
+          maxBarSize={48}
+          isAnimationActive={false}
+        >
+          {chartData.map((item) => (
+            <Cell key={item.month} fill={item.fill} />
+          ))}
+        </Bar>
+      </BarChart>
+    </ChartContainer>
+  )
+}
+
 export function ContributionHistory() {
+  const [chartReady, setChartReady] = useState(false)
+
+  useEffect(() => {
+    // Paint the skeleton first, then mount Recharts after layout.
+    const frame = requestAnimationFrame(() => {
+      setChartReady(true)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [])
+
   return (
     <Card>
       <CardHeader>
@@ -43,41 +126,7 @@ export function ContributionHistory() {
         <CardDescription>فعالیت ۶ ماه گذشته</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer
-          config={chartConfig}
-          className="aspect-auto h-[200px] w-full isolate overflow-hidden"
-          aria-label="فعالیت واریز ۶ ماه گذشته"
-        >
-          <BarChart
-            accessibilityLayer
-            data={chartData}
-            margin={{ top: 8, left: 0, right: 0, bottom: 0 }}
-          >
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tick={{ fontSize: 12 }}
-            />
-            <ChartTooltip
-              cursor={false}
-              isAnimationActive={false}
-              content={
-                <ChartTooltipContent
-                  indicator="dot"
-                  nameKey="amount"
-                  className="border-border/60 bg-popover text-popover-foreground shadow-lg backdrop-blur-none"
-                />
-              }
-            />
-            <Bar dataKey="amount" radius={8} maxBarSize={48}>
-              {chartData.map((item) => (
-                <Cell key={item.month} fill={item.fill} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ChartContainer>
+        {chartReady ? <ContributionChart /> : <ContributionChartSkeleton />}
       </CardContent>
       <CardContent>
         <div className="grid w-full grid-cols-1 gap-3 xl:grid-cols-2">

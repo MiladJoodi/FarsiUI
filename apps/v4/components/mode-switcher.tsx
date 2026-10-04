@@ -25,14 +25,29 @@ export function ModeSwitcher({
     setMetaColor(metaColor)
   }, [metaColor, setMetaColor])
 
+  // Hand off from the pre-hydration click listener in root layout.
+  React.useEffect(() => {
+    ;(window as Window & { __modeSwitchHydrated?: boolean }).__modeSwitchHydrated =
+      true
+  }, [])
+
   const toggleTheme = React.useCallback(() => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+    // Fall back to the html class when next-themes has not resolved yet.
+    const current =
+      resolvedTheme ??
+      (typeof document !== "undefined" &&
+      document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light")
+    setTheme(current === "dark" ? "light" : "dark")
   }, [resolvedTheme, setTheme])
 
   return (
     <Button
+      type="button"
       variant={variant}
       size="icon"
+      data-mode-switch=""
       className={cn(
         "group/toggle relative extend-touch-target size-8 cursor-pointer",
         className

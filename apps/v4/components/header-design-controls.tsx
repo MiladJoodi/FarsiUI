@@ -1,14 +1,20 @@
 "use client"
 
-import { useState, type ComponentProps } from "react"
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+  type ComponentProps,
+} from "react"
 import { usePathname } from "next/navigation"
 import { SlidersHorizontalIcon } from "lucide-react"
 import { cn } from "cn"
 
-import {
-  DesignStudioPanel,
-  useDesignStudioSummary,
-} from "@/components/design-studio-panel"
+import { useDesignStudioSummary } from "@/components/design-studio-summary"
+import { useMediaQuery } from "@/hooks/use-media-query"
+import { THEMES } from "@/lib/themes"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Drawer,
@@ -23,11 +29,49 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/new-york-v4/ui/popover"
-import { THEMES } from "@/lib/themes"
+import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
+
+const DesignStudioPanel = lazy(async () => {
+  const mod = await import("@/components/design-studio-panel")
+  return { default: mod.DesignStudioPanel }
+})
+
+function prefetchDesignStudioPanel() {
+  void import("@/components/design-studio-panel")
+}
 
 function themeSwatch(themeName: string) {
   const theme = THEMES.find((item) => item.name === themeName) ?? THEMES[0]
   return `hsl(${theme?.activeColor.light})`
+}
+
+function DesignStudioSkeleton() {
+  return (
+    <div
+      dir="rtl"
+      lang="fa"
+      className="flex flex-col gap-3"
+      aria-busy="true"
+      aria-label="در حال بارگذاری دیزاین"
+    >
+      <div className="grid grid-cols-3 gap-1 rounded-xl bg-muted p-1">
+        <Skeleton className="h-9 rounded-lg" />
+        <Skeleton className="h-9 rounded-lg" />
+        <Skeleton className="h-9 rounded-lg" />
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div
+            key={index}
+            className="flex flex-col gap-1.5 rounded-xl border border-border/70 p-2"
+          >
+            <Skeleton className="h-10 w-full rounded-md" />
+            <Skeleton className="h-3 w-16" />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 function DesignTriggerButton({
@@ -46,6 +90,8 @@ function DesignTriggerButton({
       aria-label={`دیزاین: ${summary}`}
       aria-haspopup="dialog"
       aria-expanded={open}
+      onPointerEnter={prefetchDesignStudioPanel}
+      onFocus={prefetchDesignStudioPanel}
       className={cn(
         "h-8 shrink-0 cursor-pointer gap-1.5 border-border/80 bg-background/80 px-2.5 text-xs shadow-none",
         className
@@ -65,20 +111,39 @@ function DesignTriggerButton({
   )
 }
 
+function StudioBody({ hideColor }: { hideColor: boolean }) {
+  return (
+    <Suspense fallback={<DesignStudioSkeleton />}>
+      <DesignStudioPanel hideColor={hideColor} />
+    </Suspense>
+  )
+}
+
 function MobileDesignStudio({
   hideColor,
   className,
+  initialOpen = false,
 }: {
   hideColor: boolean
   className?: string
+  initialOpen?: boolean
 }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(initialOpen)
   const { summary } = useDesignStudioSummary()
+
+  useEffect(() => {
+    if (initialOpen) prefetchDesignStudioPanel()
+  }, [initialOpen])
+
+  const onOpenChange = useCallback((next: boolean) => {
+    if (next) prefetchDesignStudioPanel()
+    setOpen(next)
+  }, [])
 
   return (
     <Drawer
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={onOpenChange}
       shouldScaleBackground={false}
       repositionInputs={false}
     >
@@ -97,19 +162,34 @@ function MobileDesignStudio({
           </DrawerDescription>
         </DrawerHeader>
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">
-          <DesignStudioPanel hideColor={hideColor} />
+          {open ? <StudioBody hideColor={hideColor} /> : null}
         </div>
       </DrawerContent>
     </Drawer>
   )
 }
 
-function DesktopDesignStudio({ hideColor }: { hideColor: boolean }) {
-  const [open, setOpen] = useState(false)
+function DesktopDesignStudio({
+  hideColor,
+  initialOpen = false,
+}: {
+  hideColor: boolean
+  initialOpen?: boolean
+}) {
+  const [open, setOpen] = useState(initialOpen)
   const { summary } = useDesignStudioSummary()
 
+  useEffect(() => {
+    if (initialOpen) prefetchDesignStudioPanel()
+  }, [initialOpen])
+
+  const onOpenChange = useCallback((next: boolean) => {
+    if (next) prefetchDesignStudioPanel()
+    setOpen(next)
+  }, [])
+
   return (
-    <Popover open={open} onOpenChange={setOpen} modal={false}>
+    <Popover open={open} onOpenChange={onOpenChange} modal={false}>
       <PopoverTrigger asChild>
         <DesignTriggerButton open={open} />
       </PopoverTrigger>
@@ -126,7 +206,7 @@ function DesktopDesignStudio({ hideColor }: { hideColor: boolean }) {
           <p className="truncate text-xs text-muted-foreground">{summary}</p>
         </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain p-3.5">
-          <DesignStudioPanel hideColor={hideColor} />
+          {open ? <StudioBody hideColor={hideColor} /> : null}
         </div>
       </PopoverContent>
     </Popover>
@@ -140,13 +220,42 @@ export function HeaderDesignControls({
   const pathname = usePathname()
   const hideColor =
     pathname === "/showcase" || pathname.startsWith("/showcase/")
+  const isDesktop = useMediaQuery("(min-width: 640px)")
+  const [mounted, setMounted] = useState(false)
+  const [pendingOpen, setPendingOpen] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Until breakpoint is known, show a light trigger (no dual Popover+Drawer mount).
+  if (!mounted) {
+    return (
+      <div className={cn("flex min-w-0 items-center", className)}>
+        <DesignTriggerButton
+          open={pendingOpen}
+          onClick={() => {
+            prefetchDesignStudioPanel()
+            setPendingOpen(true)
+          }}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={cn("flex min-w-0 items-center", className)}>
-      <div className="hidden sm:block">
-        <DesktopDesignStudio hideColor={hideColor} />
-      </div>
-      <MobileDesignStudio hideColor={hideColor} className="sm:hidden" />
+      {isDesktop ? (
+        <DesktopDesignStudio
+          hideColor={hideColor}
+          initialOpen={pendingOpen}
+        />
+      ) : (
+        <MobileDesignStudio
+          hideColor={hideColor}
+          initialOpen={pendingOpen}
+        />
+      )}
     </div>
   )
 }

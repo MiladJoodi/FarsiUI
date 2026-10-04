@@ -58,8 +58,10 @@ export function SiteHeader() {
             <Separator orientation="vertical" className="hidden sm:block" />
             <div className="flex shrink-0 items-center gap-0.5">
               <GitHubLink />
-              <ContactLink />
-              <ModeSwitcher className="hidden lg:inline-flex" />
+              {/* Desktop: contact in header. Mobile: contact lives in the nav menu. */}
+              <ContactLink className="hidden lg:inline-flex" />
+              {/* Mobile: dark toggle where contact sat; desktop keeps it too. */}
+              <ModeSwitcher />
             </div>
           </div>
         </div>

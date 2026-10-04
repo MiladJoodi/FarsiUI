@@ -3,16 +3,41 @@
 import * as React from "react"
 import Link, { type LinkProps } from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { MenuIcon, XIcon } from "lucide-react"
+import {
+  BookOpenIcon,
+  ChartAreaIcon,
+  LayoutGridIcon,
+  LayoutTemplateIcon,
+  MailIcon,
+  MenuIcon,
+  SparklesIcon,
+  WandSparklesIcon,
+  XIcon,
+  type LucideIcon,
+} from "lucide-react"
 import { cn } from "cn"
 
-import { ModeSwitcher } from "@/components/mode-switcher"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/new-york-v4/ui/popover"
+
+const NAV_ICONS: Record<string, LucideIcon> = {
+  "/docs/installation": BookOpenIcon,
+  "/docs/components": LayoutGridIcon,
+  "/blocks": LayoutTemplateIcon,
+  "/showcase": SparklesIcon,
+  "/skills": WandSparklesIcon,
+  "/charts/area": ChartAreaIcon,
+  "/contact": MailIcon,
+}
+
+const CONTACT_ITEM = {
+  href: "/contact",
+  label: "تماس با ما",
+} as const
 
 export function MobileNav({
   items,
@@ -24,6 +49,10 @@ export function MobileNav({
 }) {
   const [open, setOpen] = React.useState(false)
   const pathname = usePathname()
+  const menuItems = React.useMemo(
+    () => [...items, CONTACT_ITEM],
+    [items]
+  )
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -54,26 +83,29 @@ export function MobileNav({
         className="no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none bg-background/95 p-0 shadow-none backdrop-blur-md duration-100 data-open:animate-none!"
       >
         <nav className="flex flex-col gap-1 px-4 py-4 text-sm">
-          <div className="flex items-center justify-between gap-2 px-2 pb-1">
-            <div className="text-[0.6875rem] font-medium tracking-wide text-muted-foreground">
-              منو
-            </div>
-            <ModeSwitcher />
+          <div className="px-2 pb-1 text-[0.6875rem] font-medium tracking-wide text-muted-foreground">
+            منو
           </div>
-          {items.map((item) => (
-            <MobileLink
-              key={item.href}
-              href={item.href}
-              onOpenChange={setOpen}
-              active={
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href)
-              }
-            >
-              {item.label}
-            </MobileLink>
-          ))}
+          {menuItems.map((item) => {
+            const Icon = NAV_ICONS[item.href]
+            return (
+              <MobileLink
+                key={item.href}
+                href={item.href}
+                onOpenChange={setOpen}
+                active={
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href)
+                }
+              >
+                {Icon ? (
+                  <Icon className="size-4 shrink-0 opacity-70" aria-hidden />
+                ) : null}
+                {item.label}
+              </MobileLink>
+            )
+          })}
         </nav>
       </PopoverContent>
     </Popover>
@@ -102,7 +134,7 @@ function MobileLink({
         onOpenChange?.(false)
       }}
       className={cn(
-        "flex h-9 items-center gap-2 rounded-md px-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-muted hover:text-foreground",
+        "flex h-10 items-center gap-2.5 rounded-md px-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-muted hover:text-foreground",
         active && "bg-primary/10 text-primary",
         className
       )}

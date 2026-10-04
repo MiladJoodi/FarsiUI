@@ -367,7 +367,7 @@ function DocsSidebarBody({
       <SidebarContent
         ref={contentRef}
         data-docs-sidebar-content=""
-        className="min-h-0 w-full scroll-fade scrollbar-none overflow-x-hidden overflow-y-auto pe-2 [--scroll-fade-t-size:0px]"
+        className="min-h-0 w-full scroll-fade scrollbar-soft overflow-x-hidden overflow-y-auto pe-2 [--scroll-fade-t-size:0px]"
       >
         {!hasResults ? (
           <div className="px-2 py-6 text-center text-[14px] text-muted-foreground">

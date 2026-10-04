@@ -116,8 +116,11 @@ export default function IndexPage() {
           <Button asChild className="h-[35px]">
             <Link href="/docs/installation">شروع کنید</Link>
           </Button>
-          <Button asChild variant="secondary">
-            <Link href="/docs/components">مشاهده کامپوننت‌ها</Link>
+          <Button asChild variant="secondary" className="h-[35px]">
+            <Link href="/docs/components">کامپوننت‌ها</Link>
+          </Button>
+          <Button asChild variant="secondary" className="h-[35px]">
+            <Link href="/blocks">بلوک‌ها</Link>
           </Button>
         </PageActions>
       </PageHeader>

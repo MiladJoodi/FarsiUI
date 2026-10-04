@@ -59,11 +59,23 @@ const nextConfig = {
     ],
   },
   // Only trace heavy registry assets for routes that need them (not every page).
+  // Docs reads example sources from disk at runtime (ENOENT on Vercel without this).
   outputFileTracingIncludes: {
     "/view/[style]/[name]": ["./registry/**/*", "./styles/**/*"],
     "/preview/[base]/[name]": ["./registry/**/*", "./styles/**/*"],
     "/preview/typeset/[name]": ["./registry/**/*", "./styles/**/*"],
-    "/examples/[base]/[name]": ["./registry/**/*", "./styles/**/*"],
+    "/examples/[base]/[name]": [
+      "./registry/**/*",
+      "./styles/**/*",
+      "./examples/**/*",
+    ],
+    "/docs/[[...slug]]": [
+      "./examples/**/*",
+      "./registry/**/*",
+      "./styles/**/*",
+      "./content/docs/**/*",
+    ],
+    "/docs/changelog": ["./examples/**/*", "./content/docs/**/*"],
   },
   images: {
     remotePatterns: [

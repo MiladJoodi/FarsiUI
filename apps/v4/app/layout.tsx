@@ -3,9 +3,6 @@ import { cookies, headers } from "next/headers"
 import { cn } from "cn"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 
-/** Prefer dynamic render so picker prefs can reach body classes when available. */
-export const dynamic = "force-dynamic"
-
 import { getMetadataBase, META_THEME_COLORS, siteConfig } from "@/lib/config"
 import {
   ACTIVE_THEME_BOOTSTRAP_SCRIPT,
@@ -186,6 +183,30 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: ACTIVE_THEME_BOOTSTRAP_SCRIPT,
+          }}
+        />
+        {/* Dark toggle works before React hydrates the header ModeSwitcher. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                document.addEventListener('click', function (e) {
+                  if (window.__modeSwitchHydrated) return;
+                  var btn = e.target && e.target.closest && e.target.closest('[data-mode-switch]');
+                  if (!btn) return;
+                  e.preventDefault();
+                  e.stopPropagation();
+                  var root = document.documentElement;
+                  var next = root.classList.contains('dark') ? 'light' : 'dark';
+                  root.classList.remove('light', 'dark');
+                  root.classList.add(next);
+                  root.style.colorScheme = next;
+                  try { localStorage.setItem('theme', next); } catch (_) {}
+                  var meta = document.querySelector('meta[name="theme-color"]');
+                  if (meta) meta.setAttribute('content', next === 'dark' ? '${META_THEME_COLORS.dark}' : '${META_THEME_COLORS.light}');
+                }, true);
+              } catch (_) {}
+            `,
           }}
         />
         <ThemeProvider>

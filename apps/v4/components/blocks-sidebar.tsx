@@ -123,7 +123,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
 
       <SidebarContent
         data-blocks-sidebar-content=""
-        className="w-full scroll-fade scrollbar-none overflow-x-hidden pe-1 [--scroll-fade-t-size:0px]"
+        className="w-full scroll-fade scrollbar-soft overflow-x-hidden pe-1 [--scroll-fade-t-size:0px]"
       >
         <SidebarGroup className="pt-1">
           <SidebarGroupContent>
