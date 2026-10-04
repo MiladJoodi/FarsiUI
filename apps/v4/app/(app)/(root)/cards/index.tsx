@@ -1,7 +1,7 @@
 "use client"
 
 import type { MouseEvent, ReactNode } from "react"
-import { MessageScrollerDemo } from "@/examples/base/message-scroller-demo"
+import MessageScrollerDemo from "@/examples/base/message-scroller-demo"
 
 import { AccountAccess } from "./account-access"
 import { AnalyticsCard } from "./analytics-card"
