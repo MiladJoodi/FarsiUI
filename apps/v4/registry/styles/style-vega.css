@@ -1260,7 +1260,7 @@
 
   /* MARK: Toast */
   .cn-toast {
-    @apply rounded-(--radius-control) shadow-lg;
+    @apply rounded-(--radius-control) shadow-lg font-sans;
   }
 
   /* MARK: Switch */

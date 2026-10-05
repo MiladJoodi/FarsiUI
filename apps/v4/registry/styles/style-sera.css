@@ -1235,7 +1235,7 @@
 
   /* MARK: Toast */
   .cn-toast {
-    @apply rounded-none!;
+    @apply rounded-none! font-sans;
   }
 
   /* MARK: Switch */

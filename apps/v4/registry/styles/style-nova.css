@@ -1260,7 +1260,7 @@
 
   /* MARK: Toast */
   .cn-toast {
-    @apply rounded-2xl;
+    @apply rounded-2xl font-sans;
   }
 
   /* MARK: Switch */

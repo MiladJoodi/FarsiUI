@@ -1246,7 +1246,7 @@
 
   /* MARK: Toast */
   .cn-toast {
-    @apply rounded-md;
+    @apply rounded-md font-sans;
   }
 
   /* MARK: Switch */
