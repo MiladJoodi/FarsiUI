@@ -19,6 +19,8 @@ import z from "zod"
 
 const FARSIUI_MCP_VERSION = "latest"
 const FARSIUI_PACKAGE = `farsiui@${FARSIUI_MCP_VERSION}`
+/** Display key in client MCP configs (Cursor/VS Code show this as the server name). */
+const MCP_SERVER_KEY = "FarsiUI"
 
 const CLIENTS = [
   {
@@ -27,7 +29,7 @@ const CLIENTS = [
     configPath: ".mcp.json",
     config: {
       mcpServers: {
-        farsiui: {
+        [MCP_SERVER_KEY]: {
           command: "npx",
           args: [FARSIUI_PACKAGE, "mcp"],
         },
@@ -40,7 +42,7 @@ const CLIENTS = [
     configPath: ".cursor/mcp.json",
     config: {
       mcpServers: {
-        farsiui: {
+        [MCP_SERVER_KEY]: {
           command: "npx",
           args: [FARSIUI_PACKAGE, "mcp"],
         },
@@ -53,7 +55,7 @@ const CLIENTS = [
     configPath: ".vscode/mcp.json",
     config: {
       servers: {
-        farsiui: {
+        [MCP_SERVER_KEY]: {
           command: "npx",
           args: [FARSIUI_PACKAGE, "mcp"],
         },
@@ -64,7 +66,7 @@ const CLIENTS = [
     name: "codex",
     label: "Codex",
     configPath: ".codex/config.toml",
-    config: `[mcp_servers.farsiui]
+    config: `[mcp_servers.${MCP_SERVER_KEY}]
 command = "npx"
 args = ["${FARSIUI_PACKAGE}", "mcp"]
 `,
@@ -76,7 +78,7 @@ args = ["${FARSIUI_PACKAGE}", "mcp"]
     config: {
       $schema: "https://opencode.ai/config.json",
       mcp: {
-        farsiui: {
+        [MCP_SERVER_KEY]: {
           type: "local",
           command: ["npx", FARSIUI_PACKAGE, "mcp"],
           enabled: true,
@@ -177,7 +179,7 @@ mcp
         )
         logger.log("2. Add the following configuration:")
         logger.log()
-        logger.info(`[mcp_servers.farsiui]
+        logger.info(`[mcp_servers.${MCP_SERVER_KEY}]
 command = "npx"
 args = ["${FARSIUI_PACKAGE}", "mcp"]`)
         logger.break()
@@ -271,6 +273,9 @@ export async function runMcpInit(options: RunMcpInitOptions) {
     { arrayMerge: overwriteMerge }
   )
 
+  // Drop legacy lowercase server keys so Cursor shows "FarsiUI", not a duplicate "farsiui".
+  removeLegacyMcpServerKeys(mergedConfig)
+
   await fs.writeFile(
     configPath,
     JSON.stringify(mergedConfig, null, 2) + "\n",
@@ -278,4 +283,17 @@ export async function runMcpInit(options: RunMcpInitOptions) {
   )
 
   return clientInfo.configPath
+}
+
+function removeLegacyMcpServerKeys(config: Record<string, unknown>) {
+  for (const section of ["mcpServers", "servers", "mcp"] as const) {
+    const block = config[section]
+    if (!block || typeof block !== "object" || Array.isArray(block)) {
+      continue
+    }
+    const servers = block as Record<string, unknown>
+    if ("farsiui" in servers && MCP_SERVER_KEY in servers) {
+      delete servers.farsiui
+    }
+  }
 }

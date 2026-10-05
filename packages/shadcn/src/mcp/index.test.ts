@@ -38,6 +38,14 @@ describe("farsiui MCP server", () => {
     expect(capabilities?.resources).toBeUndefined()
   })
 
+  it("exposes FarsiUI title and icon in serverInfo", () => {
+    const info = client.getServerVersion()
+    expect(info?.name).toBe("farsiui")
+    expect(info?.title).toBe("FarsiUI")
+    expect(info?.icons?.[0]?.mimeType).toBe("image/png")
+    expect(info?.icons?.[0]?.src).toMatch(/^data:image\/png;base64,/)
+  })
+
   it("lists all registry tools with plain object input schemas", async () => {
     const { tools } = await client.listTools()
 

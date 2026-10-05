@@ -26,7 +26,7 @@ Example Cursor config:
 ```json
 {
   "mcpServers": {
-    "farsiui": {
+    "FarsiUI": {
       "command": "npx",
       "args": ["farsiui@latest", "mcp"]
     }

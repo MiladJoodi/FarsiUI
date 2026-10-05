@@ -9,7 +9,7 @@
   "homepage": "https://github.com/MiladJoodi/FarsiUI",
   "repository": "https://github.com/MiladJoodi/FarsiUI",
   "license": "MIT",
-  "logo": "skills/shadcn/assets/shadcn.png",
+  "logo": "assets/logo.png",
   "keywords": [
     "farsiui",
     "ui",
@@ -32,7 +32,7 @@
   ],
   "skills": "./skills/",
   "mcpServers": {
-    "farsiui": {
+    "FarsiUI": {
       "command": "npx",
       "args": ["farsiui@latest", "mcp"]
     }

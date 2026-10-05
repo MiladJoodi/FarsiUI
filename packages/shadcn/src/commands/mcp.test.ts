@@ -30,11 +30,12 @@ describe("runMcpInit", () => {
       await fs.readFile(path.join(cwd, configPath), "utf-8")
     )
 
-    expect(content.mcpServers.farsiui).toEqual({
+    expect(content.mcpServers.FarsiUI).toEqual({
       command: "npx",
       args: ["farsiui@latest", "mcp"],
     })
     expect(content.mcpServers.shadcn).toBeUndefined()
+    expect(content.mcpServers.farsiui).toBeUndefined()
     expect(JSON.stringify(content)).not.toContain("shadcn@")
   })
 
@@ -61,8 +62,8 @@ describe("runMcpInit", () => {
       await fs.readFile(path.join(cwd, configPath), "utf-8")
     )
 
-    expect(Object.keys(content.mcpServers)).toEqual(["farsiui"])
-    expect(content.mcpServers.farsiui.args).toEqual(["farsiui@latest", "mcp"])
+    expect(Object.keys(content.mcpServers)).toEqual(["FarsiUI"])
+    expect(content.mcpServers.FarsiUI.args).toEqual(["farsiui@latest", "mcp"])
   })
 
   it("preserves other MCP servers when adding farsiui", async () => {
@@ -95,7 +96,7 @@ describe("runMcpInit", () => {
       command: "npx",
       args: ["@playwright/mcp@latest"],
     })
-    expect(content.mcpServers.farsiui).toEqual({
+    expect(content.mcpServers.FarsiUI).toEqual({
       command: "npx",
       args: ["farsiui@latest", "mcp"],
     })
@@ -131,10 +132,11 @@ describe("runMcpInit", () => {
       await fs.readFile(path.join(cwd, ".cursor/mcp.json"), "utf-8")
     )
 
-    expect(Object.keys(content.mcpServers).filter((k) => k === "farsiui")).toHaveLength(
+    expect(content.mcpServers.farsiui).toBeUndefined()
+    expect(Object.keys(content.mcpServers).filter((k) => k === "FarsiUI")).toHaveLength(
       1
     )
-    expect(content.mcpServers.farsiui).toEqual({
+    expect(content.mcpServers.FarsiUI).toEqual({
       command: "npx",
       args: ["farsiui@latest", "mcp"],
     })
@@ -161,17 +163,17 @@ describe("runMcpInit", () => {
       await fs.readFile(path.join(cwd, configPath), "utf-8")
     )
 
-    expect(content.mcpServers.farsiui.args).toEqual(["farsiui@latest", "mcp"])
+    expect(content.mcpServers.FarsiUI.args).toEqual(["farsiui@latest", "mcp"])
   })
 
-  it("writes vscode config under servers.farsiui", async () => {
+  it("writes vscode config under servers.FarsiUI", async () => {
     const cwd = await makeTempDir()
     const configPath = await runMcpInit({ client: "vscode", cwd })
     const content = JSON.parse(
       await fs.readFile(path.join(cwd, configPath), "utf-8")
     )
 
-    expect(content.servers.farsiui.args).toEqual(["farsiui@latest", "mcp"])
+    expect(content.servers.FarsiUI.args).toEqual(["farsiui@latest", "mcp"])
   })
 
   it("writes opencode config with farsiui local command", async () => {
@@ -181,7 +183,7 @@ describe("runMcpInit", () => {
       await fs.readFile(path.join(cwd, configPath), "utf-8")
     )
 
-    expect(content.mcp.farsiui.command).toEqual([
+    expect(content.mcp.FarsiUI.command).toEqual([
       "npx",
       "farsiui@latest",
       "mcp",

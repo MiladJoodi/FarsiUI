@@ -23,6 +23,7 @@ import {
   getMcpConfig,
   npxFarsiui,
 } from "./utils"
+import { FARSIUI_MCP_ICON } from "./logo"
 
 /** JSON Schema for MCP tools without $schema (Cursor/stricter clients reject or ignore it poorly). */
 function toToolInputSchema(schema: z.ZodTypeAny) {
@@ -37,7 +38,12 @@ function toToolInputSchema(schema: z.ZodTypeAny) {
 export const server = new Server(
   {
     name: "farsiui",
+    title: "FarsiUI",
     version: "1.0.0",
+    description:
+      "Search FarsiUI registries, view components, and get CLI add commands.",
+    websiteUrl: "https://farsiui.ir",
+    icons: [FARSIUI_MCP_ICON],
   },
   {
     capabilities: {
