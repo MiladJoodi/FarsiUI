@@ -140,45 +140,46 @@ export function DesignStudioPanel({
       lang="fa"
       className={cn("flex flex-col gap-3", className)}
     >
-      <div
-        role="tablist"
-        aria-label="تنظیمات دیزاین"
-        className={cn(
-          "grid gap-1 rounded-xl bg-muted p-1",
-          showPrimaryColor ? "grid-cols-3" : "grid-cols-2"
-        )}
-      >
-        {tabs.map((item) => {
-          const selected = visibleTab === item.id
-          return (
-            <button
-              key={item.id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => setTab(item.id)}
-              className={cn(
-                "min-h-9 cursor-pointer rounded-lg px-2 text-sm font-medium transition-colors",
-                selected
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground active:text-foreground"
-              )}
-            >
-              {item.label}
-            </button>
-          )
-        })}
+      <div className="flex items-center gap-2">
+        <div
+          role="tablist"
+          aria-label="تنظیمات دیزاین"
+          className={cn(
+            "grid min-w-0 flex-1 gap-1 rounded-xl bg-muted p-1",
+            showPrimaryColor ? "grid-cols-3" : "grid-cols-2"
+          )}
+        >
+          {tabs.map((item) => {
+            const selected = visibleTab === item.id
+            return (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setTab(item.id)}
+                className={cn(
+                  "min-h-9 cursor-pointer rounded-lg px-2 text-sm font-medium transition-colors",
+                  selected
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground active:text-foreground"
+                )}
+              >
+                {item.label}
+              </button>
+            )
+          })}
+        </div>
+        <button
+          type="button"
+          onClick={resetToDefaults}
+          aria-label="بازنشانی به پیشفرض، استعداد و خاکستری"
+          title="بازنشانی به پیشفرض · استعداد · خاکستری"
+          className="inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        >
+          <RotateCcwIcon className="size-3.5" />
+        </button>
       </div>
-      <button
-        type="button"
-        onClick={resetToDefaults}
-        aria-label="بازنشانی به پیشفرض، استعداد و خاکستری"
-        title="بازنشانی به پیشفرض · استعداد · خاکستری"
-        className="inline-flex w-fit items-center gap-1 self-start text-[11px] text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <span>پیشفرض · استعداد · خاکستری</span>
-        <RotateCcwIcon className="size-3 opacity-70" />
-      </button>
 
       {visibleTab === "style" ? (
         <section className="grid gap-2">

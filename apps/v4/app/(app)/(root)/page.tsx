@@ -13,9 +13,9 @@ import { Button } from "@/registry/bases/radix/ui/button"
 import { CardsCollage } from "./cards-deferred"
 
 const title = "کتابخانه کامپوننت فارسی"
-const metadataTitle = `${siteConfig.name} — ${title}`
+const metadataTitle = `${siteConfig.name} · ${title}`
 const description =
-  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی و کامپوننت‌های آماده"
+  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی و بیش از ۵۰۰ کامپوننت آماده"
 
 const structuredData = {
   "@context": "https://schema.org",

@@ -36,7 +36,7 @@ export async function generateMetadata({
   const slug = categories[0]
   const match = slug ? getBlocksNavItem(slug) : null
   const title = match
-    ? `${match.item.title} — بلوک‌های UI`
+    ? `${match.item.title} · بلوک‌های UI`
     : "بلوک‌ها"
   const description = match
     ? `بلوک‌های آمادهٔ «${match.item.title}» برای پروژه‌های فارسی و راست‌چین در دستهٔ ${match.category.title}.`

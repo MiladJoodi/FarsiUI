@@ -26,7 +26,7 @@ export async function generateMetadata({
     return {}
   }
 
-  const title = `${category.title} — نمونه‌ها`
+  const title = `${category.title} · نمونه‌ها`
   const description =
     category.description ||
     `نمونه‌پروژه‌های ${category.title} ساخته‌شده با FarsiUI.`

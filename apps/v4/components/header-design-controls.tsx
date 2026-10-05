@@ -177,7 +177,6 @@ function DesktopDesignStudio({
   initialOpen?: boolean
 }) {
   const [open, setOpen] = useState(initialOpen)
-  const { summary } = useDesignStudioSummary()
 
   useEffect(() => {
     if (initialOpen) prefetchDesignStudioPanel()
@@ -201,10 +200,6 @@ function DesktopDesignStudio({
         sideOffset={8}
         className="w-[min(22.5rem,calc(100vw-1.5rem))] p-0 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"
       >
-        <div className="flex items-center justify-between gap-3 border-b border-border/60 px-3.5 py-2.5 text-start">
-          <p className="shrink-0 text-sm font-medium leading-none">دیزاین</p>
-          <p className="truncate text-xs text-muted-foreground">{summary}</p>
-        </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain p-3.5">
           {open ? <StudioBody hideColor={hideColor} /> : null}
         </div>
