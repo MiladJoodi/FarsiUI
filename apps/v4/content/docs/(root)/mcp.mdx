@@ -7,96 +7,34 @@ description: راه‌اندازی سریع سرور MCP برای نصب و جس
 
 ## راه‌اندازی سریع
 
-کلاینت خود را انتخاب کنید، دستور را در ریشهٔ پروژه اجرا کنید، سپس کلاینت را Restart کنید (در Cursor سرور را در تنظیمات MCP فعال کنید).
+با CLI، فایل پیکربندی کلاینت ساخته می‌شود. دستور را در ریشهٔ پروژه اجرا کنید و به‌جای `cursor` کلاینت خود را بگذارید (`cursor`، `claude`، `vscode`، `codex`، `opencode`):
 
-<Tabs defaultValue="cursor">
-  <TabsList>
-    <TabsTrigger value="cursor">Cursor</TabsTrigger>
-    <TabsTrigger value="claude">Claude Code</TabsTrigger>
-    <TabsTrigger value="vscode">VS Code</TabsTrigger>
-    <TabsTrigger value="codex">Codex</TabsTrigger>
-    <TabsTrigger value="opencode">OpenCode</TabsTrigger>
-  </TabsList>
+```bash
+npx farsiui@latest mcp init --client cursor
+```
 
-  <TabsContent value="cursor" className="mt-4">
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client cursor
-    ```
+سپس کلاینت را Restart کنید و سرور **FarsiUI** را در تنظیمات MCP فعال کنید.
 
-    سپس سرور **FarsiUI** را در تنظیمات MCP مربوط به Cursor روشن کنید.
+## نصب دستی
 
-  </TabsContent>
+اگر نمی‌خواهید از CLI استفاده کنید، فایل را خودتان در مسیر کلاینت بسازید و محتوای زیر را داخلش بنویسید.
 
-  <TabsContent value="claude" className="mt-4">
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client claude
-    ```
-
-    Claude Code را Restart کنید. با `/mcp` می‌توانید وضعیت اتصال را ببینید.
-
-  </TabsContent>
-
-  <TabsContent value="vscode" className="mt-4">
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client vscode
-    ```
-
-    فایل `.vscode/mcp.json` را باز کنید و کنار سرور FarsiUI روی **Start** بزنید.
-
-  </TabsContent>
-
-  <TabsContent value="codex" className="mt-4">
-    <Callout className="mt-0">
-      CLI نمی‌تواند `~/.codex/config.toml` را خودکار بنویسد؛ باید دستی اضافه کنید.
-    </Callout>
-
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client codex
-    ```
-
-    در `~/.codex/config.toml`:
-
-    ```toml
-    [mcp_servers.FarsiUI]
-    command = "npx"
-    args = ["farsiui@latest", "mcp"]
-    ```
-
-    سپس Codex را Restart کنید.
-
-  </TabsContent>
-
-  <TabsContent value="opencode" className="mt-4">
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client opencode
-    ```
-
-    سپس OpenCode را Restart کنید.
-
-  </TabsContent>
-</Tabs>
-
-بعد از فعال‌سازی می‌توانید بگویید:
-
-- همهٔ کامپوننت‌های FarsiUI را نشان بده.
-- Button و Dialog را اضافه کن.
-- با کامپوننت‌های FarsiUI یک فرم تماس بساز.
-
----
-
-## جزئیات بیشتر
-
-<div className="hidden">
-
-## پیکربندی دستی
-
+<div data-not-typeset="" className="my-4 space-y-2">
+  <SkillAgentPathRow id="cursor" name="Cursor" path=".cursor/mcp.json" />
+  <SkillAgentPathRow id="claude-code" name="Claude Code" path=".mcp.json" />
+  <SkillAgentPathRow id="vscode" name="VS Code" path=".vscode/mcp.json" />
+  <SkillAgentPathRow
+    id="codex"
+    name="Codex"
+    path="~/.codex/config.toml"
+    note="این مسیر در خانهٔ کاربر است، نه داخل پروژه."
+  />
+  <SkillAgentPathRow id="opencode" name="OpenCode" path="opencode.json" />
 </div>
 
-<DocsCollapsible title="پیکربندی دستی فایل‌ها">
+### Cursor — `.cursor/mcp.json`
 
-### Claude Code — `.mcp.json`
-
-```json title=".mcp.json" showLineNumbers
+```json title=".cursor/mcp.json" showLineNumbers
 {
   "mcpServers": {
     "FarsiUI": {
@@ -107,9 +45,9 @@ description: راه‌اندازی سریع سرور MCP برای نصب و جس
 }
 ```
 
-### Cursor — `.cursor/mcp.json`
+### Claude Code — `.mcp.json`
 
-```json title=".cursor/mcp.json" showLineNumbers
+```json title=".mcp.json" showLineNumbers
 {
   "mcpServers": {
     "FarsiUI": {
@@ -141,7 +79,32 @@ command = "npx"
 args = ["farsiui@latest", "mcp"]
 ```
 
-</DocsCollapsible>
+### OpenCode — `opencode.json`
+
+```json title="opencode.json" showLineNumbers
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "FarsiUI": {
+      "type": "local",
+      "command": ["npx", "farsiui@latest", "mcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+بعد از ذخیره، کلاینت را Restart کنید و سرور را فعال کنید.
+
+بعد از فعال‌سازی می‌توانید بگویید:
+
+- همهٔ کامپوننت‌های FarsiUI را نشان بده.
+- Button و Dialog را اضافه کن.
+- با کامپوننت‌های FarsiUI یک فرم تماس بساز.
+
+---
+
+## جزئیات بیشتر
 
 <div className="hidden">
 

@@ -9,6 +9,7 @@ import { Callout } from "@/components/callout"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { CodeTabs } from "@/components/code-tabs"
+import { SkillAgentPathRow } from "@/components/skill-copy"
 import { ComponentDependencies } from "@/components/component-dependencies"
 import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
@@ -393,6 +394,7 @@ export const mdxComponents = {
   AlertDescription,
   AspectRatio,
   CodeTabs,
+  SkillAgentPathRow,
   ComponentDependencies,
   ComponentPreview,
   ComponentSource,
