@@ -69,17 +69,19 @@ export function ChartBarMixed() {
             data={chartData}
             layout="vertical"
             margin={{
-              left: 12,
+              left: 8,
               right: 12,
+              top: 4,
+              bottom: 4,
             }}
           >
             <YAxis
               dataKey="browser"
               type="category"
               tickLine={false}
-              tickMargin={12}
+              tickMargin={8}
               axisLine={false}
-              width={80}
+              width={72}
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }

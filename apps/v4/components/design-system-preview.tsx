@@ -206,14 +206,11 @@ export function DesignSystemPreviewProvider({
     persistDesignSystemId(next as DesignSystemCookieId)
     applyStyleRootClass(preset.styleRootClass)
 
-    // Boot path: فیروزه / نیلی already active → dark, keep prior choice stashed.
-    if (isDarkDefaultDesignSystem(next)) {
-      stashThemeBeforeDarkDs()
-      setTheme("dark")
-    }
+    // Do not force dark here — فیروزه/نیلی only switch to dark when selected
+    // (syncColorModeForDesignSystem). Respect ModeSwitcher after that.
 
     setHydrated(true)
-  }, [setTheme, stashThemeBeforeDarkDs])
+  }, [])
 
   useEffect(() => {
     if (!hydrated) return

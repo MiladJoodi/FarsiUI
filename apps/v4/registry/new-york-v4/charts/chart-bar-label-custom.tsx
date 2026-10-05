@@ -57,13 +57,14 @@ export function ChartBarLabelCustom() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} dir="ltr">
           <BarChart
             accessibilityLayer
             data={chartData}
             layout="vertical"
             margin={{
               right: 16,
+              left: 4,
             }}
           >
             <CartesianGrid horizontal={false} />

@@ -55,8 +55,10 @@ export function ChartBarHorizontal() {
             data={chartData}
             layout="vertical"
             margin={{
-              left: 8,
+              left: 4,
               right: 8,
+              top: 4,
+              bottom: 4,
             }}
           >
             <XAxis type="number" dataKey="desktop" hide />
@@ -64,9 +66,9 @@ export function ChartBarHorizontal() {
               dataKey="month"
               type="category"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={8}
               axisLine={false}
-              width={48}
+              width={52}
               tickFormatter={abbreviatePersianMonth}
             />
             <ChartTooltip

@@ -8,7 +8,7 @@ export const DESIGN_SYSTEM_COOKIE = "design-system-preview"
 /** Stash the user's light/dark/system choice while a dark-default DS is active. */
 export const THEME_BEFORE_DARK_DS_KEY = "farsiui.theme-before-dark-ds"
 
-/** فیروزه (glass) + نیلی — activate in dark, restore prior mode when leaving. */
+/** فیروزه (glass) + نیلی — start in dark when selected; light toggle still works. */
 export function isDarkDefaultDesignSystem(
   id: string | null | undefined
 ): boolean {
@@ -59,12 +59,13 @@ export function persistDesignSystemId(id: DesignSystemCookieId) {
 /**
  * Blocking bootstrap for first child of body — no DOMContentLoaded.
  * Prefers localStorage, then document.cookie; applies style-* immediately.
+ * Does not force dark for glass/nili on every boot — only style class so the
+ * user's light/dark choice (setTheme / ModeSwitcher) is respected after select.
  */
 export const DESIGN_SYSTEM_BOOTSTRAP_SCRIPT = `
   try {
     var key = '${DESIGN_SYSTEM_STORAGE_KEY}';
     var cookieName = '${DESIGN_SYSTEM_COOKIE}';
-    var themeBackupKey = '${THEME_BEFORE_DARK_DS_KEY}';
     var fromCookie = (document.cookie.match(new RegExp('(?:^|; )' + cookieName + '=([^;]*)')) || [])[1];
     var ds = localStorage.getItem(key) || (fromCookie ? decodeURIComponent(fromCookie) : '') || 'default';
     if (ds === 'aether') { ds = 'glass'; localStorage.setItem(key, ds); }
@@ -79,20 +80,6 @@ export const DESIGN_SYSTEM_BOOTSTRAP_SCRIPT = `
         if (c.indexOf('style-') === 0) body.classList.remove(c);
       });
       body.classList.add(styleClass);
-    }
-    // فیروزه / نیلی: show dark immediately, keep prior theme in sessionStorage.
-    if (ds === 'glass' || ds === 'nili') {
-      try {
-        if (!sessionStorage.getItem(themeBackupKey)) {
-          var prevTheme = localStorage.getItem('theme');
-          if (prevTheme) sessionStorage.setItem(themeBackupKey, prevTheme);
-        }
-      } catch (_) {}
-      var root = document.documentElement;
-      root.classList.remove('light');
-      root.classList.add('dark');
-      root.style.colorScheme = 'dark';
-      try { localStorage.setItem('theme', 'dark'); } catch (_) {}
     }
   } catch (_) {}
 `
