@@ -33,6 +33,8 @@ import {
   SelectValue,
 } from "@/registry/bases/base/ui/select"
 
+const TYPE_ITEMS = [{ label: "همه انواع", value: "all" }] as const
+
 export default function EmptyStateInContext() {
   return (
     <section
@@ -74,13 +76,21 @@ export default function EmptyStateInContext() {
                 disabled
               />
             </div>
-            <Select disabled defaultValue="all">
+            <Select
+              disabled
+              defaultValue="all"
+              items={[...TYPE_ITEMS]}
+            >
               <SelectTrigger className="w-[140px]" dir="rtl" size="sm">
                 <FilterIcon className="size-3.5 opacity-60" />
                 <SelectValue />
               </SelectTrigger>
               <SelectContent dir="rtl" lang="fa">
-                <SelectItem value="all">همه انواع</SelectItem>
+                {TYPE_ITEMS.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
