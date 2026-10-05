@@ -17,12 +17,15 @@ function getDesktopSnapshot() {
   return window.matchMedia(DESKTOP_QUERY).matches
 }
 
-/** SSR / first paint: assume mobile so the skeleton matches CardsDemoMobile. */
 function getDesktopServerSnapshot() {
   return false
 }
 
-/** Mount collage after first paint so the header hydrates without competition. */
+/**
+ * Mount collage after first paint so the header hydrates without competition.
+ * Skeleton uses CSS breakpoints (not JS) so desktop never flashes the zoomed
+ * mobile collage, and phone never flashes the desktop grid.
+ */
 export function CardsCollage() {
   const [ready, setReady] = useState(false)
   const isDesktop = useSyncExternalStore(
@@ -38,15 +41,14 @@ export function CardsCollage() {
 
   if (!ready) {
     return (
-      <section
-        className={
-          isDesktop
-            ? "relative overflow-x-clip"
-            : "relative -mx-4 overflow-x-clip"
-        }
-      >
-        <CollageSkeleton mobile={!isDesktop} />
-      </section>
+      <>
+        <section className="relative -mx-4 overflow-x-clip md:hidden">
+          <CollageSkeleton mobile />
+        </section>
+        <section className="relative hidden overflow-x-clip md:block">
+          <CollageSkeleton />
+        </section>
+      </>
     )
   }
 

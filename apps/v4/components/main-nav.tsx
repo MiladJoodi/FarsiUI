@@ -14,13 +14,18 @@ export function MainNav({
   items: { href: string; label: string }[]
 }) {
   const pathname = usePathname()
+  const activeHref = items
+    .filter((item) =>
+      item.href === "/"
+        ? pathname === "/"
+        : pathname === item.href || pathname.startsWith(`${item.href}/`)
+    )
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href
 
   return (
     <nav className={cn("items-center gap-0", className)} {...props}>
       {items.map((item) => {
-        const isActive =
-          pathname === item.href ||
-          (item.href !== "/" && pathname.startsWith(`${item.href}/`))
+        const isActive = item.href === activeHref
 
         return (
           <Button

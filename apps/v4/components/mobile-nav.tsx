@@ -53,6 +53,15 @@ export function MobileNav({
     () => [...items, CONTACT_ITEM],
     [items]
   )
+  const activeHref = React.useMemo(() => {
+    return menuItems
+      .filter((item) =>
+        item.href === "/"
+          ? pathname === "/"
+          : pathname === item.href || pathname.startsWith(`${item.href}/`)
+      )
+      .sort((a, b) => b.href.length - a.href.length)[0]?.href
+  }, [menuItems, pathname])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -93,11 +102,7 @@ export function MobileNav({
                 key={item.href}
                 href={item.href}
                 onOpenChange={setOpen}
-                active={
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href)
-                }
+                active={item.href === activeHref}
               >
                 {Icon ? (
                   <Icon className="size-4 shrink-0 opacity-70" aria-hidden />

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "FarsiUI": {
+      "command": "node",
+      "args": ["${workspaceFolder}/packages/shadcn/dist/index.js", "mcp"]
+    }
+  }
+}

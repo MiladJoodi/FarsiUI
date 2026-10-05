@@ -1,98 +1,60 @@
 ---
 title: سرور MCP
-description: از سرور MCP مربوط به FarsiUI برای جست‌وجو، بررسی و نصب کامپوننت‌ها از رجیستری‌ها استفاده کنید.
+description: راه‌اندازی سریع سرور MCP برای نصب و جست‌وجوی کامپوننت‌های FarsiUI با دستیار هوش مصنوعی.
 ---
 
-سرور MCP به دستیارهای هوش مصنوعی اجازه می‌دهد با آیتم‌های رجیستری‌ها تعامل داشته باشند. می‌توانید کامپوننت‌های موجود را ببینید، کامپوننت موردنظر را جست‌وجو کنید و مستقیماً با استفاده از زبان طبیعی آن‌ها را به پروژه اضافه کنید.
+با یک دستور، دستیار هوش مصنوعی می‌تواند کامپوننت‌های FarsiUI را پیدا و نصب کند.
 
-برای مثال، می‌توانید از دستیار هوش مصنوعی بخواهید:
+## راه‌اندازی سریع
 
-- «با استفاده از کامپوننت‌های رجیستری FarsiUI یک صفحهٔ فرود بساز.»
-- «یک فرم ورود از رجیستری FarsiUI پیدا کن.»
+کلاینت خود را انتخاب کنید، دستور را در ریشهٔ پروژه اجرا کنید، سپس کلاینت را Restart کنید (در Cursor سرور را در تنظیمات MCP فعال کنید).
 
-رجیستری‌ها در فایل `components.json` پروژه پیکربندی می‌شوند.
-
-```json title="components.json" showLineNumbers
-{
-  "registries": {
-    "@acme": "https://acme.com/r/{name}.json"
-  }
-}
-```
-
----
-
-## شروع سریع
-
-کلاینت MCP خود را انتخاب کنید و مراحل راه‌اندازی سرور MCP مربوط به FarsiUI را دنبال کنید. اگر می‌خواهید تنظیمات را به‌صورت دستی انجام دهید، بخش [پیکربندی](#پیکربندی) را ببینید.
-
-<Tabs defaultValue="claude">
+<Tabs defaultValue="cursor">
   <TabsList>
-    <TabsTrigger value="claude">Claude Code</TabsTrigger>
     <TabsTrigger value="cursor">Cursor</TabsTrigger>
+    <TabsTrigger value="claude">Claude Code</TabsTrigger>
     <TabsTrigger value="vscode">VS Code</TabsTrigger>
     <TabsTrigger value="codex">Codex</TabsTrigger>
     <TabsTrigger value="opencode">OpenCode</TabsTrigger>
   </TabsList>
-  <TabsContent value="claude" className="mt-4">
-    دستور زیر را در پروژه اجرا کنید:
-
-    ```bash
-    pnpm dlx farsiui@latest mcp init --client claude
-    ```
-
-    سپس Claude Code را Restart کنید و Promptهایی مانند این‌ها را امتحان کنید:
-
-    - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
-    - کامپوننت‌های Button، Dialog و Card را به پروژه اضافه کن.
-    - با استفاده از کامپوننت‌های FarsiUI یک فرم تماس بساز.
-
-    **نکته:** در Claude Code می‌توانید از دستور `/mcp` برای بررسی و عیب‌یابی سرور MCP استفاده کنید.
-
-  </TabsContent>
 
   <TabsContent value="cursor" className="mt-4">
-    دستور زیر را در پروژه اجرا کنید:
-
     ```bash
     pnpm dlx farsiui@latest mcp init --client cursor
     ```
 
-    سپس سرور MCP مربوط به FarsiUI را در تنظیمات Cursor فعال کنید و Promptهایی مانند این‌ها را امتحان کنید:
+    سپس سرور **FarsiUI** را در تنظیمات MCP مربوط به Cursor روشن کنید.
 
-    - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
-    - کامپوننت‌های Button، Dialog و Card را به پروژه اضافه کن.
-    - با استفاده از کامپوننت‌های FarsiUI یک فرم تماس بساز.
+  </TabsContent>
+
+  <TabsContent value="claude" className="mt-4">
+    ```bash
+    pnpm dlx farsiui@latest mcp init --client claude
+    ```
+
+    Claude Code را Restart کنید. با `/mcp` می‌توانید وضعیت اتصال را ببینید.
 
   </TabsContent>
 
   <TabsContent value="vscode" className="mt-4">
-    دستور زیر را در پروژه اجرا کنید:
-
     ```bash
     pnpm dlx farsiui@latest mcp init --client vscode
     ```
 
-    سپس فایل `.vscode/mcp.json` را باز کنید، روی **Start** کنار سرور FarsiUI کلیک کنید و با GitHub Copilot Promptهایی مانند این‌ها را امتحان کنید:
-
-    - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
-    - کامپوننت‌های Button، Dialog و Card را به پروژه اضافه کن.
-    - با استفاده از کامپوننت‌های FarsiUI یک فرم تماس بساز.
+    فایل `.vscode/mcp.json` را باز کنید و کنار سرور FarsiUI روی **Start** بزنید.
 
   </TabsContent>
 
   <TabsContent value="codex" className="mt-4">
     <Callout className="mt-0">
-      **نکته:** CLI مربوط به FarsiUI نمی‌تواند فایل `~/.codex/config.toml` را به‌صورت خودکار به‌روزرسانی کند. باید تنظیمات را به‌صورت دستی اضافه کنید.
+      CLI نمی‌تواند `~/.codex/config.toml` را خودکار بنویسد؛ باید دستی اضافه کنید.
     </Callout>
-
-    دستور زیر را در پروژه اجرا کنید:
 
     ```bash
     pnpm dlx farsiui@latest mcp init --client codex
     ```
 
-    سپس در فایل `~/.codex/config.toml` این تنظیمات را اضافه کنید:
+    در `~/.codex/config.toml`:
 
     ```toml
     [mcp_servers.FarsiUI]
@@ -100,74 +62,39 @@ description: از سرور MCP مربوط به FarsiUI برای جست‌وجو�
     args = ["farsiui@latest", "mcp"]
     ```
 
-    Codex را Restart کنید و Promptهایی مانند این‌ها را امتحان کنید:
-
-    - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
-    - کامپوننت‌های Button، Dialog و Card را به پروژه اضافه کن.
-    - با استفاده از کامپوننت‌های FarsiUI یک فرم تماس بساز.
+    سپس Codex را Restart کنید.
 
   </TabsContent>
 
   <TabsContent value="opencode" className="mt-4">
-    دستور زیر را در پروژه اجرا کنید:
-
     ```bash
     pnpm dlx farsiui@latest mcp init --client opencode
     ```
 
-    سپس OpenCode را Restart کنید و Promptهایی مانند این‌ها را امتحان کنید:
-
-    - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
-    - کامپوننت‌های Button، Dialog و Card را به پروژه اضافه کن.
-    - با استفاده از کامپوننت‌های FarsiUI یک فرم تماس بساز.
+    سپس OpenCode را Restart کنید.
 
   </TabsContent>
 </Tabs>
 
----
+بعد از فعال‌سازی می‌توانید بگویید:
 
-## MCP چیست؟
-
-[**Model Context Protocol (MCP)**](https://modelcontextprotocol.io) یک پروتکل باز است که به دستیارهای هوش مصنوعی اجازه می‌دهد به‌صورت امن به منابع داده و ابزارهای خارجی متصل شوند.
-
-با سرور MCP مربوط به FarsiUI، دستیار هوش مصنوعی می‌تواند مستقیماً به قابلیت‌های زیر دسترسی داشته باشد:
-
-- **مشاهدهٔ کامپوننت‌ها** — فهرست کامپوننت‌ها، بلوک‌ها و قالب‌های موجود در رجیستری‌های پیکربندی‌شده.
-- **جست‌وجو در رجیستری‌ها** — پیدا کردن کامپوننت‌ها بر اساس نام یا کاربرد.
-- **نصب با زبان طبیعی** — اضافه کردن کامپوننت‌ها با درخواست‌هایی مثل «یک فرم ورود اضافه کن».
-- **پشتیبانی از چند رجیستری** — دسترسی به رجیستری‌های عمومی، خصوصی و شخص ثالث.
+- همهٔ کامپوننت‌های FarsiUI را نشان بده.
+- Button و Dialog را اضافه کن.
+- با کامپوننت‌های FarsiUI یک فرم تماس بساز.
 
 ---
 
-## نحوهٔ کار
+## جزئیات بیشتر
 
-سرور MCP بین دستیار هوش مصنوعی، رجیستری‌های کامپوننت و CLI مربوط به FarsiUI قرار می‌گیرد.
+<div className="hidden">
 
-1. **اتصال به رجیستری** — MCP به رجیستری‌های پیکربندی‌شده متصل می‌شود.
-2. **درخواست با زبان طبیعی** — نیاز خود را به زبان ساده توضیح می‌دهید.
-3. **پردازش توسط هوش مصنوعی** — دستیار درخواست شما را به عملیات مناسب رجیستری تبدیل می‌کند.
-4. **دریافت کامپوننت** — منابع دریافت شده و در پروژه نصب می‌شوند.
+## پیکربندی دستی
 
----
+</div>
 
-## رجیستری‌های پشتیبانی‌شده
+<DocsCollapsible title="پیکربندی دستی فایل‌ها">
 
-سرور MCP مربوط به FarsiUI با رجیستری‌های سازگار با مشخصات FarsiUI کار می‌کند.
-
-- **رجیستری FarsiUI** — رجیستری اصلی FarsiUI.
-- **رجیستری‌های شخص ثالث** — هر رجیستری سازگار با مشخصات رجیستری FarsiUI.
-- **رجیستری‌های خصوصی** — کتابخانه‌های کامپوننت داخلی شرکت‌ها.
-- **رجیستری‌های نام‌دار** — چند رجیستری با استفاده از سینتکس `@namespace`.
-
----
-
-## پیکربندی
-
-می‌توانید از هر کلاینت MCP برای کار با سرور MCP FarsiUI استفاده کنید.
-
-### Claude Code
-
-برای استفاده از سرور MCP FarsiUI در Claude Code، تنظیمات زیر را در فایل `.mcp.json` پروژه قرار دهید:
+### Claude Code — `.mcp.json`
 
 ```json title=".mcp.json" showLineNumbers
 {
@@ -180,13 +107,7 @@ description: از سرور MCP مربوط به FarsiUI برای جست‌وجو�
 }
 ```
 
-پس از اضافه کردن تنظیمات، Claude Code را Restart کنید و `/mcp` را اجرا کنید. اگر وضعیت سرور `Connected` بود، اتصال برقرار شده است.
-
-جزئیات بیشتر را در [مستندات Claude Code MCP](https://code.claude.com/docs/en/mcp) ببینید.
-
-### Cursor
-
-برای تنظیم MCP در Cursor، سرور FarsiUI را در فایل `.cursor/mcp.json` پروژه اضافه کنید:
+### Cursor — `.cursor/mcp.json`
 
 ```json title=".cursor/mcp.json" showLineNumbers
 {
@@ -199,15 +120,7 @@ description: از سرور MCP مربوط به FarsiUI برای جست‌وجو�
 }
 ```
 
-سپس سرور MCP مربوط به FarsiUI را در تنظیمات Cursor فعال کنید.
-
-بعد از فعال شدن، باید سرور FarsiUI و ابزارهای در دسترس آن را در فهرست MCP ببینید.
-
-جزئیات بیشتر را در [مستندات Cursor MCP](https://docs.cursor.com/en/context/mcp#using-mcp-json) ببینید.
-
-### VS Code
-
-برای استفاده از MCP در VS Code با GitHub Copilot، فایل `.vscode/mcp.json` را به شکل زیر تنظیم کنید:
+### VS Code — `.vscode/mcp.json`
 
 ```json title=".vscode/mcp.json" showLineNumbers
 {
@@ -220,17 +133,7 @@ description: از سرور MCP مربوط به FarsiUI برای جست‌وجو�
 }
 ```
 
-سپس فایل `.vscode/mcp.json` را باز کنید و روی **Start** کنار سرور FarsiUI کلیک کنید.
-
-جزئیات بیشتر را در [مستندات VS Code MCP](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) ببینید.
-
-### Codex
-
-<Callout>
-  **نکته:** CLI مربوط به FarsiUI نمی‌تواند فایل `~/.codex/config.toml` را به‌صورت خودکار به‌روزرسانی کند. باید تنظیمات را به‌صورت دستی اضافه کنید.
-</Callout>
-
-در فایل `~/.codex/config.toml`:
+### Codex — `~/.codex/config.toml`
 
 ```toml title="~/.codex/config.toml" showLineNumbers
 [mcp_servers.FarsiUI]
@@ -238,15 +141,17 @@ command = "npx"
 args = ["farsiui@latest", "mcp"]
 ```
 
-پس از اضافه کردن تنظیمات، Codex را Restart کنید.
+</DocsCollapsible>
 
----
+<div className="hidden">
 
-## پیکربندی رجیستری‌ها
+## رجیستری‌های بیشتر
 
-سرور MCP از چند رجیستری از طریق تنظیمات `components.json` پشتیبانی می‌کند. به این ترتیب می‌توانید به رجیستری‌های خصوصی و شخص ثالث دسترسی داشته باشید.
+</div>
 
-در `components.json`:
+<DocsCollapsible title="رجیستری شخص‌ثالث و خصوصی">
+
+رجیستری اصلی FarsiUI بدون تنظیم اضافه کار می‌کند. برای رجیستری‌های دیگر در `components.json`:
 
 ```json title="components.json" showLineNumbers
 {
@@ -262,81 +167,84 @@ args = ["farsiui@latest", "mcp"]
 }
 ```
 
-**نکته:** برای استفاده از رجیستری اصلی FarsiUI نیازی به تنظیمات اضافی نیست.
-
----
-
-## احراز هویت
-
-برای رجیستری‌های خصوصی که به احراز هویت نیاز دارند، متغیرهای محیطی را در `.env.local` قرار دهید:
+برای توکن‌ها در `.env.local`:
 
 ```env title=".env.local" showLineNumbers
 REGISTRY_TOKEN=your_token_here
-API_KEY=your_api_key_here
 ```
 
----
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## نمونه Promptها
 
-بعد از راه‌اندازی سرور MCP، می‌توانید با زبان طبیعی با رجیستری‌ها تعامل داشته باشید.
+</div>
 
-### مشاهده و جست‌وجو
+<DocsCollapsible title="نمونه Promptها">
+
+**مشاهده و جست‌وجو**
 
 - همهٔ کامپوننت‌های موجود در رجیستری FarsiUI را نشان بده.
 - یک فرم ورود از رجیستری FarsiUI پیدا کن.
 
-### نصب آیتم‌ها
+**نصب**
 
 - کامپوننت Button را به پروژه اضافه کن.
 - با استفاده از کامپوننت‌های FarsiUI یک فرم ورود بساز.
-- قوانین Cursor را از رجیستری acme نصب کن.
 
-### کار با Namespaceها
+**Namespace**
 
 - کامپوننت‌های رجیستری acme را نشان بده.
 - `@internal/auth-form` را نصب کن.
-- با استفاده از بخش‌های hero، features و testimonials از رجیستری acme یک صفحهٔ فرود بساز.
 
----
+</DocsCollapsible>
+
+<div className="hidden">
 
 ## رفع مشکلات
 
-### MCP پاسخ نمی‌دهد
+</div>
 
-اگر سرور MCP به Promptها پاسخ نمی‌دهد:
+<DocsCollapsible title="رفع مشکلات">
 
-1. **تنظیمات را بررسی کنید** — مطمئن شوید سرور MCP به‌درستی پیکربندی و فعال شده است.
-2. **کلاینت MCP را Restart کنید** — بعد از تغییر تنظیمات، کلاینت را دوباره اجرا کنید.
-3. **نصب FarsiUI را بررسی کنید** — مطمئن شوید FarsiUI در پروژه قابل اجراست.
-4. **اتصال شبکه را بررسی کنید** — مطمئن شوید به رجیستری‌های پیکربندی‌شده دسترسی دارید.
+اگر MCP پاسخ نمی‌دهد:
 
-### مشکل در دسترسی به رجیستری
+1. تنظیمات و فعال بودن سرور را بررسی کنید.
+2. کلاینت را Restart کنید.
+3. مطمئن شوید `npx farsiui@latest mcp` در پروژه اجرا می‌شود.
+4. اتصال شبکه به رجیستری را بررسی کنید.
 
-اگر کامپوننت‌ها از رجیستری بارگذاری نمی‌شوند:
+اگر `No tools or prompts` دیدید:
 
-1. `components.json` را بررسی کنید.
-2. آدرس رجیستری را بررسی کنید.
-3. احراز هویت رجیستری‌های خصوصی را بررسی کنید.
-4. مطمئن شوید Namespace به شکل صحیح استفاده شده است؛ مانند `@namespace/component`.
-
-### نصب کامپوننت ناموفق است
-
-1. تنظیمات پروژه و وجود `components.json` را بررسی کنید.
-2. مسیر مقصد کامپوننت‌ها را بررسی کنید.
-3. دسترسی نوشتن روی پوشه‌های مقصد را بررسی کنید.
-4. وابستگی‌های موردنیاز کامپوننت را بررسی کنید.
-
-### ابزارها یا Promptها نمایش داده نمی‌شوند
-
-اگر پیام `No tools or prompts` را مشاهده کردید:
-
-1. کش `npx` را پاک کنید: `npx clear-npx-cache`
+1. `npx clear-npx-cache`
 2. سرور MCP را دوباره فعال کنید.
-3. لاگ‌های MCP را بررسی کنید. در Cursor از مسیر **View → Output** و گزینهٔ `MCP: project-*` استفاده کنید.
+3. در Cursor: **View → Output** و گزینهٔ `MCP: project-*`
 
----
+</DocsCollapsible>
 
-## بیشتر بخوانید
+<div className="hidden">
+
+## MCP چیست؟
+
+</div>
+
+<DocsCollapsible title="MCP چیست و چطور کار می‌کند؟">
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io) پروتکلی است که دستیار هوش مصنوعی را به ابزارها و داده‌های خارجی وصل می‌کند.
+
+با سرور FarsiUI می‌توانید:
+
+- کامپوننت‌ها و بلوک‌های رجیستری را ببینید
+- جست‌وجو کنید
+- با زبان طبیعی نصب کنید
+- چند رجیستری (عمومی، خصوصی، `@namespace`) داشته باشید
+
+جریان کار: اتصال به رجیستری → درخواست شما → تبدیل به عملیات → نصب در پروژه.
 
 - [مشخصات MCP](https://modelcontextprotocol.io/)
+- [Cursor MCP](https://docs.cursor.com/en/context/mcp#using-mcp-json)
+- [Claude Code MCP](https://code.claude.com/docs/en/mcp)
+- [VS Code MCP](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+
+</DocsCollapsible>

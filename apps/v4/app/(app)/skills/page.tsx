@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import { SkillsList } from "@/components/skills-list"
+
 export default function SkillsPage() {
   return (
     <div
@@ -55,7 +57,10 @@ export default function SkillsPage() {
 
           <h2>از کجا شروع کنید</h2>
           <ol>
-            <li>از فهرست کناری، مهارت موردنظر را انتخاب کنید.</li>
+            <li>
+              از فهرست زیر (در موبایل) یا نوار کناری (در دسکتاپ)، مهارت موردنظر
+              را انتخاب کنید.
+            </li>
             <li>
               فایل{" "}
               <bdi dir="ltr" className="font-medium">
@@ -65,6 +70,13 @@ export default function SkillsPage() {
               در <Link href="/skills/install">نحوه نصب</Link> است.
             </li>
           </ol>
+        </div>
+
+        <div className="not-typeset lg:hidden">
+          <h2 className="mb-3 text-base font-semibold tracking-tight">
+            فهرست مهارت‌ها
+          </h2>
+          <SkillsList />
         </div>
       </div>
     </div>

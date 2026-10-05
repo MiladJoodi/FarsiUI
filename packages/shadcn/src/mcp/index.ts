@@ -14,6 +14,7 @@ import dedent from "dedent"
 import { z } from "zod"
 import { zodToJsonSchema } from "zod-to-json-schema"
 
+import { FARSIUI_MCP_ICONS } from "./logo"
 import {
   findUnknownTypesMessage,
   formatItemExamples,
@@ -23,7 +24,6 @@ import {
   getMcpConfig,
   npxFarsiui,
 } from "./utils"
-import { FARSIUI_MCP_ICON } from "./logo"
 
 /** JSON Schema for MCP tools without $schema (Cursor/stricter clients reject or ignore it poorly). */
 function toToolInputSchema(schema: z.ZodTypeAny) {
@@ -43,7 +43,11 @@ export const server = new Server(
     description:
       "Search FarsiUI registries, view components, and get CLI add commands.",
     websiteUrl: "https://farsiui.ir",
-    icons: [FARSIUI_MCP_ICON],
+    icons: FARSIUI_MCP_ICONS.map((icon) => ({
+      src: icon.src,
+      mimeType: icon.mimeType,
+      sizes: [...icon.sizes],
+    })),
   },
   {
     capabilities: {

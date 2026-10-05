@@ -42,8 +42,12 @@ describe("farsiui MCP server", () => {
     const info = client.getServerVersion()
     expect(info?.name).toBe("farsiui")
     expect(info?.title).toBe("FarsiUI")
+    expect(info?.icons?.length).toBeGreaterThanOrEqual(1)
     expect(info?.icons?.[0]?.mimeType).toBe("image/png")
     expect(info?.icons?.[0]?.src).toMatch(/^data:image\/png;base64,/)
+    expect(info?.icons?.some((icon) => icon.src.startsWith("https://"))).toBe(
+      true
+    )
   })
 
   it("lists all registry tools with plain object input schemas", async () => {
