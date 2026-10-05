@@ -85,7 +85,7 @@ function DesignTriggerButton({
   return (
     <Button
       type="button"
-      variant="outline"
+      variant="default"
       size="sm"
       aria-label={`دیزاین: ${summary}`}
       aria-haspopup="dialog"
@@ -93,17 +93,19 @@ function DesignTriggerButton({
       onPointerEnter={prefetchDesignStudioPanel}
       onFocus={prefetchDesignStudioPanel}
       className={cn(
-        "h-8 shrink-0 cursor-pointer gap-1.5 border-border/80 bg-background/80 px-2.5 text-xs shadow-none",
+        "h-8 shrink-0 cursor-pointer gap-1.5 px-3 text-xs font-semibold shadow-sm",
+        "bg-primary text-primary-foreground hover:bg-primary/90",
+        open && "ring-2 ring-primary/40 ring-offset-2 ring-offset-background",
         className
       )}
       {...props}
     >
-      <SlidersHorizontalIcon className="size-3.5 shrink-0" />
+      <SlidersHorizontalIcon className="size-3.5 shrink-0 opacity-90" />
       <span className="truncate">{activeDs.label}</span>
       {showPrimaryColor ? (
         <span
           aria-hidden
-          className="size-2.5 shrink-0 rounded-full ring-1 ring-foreground/15"
+          className="size-2.5 shrink-0 rounded-full ring-2 ring-primary-foreground/40"
           style={{ backgroundColor: themeSwatch(currentTheme) }}
         />
       ) : null}
@@ -194,7 +196,7 @@ function DesktopDesignStudio({
       <PopoverContent
         dir="rtl"
         lang="fa"
-        align="end"
+        align="center"
         side="bottom"
         sideOffset={8}
         className="w-[min(22.5rem,calc(100vw-1.5rem))] p-0 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"

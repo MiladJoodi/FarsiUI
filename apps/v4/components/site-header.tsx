@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
 import { ContactLink } from "@/components/contact-link"
 import { GitHubLink } from "@/components/github-link"
+import { HeaderDesignControls } from "@/components/header-design-controls"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
@@ -23,7 +24,7 @@ export function SiteHeader() {
       className="sticky top-0 z-50 w-full bg-background transition-transform duration-300 ease-out [[data-header-hidden]_&]:pointer-events-none [[data-header-hidden]_&]:-translate-y-full"
     >
       <div className="container-wrapper px-4 sm:px-6 3xl:fixed:px-0">
-        <div className="flex h-(--header-height) items-center gap-1 **:data-[slot=separator]:h-4! 3xl:fixed:container">
+        <div className="relative flex h-(--header-height) items-center gap-1 **:data-[slot=separator]:h-4! 3xl:fixed:container">
           <MobileNav
             items={siteConfig.navItems}
             className="flex lg:hidden"
@@ -41,6 +42,13 @@ export function SiteHeader() {
             <span className="sr-only">{siteConfig.name}</span>
           </Link>
           <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
+
+          <div className="pointer-events-none absolute inset-x-0 flex items-center justify-center">
+            <div className="pointer-events-auto">
+              <HeaderDesignControls />
+            </div>
+          </div>
+
           <div className="ms-auto flex min-w-0 items-center gap-1.5 sm:gap-2 md:flex-1 md:justify-end">
             <SiteHeaderActions
               tree={pageTree}
