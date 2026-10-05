@@ -24,6 +24,16 @@ import {
   npxFarsiui,
 } from "./utils"
 
+/** JSON Schema for MCP tools without $schema (Cursor/stricter clients reject or ignore it poorly). */
+function toToolInputSchema(schema: z.ZodTypeAny) {
+  const jsonSchema = zodToJsonSchema(schema, { $refStrategy: "none" }) as Record<
+    string,
+    unknown
+  >
+  const { $schema: _schema, ...rest } = jsonSchema
+  return rest
+}
+
 export const server = new Server(
   {
     name: "farsiui",
@@ -32,7 +42,6 @@ export const server = new Server(
   {
     capabilities: {
       logging: {},
-      resources: {},
       tools: {},
     },
   }
@@ -58,14 +67,14 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "get_project_registries",
         description:
-          "Get configured registry names from components.json - Returns error if no components.json exists (use init_project to create one)",
-        inputSchema: zodToJsonSchema(z.object({})),
+          "Get configured registry names from components.json. Returns guidance if no components.json exists (run `farsiui init` to create one).",
+        inputSchema: toToolInputSchema(z.object({})),
       },
       {
         name: "list_items_in_registries",
         description:
-          "List items from registries (requires components.json - use init_project if missing)",
-        inputSchema: zodToJsonSchema(
+          "List items from registries (requires components.json — run `farsiui init` if missing).",
+        inputSchema: toToolInputSchema(
           z.object({
             registries: z
               .array(z.string())
@@ -96,7 +105,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "search_items_in_registries",
         description:
           "Search for components in registries using fuzzy matching (requires components.json). After finding an item, use get_item_examples_from_registries to see usage examples.",
-        inputSchema: zodToJsonSchema(
+        inputSchema: toToolInputSchema(
           z.object({
             registries: z
               .array(z.string())
@@ -132,7 +141,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "view_items_in_registries",
         description:
           "View detailed information about specific registry items including the name, description, type and files content. For usage examples, use get_item_examples_from_registries instead.",
-        inputSchema: zodToJsonSchema(
+        inputSchema: toToolInputSchema(
           z.object({
             items: z
               .array(z.string())
@@ -146,7 +155,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "get_item_examples_from_registries",
         description:
           "Find usage examples and demos with their complete code. Search for patterns like 'accordion-demo', 'button example', 'card-demo', etc. Returns full implementation code with dependencies.",
-        inputSchema: zodToJsonSchema(
+        inputSchema: toToolInputSchema(
           z.object({
             registries: z
               .array(z.string())
@@ -166,7 +175,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "get_add_command_for_items",
         description:
           "Get the FarsiUI CLI add command for specific items in a registry. This is useful for adding one or more components to your project.",
-        inputSchema: zodToJsonSchema(
+        inputSchema: toToolInputSchema(
           z.object({
             items: z
               .array(z.string())
@@ -180,7 +189,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "get_audit_checklist",
         description:
           "After creating new components or generating new code files, use this tool for a quick checklist to verify that everything is working as expected. Make sure to run the tool after all required steps have been completed.",
-        inputSchema: zodToJsonSchema(z.object({})),
+        inputSchema: toToolInputSchema(z.object({})),
       },
     ],
   }
@@ -194,9 +203,8 @@ async function handleCallTool(request: {
   params: { name: string; arguments?: Record<string, unknown> }
 }) {
   try {
-    if (!request.params.arguments) {
-      throw new Error("No tool arguments provided.")
-    }
+    // Clients may omit arguments for tools with empty input schemas.
+    request.params.arguments ??= {}
 
     switch (request.params.name) {
       case "get_project_registries": {
@@ -210,7 +218,7 @@ async function handleCallTool(request: {
                 text: dedent`No components.json found or no registries configured.
 
                 To fix this:
-                1. Use the \`init\` command to create a components.json file
+                1. Run \`farsiui init\` to create a components.json file
                 2. Or manually create components.json with a registries section`,
               },
             ],

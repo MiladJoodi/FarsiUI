@@ -23,10 +23,8 @@ import { BASE_COLORS } from "@/registry/base-colors"
 import { BASES, type Base } from "@/registry/bases"
 import { PRESETS } from "@/registry/config"
 import { fonts } from "@/registry/fonts"
-import {
-  isTokenSidecarStyle,
-  resolveStyleTokensCssPath,
-} from "@/registry/extract-style-install-tokens"
+import { isTokenSidecarStyle } from "@/registry/extract-style-install-tokens"
+import { resolveStyleTokensCssPath } from "@/registry/extract-style-install-tokens.node"
 import { mergeStyleMaps } from "@/registry/merge-style-maps"
 import { resolveDensityInStyleMap } from "@/registry/resolve-density-style-map"
 import { STYLES } from "@/registry/styles"
@@ -89,7 +87,7 @@ const CLI_BUILD_CONCURRENCY = Math.max(
   1,
   Math.min(Math.floor(CPU_COUNT / 2), 4)
 )
-const TRANSFORM_CACHE_VERSION = "3"
+const TRANSFORM_CACHE_VERSION = "4"
 const CACHE_ROOT = path.join(
   process.cwd(),
   "node_modules/.cache/build-registry"
@@ -447,6 +445,10 @@ async function getTransformImplementationHash() {
   const dependencyFiles = [
     fileURLToPath(import.meta.url),
     resolveFromScript("farsiui/utils"),
+    path.resolve(
+      process.cwd(),
+      "../../packages/shadcn/src/styles/create-style-map.ts"
+    ),
     path.resolve(process.cwd(), "../../pnpm-lock.yaml"),
   ]
   const dependencyContent = await Promise.all(

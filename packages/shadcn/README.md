@@ -1,6 +1,6 @@
 # FarsiUI
 
-[Website](https://farsiui.ir) · [Documentation](https://farsiui.ir/docs) · [GitHub](https://github.com/MiladJoodi/FarsiUI)
+[Website](https://farsiui.ir) · [Docs](https://farsiui.ir/docs) · [Blocks](https://farsiui.ir/blocks) · [Components](https://farsiui.ir/docs/components)
 
 **A UI component library made for Persian products.**
 

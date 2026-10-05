@@ -1,5 +1,3 @@
-import { existsSync, readFileSync } from "fs"
-import path from "path"
 import postcss from "postcss"
 
 export type StyleInstallTokens = {
@@ -24,21 +22,6 @@ export function isTokenSidecarStyle(
     !!style &&
     (TOKEN_SIDECAR_STYLES as readonly string[]).includes(style)
   )
-}
-
-export function resolveStyleTokensCssPath(style: string): string | null {
-  const candidates = [
-    path.join(process.cwd(), "registry", "styles", `${style}-tokens.css`),
-    path.join(
-      process.cwd(),
-      "apps",
-      "v4",
-      "registry",
-      "styles",
-      `${style}-tokens.css`
-    ),
-  ]
-  return candidates.find((candidate) => existsSync(candidate)) ?? null
 }
 
 /**
@@ -128,24 +111,4 @@ function resolveTokenValue(
     const resolved = bucket[ref] ?? lightFallback[ref]
     return resolved ?? full
   })
-}
-
-const tokensCache = new Map<string, StyleInstallTokens>()
-
-/** Read + extract install tokens for a sidecar style (cached). */
-export function loadStyleInstallTokensFromFile(
-  style: TokenSidecarStyle
-): StyleInstallTokens | null {
-  const cached = tokensCache.get(style)
-  if (cached) return cached
-
-  const cssPath = resolveStyleTokensCssPath(style)
-  if (!cssPath) return null
-
-  const extracted = extractStyleInstallTokensFromCss(
-    readFileSync(cssPath, "utf8"),
-    style
-  )
-  tokensCache.set(style, extracted)
-  return extracted
 }

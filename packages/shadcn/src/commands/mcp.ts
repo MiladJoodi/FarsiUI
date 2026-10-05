@@ -110,7 +110,13 @@ export const mcp = new Command()
 const mcpInitOptionsSchema = z.object({
   client: z.enum(["claude", "cursor", "vscode", "codex", "opencode"]),
   cwd: z.string(),
+  install: z.boolean().default(false),
 })
+
+type McpInitOptions = z.infer<typeof mcpInitOptionsSchema>
+type RunMcpInitOptions = Omit<McpInitOptions, "install"> & {
+  install?: boolean
+}
 
 mcp
   .command("init")
@@ -118,6 +124,10 @@ mcp
   .option(
     "--client <client>",
     `MCP client (${CLIENTS.map((c) => c.name).join(", ")})`
+  )
+  .option(
+    "--install",
+    "also install farsiui@latest as a project dependency (optional; MCP runs via npx)"
   )
   .action(async (opts, command) => {
     try {
@@ -149,29 +159,12 @@ mcp
       const options = mcpInitOptionsSchema.parse({
         client,
         cwd,
+        install: Boolean(opts.install),
       })
 
-      const config = await getConfig(options.cwd)
-
       if (options.client === "codex") {
-        if (config) {
-          await updateDependencies([], DEPENDENCIES, config, {
-            silent: false,
-          })
-        } else {
-          const packageManager = await getPackageManager(options.cwd)
-          const installCommand = packageManager === "npm" ? "install" : "add"
-          const devFlag = packageManager === "npm" ? "--save-dev" : "-D"
-
-          const installSpinner = spinner("Installing dependencies...").start()
-          await execa(
-            packageManager,
-            [installCommand, devFlag, ...DEPENDENCIES],
-            {
-              cwd: options.cwd,
-            }
-          )
-          installSpinner.succeed("Installing dependencies.")
+        if (options.install) {
+          await installMcpDependency(options.cwd)
         }
 
         logger.break()
@@ -197,39 +190,49 @@ args = ["${FARSIUI_PACKAGE}", "mcp"]`)
       const configPath = await runMcpInit(options)
       configSpinner.succeed("Configuring MCP server.")
 
-      if (config) {
-        await updateDependencies([], DEPENDENCIES, config, {
-          silent: false,
-        })
-      } else {
-        const packageManager = await getPackageManager(options.cwd)
-        const installCommand = packageManager === "npm" ? "install" : "add"
-        const devFlag = packageManager === "npm" ? "--save-dev" : "-D"
-
-        const installSpinner = spinner("Installing dependencies...").start()
-        await execa(
-          packageManager,
-          [installCommand, devFlag, ...DEPENDENCIES],
-          {
-            cwd: options.cwd,
-          }
-        )
-        installSpinner.succeed("Installing dependencies.")
+      if (options.install) {
+        await installMcpDependency(options.cwd)
       }
 
       logger.break()
       logger.success(`Configuration saved to ${configPath}.`)
       logger.break()
+      process.exit(0)
     } catch (error) {
       handleError(error)
     }
   })
 
+async function installMcpDependency(cwd: string) {
+  const config = await getConfig(cwd)
+
+  if (config) {
+    await updateDependencies([], DEPENDENCIES, config, {
+      silent: false,
+      interactive: false,
+    })
+    return
+  }
+
+  const packageManager = await getPackageManager(cwd)
+  const installCommand = packageManager === "npm" ? "install" : "add"
+  const devFlag = packageManager === "npm" ? "--save-dev" : "-D"
+
+  const installSpinner = spinner("Installing dependencies...").start()
+  try {
+    await execa(packageManager, [installCommand, devFlag, ...DEPENDENCIES], {
+      cwd,
+    })
+    installSpinner.succeed("Installing dependencies.")
+  } catch (error) {
+    installSpinner.fail("Failed to install dependencies.")
+    throw error
+  }
+}
+
 const overwriteMerge = (_: any[], sourceArray: any[]) => sourceArray
 
-export async function runMcpInit(
-  options: z.infer<typeof mcpInitOptionsSchema>
-) {
+export async function runMcpInit(options: RunMcpInitOptions) {
   const { client, cwd } = options
 
   const clientInfo = CLIENTS.find((c) => c.name === client)
@@ -245,12 +248,22 @@ export async function runMcpInit(
   const dir = path.dirname(configPath)
   await fsExtra.ensureDir(dir)
 
-  // Handle JSON format.
-  let existingConfig = {}
-  try {
+  // Codex prints manual instructions; no local JSON write.
+  if (client === "codex") {
+    return clientInfo.configPath
+  }
+
+  let existingConfig: Record<string, unknown> = {}
+  if (await fsExtra.pathExists(configPath)) {
     const content = await fs.readFile(configPath, "utf-8")
-    existingConfig = JSON.parse(content)
-  } catch {}
+    try {
+      existingConfig = JSON.parse(content) as Record<string, unknown>
+    } catch {
+      throw new Error(
+        `Invalid JSON in ${clientInfo.configPath}. Fix or remove the file, then run mcp init again.`
+      )
+    }
+  }
 
   const mergedConfig = deepmerge(
     existingConfig,

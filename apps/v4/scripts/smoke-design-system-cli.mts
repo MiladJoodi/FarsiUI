@@ -17,7 +17,7 @@ import {
   buildRegistryBase,
   parseRegistryBaseParts,
 } from "../registry/config"
-import { loadStyleInstallTokensFromFile } from "../registry/extract-style-install-tokens"
+import { loadStyleInstallTokensFromFile } from "../registry/extract-style-install-tokens.node"
 
 const ROOT = path.resolve(process.cwd(), "../..")
 const FARSIUI_BIN = path.join(ROOT, "packages/shadcn/dist/index.js")

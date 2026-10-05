@@ -126,10 +126,20 @@ export function createStyleMap(input: string) {
             return
           }
 
+          // Don't bake descendant/complex rules onto the subject class.
+          if (hasCombinatorAfter(targetClass)) {
+            return
+          }
+
+          const variantPrefix = getVariantPrefixForClass(targetClass)
+          const classes = variantPrefix
+            ? prefixUtilities(tailwindClasses, variantPrefix)
+            : tailwindClasses
+
           // Later rules in the same file prepend (existing bake contract).
           result[className] = result[className]
-            ? `${tailwindClasses} ${result[className]}`
-            : tailwindClasses
+            ? `${classes} ${result[className]}`
+            : classes
         })
       }).processSync(normalizedSelector)
     }
@@ -215,4 +225,76 @@ function findSubjectClass(selector: SelectorNodeRoot) {
   }
 
   return classNodes[classNodes.length - 1]
+}
+
+/** Pseudos attached to the subject cn-* class → Tailwind variant prefixes. */
+const PSEUDO_TO_VARIANT: Array<[string, string]> = [
+  [":focus-visible", "focus-visible"],
+  [":focus-within", "focus-within"],
+  [":placeholder-shown", "placeholder"],
+  [":disabled", "disabled"],
+  [":checked", "checked"],
+  [":active", "active"],
+  [":hover", "hover"],
+  [":focus", "focus"],
+]
+
+function getVariantPrefixForClass(classNode: ClassName): string {
+  const pseudos: string[] = []
+  let next = classNode.next()
+  while (next) {
+    if (next.type === "pseudo") {
+      const value = next.value
+      for (const [pseudo, variant] of PSEUDO_TO_VARIANT) {
+        if (value === pseudo || value === pseudo.slice(1)) {
+          pseudos.push(variant)
+          break
+        }
+      }
+      next = next.next()
+      continue
+    }
+    break
+  }
+
+  if (pseudos.length === 0) {
+    return ""
+  }
+
+  return `${pseudos.join(":")}:`
+}
+
+function hasCombinatorAfter(classNode: ClassName): boolean {
+  let next = classNode.next()
+  while (next) {
+    if (next.type === "combinator") {
+      return true
+    }
+    // Pseudos/attributes on the same element are fine.
+    if (
+      next.type === "pseudo" ||
+      next.type === "attribute" ||
+      next.type === "id" ||
+      next.type === "class"
+    ) {
+      next = next.next()
+      continue
+    }
+    break
+  }
+  return false
+}
+
+/** `!shadow-x` + `active:` → `active:!shadow-x` (Tailwind important+variant order). */
+function prefixUtilities(classes: string, variantPrefix: string) {
+  return classes
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((utility) => {
+      if (utility.startsWith("!")) {
+        return `${variantPrefix}!${utility.slice(1)}`
+      }
+      return `${variantPrefix}${utility}`
+    })
+    .join(" ")
 }

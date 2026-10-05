@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "fs"
 import path from "path"
 
 import { buildRegistryBase, DEFAULT_CONFIG } from "../registry/config"
-import { loadStyleInstallTokensFromFile } from "../registry/extract-style-install-tokens"
+import { loadStyleInstallTokensFromFile } from "../registry/extract-style-install-tokens.node"
 
 const systems = [
   {

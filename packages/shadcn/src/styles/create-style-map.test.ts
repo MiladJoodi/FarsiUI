@@ -202,6 +202,39 @@ describe("parseStyle", () => {
     expect(result["cn-card"]).toContain("!bg-[var(--surface)]")
     expect(result["cn-card"]).toContain("![border:2px_solid_var(--line)]")
   })
+
+  it("bakes :active / :hover as Tailwind variants (not resting classes)", () => {
+    const css = `
+      .cn-button-variant-default {
+        box-shadow: var(--shadow-control) !important;
+      }
+      .cn-button-variant-default:active {
+        transform: var(--press);
+        box-shadow: var(--shadow-press) !important;
+      }
+      .cn-button-variant-ghost:hover {
+        box-shadow: var(--shadow-control) !important;
+      }
+    `
+
+    const result = createStyleMap(css)
+
+    expect(result["cn-button-variant-default"]).toContain(
+      "!shadow-[var(--shadow-control)]"
+    )
+    expect(result["cn-button-variant-default"]).toContain(
+      "active:[transform:var(--press)]"
+    )
+    expect(result["cn-button-variant-default"]).toContain(
+      "active:!shadow-[var(--shadow-press)]"
+    )
+    expect(result["cn-button-variant-default"]).not.toMatch(
+      /(?<!active:)\[transform:var\(--press\)\]/
+    )
+    expect(result["cn-button-variant-ghost"]).toContain(
+      "hover:!shadow-[var(--shadow-control)]"
+    )
+  })
 })
 
 describe("mergeStyleMaps", () => {

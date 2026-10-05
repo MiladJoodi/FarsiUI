@@ -38,6 +38,122 @@ describe("runMcpInit", () => {
     expect(JSON.stringify(content)).not.toContain("shadcn@")
   })
 
+  it("creates .cursor directory when missing", async () => {
+    const cwd = await makeTempDir()
+    expect(
+      await fs
+        .access(path.join(cwd, ".cursor"))
+        .then(() => true)
+        .catch(() => false)
+    ).toBe(false)
+
+    await runMcpInit({ client: "cursor", cwd })
+
+    const stat = await fs.stat(path.join(cwd, ".cursor"))
+    expect(stat.isDirectory()).toBe(true)
+    await fs.access(path.join(cwd, ".cursor/mcp.json"))
+  })
+
+  it("creates cursor mcp.json when the file does not exist", async () => {
+    const cwd = await makeTempDir()
+    const configPath = await runMcpInit({ client: "cursor", cwd })
+    const content = JSON.parse(
+      await fs.readFile(path.join(cwd, configPath), "utf-8")
+    )
+
+    expect(Object.keys(content.mcpServers)).toEqual(["farsiui"])
+    expect(content.mcpServers.farsiui.args).toEqual(["farsiui@latest", "mcp"])
+  })
+
+  it("preserves other MCP servers when adding farsiui", async () => {
+    const cwd = await makeTempDir()
+    await fs.mkdir(path.join(cwd, ".cursor"), { recursive: true })
+    await fs.writeFile(
+      path.join(cwd, ".cursor/mcp.json"),
+      JSON.stringify(
+        {
+          mcpServers: {
+            playwright: {
+              command: "npx",
+              args: ["@playwright/mcp@latest"],
+            },
+          },
+        },
+        null,
+        2
+      ) + "\n",
+      "utf-8"
+    )
+
+    await runMcpInit({ client: "cursor", cwd })
+
+    const content = JSON.parse(
+      await fs.readFile(path.join(cwd, ".cursor/mcp.json"), "utf-8")
+    )
+
+    expect(content.mcpServers.playwright).toEqual({
+      command: "npx",
+      args: ["@playwright/mcp@latest"],
+    })
+    expect(content.mcpServers.farsiui).toEqual({
+      command: "npx",
+      args: ["farsiui@latest", "mcp"],
+    })
+  })
+
+  it("updates existing farsiui entry without duplicating", async () => {
+    const cwd = await makeTempDir()
+    await fs.mkdir(path.join(cwd, ".cursor"), { recursive: true })
+    await fs.writeFile(
+      path.join(cwd, ".cursor/mcp.json"),
+      JSON.stringify(
+        {
+          mcpServers: {
+            farsiui: {
+              command: "npx",
+              args: ["farsiui@0.0.1", "mcp"],
+            },
+            other: {
+              command: "node",
+              args: ["server.js"],
+            },
+          },
+        },
+        null,
+        2
+      ) + "\n",
+      "utf-8"
+    )
+
+    await runMcpInit({ client: "cursor", cwd })
+
+    const content = JSON.parse(
+      await fs.readFile(path.join(cwd, ".cursor/mcp.json"), "utf-8")
+    )
+
+    expect(Object.keys(content.mcpServers).filter((k) => k === "farsiui")).toHaveLength(
+      1
+    )
+    expect(content.mcpServers.farsiui).toEqual({
+      command: "npx",
+      args: ["farsiui@latest", "mcp"],
+    })
+    expect(content.mcpServers.other).toEqual({
+      command: "node",
+      args: ["server.js"],
+    })
+  })
+
+  it("throws a clear error when existing cursor mcp.json is invalid JSON", async () => {
+    const cwd = await makeTempDir()
+    await fs.mkdir(path.join(cwd, ".cursor"), { recursive: true })
+    await fs.writeFile(path.join(cwd, ".cursor/mcp.json"), "{ not-json", "utf-8")
+
+    await expect(runMcpInit({ client: "cursor", cwd })).rejects.toThrow(
+      /Invalid JSON in \.cursor\/mcp\.json/
+    )
+  })
+
   it("writes claude config with farsiui identity", async () => {
     const cwd = await makeTempDir()
     const configPath = await runMcpInit({ client: "claude", cwd })

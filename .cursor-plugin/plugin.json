@@ -32,9 +32,9 @@
   ],
   "skills": "./skills/",
   "mcpServers": {
-    "shadcn": {
+    "farsiui": {
       "command": "npx",
-      "args": ["shadcn@latest", "mcp"]
+      "args": ["farsiui@latest", "mcp"]
     }
   }
 }
