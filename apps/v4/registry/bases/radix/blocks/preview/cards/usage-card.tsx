@@ -122,7 +122,7 @@ export default function UsageCard() {
                   <ItemTitle className="inline">{item.name}</ItemTitle>
                 </ItemContent>
                 <ItemActions>
-                  <span className="font-mono text-xs font-medium text-muted-foreground tabular-nums">
+                  <span className="font-mono text-xs font-medium text-muted-foreground tracking-normal [letter-spacing:0]">
                     {item.value}
                   </span>
                 </ItemActions>

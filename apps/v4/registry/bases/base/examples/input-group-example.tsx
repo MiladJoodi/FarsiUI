@@ -401,7 +401,7 @@ function InputGroupWithTooltip({
               <DropdownMenu>
                 <DropdownMenuTrigger
                   render={
-                    <InputGroupButton className="text-muted-foreground tabular-nums" />
+                    <InputGroupButton className="text-muted-foreground tracking-normal [letter-spacing:0]" />
                   }
                 >
                   {country}{" "}

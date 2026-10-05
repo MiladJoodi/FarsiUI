@@ -62,7 +62,7 @@ export default function SavingsTargets() {
                 <span className="text-sm text-muted-foreground">
                   65% achieved
                 </span>
-                <span className="text-sm font-medium tabular-nums">
+                <span className="text-sm font-medium tracking-normal [letter-spacing:0]">
                   $273,000
                 </span>
               </ItemFooter>
@@ -81,7 +81,7 @@ export default function SavingsTargets() {
                 <span className="text-sm text-muted-foreground">
                   32% achieved
                 </span>
-                <span className="text-sm font-medium tabular-nums">
+                <span className="text-sm font-medium tracking-normal [letter-spacing:0]">
                   $27,200
                 </span>
               </ItemFooter>

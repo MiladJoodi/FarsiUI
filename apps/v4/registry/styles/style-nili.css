@@ -1001,7 +1001,7 @@
   }
 
   .cn-progress-value {
-    @apply text-muted-foreground ml-auto text-sm tabular-nums;
+    @apply text-muted-foreground ms-auto text-sm tracking-normal [letter-spacing:0];
   }
 
   /* MARK: Radio Group */

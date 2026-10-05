@@ -156,7 +156,7 @@ export default function PricingShowcase() {
         </div>
         <p className="text-sm text-muted-foreground">
           بیش از{" "}
-          <span className="inline-block whitespace-nowrap font-medium tracking-normal text-foreground [letter-spacing:0]">
+          <span className="inline-block whitespace-nowrap font-medium tracking-normal [letter-spacing:0] text-foreground [letter-spacing:0]">
             <bdi dir="ltr">۱٬۲۰۰</bdi>
           </span>{" "}
           تیم پلن حرفه‌ای را انتخاب کرده‌اند

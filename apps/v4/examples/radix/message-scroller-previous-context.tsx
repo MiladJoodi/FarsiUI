@@ -210,7 +210,7 @@ export default function MessageScrollerPreviousContext() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <div className="flex w-28 items-center gap-2">
-                    <span className="text-xs text-muted-foreground tabular-nums">
+                    <span className="text-xs text-muted-foreground tracking-normal [letter-spacing:0]">
                       {peek}px
                     </span>
                     <Slider

@@ -133,7 +133,7 @@ export default function PieChartCard() {
       <CardFooter className="flex-col items-stretch gap-2">
         <div className="flex items-center text-xs">
           <span className="font-medium">{topBrowserLabel}</span>
-          <span className="ml-auto text-muted-foreground tabular-nums">
+          <span className="ml-auto text-muted-foreground tracking-normal [letter-spacing:0]">
             {topBrowserShare}%
           </span>
         </div>

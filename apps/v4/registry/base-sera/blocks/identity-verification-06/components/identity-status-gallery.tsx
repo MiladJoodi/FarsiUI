@@ -153,7 +153,7 @@ export default function IdentityStatusGallery() {
                 <Alert>
                   <AlertTitle>شماره پیگیری</AlertTitle>
                   <AlertDescription className="space-y-2">
-                    <p dir="ltr" className="text-sm font-medium tabular-nums">
+                    <p dir="ltr" className="text-sm font-medium tracking-normal [letter-spacing:0]">
                       IV-۱۴۰۵-۰۸۴۲۱
                     </p>
                     <p className="text-xs">

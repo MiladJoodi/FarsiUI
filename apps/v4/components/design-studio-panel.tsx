@@ -25,13 +25,7 @@ function themeSwatch(themeName: string) {
 }
 
 /** Mini visual thumbnail — fixed height so all recipes match. */
-function StyleThumb({
-  id,
-  selected,
-}: {
-  id: DesignSystemId
-  selected: boolean
-}) {
+function StyleThumb({ id }: { id: DesignSystemId }) {
   const shells: Record<
     DesignSystemId,
     { wrap: string; a: string; b: string; c: string }
@@ -80,9 +74,8 @@ function StyleThumb({
     <div
       aria-hidden
       className={cn(
-        "flex h-10 w-full shrink-0 flex-col justify-center gap-1 border px-2",
-        look.wrap,
-        selected ? "border-primary/40" : "border-border/60"
+        "flex h-10 w-full shrink-0 flex-col justify-center gap-1 border border-border/60 px-2",
+        look.wrap
       )}
     >
       <span className={cn("shrink-0", look.a)} />
@@ -199,16 +192,17 @@ export function DesignStudioPanel({
                   onClick={() =>
                     setDesignSystemId(preset.id as DesignSystemId)
                   }
-                  className={cn(
-                    "flex cursor-pointer flex-col gap-1.5 rounded-xl border p-2 text-start transition-colors",
-                    selected
-                      ? "border-primary bg-primary/8 ring-1 ring-primary/30"
-                      : "border-border/70 hover:bg-muted/50 active:bg-muted"
-                  )}
+                  className="flex cursor-pointer flex-col gap-1.5 rounded-xl border border-border/70 p-2 text-start transition-colors hover:bg-muted/40 active:bg-muted/60"
                 >
-                  <StyleThumb id={preset.id} selected={selected} />
-                  <span className="px-0.5 text-sm font-medium leading-none">
-                    {preset.label}
+                  <StyleThumb id={preset.id} />
+                  <span className="flex items-center gap-1 px-0.5 text-sm font-medium leading-none">
+                    <span className="min-w-0 flex-1 truncate">{preset.label}</span>
+                    {selected ? (
+                      <CheckIcon
+                        className="size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400"
+                        aria-hidden
+                      />
+                    ) : null}
                   </span>
                 </button>
               )
@@ -237,12 +231,7 @@ export function DesignStudioPanel({
                 role="option"
                 aria-selected={selected}
                 onClick={() => setFontId(font.id as UiFontId)}
-                className={cn(
-                  "flex cursor-pointer items-center gap-2 rounded-xl border px-3 py-2 text-start transition-colors",
-                  selected
-                    ? "border-primary bg-primary/8 ring-1 ring-primary/30"
-                    : "border-border/70 hover:bg-muted/50 active:bg-muted"
-                )}
+                className="flex cursor-pointer items-center gap-2 rounded-xl border border-border/70 px-3 py-2 text-start transition-colors hover:bg-muted/40 active:bg-muted/60"
               >
                 <span
                   className="min-w-0 flex-1 truncate text-sm font-medium"
@@ -251,7 +240,10 @@ export function DesignStudioPanel({
                   {font.label}
                 </span>
                 {selected ? (
-                  <CheckIcon className="size-3.5 shrink-0 text-primary" />
+                  <CheckIcon
+                    className="size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400"
+                    aria-hidden
+                  />
                 ) : null}
               </button>
             )
@@ -277,17 +269,18 @@ export function DesignStudioPanel({
                 aria-label={label}
                 title={label}
                 onClick={() => setActiveTheme(theme.name)}
-                className={cn(
-                  "flex cursor-pointer items-center justify-center rounded-xl border py-2.5 transition-colors",
-                  selected
-                    ? "border-primary bg-primary/8 ring-1 ring-primary/30"
-                    : "border-border/70 hover:bg-muted/50 active:bg-muted"
-                )}
+                className="relative flex cursor-pointer items-center justify-center rounded-xl border border-border/70 py-2.5 transition-colors hover:bg-muted/40 active:bg-muted/60"
               >
                 <span
                   className="size-7 rounded-full shadow-sm ring-1 ring-foreground/10"
                   style={{ backgroundColor: themeSwatch(theme.name) }}
                 />
+                {selected ? (
+                  <CheckIcon
+                    className="absolute end-1.5 top-1.5 size-3 text-emerald-600 dark:text-emerald-400"
+                    aria-hidden
+                  />
+                ) : null}
               </button>
             )
           })}

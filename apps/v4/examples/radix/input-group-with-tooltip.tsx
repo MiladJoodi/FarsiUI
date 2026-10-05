@@ -76,7 +76,7 @@ export default function InputGroupWithTooltip({
           <InputGroupAddon>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <InputGroupButton className="text-muted-foreground tabular-nums">
+                <InputGroupButton className="text-muted-foreground tracking-normal [letter-spacing:0]">
                   {country} <ChevronDownIcon />
                 </InputGroupButton>
               </DropdownMenuTrigger>

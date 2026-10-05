@@ -253,7 +253,7 @@ function ChartTooltipContent({
                         </span>
                       </div>
                       {item.value != null && (
-                        <span className="font-medium tracking-normal text-foreground">
+                        <span className="font-medium tracking-normal [letter-spacing:0] text-foreground">
                           {typeof item.value === "number"
                             ? formatPersianNumber(item.value)
                             : String(item.value)}

@@ -35,7 +35,7 @@ export async function StarsCount() {
     <span
       dir="ltr"
       lang="en"
-      className="hidden w-fit font-mono text-xs tracking-normal text-muted-foreground tabular-nums sm:inline"
+      className="hidden w-fit font-mono text-xs tracking-normal text-muted-foreground tracking-normal [letter-spacing:0] sm:inline"
     >
       {formattedCount}
     </span>

@@ -66,13 +66,13 @@ export default function Invoice() {
             {INVOICE_ITEMS.map((row) => (
               <TableRow key={row.item}>
                 <TableCell>{row.item}</TableCell>
-                <TableCell className="text-right tabular-nums">
+                <TableCell className="text-end tracking-normal [letter-spacing:0]">
                   {row.qty}
                 </TableCell>
-                <TableCell className="text-right tabular-nums">
+                <TableCell className="text-end tracking-normal [letter-spacing:0]">
                   {formatCurrency(row.unitPrice)}
                 </TableCell>
-                <TableCell className="text-right tabular-nums">
+                <TableCell className="text-end tracking-normal [letter-spacing:0]">
                   {formatCurrency(row.qty * row.unitPrice)}
                 </TableCell>
               </TableRow>
@@ -81,7 +81,7 @@ export default function Invoice() {
               <TableCell colSpan={3} className="text-right">
                 Subtotal
               </TableCell>
-              <TableCell className="text-right tabular-nums">
+              <TableCell className="text-end tracking-normal [letter-spacing:0]">
                 {formatCurrency(subtotal)}
               </TableCell>
             </TableRow>
@@ -89,13 +89,13 @@ export default function Invoice() {
               <TableCell colSpan={3} className="text-right">
                 Tax
               </TableCell>
-              <TableCell className="text-right tabular-nums">$0.00</TableCell>
+              <TableCell className="text-end tracking-normal [letter-spacing:0]">$0.00</TableCell>
             </TableRow>
             <TableRow>
               <TableCell colSpan={3} className="text-right">
                 Total Due
               </TableCell>
-              <TableCell className="text-right tabular-nums">
+              <TableCell className="text-end tracking-normal [letter-spacing:0]">
                 {formatCurrency(totalDue)}
               </TableCell>
             </TableRow>

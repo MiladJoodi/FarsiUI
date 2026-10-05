@@ -158,7 +158,7 @@ export function TypesetCustomizer() {
             onChange={(flow) => setParams({ flow })}
           />
           {process.env.NODE_ENV === "development" && (
-            <div className="hidden px-1 pt-0.5 text-center font-mono text-xs text-muted-foreground tabular-nums md:block">
+            <div className="hidden px-1 pt-0.5 text-center font-mono text-xs text-muted-foreground tracking-normal [letter-spacing:0] md:block">
               {sizePx}px / {leadingPx}px / {flowPx}px
             </div>
           )}

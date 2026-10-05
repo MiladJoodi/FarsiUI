@@ -44,10 +44,10 @@ export function Color({ color }: { color: Color }) {
       )}
       <div className="border-ghost w-full flex-1 rounded-md bg-(--bg) after:rounded-lg after:border-input md:rounded-lg" />
       <div className="flex w-full flex-col items-center justify-center gap-1">
-        <span className="font-mono text-xs text-muted-foreground tabular-nums transition-colors group-hover:text-foreground group-data-[last-copied=true]:text-primary sm:hidden xl:flex">
+        <span className="font-mono text-xs text-muted-foreground tracking-normal [letter-spacing:0] transition-colors group-hover:text-foreground group-data-[last-copied=true]:text-primary sm:hidden xl:flex">
           {color.className}
         </span>
-        <span className="hidden font-mono text-xs text-muted-foreground tabular-nums transition-colors group-hover:text-foreground group-data-[last-copied=true]:text-primary sm:flex xl:hidden">
+        <span className="hidden font-mono text-xs text-muted-foreground tracking-normal [letter-spacing:0] transition-colors group-hover:text-foreground group-data-[last-copied=true]:text-primary sm:flex xl:hidden">
           {color.scale}
         </span>
       </div>

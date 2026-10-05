@@ -82,7 +82,7 @@ export function ChartTooltipFormatter() {
                     <div className="flex min-w-[130px] items-center text-xs text-muted-foreground">
                       {chartConfig[name as keyof typeof chartConfig]?.label ||
                         name}
-                      <div className="ms-auto flex items-baseline gap-0.5 font-medium tracking-normal text-foreground">
+                      <div className="ms-auto flex items-baseline gap-0.5 font-medium tracking-normal [letter-spacing:0] text-foreground">
                         {formatPersianNumber(Number(value))}
                         <span className="font-normal text-muted-foreground">
                           کیلوکالری

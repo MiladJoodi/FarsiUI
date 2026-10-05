@@ -33,7 +33,7 @@ export default function HeaderShowcase() {
                 <p className="text-sm text-muted-foreground">
                   <bdi
                     dir="ltr"
-                    className="inline-block font-medium tracking-normal text-foreground [letter-spacing:0]"
+                    className="inline-block font-medium tracking-normal [letter-spacing:0] text-foreground [letter-spacing:0]"
                   >
                     ۱۲
                   </bdi>{" "}

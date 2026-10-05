@@ -119,7 +119,7 @@ function Calendar({
           defaultClassNames.week_number_header
         ),
         week_number: cn(
-          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium text-muted-foreground tabular-nums select-none",
+          "flex w-(--cell-size) shrink-0 items-center justify-center text-[0.7rem] font-medium text-muted-foreground tracking-normal [letter-spacing:0] select-none",
           defaultClassNames.week_number
         ),
         day: cn(

@@ -102,7 +102,7 @@ export default function BarChartCard() {
             <div className="text-[0.65rem] text-muted-foreground uppercase">
               Desktop
             </div>
-            <div className="text-sm font-medium tabular-nums">
+            <div className="text-sm font-medium tracking-normal [letter-spacing:0]">
               {desktopTotal.toLocaleString()}
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function BarChartCard() {
             <div className="text-[0.65rem] text-muted-foreground uppercase">
               Mobile
             </div>
-            <div className="text-sm font-medium tabular-nums">
+            <div className="text-sm font-medium tracking-normal [letter-spacing:0]">
               {mobileTotal.toLocaleString()}
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function BarChartCard() {
             <div className="text-[0.65rem] text-muted-foreground uppercase">
               Mix Delta
             </div>
-            <div className="text-sm font-medium tabular-nums">
+            <div className="text-sm font-medium tracking-normal [letter-spacing:0]">
               {desktopDeltaPrefix}
               {desktopDelta}%
             </div>

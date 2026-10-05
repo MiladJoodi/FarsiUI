@@ -87,7 +87,7 @@ export default function SleepReport() {
             { label: "Score", value: "84" },
           ].map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-sm font-medium tabular-nums">{s.value}</div>
+              <div className="text-sm font-medium tracking-normal [letter-spacing:0]">{s.value}</div>
               <div className="text-xs text-muted-foreground">{s.label}</div>
             </div>
           ))}

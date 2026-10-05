@@ -39,7 +39,7 @@ export default function ErrorStateIconCard() {
               <EmptyTitle>اتصال برقرار نشد</EmptyTitle>
               <EmptyDescription>
                 سرور پاسخ نداد. کد خطا:{" "}
-                <span className="font-medium tracking-normal text-foreground">
+                <span className="font-medium tracking-normal [letter-spacing:0] text-foreground">
                   ۵۰۳
                 </span>
                 . می‌توانید دوباره تلاش کنید یا با پشتیبانی تماس بگیرید.

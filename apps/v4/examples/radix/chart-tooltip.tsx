@@ -199,7 +199,7 @@ function TooltipDemo({
                     {nestLabel ? tooltipLabel : null}
                     <span className="text-muted-foreground">{item.name}</span>
                   </div>
-                  <span className="font-medium tracking-normal text-foreground">
+                  <span className="font-medium tracking-normal [letter-spacing:0] text-foreground">
                     {item.value.toLocaleString("fa-IR")}
                   </span>
                 </div>

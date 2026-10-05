@@ -92,7 +92,7 @@ export default function PowerUsage() {
         <span className="text-sm text-muted-foreground">Battery Level</span>
         <div className="flex w-full items-center gap-2">
           <Progress value={85} className="flex-1" />
-          <span className="text-sm font-medium tabular-nums">85%</span>
+          <span className="text-sm font-medium tracking-normal [letter-spacing:0]">85%</span>
         </div>
       </CardFooter>
     </Card>

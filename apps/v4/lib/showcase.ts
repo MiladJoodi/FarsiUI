@@ -1,3 +1,20 @@
+const EXAMPLES_LIVE_BASE = "https://farsiui-examples.vercel.app/examples"
+const EXAMPLES_GITHUB_BASE =
+  "https://github.com/MiladJoodi/FarsiUI-Examples/tree/master/app/examples"
+
+/** Shared preview until per-example screenshots are added under /images/showcase. */
+const DEFAULT_IMAGE_LIGHT = "/r/styles/new-york/dashboard-01-light.png"
+const DEFAULT_IMAGE_DARK = "/r/styles/new-york/dashboard-01-dark.png"
+
+function exampleUrls(slug: string) {
+  return {
+    liveUrl: `${EXAMPLES_LIVE_BASE}/${slug}`,
+    githubUrl: `${EXAMPLES_GITHUB_BASE}/${slug}`,
+    imageUrl: DEFAULT_IMAGE_LIGHT,
+    imageUrlDark: DEFAULT_IMAGE_DARK,
+  }
+}
+
 export type ShowcaseCategory = {
   title: string
   slug: string
@@ -21,157 +38,104 @@ export const showcaseCategories: ShowcaseCategory[] = [
   {
     title: "داشبوردها",
     slug: "dashboard",
-    description: "نمونه‌های داشبورد و پنل مدیریت",
+    description: "داشبورد و تحلیل",
   },
   {
     title: "اپلیکیشن‌ها",
     slug: "applications",
-    description: "اپلیکیشن‌های کاربردی",
+    description: "ابزارهای کاربردی، فروشگاه و دستیار",
   },
   {
-    title: "فروشگاهی",
-    slug: "commerce",
-    description: "فروشگاه و تجارت الکترونیک",
-  },
-  {
-    title: "هوش مصنوعی",
-    slug: "ai",
-    description: "نمونه‌های مبتنی بر AI",
-  },
-  {
-    title: "لندینگ‌ها",
-    slug: "landings",
-    description: "صفحات فرود و معرفی محصول",
-  },
-  {
-    title: "سایر",
-    slug: "other",
-    description: "نمونه‌های متفرقه",
+    title: "صفحات وب",
+    slug: "pages",
+    description: "لندینگ، بلاگ، تنظیمات و احراز هویت",
   },
 ]
 
 export const showcaseProjects: ShowcaseProject[] = [
-  // داشبوردها
   {
-    id: "dashboard-01",
-    title: "نسخهٔ اصلی",
-    description:
-      "پنل داشبورد فارسی با سایدبار، کارت‌های آماری، نمودار تعاملی و جدول داده.",
+    id: "dashboard",
+    title: "داشبورد",
+    description: "پنل مدیریت فروش با کارت آماری، نمودار و جدول سفارش‌ها.",
     category: "dashboard",
-    imageUrl: "/r/styles/new-york/dashboard-01-light.png",
-    imageUrlDark: "/r/styles/new-york/dashboard-01-dark.png",
+    ...exampleUrls("dashboard"),
   },
   {
-    id: "dashboard-02",
-    title: "تحلیل فروش",
-    description: "داشبورد فروش با نمودارها و گزارش‌های دوره‌ای.",
+    id: "analytics",
+    title: "آنالیتیکس",
+    description: "داشبورد تحلیل با نمودارها و گزارش‌های عملکرد.",
     category: "dashboard",
+    ...exampleUrls("analytics"),
   },
   {
-    id: "dashboard-03",
-    title: "پنل مدیریت",
-    description: "پنل ادمین با مدیریت کاربران و تنظیمات.",
-    category: "dashboard",
-  },
-
-  // اپلیکیشن‌ها
-  {
-    id: "applications-01",
-    title: "مدیریت وظایف",
-    description: "اپلیکیشن لیست کارها با برد کانبان.",
+    id: "tasks",
+    title: "وظایف",
+    description: "مدیریت کارها با جدول، فیلتر و وضعیت‌ها.",
     category: "applications",
+    ...exampleUrls("tasks"),
   },
   {
-    id: "applications-02",
-    title: "تقویم رویدادها",
-    description: "اپلیکیشن تقویم و زمان‌بندی جلسات.",
+    id: "calendar",
+    title: "تقویم",
+    description: "تقویم رویدادها و زمان‌بندی جلسات.",
     category: "applications",
+    ...exampleUrls("calendar"),
   },
   {
-    id: "applications-03",
-    title: "پیام‌رسان تیمی",
-    description: "اپلیکیشن چت و همکاری تیمی.",
+    id: "team-chat",
+    title: "چت تیمی",
+    description: "پیام‌رسان و همکاری تیمی.",
     category: "applications",
-  },
-
-  // فروشگاهی
-  {
-    id: "commerce-01",
-    title: "فروشگاه آنلاین",
-    description: "فروشگاه با لیست محصول، سبد خرید و تسویه.",
-    category: "commerce",
+    ...exampleUrls("team-chat"),
   },
   {
-    id: "commerce-02",
-    title: "کاتالوگ محصولات",
-    description: "صفحهٔ محصولات با فیلتر و جستجو.",
-    category: "commerce",
+    id: "ecommerce",
+    title: "فروشگاه",
+    description: "فروشگاه آنلاین با لیست محصول و سبد خرید.",
+    category: "applications",
+    ...exampleUrls("ecommerce"),
   },
   {
-    id: "commerce-03",
-    title: "صفحهٔ پرداخت",
-    description: "فرم سفارش و خلاصهٔ پرداخت.",
-    category: "commerce",
-  },
-
-  // هوش مصنوعی
-  {
-    id: "ai-01",
-    title: "چت‌بات هوشمند",
-    description: "رابط گفتگو با مدل زبانی.",
-    category: "ai",
+    id: "ai-assistant",
+    title: "دستیار هوش مصنوعی",
+    description: "رابط گفتگو با دستیار هوشمند.",
+    category: "applications",
+    ...exampleUrls("ai-assistant"),
   },
   {
-    id: "ai-02",
-    title: "تولید محتوا",
-    description: "ابزار تولید متن و تصویر با AI.",
-    category: "ai",
-  },
-  {
-    id: "ai-03",
-    title: "دستیار کدنویسی",
-    description: "محیط گفتگو برای کمک به توسعه.",
-    category: "ai",
-  },
-
-  // لندینگ‌ها
-  {
-    id: "landings-01",
-    title: "لندینگ محصول",
+    id: "landing",
+    title: "لندینگ",
     description: "صفحهٔ معرفی محصول با CTA.",
-    category: "landings",
+    category: "pages",
+    ...exampleUrls("landing"),
   },
   {
-    id: "landings-02",
-    title: "لندینگ استارتاپ",
-    description: "صفحهٔ فرود با ویژگی‌ها و قیمت‌گذاری.",
-    category: "landings",
+    id: "pricing",
+    title: "قیمت‌گذاری",
+    description: "صفحهٔ پلن‌ها و مقایسهٔ قیمت.",
+    category: "pages",
+    ...exampleUrls("pricing"),
   },
   {
-    id: "landings-03",
-    title: "لندینگ سرویس",
-    description: "صفحهٔ معرفی خدمات با فرم تماس.",
-    category: "landings",
-  },
-
-  // سایر
-  {
-    id: "other-01",
-    title: "صفحهٔ خطا",
-    description: "قالب صفحات ۴۰۴ و خطا.",
-    category: "other",
-  },
-  {
-    id: "other-02",
-    title: "پروفایل کاربر",
-    description: "صفحهٔ پروفایل و تنظیمات حساب.",
-    category: "other",
-  },
-  {
-    id: "other-03",
+    id: "blog",
     title: "بلاگ",
     description: "لیست نوشته‌ها و صفحهٔ مطلب.",
-    category: "other",
+    category: "pages",
+    ...exampleUrls("blog"),
+  },
+  {
+    id: "settings",
+    title: "تنظیمات",
+    description: "صفحهٔ تنظیمات حساب و سامانه.",
+    category: "pages",
+    ...exampleUrls("settings"),
+  },
+  {
+    id: "authentication",
+    title: "احراز هویت",
+    description: "ورود و ثبت‌نام با فرم فارسی.",
+    category: "pages",
+    ...exampleUrls("authentication"),
   },
 ]
 

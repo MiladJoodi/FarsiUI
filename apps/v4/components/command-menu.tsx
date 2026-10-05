@@ -322,7 +322,7 @@ export function CommandMenu({
             {color.className}
             <span
               dir="ltr"
-              className="ms-auto font-mono text-xs font-normal text-muted-foreground tabular-nums"
+              className="ms-auto font-mono text-xs font-normal text-muted-foreground tracking-normal [letter-spacing:0]"
             >
               {color.oklch}
             </span>
@@ -363,7 +363,7 @@ export function CommandMenu({
           >
             <SquareDashedIcon />
             {block.description}
-            <span className="ms-auto font-mono text-xs font-normal text-muted-foreground tabular-nums">
+            <span className="ms-auto font-mono text-xs font-normal text-muted-foreground tracking-normal [letter-spacing:0]">
               {block.name}
             </span>
           </CommandMenuItem>

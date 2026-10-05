@@ -14,7 +14,6 @@ import { cn } from "cn"
 
 import { useDesignStudioSummary } from "@/components/design-studio-summary"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { THEMES } from "@/lib/themes"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Drawer,
@@ -38,11 +37,6 @@ const DesignStudioPanel = lazy(async () => {
 
 function prefetchDesignStudioPanel() {
   void import("@/components/design-studio-panel")
-}
-
-function themeSwatch(themeName: string) {
-  const theme = THEMES.find((item) => item.name === themeName) ?? THEMES[0]
-  return `hsl(${theme?.activeColor.light})`
 }
 
 function DesignStudioSkeleton() {
@@ -79,36 +73,27 @@ function DesignTriggerButton({
   className,
   ...props
 }: ComponentProps<typeof Button> & { open?: boolean }) {
-  const { activeDs, showPrimaryColor, currentTheme, summary } =
-    useDesignStudioSummary()
+  const { summary } = useDesignStudioSummary()
 
   return (
     <Button
       type="button"
-      variant="default"
+      variant="outline"
       size="sm"
-      aria-label={`دیزاین: ${summary}`}
+      aria-label={`انتخاب دیزاین سیستم · ${summary}`}
       aria-haspopup="dialog"
       aria-expanded={open}
       onPointerEnter={prefetchDesignStudioPanel}
       onFocus={prefetchDesignStudioPanel}
       className={cn(
-        "h-8 shrink-0 cursor-pointer gap-1.5 px-3 text-xs font-semibold shadow-sm",
-        "bg-primary text-primary-foreground hover:bg-primary/90",
-        open && "ring-2 ring-primary/40 ring-offset-2 ring-offset-background",
+        "h-8 shrink-0 cursor-pointer gap-1.5 rounded-lg border-none bg-muted px-3 text-sm font-medium text-foreground shadow-none transition-colors hover:bg-muted/50 dark:bg-card dark:hover:bg-card/80",
+        open && "bg-muted/80 dark:bg-card/70",
         className
       )}
       {...props}
     >
-      <SlidersHorizontalIcon className="size-3.5 shrink-0 opacity-90" />
-      <span className="truncate">{activeDs.label}</span>
-      {showPrimaryColor ? (
-        <span
-          aria-hidden
-          className="size-2.5 shrink-0 rounded-full ring-2 ring-primary-foreground/40"
-          style={{ backgroundColor: themeSwatch(currentTheme) }}
-        />
-      ) : null}
+      <SlidersHorizontalIcon className="size-4 shrink-0 text-muted-foreground" />
+      <span className="truncate">انتخاب دیزاین سیستم</span>
     </Button>
   )
 }

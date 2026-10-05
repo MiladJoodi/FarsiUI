@@ -70,7 +70,7 @@ function ProgressValue({
   return (
     <ProgressPrimitive.Value
       className={cn(
-        "ml-auto text-xs/relaxed text-muted-foreground tabular-nums",
+        "ml-auto text-xs/relaxed text-muted-foreground tracking-normal [letter-spacing:0]",
         className
       )}
       data-slot="progress-value"

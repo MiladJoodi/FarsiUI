@@ -117,7 +117,7 @@ export default function TransferFunds() {
                 <span className="text-sm text-muted-foreground">
                   Transaction fee
                 </span>
-                <span className="text-sm font-medium tabular-nums">$0.00</span>
+                <span className="text-sm font-medium tracking-normal [letter-spacing:0]">$0.00</span>
               </div>
               <Separator />
               <div className="flex items-center justify-between">

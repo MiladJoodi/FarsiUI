@@ -43,10 +43,9 @@ function PreviewFrame({ project }: { project: ShowcaseProject }) {
   }
 
   return (
-     
     <img
       src={src}
-      alt={project.title}
+      alt=""
       className="size-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       onError={() => setFailed(true)}
     />
@@ -57,12 +56,29 @@ export function ShowcaseProjectCard({ project }: { project: ShowcaseProject }) {
   const hasLive = Boolean(project.liveUrl)
   const hasGithub = Boolean(project.githubUrl)
 
+  const preview = (
+    <div className="relative aspect-16/10 overflow-hidden rounded-2xl border border-border/70 bg-muted/40 shadow-sm transition-[box-shadow,transform] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-md">
+      <PreviewFrame project={project} />
+    </div>
+  )
+
   return (
     <article dir="rtl" lang="fa" className="group flex flex-col gap-3">
       <div className="flex items-center justify-between gap-3 px-0.5">
-        <h2 className="min-w-0 truncate text-sm font-semibold tracking-tight md:text-[0.95rem]">
-          {project.title}
-        </h2>
+        {hasLive ? (
+          <Link
+            href={project.liveUrl!}
+            target="_blank"
+            rel="noreferrer"
+            className="min-w-0 truncate text-sm font-semibold tracking-tight outline-none hover:text-primary focus-visible:ring-2 focus-visible:ring-ring md:text-[0.95rem]"
+          >
+            {project.title}
+          </Link>
+        ) : (
+          <h2 className="min-w-0 truncate text-sm font-semibold tracking-tight md:text-[0.95rem]">
+            {project.title}
+          </h2>
+        )}
 
         <div className="flex shrink-0 items-center gap-1.5">
           {hasGithub ? (
@@ -81,17 +97,7 @@ export function ShowcaseProjectCard({ project }: { project: ShowcaseProject }) {
                 <GithubIcon className="size-4" />
               </Link>
             </Button>
-          ) : (
-            <Button
-              size="icon"
-              variant="outline"
-              disabled
-              className="size-8 rounded-full"
-              title="لینک گیت‌هاب را در showcase.ts اضافه کن"
-            >
-              <GithubIcon className="size-4" />
-            </Button>
-          )}
+          ) : null}
 
           {hasLive ? (
             <Button
@@ -109,24 +115,23 @@ export function ShowcaseProjectCard({ project }: { project: ShowcaseProject }) {
                 <ExternalLinkIcon className="size-4" />
               </Link>
             </Button>
-          ) : (
-            <Button
-              size="icon"
-              variant="outline"
-              disabled
-              className="size-8 rounded-full"
-              title="مشاهده دمو"
-              aria-label="مشاهده دمو"
-            >
-              <ExternalLinkIcon className="size-4" />
-            </Button>
-          )}
+          ) : null}
         </div>
       </div>
 
-      <div className="relative aspect-16/10 overflow-hidden rounded-2xl border border-border/70 bg-muted/40 shadow-sm transition-[box-shadow,transform] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-md">
-        <PreviewFrame project={project} />
-      </div>
+      {hasLive ? (
+        <Link
+          href={project.liveUrl!}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`مشاهده دمو ${project.title}`}
+          className="block outline-none focus-visible:rounded-2xl focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {preview}
+        </Link>
+      ) : (
+        preview
+      )}
     </article>
   )
 }
