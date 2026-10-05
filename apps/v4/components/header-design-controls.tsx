@@ -129,7 +129,6 @@ function MobileDesignStudio({
   initialOpen?: boolean
 }) {
   const [open, setOpen] = useState(initialOpen)
-  const { summary } = useDesignStudioSummary()
 
   useEffect(() => {
     if (initialOpen) prefetchDesignStudioPanel()
@@ -155,10 +154,10 @@ function MobileDesignStudio({
         lang="fa"
         className="max-h-[min(88vh,36rem)] rounded-t-2xl"
       >
-        <DrawerHeader className="flex-row items-center justify-between gap-3 pb-2 text-start">
+        <DrawerHeader className="pb-2 text-start">
           <DrawerTitle className="text-base">دیزاین</DrawerTitle>
-          <DrawerDescription className="truncate text-xs">
-            {summary}
+          <DrawerDescription className="sr-only">
+            ظاهر، فونت و رنگ
           </DrawerDescription>
         </DrawerHeader>
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">

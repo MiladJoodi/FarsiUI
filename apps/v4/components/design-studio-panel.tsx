@@ -140,7 +140,7 @@ export function DesignStudioPanel({
       lang="fa"
       className={cn("flex flex-col gap-3", className)}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5">
         <div
           role="tablist"
           aria-label="تنظیمات دیزاین"
@@ -174,10 +174,10 @@ export function DesignStudioPanel({
           type="button"
           onClick={resetToDefaults}
           aria-label="بازنشانی به پیشفرض، استعداد و خاکستری"
-          title="بازنشانی به پیشفرض · استعداد · خاکستری"
-          className="inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          title="بازنشانی"
+          className="inline-flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-muted hover:text-foreground"
         >
-          <RotateCcwIcon className="size-3.5" />
+          <RotateCcwIcon className="size-3" />
         </button>
       </div>
 
