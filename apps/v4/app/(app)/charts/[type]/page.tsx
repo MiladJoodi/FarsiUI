@@ -1,4 +1,3 @@
-import * as React from "react"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import { cn } from "cn"
@@ -8,7 +7,10 @@ import {
   getCachedRegistryItem,
   getChartHighlightedCode,
 } from "@/components/chart-display"
-import { charts } from "@/app/(app)/charts/charts"
+import {
+  chartCatalog,
+  type ChartType,
+} from "@/app/(app)/charts/chart-catalog"
 
 /** Chart demos live in the legacy new-york-v4 registry shard. */
 const CHARTS_STYLE = "new-york-v4" as const
@@ -31,8 +33,7 @@ const chartTypes = [
   "radar",
   "radial",
   "tooltip",
-] as const
-type ChartType = (typeof chartTypes)[number]
+] as const satisfies readonly ChartType[]
 
 const chartTypeTitles: Record<ChartType, string> = {
   area: "نمودارهای ناحیه‌ای",
@@ -75,7 +76,7 @@ export default async function ChartPage({ params }: ChartPageProps) {
   }
 
   const chartType = type as ChartType
-  const chartList = charts[chartType]
+  const chartList = chartCatalog[chartType]
 
   // Prefetch all chart data in parallel for better performance.
   // Charts are rendered via iframes, so we only need the metadata and highlighted code.

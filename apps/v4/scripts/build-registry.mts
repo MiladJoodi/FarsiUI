@@ -10,11 +10,12 @@ import prettier from "prettier"
 import { rimraf } from "rimraf"
 import { registrySchema, type RegistryItem } from "farsiui/schema"
 import {
-  createStyleMap,
   transformDirection,
   transformIcons,
   transformStyle,
 } from "farsiui/utils"
+// Source import so token `!important` bake works without waiting on farsiui dist.
+import { createStyleMap } from "../../../packages/shadcn/src/styles/create-style-map"
 import { Project, ScriptKind } from "ts-morph"
 
 import { legacyStyles } from "@/registry/_legacy-styles"
@@ -22,6 +23,11 @@ import { BASE_COLORS } from "@/registry/base-colors"
 import { BASES, type Base } from "@/registry/bases"
 import { PRESETS } from "@/registry/config"
 import { fonts } from "@/registry/fonts"
+import {
+  isTokenSidecarStyle,
+  resolveStyleTokensCssPath,
+} from "@/registry/extract-style-install-tokens"
+import { mergeStyleMaps } from "@/registry/merge-style-maps"
 import { resolveDensityInStyleMap } from "@/registry/resolve-density-style-map"
 import { STYLES } from "@/registry/styles"
 
@@ -1051,17 +1057,29 @@ async function buildBases(bases: Base[], targetStyleNames?: Set<string>) {
     ),
     Promise.all(
       STYLES.map(async (style) => {
-        const styleContent = await fs.readFile(
-          path.join(process.cwd(), `registry/styles/style-${style.name}.css`),
-          "utf8"
+        const stylePath = path.join(
+          process.cwd(),
+          `registry/styles/style-${style.name}.css`
         )
+        const styleContent = await fs.readFile(stylePath, "utf8")
+        let styleMap = createStyleMap(styleContent)
+        let styleHashSource = styleContent
+
+        // Owned-accent Design Systems: bake `*-tokens.css` .cn-* overrides too
+        // (preview loads both; install must match).
+        if (isTokenSidecarStyle(style.name)) {
+          const tokensPath = resolveStyleTokensCssPath(style.name)
+          if (tokensPath) {
+            const tokensContent = await fs.readFile(tokensPath, "utf8")
+            styleHashSource = `${styleContent}\n${tokensContent}`
+            styleMap = mergeStyleMaps(styleMap, createStyleMap(tokensContent))
+          }
+        }
+
         return {
           style,
-          styleHash: hashContent(styleContent),
-          styleMap: resolveDensityInStyleMap(
-            createStyleMap(styleContent),
-            style.name
-          ),
+          styleHash: hashContent(styleHashSource),
+          styleMap: resolveDensityInStyleMap(styleMap, style.name),
         }
       })
     ),

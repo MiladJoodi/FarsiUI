@@ -15,7 +15,6 @@ import { getStyleInstallTokens } from "@/registry/style-install-tokens"
 import { STYLES, type Style } from "@/registry/styles"
 import { THEMES, type Theme } from "@/registry/themes"
 
-const SHADCN_VERSION = "latest"
 const DEFAULT_RADIUS_VALUE = "0.625rem"
 
 export { BASES, type Base }
@@ -909,8 +908,10 @@ export function buildRegistryBase(config: DesignSystemConfig) {
   const registryTheme = buildRegistryTheme(config)
 
   // Build dependencies.
+  // Bare "farsiui" (not farsiui@latest) so skipInstalled keeps an existing
+  // file:/workspace pin — critical for local CLI smoke and monorepo installs.
   const dependencies = [
-    `farsiui@${SHADCN_VERSION}`,
+    "farsiui",
     "class-variance-authority",
     "cn",
     "tw-animate-css",

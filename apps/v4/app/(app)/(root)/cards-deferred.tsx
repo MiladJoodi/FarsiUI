@@ -1,32 +1,51 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useSyncExternalStore } from "react"
 
 import { CardsDemo, CardsDemoMobile } from "./cards"
 import { CollageSkeleton } from "./cards/collage-skeleton"
 
+const DESKTOP_QUERY = "(min-width: 768px)"
+
+function subscribeDesktop(onChange: () => void) {
+  const mql = window.matchMedia(DESKTOP_QUERY)
+  mql.addEventListener("change", onChange)
+  return () => mql.removeEventListener("change", onChange)
+}
+
+function getDesktopSnapshot() {
+  return window.matchMedia(DESKTOP_QUERY).matches
+}
+
+/** SSR / first paint: assume mobile so the skeleton matches CardsDemoMobile. */
+function getDesktopServerSnapshot() {
+  return false
+}
+
 /** Mount collage after first paint so the header hydrates without competition. */
 export function CardsCollage() {
   const [ready, setReady] = useState(false)
-  const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
-
-  useEffect(() => {
-    const mql = window.matchMedia("(min-width: 768px)")
-    const sync = () => setIsDesktop(mql.matches)
-    sync()
-    mql.addEventListener("change", sync)
-    return () => mql.removeEventListener("change", sync)
-  }, [])
+  const isDesktop = useSyncExternalStore(
+    subscribeDesktop,
+    getDesktopSnapshot,
+    getDesktopServerSnapshot
+  )
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setReady(true))
     return () => window.cancelAnimationFrame(id)
   }, [])
 
-  if (!ready || isDesktop === null) {
+  if (!ready) {
     return (
-      <section className="relative overflow-x-clip">
-        <CollageSkeleton mobile={isDesktop === false} />
+      <section
+        className={
+          isDesktop
+            ? "relative overflow-x-clip"
+            : "relative -mx-4 overflow-x-clip"
+        }
+      >
+        <CollageSkeleton mobile={!isDesktop} />
       </section>
     )
   }

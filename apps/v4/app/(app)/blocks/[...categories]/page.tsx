@@ -14,13 +14,17 @@ const CATEGORY_REDIRECTS: Record<string, string> = {
 }
 
 export const revalidate = false
-export const dynamic = "force-dynamic"
-export const dynamicParams = true
+export const dynamic = "force-static"
+export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return registryCategories.map((category) => ({
+  const categoryParams = registryCategories.map((category) => ({
     categories: [category.slug],
   }))
+  const redirectParams = Object.keys(CATEGORY_REDIRECTS).map((slug) => ({
+    categories: [slug],
+  }))
+  return [...categoryParams, ...redirectParams]
 }
 
 export async function generateMetadata({

@@ -1,4 +1,7 @@
+import { Suspense } from "react"
+
 import { MobileHeaderScroll } from "@/components/mobile-header-scroll"
+import { NavigationProgress } from "@/components/navigation-progress"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -9,6 +12,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       data-slot="layout"
       className="group/layout relative z-10 flex min-h-svh flex-col bg-background font-sans"
     >
+      <Suspense fallback={null}>
+        <NavigationProgress />
+      </Suspense>
       <ScrollToTop />
       <MobileHeaderScroll />
       <SiteHeader />

@@ -4,7 +4,7 @@ import { getFeaturedBlockSamples } from "@/lib/blocks-featured"
 import { BlocksShowcase } from "@/components/blocks-showcase"
 import { getActiveStyle } from "@/registry/_legacy-styles"
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-static"
 export const revalidate = false
 
 export const metadata: Metadata = {

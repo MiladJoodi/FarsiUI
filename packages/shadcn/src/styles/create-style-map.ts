@@ -80,6 +80,15 @@ const DECL_TO_UTILITY: Record<
   },
   transform: (value) => `[transform:${toArbitraryValue(value)}]`,
   transition: (value) => `transition-[${toArbitraryValue(value)}]`,
+  opacity: (value) => {
+    if (value === "1") return "opacity-100"
+    if (value === "0") return "opacity-0"
+    return `opacity-[${toArbitraryValue(value)}]`
+  },
+  filter: (value) => {
+    if (value === "none") return "filter-none"
+    return `filter-[${toArbitraryValue(value)}]`
+  },
 }
 
 export function createStyleMap(input: string) {
@@ -117,6 +126,7 @@ export function createStyleMap(input: string) {
             return
           }
 
+          // Later rules in the same file prepend (existing bake contract).
           result[className] = result[className]
             ? `${tailwindClasses} ${result[className]}`
             : tailwindClasses
@@ -124,6 +134,22 @@ export function createStyleMap(input: string) {
       }).processSync(normalizedSelector)
     }
   })
+
+  return styleMapSchema.parse(result)
+}
+
+/**
+ * Overlay token / sidecar recipes onto a base style map.
+ * Overlay classes are appended so they win with `cn` / tailwind-merge.
+ */
+export function mergeStyleMaps(base: StyleMap, overlay: StyleMap): StyleMap {
+  const result: Record<string, string> = { ...base }
+
+  for (const [className, classes] of Object.entries(overlay)) {
+    result[className] = result[className]
+      ? `${result[className]} ${classes}`
+      : classes
+  }
 
   return styleMapSchema.parse(result)
 }
@@ -157,7 +183,8 @@ function extractTailwindClasses(rule: postcss.Rule) {
 
       const utility = toUtility(node.value.trim())
       if (utility) {
-        classes.push(utility)
+        // Preserve !important from token sidecars (e.g. khesht brick fills).
+        classes.push(node.important ? `!${utility}` : utility)
       }
     }
   }

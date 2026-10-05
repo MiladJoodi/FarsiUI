@@ -15,7 +15,7 @@ export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
       )}
     >
       <span className="font-medium tracking-wide text-surface-foreground">
-        فارسیUI{" "}
+        {/* فارسیUI{" "} */}
         <span className="text-muted-foreground">
           نسخه {toPersianDigits(packageJson.version)}
         </span>

@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {
       default: siteConfig.name,
-      template: `%s - ${siteConfig.name}`,
+      template: `%s · ${siteConfig.name}`,
     },
     metadataBase,
     description: siteConfig.description,

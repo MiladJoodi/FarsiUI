@@ -1,4 +1,4 @@
-export { createStyleMap } from "../styles/create-style-map"
+export { createStyleMap, mergeStyleMaps } from "../styles/create-style-map"
 export { transformStyle } from "../styles/transform"
 export { transformFont } from "../utils/transformers/transform-font"
 export { transformIcons } from "../utils/transformers/transform-icons"

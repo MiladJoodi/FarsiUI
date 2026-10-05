@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link, { type LinkProps } from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import {
   BookOpenIcon,
   ChartAreaIcon,
@@ -125,12 +125,10 @@ function MobileLink({
   className?: string
   active?: boolean
 }) {
-  const router = useRouter()
   return (
     <Link
       href={href}
       onClick={() => {
-        router.push(href.toString())
         onOpenChange?.(false)
       }}
       className={cn(

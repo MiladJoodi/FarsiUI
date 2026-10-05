@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { createStyleMap } from "./create-style-map"
+import { createStyleMap, mergeStyleMaps } from "./create-style-map"
 
 describe("parseStyle", () => {
   it("extracts tailwind classes from @apply directives", () => {
@@ -187,5 +187,41 @@ describe("parseStyle", () => {
         "cn-button": "px-4",
       }
     `)
+  })
+
+  it("preserves !important as Tailwind important utilities", () => {
+    const css = `
+      .cn-card {
+        background-color: var(--surface) !important;
+        border: 2px solid var(--line) !important;
+      }
+    `
+
+    const result = createStyleMap(css)
+
+    expect(result["cn-card"]).toContain("!bg-[var(--surface)]")
+    expect(result["cn-card"]).toContain("![border:2px_solid_var(--line)]")
+  })
+})
+
+describe("mergeStyleMaps", () => {
+  it("appends overlay classes so token recipes win", () => {
+    const base = createStyleMap(`
+      .cn-button {
+        @apply bg-primary rounded-lg;
+      }
+    `)
+    const overlay = createStyleMap(`
+      .cn-button {
+        background-color: var(--control) !important;
+        box-shadow: var(--shadow-control) !important;
+      }
+    `)
+
+    const merged = mergeStyleMaps(base, overlay)
+
+    expect(merged["cn-button"]).toBe(
+      "bg-primary rounded-lg !bg-[var(--control)] !shadow-[var(--shadow-control)]"
+    )
   })
 })
