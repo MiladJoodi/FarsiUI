@@ -47,6 +47,13 @@ export default function ContactPage() {
 
           <div className="not-typeset mt-5">
             <ContactForm />
+            <p className="mt-5 text-sm text-muted-foreground">
+              یا مستقیم به{" "}
+              <a href="mailto:info@FarsiUI.ir" dir="ltr">
+                info@FarsiUI.ir
+              </a>{" "}
+              ایمیل بزنید.
+            </p>
           </div>
         </div>
       </div>
