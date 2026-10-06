@@ -15,7 +15,7 @@ import { CardsCollage } from "./cards-deferred"
 const title = "کتابخانه کامپوننت فارسی"
 const metadataTitle = `${siteConfig.name} · ${title}`
 const description =
-  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی، +500 و 6 دیزاین سیستم"
+  "راست‌چین از پایه، اعداد فارسی، تقویم شمسی، +500 کامپوننت آماده و 6 دیزاین سیستم"
 
 const structuredData = {
   "@context": "https://schema.org",
