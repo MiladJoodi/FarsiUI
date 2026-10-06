@@ -30,13 +30,13 @@ export function MarkerAvatarAlert() {
         </div>
         <div className="flex items-center gap-3">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>ش‌ک</AvatarFallback>
+            <AvatarImage src="/avatars/02.png" alt="نیلوفر کاظمی" />
+            <AvatarFallback>نک</AvatarFallback>
             <AvatarBadge className="bg-green-600 dark:bg-green-800" />
           </Avatar>
-          <div className="text-sm">
-            <div className="font-medium">شادن</div>
-            <div className="text-muted-foreground">آنلاین</div>
+          <div className="leading-tight">
+            <div className="text-sm font-medium">نیلوفر کاظمی</div>
+            <div className="text-muted-foreground text-xs">آنلاین</div>
           </div>
         </div>
         <Alert dir="rtl">

@@ -301,16 +301,79 @@
   color: var(--foreground);
 }
 
-.style-rose .cn-button,
-.style-rose .cn-input-group-button,
-.style-rose [data-slot="button"],
-.style-rose [data-slot="input-group-button"] {
+.style-rose .cn-button:not(:is([data-slot="button-group"] *)),
+.style-rose .cn-input-group-button:not(:is([data-slot="button-group"] *)),
+.style-rose [data-slot="button"]:not(:is([data-slot="button-group"] *)),
+.style-rose
+  [data-slot="input-group-button"]:not(:is([data-slot="button-group"] *)) {
   border-radius: var(--radius-control) !important;
   transition:
     transform var(--motion-fast) var(--motion-ease),
     background-color 160ms ease,
     box-shadow 160ms ease,
     color 160ms ease;
+}
+
+/* Logical corners must collapse inside button groups (RTL/LTR). */
+.style-rose [data-slot="button-group"][data-orientation="horizontal"] [data-slot="button"],
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  [data-slot="dropdown-menu-trigger"],
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  [data-slot="select-trigger"] {
+  border-radius: 0 !important;
+}
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  > [data-slot]:first-child {
+  border-start-start-radius: var(--radius-control) !important;
+  border-end-start-radius: var(--radius-control) !important;
+}
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  > [data-slot]:not(:has(~ [data-slot])),
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  > :last-child [data-slot="button"],
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  > :last-child [data-slot="dropdown-menu-trigger"],
+.style-rose
+  [data-slot="button-group"][data-orientation="horizontal"]
+  > :last-child [data-slot="select-trigger"] {
+  border-start-end-radius: var(--radius-control) !important;
+  border-end-end-radius: var(--radius-control) !important;
+}
+.style-rose [data-slot="button-group"][data-orientation="vertical"] [data-slot="button"],
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  [data-slot="dropdown-menu-trigger"],
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  [data-slot="select-trigger"] {
+  border-radius: 0 !important;
+}
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  > [data-slot]:first-child {
+  border-start-start-radius: var(--radius-control) !important;
+  border-start-end-radius: var(--radius-control) !important;
+}
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  > [data-slot]:not(:has(~ [data-slot])),
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  > :last-child [data-slot="button"],
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  > :last-child [data-slot="dropdown-menu-trigger"],
+.style-rose
+  [data-slot="button-group"][data-orientation="vertical"]
+  > :last-child [data-slot="select-trigger"] {
+  border-end-start-radius: var(--radius-control) !important;
+  border-end-end-radius: var(--radius-control) !important;
 }
 
 .style-rose .cn-button-variant-default {
@@ -336,8 +399,29 @@
   background-color: var(--control) !important;
   border-color: var(--control-border) !important;
   box-shadow: var(--shadow-control) !important;
-  border-radius: var(--radius-control) !important;
   color: var(--foreground);
+}
+
+.style-rose .cn-button-variant-outline:not(:is([data-slot="button-group"] *)),
+.style-rose .cn-button-variant-secondary:not(:is([data-slot="button-group"] *)),
+.style-rose .cn-menubar,
+.style-rose .cn-toggle-variant-outline,
+.style-rose .cn-pagination-link[data-active="true"],
+.style-rose .cn-pagination-link[aria-current="page"],
+.style-rose
+  .cn-input-group-button:not(:is([data-slot="button-group"] *)),
+.style-rose
+  [data-slot="button"][data-variant="outline"]:not(
+    :is([data-slot="button-group"] *)
+  ),
+.style-rose
+  [data-slot="button"][data-variant="secondary"]:not(
+    :is([data-slot="button-group"] *)
+  ),
+.style-rose [data-slot="toggle"][data-variant="outline"],
+.style-rose
+  [data-slot="input-group-button"]:not(:is([data-slot="button-group"] *)) {
+  border-radius: var(--radius-control) !important;
 }
 
 .style-rose .cn-button-variant-ghost:hover,

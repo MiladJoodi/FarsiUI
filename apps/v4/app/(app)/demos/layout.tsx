@@ -1,11 +1,13 @@
+import * as React from "react"
 import { type Metadata } from "next"
 
-import { ShowcaseCategoriesNav } from "@/components/showcase-categories-nav"
+import { ShowcaseGallery } from "@/components/showcase-gallery"
 import { ShowcaseHero } from "@/components/showcase-hero"
+import { getShowcaseProjects } from "@/lib/showcase"
 
 const title = "دموها"
 const description =
-  "دموهای ساخته‌شده با FarsiUI — داشبورد، اپلیکیشن و صفحات وب با لینک لایو و گیت‌هاب."
+  "دموهای ساخته‌شده با FarsiUI: داشبورد، اپلیکیشن و صفحات وب با لینک لایو و گیت‌هاب."
 
 export const metadata: Metadata = {
   title,
@@ -38,11 +40,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ShowcaseLayout({
+export default function DemosLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const projects = getShowcaseProjects()
+
   return (
     <div
       className="container-wrapper relative flex flex-1 flex-col px-2 pb-12"
@@ -58,9 +62,13 @@ export default function ShowcaseLayout({
       <ShowcaseHero />
 
       <div className="mx-auto mt-8 flex w-full max-w-6xl flex-col gap-6 px-2 md:mt-10 md:gap-8 md:px-4">
-        <ShowcaseCategoriesNav />
-        <div className="min-w-0">{children}</div>
+        <React.Suspense fallback={null}>
+          <ShowcaseGallery projects={projects} />
+        </React.Suspense>
       </div>
+
+      {/* Route shell only; gallery lives above and filters client-side. */}
+      <div hidden>{children}</div>
     </div>
   )
 }

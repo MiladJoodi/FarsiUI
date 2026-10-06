@@ -4,9 +4,7 @@ import { notFound } from "next/navigation"
 import {
   getShowcaseCategory,
   getShowcaseCategorySlugs,
-  getShowcaseProjects,
 } from "@/lib/showcase"
-import { ShowcaseProjectList } from "@/components/showcase-project-list"
 
 export const dynamicParams = true
 
@@ -57,7 +55,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function ShowcaseCategoryPage({
+/** Shell route for deep links — filtering is client-side in the layout gallery. */
+export default async function DemosCategoryPage({
   params,
 }: {
   params: Promise<{ category: string }>
@@ -66,15 +65,8 @@ export default async function ShowcaseCategoryPage({
   const category = getShowcaseCategory(slug)
 
   if (!category || category.href) {
-    return notFound()
+    notFound()
   }
 
-  const projects = getShowcaseProjects(category.slug)
-
-  return (
-    <ShowcaseProjectList
-      projects={projects}
-      emptyMessage={`هنوز نمونه‌ای در دستهٔ «${category.title}» ثبت نشده است.`}
-    />
-  )
+  return null
 }

@@ -811,15 +811,3 @@ body[class*="theme-"],
     opacity: 0;
   }
 }
-
-@keyframes nav-progress {
-  0% {
-    transform: translateX(100%);
-  }
-  50% {
-    transform: translateX(35%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}

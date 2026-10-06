@@ -32,38 +32,54 @@ function getSlug(component: PageTreePage) {
 function ComponentCard({ component }: { component: PageTreePage }) {
   const { fa, en } = getLabel(component)
   const slug = getSlug(component)
+  const ariaLabel = en ? `${fa} — ${en}` : fa
+
+  const titleRow = (
+    <>
+      <span className="shrink-0 text-sm font-semibold tracking-tight text-primary">
+        {fa}
+      </span>
+      {en ? (
+        <>
+          <span
+            aria-hidden
+            className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
+          />
+          <span
+            dir="ltr"
+            lang="en"
+            className="shrink-0 text-xs tracking-wide text-muted-foreground"
+          >
+            {en}
+          </span>
+        </>
+      ) : null}
+    </>
+  )
 
   return (
-    <section className="flex min-w-0 flex-col gap-2">
-      <div className="flex min-w-0 items-baseline gap-2">
-        <h2 className="shrink-0 text-sm font-semibold tracking-tight text-primary">
-          {fa}
-        </h2>
-        {en ? (
-          <>
-            <span
-              aria-hidden
-              className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
-            />
-            <span
-              dir="ltr"
-              lang="en"
-              className="shrink-0 text-xs tracking-wide text-muted-foreground"
-            >
-              {en}
-            </span>
-          </>
-        ) : null}
-      </div>
-
+    <div className="min-w-0 border-b border-border/60 last:border-b-0 md:border-b-0">
+      {/* Mobile: compact list row — FA | dashed | EN */}
       <Link
         href={component.url}
-        aria-label={en ? `${fa} — ${en}` : fa}
-        className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+        aria-label={ariaLabel}
+        className="flex min-w-0 items-baseline gap-2 py-3 outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
       >
-        <ComponentWireframe slug={slug} />
+        {titleRow}
       </Link>
-    </section>
+
+      {/* Desktop: title + wireframe card */}
+      <section className="hidden min-w-0 flex-col gap-2 md:flex">
+        <div className="flex min-w-0 items-baseline gap-2">{titleRow}</div>
+        <Link
+          href={component.url}
+          aria-label={ariaLabel}
+          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <ComponentWireframe slug={slug} />
+        </Link>
+      </section>
+    </div>
   )
 }
 
@@ -84,7 +100,7 @@ export function ComponentsList({
 
   return (
     <div data-not-typeset dir="rtl" lang="fa" className="w-full">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="flex flex-col md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-4">
         {list.map((component) => (
           <ComponentCard key={component.$id} component={component} />
         ))}

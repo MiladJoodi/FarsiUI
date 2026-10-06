@@ -400,36 +400,53 @@ function CategoryWireframe({ slug }: { slug: string }) {
 }
 
 function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
-  return (
-    <section className="flex min-w-0 flex-col gap-2">
-      <div className="flex min-w-0 items-baseline gap-2">
-        <h2
-          data-block-title=""
-          className="shrink-0 text-sm font-semibold tracking-tight text-primary"
-        >
-          {sample.categoryTitle}
-        </h2>
-        <span
-          aria-hidden
-          className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
-        />
-        <span
-          dir="ltr"
-          lang="en"
-          className="shrink-0 text-xs tracking-wide text-muted-foreground"
-        >
-          {sample.categoryEn}
-        </span>
-      </div>
+  const ariaLabel = `${sample.categoryTitle} — ${sample.categoryEn}`
 
+  const titleRow = (
+    <>
+      <span
+        data-block-title=""
+        className="shrink-0 text-sm font-semibold tracking-tight text-primary"
+      >
+        {sample.categoryTitle}
+      </span>
+      <span
+        aria-hidden
+        className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
+      />
+      <span
+        dir="ltr"
+        lang="en"
+        className="shrink-0 text-xs tracking-wide text-muted-foreground"
+      >
+        {sample.categoryEn}
+      </span>
+    </>
+  )
+
+  return (
+    <div className="min-w-0 border-b border-border/60 last:border-b-0 md:border-b-0">
+      {/* Mobile: compact list row — FA | dashed | EN */}
       <Link
         href={sample.item.href}
-        aria-label={`${sample.categoryTitle} — ${sample.categoryEn}`}
-        className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+        aria-label={ariaLabel}
+        className="flex min-w-0 items-baseline gap-2 py-3 outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
       >
-        <CategoryWireframe slug={sample.categorySlug} />
+        {titleRow}
       </Link>
-    </section>
+
+      {/* Desktop: title + wireframe card */}
+      <section className="hidden min-w-0 flex-col gap-2 md:flex">
+        <div className="flex min-w-0 items-baseline gap-2">{titleRow}</div>
+        <Link
+          href={sample.item.href}
+          aria-label={ariaLabel}
+          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <CategoryWireframe slug={sample.categorySlug} />
+        </Link>
+      </section>
+    </div>
   )
 }
 
@@ -446,7 +463,7 @@ export function BlocksShowcase({
         lang="fa"
         className="mx-auto w-full max-w-6xl px-4 pb-8 md:px-6"
       >
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-4">
           {samples.map((sample) => (
             <SampleCard key={sample.categorySlug} sample={sample} />
           ))}

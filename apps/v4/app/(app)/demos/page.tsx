@@ -1,16 +1,12 @@
 import { type Metadata } from "next"
 
-import { getShowcaseProjects } from "@/lib/showcase"
-import { ShowcaseProjectList } from "@/components/showcase-project-list"
-
 export const metadata: Metadata = {
   alternates: {
     canonical: "/demos",
   },
 }
 
-export default function ShowcasePage() {
-  const projects = getShowcaseProjects()
-
-  return <ShowcaseProjectList projects={projects} />
+/** Shell route — gallery is rendered in the shared demos layout. */
+export default function DemosPage() {
+  return null
 }

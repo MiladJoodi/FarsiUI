@@ -110,15 +110,25 @@ const nextConfig = {
   },
   redirects() {
     return [
-      // Showcase renamed to demos.
+      // Showcase renamed to demos. Category paths → query so tab filters stay client-side.
       {
         source: "/showcase",
         destination: "/demos",
         permanent: true,
       },
       {
+        source: "/showcase/:category(dashboard|applications|pages)",
+        destination: "/demos?category=:category",
+        permanent: true,
+      },
+      {
         source: "/showcase/:path*",
         destination: "/demos/:path*",
+        permanent: true,
+      },
+      {
+        source: "/demos/:category(dashboard|applications|pages)",
+        destination: "/demos?category=:category",
         permanent: true,
       },
       // Form redirects to /docs/forms.

@@ -71,7 +71,7 @@ export default async function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const category of showcaseCategories) {
-    urls.push(category.href ?? `/demos/${category.slug}`)
+    urls.push(category.href ?? `/demos?category=${category.slug}`)
   }
 
   return toSitemapEntries(urls)

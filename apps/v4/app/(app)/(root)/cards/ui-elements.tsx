@@ -1,10 +1,6 @@
 "use client"
 
-import {
-  ArrowRight02Icon,
-  ArrowUp01Icon,
-  Search01Icon,
-} from "@hugeicons/core-free-icons"
+import { ArrowRight02Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import {
@@ -33,12 +29,7 @@ import {
   DropdownMenuTrigger,
 } from "@/registry/bases/base/ui/dropdown-menu"
 import { Field, FieldGroup } from "@/registry/bases/base/ui/field"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupText,
-} from "@/registry/bases/base/ui/input-group"
+import { Input } from "@/registry/bases/base/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/registry/bases/base/ui/radio-group"
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { Textarea } from "@/registry/bases/base/ui/textarea"
@@ -62,14 +53,7 @@ export function UIElements() {
         </div>
         <FieldGroup>
           <Field>
-            <InputGroup>
-              <InputGroupInput placeholder="نام" />
-              <InputGroupAddon align="inline-end">
-                <InputGroupText>
-                  <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
-                </InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
+            <Input placeholder="نام" />
           </Field>
           <Field className="flex-1">
             <Textarea placeholder="پیام" className="resize-none" />
