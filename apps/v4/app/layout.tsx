@@ -93,9 +93,12 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ["/opengraph-image.png"],
     },
     icons: {
-      icon: [{ url: "/farsiui/favicon.png", type: "image/png" }],
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/farsiui/favicon.png", type: "image/png" },
+      ],
       shortcut: "/farsiui/favicon.png",
-      apple: "/farsiui/favicon.png",
+      apple: "/apple-touch-icon.png",
     },
     // Relative path keeps this same-origin (avoids localhost loopback permission prompts).
     manifest: "/site.webmanifest",
