@@ -5,7 +5,7 @@ import { ShowcaseProjectList } from "@/components/showcase-project-list"
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/showcase",
+    canonical: "/demos",
   },
 }
 

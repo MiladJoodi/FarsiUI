@@ -3,15 +3,15 @@ import Link from "next/link"
 import { LinkedinIcon, MailIcon } from "lucide-react"
 
 import { ContactForm } from "@/components/contact-form"
-import { siteConfig } from "@/lib/config"
 
-const title = "FarsiUI برای همین ساخته شده"
+const title = "در ارتباط باشیم"
 const description =
-  "FarsiUI یک کتابخانه کامپوننت و Design System برای ساخت تجربه‌های وب فارسی و RTL است."
+  "هر چیزی که فکر می‌کنید می‌تواند FarsiUI را بهتر کند، با ما در میان بگذارید."
 
 const CONTACT_EMAIL = "info@FarsiUI.ir"
 const LINKEDIN_URL = "https://www.linkedin.com/in/joodi/"
 const X_URL = "https://x.com/joodi_ir"
+const PULLS_URL = "https://github.com/MiladJoodi/FarsiUI/pulls"
 
 export const metadata: Metadata = {
   title,
@@ -39,40 +39,26 @@ export default function ContactPage() {
           <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight text-primary">
             {title}
           </h1>
-          <p className="docs-page-description text-pretty text-muted-foreground">
-            {description}
-          </p>
         </header>
 
         <div className="typeset w-full flex-1">
           <p>
-            ساختن یک محصول فارسی نباید فقط به معنی RTL کردن یک رابط انگلیسی و
-            اضافه کردن چند متن فارسی باشد. فارسی، اعداد، تاریخ‌ها، فرم‌ها،
-            تایپوگرافی و جزئیات تجربه کاربری خودش را دارد و باید از همان ابتدا در
-            طراحی دیده شود.
+            ساختن یک محصول فارسی نباید فقط به معنی راست‌چین کردن یک رابط کاربری
+            انگلیسی و اضافه کردن چند متن فارسی باشد. فارسی، اعداد، تاریخ‌ها،
+            فرم‌ها، تایپوگرافی و جزئیات تجربه کاربری خودش را دارد و باید از همان
+            ابتدا در طراحی دیده شود.
           </p>
           <p>
-            <strong>
-              پیشنهاد شما برای بهتر شدن FarsiUI، در واقع کمک به بهتر شدن وب
-              فارسی است.
-            </strong>
-          </p>
-          <p>
-            یک باگ، یک کامپوننت که جایش خالی است، یک مشکل RTL، یک ایراد در
-            موبایل، یک پیشنهاد یا یک ایده؛ هر چیزی که فکر می‌کنید می‌تواند
-            FarsiUI را بهتر کند، با ما در میان بگذارید.
+            هر چیزی که فکر می‌کنید می‌تواند FarsiUI را بهتر کند، با ما در میان
+            بگذارید. یک باگ، یک کامپوننت که جایش خالی است، یک مشکل در راست‌چین
+            بودن رابط کاربری، یک ایراد در موبایل، یک پیشنهاد یا یک ایده.
           </p>
           <p>
             اگر دولوپر هستید، می‌توانید با{" "}
-            <Link
-              href={`${siteConfig.links.github}/pulls`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Pull Request
+            <Link href={PULLS_URL} target="_blank" rel="noreferrer">
+              <strong>Pull Request</strong>
             </Link>{" "}
-            در توسعه FarsiUI مشارکت کنید و مستقیماً در بهتر شدن آن نقش داشته
-            باشید.
+            مستقیم در توسعه FarsiUI مشارکت کنید.
           </p>
           <p>
             <strong>اینجا منتظر نظر شما هستیم.</strong>

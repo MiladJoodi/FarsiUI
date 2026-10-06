@@ -51,8 +51,8 @@ export const siteConfig = {
       label: "بلوک‌ها",
     },
     {
-      href: "/showcase",
-      label: "نمونه‌ها",
+      href: "/demos",
+      label: "دموها",
     },
     {
       href: "/skills",

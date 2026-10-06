@@ -26,7 +26,7 @@ export async function generateMetadata({
     return {}
   }
 
-  const title = `${category.title} · نمونه‌ها`
+  const title = `${category.title} · دموها`
   const description =
     category.description ||
     `نمونه‌پروژه‌های ${category.title} ساخته‌شده با FarsiUI.`
@@ -35,12 +35,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/showcase/${category.slug}`,
+      canonical: `/demos/${category.slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `/showcase/${category.slug}`,
+      url: `/demos/${category.slug}`,
       images: [
         {
           url: `/og?title=${encodeURIComponent(

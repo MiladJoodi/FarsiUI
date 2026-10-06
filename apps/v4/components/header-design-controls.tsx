@@ -48,10 +48,10 @@ function DesignStudioSkeleton() {
       aria-busy="true"
       aria-label="در حال بارگذاری دیزاین"
     >
-      <div className="grid grid-cols-3 gap-1 rounded-xl bg-muted p-1">
-        <Skeleton className="h-9 rounded-lg" />
-        <Skeleton className="h-9 rounded-lg" />
-        <Skeleton className="h-9 rounded-lg" />
+      <div className="flex items-center gap-2 border-b border-border/70 pb-0.5">
+        <Skeleton className="h-3 w-10 rounded-sm" />
+        <Skeleton className="h-3 w-8 rounded-sm" />
+        <Skeleton className="h-3 w-8 rounded-sm" />
       </div>
       <div className="grid grid-cols-2 gap-2">
         {Array.from({ length: 6 }).map((_, index) => (
@@ -201,7 +201,7 @@ export function HeaderDesignControls({
 }: ComponentProps<"div">) {
   const pathname = usePathname()
   const hideColor =
-    pathname === "/showcase" || pathname.startsWith("/showcase/")
+    pathname === "/demos" || pathname.startsWith("/demos/")
   const isDesktop = useMediaQuery("(min-width: 640px)")
   const [mounted, setMounted] = useState(false)
   const [pendingOpen, setPendingOpen] = useState(false)

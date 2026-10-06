@@ -110,6 +110,17 @@ const nextConfig = {
   },
   redirects() {
     return [
+      // Showcase renamed to demos.
+      {
+        source: "/showcase",
+        destination: "/demos",
+        permanent: true,
+      },
+      {
+        source: "/showcase/:path*",
+        destination: "/demos/:path*",
+        permanent: true,
+      },
       // Form redirects to /docs/forms.
       {
         source: "/docs/components/form",

@@ -7,10 +7,10 @@ import { cn } from "cn"
 import { showcaseCategories } from "@/lib/showcase"
 
 const tabs = [
-  { title: "همه", href: "/showcase", slug: "all" },
+  { title: "همه", href: "/demos", slug: "all" },
   ...showcaseCategories.map((category) => ({
     title: category.title,
-    href: category.href ?? `/showcase/${category.slug}`,
+    href: category.href ?? `/demos/${category.slug}`,
     slug: category.slug,
   })),
 ]
@@ -22,14 +22,14 @@ export function ShowcaseCategoriesNav({ className }: { className?: string }) {
     <nav
       dir="rtl"
       lang="fa"
-      aria-label="دسته‌بندی نمونه‌ها"
+      aria-label="دسته‌بندی دموها"
       className={cn("flex w-full justify-center", className)}
     >
       <ul className="mx-auto flex w-max max-w-full gap-2 overflow-x-auto px-1 pb-1 scrollbar-none">
         {tabs.map((tab) => {
           const isActive =
             tab.slug === "all"
-              ? pathname === "/showcase"
+              ? pathname === "/demos"
               : pathname === tab.href || pathname.startsWith(`${tab.href}/`)
 
           return (

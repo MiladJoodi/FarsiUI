@@ -2,11 +2,26 @@
 
 # FarsiUI
 
-[Website](https://farsiui.ir) · [Docs](https://farsiui.ir/docs) · [Components](https://farsiui.ir/docs/components)
+[Website](https://farsiui.ir) · [Docs](https://farsiui.ir/docs) · [Components](https://farsiui.ir/docs/components) · [Blocks](https://farsiui.ir/blocks) · [Demos](https://farsiui.ir/demos)
 
-A UI component library for Persian products. RTL by default, Persian typography, Jalali dates — and components copy straight into your project so you own the code.
+**A Persian-first UI component library and design system for React + Tailwind.**
 
-![hero](apps/v4/public/opengraph-image.png)
+Building a Persian product is more than flipping an English UI to RTL and pasting Farsi text. Numbers, dates, forms, typography, and interaction details need to be designed for Persian from the start. FarsiUI is built for that.
+
+Components are added to your project with a CLI. You get the source, you own it, and you can change anything.
+
+![FarsiUI](apps/v4/public/farsiui/demo.png)
+
+## Features
+
+- **RTL-first:** layout, spacing, and controls designed for right-to-left
+- **Persian-ready:** typography, Persian digits, and natural Farsi UI patterns
+- **Jalali calendar:** Shamsi date support in date components
+- **+500 components:** ready-to-use building blocks for product UIs
+- **6 design systems:** switchable looks for docs and previews
+- **Your code:** no locked runtime; copy, edit, and ship
+- **shadcn-compatible:** same CLI / registry mental model
+- **Accessible:** Base UI, Radix, and React Aria patterns
 
 ## Quick start
 
@@ -15,44 +30,70 @@ npx farsiui@latest init
 npx farsiui@latest add button
 ```
 
-Then in your project:
-
 ```tsx
 import { Button } from "@/components/ui/button"
 
 export function Example() {
-  return <Button>Continue</Button>
+  return <Button>ادامه</Button>
 }
 ```
 
 Full guide: [Installation](https://farsiui.ir/docs/installation)
 
-## Built for
+## Repository structure
 
-- **RTL-first** — layout, spacing, and interactions designed right-to-left from the start
-- **Persian-ready** — typography, content, and UI patterns for Persian products
-- **Jalali dates** — Shamsi calendar support in date components
-- **Yours to own** — no locked runtime; read, change, and own every line
-- **shadcn-compatible** — same mental model, CLI, and registry workflow
+This is a pnpm monorepo.
 
-Stack: React, TypeScript, Tailwind CSS, with accessibility patterns from Radix / Base UI / React Aria.
+| Path | What it is |
+| --- | --- |
+| `apps/v4` | Main Next.js app: docs, component registry, blocks, demos |
+| `packages/shadcn` | The `farsiui` CLI published on npm |
+| `packages/react` | Shared React primitives used by the registry |
+| `packages/helpers` | Shared utilities |
+| `templates/` | Starter templates for new apps |
+| `skills/` | Agent skills for Persian / RTL workflows |
+
+Most day-to-day work happens in `apps/v4`.
 
 ## Local development
+
+**Requirements:** Node.js 20+ and [pnpm](https://pnpm.io)
+
+```bash
+git clone https://github.com/MiladJoodi/FarsiUI.git
+cd FarsiUI
+pnpm install
+pnpm v4:dev
+```
+
+Then open [http://localhost:4000](http://localhost:4000).
+
+| Command | Description |
+| --- | --- |
+| `pnpm v4:dev` | Start the docs site (port 4000) |
+| `pnpm v4:build` | Production build for the site |
+| `pnpm registry:build` | Rebuild installable registry output |
+| `pnpm farsiui:dev` | Run the CLI package in watch mode |
+| `pnpm lint` | Lint the monorepo |
+
+> Prefer a fast local disk for `apps/v4/.next`. Network or slow drives make cold starts much slower.
+
+## Contributing
+
+Bug reports, missing components, RTL issues, and PRs all help. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+If you want to contribute code:
 
 ```bash
 pnpm install
 pnpm v4:dev
 ```
 
-The site and registry run at [localhost:4000](http://localhost:4000).
+Open a PR against `main` when ready.
 
 ## Credits
 
-FarsiUI is built on the philosophy and ecosystem of [shadcn/ui](https://ui.shadcn.com). Credit for the original approach belongs to that project; this repo adapts the same experience for Persian, RTL-first interfaces.
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+FarsiUI follows the [shadcn/ui](https://ui.shadcn.com) model: copyable components, CLI install, and registry-based delivery, adapted for Persian and RTL-first products.
 
 ## License
 

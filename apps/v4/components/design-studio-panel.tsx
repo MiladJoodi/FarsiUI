@@ -93,7 +93,7 @@ export function DesignStudioPanel({
   hideColor = false,
 }: {
   className?: string
-  /** When true (e.g. /showcase), never show the color tab. */
+  /** When true (e.g. /demos), never show the color tab. */
   hideColor?: boolean
 }) {
   const { designSystemId, setDesignSystemId, presets } =
@@ -131,16 +131,13 @@ export function DesignStudioPanel({
     <div
       dir="rtl"
       lang="fa"
-      className={cn("flex flex-col gap-3", className)}
+      className={cn("flex flex-col gap-2.5", className)}
     >
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center justify-between gap-2 border-b border-border/70">
         <div
           role="tablist"
           aria-label="تنظیمات دیزاین"
-          className={cn(
-            "grid min-w-0 flex-1 gap-1 rounded-xl bg-muted p-1",
-            showPrimaryColor ? "grid-cols-3" : "grid-cols-2"
-          )}
+          className="flex min-w-0 items-stretch gap-0.5"
         >
           {tabs.map((item) => {
             const selected = visibleTab === item.id
@@ -152,10 +149,10 @@ export function DesignStudioPanel({
                 aria-selected={selected}
                 onClick={() => setTab(item.id)}
                 className={cn(
-                  "min-h-9 cursor-pointer rounded-lg px-2 text-sm font-medium transition-colors",
+                  "relative h-8 cursor-pointer px-2.5 text-[13px] font-medium transition-colors",
                   selected
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground active:text-foreground"
+                    ? "text-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-0.5 after:rounded-full after:bg-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {item.label}
@@ -168,7 +165,7 @@ export function DesignStudioPanel({
           onClick={resetToDefaults}
           aria-label="بازنشانی به پیشفرض، استعداد و خاکستری"
           title="بازنشانی"
-          className="inline-flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-muted hover:text-foreground"
+          className="mb-0.5 inline-flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-muted hover:text-foreground"
         >
           <RotateCcwIcon className="size-3" />
         </button>

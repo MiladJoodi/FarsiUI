@@ -7,7 +7,7 @@ import { PrimaryColorPalette } from "@/components/primary-color-palette"
 export function HeaderPrimaryColors() {
   const pathname = usePathname()
   const isShowcase =
-    pathname === "/showcase" || pathname.startsWith("/showcase/")
+    pathname === "/demos" || pathname.startsWith("/demos/")
 
   if (isShowcase) {
     return null

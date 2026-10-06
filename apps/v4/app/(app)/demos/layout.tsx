@@ -3,15 +3,15 @@ import { type Metadata } from "next"
 import { ShowcaseCategoriesNav } from "@/components/showcase-categories-nav"
 import { ShowcaseHero } from "@/components/showcase-hero"
 
-const title = "نمونه‌ها"
+const title = "دموها"
 const description =
-  "پروژه‌ها و نمونه‌سایت‌های ساخته‌شده با FarsiUI — با توضیح، تکنولوژی و لینک لایو."
+  "دموهای ساخته‌شده با FarsiUI — داشبورد، اپلیکیشن و صفحات وب با لینک لایو و گیت‌هاب."
 
 export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: "/showcase",
+    canonical: "/demos",
   },
   openGraph: {
     title,
@@ -48,7 +48,7 @@ export default function ShowcaseLayout({
       className="container-wrapper relative flex flex-1 flex-col px-2 pb-12"
       dir="rtl"
       lang="fa"
-      id="showcase"
+      id="demos"
     >
       <div
         aria-hidden

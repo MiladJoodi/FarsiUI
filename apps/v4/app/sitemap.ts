@@ -14,7 +14,7 @@ const staticRoutes = [
   "/charts/area",
   "/skills",
   "/skills/install",
-  "/showcase",
+  "/demos",
   "/examples",
   "/docs",
   "/docs/installation",
@@ -71,7 +71,7 @@ export default async function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const category of showcaseCategories) {
-    urls.push(category.href ?? `/showcase/${category.slug}`)
+    urls.push(category.href ?? `/demos/${category.slug}`)
   }
 
   return toSitemapEntries(urls)

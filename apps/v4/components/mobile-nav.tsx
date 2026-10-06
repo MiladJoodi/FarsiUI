@@ -28,7 +28,7 @@ const NAV_ICONS: Record<string, LucideIcon> = {
   "/docs": BookOpenIcon,
   "/docs/components": LayoutGridIcon,
   "/blocks": LayoutTemplateIcon,
-  "/showcase": SparklesIcon,
+  "/demos": SparklesIcon,
   "/skills": WandSparklesIcon,
   "/charts/area": ChartAreaIcon,
   "/contact": MailIcon,
