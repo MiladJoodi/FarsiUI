@@ -1,6 +1,6 @@
 import { type Metadata } from "next"
 import Link from "next/link"
-import { LinkedinIcon, MailIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react"
 
 import { ContactForm } from "@/components/contact-form"
 
@@ -9,6 +9,7 @@ const description =
   "هر چیزی که فکر می‌کنید می‌تواند FarsiUI را بهتر کند، با ما در میان بگذارید."
 
 const CONTACT_EMAIL = "info@FarsiUI.ir"
+const GITHUB_URL = "https://github.com/MiladJoodi/"
 const LINKEDIN_URL = "https://www.linkedin.com/in/joodi/"
 const X_URL = "https://x.com/joodi_ir"
 const PULLS_URL = "https://github.com/MiladJoodi/FarsiUI/pulls"
@@ -70,6 +71,15 @@ export default function ContactPage() {
             <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
               <span>ارتباط مستقیم</span>
               <div className="flex items-center gap-1">
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  <GithubIcon className="size-4" />
+                </a>
                 <a
                   href={LINKEDIN_URL}
                   target="_blank"

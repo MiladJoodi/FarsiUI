@@ -87,25 +87,7 @@ export default async function ChartPage({ params }: ChartPageProps) {
       lang="fa"
       className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-8 px-4 pb-8 md:px-6"
     >
-      <header className="flex flex-col gap-1.5">
-        <div className="flex min-w-0 items-baseline gap-2">
-          <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
-            {meta.title}
-          </h1>
-          <span
-            aria-hidden
-            className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
-          />
-          <span
-            dir="ltr"
-            lang="en"
-            className="shrink-0 text-sm tracking-wide text-muted-foreground"
-          >
-            {meta.en}
-          </span>
-        </div>
-        <p className="text-sm text-muted-foreground">{meta.description}</p>
-      </header>
+      <h1 className="sr-only">{meta.title}</h1>
 
       <div className="grid flex-1 scroll-mt-20 items-stretch gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10">
         {prefetchedCharts.map((chart) => (

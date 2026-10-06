@@ -24,63 +24,63 @@ function themeSwatch(themeName: string) {
   return `hsl(${theme?.activeColor.light})`
 }
 
-/** Mini visual thumbnail — fixed height so all recipes match. */
+/** Compact recipe thumb — muted accents; glass title readable on cyan card. */
 function StyleThumb({ id }: { id: DesignSystemId }) {
-  const shells: Record<
+  const looks: Record<
     DesignSystemId,
-    { wrap: string; a: string; b: string; c: string }
+    { card: string; line: string; lineSoft: string; btn: string }
   > = {
     default: {
-      wrap: "rounded-md bg-background",
-      a: "h-1.5 w-5 rounded-sm bg-primary",
-      b: "h-1 w-8 rounded-sm bg-foreground/20",
-      c: "h-1 w-6 rounded-sm bg-foreground/12",
+      card: "rounded-lg border border-border/60 bg-background",
+      line: "rounded-sm bg-foreground/50",
+      lineSoft: "rounded-sm bg-foreground/18",
+      btn: "rounded-md bg-foreground/35",
     },
     comfort: {
-      wrap: "rounded-xl bg-background",
-      a: "h-1.5 w-6 rounded-full bg-primary",
-      b: "h-1 w-9 rounded-full bg-foreground/18",
-      c: "h-1 w-7 rounded-full bg-foreground/10",
+      card: "rounded-2xl border border-border/45 bg-background",
+      line: "rounded-full bg-foreground/40",
+      lineSoft: "rounded-full bg-foreground/14",
+      btn: "rounded-full bg-foreground/30",
     },
     glass: {
-      wrap: "rounded-lg bg-cyan-500/15 ring-1 ring-cyan-400/40",
-      a: "h-1.5 w-5 rounded-md bg-cyan-500/80",
-      b: "h-1 w-8 rounded-md bg-foreground/25",
-      c: "h-1 w-6 rounded-md bg-foreground/15",
+      card: "rounded-xl border border-cyan-500/25 bg-cyan-500/10",
+      line: "rounded-md bg-cyan-950/55 dark:bg-cyan-100/55",
+      lineSoft: "rounded-md bg-cyan-700/25 dark:bg-cyan-200/30",
+      btn: "rounded-lg bg-cyan-700/45 dark:bg-cyan-300/35",
     },
     rose: {
-      wrap: "rounded-2xl bg-rose-500/12",
-      a: "h-1.5 w-5 rounded-full bg-rose-400",
-      b: "h-1 w-8 rounded-full bg-rose-300/50",
-      c: "h-1 w-6 rounded-full bg-rose-200/40",
+      card: "rounded-[1.1rem] border border-rose-200/60 bg-[#fff6f6]",
+      line: "rounded-full bg-rose-900/40",
+      lineSoft: "rounded-full bg-rose-300/40",
+      btn: "rounded-full bg-rose-400/55",
     },
     nili: {
-      wrap: "rounded-md bg-slate-800",
-      a: "h-1.5 w-5 rounded-sm bg-sky-400",
-      b: "h-1 w-8 rounded-sm bg-slate-400/50",
-      c: "h-1 w-6 rounded-sm bg-slate-500/40",
+      card: "rounded-md border border-slate-700/80 bg-slate-900",
+      line: "rounded-sm bg-slate-300/65",
+      lineSoft: "rounded-sm bg-slate-500/45",
+      btn: "rounded-sm bg-slate-400/50",
     },
     khesht: {
-      wrap: "rounded-sm bg-amber-900/20",
-      a: "h-1.5 w-5 rounded-[2px] bg-amber-700",
-      b: "h-1 w-8 rounded-[2px] bg-amber-800/40",
-      c: "h-1 w-6 rounded-[2px] bg-amber-700/30",
+      card: "rounded-md border-2 border-amber-950/45 bg-amber-50 shadow-[2px_2px_0_0_rgba(69,26,3,0.3)]",
+      line: "rounded-[2px] bg-amber-950/55",
+      lineSoft: "rounded-[2px] bg-amber-800/30",
+      btn: "rounded-[2px] border border-amber-950/40 bg-amber-800/45",
     },
   }
 
-  const look = shells[id]
+  const look = looks[id]
 
   return (
     <div
       aria-hidden
       className={cn(
-        "flex h-10 w-full shrink-0 flex-col justify-center gap-1 border border-border/60 px-2",
-        look.wrap
+        "flex h-[3.25rem] w-full shrink-0 flex-col justify-center gap-1 p-2",
+        look.card
       )}
     >
-      <span className={cn("shrink-0", look.a)} />
-      <span className={cn("shrink-0", look.b)} />
-      <span className={cn("shrink-0", look.c)} />
+      <span className={cn("h-1.5 w-[58%] shrink-0", look.line)} />
+      <span className={cn("h-1 w-[78%] shrink-0", look.lineSoft)} />
+      <span className={cn("mt-0.5 h-3 w-[42%] shrink-0", look.btn)} />
     </div>
   )
 }
@@ -189,18 +189,26 @@ export function DesignStudioPanel({
                   onClick={() =>
                     setDesignSystemId(preset.id as DesignSystemId)
                   }
-                  className="flex cursor-pointer flex-col gap-1.5 rounded-xl border border-border/70 p-2 text-start transition-colors hover:bg-muted/40 active:bg-muted/60"
+                  className={cn(
+                    "flex cursor-pointer flex-col gap-1.5 rounded-lg p-1.5 text-start transition-colors",
+                    "hover:bg-muted/50 active:bg-muted/70",
+                    selected && "bg-muted/40"
+                  )}
                 >
-                  <StyleThumb id={preset.id} />
-                  <span className="flex items-center gap-1 px-0.5 text-sm font-medium leading-none">
-                    <span className="min-w-0 flex-1 truncate">{preset.label}</span>
+                  <span className="flex min-h-4 items-center gap-1 px-0.5">
+                    <span className="min-w-0 flex-1 truncate text-sm font-medium leading-none">
+                      {preset.label}
+                    </span>
                     {selected ? (
                       <CheckIcon
                         className="size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400"
                         aria-hidden
                       />
-                    ) : null}
+                    ) : (
+                      <span className="size-3.5 shrink-0" aria-hidden />
+                    )}
                   </span>
+                  <StyleThumb id={preset.id} />
                 </button>
               )
             })}
