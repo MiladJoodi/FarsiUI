@@ -1,5 +1,6 @@
 import { type Metadata } from "next"
 import Link from "next/link"
+import { LinkedinIcon, MailIcon } from "lucide-react"
 
 import { ContactForm } from "@/components/contact-form"
 import { siteConfig } from "@/lib/config"
@@ -80,42 +81,41 @@ export default function ContactPage() {
           <div className="not-typeset mt-6">
             <ContactForm />
 
-            <div className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
-              <p>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  dir="ltr"
-                  className="font-medium text-foreground underline-offset-4 hover:underline"
-                >
-                  {CONTACT_EMAIL}
-                </a>
-              </p>
-              <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
+              <span>ارتباط مستقیم</span>
+              <div className="flex items-center gap-1">
                 <a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-offset-4 hover:text-foreground hover:underline"
+                  aria-label="LinkedIn"
+                  className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
-                  LinkedIn
+                  <LinkedinIcon className="size-4" />
                 </a>
-                <span aria-hidden>·</span>
                 <a
                   href={X_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-offset-4 hover:text-foreground hover:underline"
+                  aria-label="X"
+                  className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
-                  X
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden
+                    className="size-3.5 fill-current"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+                  </svg>
                 </a>
-                <span aria-hidden>·</span>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="underline-offset-4 hover:text-foreground hover:underline"
+                  aria-label="Email"
+                  className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
-                  Email
+                  <MailIcon className="size-4" />
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </div>
