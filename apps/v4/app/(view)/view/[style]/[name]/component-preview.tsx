@@ -1,20 +1,18 @@
 "use client"
 
 import * as React from "react"
+import { useSearchParams } from "next/navigation"
 import { cn } from "cn"
 
-export function ComponentPreview({
+function ComponentPreviewShell({
   children,
-  embed = false,
-  staticPreview = false,
+  embed,
+  staticPreview,
   styleClass,
 }: {
   children: React.ReactNode
-  /** When true, pin heights to the iframe instead of the parent window's svh. */
-  embed?: boolean
-  /** Frozen showcase crop: no scroll, no interaction, clip to iframe. */
-  staticPreview?: boolean
-  /** Visual style root (e.g. style-nova) — must live on body so portals inherit it. */
+  embed: boolean
+  staticPreview: boolean
   styleClass?: string | null
 }) {
   // Apply the URL bake's style root on first paint. The parent picker may
@@ -90,5 +88,69 @@ export function ComponentPreview({
         </div>
       </div>
     </>
+  )
+}
+
+function ComponentPreviewFromSearch({
+  children,
+  embed: embedProp,
+  staticPreview: staticPreviewProp,
+  styleClass,
+}: {
+  children: React.ReactNode
+  embed?: boolean
+  staticPreview?: boolean
+  styleClass?: string | null
+}) {
+  const searchParams = useSearchParams()
+  const embed = embedProp || searchParams.get("embed") === "1"
+  const staticPreview =
+    staticPreviewProp || searchParams.get("static") === "1"
+
+  return (
+    <ComponentPreviewShell
+      embed={embed}
+      staticPreview={staticPreview}
+      styleClass={styleClass}
+    >
+      {children}
+    </ComponentPreviewShell>
+  )
+}
+
+export function ComponentPreview({
+  children,
+  embed,
+  staticPreview,
+  styleClass,
+}: {
+  children: React.ReactNode
+  /** Optional server/compat override; query string is the primary source. */
+  embed?: boolean
+  /** Frozen showcase crop: no scroll, no interaction, clip to iframe. */
+  staticPreview?: boolean
+  /** Visual style root (e.g. style-nova) — must live on body so portals inherit it. */
+  styleClass?: string | null
+}) {
+  return (
+    <React.Suspense
+      fallback={
+        <ComponentPreviewShell
+          embed={!!embed}
+          staticPreview={!!staticPreview}
+          styleClass={styleClass}
+        >
+          {children}
+        </ComponentPreviewShell>
+      }
+    >
+      <ComponentPreviewFromSearch
+        embed={embed}
+        staticPreview={staticPreview}
+        styleClass={styleClass}
+      >
+        {children}
+      </ComponentPreviewFromSearch>
+    </React.Suspense>
   )
 }

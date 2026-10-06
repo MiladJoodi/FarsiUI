@@ -2,7 +2,6 @@
 import * as React from "react"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
-import { cn } from "cn"
 
 import { siteConfig } from "@/lib/config"
 import {
@@ -24,7 +23,6 @@ function getVisualStyleClass(styleName: string) {
 }
 
 export const revalidate = false
-export const dynamic = "force-dynamic"
 export const dynamicParams = true
 
 const getCachedRegistryItem = React.cache(
@@ -142,21 +140,14 @@ export async function generateStaticParams() {
 
 export default async function BlockPage({
   params,
-  searchParams,
 }: {
   params: Promise<{
     style: string
     name: string
   }>
-  searchParams: Promise<{ embed?: string; static?: string }>
 }) {
-  const [{ style: styleName, name }, query] = await Promise.all([
-    params,
-    searchParams,
-  ])
+  const { style: styleName, name } = await params
   const style = getStyle(styleName)
-  const embed = query.embed === "1"
-  const staticPreview = query.static === "1"
 
   if (!style) {
     return notFound()
@@ -172,12 +163,9 @@ export default async function BlockPage({
   const visualStyleClass = getVisualStyleClass(style.name)
 
   return (
-    <ComponentPreview
-      embed={embed}
-      staticPreview={staticPreview}
-      styleClass={visualStyleClass}
-    >
-      <div className={cn(embed ? "h-full min-h-full" : "min-h-svh")}>
+    <ComponentPreview styleClass={visualStyleClass}>
+      {/* Embed mode overrides .min-h-svh via client CSS when ?embed=1 */}
+      <div className="min-h-svh">
         <Component />
       </div>
     </ComponentPreview>

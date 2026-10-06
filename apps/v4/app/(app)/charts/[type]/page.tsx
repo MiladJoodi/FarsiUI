@@ -90,11 +90,12 @@ export default async function ChartPage({ params }: ChartPageProps) {
       <h1 className="sr-only">{meta.title}</h1>
 
       <div className="grid flex-1 scroll-mt-20 items-stretch gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10">
-        {prefetchedCharts.map((chart) => (
+        {prefetchedCharts.map((chart, index) => (
           <ChartDisplay
             key={chart.name}
             chart={chart}
             styleName={CHARTS_STYLE}
+            priority={index < 2}
             className={cn(chart.fullWidth && "md:col-span-2 lg:col-span-3")}
           />
         ))}

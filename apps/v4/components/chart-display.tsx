@@ -17,9 +17,11 @@ export function ChartDisplay({
   chart,
   styleName,
   className,
+  priority = false,
 }: {
   chart: Chart
   styleName: string
+  priority?: boolean
 } & React.ComponentProps<"div">) {
   return (
     <div
@@ -37,6 +39,7 @@ export function ChartDisplay({
           src={`/view/${styleName}/${chart.name}`}
           height={460}
           title={chart.name}
+          priority={priority}
         />
       </div>
     </div>
