@@ -14,6 +14,72 @@ export type ChartType =
   | "radial"
   | "tooltip"
 
+export type ChartTypeMeta = {
+  type: ChartType
+  title: string
+  en: string
+  href: string
+  description: string
+}
+
+export const chartTypeMeta: ChartTypeMeta[] = [
+  {
+    type: "area",
+    title: "ناحیه‌ای",
+    en: "Area",
+    href: "/charts/area",
+    description: "نمودارهای ناحیه‌ای برای روند و حجم داده",
+  },
+  {
+    type: "bar",
+    title: "میله‌ای",
+    en: "Bar",
+    href: "/charts/bar",
+    description: "نمودارهای میله‌ای افقی و عمودی",
+  },
+  {
+    type: "line",
+    title: "خطی",
+    en: "Line",
+    href: "/charts/line",
+    description: "نمودارهای خطی برای سری زمانی",
+  },
+  {
+    type: "pie",
+    title: "دایره‌ای",
+    en: "Pie",
+    href: "/charts/pie",
+    description: "نمودار دایره‌ای و دونات",
+  },
+  {
+    type: "radar",
+    title: "راداری",
+    en: "Radar",
+    href: "/charts/radar",
+    description: "نمودار راداری برای مقایسه چندمحوره",
+  },
+  {
+    type: "radial",
+    title: "شعاعی",
+    en: "Radial",
+    href: "/charts/radial",
+    description: "نمودارهای شعاعی و حلقه‌ای",
+  },
+  {
+    type: "tooltip",
+    title: "راهنما",
+    en: "Tooltip",
+    href: "/charts/tooltip",
+    description: "نمونه‌های راهنمای نمودار",
+  },
+]
+
+export const chartTypes = chartTypeMeta.map((item) => item.type)
+
+export function getChartTypeMeta(type: string) {
+  return chartTypeMeta.find((item) => item.type === type)
+}
+
 export const chartCatalog: Record<ChartType, ChartCatalogItem[]> = {
   area: [
     { id: "chart-area-interactive", fullWidth: true },

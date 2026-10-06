@@ -1,6 +1,11 @@
 import { type Metadata } from "next"
 
-import { ChartsNav } from "@/components/charts-nav"
+import {
+  ChartsListIndex,
+  ChartsSidebar,
+} from "@/components/charts-sidebar"
+import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
+import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
 
 const title = "نمودارها"
 const description =
@@ -9,6 +14,9 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "/charts",
+  },
   openGraph: {
     title,
     description,
@@ -41,23 +49,30 @@ export default function ChartsLayout({
 }) {
   return (
     <div
-      data-slot="docs"
+      data-slot="charts"
       className="flex flex-1 flex-col"
       dir="rtl"
       lang="fa"
       id="charts"
     >
-      <div className="container-wrapper flex flex-1 flex-col px-2">
-        <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-1 flex-col gap-6 px-4 py-6 md:px-6 lg:py-8">
-          <div className="flex flex-col gap-4">
-            <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
-              {title}
-            </h1>
-            <ChartsNav />
-          </div>
-          <section className="theme-container min-w-0 pb-6">{children}</section>
+      <PersianDigits>
+        <ChartsListIndex />
+        <div className="container-wrapper flex flex-1 flex-col px-2">
+          <SidebarProvider
+            className="min-h-min flex-1 items-start px-0 [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--top-spacing:calc(var(--spacing)*4)] 3xl:fixed:container 3xl:fixed:px-3"
+            style={
+              {
+                "--sidebar-width": "calc(var(--spacing) * 72)",
+              } as React.CSSProperties
+            }
+          >
+            <ChartsSidebar />
+            <div className="theme-container h-full w-full min-w-0 section-soft ps-1 pe-2 pt-2 md:ps-2 md:pe-4 md:py-6">
+              {children}
+            </div>
+          </SidebarProvider>
         </div>
-      </div>
+      </PersianDigits>
     </div>
   )
 }

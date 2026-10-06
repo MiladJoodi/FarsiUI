@@ -22,7 +22,12 @@ export function NavHeader() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink asChild data-active={pathname === "/charts"}>
+          <NavigationMenuLink
+            asChild
+            data-active={
+              pathname === "/charts" || pathname.startsWith("/charts/")
+            }
+          >
             <Link href="/charts">نمودارها</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>

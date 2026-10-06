@@ -9,6 +9,8 @@ import {
 } from "@/components/chart-display"
 import {
   chartCatalog,
+  chartTypes,
+  getChartTypeMeta,
   type ChartType,
 } from "@/app/(app)/charts/chart-catalog"
 
@@ -25,26 +27,6 @@ interface ChartPageProps {
   }>
 }
 
-const chartTypes = [
-  "area",
-  "bar",
-  "line",
-  "pie",
-  "radar",
-  "radial",
-  "tooltip",
-] as const satisfies readonly ChartType[]
-
-const chartTypeTitles: Record<ChartType, string> = {
-  area: "نمودارهای ناحیه‌ای",
-  bar: "نمودارهای میله‌ای",
-  line: "نمودارهای خطی",
-  pie: "نمودارهای دایره‌ای",
-  radar: "نمودارهای راداری",
-  radial: "نمودارهای شعاعی",
-  tooltip: "راهنمای نمودار",
-}
-
 export async function generateStaticParams() {
   return chartTypes.map((type) => ({
     type,
@@ -53,33 +35,32 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ChartPageProps) {
   const { type } = await params
+  const meta = getChartTypeMeta(type)
 
-  if (!chartTypes.includes(type as ChartType)) {
+  if (!meta) {
     return notFound()
   }
 
-  const title = chartTypeTitles[type as ChartType]
-
   return {
-    title,
+    title: meta.title,
+    description: meta.description,
     alternates: {
-      canonical: `/charts/${type}`,
+      canonical: meta.href,
     },
   } satisfies Metadata
 }
 
 export default async function ChartPage({ params }: ChartPageProps) {
   const { type } = await params
+  const meta = getChartTypeMeta(type)
 
-  if (!chartTypes.includes(type as ChartType)) {
-    return notFound()
+  if (!meta || !chartTypes.includes(type as ChartType)) {
+    notFound()
   }
 
   const chartType = type as ChartType
   const chartList = chartCatalog[chartType]
 
-  // Prefetch all chart data in parallel for better performance.
-  // Charts are rendered via iframes, so we only need the metadata and highlighted code.
   const chartDataPromises = chartList.map(async (chart) => {
     const registryItem = await getCachedRegistryItem(chart.id, CHARTS_STYLE)
     if (!registryItem) return null
@@ -101,8 +82,31 @@ export default async function ChartPage({ params }: ChartPageProps) {
   )
 
   return (
-    <div className="grid flex-1 gap-12 lg:gap-24">
-      <h2 className="sr-only">{chartTypeTitles[chartType]}</h2>
+    <div
+      dir="rtl"
+      lang="fa"
+      className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-8 px-4 pb-8 md:px-6"
+    >
+      <header className="flex flex-col gap-1.5">
+        <div className="flex min-w-0 items-baseline gap-2">
+          <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
+            {meta.title}
+          </h1>
+          <span
+            aria-hidden
+            className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
+          />
+          <span
+            dir="ltr"
+            lang="en"
+            className="shrink-0 text-sm tracking-wide text-muted-foreground"
+          >
+            {meta.en}
+          </span>
+        </div>
+        <p className="text-sm text-muted-foreground">{meta.description}</p>
+      </header>
+
       <div className="grid flex-1 scroll-mt-20 items-stretch gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10">
         {prefetchedCharts.map((chart) => (
           <ChartDisplay

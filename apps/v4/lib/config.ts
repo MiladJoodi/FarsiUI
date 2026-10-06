@@ -59,7 +59,7 @@ export const siteConfig = {
       label: "مهارت‌ها",
     },
     {
-      href: "/charts/area",
+      href: "/charts",
       label: "نمودارها",
     },
   ],

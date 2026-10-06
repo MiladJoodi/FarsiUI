@@ -222,11 +222,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/charts",
-        destination: "/charts/area",
-        permanent: true,
-      },
-      {
         source: "/view/styles/:style/:name",
         destination: "/view/:name",
         permanent: true,

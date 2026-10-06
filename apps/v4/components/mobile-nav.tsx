@@ -30,7 +30,7 @@ const NAV_ICONS: Record<string, LucideIcon> = {
   "/blocks": LayoutTemplateIcon,
   "/demos": SparklesIcon,
   "/skills": WandSparklesIcon,
-  "/charts/area": ChartAreaIcon,
+  "/charts": ChartAreaIcon,
   "/contact": MailIcon,
 }
 
