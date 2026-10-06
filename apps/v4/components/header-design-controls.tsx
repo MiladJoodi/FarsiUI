@@ -93,7 +93,8 @@ function DesignTriggerButton({
       {...props}
     >
       <SlidersHorizontalIcon className="size-4 shrink-0 text-muted-foreground" />
-      <span className="truncate">انتخاب دیزاین سیستم</span>
+      <span className="truncate sm:hidden">دیزاین سیستم</span>
+      <span className="hidden truncate sm:inline">انتخاب دیزاین سیستم</span>
     </Button>
   )
 }

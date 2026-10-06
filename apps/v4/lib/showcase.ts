@@ -2,16 +2,12 @@ const EXAMPLES_LIVE_BASE = "https://farsiui-examples.vercel.app/examples"
 const EXAMPLES_GITHUB_BASE =
   "https://github.com/MiladJoodi/FarsiUI-Examples/tree/master/app/examples"
 
-/** Shared preview until per-example screenshots are added under /images/showcase. */
-const DEFAULT_IMAGE_LIGHT = "/r/styles/new-york/dashboard-01-light.png"
-const DEFAULT_IMAGE_DARK = "/r/styles/new-york/dashboard-01-dark.png"
-
 function exampleUrls(slug: string) {
   return {
     liveUrl: `${EXAMPLES_LIVE_BASE}/${slug}`,
     githubUrl: `${EXAMPLES_GITHUB_BASE}/${slug}`,
-    imageUrl: DEFAULT_IMAGE_LIGHT,
-    imageUrlDark: DEFAULT_IMAGE_DARK,
+    imageUrl: `/images/showcase/${slug}-light.png`,
+    imageUrlDark: `/images/showcase/${slug}-dark.png`,
   }
 }
 

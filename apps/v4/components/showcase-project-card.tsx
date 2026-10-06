@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { ExternalLinkIcon, GithubIcon } from "lucide-react"
+import { GithubIcon } from "lucide-react"
 
 import { type ShowcaseProject } from "@/lib/showcase"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -86,7 +86,7 @@ export function ShowcaseProjectCard({ project }: { project: ShowcaseProject }) {
               asChild
               size="icon"
               variant="outline"
-              className="size-8 rounded-full"
+              className="size-8 rounded-full text-muted-foreground hover:text-foreground"
             >
               <Link
                 href={project.githubUrl!}
@@ -95,24 +95,6 @@ export function ShowcaseProjectCard({ project }: { project: ShowcaseProject }) {
                 aria-label="گیت‌هاب"
               >
                 <GithubIcon className="size-4" />
-              </Link>
-            </Button>
-          ) : null}
-
-          {hasLive ? (
-            <Button
-              asChild
-              size="icon"
-              variant="outline"
-              className="size-8 rounded-full"
-            >
-              <Link
-                href={project.liveUrl!}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="مشاهده دمو"
-              >
-                <ExternalLinkIcon className="size-4" />
               </Link>
             </Button>
           ) : null}
