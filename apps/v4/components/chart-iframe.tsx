@@ -3,6 +3,8 @@
 import * as React from "react"
 import { cn } from "cn"
 
+import { ChartPlotSkeleton } from "@/components/route-skeletons"
+
 export function ChartIframe({
   src,
   height,
@@ -54,11 +56,16 @@ export function ChartIframe({
       className="relative w-full"
       style={{ height }}
     >
+      {!loaded ? (
+        <div className="absolute inset-0 z-10">
+          <ChartPlotSkeleton />
+        </div>
+      ) : null}
       {shouldLoad ? (
         <iframe
           src={src}
           className={cn(
-            "absolute inset-0 h-full w-full border-none transition-opacity duration-300",
+            "absolute inset-0 z-20 h-full w-full border-none transition-opacity duration-300",
             loaded ? "opacity-100" : "opacity-0"
           )}
           height={height}
@@ -66,12 +73,7 @@ export function ChartIframe({
           title={title}
           onLoad={() => setLoaded(true)}
         />
-      ) : (
-        <div
-          className="absolute inset-0 animate-pulse bg-muted/60"
-          aria-hidden
-        />
-      )}
+      ) : null}
     </div>
   )
 }
