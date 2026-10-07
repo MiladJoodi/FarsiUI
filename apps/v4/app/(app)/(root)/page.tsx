@@ -35,7 +35,7 @@ const structuredData = {
       "@id": `${siteConfig.url}/#organization`,
       name: siteConfig.name,
       url: siteConfig.url,
-      logo: `${siteConfig.url}/farsiui/logo.png`,
+      logo: `${siteConfig.url}/farsiui/favicon.png`,
       sameAs: [siteConfig.links.github],
     },
     {

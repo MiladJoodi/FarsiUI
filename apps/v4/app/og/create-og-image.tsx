@@ -88,7 +88,7 @@ export async function createOgImage({
   const [fonts, demoPng, logoPng] = await Promise.all([
     loadFonts(),
     readProjectFile("public/farsiui/demo.png"),
-    readProjectFile("public/farsiui/logo.png"),
+    readProjectFile("public/farsiui/favicon.png"),
   ])
 
   const demoSrc = `data:image/png;base64,${demoPng.toString("base64")}`
