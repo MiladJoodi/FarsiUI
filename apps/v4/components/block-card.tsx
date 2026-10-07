@@ -21,7 +21,7 @@ import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
-import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
+import { BlockDemoSkeleton } from "@/components/route-skeletons"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 import {
   ToggleGroup,
@@ -68,22 +68,6 @@ function describeInstallPath(installPath: string) {
     ? installPath.slice(0, installPath.lastIndexOf("/"))
     : "."
   return { fileName, dir, installPath }
-}
-
-function BlockPreviewSkeleton() {
-  return (
-    <div className="flex size-full items-center justify-center p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col items-center gap-3">
-        <Skeleton className="size-8 rounded-md" />
-        <Skeleton className="h-5 w-40" />
-        <Skeleton className="h-3 w-28" />
-        <Skeleton className="mt-2 h-3 w-16 self-start" />
-        <Skeleton className="h-9 w-full rounded-md" />
-        <Skeleton className="h-9 w-full rounded-md" />
-        <Skeleton className="h-9 w-full rounded-md" />
-      </div>
-    </div>
-  )
 }
 
 export function BlockCard({
@@ -270,7 +254,7 @@ export function BlockCard({
               >
                 {!previewLoaded ? (
                   <div className="absolute inset-0 z-10">
-                    <BlockPreviewSkeleton />
+                    <BlockDemoSkeleton />
                   </div>
                 ) : null}
                 <iframe
