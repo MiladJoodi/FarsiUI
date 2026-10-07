@@ -17,57 +17,29 @@ export default function SkillsPage() {
             مهارت‌ها
           </h1>
           <p className="docs-page-description text-pretty text-muted-foreground">
-            فایل‌های Markdown برای آموزش Agent — مناسب Claude Code، Cursor و
-            Codex.
+            دستورالعمل‌های آماده برای وقتی با هوش مصنوعی فارسی می‌نویسید یا
+            محصول فارسی می‌سازید.
           </p>
         </header>
 
         <div className="typeset w-full flex-1">
           <p>
-            مهارت‌ها فایل‌های{" "}
-            <bdi dir="ltr" className="font-medium">
-              Markdown
-            </bdi>{" "}
-            هستند که به{" "}
-            <bdi dir="ltr" className="font-medium">
-              Agent
-            </bdi>{" "}
-            یاد می‌دهند یک کار مشخص را چطور انجام دهد. ابزارهایی مثل{" "}
-            <bdi dir="ltr" className="font-medium">
-              Claude Code
-            </bdi>
-            ،{" "}
-            <bdi dir="ltr" className="font-medium">
-              Cursor
-            </bdi>{" "}
-            و{" "}
-            <bdi dir="ltr" className="font-medium">
-              Codex
-            </bdi>{" "}
-            قبل از کار این دستورالعمل‌ها را می‌خوانند.
+            مهارت یعنی یک فایل کوتاه راهنما. آن را به ابزارهایی مثل Cursor یا
+            Claude می‌دهید تا بداند مثلاً پیام خوش‌آمد را چطور بنویسد، تاریخ را
+            شمسی نشان دهد، یا دکمه را «خرید» کند نه Buy.
           </p>
           <p>
-            هر مهارت یک فایل{" "}
-            <bdi dir="ltr" className="font-medium">
-              SKILL.md
-            </bdi>{" "}
-            است. برای کارهای فارسی، مهارت‌هایی مثل فارسی محاوره‌ای، متن رابط
-            کاربری، تقویم شمسی و اعتبارسنجی ایرانی آماده کرده‌ایم.
+            لازم نیست برنامه‌نویس حرفه‌ای باشید: فایل را کپی یا دانلود کنید، در
+            مسیر گفته‌شده بگذارید، و از همان ابزار بخواهید کار فارسی‌تان را انجام
+            دهد.
           </p>
 
           <h2>از کجا شروع کنید</h2>
           <ol>
+            <li>از فهرست، مهارتی را که به کارتان می‌خورد انتخاب کنید.</li>
             <li>
-              از فهرست زیر (در موبایل) یا نوار کناری (در دسکتاپ)، مهارت موردنظر
-              را انتخاب کنید.
-            </li>
-            <li>
-              فایل{" "}
-              <bdi dir="ltr" className="font-medium">
-                SKILL.md
-              </bdi>{" "}
-              را کپی یا دانلود کنید و در مسیر ابزار خود بگذارید. راهنمای مسیرها
-              در <Link href="/skills/install">نحوه نصب</Link> است.
+              فایل را کپی یا دانلود کنید و طبق{" "}
+              <Link href="/skills/install">نحوه نصب</Link> در ابزارتان بگذارید.
             </li>
           </ol>
         </div>

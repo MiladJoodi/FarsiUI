@@ -2,27 +2,21 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Check, Copy, Download } from "lucide-react"
+import { BadgeCheck, Check, Copy, Download } from "lucide-react"
 
-import { type Skill } from "@/lib/skills"
+import { type Skill, type SkillSource } from "@/lib/skills"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
-import { getIconForLanguageExtension } from "@/components/icons"
 import { SkillAgentPathRow, SkillCopyCommand } from "@/components/skill-copy"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
 
 export function SkillDetail({
   skill,
   markdown,
+  highlightedMarkdown,
 }: {
   skill: Skill
   markdown: string
+  highlightedMarkdown: string
 }) {
   return (
     <div
@@ -40,6 +34,7 @@ export function SkillDetail({
           <p className="docs-page-description text-pretty text-muted-foreground">
             {skill.summary}
           </p>
+          <SkillSourceMeta source={skill.source} />
         </header>
 
         <div className="typeset w-full flex-1">
@@ -50,54 +45,36 @@ export function SkillDetail({
             ))}
           </ul>
 
+          {skill.example ? (
+            <>
+              <h2>مثال</h2>
+              <p>{skill.example}</p>
+            </>
+          ) : null}
+
           <h2>فایل مهارت</h2>
           <div data-not-typeset="" className="my-4 w-full">
-            <Tabs defaultValue="preview" className="w-full gap-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="ms-auto flex h-8 items-center gap-0.5 rounded-lg border bg-muted p-1">
-                  <TabsList className="grid h-auto! w-fit grid-cols-2 gap-0.5 rounded-none bg-transparent p-0 shadow-none *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2.5 *:data-[slot=tabs-trigger]:text-xs">
-                    <TabsTrigger value="preview" className="cursor-pointer">
-                      مشاهده
-                    </TabsTrigger>
-                    <TabsTrigger value="code" className="cursor-pointer">
-                      <bdi dir="ltr">SKILL.md</bdi>
-                    </TabsTrigger>
-                  </TabsList>
-                  <Separator orientation="vertical" className="mx-0.5 h-4!" />
+            <figure
+              data-rehype-pretty-code-figure=""
+              data-not-typeset=""
+              dir="ltr"
+              lang="en"
+              className="m-0! overflow-hidden rounded-xl border bg-code text-code-foreground md:mx-0!"
+            >
+              <figcaption className="flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs text-code-foreground">
+                <span dir="ltr" lang="en" className="truncate font-mono">
+                  SKILL.md
+                </span>
+                <div className="ms-auto flex items-center gap-0.5">
                   <SkillFileCopyButton value={markdown} />
                   <SkillFileDownloadButton content={markdown} />
                 </div>
-              </div>
-
-              <TabsContent
-                value="preview"
-                className="m-0 overflow-hidden rounded-xl border p-4 md:p-5"
-              >
-                <SkillSamplePreview skill={skill} />
-              </TabsContent>
-
-              <TabsContent value="code" className="m-0">
-                <figure
-                  data-rehype-pretty-code-figure=""
-                  data-not-typeset=""
-                  dir="ltr"
-                  lang="en"
-                  className="m-0! overflow-hidden rounded-xl border bg-code text-code-foreground md:mx-0!"
-                >
-                  <figcaption
-                    className="flex h-9 shrink-0 items-center gap-1.5 border-b px-3 text-xs text-code-foreground [&_svg]:size-3.5 [&_svg]:opacity-70"
-                    data-language="md"
-                  >
-                    {getIconForLanguageExtension("md")}
-                    <span className="truncate font-mono">SKILL.md</span>
-                    <SkillFileCopyButton value={markdown} />
-                  </figcaption>
-                  <pre className="no-scrollbar max-h-72 overflow-auto whitespace-pre px-4 py-3.5 text-start font-mono text-[length:var(--docs-code)] leading-[1.5] text-code-foreground">
-                    {markdown}
-                  </pre>
-                </figure>
-              </TabsContent>
-            </Tabs>
+              </figcaption>
+              <div
+                className="max-h-72 overflow-auto text-start text-[length:var(--docs-code)] leading-[1.5] [&_pre]:max-h-none"
+                dangerouslySetInnerHTML={{ __html: highlightedMarkdown }}
+              />
+            </figure>
           </div>
 
           <h2>نصب</h2>
@@ -132,6 +109,39 @@ export function SkillDetail({
   )
 }
 
+function SkillSourceMeta({ source }: { source?: SkillSource }) {
+  const resolved: SkillSource = source ?? {
+    name: "FarsiUI",
+    verified: true,
+  }
+
+  return (
+    <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground/80">
+      {resolved.verified !== false ? (
+        <span className="inline-flex items-center gap-1">
+          <BadgeCheck className="size-3.5 shrink-0 opacity-80" aria-hidden />
+          مطمئن
+        </span>
+      ) : null}
+      <span className="opacity-40" aria-hidden>
+        ·
+      </span>
+      {resolved.url ? (
+        <a
+          href={resolved.url}
+          target="_blank"
+          rel="noreferrer"
+          className="transition-colors hover:text-foreground hover:underline hover:underline-offset-2"
+        >
+          از {resolved.name}
+        </a>
+      ) : (
+        <span>از {resolved.name}</span>
+      )}
+    </p>
+  )
+}
+
 function SkillFileCopyButton({ value }: { value: string }) {
   const [copied, setCopied] = React.useState(false)
 
@@ -148,8 +158,8 @@ function SkillFileCopyButton({ value }: { value: string }) {
       variant="ghost"
       data-slot="copy-button"
       className="size-6 cursor-pointer rounded-sm"
-      title={copied ? "کپی شد" : "کپی SKILL.md"}
-      aria-label={copied ? "کپی شد" : "کپی SKILL.md"}
+      title={copied ? "کپی شد" : "کپی فایل"}
+      aria-label={copied ? "کپی شد" : "کپی فایل"}
       onClick={async () => {
         const ok = await copyToClipboardWithMeta(value)
         if (ok) setCopied(true)
@@ -167,8 +177,8 @@ function SkillFileDownloadButton({ content }: { content: string }) {
       size="icon"
       variant="ghost"
       className="size-6 cursor-pointer rounded-sm"
-      title="دانلود SKILL.md"
-      aria-label="دانلود SKILL.md"
+      title="دانلود فایل"
+      aria-label="دانلود فایل"
       onClick={() => {
         const blob = new Blob([content], {
           type: "text/markdown;charset=utf-8",
@@ -185,61 +195,5 @@ function SkillFileDownloadButton({ content }: { content: string }) {
     >
       <Download className="size-3.5" />
     </Button>
-  )
-}
-
-function SkillSamplePreview({ skill }: { skill: Skill }) {
-  const isCodeSample =
-    skill.sample.without.includes("className") ||
-    skill.sample.with.includes("className") ||
-    skill.sample.without.includes("<html") ||
-    skill.sample.with.includes("<html") ||
-    skill.sample.without.includes("og:locale") ||
-    skill.sample.with.includes("og:locale")
-
-  const codeClassName =
-    "overflow-x-auto rounded-lg border bg-code px-3 py-3 text-start font-mono text-[length:var(--docs-code)] leading-[1.5] whitespace-pre text-code-foreground"
-
-  return (
-    <div className="space-y-4" dir="rtl" lang="fa">
-      <p className="text-[length:var(--docs-body)] leading-[1.7]">
-        <span className="font-medium">ورودی:</span> {skill.sample.prompt}
-      </p>
-
-      <div className="grid gap-3 sm:grid-cols-2">
-        <figure className="space-y-2">
-          <figcaption className="text-[length:var(--docs-small)] font-medium text-muted-foreground">
-            خروجی قبل از مهارت
-          </figcaption>
-          <blockquote
-            dir={isCodeSample ? "ltr" : "rtl"}
-            lang={isCodeSample ? "en" : "fa"}
-            className={
-              isCodeSample
-                ? `${codeClassName} opacity-80`
-                : "rounded-lg border bg-muted/25 px-3 py-3 text-[length:var(--docs-body)] leading-[1.7] text-muted-foreground"
-            }
-          >
-            {skill.sample.without}
-          </blockquote>
-        </figure>
-        <figure className="space-y-2">
-          <figcaption className="text-[length:var(--docs-small)] font-medium">
-            خروجی با مهارت
-          </figcaption>
-          <blockquote
-            dir={isCodeSample ? "ltr" : "rtl"}
-            lang={isCodeSample ? "en" : "fa"}
-            className={
-              isCodeSample
-                ? codeClassName
-                : "rounded-lg border border-foreground/12 bg-background px-3 py-3 text-[length:var(--docs-body)] leading-[1.7]"
-            }
-          >
-            {skill.sample.with}
-          </blockquote>
-        </figure>
-      </div>
-    </div>
   )
 }

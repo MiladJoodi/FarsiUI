@@ -9,7 +9,7 @@ export {
   skills,
   type Skill,
   type SkillInstallTarget,
-  type SkillSample,
+  type SkillSource,
 } from "@/lib/skills-data"
 
 const SKILLS_DIR = path.join(process.cwd(), "content/skills")

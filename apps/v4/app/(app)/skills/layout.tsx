@@ -8,7 +8,7 @@ import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
 
 const title = "مهارت‌ها"
 const description =
-  "مهارت‌ها فایل‌های Markdown هستند که به Agent یاد می‌دهند یک کار مشخص را چطور انجام دهد — برای Claude Code، Cursor و Codex."
+  "دستورالعمل‌های آماده برای وقتی با هوش مصنوعی فارسی می‌نویسید یا محصول فارسی می‌سازید — مناسب Cursor، Claude و Codex."
 
 export const metadata: Metadata = {
   title,

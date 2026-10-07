@@ -6,6 +6,7 @@ import {
   getSkillMarkdown,
   getSkillSlugs,
 } from "@/lib/skills"
+import { highlightCode } from "@/lib/highlight-code"
 import { SkillDetail } from "@/components/skill-detail"
 
 export const dynamicParams = true
@@ -65,5 +66,13 @@ export default async function SkillPage({
     notFound()
   }
 
-  return <SkillDetail skill={skill} markdown={markdown} />
+  const highlightedMarkdown = await highlightCode(markdown, "markdown")
+
+  return (
+    <SkillDetail
+      skill={skill}
+      markdown={markdown}
+      highlightedMarkdown={highlightedMarkdown}
+    />
+  )
 }

@@ -30,7 +30,7 @@ const ACTIVE_ITEM_CLASS =
   "relative h-10 w-full overflow-visible border border-transparent pe-1.5 text-[14px] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-primary/20 data-[active=true]:bg-primary/10 data-[active=true]:text-primary lg:h-8"
 
 const SIDEBAR_EN_CLASS =
-  "min-w-0 shrink truncate font-sans text-[12px] font-normal tracking-normal text-muted-foreground"
+  "min-w-0 max-w-[42%] shrink truncate font-sans text-[12px] font-normal tracking-normal text-muted-foreground"
 
 const SEARCH_DEBOUNCE_MS = 200
 
@@ -118,10 +118,12 @@ function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
                       href={`/skills/${skill.slug}`}
                       className="flex w-full min-w-0 items-center gap-2"
                     >
-                      <span className="truncate">{skill.title}</span>
+                      <span className="shrink-0 whitespace-nowrap">
+                        {skill.title}
+                      </span>
                       <span
                         aria-hidden
-                        className="mb-0.5 min-w-3 flex-1 border-b border-dashed border-border/60"
+                        className="mb-0.5 min-w-0 flex-1 border-b border-dashed border-border/60"
                       />
                       <span
                         dir="ltr"
