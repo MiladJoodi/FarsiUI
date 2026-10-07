@@ -115,17 +115,16 @@ function SkillSourceMeta({ source }: { source?: SkillSource }) {
     verified: true,
   }
 
+  const label = `منبع از ${resolved.name}`
+
   return (
-    <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground/80">
+    <p className="flex flex-wrap items-center gap-x-1 gap-y-0.5 text-xs text-muted-foreground/80">
       {resolved.verified !== false ? (
-        <span className="inline-flex items-center gap-1">
-          <BadgeCheck className="size-3.5 shrink-0 opacity-80" aria-hidden />
-          مطمئن
-        </span>
+        <BadgeCheck
+          className="size-3.5 shrink-0 opacity-80"
+          aria-hidden
+        />
       ) : null}
-      <span className="opacity-40" aria-hidden>
-        ·
-      </span>
       {resolved.url ? (
         <a
           href={resolved.url}
@@ -133,10 +132,10 @@ function SkillSourceMeta({ source }: { source?: SkillSource }) {
           rel="noreferrer"
           className="transition-colors hover:text-foreground hover:underline hover:underline-offset-2"
         >
-          از {resolved.name}
+          {label}
         </a>
       ) : (
-        <span>از {resolved.name}</span>
+        <span>{label}</span>
       )}
     </p>
   )
