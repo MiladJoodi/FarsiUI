@@ -1,0 +1,134 @@
+/**
+ * Vega (آرام · comfort) — calm chart + surface accents.
+ *
+ * Recipes stay in style-vega.css; these unlayered tokens make charts
+ * visibly shift when آرام is selected (default/nova charts stay grayscale).
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Light — soft sage / sky                                                    */
+/* -------------------------------------------------------------------------- */
+
+.style-vega {
+  --vega-chart-1: #5b8f7a;
+  --vega-chart-2: #6a8cae;
+  --vega-chart-3: #c4a35a;
+  --vega-chart-4: #8b7aa8;
+  --vega-chart-5: #7a8a8e;
+
+  --chart-1: var(--vega-chart-1);
+  --chart-2: var(--vega-chart-2);
+  --chart-3: var(--vega-chart-3);
+  --chart-4: var(--vega-chart-4);
+  --chart-5: var(--vega-chart-5);
+
+  --color-chart-1: var(--vega-chart-1);
+  --color-chart-2: var(--vega-chart-2);
+  --color-chart-3: var(--vega-chart-3);
+  --color-chart-4: var(--vega-chart-4);
+  --color-chart-5: var(--vega-chart-5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark — softer, slightly brighter                                           */
+/* -------------------------------------------------------------------------- */
+
+html.dark .style-vega {
+  --vega-chart-1: #7eb89a;
+  --vega-chart-2: #8aafd1;
+  --vega-chart-3: #d4b56e;
+  --vega-chart-4: #a899c4;
+  --vega-chart-5: #9aa8ac;
+
+  --chart-1: var(--vega-chart-1);
+  --chart-2: var(--vega-chart-2);
+  --chart-3: var(--vega-chart-3);
+  --chart-4: var(--vega-chart-4);
+  --chart-5: var(--vega-chart-5);
+
+  --color-chart-1: var(--vega-chart-1);
+  --color-chart-2: var(--vega-chart-2);
+  --color-chart-3: var(--vega-chart-3);
+  --color-chart-4: var(--vega-chart-4);
+  --color-chart-5: var(--vega-chart-5);
+}
+
+/*
+ * Keep chart palette when Primary Color themes are active on آرام
+ * (same specificity pattern as rose/glass owned accents).
+ */
+html body.style-vega.theme-default,
+html body.style-vega.theme-neutral,
+html body.style-vega.theme-blue,
+html body.style-vega.theme-green,
+html body.style-vega.theme-amber,
+html body.style-vega.theme-rose,
+html body.style-vega.theme-purple,
+html body.style-vega.theme-orange,
+html body.style-vega.theme-teal,
+html body.style-vega.theme-red,
+html body.style-vega.theme-yellow,
+html body.style-vega.theme-violet,
+html body.style-vega.theme-default .theme-container,
+html body.style-vega.theme-neutral .theme-container,
+html body.style-vega.theme-blue .theme-container,
+html body.style-vega.theme-green .theme-container,
+html body.style-vega.theme-amber .theme-container,
+html body.style-vega.theme-rose .theme-container,
+html body.style-vega.theme-purple .theme-container,
+html body.style-vega.theme-orange .theme-container,
+html body.style-vega.theme-teal .theme-container,
+html body.style-vega.theme-red .theme-container,
+html body.style-vega.theme-yellow .theme-container,
+html body.style-vega.theme-violet .theme-container,
+html body.style-vega .theme-container,
+html body.style-vega {
+  --chart-1: var(--vega-chart-1);
+  --chart-2: var(--vega-chart-2);
+  --chart-3: var(--vega-chart-3);
+  --chart-4: var(--vega-chart-4);
+  --chart-5: var(--vega-chart-5);
+  --color-chart-1: var(--vega-chart-1);
+  --color-chart-2: var(--vega-chart-2);
+  --color-chart-3: var(--vega-chart-3);
+  --color-chart-4: var(--vega-chart-4);
+  --color-chart-5: var(--vega-chart-5);
+}
+
+html.dark body.style-vega.theme-default,
+html.dark body.style-vega.theme-neutral,
+html.dark body.style-vega.theme-blue,
+html.dark body.style-vega.theme-green,
+html.dark body.style-vega.theme-amber,
+html.dark body.style-vega.theme-rose,
+html.dark body.style-vega.theme-purple,
+html.dark body.style-vega.theme-orange,
+html.dark body.style-vega.theme-teal,
+html.dark body.style-vega.theme-red,
+html.dark body.style-vega.theme-yellow,
+html.dark body.style-vega.theme-violet,
+html.dark body.style-vega.theme-default .theme-container,
+html.dark body.style-vega.theme-neutral .theme-container,
+html.dark body.style-vega.theme-blue .theme-container,
+html.dark body.style-vega.theme-green .theme-container,
+html.dark body.style-vega.theme-amber .theme-container,
+html.dark body.style-vega.theme-rose .theme-container,
+html.dark body.style-vega.theme-purple .theme-container,
+html.dark body.style-vega.theme-orange .theme-container,
+html.dark body.style-vega.theme-teal .theme-container,
+html.dark body.style-vega.theme-red .theme-container,
+html.dark body.style-vega.theme-yellow .theme-container,
+html.dark body.style-vega.theme-violet .theme-container,
+html.dark body.style-vega .theme-container,
+html.dark body.style-vega {
+  --chart-1: var(--vega-chart-1);
+  --chart-2: var(--vega-chart-2);
+  --chart-3: var(--vega-chart-3);
+  --chart-4: var(--vega-chart-4);
+  --chart-5: var(--vega-chart-5);
+  --color-chart-1: var(--vega-chart-1);
+  --color-chart-2: var(--vega-chart-2);
+  --color-chart-3: var(--vega-chart-3);
+  --color-chart-4: var(--vega-chart-4);
+  --color-chart-5: var(--vega-chart-5);
+}

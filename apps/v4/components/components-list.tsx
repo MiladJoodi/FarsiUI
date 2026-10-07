@@ -36,19 +36,19 @@ function ComponentCard({ component }: { component: PageTreePage }) {
 
   const titleRow = (
     <>
-      <span className="shrink-0 text-sm font-semibold tracking-tight text-primary">
+      <span className="shrink-0 text-[0.9375rem] font-semibold tracking-tight text-foreground">
         {fa}
       </span>
       {en ? (
         <>
           <span
             aria-hidden
-            className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
+            className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/20"
           />
           <span
             dir="ltr"
             lang="en"
-            className="shrink-0 text-xs tracking-wide text-muted-foreground"
+            className="shrink-0 text-xs tracking-wide text-muted-foreground/70"
           >
             {en}
           </span>
@@ -58,7 +58,7 @@ function ComponentCard({ component }: { component: PageTreePage }) {
   )
 
   return (
-    <div className="min-w-0 border-b border-border/60 last:border-b-0 md:border-b-0">
+    <div className="min-w-0 border-b border-border/40 last:border-b-0 md:border-b-0">
       {/* Mobile: compact list row — FA | dashed | EN */}
       <Link
         href={component.url}
@@ -69,12 +69,12 @@ function ComponentCard({ component }: { component: PageTreePage }) {
       </Link>
 
       {/* Desktop: title + wireframe card */}
-      <section className="hidden min-w-0 flex-col gap-2 md:flex">
+      <section className="hidden min-w-0 flex-col gap-2.5 md:flex">
         <div className="flex min-w-0 items-baseline gap-2">{titleRow}</div>
         <Link
           href={component.url}
           aria-label={ariaLabel}
-          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border/40 bg-background/60 outline-none ring-offset-background transition-[border-color,background-color] hover:border-border/60 hover:bg-background focus-visible:ring-2 focus-visible:ring-ring"
         >
           <ComponentWireframe slug={slug} />
         </Link>

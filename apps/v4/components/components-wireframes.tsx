@@ -1,13 +1,13 @@
 import type { JSX, ReactNode } from "react"
 
-/** Soft wire fills — readable, not harsh. */
-const fill = "bg-muted-foreground/15"
-const fillMid = "bg-muted-foreground/25"
-const fillBold = "bg-muted-foreground/40"
+/** Whisper-soft wire fills — Persian title leads; preview stays quiet. */
+const fill = "bg-muted-foreground/6"
+const fillMid = "bg-muted-foreground/9"
+const fillBold = "bg-muted-foreground/14"
 const surface =
-  "rounded-md border border-border/70 bg-background shadow-sm"
+  "rounded-md border border-border/30 bg-background/80 shadow-none"
 
-/** Outer shell: grey stage + white card (same pattern as /blocks). */
+/** Outer shell: quiet stage + light card (same pattern as /blocks). */
 function Shell({
   children,
   className = "w-auto max-w-[92%] px-2.5 py-2",
@@ -16,7 +16,7 @@ function Shell({
   className?: string
 }) {
   return (
-    <div className="flex size-full items-center justify-center bg-muted p-2">
+    <div className="flex size-full items-center justify-center bg-transparent p-2">
       <div
         className={`flex items-center justify-center overflow-hidden ${surface} ${className}`}
       >
@@ -30,7 +30,7 @@ function WfButton() {
   return (
     <Shell className="gap-1.5 px-3 py-2.5">
       <div className={`h-6 w-14 rounded-md ${fillBold}`} />
-      <div className={`h-6 w-14 rounded-md border border-border/70 ${fill}`} />
+      <div className={`h-6 w-14 rounded-md border border-border/35 ${fill}`} />
       <div className={`size-6 rounded-md ${fillMid}`} />
     </Shell>
   )
@@ -43,7 +43,7 @@ function WfButtonGroup() {
         {[0, 1, 2].map((i) => (
           <div
             key={i}
-            className={`h-6 w-11 border-s border-border/60 first:border-s-0 ${i === 1 ? fillBold : fill}`}
+            className={`h-6 w-11 border-s border-border/30 first:border-s-0 ${i === 1 ? fillBold : fill}`}
           />
         ))}
       </div>
@@ -55,7 +55,7 @@ function WfBadge() {
   return (
     <Shell className="gap-1.5 px-3 py-2.5">
       <div className={`h-4 w-10 rounded-full ${fillBold}`} />
-      <div className={`h-4 w-12 rounded-full border border-border/70 ${fillMid}`} />
+      <div className={`h-4 w-12 rounded-full border border-border/35 ${fillMid}`} />
       <div className={`h-4 w-8 rounded-full ${fill}`} />
     </Shell>
   )
@@ -74,7 +74,7 @@ function WfAvatar() {
 function WfAccordion() {
   return (
     <Shell className="w-full max-w-[92%] flex-col p-0">
-      <div className="flex w-full items-center justify-between border-b border-border/60 px-2 py-1">
+      <div className="flex w-full items-center justify-between border-b border-border/30 px-2 py-1">
         <div className={`h-1.5 w-1/2 rounded-sm ${fillBold}`} />
         <div className={`size-2.5 rounded-sm ${fillMid}`} />
       </div>
@@ -82,7 +82,7 @@ function WfAccordion() {
         <div className={`h-1 w-full rounded-sm ${fill}`} />
         <div className={`h-1 w-3/4 rounded-sm ${fill}`} />
       </div>
-      <div className="flex w-full items-center justify-between border-t border-border/60 px-2 py-1">
+      <div className="flex w-full items-center justify-between border-t border-border/30 px-2 py-1">
         <div className={`h-1.5 w-2/5 rounded-sm ${fillMid}`} />
         <div className={`size-2.5 rounded-sm ${fill}`} />
       </div>
@@ -119,7 +119,7 @@ function WfAspectRatio() {
   return (
     <Shell className="w-[75%] p-1.5">
       <div
-        className={`aspect-video w-full rounded-sm border border-dashed border-muted-foreground/30 ${fillMid}`}
+        className={`aspect-video w-full rounded-sm border border-dashed border-muted-foreground/15 ${fillMid}`}
       />
     </Shell>
   )
@@ -196,7 +196,7 @@ function WfCheckbox() {
       {[0, 1].map((i) => (
         <div key={i} className="flex items-center gap-1.5">
           <div
-            className={`size-3 rounded-sm border border-border/70 ${i === 0 ? fillBold : ""}`}
+            className={`size-3 rounded-sm border border-border/35 ${i === 0 ? fillBold : ""}`}
           />
           <div className={`h-1.5 w-20 rounded-sm ${fillMid}`} />
         </div>
@@ -211,7 +211,7 @@ function WfRadio() {
       {[0, 1].map((i) => (
         <div key={i} className="flex items-center gap-1.5">
           <div
-            className={`size-3 rounded-full border-2 ${i === 0 ? "border-muted-foreground/40 bg-muted-foreground/40" : "border-muted-foreground/25"}`}
+            className={`size-3 rounded-full border-2 ${i === 0 ? "border-muted-foreground/20 bg-muted-foreground/10" : "border-muted-foreground/12"}`}
           />
           <div className={`h-1.5 w-16 rounded-sm ${fillMid}`} />
         </div>
@@ -263,7 +263,7 @@ function WfInput() {
   return (
     <Shell className="w-[90%] flex-col gap-1 px-2.5 py-2">
       <div className={`h-1 w-1/4 rounded-sm ${fillMid}`} />
-      <div className={`h-6 w-full rounded-md border border-border/70 ${fill}`} />
+      <div className={`h-6 w-full rounded-md border border-border/35 ${fill}`} />
     </Shell>
   )
 }
@@ -272,7 +272,7 @@ function WfTextarea() {
   return (
     <Shell className="w-[90%] flex-col gap-1 px-2.5 py-2">
       <div className={`h-1 w-1/4 rounded-sm ${fillMid}`} />
-      <div className={`h-10 w-full rounded-md border border-border/70 ${fill}`} />
+      <div className={`h-10 w-full rounded-md border border-border/35 ${fill}`} />
     </Shell>
   )
 }
@@ -295,7 +295,7 @@ function WfInputOtp() {
       {[0, 1, 2, 3].map((i) => (
         <div
           key={i}
-          className={`size-6 rounded-md border border-border/70 ${i < 2 ? fillBold : fill}`}
+          className={`size-6 rounded-md border border-border/35 ${i < 2 ? fillBold : fill}`}
         />
       ))}
     </Shell>
@@ -314,7 +314,7 @@ function WfSelect() {
 function WfCombobox() {
   return (
     <Shell className="w-[85%] flex-col gap-1 p-1.5">
-      <div className="flex h-5 w-full items-center justify-between rounded-md border border-border/70 px-1.5">
+      <div className="flex h-5 w-full items-center justify-between rounded-md border border-border/35 px-1.5">
         <div className={`h-1.5 w-1/3 rounded-sm ${fillMid}`} />
         <div className={`size-2 rounded-sm ${fill}`} />
       </div>
@@ -338,7 +338,7 @@ function WfField() {
   return (
     <Shell className="w-[90%] flex-col gap-1 px-2.5 py-2">
       <div className={`h-1.5 w-1/4 rounded-sm ${fillBold}`} />
-      <div className={`h-6 w-full rounded-md border border-border/70 ${fill}`} />
+      <div className={`h-6 w-full rounded-md border border-border/35 ${fill}`} />
       <div className={`h-1 w-2/5 rounded-sm ${fill}`} />
     </Shell>
   )
@@ -351,8 +351,8 @@ function WfDialog() {
 function WfSheet() {
   return (
     <Shell className="h-[90%] w-[92%] flex-row p-0">
-      <div className="flex-1 bg-muted/40" />
-      <div className="flex h-full w-[40%] flex-col gap-1 border-s border-border/60 p-1.5">
+      <div className="flex-1 bg-muted/10" />
+      <div className="flex h-full w-[40%] flex-col gap-1 border-s border-border/30 p-1.5">
         <div className={`h-1.5 w-1/2 rounded-sm ${fillBold}`} />
         <div className={`h-1 w-full rounded-sm ${fill}`} />
         <div className={`mt-auto h-5 w-full rounded-sm ${fillBold}`} />
@@ -364,8 +364,8 @@ function WfSheet() {
 function WfDrawer() {
   return (
     <Shell className="h-[90%] w-[92%] flex-col p-0">
-      <div className="flex-1 bg-muted/40" />
-      <div className="flex h-[70%] flex-col gap-1 rounded-t-md border-t border-border/60 p-1.5">
+      <div className="flex-1 bg-muted/10" />
+      <div className="flex h-[70%] flex-col gap-1 rounded-t-md border-t border-border/30 p-1.5">
         <div className={`mx-auto h-0.5 w-6 rounded-full ${fillMid}`} />
         <div className={`h-1.5 w-1/3 rounded-sm ${fillBold}`} />
         <div className={`h-1 w-full rounded-sm ${fill}`} />
@@ -379,7 +379,7 @@ function WfPopover() {
   return (
     <Shell className="gap-1.5 px-2.5 py-2">
       <div className={`h-5 w-12 rounded-md ${fillBold}`} />
-      <div className="w-20 space-y-1 rounded-md border border-border/60 p-1.5">
+      <div className="w-20 space-y-1 rounded-md border border-border/30 p-1.5">
         <div className={`h-1 w-full rounded-sm ${fill}`} />
         <div className={`h-1 w-4/5 rounded-sm ${fill}`} />
         <div className={`h-1 w-3/5 rounded-sm ${fill}`} />
@@ -421,13 +421,13 @@ function WfContextMenu() {
 function WfMenubar() {
   return (
     <Shell className="h-[90%] w-[92%] flex-col p-0">
-      <div className="flex h-6 w-full items-center gap-2 border-b border-border/60 px-2">
+      <div className="flex h-6 w-full items-center gap-2 border-b border-border/30 px-2">
         {["w-6", "w-8", "w-7"].map((w, i) => (
           <div key={i} className={`h-1.5 rounded-sm ${fillMid} ${w}`} />
         ))}
       </div>
       <div className="flex w-full flex-1 items-start p-1.5">
-        <div className="w-20 space-y-0.5 rounded-md border border-border/60 p-1">
+        <div className="w-20 space-y-0.5 rounded-md border border-border/30 p-1">
           <div className={`h-3 rounded-sm ${fillBold}`} />
           <div className={`h-3 rounded-sm ${fill}`} />
         </div>
@@ -439,7 +439,7 @@ function WfMenubar() {
 function WfNavigationMenu() {
   return (
     <Shell className="h-[90%] w-[92%] flex-col p-0">
-      <div className="flex h-6 w-full items-center justify-center gap-3 border-b border-border/60">
+      <div className="flex h-6 w-full items-center justify-center gap-3 border-b border-border/30">
         {[0, 1, 2].map((i) => (
           <div
             key={i}
@@ -535,10 +535,10 @@ function WfSidebar() {
   return (
     <Shell className="h-[90%] w-[92%] flex-row p-0">
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className={`h-4 border-b border-border/60 ${fill}`} />
+        <div className={`h-4 border-b border-border/30 ${fill}`} />
         <div className={`m-1 min-h-0 flex-1 rounded-sm ${fill}`} />
       </div>
-      <aside className="flex w-[30%] flex-col gap-1 border-s border-border/60 bg-muted/40 p-1">
+      <aside className="flex w-[30%] flex-col gap-1 border-s border-border/30 bg-muted/10 p-1">
         <div className={`h-1.5 w-3/4 rounded-sm ${fillBold}`} />
         {[0, 1, 2].map((i) => (
           <div
@@ -565,7 +565,7 @@ function WfSkeleton() {
 function WfSpinner() {
   return (
     <Shell className="px-4 py-3">
-      <div className="size-6 rounded-full border-2 border-muted-foreground/20 border-t-muted-foreground/45" />
+      <div className="size-6 rounded-full border-2 border-muted-foreground/20 border-t-muted-foreground/25" />
     </Shell>
   )
 }
@@ -574,7 +574,7 @@ function WfEmpty() {
   return (
     <Shell className="flex-col gap-1 px-4 py-2.5">
       <div
-        className={`size-7 rounded-md border border-dashed border-muted-foreground/30 ${fill}`}
+        className={`size-7 rounded-md border border-dashed border-muted-foreground/15 ${fill}`}
       />
       <div className={`h-1.5 w-16 rounded-sm ${fillBold}`} />
       <div className={`h-4 w-12 rounded-sm ${fillBold}`} />
@@ -599,7 +599,7 @@ function WfCollapsible() {
 function WfCommand() {
   return (
     <Shell className="w-full max-w-[92%] flex-col p-0">
-      <div className={`h-5 w-full border-b border-border/60 ${fill}`} />
+      <div className={`h-5 w-full border-b border-border/30 ${fill}`} />
       <div className="flex w-full gap-1 p-1">
         <div className={`h-3.5 flex-1 rounded-sm ${fillBold}`} />
         <div className={`h-3.5 flex-1 rounded-sm ${fill}`} />
@@ -638,7 +638,7 @@ function WfToggle() {
   return (
     <Shell className="gap-1.5 px-3 py-2.5">
       <div className={`size-6 rounded-md ${fillBold}`} />
-      <div className={`size-6 rounded-md border border-border/70 ${fill}`} />
+      <div className={`size-6 rounded-md border border-border/35 ${fill}`} />
     </Shell>
   )
 }
@@ -650,9 +650,9 @@ function WfToggleGroup() {
 function WfKbd() {
   return (
     <Shell className="gap-1 px-3 py-2.5">
-      <div className={`h-5 w-5 rounded border border-border/70 ${fillMid}`} />
-      <div className={`h-5 w-5 rounded border border-border/70 ${fillMid}`} />
-      <div className={`h-5 w-8 rounded border border-border/70 ${fillMid}`} />
+      <div className={`h-5 w-5 rounded border border-border/35 ${fillMid}`} />
+      <div className={`h-5 w-5 rounded border border-border/35 ${fillMid}`} />
+      <div className={`h-5 w-8 rounded border border-border/35 ${fillMid}`} />
     </Shell>
   )
 }
@@ -675,7 +675,7 @@ function WfItem() {
       {[0, 1].map((i) => (
         <div
           key={i}
-          className="flex flex-1 items-center gap-1.5 rounded-md border border-border/60 p-1"
+          className="flex flex-1 items-center gap-1.5 rounded-md border border-border/30 p-1"
         >
           <div className={`size-5 shrink-0 rounded-sm ${fillMid}`} />
           <div className="min-w-0 flex-1 space-y-0.5">
@@ -729,7 +729,7 @@ function WfMessageScroller() {
         <div className={`h-4 w-[45%] rounded-xl ${fill}`} />
         <div className={`ms-auto h-4 w-[35%] rounded-xl ${fillBold}`} />
       </div>
-      <div className="w-full border-t border-border/60 p-1">
+      <div className="w-full border-t border-border/30 p-1">
         <div className={`h-5 w-full rounded-full ${fill}`} />
       </div>
     </Shell>
@@ -742,7 +742,7 @@ function WfAttachment() {
       {[0, 1].map((i) => (
         <div
           key={i}
-          className="flex flex-1 items-center gap-1 rounded-md border border-border/60 p-1"
+          className="flex flex-1 items-center gap-1 rounded-md border border-border/30 p-1"
         >
           <div className={`size-6 shrink-0 rounded-sm ${fillMid}`} />
           <div className="min-w-0 flex-1 space-y-0.5">
@@ -773,7 +773,7 @@ function WfQuestionnaire() {
         {[0, 1, 2].map((i) => (
           <div
             key={i}
-            className={`flex h-5 flex-1 items-center gap-1 rounded-sm border px-1 ${i === 0 ? "border-muted-foreground/30 bg-muted/40" : "border-border/60"}`}
+            className={`flex h-5 flex-1 items-center gap-1 rounded-sm border px-1 ${i === 0 ? "border-muted-foreground/15 bg-muted/10" : "border-border/30"}`}
           >
             <div className={`size-2 shrink-0 rounded-full border ${fillMid}`} />
             <div className={`h-1 flex-1 rounded-sm ${fill}`} />
@@ -863,7 +863,7 @@ const WIREFRAMES: Record<string, () => JSX.Element> = {
 export function ComponentWireframe({ slug }: { slug: string }) {
   const Frame = WIREFRAMES[slug] ?? WfCard
   return (
-    <div aria-hidden className="relative aspect-16/5 overflow-hidden">
+    <div aria-hidden className="relative aspect-16/4 overflow-hidden">
       <Frame />
     </div>
   )

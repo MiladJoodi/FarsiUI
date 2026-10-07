@@ -158,6 +158,21 @@
   --code-number: oklch(0.56 0 0);
   --selection: oklch(0% 0 0);
   --selection-foreground: oklch(1 0 0);
+
+  /* Soft, DS-aware scrollbars — colors follow --muted-foreground / --primary. */
+  --scrollbar-size: 5px;
+  --scrollbar-track: transparent;
+  --scrollbar-radius: 999px;
+  --scrollbar-thumb: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--muted-foreground) 88%, var(--primary) 12%) 24%,
+    transparent
+  );
+  --scrollbar-thumb-hover: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--muted-foreground) 78%, var(--primary) 22%) 40%,
+    transparent
+  );
 }
 
 .dark {
@@ -209,6 +224,8 @@
     scroll-padding-top: var(--header-height);
     /* Keep layout stable when overlays lock/unlock page scroll. */
     scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 
   /* Mobile: when the main header hides on scroll, فهرست sits at the top. */
@@ -218,7 +235,62 @@
 
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
+
+  *::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  /* Radix ScrollArea — thinner + same soft DS tint as native bars. */
+  [data-slot="scroll-area-scrollbar"][data-orientation="vertical"] {
+    width: var(--scrollbar-size);
+  }
+
+  [data-slot="scroll-area-scrollbar"][data-orientation="horizontal"] {
+    height: var(--scrollbar-size);
+  }
+
+  [data-slot="scroll-area-thumb"] {
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
+  }
+
+  [data-slot="scroll-area-thumb"]:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  /* Recipe ScrollAreas (cn-*) — keep thin + soft DS tint. */
+  .cn-scroll-area-scrollbar[data-orientation="vertical"],
+  .cn-scroll-area-scrollbar[data-vertical] {
+    width: var(--scrollbar-size);
+  }
+
+  .cn-scroll-area-scrollbar[data-orientation="horizontal"],
+  .cn-scroll-area-scrollbar[data-horizontal] {
+    height: var(--scrollbar-size);
+  }
+
+  .cn-scroll-area-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
+  }
+
   ::selection {
     @apply bg-selection text-selection-foreground;
   }
@@ -346,36 +418,27 @@ body[class*="theme-"],
   }
 }
 
-/* Thin, low-contrast scrollbar for sidebars and similar panels. */
+/* Thin, low-contrast scrollbar for sidebars and similar panels (matches global DS bars). */
 @utility scrollbar-soft {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in oklab, var(--muted-foreground) 28%, transparent)
-    transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 
   &::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
   }
 
   &::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--scrollbar-track);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: color-mix(
-      in oklab,
-      var(--muted-foreground) 28%,
-      transparent
-    );
-    border-radius: 999px;
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: color-mix(
-      in oklab,
-      var(--muted-foreground) 48%,
-      transparent
-    );
+    background-color: var(--scrollbar-thumb-hover);
   }
 }
 

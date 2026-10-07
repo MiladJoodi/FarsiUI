@@ -4,55 +4,19 @@ const pulse = "animate-pulse rounded-sm bg-muted-foreground/20"
 const pulseMid = "animate-pulse rounded-sm bg-muted-foreground/30"
 const pulseBold = "animate-pulse rounded-sm bg-muted-foreground/40"
 
-/** Chart-shaped placeholder (toolbar-ish + plot). Used in iframes + route loading. */
+/** Plain muted skeleton (no chart-shaped art). Used in iframes + route loading. */
 export function ChartPlotSkeleton({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex size-full flex-col gap-2 bg-muted/50 p-3",
+        "flex size-full flex-col justify-center gap-2 bg-transparent p-3",
         className
       )}
       aria-hidden
     >
-      <div className="flex items-center justify-between gap-2">
-        <div className={cn("h-2 w-14", pulseBold)} />
-        <div className="flex gap-1">
-          <div className={cn("h-1.5 w-5", pulse)} />
-          <div className={cn("h-1.5 w-5", pulseMid)} />
-        </div>
-      </div>
-      <div className="relative min-h-0 flex-1 overflow-hidden rounded-md border border-border/70 bg-background px-2 pt-2 pb-1">
-        <svg
-          viewBox="0 0 100 40"
-          className="absolute inset-x-2 top-2 h-[55%] w-[calc(100%-1rem)] text-muted-foreground/35"
-          preserveAspectRatio="none"
-          aria-hidden
-        >
-          <path
-            d="M0 30 C14 28, 24 12, 36 16 S58 32, 70 20 S88 8, 100 14 V40 H0 Z"
-            fill="currentColor"
-            opacity="0.35"
-          />
-          <path
-            d="M0 30 C14 28, 24 12, 36 16 S58 32, 70 20 S88 8, 100 14"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-        </svg>
-        <div className="absolute inset-x-2 bottom-1 flex h-[42%] items-end gap-1.5">
-          {[42, 68, 34, 78, 52, 64, 48].map((h, i) => (
-            <div
-              key={i}
-              className={cn(
-                "w-full rounded-t-sm",
-                i % 2 ? pulseBold : pulseMid
-              )}
-              style={{ height: `${h}%` }}
-            />
-          ))}
-        </div>
-      </div>
+      <div className={cn("h-2.5 w-1/3 rounded-md", pulseBold)} />
+      <div className={cn("h-2 w-2/3 rounded-md", pulse)} />
+      <div className={cn("mt-0.5 min-h-8 flex-1 rounded-md", pulseMid)} />
     </div>
   )
 }
@@ -98,7 +62,7 @@ export function ShowcaseTileSkeleton({
         <div className="overflow-hidden rounded-xl border border-border bg-background">
           <div className="relative aspect-16/5 overflow-hidden">
             {variant === "chart" ? (
-              <ChartPlotSkeleton className="bg-muted p-2" />
+              <ChartPlotSkeleton className="bg-transparent p-2" />
             ) : (
               <BlockTileWireSkeleton />
             )}
@@ -111,8 +75,8 @@ export function ShowcaseTileSkeleton({
 
 function BlockTileWireSkeleton() {
   return (
-    <div className="flex size-full items-center justify-center bg-muted p-2">
-      <div className="flex w-full max-w-[94%] flex-col gap-1 overflow-hidden rounded-md border border-border/70 bg-background p-2 shadow-sm">
+    <div className="flex size-full items-center justify-center bg-transparent p-2">
+      <div className="flex w-full max-w-[94%] flex-col gap-1 overflow-hidden rounded-md border border-border/40 bg-background/80 p-2 shadow-none">
         <div className={cn("h-1.5 w-1/2", pulseBold)} />
         <div className={cn("h-1 w-3/4", pulse)} />
         <div className={cn("mt-0.5 h-4 w-full rounded-sm border border-border/60", pulse)} />

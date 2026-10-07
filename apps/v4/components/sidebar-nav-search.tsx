@@ -4,13 +4,6 @@ import * as React from "react"
 import { SearchIcon, XIcon } from "lucide-react"
 import { cn } from "cn"
 
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-
 export function normalizeNavSearch(value: string) {
   return value
     .toLowerCase()
@@ -39,13 +32,15 @@ export function SidebarNavSearch({
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   return (
-    <InputGroup className="group/sidebar-search h-8 border-border/70 bg-background/80 shadow-none transition-colors focus-within:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/35 has-[[data-slot=input-group-control]:focus-visible]:ring-0 dark:bg-input/20 dark:focus-within:border-foreground/45 dark:has-[[data-slot=input-group-control]:focus-visible]:border-foreground/45">
-      <InputGroupAddon>
-        <SearchIcon className="size-3.5 opacity-60" />
-      </InputGroupAddon>
-      <InputGroupInput
+    <div className="group/sidebar-search relative w-full">
+      <SearchIcon
+        aria-hidden
+        className="pointer-events-none absolute start-3 top-1/2 z-10 size-3.5 -translate-y-1/2 text-muted-foreground/70"
+      />
+      <input
         ref={inputRef}
         data-sidebar-nav-search=""
+        data-slot="input-group-control"
         value={value}
         onChange={(event) => onValueChange(event.target.value)}
         onKeyDown={(event) => {
@@ -59,23 +54,27 @@ export function SidebarNavSearch({
           }
         }}
         placeholder="جستجو..."
-        className={cn("h-8 text-[0.8rem]", inputClassName)}
         aria-label="جستجو در آیتم‌های سایدبار"
+        className={cn(
+          "h-8 w-full min-w-0 rounded-md border border-border/70 bg-background/80 py-0 pe-9 ps-9 text-[0.8rem] leading-none text-foreground shadow-none outline-none transition-colors placeholder:text-muted-foreground",
+          "focus-visible:border-foreground/35 focus-visible:ring-0",
+          "dark:border-border/60 dark:bg-input/20 dark:focus-visible:border-foreground/45",
+          inputClassName
+        )}
       />
       {value ? (
-        <InputGroupAddon align="inline-end" className="gap-1">
-          <InputGroupButton
-            size="icon-xs"
-            aria-label="پاک کردن جستجو"
-            onClick={() => {
-              onClear()
-              inputRef.current?.focus()
-            }}
-          >
-            <XIcon className="size-3.5" />
-          </InputGroupButton>
-        </InputGroupAddon>
+        <button
+          type="button"
+          aria-label="پاک کردن جستجو"
+          className="absolute end-1.5 top-1/2 z-10 flex size-5 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground"
+          onClick={() => {
+            onClear()
+            inputRef.current?.focus()
+          }}
+        >
+          <XIcon className="size-3.5" />
+        </button>
       ) : null}
-    </InputGroup>
+    </div>
   )
 }

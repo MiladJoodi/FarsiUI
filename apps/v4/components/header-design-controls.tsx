@@ -148,7 +148,7 @@ function MobileDesignStudio({
             ظاهر، فونت و رنگ
           </DrawerDescription>
         </DrawerHeader>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6 scrollbar-soft">
           {open ? <StudioBody hideColor={hideColor} /> : null}
         </div>
       </DrawerContent>
@@ -187,7 +187,7 @@ function DesktopDesignStudio({
         sideOffset={8}
         className="w-[min(22.5rem,calc(100vw-1.5rem))] p-0 duration-100 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100"
       >
-        <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain p-3.5">
+        <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain p-3.5 scrollbar-soft">
           {open ? <StudioBody hideColor={hideColor} /> : null}
         </div>
       </PopoverContent>

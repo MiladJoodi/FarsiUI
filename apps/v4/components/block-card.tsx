@@ -12,7 +12,9 @@ import { type z } from "zod"
 
 import { trackEvent } from "@/lib/events"
 import { type FileTree } from "@/lib/registry"
+import { withViewColorMode } from "@/lib/view-color-mode"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useTheme } from "next-themes"
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { useMediaQuery } from "@/hooks/use-media-query"
@@ -113,6 +115,8 @@ export function BlockCard({
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
   const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  const { resolvedTheme } = useTheme()
+  const colorMode = resolvedTheme === "dark" ? "dark" : "light"
   // Prefer the header Design System style (e.g. base-glass) over the page's
   // default registry style so blocks match the installable style.
   const previewStyleName = designSystemStyleName || styleName
@@ -233,7 +237,10 @@ export function BlockCard({
               title="باز کردن در تب جدید"
             >
               <Link
-                href={`/view/${previewStyleName}/${item.name}`}
+                href={withViewColorMode(
+                  `/view/${previewStyleName}/${item.name}`,
+                  colorMode
+                )}
                 target="_blank"
                 rel="noreferrer"
               >

@@ -36,7 +36,7 @@ export function ChartDisplay({
       />
       <div className="relative z-10 overflow-hidden rounded-xl bg-background">
         <ChartIframe
-          src={`/view/${styleName}/${chart.name}`}
+          src={`/view/${styleName}/${chart.name}?surface=flat`}
           height={460}
           title={chart.name}
           priority={priority}

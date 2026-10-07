@@ -27,7 +27,9 @@ import {
   type createFileTreeForRegistryItemFiles,
   type FileTree,
 } from "@/lib/registry"
+import { withViewColorMode } from "@/lib/view-color-mode"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useTheme } from "next-themes"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { useDesignSystemPreview } from "@/components/design-system-preview"
 import { getIconForLanguageExtension } from "@/components/icons"
@@ -146,6 +148,8 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
     useBlockViewer()
   const { copyToClipboard, isCopied } = useCopyToClipboard()
   const { styleName: designSystemStyleName } = useDesignSystemPreview()
+  const { resolvedTheme } = useTheme()
+  const colorMode = resolvedTheme === "dark" ? "dark" : "light"
   const previewStyleName = designSystemStyleName || styleName
   const installCommand = `npx farsiui@latest add ${item.name}`
 
@@ -204,7 +208,13 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
           asChild
           title="باز کردن در تب جدید"
         >
-          <Link href={`/view/${previewStyleName}/${item.name}`} target="_blank">
+          <Link
+            href={withViewColorMode(
+              `/view/${previewStyleName}/${item.name}`,
+              colorMode
+            )}
+            target="_blank"
+          >
             <span className="sr-only">باز کردن در تب جدید</span>
             <Fullscreen />
           </Link>

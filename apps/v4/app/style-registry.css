@@ -20,6 +20,7 @@
  * legacy-themes.css theme-* primary overrides on .theme-container.
  */
 @import "../registry/styles/aether-tokens.css";
+@import "../registry/styles/vega-tokens.css";
 @import "../registry/styles/glass-tokens.css";
 @import "../registry/styles/rose-tokens.css";
 @import "../registry/styles/nili-tokens.css";

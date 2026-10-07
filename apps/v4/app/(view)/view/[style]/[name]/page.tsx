@@ -140,13 +140,16 @@ export async function generateStaticParams() {
 
 export default async function BlockPage({
   params,
+  searchParams,
 }: {
   params: Promise<{
     style: string
     name: string
   }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
 }) {
   const { style: styleName, name } = await params
+  const query = await searchParams
   const style = getStyle(styleName)
 
   if (!style) {
@@ -161,9 +164,13 @@ export default async function BlockPage({
   }
 
   const visualStyleClass = getVisualStyleClass(style.name)
+  const modeRaw = query.mode
+  const modeValue = Array.isArray(modeRaw) ? modeRaw[0] : modeRaw
+  const colorMode =
+    modeValue === "dark" || modeValue === "light" ? modeValue : null
 
   return (
-    <ComponentPreview styleClass={visualStyleClass}>
+    <ComponentPreview styleClass={visualStyleClass} colorMode={colorMode}>
       {/* Embed mode overrides .min-h-svh via client CSS when ?embed=1 */}
       <div className="min-h-svh">
         <Component />

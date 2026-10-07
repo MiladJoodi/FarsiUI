@@ -6,14 +6,14 @@ import Link from "next/link"
 import type { FeaturedBlockSample } from "@/lib/blocks-featured"
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
 
-/** Soft wire fills — readable, not harsh. */
-const fill = "bg-muted-foreground/15"
-const fillMid = "bg-muted-foreground/25"
-const fillBold = "bg-muted-foreground/40"
+/** Whisper-soft wire fills — title stays primary; preview stays quiet. */
+const fill = "bg-muted-foreground/6"
+const fillMid = "bg-muted-foreground/9"
+const fillBold = "bg-muted-foreground/14"
 const surface =
-  "rounded-md border border-border/70 bg-background shadow-sm"
+  "rounded-md border border-border/30 bg-background/80 shadow-none"
 
-/** Outer shell: grey stage + white card (same pattern as component wireframes). */
+/** Outer shell: quiet stage + light card (same pattern as component wireframes). */
 function WireStage({
   children,
   className = "w-full max-w-[94%]",
@@ -22,7 +22,7 @@ function WireStage({
   className?: string
 }) {
   return (
-    <div className="flex size-full items-center justify-center bg-muted p-2">
+    <div className="flex size-full items-center justify-center bg-transparent p-2">
       <div className={`flex flex-col overflow-hidden ${surface} ${className}`}>
         {children}
       </div>
@@ -38,14 +38,14 @@ function WireframeFormsAuth() {
       <div className={`h-1 w-3/4 rounded-sm ${fill}`} />
       <div className="mt-0.5 space-y-0.5">
         <div className={`h-1 w-1/3 rounded-sm ${fillMid}`} />
-        <div className={`h-4 w-full rounded-sm border border-border/60 ${fill}`} />
+        <div className={`h-4 w-full rounded-sm border border-border/30 ${fill}`} />
       </div>
       <div className="space-y-0.5">
         <div className="flex justify-between gap-2">
           <div className={`h-1 w-1/3 rounded-sm ${fillMid}`} />
           <div className={`h-1 w-1/4 rounded-sm ${fill}`} />
         </div>
-        <div className={`h-4 w-full rounded-sm border border-border/60 ${fill}`} />
+        <div className={`h-4 w-full rounded-sm border border-border/30 ${fill}`} />
       </div>
       <div className={`mt-0.5 h-5 w-full rounded-sm ${fillBold}`} />
     </WireStage>
@@ -70,7 +70,7 @@ function WireframeNavigation() {
   return (
     <WireStage className="h-full w-full max-w-none flex-row">
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-5 items-center gap-1 border-b border-border/60 px-1.5">
+        <div className="flex h-5 items-center gap-1 border-b border-border/30 px-1.5">
           <div className={`size-2.5 rounded-sm ${fillMid}`} />
           <div className={`h-1 w-6 rounded-sm ${fill}`} />
           <div className={`h-1 w-1 rounded-full ${fill}`} />
@@ -85,7 +85,7 @@ function WireframeNavigation() {
           <div className={`min-h-0 flex-1 rounded-sm ${fill}`} />
         </div>
       </div>
-      <aside className="flex w-[34%] flex-col gap-1 border-s border-border/60 bg-muted/40 p-1.5">
+      <aside className="flex w-[34%] flex-col gap-1 border-s border-border/30 bg-muted/10 p-1.5">
         <div className={`mb-0.5 h-1.5 w-3/4 rounded-sm ${fillBold}`} />
         {[0, 1, 2, 3].map((i) => (
           <div
@@ -104,7 +104,7 @@ function WireframeNavigation() {
 function WireframeContent() {
   return (
     <WireStage className="w-full max-w-[94%] justify-center gap-1.5 px-2 py-1.5">
-      <div className="border-b border-border/60 pb-1">
+      <div className="border-b border-border/30 pb-1">
         <div className={`h-2 w-2/5 rounded-sm ${fillBold}`} />
         <div className={`mt-1 h-1 w-1/2 rounded-sm ${fill}`} />
       </div>
@@ -116,7 +116,7 @@ function WireframeContent() {
         ].map((lines, i) => (
           <div
             key={i}
-            className="flex flex-col gap-0.5 border-s border-border/60 ps-1.5 first:border-s-0 first:ps-0"
+            className="flex flex-col gap-0.5 border-s border-border/30 ps-1.5 first:border-s-0 first:ps-0"
           >
             <div className={`h-1 rounded-sm ${fill} ${lines[0]}`} />
             <div className={`mt-0.5 h-1.5 rounded-sm ${fillBold} ${lines[1]}`} />
@@ -134,7 +134,7 @@ function WireframeDashboard() {
   return (
     <WireStage className="h-full w-full max-w-none flex-row">
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-5 items-center border-b border-border/60 px-1.5">
+        <div className="flex h-5 items-center border-b border-border/30 px-1.5">
           <div className={`h-1.5 w-12 rounded-sm ${fillBold}`} />
         </div>
         <div className="flex flex-1 flex-col gap-1 p-1">
@@ -142,17 +142,17 @@ function WireframeDashboard() {
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="flex flex-col gap-0.5 rounded-sm border border-border/60 bg-muted/30 p-1"
+                className="flex flex-col gap-0.5 rounded-sm border border-border/30 bg-muted/15 p-1"
               >
                 <div className={`h-1 w-1/2 rounded-sm ${fill}`} />
                 <div className={`h-2 w-3/4 rounded-sm ${fillBold}`} />
               </div>
             ))}
           </div>
-          <div className="relative min-h-0 flex-1 overflow-hidden rounded-md border border-border/60 bg-muted/20 px-1.5 pt-2">
+          <div className="relative min-h-0 flex-1 overflow-hidden rounded-md border border-border/30 bg-muted/10 px-1.5 pt-2">
             <svg
               viewBox="0 0 100 36"
-              className="size-full text-muted-foreground/40"
+              className="size-full text-muted-foreground/20"
               preserveAspectRatio="none"
             >
               <path
@@ -170,7 +170,7 @@ function WireframeDashboard() {
           </div>
         </div>
       </div>
-      <aside className="flex w-[28%] flex-col gap-1.5 border-s border-border/60 bg-muted/40 p-1.5">
+      <aside className="flex w-[28%] flex-col gap-1.5 border-s border-border/30 bg-muted/10 p-1.5">
         <div className={`mb-0.5 h-2 w-3/4 rounded-sm ${fillBold}`} />
         {[0, 1, 2, 3, 4, 5].map((i) => (
           <div
@@ -209,7 +209,7 @@ function WireframeAccount() {
   return (
     <WireStage className="w-full max-w-[94%] items-center gap-1 px-2.5 py-2">
       <div
-        className={`size-8 rounded-full border-2 border-muted ${fillBold} shadow-sm`}
+        className={`size-8 rounded-full border-2 border-muted ${fillBold} shadow-none`}
       />
       <div className={`h-1.5 w-16 rounded-sm ${fillBold}`} />
       <div className={`h-1 w-12 rounded-sm ${fillMid}`} />
@@ -223,7 +223,7 @@ function WireframeAccount() {
 function WireframeCommunication() {
   return (
     <WireStage className="h-full w-full max-w-none">
-      <div className="flex h-5 items-center gap-1.5 border-b border-border/60 px-1.5">
+      <div className="flex h-5 items-center gap-1.5 border-b border-border/30 px-1.5">
         <div className={`size-3 rounded-full ${fillMid}`} />
         <div className={`h-1.5 w-10 rounded-sm ${fillBold}`} />
       </div>
@@ -241,8 +241,8 @@ function WireframeCommunication() {
           <div className={`h-4 w-[40%] rounded-xl rounded-ss-sm ${fill}`} />
         </div>
       </div>
-      <div className="flex gap-1 border-t border-border/60 p-1.5">
-        <div className={`h-5 flex-1 rounded-full border border-border/60 ${fill}`} />
+      <div className="flex gap-1 border-t border-border/30 p-1.5">
+        <div className={`h-5 flex-1 rounded-full border border-border/30 ${fill}`} />
         <div className={`h-5 w-8 rounded-full ${fillBold}`} />
       </div>
     </WireStage>
@@ -255,7 +255,7 @@ function WireframeSearch() {
     <WireStage className="w-full max-w-[94%] gap-1 p-1.5">
       <div className={`h-1.5 w-1/3 rounded-sm ${fillBold}`} />
       <div className={`h-1 w-1/2 rounded-sm ${fill}`} />
-      <div className="mt-0.5 flex items-center gap-1 rounded-md border border-border/70 bg-muted/30 p-0.5">
+      <div className="mt-0.5 flex items-center gap-1 rounded-md border border-border/35 bg-muted/15 p-0.5">
         <div className={`ms-1 size-2.5 rounded-sm ${fillMid}`} />
         <div className={`h-1.5 flex-1 rounded-sm ${fill}`} />
         <div className={`h-5 w-12 rounded-md ${fillBold}`} />
@@ -273,12 +273,12 @@ function WireframeMedia() {
         <div className={`h-1 w-3/5 rounded-sm ${fill}`} />
       </div>
       <div className="px-1.5 pb-1.5">
-        <div className="flex h-12 flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-muted-foreground/25 bg-muted/20">
+        <div className="flex h-12 flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-muted-foreground/12 bg-muted/10">
           <div className={`size-4 rounded-md ${fillMid}`} />
           <div className={`h-1 w-12 rounded-sm ${fillMid}`} />
         </div>
       </div>
-      <div className="border-t border-border/60 p-1.5">
+      <div className="border-t border-border/30 p-1.5">
         <div className={`h-5 w-full rounded-md ${fillBold}`} />
       </div>
     </WireStage>
@@ -334,15 +334,15 @@ function WireframeBilling() {
             key={i}
             className={`flex items-center justify-between rounded-md border px-1.5 py-1 ${
               i === 1
-                ? "border-muted-foreground/25 bg-muted/40"
-                : "border-border/60"
+                ? "border-muted-foreground/12 bg-muted/10"
+                : "border-border/30"
             }`}
           >
             <div className="flex items-center gap-1.5">
               <div
                 className={`size-2.5 rounded-full border-2 ${
                   i === 1
-                    ? "border-muted-foreground/35 bg-muted-foreground/25"
+                    ? "border-muted-foreground/20 bg-muted-foreground/14"
                     : "border-muted-foreground/20"
                 }`}
               />
@@ -352,7 +352,7 @@ function WireframeBilling() {
           </div>
         ))}
       </div>
-      <div className="border-t border-border/60 p-1.5">
+      <div className="border-t border-border/30 p-1.5">
         <div className={`h-5 w-full rounded-md ${fillBold}`} />
       </div>
     </WireStage>
@@ -363,7 +363,7 @@ function WireframeBilling() {
 function WireframeStates() {
   return (
     <WireStage className="w-full max-w-[94%] items-center gap-1 px-2.5 py-2">
-      <div className="flex size-7 items-center justify-center rounded-lg border border-border/60 bg-muted/60">
+      <div className="flex size-7 items-center justify-center rounded-lg border border-border/30 bg-muted/20">
         <div className={`size-3 rounded-md ${fillMid}`} />
       </div>
       <div className={`h-1.5 w-16 rounded-sm ${fillBold}`} />
@@ -393,7 +393,7 @@ const WIREFRAMES: Record<string, () => JSX.Element> = {
 function CategoryWireframe({ slug }: { slug: string }) {
   const Frame = WIREFRAMES[slug] ?? WireframeStates
   return (
-    <div aria-hidden className="relative aspect-16/5 overflow-hidden">
+    <div aria-hidden className="relative aspect-16/4 overflow-hidden">
       <Frame />
     </div>
   )
@@ -406,18 +406,18 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
     <>
       <span
         data-block-title=""
-        className="shrink-0 text-sm font-semibold tracking-tight text-primary"
+        className="shrink-0 text-[0.9375rem] font-semibold tracking-tight text-foreground"
       >
         {sample.categoryTitle}
       </span>
       <span
         aria-hidden
-        className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
+        className="mb-1 min-w-4 flex-1 border-b border-dashed border-muted-foreground/20"
       />
       <span
         dir="ltr"
         lang="en"
-        className="shrink-0 text-xs tracking-wide text-muted-foreground"
+        className="shrink-0 text-xs tracking-wide text-muted-foreground/70"
       >
         {sample.categoryEn}
       </span>
@@ -425,7 +425,7 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
   )
 
   return (
-    <div className="min-w-0 border-b border-border/60 last:border-b-0 md:border-b-0">
+    <div className="min-w-0 border-b border-border/40 last:border-b-0 md:border-b-0">
       {/* Mobile: compact list row — FA | dashed | EN */}
       <Link
         href={sample.item.href}
@@ -436,12 +436,12 @@ function SampleCard({ sample }: { sample: FeaturedBlockSample }) {
       </Link>
 
       {/* Desktop: title + wireframe card */}
-      <section className="hidden min-w-0 flex-col gap-2 md:flex">
+      <section className="hidden min-w-0 flex-col gap-2.5 md:flex">
         <div className="flex min-w-0 items-baseline gap-2">{titleRow}</div>
         <Link
           href={sample.item.href}
           aria-label={ariaLabel}
-          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background outline-none ring-offset-background transition-[border-color,box-shadow] hover:border-border hover:shadow-sm focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border/40 bg-background/60 outline-none ring-offset-background transition-[border-color,background-color] hover:border-border/60 hover:bg-background focus-visible:ring-2 focus-visible:ring-ring"
         >
           <CategoryWireframe slug={sample.categorySlug} />
         </Link>

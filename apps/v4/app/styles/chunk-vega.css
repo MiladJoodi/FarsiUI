@@ -1,3 +1,4 @@
 @reference "../globals.css";
 
 @import "../../registry/styles/style-vega.css" layer(base);
+@import "../../registry/styles/vega-tokens.css";
