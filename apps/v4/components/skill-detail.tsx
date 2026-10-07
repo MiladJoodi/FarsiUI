@@ -4,7 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import { Check, Copy, Download } from "lucide-react"
 
-import { getSkillTitleEn, type Skill, type SkillSource } from "@/lib/skills"
+import {
+  getSkillTitleEn,
+  type Skill,
+  type SkillSource,
+} from "@/lib/skills-data"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { SkillAgentPathRow, SkillCopyCommand } from "@/components/skill-copy"
 import { Button } from "@/registry/new-york-v4/ui/button"
