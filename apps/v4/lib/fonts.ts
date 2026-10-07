@@ -48,7 +48,7 @@ export const UI_FONTS = [
 
 export type UiFontId = (typeof UI_FONTS)[number]["id"]
 
-export const DEFAULT_UI_FONT: UiFontId = "vazirmatn"
+export const DEFAULT_UI_FONT: UiFontId = "estedad"
 export const UI_FONT_STORAGE_KEY = "ui-font-preview"
 export const UI_FONT_COOKIE = "ui-font-preview"
 

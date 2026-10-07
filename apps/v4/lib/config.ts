@@ -31,7 +31,8 @@ export function getMetadataBase(headersList: Headers) {
 export const siteConfig = {
   name: "FarsiUI",
   url: resolveAppUrl(),
-  ogImage: "/opengraph-image.png",
+  /** Default OG/Twitter image (app/opengraph-image.tsx). */
+  ogImage: "/opengraph-image",
   description:
     "کتابخانه کامپوننت UI فارسی برای React و Tailwind — آمادهٔ RTL و مناسب ساخت رابط کاربری محصولات فارسی.",
   links: {

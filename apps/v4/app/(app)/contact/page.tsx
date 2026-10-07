@@ -3,6 +3,7 @@ import Link from "next/link"
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react"
 
 import { ContactForm } from "@/components/contact-form"
+import { siteConfig } from "@/lib/config"
 
 const title = "در ارتباط باشیم"
 const description =
@@ -23,6 +24,24 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+        width: 1200,
+        height: 630,
+        alt: `${title} · ${siteConfig.name}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+      },
+    ],
   },
 }
 

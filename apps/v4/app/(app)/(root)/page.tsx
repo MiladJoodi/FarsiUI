@@ -79,6 +79,9 @@ export const metadata: Metadata = {
         url: `/og?title=${encodeURIComponent(
           title
         )}&description=${encodeURIComponent(description)}`,
+        width: 1200,
+        height: 630,
+        alt: metadataTitle,
       },
     ],
   },
@@ -91,6 +94,9 @@ export const metadata: Metadata = {
         url: `/og?title=${encodeURIComponent(
           title
         )}&description=${encodeURIComponent(description)}`,
+        width: 1200,
+        height: 630,
+        alt: metadataTitle,
       },
     ],
   },
