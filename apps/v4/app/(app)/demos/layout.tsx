@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config"
 import * as React from "react"
 import { type Metadata } from "next"
 
@@ -20,9 +21,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
       },
     ],
   },
@@ -32,9 +31,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
       },
     ],
   },

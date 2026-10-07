@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -83,9 +84,7 @@ export async function generateMetadata(props: {
       url: absoluteUrl(canonicalPath),
       images: [
         {
-          url: `/og?title=${encodeURIComponent(
-            title
-          )}&description=${encodeURIComponent(description)}`,
+          url: siteConfig.ogImage,
         },
       ],
     },
@@ -95,9 +94,7 @@ export async function generateMetadata(props: {
       description,
       images: [
         {
-          url: `/og?title=${encodeURIComponent(
-            title
-          )}&description=${encodeURIComponent(description)}`,
+          url: siteConfig.ogImage,
         },
       ],
     },

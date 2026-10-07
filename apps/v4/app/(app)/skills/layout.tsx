@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config"
 import { type Metadata } from "next"
 
 import {
@@ -19,9 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
       },
     ],
   },
@@ -29,9 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
       },
     ],
   },

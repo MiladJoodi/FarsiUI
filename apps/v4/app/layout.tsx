@@ -77,13 +77,20 @@ export async function generateMetadata(): Promise<Metadata> {
       title: siteConfig.name,
       description: siteConfig.description,
       siteName: siteConfig.name,
-      // Default image from app/opengraph-image.tsx (FarsiUI brand + demo).
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.name,
       description: siteConfig.description,
-      // Default image from app/twitter-image.tsx
+      images: [siteConfig.ogImage],
     },
     icons: {
       icon: [

@@ -76,9 +76,7 @@ export const metadata: Metadata = {
     locale: "fa_IR",
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: metadataTitle,
@@ -91,9 +89,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: metadataTitle,

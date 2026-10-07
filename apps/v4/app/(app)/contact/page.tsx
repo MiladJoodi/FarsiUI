@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: `${title} · ${siteConfig.name}`,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+        url: siteConfig.ogImage,
       },
     ],
   },

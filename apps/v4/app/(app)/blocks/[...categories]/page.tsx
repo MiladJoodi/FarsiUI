@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config"
 import { type Metadata } from "next"
 import { redirect } from "next/navigation"
 
@@ -55,9 +56,7 @@ export async function generateMetadata({
       url: canonical,
       images: [
         {
-          url: `/og?title=${encodeURIComponent(
-            title
-          )}&description=${encodeURIComponent(description)}`,
+          url: siteConfig.ogImage,
         },
       ],
     },
@@ -67,9 +66,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: `/og?title=${encodeURIComponent(
-            title
-          )}&description=${encodeURIComponent(description)}`,
+          url: siteConfig.ogImage,
         },
       ],
     },

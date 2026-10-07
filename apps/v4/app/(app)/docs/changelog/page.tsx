@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config"
 import { Rss } from "lucide-react"
 import Link from "next/link"
 import { mdxComponents } from "@/mdx-components"
@@ -27,11 +28,7 @@ export function generateMetadata() {
       url: absoluteUrl("/docs/changelog"),
       images: [
         {
-          url: `/og?title=${encodeURIComponent(
-            "تغییرات"
-          )}&description=${encodeURIComponent(
-            "آخرین به‌روزرسانی‌ها و تغییرات FarsiUI."
-          )}`,
+          url: siteConfig.ogImage,
         },
       ],
     },
