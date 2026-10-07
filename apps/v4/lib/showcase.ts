@@ -6,8 +6,8 @@ function exampleUrls(slug: string) {
   return {
     liveUrl: `${EXAMPLES_LIVE_BASE}/${slug}`,
     githubUrl: `${EXAMPLES_GITHUB_BASE}/${slug}`,
-    imageUrl: `/images/showcase/${slug}-light.png`,
-    imageUrlDark: `/images/showcase/${slug}-dark.png`,
+    imageUrl: `/images/showcase/webp/${slug}-light.webp`,
+    imageUrlDark: `/images/showcase/webp/${slug}-dark.webp`,
   }
 }
 
