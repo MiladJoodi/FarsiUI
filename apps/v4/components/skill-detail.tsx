@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { BadgeCheck, Check, Copy, Download } from "lucide-react"
+import { Check, Copy, Download } from "lucide-react"
 
 import { type Skill, type SkillSource } from "@/lib/skills"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
@@ -110,21 +110,10 @@ export function SkillDetail({
 }
 
 function SkillSourceMeta({ source }: { source?: SkillSource }) {
-  const resolved: SkillSource = source ?? {
-    name: "FarsiUI",
-    verified: true,
-  }
-
-  const label = `منبع از ${resolved.name}`
+  const resolved: SkillSource = source ?? { name: "FarsiUI" }
 
   return (
-    <p className="flex flex-wrap items-center gap-x-1 gap-y-0.5 text-xs text-muted-foreground/80">
-      {resolved.verified !== false ? (
-        <BadgeCheck
-          className="size-3.5 shrink-0 opacity-80"
-          aria-hidden
-        />
-      ) : null}
+    <p className="text-xs text-muted-foreground/80">
       {resolved.url ? (
         <a
           href={resolved.url}
@@ -132,10 +121,10 @@ function SkillSourceMeta({ source }: { source?: SkillSource }) {
           rel="noreferrer"
           className="transition-colors hover:text-foreground hover:underline hover:underline-offset-2"
         >
-          {label}
+          منبع
         </a>
       ) : (
-        <span>{label}</span>
+        <span>منبع</span>
       )}
     </p>
   )

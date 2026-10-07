@@ -10,8 +10,6 @@ export type SkillSource = {
   name: string
   /** Upstream repo or docs URL when adapted from elsewhere */
   url?: string
-  /** Show a quiet verified cue on the detail page */
-  verified?: boolean
 }
 
 export type Skill = {
@@ -475,7 +473,6 @@ export const skills: Skill[] = [
     source: {
       name: "Anthropic",
       url: "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-      verified: true,
     },
   },
   {
@@ -525,7 +522,6 @@ export const skills: Skill[] = [
     source: {
       name: "Anthropic",
       url: "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
-      verified: true,
     },
   },
   {
@@ -574,7 +570,6 @@ export const skills: Skill[] = [
     source: {
       name: "Vercel Labs",
       url: "https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md",
-      verified: true,
     },
   },
   {
@@ -624,7 +619,6 @@ export const skills: Skill[] = [
     source: {
       name: "Vercel Labs",
       url: "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
-      verified: true,
     },
   },
   {
@@ -674,7 +668,6 @@ export const skills: Skill[] = [
     source: {
       name: "Matt Pocock",
       url: "https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture",
-      verified: true,
     },
   },
   {
@@ -723,7 +716,6 @@ export const skills: Skill[] = [
     source: {
       name: "Matt Pocock",
       url: "https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me",
-      verified: true,
     },
   },
   {
