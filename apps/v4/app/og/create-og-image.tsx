@@ -25,18 +25,18 @@ async function readProjectFile(...segments: string[]) {
 
 async function loadFonts() {
   const [regular, semibold] = await Promise.all([
-    readProjectFile("app/og/fonts/Vazirmatn-Regular.ttf"),
-    readProjectFile("app/og/fonts/Vazirmatn-SemiBold.ttf"),
+    readProjectFile("app/og/fonts/Estedad-Regular.ttf"),
+    readProjectFile("app/og/fonts/Estedad-SemiBold.ttf"),
   ])
   return [
     {
-      name: "Vazirmatn",
+      name: "Estedad",
       data: regular,
       weight: 400 as const,
       style: "normal" as const,
     },
     {
-      name: "Vazirmatn",
+      name: "Estedad",
       data: semibold,
       weight: 600 as const,
       style: "normal" as const,
@@ -100,7 +100,7 @@ export async function createOgImage({
     (
       <div
         tw="flex h-full w-full relative"
-        style={{ fontFamily: "Vazirmatn", background: "#09090b" }}
+        style={{ fontFamily: "Estedad", background: "#09090b" }}
       >
         {/* Full-bleed product shot */}
         <img
