@@ -2,13 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Check, Copy, Download } from "lucide-react"
+import { BadgeCheck, Check, Copy, Download } from "lucide-react"
 
-import {
-  getSkillTitleEn,
-  type Skill,
-  type SkillSource,
-} from "@/lib/skills-data"
+import { type Skill, type SkillSource } from "@/lib/skills-data"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { SkillAgentPathRow, SkillCopyCommand } from "@/components/skill-copy"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -32,19 +28,9 @@ export function SkillDetail({
     >
       <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
         <header className="flex flex-col gap-2">
-          <div className="flex flex-col gap-1">
-            <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
-              {skill.title}
-            </h1>
-            <p
-              dir="ltr"
-              lang="en"
-              title={skill.slug}
-              className="font-sans text-sm font-normal tracking-normal text-muted-foreground"
-            >
-              {getSkillTitleEn(skill)}
-            </p>
-          </div>
+          <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
+            {skill.title}
+          </h1>
           <p className="docs-page-description text-pretty text-muted-foreground">
             {skill.summary}
           </p>
@@ -127,7 +113,8 @@ function SkillSourceMeta({ source }: { source?: SkillSource }) {
   const resolved: SkillSource = source ?? { name: "FarsiUI" }
 
   return (
-    <p className="text-xs text-muted-foreground/80">
+    <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground/80">
+      <BadgeCheck className="size-3.5 shrink-0 opacity-80" aria-hidden />
       {resolved.url ? (
         <a
           href={resolved.url}
@@ -135,10 +122,10 @@ function SkillSourceMeta({ source }: { source?: SkillSource }) {
           rel="noreferrer"
           className="transition-colors hover:text-foreground hover:underline hover:underline-offset-2"
         >
-          منبع
+          {resolved.name}
         </a>
       ) : (
-        <span>منبع</span>
+        <span>{resolved.name}</span>
       )}
     </p>
   )
