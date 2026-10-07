@@ -3,8 +3,18 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { ChevronDownIcon } from "lucide-react"
 
-import { getSkills, getSkillsNavCurrent } from "@/lib/skills-data"
+import {
+  getSkillCategory,
+  getSkillTitleEn,
+  getSkills,
+  getSkillsNavCategoryId,
+  getSkillsNavCurrent,
+  skillMatchesQuery,
+  type Skill,
+  type SkillCategoryId,
+} from "@/lib/skills-data"
 import { ListIndexNav } from "@/components/list-index-nav"
 import {
   matchesNavQuery,
@@ -12,6 +22,11 @@ import {
   SidebarNavSearch,
 } from "@/components/sidebar-nav-search"
 import { PersianDigits } from "@/registry/bases/base/ui/persian-digits"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/new-york-v4/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -34,9 +49,20 @@ const SIDEBAR_EN_CLASS =
 
 const SEARCH_DEBOUNCE_MS = 200
 
+type CategoryGroup = {
+  id: SkillCategoryId
+  title: string
+  titleEn: string
+  skills: Skill[]
+}
+
 function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
   const pathname = usePathname()
   const skillItems = React.useMemo(() => getSkills(), [])
+  const activeCategoryId = getSkillsNavCategoryId(pathname)
+  const [openCategories, setOpenCategories] = React.useState<
+    Record<string, boolean>
+  >({})
   const [searchValue, setSearchValue] = React.useState("")
   const [debouncedQuery, setDebouncedQuery] = React.useState("")
 
@@ -52,14 +78,49 @@ function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
     setDebouncedQuery("")
   }, [])
 
-  const filteredSkills = React.useMemo(() => {
-    return skillItems.filter(
-      (skill) =>
-        matchesNavQuery(skill.title, debouncedQuery) ||
-        matchesNavQuery(skill.slug, debouncedQuery) ||
-        matchesNavQuery(skill.summary, debouncedQuery) ||
-        skill.tags.some((tag) => matchesNavQuery(tag, debouncedQuery))
-    )
+  React.useEffect(() => {
+    if (activeCategoryId) {
+      setOpenCategories((prev) => ({
+        ...prev,
+        [activeCategoryId]: true,
+      }))
+    }
+  }, [activeCategoryId])
+
+  const filteredGroups = React.useMemo(() => {
+    const groups = new Map<SkillCategoryId, CategoryGroup>()
+
+    for (const skill of skillItems) {
+      const category = getSkillCategory(skill.category)
+      if (!category) continue
+
+      const categoryMatches =
+        matchesNavQuery(category.title, debouncedQuery) ||
+        matchesNavQuery(category.titleEn, debouncedQuery) ||
+        matchesNavQuery(category.id, debouncedQuery)
+
+      if (
+        debouncedQuery &&
+        !categoryMatches &&
+        !skillMatchesQuery(skill, debouncedQuery)
+      ) {
+        continue
+      }
+
+      const existing = groups.get(category.id)
+      if (existing) {
+        existing.skills.push(skill)
+      } else {
+        groups.set(category.id, {
+          id: category.id,
+          title: category.title,
+          titleEn: category.titleEn,
+          skills: [skill],
+        })
+      }
+    }
+
+    return [...groups.values()]
   }, [skillItems, debouncedQuery])
 
   const introVisible =
@@ -67,7 +128,7 @@ function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
     matchesNavQuery("معرفی", debouncedQuery) ||
     matchesNavQuery("skills", debouncedQuery)
 
-  const hasResults = introVisible || filteredSkills.length > 0
+  const hasResults = introVisible || filteredGroups.length > 0
 
   return (
     <>
@@ -107,36 +168,74 @@ function SkillsNavBody({ showSearch = true }: { showSearch?: boolean }) {
                 </SidebarMenuItem>
               ) : null}
 
-              {filteredSkills.map((skill) => (
-                <SidebarMenuItem key={skill.slug}>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={pathname === `/skills/${skill.slug}`}
-                    className={`${ACTIVE_ITEM_CLASS} ps-2`}
+              {filteredGroups.map((group) => {
+                const isCategoryOpen =
+                  Boolean(debouncedQuery) ||
+                  (openCategories[group.id] ?? activeCategoryId === group.id)
+                const count = group.skills.length
+
+                return (
+                  <Collapsible
+                    key={group.id}
+                    open={isCategoryOpen}
+                    onOpenChange={(open) =>
+                      setOpenCategories((prev) => ({
+                        ...prev,
+                        [group.id]: open,
+                      }))
+                    }
+                    className="group/skills-cat"
                   >
-                    <Link
-                      href={`/skills/${skill.slug}`}
-                      className="flex w-full min-w-0 items-center gap-2"
-                    >
-                      <span className="shrink-0 whitespace-nowrap">
-                        {skill.title}
-                      </span>
-                      <span
-                        aria-hidden
-                        className="mb-0.5 min-w-0 flex-1 border-b border-dashed border-border/60"
-                      />
-                      <span
-                        dir="ltr"
-                        lang="en"
-                        title={skill.slug}
-                        className={SIDEBAR_EN_CLASS}
-                      >
-                        {skill.slug}
-                      </span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+                    <SidebarMenuItem>
+                      <CollapsibleTrigger className="flex h-10 w-full cursor-pointer items-center gap-1.5 rounded-md px-2 text-[13px] font-medium text-muted-foreground outline-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground lg:h-8">
+                        <ChevronDownIcon className="size-3.5 shrink-0 opacity-60 transition-transform group-data-[state=closed]/skills-cat:rotate-90" />
+                        <span className="flex min-w-0 flex-1 items-center justify-between gap-2">
+                          <span className="truncate">{group.title}</span>
+                          <span className="shrink-0 text-[12px] font-normal tracking-normal text-muted-foreground/80">
+                            {count.toLocaleString("fa-IR")}
+                          </span>
+                        </span>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent>
+                        <SidebarMenu className="ms-3 gap-0.5 border-none pe-1 ps-0">
+                          {group.skills.map((skill) => (
+                            <SidebarMenuItem key={skill.slug}>
+                              <SidebarMenuButton
+                                asChild
+                                isActive={
+                                  pathname === `/skills/${skill.slug}`
+                                }
+                                className={`${ACTIVE_ITEM_CLASS} ps-2`}
+                              >
+                                <Link
+                                  href={`/skills/${skill.slug}`}
+                                  className="flex w-full min-w-0 items-center gap-2"
+                                >
+                                  <span className="shrink-0 whitespace-nowrap">
+                                    {skill.title}
+                                  </span>
+                                  <span
+                                    aria-hidden
+                                    className="mb-0.5 min-w-0 flex-1 border-b border-dashed border-border/60"
+                                  />
+                                  <span
+                                    dir="ltr"
+                                    lang="en"
+                                    title={skill.slug}
+                                    className={SIDEBAR_EN_CLASS}
+                                  >
+                                    {getSkillTitleEn(skill)}
+                                  </span>
+                                </Link>
+                              </SidebarMenuButton>
+                            </SidebarMenuItem>
+                          ))}
+                        </SidebarMenu>
+                      </CollapsibleContent>
+                    </SidebarMenuItem>
+                  </Collapsible>
+                )
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

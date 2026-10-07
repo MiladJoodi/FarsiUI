@@ -182,6 +182,11 @@ guaranteed ranking factor.
 
 ## 5. Open Graph and social metadata
 
+> **Deep dive:** For implementing or debugging `og:image`, Twitter/X cards,
+> Telegram/WhatsApp/LinkedIn previews, dynamic OG images, crawler cache, and
+> Next.js metadata failures, use the dedicated skill
+> `open-graph-social-preview` instead of expanding this section.
+
 Persian pages should use Persian social metadata.
 
 ```ts

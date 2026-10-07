@@ -12,10 +12,57 @@ export type SkillSource = {
   url?: string
 }
 
+/** Catalog groups — by problem/workflow, not by tech stack alone. */
+export const SKILL_CATEGORIES = [
+  {
+    id: "writing",
+    title: "نوشتن",
+    titleEn: "Writing",
+    description: "لحن و متن فارسی برای محصول و محتوا",
+  },
+  {
+    id: "web",
+    title: "وب",
+    titleEn: "Web",
+    description: "سئو، پیش‌نمایش لینک، چند ظاهر در یک سایت و نمودار فارسی",
+  },
+  {
+    id: "persian-product",
+    title: "محصول فارسی",
+    titleEn: "Persian Product",
+    description: "RTL، تاریخ شمسی، اعتبارسنجی و تایپوگرافی",
+  },
+  {
+    id: "ui-library",
+    title: "کتابخانه UI",
+    titleEn: "UI Library",
+    description: "فهرست، نصب و انتشار کامپوننت",
+  },
+  {
+    id: "ai",
+    title: "هوش مصنوعی",
+    titleEn: "AI",
+    description: "مهارت‌های Agent، MCP و کیفیت کد با AI",
+  },
+  {
+    id: "integrations",
+    title: "یکپارچه‌سازی",
+    titleEn: "Integrations",
+    description: "پرداخت، آپلود و سرویس‌های ایرانی",
+  },
+] as const
+
+export type SkillCategoryId = (typeof SKILL_CATEGORIES)[number]["id"]
+
 export type Skill = {
+  /** Machine id — same as folder name / frontmatter `name` */
   slug: string
   title: string
+  /** Short English label for the sidebar/list title pair (falls back to slug). */
+  titleEn?: string
   summary: string
+  /** Catalog category for sidebar grouping */
+  category: SkillCategoryId
   useCases: string[]
   tags: string[]
   activationDescription: string
@@ -28,9 +75,19 @@ export type Skill = {
   source?: SkillSource
 }
 
+/** English half of the catalog title pair (title | titleEn). */
+export function getSkillTitleEn(skill: Skill) {
+  return skill.titleEn ?? skill.slug
+}
+
+export function getSkillCategory(id: SkillCategoryId) {
+  return SKILL_CATEGORIES.find((category) => category.id === id)
+}
+
 export const skills: Skill[] = [
   {
     slug: "persian-conversational",
+    category: "writing",
     title: "نوشتن فارسی محاوره‌ای",
     summary:
       "کپشن، چت و پیام‌های خودمانی را طوری می‌نویسد که انگار خودتان نوشته‌اید — نه ترجمه‌ای خشک.",
@@ -75,6 +132,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-formal",
+    category: "writing",
     title: "نوشتن فارسی رسمی",
     summary:
       "نامه و ایمیل رسمی می‌نویسد، ولی خشک و اداری نمی‌شود — خبری از «می‌باشد» نیست.",
@@ -119,6 +177,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-ui-copy",
+    category: "writing",
     title: "نوشتن متن رابط کاربری",
     summary:
       "متن دکمه، فرم و پیام خطا را کوتاه و خودمانی می‌نویسد؛ انگار محصول ایرانی است، نه ترجمهٔ انگلیسی.",
@@ -163,6 +222,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-rtl-ui",
+    category: "persian-product",
     title: "رابط کاربری راست‌چین",
     summary:
       "صفحه را از راست می‌چیند و عدد و تاریخ را فارسی می‌کند — نه اینکه یک طرح انگلیسی را برعکس کنید.",
@@ -207,6 +267,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "jalali-calendar",
+    category: "persian-product",
     title: "تقویم و تاریخ شمسی",
     summary:
       "تاریخ را شمسی نشان می‌دهد؛ با ماه‌های فارسی و هفته‌ای که از شنبه شروع می‌شود.",
@@ -251,6 +312,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "iran-validation",
+    category: "persian-product",
     title: "اعتبارسنجی فرم‌های ایرانی",
     summary:
       "کد ملی، موبایل، شبا و کارت را درست چک می‌کند — نه فقط اینکه «چند رقم باشد».",
@@ -295,6 +357,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-seo",
+    category: "web",
     title: "سئو برای سایت فارسی",
     summary:
       "عنوان و توضیحات صفحه را برای گوگل و مخاطب فارسی درست می‌کند.",
@@ -338,7 +401,68 @@ export const skills: Skill[] = [
       "عنوان تب مرورگر می‌شود «کفش ورزشی مردانه | فروشگاه شما» — نه عنوان انگلیسی Product.",
   },
   {
+    slug: "open-graph-social-preview",
+    category: "web",
+    title: "Open Graph و پیش‌نمایش لینک",
+    titleEn: "Open Graph & Social Preview",
+    summary:
+      "وقتی لینک سایت را در تلگرام، X یا شبکه‌های دیگر می‌فرستید، عنوان، توضیح و تصویر درست نمایش داده شود و اگر پیش‌نمایش خراب یا قدیمی است، علت را پیدا و برطرف می‌کند.",
+    useCases: [
+      "وقتی لینک بدون تصویر یا با اطلاعات اشتباه نمایش داده می‌شود",
+      "تنظیم og:image و twitter:card در Next.js",
+      "استفاده از تصویر ثابت یا opengraph-image داینامیک",
+      "پیدا کردن خطاهای ۵۰۰، Content-Type اشتباه یا کش قدیمی X",
+      "بررسی جداشدن حروف فارسی در تصویر ساخته‌شده با ImageResponse",
+    ],
+    tags: [
+      "Open Graph",
+      "twitter",
+      "telegram",
+      "whatsapp",
+      "og:image",
+      "metadata",
+      "شبکه اجتماعی",
+      "متادیتا",
+    ],
+    activationDescription:
+      "Implement and debug Open Graph / Twitter (X) / Telegram / WhatsApp / LinkedIn / Discord / Facebook link previews. Use when adding social share metadata, or when og:image is missing, broken (500), cropped, cached wrong on X, or Persian text breaks in dynamic OG images on a Next.js (or any) site. Decide from evidence; do not blindly run checklists.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add open-graph-social-preview",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/open-graph-social-preview/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/open-graph-social-preview/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/open-graph-social-preview/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/open-graph-social-preview/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For Open Graph and social link previews, read .claude/skills/open-graph-social-preview/SKILL.md first.",
+    example:
+      "اگر ImageResponse تصویر خراب می‌سازد، به‌جای آن یک og.png با اندازه ۱۲۰۰×۶۳۰ می‌گذارد و برای تست دوباره لینک را با ?v=2 باز می‌کند تا کش قدیمی X کنار برود.",
+    source: {
+      name: "FarsiUI",
+      url: "https://farsiui.ir/skills/open-graph-social-preview",
+    },
+  },
+  {
     slug: "agents-md-persian",
+    category: "ai",
     title: "قوانین فارسی برای پروژه",
     summary:
       "یک فایل قوانین برای کل پروژه؛ از اول به AI می‌گوید راست‌چین، فارسی، تومان و تاریخ شمسی.",
@@ -384,6 +508,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "ui-craft-rules",
+    category: "ai",
     title: "قوانین کیفیت رابط کاربری",
     summary:
       "نمی‌گذارد AI صفحه را شلخته و تکراری دربیاورد؛ فاصله و دکمه را حساب‌شده نگه می‌دارد.",
@@ -429,6 +554,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "frontend-design",
+    category: "ai",
     title: "طراحی ظاهر صفحه",
     summary:
       "کمک می‌کند ظاهر صفحه از الگوهای تکراری و کلیشه‌ای طراحی‌های AI فاصله بگیرد و برای هر محصول، ترکیب مناسبی از رنگ، فونت، فاصله‌ها و چیدمان انتخاب شود.",
@@ -477,6 +603,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "mcp-builder",
+    category: "ai",
     title: "ساخت سرور MCP",
     summary:
       "برای وصل کردن AI به APIها و سرویس‌های مختلف و ساخت ابزارهایی که AI بتواند از آن‌ها استفاده کند.",
@@ -526,6 +653,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "find-skills",
+    category: "ai",
     title: "پیدا کردن و نصب مهارت",
     summary:
       "وقتی برای یک کار دنبال مهارت آماده هستید، بین مهارت‌های موجود می‌گردد، گزینه‌های مناسب را پیدا می‌کند و روش نصب آن‌ها را نشان می‌دهد.",
@@ -574,6 +702,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "vercel-react-best-practices",
+    category: "ai",
     title: "سریع‌تر کردن React و Next.js",
     summary:
       "مجموعه‌ای از نکات و روش‌های تیم Vercel برای بهتر کردن سرعت و عملکرد برنامه‌های React و Next.js؛ از بارگذاری صفحه گرفته تا گرفتن داده و رندر شدن کامپوننت‌ها.",
@@ -623,6 +752,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "improve-codebase-architecture",
+    category: "ai",
     title: "مرتب کردن معماری پروژه",
     summary:
       "ساختار پروژه را بررسی می‌کند، بخش‌هایی که بیش از حد پیچیده یا به‌هم‌ریخته شده‌اند پیدا می‌کند و برای بهتر کردنشان پیشنهاد می‌دهد. قبل از تغییرات مهم هم با شما هماهنگ می‌شود.",
@@ -672,6 +802,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "grill-me",
+    category: "ai",
     title: "زیر سؤال بردن ایده",
     summary:
       "قبل از شروع کار، ایده یا برنامه شما را با سؤال‌های دقیق بررسی می‌کند تا ابهام‌ها، فرض‌های اشتباه و بخش‌های جاافتاده مشخص شوند.",
@@ -720,6 +851,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-typography",
+    category: "persian-product",
     title: "فونت و خوانایی فارسی",
     summary:
       "فونت و فاصلهٔ خط فارسی را درست می‌گذارد تا متن راحت خوانده شود — حتی کنار انگلیسی.",
@@ -766,6 +898,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "parspack-s3-upload",
+    category: "integrations",
     title: "آپلود تصویر به پارس‌پک",
     summary:
       "عکس را از سرور به فضای ابری پارس‌پک می‌فرستد؛ برای پروفایل، محصول و گالری در Next.js.",
@@ -809,6 +942,7 @@ export const skills: Skill[] = [
   },
   {
     slug: "zarinpal-payment",
+    category: "integrations",
     title: "پرداخت آنلاین با زرین‌پال",
     summary:
       "پرداخت با زرین‌پال را قدم‌به‌قدم وصل می‌کند: از درخواست پرداخت تا برگشت از درگاه و تأیید نهایی.",
@@ -850,12 +984,255 @@ export const skills: Skill[] = [
     agentsHint:
       "For Zarinpal payments, apply the rules from docs/zarinpal-payment.md.",
   },
+  {
+    slug: "nextjs-multi-design-system",
+    category: "web",
+    title: "چند Design System در Next.js",
+    titleEn: "Multi Design System",
+    summary:
+      "وقتی یک پروژه چند ظاهر یا Design System دارد، کمک می‌کند ظاهر انتخاب‌شده از همان اول درست لود شود و کامپوننت‌ها و پیش‌نمایش‌ها هم همان ظاهر را نشان دهند.",
+    useCases: [
+      "داشتن چند ظاهر در یک سایت یا مستندات",
+      "جلوگیری از نمایش لحظه‌ای ظاهر اشتباه هنگام باز شدن صفحه",
+      "هماهنگ کردن پیش‌نمایش کامپوننت با ظاهر انتخاب‌شده",
+      "هماهنگ ماندن حالت روشن و تاریک با هر Design System",
+    ],
+    tags: [
+      "nextjs",
+      "design-system",
+      "themes",
+      "ssr",
+      "iframe",
+      "hydration",
+      "preview",
+      "fouc",
+    ],
+    activationDescription:
+      "Build and debug multiple isolated design systems in a Next.js app: style-* body classes, cookie/localStorage sync, FOUC prevention, light/dark coexistence, SSR/hydration, iframe component previews, parent↔iframe theme sync, and design tokens. Use when switching themes flashes wrong styles, iframe previews ignore the picker, or docs and preview disagree.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add nextjs-multi-design-system",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/nextjs-multi-design-system/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/nextjs-multi-design-system/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/nextjs-multi-design-system/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/nextjs-multi-design-system/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For multi design-system Next.js apps and iframe previews, read .claude/skills/nextjs-multi-design-system/SKILL.md first.",
+    example:
+      "کوکی design-system را قبل از رندر صفحه می‌خواند و style-vega را روی body قرار می‌دهد تا iframe پیش‌نمایش هم همان ظاهر را نشان دهد.",
+    source: {
+      name: "FarsiUI",
+      url: "https://farsiui.ir/skills/nextjs-multi-design-system",
+    },
+  },
+  {
+    slug: "rtl-data-visualization",
+    category: "web",
+    title: "نمودار فارسی و راست‌چین",
+    titleEn: "RTL Charts",
+    summary:
+      "نمودارها را برای رابط فارسی و راست‌چین تنظیم می‌کند تا اعداد، برچسب‌ها، Tooltip و Legend درست نمایش داده شوند و چیدمان نمودار به‌هم نریزد.",
+    useCases: [
+      "ساخت داشبوردهای فارسی",
+      "نمایش درست اعداد و نوشته‌های فارسی روی محورها",
+      "راست‌چین کردن Tooltip و Legend",
+      "رفع مشکل محور، فاصله‌ها یا تراز اشتباه در RTL",
+    ],
+    tags: [
+      "rtl",
+      "recharts",
+      "charts",
+      "persian",
+      "locale",
+      "tooltip",
+      "visualization",
+    ],
+    activationDescription:
+      "Build and debug RTL / Persian data visualizations with Recharts (or similar): Persian digits, fa-IR locale, axis and tooltip alignment, labels, formatting, responsive charts, and common RTL chart bugs. Use when charts look LTR, numbers are Latin-only, tooltips misalign, or axes flip incorrectly under dir=rtl.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add rtl-data-visualization",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/rtl-data-visualization/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/rtl-data-visualization/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/rtl-data-visualization/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/rtl-data-visualization/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For RTL / Persian charts, read .claude/skills/rtl-data-visualization/SKILL.md first.",
+    example:
+      'محور X را با tickFormatter به فرمت fa-IR تبدیل می‌کند و Tooltip را داخل ChartContainer با dir="rtl" درست تراز می‌کند.',
+    source: {
+      name: "FarsiUI",
+      url: "https://farsiui.ir/skills/rtl-data-visualization",
+    },
+  },
+  {
+    slug: "component-registry-cli",
+    category: "ui-library",
+    title: "Registry و نصب کامپوننت",
+    titleEn: "Registry & CLI",
+    summary:
+      "کامپوننت‌ها را در یک Registry تعریف می‌کند و با دستور CLI داخل پروژه نصب می‌کند؛ همراه با مسیر فایل، وابستگی‌ها و Aliasهای درست.",
+    useCases: [
+      "ساخت و انتشار Registry کامپوننت",
+      "نصب کامپوننت با CLI",
+      "رفع مشکل مسیر اشتباه فایل‌ها یا وابستگی‌های جاافتاده",
+      "مدیریت نسخه و به‌روزرسانی کامپوننت‌ها",
+    ],
+    tags: [
+      "registry",
+      "cli",
+      "components",
+      "install",
+      "dependencies",
+      "versioning",
+      "cursor",
+      "claude",
+    ],
+    activationDescription:
+      "Design, build, and consume a UI component registry with its install CLI: registry structure, item metadata, files, dependencies, local vs published registries, path resolution, versioning, and installs into .cursor / .claude / project paths. Use when adding components via CLI fails, registry JSON is wrong, or install paths/deps resolve incorrectly.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add component-registry-cli",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/component-registry-cli/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/component-registry-cli/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/component-registry-cli/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/component-registry-cli/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For component registry and CLI install workflows, read .claude/skills/component-registry-cli/SKILL.md first.",
+    example:
+      "آیتم registry:ui را با files و dependencies درست تعریف می‌کند و دستور add را بر اساس Aliasهای پروژه تولید می‌کند.",
+    source: {
+      name: "FarsiUI",
+      url: "https://farsiui.ir/skills/component-registry-cli",
+    },
+  },
+  {
+    slug: "ui-library-mcp",
+    category: "ai",
+    title: "MCP برای کتابخانه UI",
+    titleEn: "UI Library MCP",
+    summary:
+      "به AI کمک می‌کند کامپوننت‌های یک کتابخانه UI را پیدا کند، نمونه آن‌ها را ببیند و دستور نصبشان را بگیرد؛ مخصوص کار با UI Library است، نه استفاده عمومی از MCP.",
+    useCases: [
+      "جستجو و نصب کامپوننت از داخل Cursor یا Claude",
+      "رفع خطاهای ابزار یا نتیجه‌های خالی",
+      "هماهنگ کردن نام و ظاهر ابزارها با برند کتابخانه",
+      "نمایش نمونه و دستور نصب کامپوننت داخل AI",
+    ],
+    tags: [
+      "mcp",
+      "ui-library",
+      "design-system",
+      "cursor",
+      "claude",
+      "tools",
+      "schema",
+      "registry",
+    ],
+    activationDescription:
+      "Build and debug an MCP server tailored to a UI library / design system registry: tools, resources, prompts, empty schemas, component discovery, metadata, naming, branding, and Cursor/Claude/OpenCode compatibility. Use when agents cannot list or install components via MCP, schemas fail validation, or the MCP is too generic for a component registry. Not a general MCP tutorial — use mcp-builder for that.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add ui-library-mcp",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/ui-library-mcp/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/ui-library-mcp/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/ui-library-mcp/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/ui-library-mcp/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For UI library / design-system MCP servers, read .claude/skills/ui-library-mcp/SKILL.md first.",
+    example:
+      "ابزار search_items_in_registries را با Schema ساده و بدون $schema می‌سازد و برای list از یک Object خالی استفاده می‌کند تا Cursor بتواند ابزار را درست اجرا کند.",
+    source: {
+      name: "FarsiUI",
+      url: "https://farsiui.ir/skills/ui-library-mcp",
+    },
+  },
 ]
 
+const CATEGORY_ORDER = new Map(
+  SKILL_CATEGORIES.map((category, index) => [category.id, index])
+)
+
 export function getSkills() {
-  return [...skills].sort((a, b) =>
-    a.title.localeCompare(b.title, "fa", { sensitivity: "base" })
-  )
+  return [...skills].sort((a, b) => {
+    const byCategory =
+      (CATEGORY_ORDER.get(a.category) ?? 99) -
+      (CATEGORY_ORDER.get(b.category) ?? 99)
+    if (byCategory !== 0) return byCategory
+    return a.title.localeCompare(b.title, "fa", { sensitivity: "base" })
+  })
 }
 
 export function getSkill(slug: string) {
@@ -866,9 +1243,66 @@ export function getSkillSlugs() {
   return getSkills().map((skill) => skill.slug)
 }
 
+export function getSkillsByCategory(categoryId: SkillCategoryId) {
+  return getSkills().filter((skill) => skill.category === categoryId)
+}
+
+export type SkillCategoryGroup = {
+  category: (typeof SKILL_CATEGORIES)[number]
+  skills: Skill[]
+}
+
+/** Catalog groups in sidebar/README order; empty categories omitted. */
+export function getSkillsGroupedByCategory(): SkillCategoryGroup[] {
+  const list = getSkills()
+  return SKILL_CATEGORIES.flatMap((category) => {
+    const groupSkills = list.filter((skill) => skill.category === category.id)
+    if (!groupSkills.length) return []
+    return [{ category, skills: groupSkills }]
+  })
+}
+
+export function skillMatchesQuery(skill: Skill, query: string): boolean {
+  if (!query) return true
+  const category = getSkillCategory(skill.category)
+  return (
+    matchesLoose(skill.title, query) ||
+    matchesLoose(getSkillTitleEn(skill), query) ||
+    matchesLoose(skill.slug, query) ||
+    matchesLoose(skill.summary, query) ||
+    matchesLoose(skill.activationDescription, query) ||
+    matchesLoose(category?.title ?? "", query) ||
+    matchesLoose(category?.titleEn ?? "", query) ||
+    matchesLoose(category?.id ?? "", query) ||
+    skill.tags.some((tag) => matchesLoose(tag, query)) ||
+    skill.useCases.some((useCase) => matchesLoose(useCase, query))
+  )
+}
+
+function matchesLoose(value: string, query: string) {
+  const hay = value.trim().toLowerCase()
+  const needle = query.trim().toLowerCase()
+  if (!needle) return true
+  return hay.includes(needle)
+}
+
+export function searchSkills(query: string) {
+  const q = query.trim()
+  if (!q) return getSkills()
+  return getSkills().filter((skill) => skillMatchesQuery(skill, q))
+}
+
 export function getSkillsNavCurrent(pathname: string): string | null {
   if (pathname === "/skills" || pathname === "/skills/install") return "معرفی"
   const match = pathname.match(/^\/skills\/([^/]+)/)
   if (!match) return null
   return getSkill(match[1])?.title ?? null
+}
+
+export function getSkillsNavCategoryId(
+  pathname: string
+): SkillCategoryId | null {
+  const match = pathname.match(/^\/skills\/([^/]+)/)
+  if (!match) return null
+  return getSkill(match[1])?.category ?? null
 }

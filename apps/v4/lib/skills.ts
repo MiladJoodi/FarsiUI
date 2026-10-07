@@ -3,11 +3,21 @@ import path from "node:path"
 
 export {
   getSkill,
+  getSkillCategory,
+  getSkillTitleEn,
   getSkillSlugs,
   getSkills,
+  getSkillsByCategory,
+  getSkillsGroupedByCategory,
+  getSkillsNavCategoryId,
   getSkillsNavCurrent,
+  searchSkills,
+  skillMatchesQuery,
   skills,
+  SKILL_CATEGORIES,
   type Skill,
+  type SkillCategoryGroup,
+  type SkillCategoryId,
   type SkillInstallTarget,
   type SkillSource,
 } from "@/lib/skills-data"

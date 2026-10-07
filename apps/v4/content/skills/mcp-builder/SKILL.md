@@ -9,6 +9,10 @@ description: >
 
 # MCP Server Development Guide
 
+> **UI library / Design System registries:** For MCP servers that search
+> components, return examples, and produce CLI `add` commands, use
+> `ui-library-mcp` instead of (or after) this general guide.
+
 ## Overview
 
 Create MCP (Model Context Protocol) servers that enable language models to
