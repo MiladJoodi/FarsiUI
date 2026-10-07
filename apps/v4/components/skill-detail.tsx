@@ -32,21 +32,19 @@ export function SkillDetail({
     >
       <div className="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8 dark:text-foreground">
         <header className="flex flex-col gap-2">
-          <h1 className="docs-page-title scroll-m-24 flex min-w-0 items-baseline gap-2 font-semibold tracking-tight">
-            <span className="shrink-0">{skill.title}</span>
-            <span
-              aria-hidden
-              className="mb-1.5 min-w-4 flex-1 border-b border-dashed border-muted-foreground/30"
-            />
-            <span
+          <div className="flex flex-col gap-1">
+            <h1 className="docs-page-title scroll-m-24 font-semibold tracking-tight">
+              {skill.title}
+            </h1>
+            <p
               dir="ltr"
               lang="en"
               title={skill.slug}
-              className="shrink-0 font-sans text-[0.85em] font-normal tracking-normal text-muted-foreground"
+              className="font-sans text-sm font-normal tracking-normal text-muted-foreground"
             >
               {getSkillTitleEn(skill)}
-            </span>
-          </h1>
+            </p>
+          </div>
           <p className="docs-page-description text-pretty text-muted-foreground">
             {skill.summary}
           </p>
