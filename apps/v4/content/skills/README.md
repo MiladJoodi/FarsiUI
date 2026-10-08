@@ -30,6 +30,11 @@ Site catalog: `/skills`
 | Open Graph و پیش‌نمایش لینک / Open Graph & Social Preview | `open-graph-social-preview` | پیش‌نمایش درست لینک در تلگرام، X و بقیه | لینک بدون عکس، کش خراب، ImageResponse | open graph، twitter، telegram |
 | چند Design System در Next.js / Multi Design System | `nextjs-multi-design-system` | چند ظاهر در یک پروژه، لود درست و پیش‌نمایش هم‌خوان | چند ظاهر در یک اپ، ناهماهنگی پیش‌نمایش | nextjs، design-system، iframe، ssr |
 | نمودار فارسی و راست‌چین / RTL Charts | `rtl-data-visualization` | نمودار فارسی و راست‌چین | محور، Tooltip، Legend، اعداد فارسی | rtl، recharts، charts |
+| طراحی واکنش‌گرا / Responsive Design | `responsive-design` | چیدمان درست از موبایل تا دسکتاپ | Mobile-first، Grid، فاصله‌ها | responsive، layout |
+| دسترس‌پذیری و استاندارد WCAG / Accessibility Compliance | `accessibility-compliance` | کیبورد، Focus، کنتراست، Screen Reader | WCAG، ARIA، a11y | accessibility، wcag |
+| طراحی تعامل / Interaction Design | `interaction-design` | Loading، Feedback، Transition | حالت‌های کامپوننت و انیمیشن | interaction، motion |
+| الگوهای Design System / Design System Patterns | `design-system-patterns` | توکن، تم، معماری کامپوننت | ساخت Design System | design-system، tokens |
+| راهنمای رابط کاربری وب / Web Interface Guidelines | `web-interface-guidelines` | قواعد کوتاه UI سریع و در دسترس | بازبینی فرم، فوکوس، پرفورمنس | vercel، guidelines |
 
 ### Persian Product — محصول فارسی
 

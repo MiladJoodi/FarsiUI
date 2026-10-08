@@ -24,7 +24,8 @@ export const SKILL_CATEGORIES = [
     id: "web",
     title: "وب",
     titleEn: "Web",
-    description: "سئو، پیش‌نمایش لینک، چند ظاهر در یک سایت و نمودار فارسی",
+    description:
+      "سئو، پیش‌نمایش لینک، واکنش‌گرایی، دسترس‌پذیری، تعامل و نمودار فارسی",
   },
   {
     id: "persian-product",
@@ -1217,6 +1218,271 @@ export const skills: Skill[] = [
     source: {
       name: "FarsiUI",
       url: "https://farsiui.ir/skills/ui-library-mcp",
+    },
+  },
+  {
+    slug: "responsive-design",
+    category: "web",
+    title: "طراحی واکنش‌گرا",
+    titleEn: "Responsive Design",
+    summary:
+      "کمک می‌کند رابط کاربری از موبایل تا دسکتاپ درست رفتار کند و چیدمان، اندازه‌ها و فاصله‌ها در هر اندازه صفحه طبیعی باقی بمانند.",
+    useCases: [
+      "طراحی Mobile-first",
+      "جلوگیری از به‌هم‌ریختن چیدمان در اندازه‌های مختلف",
+      "ساخت Grid و Layoutهای واکنش‌گرا",
+      "کنترل بهتر Typography و فاصله‌ها",
+      "سازگار کردن کامپوننت‌ها با موبایل و دسکتاپ",
+    ],
+    tags: ["responsive", "mobile-first", "css", "layout", "grid"],
+    activationDescription:
+      "Implement modern responsive layouts using container queries, fluid typography, CSS Grid, and mobile-first breakpoint strategies. Use when building adaptive interfaces, implementing fluid layouts, or creating component-level responsive behavior.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add responsive-design",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/responsive-design/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/responsive-design/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/responsive-design/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/responsive-design/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For responsive layouts, read .claude/skills/responsive-design/SKILL.md first.",
+    example:
+      "به‌جای ساختن یک Layout دسکتاپ و کوچک کردن آن برای موبایل، ابتدا ساختار مناسب موبایل را در نظر می‌گیرد و سپس برای اندازه‌های بزرگ‌تر توسعه می‌دهد.",
+    source: {
+      name: "wshobson/agents",
+      url: "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/responsive-design",
+    },
+  },
+  {
+    slug: "accessibility-compliance",
+    category: "web",
+    title: "دسترس‌پذیری و استاندارد WCAG",
+    titleEn: "Accessibility Compliance",
+    summary:
+      "کمک می‌کند کامپوننت‌ها برای کاربران مختلف قابل استفاده باشند و مواردی مثل کیبورد، Focus، کنتراست و Screen Reader از ابتدا درست پیاده شوند.",
+    useCases: [
+      "رعایت اصول WCAG",
+      "پشتیبانی از Keyboard Navigation",
+      "مدیریت درست Focus",
+      "استفاده صحیح از ARIA",
+      "بررسی کنتراست و وضعیت‌های مختلف کامپوننت",
+    ],
+    tags: ["accessibility", "wcag", "a11y", "aria", "keyboard"],
+    activationDescription:
+      "Implement WCAG 2.2 compliant interfaces with mobile accessibility, inclusive design patterns, and assistive technology support. Use when auditing accessibility, implementing ARIA patterns, building for screen readers, or ensuring inclusive user experiences.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add accessibility-compliance",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/accessibility-compliance/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/accessibility-compliance/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/accessibility-compliance/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/accessibility-compliance/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For accessibility and WCAG, read .claude/skills/accessibility-compliance/SKILL.md first.",
+    example:
+      "یک Dialog فقط با کلیک ماوس کار نمی‌کند؛ Focus را مدیریت می‌کند، با Escape بسته می‌شود و برای Screen Reader هم ساختار قابل فهمی دارد.",
+    source: {
+      name: "wshobson/agents",
+      url: "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/accessibility-compliance",
+    },
+  },
+  {
+    slug: "interaction-design",
+    category: "web",
+    title: "طراحی تعامل",
+    titleEn: "Interaction Design",
+    summary:
+      "کمک می‌کند رفتار رابط کاربری فقط به ظاهر محدود نباشد و وضعیت‌هایی مثل Loading، Error، Success، Hover و Transition هم درست طراحی شوند.",
+    useCases: [
+      "طراحی حالت‌های مختلف کامپوننت",
+      "Loading و Feedback مناسب",
+      "Transition و Animationهای کنترل‌شده",
+      "طراحی Hover و Focus",
+      "مدیریت Empty، Error و Success State",
+    ],
+    tags: ["interaction", "animation", "loading", "feedback", "motion"],
+    activationDescription:
+      "Design and implement microinteractions, motion design, transitions, and user feedback patterns. Use when adding polish to UI interactions, implementing loading states, or creating deliberate user feedback.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add interaction-design",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/interaction-design/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/interaction-design/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/interaction-design/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/interaction-design/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For interaction and motion design, read .claude/skills/interaction-design/SKILL.md first.",
+    example:
+      "وقتی کاربر روی دکمه ارسال کلیک می‌کند، دکمه وارد حالت Loading می‌شود، از ارسال دوباره جلوگیری می‌کند و بعد نتیجه عملیات را به شکل واضح نمایش می‌دهد.",
+    source: {
+      name: "wshobson/agents",
+      url: "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/interaction-design",
+    },
+  },
+  {
+    slug: "design-system-patterns",
+    category: "web",
+    title: "الگوهای Design System",
+    titleEn: "Design System Patterns",
+    summary:
+      "کمک می‌کند توکن‌ها، تم روشن و تاریک و معماری کامپوننت‌ها یکدست و قابل نگهداری بمانند.",
+    useCases: [
+      "ساخت Design Token برای رنگ، فاصله و تایپوگرافی",
+      "پیاده‌سازی تم روشن و تاریک",
+      "معماری کتابخانه کامپوننت با API یکدست",
+      "سلسله‌مراتب توکن‌های Primitive، Semantic و Component",
+    ],
+    tags: [
+      "design-system",
+      "tokens",
+      "theming",
+      "components",
+      "css-variables",
+    ],
+    activationDescription:
+      "Build scalable design systems with design tokens, theming infrastructure, and component architecture patterns. Use when creating design tokens, implementing theme switching, building component libraries, or establishing design system foundations.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add design-system-patterns",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/design-system-patterns/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/design-system-patterns/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/design-system-patterns/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/design-system-patterns/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For design system tokens and theming patterns, read .claude/skills/design-system-patterns/SKILL.md first.",
+    example:
+      "به‌جای هاردکد کردن رنگ در کامپوننت، توکن semantic مثل text-primary می‌سازد و تم تاریک را با همان توکن‌ها وصل می‌کند.",
+    source: {
+      name: "wshobson/agents",
+      url: "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/design-system-patterns",
+    },
+  },
+  {
+    slug: "web-interface-guidelines",
+    category: "web",
+    title: "راهنمای رابط کاربری وب",
+    titleEn: "Web Interface Guidelines",
+    summary:
+      "قواعد کوتاه و عملی برای ساخت رابط سریع، در دسترس و خوش‌دست روی وب؛ از فوکوس و فرم تا انیمیشن و پرفورمنس.",
+    useCases: [
+      "بازبینی کیفیت رابط کاربری قبل از تحویل",
+      "فرم، فوکوس و تعامل کیبورد",
+      "انیمیشن با احترام به prefers-reduced-motion",
+      "کاهش CLS و بهبود پرفورمنس UI",
+    ],
+    tags: [
+      "guidelines",
+      "accessibility",
+      "forms",
+      "performance",
+      "vercel",
+    ],
+    activationDescription:
+      "Concise rules for building accessible, fast, delightful web UIs. Use when reviewing or implementing interfaces, forms, focus, animation, layout, performance, or dark mode — guided by MUST / SHOULD / NEVER decisions.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add web-interface-guidelines",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/web-interface-guidelines/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/web-interface-guidelines/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/web-interface-guidelines/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/web-interface-guidelines/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For web UI quality guidelines, read .claude/skills/web-interface-guidelines/SKILL.md first.",
+    example:
+      "دکمهٔ ارسال تا شروع درخواست فعال می‌ماند، بعد اسپینر می‌گیرد و لیبلش حفظ می‌شود؛ خطای فرم کنار فیلد نشان داده می‌شود و فوکوس روی اولین خطا می‌رود.",
+    source: {
+      name: "Vercel Labs",
+      url: "https://github.com/vercel-labs/web-interface-guidelines",
     },
   },
 ]

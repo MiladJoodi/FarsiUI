@@ -27,6 +27,11 @@ const map = {
   "rtl-data-visualization": "web",
   "component-registry-cli": "ui-library",
   "ui-library-mcp": "ai",
+  "responsive-design": "web",
+  "accessibility-compliance": "web",
+  "interaction-design": "web",
+  "design-system-patterns": "web",
+  "web-interface-guidelines": "web",
 }
 
 s = s.replace(/\n\s*category:\s*"[a-z-]+",/g, "")
