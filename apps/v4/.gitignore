@@ -52,6 +52,8 @@ next-env.d.ts
 # index.json, default and new-york are NOT build outputs: index.json is a
 # static contract older CLIs fetch, and default/new-york are frozen v3
 # styles maintained by editing the JSON directly.
+# public/r/skills/* is also rebuilt by registry:build / skills:registry, but
+# committed so middleware rewrites work without a full style rebuild.
 /public/r/styles/*
 !/public/r/styles/index.json
 !/public/r/styles/default/

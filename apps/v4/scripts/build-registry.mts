@@ -781,6 +781,10 @@ async function runFullBuild() {
 
   console.log("\n🧹 Cleaning up...")
   await cleanUpTemporaryFiles(stylesToBuild.map((style) => style.name))
+
+  const { buildSkillsRegistry } = await import("./build-skills-registry.mts")
+  await buildSkillsRegistry()
+
   await saveTransformCache()
 }
 
@@ -903,6 +907,9 @@ async function runTargetedRegistryBuild(target: "all" | string) {
 
   console.log("\n🧹 Cleaning up...")
   await cleanUpTemporaryFiles(targetStyles.map((style) => style.name))
+
+  const { buildSkillsRegistry } = await import("./build-skills-registry.mts")
+  await buildSkillsRegistry()
 }
 
 async function buildBasesIndex(bases: Base[]) {

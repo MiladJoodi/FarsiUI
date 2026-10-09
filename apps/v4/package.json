@@ -16,6 +16,7 @@
     "icons:dev": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-icons.ts --watch",
     "icons:build": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-icons.ts",
     "registry:build": "pnpm --filter=@farsiui/react build && pnpm --filter=@farsiui/helpers build && pnpm --filter=farsiui build && bun run ./scripts/build-registry.mts",
+    "skills:registry": "bun run ./scripts/build-skills-registry.mts",
     "registry:capture": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/capture-registry.mts",
     "explore:capture": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/capture-explore.mts",
     "registry:health": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/monitor-registries.mts",
