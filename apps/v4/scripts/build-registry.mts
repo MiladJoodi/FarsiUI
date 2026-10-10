@@ -79,6 +79,21 @@ const STYLE_COMBINATIONS = Array.from(BASES).flatMap((base) =>
   }))
 )
 
+/**
+ * Registries emitted on full deploy builds. Source folders for other styles
+ * stay in the repo; they are simply skipped here to keep CI/deploy fast.
+ * Charts still use legacy new-york-v4.
+ */
+const DEPLOY_REGISTRY_STYLE_NAMES = new Set([
+  "new-york-v4",
+  "base-nova",
+  "base-vega",
+  "base-glass",
+  "base-rose",
+  "base-nili",
+  "base-khesht",
+])
+
 const CPU_COUNT = availableParallelism()
 const STYLE_BUILD_CONCURRENCY = Math.max(1, Math.min(CPU_COUNT, 4))
 const FILE_BUILD_CONCURRENCY = Math.max(4, Math.min(CPU_COUNT, 8))
@@ -130,7 +145,7 @@ const iconProject = new Project({
   compilerOptions: {},
 })
 
-function getStylesToBuild() {
+function getAllRegistryStyleEntries() {
   const stylesToBuild = new Map<string, { name: string; title: string }>()
 
   for (const style of legacyStyles) {
@@ -145,6 +160,13 @@ function getStylesToBuild() {
   }
 
   return Array.from(stylesToBuild.values())
+}
+
+/** Full deploy / `--registry all`: only product design systems + charts. */
+function getStylesToBuild() {
+  return getAllRegistryStyleEntries().filter((style) =>
+    DEPLOY_REGISTRY_STYLE_NAMES.has(style.name)
+  )
 }
 
 function getStyleCombination(styleName: string) {
@@ -171,7 +193,8 @@ Run with no options for a full registry build, or target a single artifact:
 Flags can be combined, e.g. --style base-nova --registry base-nova.`
 
 function getKnownStyleNames() {
-  return new Set(getStylesToBuild().map((style) => style.name))
+  // Explicit --style/--registry targets may still name non-deploy styles.
+  return new Set(getAllRegistryStyleEntries().map((style) => style.name))
 }
 
 function parseStyleTargets(target: string): string[] {
@@ -249,19 +272,17 @@ function isFullBuild(options: BuildOptions) {
 }
 
 function getTargetStyles(target: "all" | string | null) {
-  const stylesToBuild = getStylesToBuild()
-
   if (target === null) {
     return []
   }
 
   const parts = parseStyleTargets(target)
   if (parts.includes("all")) {
-    return stylesToBuild
+    return getStylesToBuild()
   }
 
   const wanted = new Set(parts)
-  return stylesToBuild.filter((style) => wanted.has(style.name))
+  return getAllRegistryStyleEntries().filter((style) => wanted.has(style.name))
 }
 
 function stripFileExtension(filePath: string) {
@@ -737,11 +758,21 @@ try {
 async function runFullBuild() {
   await loadTransformCache()
 
-  console.log("\n🏗️ Building bases...")
-  await buildBasesIndex(Array.from(BASES))
-  await buildBases(Array.from(BASES))
-
   const stylesToBuild = getStylesToBuild()
+  const comboStyleNames = new Set(
+    stylesToBuild
+      .map((style) => style.name)
+      .filter((name) => name !== "new-york-v4")
+  )
+
+  console.log("\n🏗️ Building bases...")
+  console.log(
+    `   Deploy allowlist (${stylesToBuild.length}): ${stylesToBuild
+      .map((style) => style.name)
+      .join(", ")}`
+  )
+  await buildBasesIndex(Array.from(BASES))
+  await buildBases(Array.from(BASES), comboStyleNames)
 
   console.log("\n📦 Building registry/__index__.tsx...")
   await buildRegistryIndex(stylesToBuild)
@@ -1065,7 +1096,12 @@ async function buildBases(bases: Base[], targetStyleNames?: Set<string>) {
       })
     ),
     Promise.all(
-      STYLES.map(async (style) => {
+      STYLES.filter((style) => {
+        if (!targetStyleNames) return true
+        return basesToBuild.some((base) =>
+          targetStyleNames.has(`${base.name}-${style.name}`)
+        )
+      }).map(async (style) => {
         const stylePath = path.join(
           process.cwd(),
           `registry/styles/style-${style.name}.css`
