@@ -23,30 +23,30 @@ import {
 export const description = "یک نمودار دایره‌ای با بخش‌های انباشته"
 
 const desktopData = [
-  { month: "january", desktop: 186, fill: "var(--color-january)" },
-  { month: "february", desktop: 305, fill: "var(--color-february)" },
-  { month: "march", desktop: 237, fill: "var(--color-march)" },
-  { month: "april", desktop: 173, fill: "var(--color-april)" },
-  { month: "may", desktop: 209, fill: "var(--color-may)" },
+  { month: "january", store: 186, fill: "var(--color-january)" },
+  { month: "february", store: 305, fill: "var(--color-february)" },
+  { month: "march", store: 237, fill: "var(--color-march)" },
+  { month: "april", store: 173, fill: "var(--color-april)" },
+  { month: "may", store: 209, fill: "var(--color-may)" },
 ]
 
 const mobileData = [
-  { month: "january", mobile: 80, fill: "var(--color-january)" },
-  { month: "february", mobile: 200, fill: "var(--color-february)" },
-  { month: "march", mobile: 120, fill: "var(--color-march)" },
-  { month: "april", mobile: 190, fill: "var(--color-april)" },
-  { month: "may", mobile: 130, fill: "var(--color-may)" },
+  { month: "january", online: 80, fill: "var(--color-january)" },
+  { month: "february", online: 200, fill: "var(--color-february)" },
+  { month: "march", online: 120, fill: "var(--color-march)" },
+  { month: "april", online: 190, fill: "var(--color-april)" },
+  { month: "may", online: 130, fill: "var(--color-may)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
   },
-  mobile: {
-    label: FA_CHART.mobile,
+  online: {
+    label: FA_CHART.online,
   },
   january: {
     label: FA_MONTHS[0],
@@ -86,7 +86,7 @@ export function ChartPieStacked() {
             <ChartTooltip
               content={
                 <ChartTooltipContent
-                  labelKey="visitors"
+                  labelKey="sales"
                   nameKey="month"
                   indicator="line"
                   labelFormatter={(_, payload) => {
@@ -97,10 +97,10 @@ export function ChartPieStacked() {
                 />
               }
             />
-            <Pie data={desktopData} dataKey="desktop" outerRadius={60} />
+            <Pie data={desktopData} dataKey="store" outerRadius={60} />
             <Pie
               data={mobileData}
-              dataKey="mobile"
+              dataKey="online"
               innerRadius={70}
               outerRadius={90}
             />
@@ -112,7 +112,7 @@ export function ChartPieStacked() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

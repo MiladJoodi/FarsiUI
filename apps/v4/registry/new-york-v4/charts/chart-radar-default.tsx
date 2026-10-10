@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
-  abbreviatePersianMonth,
+  formatPersianMonthTick,
   FA_CHART,
   FA_MONTHS,
 } from "@/lib/chart-locale"
@@ -26,17 +26,17 @@ import {
 export const description = "یک نمودار راداری"
 
 const chartData = [
-  { month: FA_MONTHS[0], desktop: 186 },
-  { month: FA_MONTHS[1], desktop: 305 },
-  { month: FA_MONTHS[2], desktop: 237 },
-  { month: FA_MONTHS[3], desktop: 273 },
-  { month: FA_MONTHS[4], desktop: 209 },
-  { month: FA_MONTHS[5], desktop: 214 },
+  { month: FA_MONTHS[0], store: 186 },
+  { month: FA_MONTHS[1], store: 305 },
+  { month: FA_MONTHS[2], store: 237 },
+  { month: FA_MONTHS[3], store: 273 },
+  { month: FA_MONTHS[4], store: 209 },
+  { month: FA_MONTHS[5], store: 214 },
 ]
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
@@ -46,7 +46,7 @@ export function ChartRadarDefault() {
     <Card dir="rtl">
       <CardHeader className="items-center pb-4">
         <CardTitle>نمودار راداری</CardTitle>
-        <CardDescription>{FA_CHART.visitorsLast6Months}</CardDescription>
+        <CardDescription>{FA_CHART.salesLast6Months}</CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -57,12 +57,12 @@ export function ChartRadarDefault() {
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <PolarAngleAxis
               dataKey="month"
-              tickFormatter={abbreviatePersianMonth}
+              tickFormatter={formatPersianMonthTick}
             />
             <PolarGrid />
             <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
+              dataKey="store"
+              fill="var(--color-store)"
               fillOpacity={0.6}
             />
           </RadarChart>

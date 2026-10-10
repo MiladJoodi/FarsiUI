@@ -23,7 +23,10 @@ import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
-import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
+import {
+  isPreviewIframeReady,
+  PreviewFrameLoader,
+} from "@/components/preview-frame-loader"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 import {
   ToggleGroup,
@@ -72,22 +75,6 @@ function describeInstallPath(installPath: string) {
   return { fileName, dir, installPath }
 }
 
-function BlockPreviewSkeleton() {
-  return (
-    <div className="flex size-full items-center justify-center p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col items-center gap-3">
-        <Skeleton className="size-8 rounded-md" />
-        <Skeleton className="h-5 w-40" />
-        <Skeleton className="h-3 w-28" />
-        <Skeleton className="mt-2 h-3 w-16 self-start" />
-        <Skeleton className="h-9 w-full rounded-md" />
-        <Skeleton className="h-9 w-full rounded-md" />
-        <Skeleton className="h-9 w-full rounded-md" />
-      </div>
-    </div>
-  )
-}
-
 export function BlockCard({
   item,
   highlightedFiles,
@@ -114,6 +101,8 @@ export function BlockCard({
   const [previewLoaded, setPreviewLoaded] = React.useState(false)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const fileCopy = useCopyToClipboard()
+  const installCopy = useCopyToClipboard()
+  const installCommand = `npx farsiui@latest add ${item.name}`
   const { styleName: designSystemStyleName } = useDesignSystemPreview()
   const { resolvedTheme } = useTheme()
   const colorMode = resolvedTheme === "dark" ? "dark" : "light"
@@ -140,28 +129,15 @@ export function BlockCard({
   // theme-* / style-* on the iframe body come from ActiveThemeProvider +
   // DesignSystemPreviewProvider (header pickers).
   const handleIframeLoad = React.useCallback(() => {
-    setPreviewLoaded(true)
+    if (isPreviewIframeReady(iframeRef.current)) {
+      setPreviewLoaded(true)
+    }
   }, [])
 
   const { scrollShield, dismissShield } = useIframeScrollPassthrough(
     iframeRef,
     [previewStyleName, item.name]
   )
-
-  React.useEffect(() => {
-    const iframe = iframeRef.current
-    if (!iframe) return
-
-    const onLoad = () => setPreviewLoaded(true)
-    iframe.addEventListener("load", onLoad)
-    if (iframe.contentDocument?.readyState === "complete") {
-      onLoad()
-    }
-
-    return () => {
-      iframe.removeEventListener("load", onLoad)
-    }
-  }, [previewStyleName, item.name])
 
   const flatFiles = React.useMemo(() => {
     return files.map((file) => {
@@ -195,7 +171,13 @@ export function BlockCard({
         className="w-full gap-2"
       >
         <div className="flex flex-wrap items-center gap-2">
-          <div className="ms-auto flex h-8 items-center gap-0.5 rounded-lg border bg-muted p-1">
+          <a
+            href={`#${item.name}`}
+            className="min-w-0 flex-1 truncate text-start text-sm font-medium underline-offset-2 hover:underline"
+          >
+            {item.description?.replace(/\.$/, "") || item.name}
+          </a>
+          <div className="ms-auto flex h-8 max-w-full items-center gap-0.5 rounded-lg border bg-muted p-1">
             <TabsList className="grid h-auto! w-fit grid-cols-2 gap-0.5 rounded-none bg-transparent p-0 shadow-none *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2.5 *:data-[slot=tabs-trigger]:text-xs">
               <TabsTrigger value="preview">مشاهده</TabsTrigger>
               <TabsTrigger value="code">کد</TabsTrigger>
@@ -248,6 +230,29 @@ export function BlockCard({
                 <span className="sr-only">باز کردن در تب جدید</span>
               </Link>
             </Button>
+            <Separator orientation="vertical" className="mx-0.5 h-4!" />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-6 w-fit max-w-[min(100%,18rem)] cursor-pointer gap-1.5 rounded-sm px-2 shadow-none"
+              title="کپی دستور نصب"
+              onClick={() => {
+                installCopy.copyToClipboard(installCommand)
+                trackEvent({
+                  name: "copy_registry_add_command",
+                  properties: { name: item.name },
+                })
+              }}
+            >
+              {installCopy.isCopied ? (
+                <Check className="size-3.5" />
+              ) : (
+                <Copy className="size-3.5" />
+              )}
+              <span dir="ltr" lang="en" className="truncate font-mono text-xs">
+                {installCommand}
+              </span>
+            </Button>
           </div>
         </div>
 
@@ -276,8 +281,8 @@ export function BlockCard({
                 style={{ width: previewViewport }}
               >
                 {!previewLoaded ? (
-                  <div className="absolute inset-0 z-10">
-                    <BlockPreviewSkeleton />
+                  <div className="absolute inset-0 z-30">
+                    <PreviewFrameLoader />
                   </div>
                 ) : null}
                 <iframe
@@ -286,9 +291,9 @@ export function BlockCard({
                   src={`/view/${previewStyleName}/${item.name}?embed=1`}
                   title={item.name}
                   height={iframeHeight}
-                  loading="lazy"
+                  loading="eager"
                   className={cn(
-                    "no-scrollbar h-full w-full bg-background transition-opacity duration-200",
+                    "relative z-10 no-scrollbar h-full w-full bg-background transition-opacity duration-200",
                     scrollShield && "pointer-events-none",
                     previewLoaded ? "opacity-100" : "opacity-0"
                   )}

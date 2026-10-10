@@ -26,15 +26,15 @@ import {
 export const description = "یک نمودار شعاعی با شکل سفارشی"
 
 const chartData = [
-  { browser: "safari", visitors: 1260, fill: "var(--color-safari)" },
+  { province: "isfahan", sales: 1260, fill: "var(--color-isfahan)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
-  safari: {
-    label: FA_CHART.safari,
+  isfahan: {
+    label: FA_CHART.isfahan,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -64,7 +64,7 @@ export function ChartRadialShape() {
               className="first:fill-muted last:fill-background"
               polarRadius={[86, 74]}
             />
-            <RadialBar dataKey="visitors" background />
+            <RadialBar dataKey="sales" background />
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {
@@ -81,14 +81,14 @@ export function ChartRadialShape() {
                           y={viewBox.cy}
                           className="fill-foreground text-4xl font-bold"
                         >
-                          {formatPersianNumber(chartData[0].visitors)}
+                          {formatPersianNumber(chartData[0].sales)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          {FA_CHART.visitors}
+                          {FA_CHART.sales}
                         </tspan>
                       </text>
                     )
@@ -104,7 +104,7 @@ export function ChartRadialShape() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

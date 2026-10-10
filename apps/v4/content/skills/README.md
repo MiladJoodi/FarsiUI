@@ -26,7 +26,6 @@ Site catalog: `/skills`
 
 | Name | Slug | What it solves | When to use | Tags |
 | --- | --- | --- | --- | --- |
-| سئوی فارسی | `persian-seo` | سئوی فنی و محتوایی فارسی | metadata، URL، JSON-LD؛ OG عمیق → skill جدا | seo، metadata |
 | Open Graph و پیش‌نمایش لینک / Open Graph & Social Preview | `open-graph-social-preview` | پیش‌نمایش درست لینک در تلگرام، X و بقیه | لینک بدون عکس، کش خراب، ImageResponse | open graph، twitter، telegram |
 | چند Design System در Next.js / Multi Design System | `nextjs-multi-design-system` | چند ظاهر در یک پروژه، لود درست و پیش‌نمایش هم‌خوان | چند ظاهر در یک اپ، ناهماهنگی پیش‌نمایش | nextjs، design-system، iframe، ssr |
 | نمودار فارسی و راست‌چین / RTL Charts | `rtl-data-visualization` | نمودار فارسی و راست‌چین | محور، Tooltip، Legend، اعداد فارسی | rtl، recharts، charts |
@@ -35,6 +34,14 @@ Site catalog: `/skills`
 | طراحی تعامل / Interaction Design | `interaction-design` | Loading، Feedback، Transition | حالت‌های کامپوننت و انیمیشن | interaction، motion |
 | الگوهای Design System / Design System Patterns | `design-system-patterns` | توکن، تم، معماری کامپوننت | ساخت Design System | design-system، tokens |
 | راهنمای رابط کاربری وب / Web Interface Guidelines | `web-interface-guidelines` | قواعد کوتاه UI سریع و در دسترس | بازبینی فرم، فوکوس، پرفورمنس | vercel، guidelines |
+
+### SEO — سئو
+
+| Name | Slug | What it solves | When to use | Tags |
+| --- | --- | --- | --- | --- |
+| سئوی فارسی | `persian-seo` | عنوان، توضیحات و محتوای فارسی برای جست‌وجو | صفحات محصول/مقاله، پیش‌نمایش لینک، سایت دوزبانه | seo، metadata |
+| سئوی فنی سایت / SEO | `seo` | مشکلات فنی مؤثر بر دیده‌شدن در موتورهای جست‌وجو | meta، structured data، robots، sitemap، canonical | seo، lighthouse |
+| بررسی کیفیت و عملکرد سایت / Web Quality Audit | `web-quality-audit` | بررسی سرعت، دسترس‌پذیری، سئو و استانداردهای وب بر اساس شواهد | ممیزی صفحه/سایت، Lighthouse، پیش از انتشار | audit، lighthouse، quality |
 
 ### Persian Product — محصول فارسی
 
@@ -80,6 +87,7 @@ Site catalog: `/skills`
 * **component-registry** + **component-cli** → single `component-registry-cli`.
 * **ui-library-mcp** stays separate from **mcp-builder** (product-specific vs general).
 * **open-graph-social-preview** stays separate from **persian-seo** (SEO points to OG skill for deep debugging).
+* **seo** + **web-quality-audit** from [Addy Osmani web-quality-skills](https://github.com/addyosmani/web-quality-skills); Persian-specific SEO stays in **persian-seo**.
 
 ---
 

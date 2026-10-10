@@ -32,23 +32,23 @@ import {
 
 export const description = "یک نمودار دایره‌ای تعاملی"
 
-const desktopData = [
-  { month: "january", desktop: 186, fill: "var(--color-january)" },
-  { month: "february", desktop: 305, fill: "var(--color-february)" },
-  { month: "march", desktop: 237, fill: "var(--color-march)" },
-  { month: "april", desktop: 173, fill: "var(--color-april)" },
-  { month: "may", desktop: 209, fill: "var(--color-may)" },
+const monthlySalesData = [
+  { month: "january", store: 186, fill: "var(--color-january)" },
+  { month: "february", store: 305, fill: "var(--color-february)" },
+  { month: "march", store: 237, fill: "var(--color-march)" },
+  { month: "april", store: 173, fill: "var(--color-april)" },
+  { month: "may", store: 209, fill: "var(--color-may)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
   },
-  mobile: {
-    label: FA_CHART.mobile,
+  online: {
+    label: FA_CHART.online,
   },
   january: {
     label: FA_MONTHS[0],
@@ -74,13 +74,13 @@ const chartConfig = {
 
 export function ChartPieInteractive() {
   const id = "pie-interactive"
-  const [activeMonth, setActiveMonth] = React.useState(desktopData[0].month)
+  const [activeMonth, setActiveMonth] = React.useState(monthlySalesData[0].month)
 
   const activeIndex = React.useMemo(
-    () => desktopData.findIndex((item) => item.month === activeMonth),
+    () => monthlySalesData.findIndex((item) => item.month === activeMonth),
     [activeMonth]
   )
-  const months = React.useMemo(() => desktopData.map((item) => item.month), [])
+  const months = React.useMemo(() => monthlySalesData.map((item) => item.month), [])
 
   const renderPieShape = React.useCallback(
     ({ index, outerRadius = 0, ...props }: PieSectorShapeProps) => {
@@ -107,7 +107,7 @@ export function ChartPieInteractive() {
       <ChartStyle id={id} config={chartConfig} />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
-          <CardTitle>نمودار دایره‌ای — تعاملی</CardTitle>
+          <CardTitle>فروش ماهانه — تعاملی</CardTitle>
           <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
         </div>
         <Select dir="rtl" value={activeMonth} onValueChange={setActiveMonth}>
@@ -158,8 +158,8 @@ export function ChartPieInteractive() {
               content={<ChartTooltipContent hideLabel />}
             />
             <Pie
-              data={desktopData}
-              dataKey="desktop"
+              data={monthlySalesData}
+              dataKey="store"
               nameKey="month"
               innerRadius={60}
               strokeWidth={5}
@@ -180,14 +180,14 @@ export function ChartPieInteractive() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {formatPersianNumber(desktopData[activeIndex].desktop)}
+                          {formatPersianNumber(monthlySalesData[activeIndex].store)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          {FA_CHART.visitors}
+                          {FA_CHART.sales}
                         </tspan>
                       </text>
                     )

@@ -3,7 +3,7 @@
 import { TrendingUp } from "lucide-react"
 import { Pie, PieChart } from "recharts"
 
-import { FA_CHART } from "@/lib/chart-locale"
+import { FA_CHART, FA_PAYMENT_SHARE } from "@/lib/chart-locale"
 import {
   Card,
   CardContent,
@@ -19,34 +19,28 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "یک نمودار دونات"
+export const description = "سهم روش‌های پرداخت — دونات"
 
-const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
-]
+const chartData = [...FA_PAYMENT_SHARE]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
-  chrome: {
-    label: FA_CHART.chrome,
+  card: {
+    label: FA_CHART.card,
     color: "var(--chart-1)",
   },
-  safari: {
-    label: FA_CHART.safari,
+  gateway: {
+    label: FA_CHART.gateway,
     color: "var(--chart-2)",
   },
-  firefox: {
-    label: FA_CHART.firefox,
+  cash: {
+    label: FA_CHART.cash,
     color: "var(--chart-3)",
   },
-  edge: {
-    label: FA_CHART.edge,
+  wallet: {
+    label: FA_CHART.wallet,
     color: "var(--chart-4)",
   },
   other: {
@@ -59,7 +53,7 @@ export function ChartPieDonut() {
   return (
     <Card dir="rtl" className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>نمودار دایره‌ای — دونات</CardTitle>
+        <CardTitle>{FA_CHART.titlePaymentShare}</CardTitle>
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
@@ -70,12 +64,12 @@ export function ChartPieDonut() {
           <PieChart>
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent hideLabel nameKey="method" />}
             />
             <Pie
               data={chartData}
-              dataKey="visitors"
-              nameKey="browser"
+              dataKey="sales"
+              nameKey="method"
               innerRadius={60}
             />
           </PieChart>
@@ -86,7 +80,7 @@ export function ChartPieDonut() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

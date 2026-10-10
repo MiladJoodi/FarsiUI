@@ -1,12 +1,14 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import {
-  abbreviatePersianMonth,
   FA_CHART,
-  FA_MONTHS,
+  FA_MONTHLY_SALES,
+  formatPersianMonthTick,
+  formatToman,
+  formatTomanAxis,
 } from "@/lib/chart-locale"
 import {
   Card,
@@ -23,20 +25,16 @@ import {
   type ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
-export const description = "یک نمودار خطی ساده"
+export const description = "روند فروش شمسی — نمودار خطی"
 
-const chartData = [
-  { month: FA_MONTHS[0], desktop: 186 },
-  { month: FA_MONTHS[1], desktop: 305 },
-  { month: FA_MONTHS[2], desktop: 237 },
-  { month: FA_MONTHS[3], desktop: 73 },
-  { month: FA_MONTHS[4], desktop: 209 },
-  { month: FA_MONTHS[5], desktop: 214 },
-]
+const chartData = FA_MONTHLY_SALES.map(({ month, store }) => ({
+  month,
+  store,
+}))
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
@@ -45,7 +43,7 @@ export function ChartLineDefault() {
   return (
     <Card dir="rtl">
       <CardHeader>
-        <CardTitle>نمودار خطی</CardTitle>
+        <CardTitle>{FA_CHART.titleSalesTrend}</CardTitle>
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
@@ -58,22 +56,43 @@ export function ChartLineDefault() {
               right: 12,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={abbreviatePersianMonth}
+              tickFormatter={formatPersianMonthTick}
+            />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              width={48}
+              tickFormatter={formatTomanAxis}
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={
+                <ChartTooltipContent
+                  hideLabel
+                  formatter={(value) => (
+                    <div className="flex flex-1 items-center justify-between gap-4">
+                      <span className="text-muted-foreground">
+                        {FA_CHART.store}
+                      </span>
+                      <span className="font-medium text-foreground tabular-nums">
+                        {formatToman(Number(value), { compact: true })}
+                      </span>
+                    </div>
+                  )}
+                />
+              }
             />
             <Line
-              dataKey="desktop"
+              dataKey="store"
               type="natural"
-              stroke="var(--color-desktop)"
+              stroke="var(--color-store)"
               strokeWidth={2}
               dot={false}
             />
@@ -85,7 +104,7 @@ export function ChartLineDefault() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

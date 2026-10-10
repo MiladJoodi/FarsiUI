@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import {
-  abbreviatePersianMonth,
+  formatPersianMonthTick,
   FA_CHART,
   FA_MONTHS,
 } from "@/lib/chart-locale"
@@ -28,21 +28,21 @@ import {
 export const description = "یک نمودار میله‌ای انباشته با راهنما"
 
 const chartData = [
-  { month: FA_MONTHS[0], desktop: 186, mobile: 80 },
-  { month: FA_MONTHS[1], desktop: 305, mobile: 200 },
-  { month: FA_MONTHS[2], desktop: 237, mobile: 120 },
-  { month: FA_MONTHS[3], desktop: 73, mobile: 190 },
-  { month: FA_MONTHS[4], desktop: 209, mobile: 130 },
-  { month: FA_MONTHS[5], desktop: 214, mobile: 140 },
+  { month: FA_MONTHS[0], store: 186, online: 80 },
+  { month: FA_MONTHS[1], store: 305, online: 200 },
+  { month: FA_MONTHS[2], store: 237, online: 120 },
+  { month: FA_MONTHS[3], store: 73, online: 190 },
+  { month: FA_MONTHS[4], store: 209, online: 130 },
+  { month: FA_MONTHS[5], store: 214, online: 140 },
 ]
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
-  mobile: {
-    label: FA_CHART.mobile,
+  online: {
+    label: FA_CHART.online,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -63,20 +63,20 @@ export function ChartBarStacked() {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tickFormatter={abbreviatePersianMonth}
+              tickFormatter={formatPersianMonthTick}
             />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Bar
-              dataKey="desktop"
+              dataKey="store"
               stackId="a"
-              fill="var(--color-desktop)"
+              fill="var(--color-store)"
               radius={[0, 0, 4, 4]}
             />
             <Bar
-              dataKey="mobile"
+              dataKey="online"
               stackId="a"
-              fill="var(--color-mobile)"
+              fill="var(--color-online)"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>
@@ -87,7 +87,7 @@ export function ChartBarStacked() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

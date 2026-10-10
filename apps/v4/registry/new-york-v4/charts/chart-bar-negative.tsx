@@ -22,17 +22,17 @@ import {
 export const description = "یک نمودار میله‌ای با مقادیر منفی"
 
 const chartData = [
-  { month: FA_MONTHS[0], visitors: 186 },
-  { month: FA_MONTHS[1], visitors: 205 },
-  { month: FA_MONTHS[2], visitors: -207 },
-  { month: FA_MONTHS[3], visitors: 173 },
-  { month: FA_MONTHS[4], visitors: -209 },
-  { month: FA_MONTHS[5], visitors: 214 },
+  { month: FA_MONTHS[0], sales: 186 },
+  { month: FA_MONTHS[1], sales: 205 },
+  { month: FA_MONTHS[2], sales: -207 },
+  { month: FA_MONTHS[3], sales: 173 },
+  { month: FA_MONTHS[4], sales: -209 },
+  { month: FA_MONTHS[5], sales: 214 },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
 } satisfies ChartConfig
 
@@ -40,7 +40,7 @@ export function ChartBarNegative() {
   return (
     <Card dir="rtl">
       <CardHeader>
-        <CardTitle>نمودار میله‌ای — مقادیر منفی</CardTitle>
+        <CardTitle>تغییر فروش ماهانه</CardTitle>
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
@@ -51,12 +51,12 @@ export function ChartBarNegative() {
               cursor={false}
               content={<ChartTooltipContent hideLabel hideIndicator />}
             />
-            <Bar dataKey="visitors">
+            <Bar dataKey="sales">
               <LabelList position="top" dataKey="month" fillOpacity={1} />
               {chartData.map((item) => (
                 <Cell
                   key={item.month}
-                  fill={item.visitors > 0 ? "var(--chart-1)" : "var(--chart-2)"}
+                  fill={item.sales > 0 ? "var(--chart-1)" : "var(--chart-2)"}
                 />
               ))}
             </Bar>
@@ -68,7 +68,7 @@ export function ChartBarNegative() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

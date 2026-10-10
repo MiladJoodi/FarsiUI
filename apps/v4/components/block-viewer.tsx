@@ -32,6 +32,10 @@ import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { useTheme } from "next-themes"
 import { useIframeScrollPassthrough } from "@/hooks/use-iframe-scroll-passthrough"
 import { useDesignSystemPreview } from "@/components/design-system-preview"
+import {
+  isPreviewIframeReady,
+  PreviewFrameLoader,
+} from "@/components/preview-frame-loader"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { type Style } from "@/registry/_legacy-styles"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -263,23 +267,39 @@ function BlockViewerIframe({
   const { styleName: designSystemStyleName } = useDesignSystemPreview()
   const previewStyleName = designSystemStyleName || styleName
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
+  const [previewLoaded, setPreviewLoaded] = React.useState(false)
   const { scrollShield, dismissShield } = useIframeScrollPassthrough(
     iframeRef,
     [iframeKey, item.name, previewStyleName]
   )
 
+  React.useEffect(() => {
+    setPreviewLoaded(false)
+  }, [iframeKey, item.name, previewStyleName])
+
   return (
     <div className="relative size-full min-h-0">
+      {!previewLoaded ? (
+        <div className="absolute inset-0 z-30">
+          <PreviewFrameLoader />
+        </div>
+      ) : null}
       <iframe
         ref={iframeRef}
         key={`${iframeKey}-${previewStyleName}`}
         src={`/view/${previewStyleName}/${item.name}?embed=1`}
         height={item.meta?.iframeHeight ?? 930}
-        loading="lazy"
+        loading="eager"
         title={item.name}
+        onLoad={() => {
+          if (isPreviewIframeReady(iframeRef.current)) {
+            setPreviewLoaded(true)
+          }
+        }}
         className={cn(
-          "relative z-20 no-scrollbar h-full w-full bg-background",
+          "relative z-10 no-scrollbar h-full w-full bg-background transition-opacity duration-200",
           scrollShield && "pointer-events-none",
+          previewLoaded ? "opacity-100" : "opacity-0",
           className
         )}
         style={{ height: "100%" }}
@@ -287,7 +307,7 @@ function BlockViewerIframe({
       {scrollShield ? (
         <div
           aria-hidden
-          className="absolute inset-0 z-30 cursor-default"
+          className="absolute inset-0 z-20 cursor-default"
           onClick={dismissShield}
         />
       ) : null}
@@ -323,20 +343,27 @@ function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
 
 function BlockViewerMobile({ children }: { children: React.ReactNode }) {
   const { item } = useBlockViewer()
+  const { copyToClipboard, isCopied } = useCopyToClipboard()
+  const installCommand = `npx farsiui@latest add ${item.name}`
 
   return (
     <div dir="rtl" lang="fa" className="flex flex-col gap-2 lg:hidden">
-      <div className="flex items-center gap-2 px-2">
-        <div className="line-clamp-1 text-sm font-medium">
+      <div className="flex flex-wrap items-center gap-2 px-2">
+        <div className="line-clamp-1 min-w-0 flex-1 text-sm font-medium">
           {item.description}
         </div>
-        <div
-          dir="ltr"
-          lang="en"
-          className="ms-auto shrink-0 font-mono text-xs text-muted-foreground"
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-7 max-w-full gap-1.5 px-2 font-normal"
+          title="کپی دستور نصب"
+          onClick={() => copyToClipboard(installCommand)}
         >
-          {item.name}
-        </div>
+          {isCopied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+          <span dir="ltr" lang="en" className="truncate font-mono text-xs">
+            {installCommand}
+          </span>
+        </Button>
       </div>
       {item.meta?.mobile === "component" ? (
         children

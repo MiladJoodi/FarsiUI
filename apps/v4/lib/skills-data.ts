@@ -25,7 +25,13 @@ export const SKILL_CATEGORIES = [
     title: "وب",
     titleEn: "Web",
     description:
-      "سئو، پیش‌نمایش لینک، واکنش‌گرایی، دسترس‌پذیری، تعامل و نمودار فارسی",
+      "پیش‌نمایش لینک، واکنش‌گرایی، دسترس‌پذیری، تعامل و نمودار فارسی",
+  },
+  {
+    id: "seo",
+    title: "سئو",
+    titleEn: "SEO",
+    description: "سئوی فنی و محتوایی، متادیتا و ممیزی کیفیت برای جستجو",
   },
   {
     id: "persian-product",
@@ -358,15 +364,15 @@ export const skills: Skill[] = [
   },
   {
     slug: "persian-seo",
-    category: "web",
-    title: "سئو برای سایت فارسی",
+    category: "seo",
+    title: "سئوی فارسی",
     summary:
-      "عنوان و توضیحات صفحه را برای گوگل و مخاطب فارسی درست می‌کند.",
+      "عنوان، توضیحات و محتوای سایت را برای جست‌وجوهای فارسی و مخاطبان فارسی‌زبان بهینه می‌کند.",
     useCases: [
-      "عنوان و توضیح صفحه",
-      "صفحهٔ محصول یا مقاله",
-      "پیش‌نمایش وقتی لینک را در شبکه اجتماعی می‌فرستید",
-      "سایت دو زبانهٔ فارسی و انگلیسی",
+      "نوشتن عنوان و توضیحات مناسب برای صفحات",
+      "بهینه‌سازی صفحات محصول و مقاله",
+      "تنظیم پیش‌نمایش لینک در شبکه‌های اجتماعی",
+      "رعایت نکات سئو در سایت‌های فارسی و دوزبانه",
     ],
     tags: ["سئو", "متادیتا", "محتوا"],
     activationDescription:
@@ -399,7 +405,107 @@ export const skills: Skill[] = [
     agentsHint:
       "For Persian SEO and metadata, read .claude/skills/persian-seo/SKILL.md first.",
     example:
-      "عنوان تب مرورگر می‌شود «کفش ورزشی مردانه | فروشگاه شما» — نه عنوان انگلیسی Product.",
+      "عنوان صفحه را متناسب با محتوای فارسی می‌نویسد؛ مثلاً «کفش ورزشی مردانه | فروشگاه شما» به‌جای یک عنوان پیش‌فرض انگلیسی.",
+  },
+  {
+    slug: "seo",
+    category: "seo",
+    title: "سئوی فنی سایت",
+    titleEn: "SEO",
+    summary:
+      "مشکلات فنی مؤثر بر دیده‌شدن سایت در موتورهای جست‌وجو را پیدا می‌کند و برای رفع آن‌ها پیشنهاد می‌دهد.",
+    useCases: [
+      "بررسی عنوان و توضیحات صفحات",
+      "بررسی داده‌های ساختاریافته",
+      "بررسی فایل‌های robots.txt و sitemap.xml",
+      "بررسی آدرس اصلی صفحه (canonical)",
+      "بررسی مشکلات فنی سئو با ابزارهای مناسب",
+    ],
+    tags: ["سئو", "Lighthouse", "structured data", "متادیتا"],
+    activationDescription:
+      "Optimize for search engine visibility and ranking. Use when asked to improve SEO, optimize for search, fix meta tags, add structured data, sitemap optimization, or search engine optimization. Covers technical SEO, on-page optimization, crawlability, and JSON-LD based on Lighthouse SEO audits and Google Search guidelines.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add seo",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/seo/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/seo/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/seo/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/seo/SKILL.md"],
+      },
+    ],
+    agentsHint: "For technical SEO, read .claude/skills/seo/SKILL.md first.",
+    example:
+      "پیش از انتشار سایت، تنظیمات سئو و دسترسی موتورهای جست‌وجو را بررسی می‌کند و مشکلاتی را که ممکن است مانع ایندکس‌شدن صفحات شوند، مشخص می‌کند.",
+    source: {
+      name: "seo",
+      url: "https://github.com/addyosmani/web-quality-skills/tree/main/skills/seo",
+    },
+  },
+  {
+    slug: "web-quality-audit",
+    category: "seo",
+    title: "بررسی کیفیت و عملکرد سایت",
+    titleEn: "Web Quality Audit",
+    summary:
+      "کیفیت سایت را از نظر سرعت، دسترس‌پذیری، سئو و استانداردهای وب بررسی می‌کند و مشکلات را بر اساس شواهد پیدا می‌کند.",
+    useCases: [
+      "بررسی کامل سایت یا یک صفحه",
+      "اجرای Lighthouse و بررسی نتایج",
+      "پیدا کردن مشکلات مؤثر بر تجربه کاربر",
+      "بررسی سایت پیش از انتشار یا پس از تغییرات",
+    ],
+    tags: ["ممیزی", "Lighthouse", "کیفیت وب", "سئو", "پرفورمنس"],
+    activationDescription:
+      "Run an evidence-led web quality audit covering performance, accessibility, SEO, best practices, and agentic browsing. Use when asked to audit a site, review web quality, run a Lighthouse audit, check page quality, or optimize a website. Combines live browser evidence with source inspection; does not treat an aggregate score as proof of quality.",
+    activationNote:
+      "این چند خط به AI می‌گوید کی این مهارت را باز کند. اگر جاهای دیگری هم لازم دارید، همین متن را عوض کنید.",
+    installCommand: "npx farsiui@latest add web-quality-audit",
+    installTargets: [
+      {
+        id: "claude-code",
+        name: "Claude Code",
+        paths: [".claude/skills/web-quality-audit/SKILL.md"],
+      },
+      {
+        id: "cursor",
+        name: "Cursor",
+        paths: [".cursor/skills/web-quality-audit/SKILL.md"],
+      },
+      {
+        id: "codex",
+        name: "Codex",
+        paths: [".agents/skills/web-quality-audit/SKILL.md"],
+      },
+      {
+        id: "other",
+        name: "سایر ابزارها",
+        paths: [".claude/skills/web-quality-audit/SKILL.md"],
+      },
+    ],
+    agentsHint:
+      "For an evidence-led web quality audit, read .claude/skills/web-quality-audit/SKILL.md first.",
+    example:
+      "صفحه را بررسی می‌کند، مشکلات واقعی را از حدس‌ها جدا می‌کند، اصلاحات لازم را انجام می‌دهد و دوباره نتیجه را می‌سنجد.",
+    source: {
+      name: "web-quality-audit",
+      url: "https://github.com/addyosmani/web-quality-skills/tree/main/skills/web-quality-audit",
+    },
   },
   {
     slug: "open-graph-social-preview",

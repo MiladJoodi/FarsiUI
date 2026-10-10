@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
-  abbreviatePersianMonth,
+  formatPersianMonthTick,
   FA_CHART,
   FA_MONTHS,
 } from "@/lib/chart-locale"
@@ -26,21 +26,21 @@ import {
 export const description = "یک نمودار راداری فقط با خطوط"
 
 const chartData = [
-  { month: FA_MONTHS[0], desktop: 186, mobile: 160 },
-  { month: FA_MONTHS[1], desktop: 185, mobile: 170 },
-  { month: FA_MONTHS[2], desktop: 207, mobile: 180 },
-  { month: FA_MONTHS[3], desktop: 173, mobile: 160 },
-  { month: FA_MONTHS[4], desktop: 160, mobile: 190 },
-  { month: FA_MONTHS[5], desktop: 174, mobile: 204 },
+  { month: FA_MONTHS[0], store: 186, online: 160 },
+  { month: FA_MONTHS[1], store: 185, online: 170 },
+  { month: FA_MONTHS[2], store: 207, online: 180 },
+  { month: FA_MONTHS[3], store: 173, online: 160 },
+  { month: FA_MONTHS[4], store: 160, online: 190 },
+  { month: FA_MONTHS[5], store: 174, online: 204 },
 ]
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
-  mobile: {
-    label: FA_CHART.mobile,
+  online: {
+    label: FA_CHART.online,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -50,7 +50,7 @@ export function ChartRadarLinesOnly() {
     <Card dir="rtl">
       <CardHeader className="items-center pb-4">
         <CardTitle>نمودار راداری — فقط خطوط</CardTitle>
-        <CardDescription>{FA_CHART.visitorsLast6Months}</CardDescription>
+        <CardDescription>{FA_CHART.salesLast6Months}</CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -64,21 +64,21 @@ export function ChartRadarLinesOnly() {
             />
             <PolarAngleAxis
               dataKey="month"
-              tickFormatter={abbreviatePersianMonth}
+              tickFormatter={formatPersianMonthTick}
             />
             <PolarGrid radialLines={false} />
             <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
+              dataKey="store"
+              fill="var(--color-store)"
               fillOpacity={0}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-store)"
               strokeWidth={2}
             />
             <Radar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
+              dataKey="online"
+              fill="var(--color-online)"
               fillOpacity={0}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-online)"
               strokeWidth={2}
             />
           </RadarChart>

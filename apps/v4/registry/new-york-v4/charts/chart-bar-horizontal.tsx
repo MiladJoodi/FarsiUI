@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
-  abbreviatePersianMonth,
+  formatPersianMonthTick,
   FA_CHART,
   FA_MONTHS,
 } from "@/lib/chart-locale"
@@ -26,17 +26,17 @@ import {
 export const description = "یک نمودار میله‌ای افقی"
 
 const chartData = [
-  { month: FA_MONTHS[0], desktop: 186 },
-  { month: FA_MONTHS[1], desktop: 305 },
-  { month: FA_MONTHS[2], desktop: 237 },
-  { month: FA_MONTHS[3], desktop: 73 },
-  { month: FA_MONTHS[4], desktop: 209 },
-  { month: FA_MONTHS[5], desktop: 214 },
+  { month: FA_MONTHS[0], store: 186 },
+  { month: FA_MONTHS[1], store: 305 },
+  { month: FA_MONTHS[2], store: 237 },
+  { month: FA_MONTHS[3], store: 73 },
+  { month: FA_MONTHS[4], store: 209 },
+  { month: FA_MONTHS[5], store: 214 },
 ]
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
@@ -45,37 +45,38 @@ export function ChartBarHorizontal() {
   return (
     <Card dir="rtl">
       <CardHeader>
-        <CardTitle>نمودار میله‌ای — افقی</CardTitle>
+        <CardTitle>فروش ماهانه شعب</CardTitle>
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Recharts vertical layout needs LTR geometry so Y ticks stay outside bars. */}
         <ChartContainer config={chartConfig} dir="ltr">
           <BarChart
             accessibilityLayer
             data={chartData}
             layout="vertical"
             margin={{
-              left: 4,
-              right: 8,
+              left: 8,
+              right: 12,
               top: 4,
               bottom: 4,
             }}
           >
-            <XAxis type="number" dataKey="desktop" hide />
+            <XAxis type="number" dataKey="store" hide />
             <YAxis
               dataKey="month"
               type="category"
               tickLine={false}
-              tickMargin={8}
+              tickMargin={10}
               axisLine={false}
-              width={52}
-              tickFormatter={abbreviatePersianMonth}
+              width={78}
+              tickFormatter={formatPersianMonthTick}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
+            <Bar dataKey="store" fill="var(--color-store)" radius={5} />
           </BarChart>
         </ChartContainer>
       </CardContent>
@@ -84,7 +85,7 @@ export function ChartBarHorizontal() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

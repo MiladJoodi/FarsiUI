@@ -874,3 +874,10 @@ body[class*="theme-"],
     opacity: 0;
   }
 }
+
+@keyframes preview-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -27,21 +27,21 @@ import {
 
 export const description = "یک نمودار شعاعی با بخش‌های انباشته"
 
-const chartData = [{ month: "january", mobile: 570, desktop: 1260 }]
+const chartData = [{ month: "january", online: 570, store: 1260 }]
 
 const chartConfig = {
-  desktop: {
-    label: FA_CHART.desktop,
+  store: {
+    label: FA_CHART.store,
     color: "var(--chart-1)",
   },
-  mobile: {
-    label: FA_CHART.mobile,
+  online: {
+    label: FA_CHART.online,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
 export function ChartRadialStacked() {
-  const totalVisitors = chartData[0].desktop + chartData[0].mobile
+  const totalVisitors = chartData[0].store + chartData[0].online
 
   return (
     <Card dir="rtl" className="flex flex-col">
@@ -61,17 +61,17 @@ export function ChartRadialStacked() {
             outerRadius={110}
           >
             <RadialBar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
+              dataKey="online"
+              fill="var(--color-online)"
               stackId="a"
               cornerRadius={5}
               className="stroke-transparent stroke-2"
             />
             <RadialBar
-              dataKey="desktop"
+              dataKey="store"
               stackId="a"
               cornerRadius={5}
-              fill="var(--color-desktop)"
+              fill="var(--color-store)"
               className="stroke-transparent stroke-2"
             />
             <ChartTooltip
@@ -96,7 +96,7 @@ export function ChartRadialStacked() {
                           y={(viewBox.cy || 0) + 4}
                           className="fill-muted-foreground"
                         >
-                          {FA_CHART.visitors}
+                          {FA_CHART.sales}
                         </tspan>
                       </text>
                     )
@@ -112,7 +112,7 @@ export function ChartRadialStacked() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>

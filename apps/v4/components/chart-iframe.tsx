@@ -3,7 +3,10 @@
 import * as React from "react"
 import { cn } from "cn"
 
-import { ChartPlotSkeleton } from "@/components/route-skeletons"
+import {
+  isPreviewIframeReady,
+  PreviewFrameLoader,
+} from "@/components/preview-frame-loader"
 
 export function ChartIframe({
   src,
@@ -20,6 +23,12 @@ export function ChartIframe({
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [shouldLoad, setShouldLoad] = React.useState(priority)
   const [loaded, setLoaded] = React.useState(false)
+
+  const iframeRef = React.useRef<HTMLIFrameElement>(null)
+
+  React.useEffect(() => {
+    setLoaded(false)
+  }, [src])
 
   React.useEffect(() => {
     if (priority || shouldLoad) return
@@ -57,21 +66,26 @@ export function ChartIframe({
       style={{ height }}
     >
       {!loaded ? (
-        <div className="absolute inset-0 z-10">
-          <ChartPlotSkeleton />
+        <div className="absolute inset-0 z-30">
+          <PreviewFrameLoader />
         </div>
       ) : null}
       {shouldLoad ? (
         <iframe
+          ref={iframeRef}
           src={src}
           className={cn(
-            "absolute inset-0 z-20 h-full w-full border-none transition-opacity duration-300",
+            "absolute inset-0 z-10 h-full w-full border-none transition-opacity duration-300",
             loaded ? "opacity-100" : "opacity-0"
           )}
           height={height}
           loading={priority ? "eager" : "lazy"}
           title={title}
-          onLoad={() => setLoaded(true)}
+          onLoad={() => {
+            if (isPreviewIframeReady(iframeRef.current)) {
+              setLoaded(true)
+            }
+          }}
         />
       ) : null}
     </div>

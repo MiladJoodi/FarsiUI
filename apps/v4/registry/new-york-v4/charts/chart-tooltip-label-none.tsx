@@ -20,21 +20,21 @@ import {
 export const description = "نمودار میله‌ای انباشته با راهنمای بدون برچسب"
 
 const chartData = [
-  { date: "2024-07-15", running: 450, swimming: 300 },
-  { date: "2024-07-16", running: 380, swimming: 420 },
-  { date: "2024-07-17", running: 520, swimming: 120 },
-  { date: "2024-07-18", running: 140, swimming: 550 },
-  { date: "2024-07-19", running: 600, swimming: 350 },
-  { date: "2024-07-20", running: 480, swimming: 400 },
+  { date: "2024-07-15", delivery: 450, pickup: 300 },
+  { date: "2024-07-16", delivery: 380, pickup: 420 },
+  { date: "2024-07-17", delivery: 520, pickup: 120 },
+  { date: "2024-07-18", delivery: 140, pickup: 550 },
+  { date: "2024-07-19", delivery: 600, pickup: 350 },
+  { date: "2024-07-20", delivery: 480, pickup: 400 },
 ]
 
 const chartConfig = {
-  running: {
-    label: FA_CHART.running,
+  delivery: {
+    label: FA_CHART.delivery,
     color: "var(--chart-1)",
   },
-  swimming: {
-    label: FA_CHART.swimming,
+  pickup: {
+    label: FA_CHART.pickup,
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -59,15 +59,15 @@ export function ChartTooltipLabelNone() {
               }
             />
             <Bar
-              dataKey="running"
+              dataKey="delivery"
               stackId="a"
-              fill="var(--color-running)"
+              fill="var(--color-delivery)"
               radius={[0, 0, 4, 4]}
             />
             <Bar
-              dataKey="swimming"
+              dataKey="pickup"
               stackId="a"
-              fill="var(--color-swimming)"
+              fill="var(--color-pickup)"
               radius={[4, 4, 0, 0]}
             />
             <ChartTooltip

@@ -22,31 +22,31 @@ import {
 export const description = "یک نمودار میله‌ای ترکیبی"
 
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
+  { province: "tehran", sales: 275, fill: "var(--color-tehran)" },
+  { province: "isfahan", sales: 200, fill: "var(--color-isfahan)" },
+  { province: "fars", sales: 187, fill: "var(--color-fars)" },
+  { province: "khorasan", sales: 173, fill: "var(--color-khorasan)" },
+  { province: "other", sales: 90, fill: "var(--color-other)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: FA_CHART.visitors,
+  sales: {
+    label: FA_CHART.sales,
   },
-  chrome: {
-    label: FA_CHART.chrome,
+  tehran: {
+    label: FA_CHART.tehran,
     color: "var(--chart-1)",
   },
-  safari: {
-    label: FA_CHART.safari,
+  isfahan: {
+    label: FA_CHART.isfahan,
     color: "var(--chart-2)",
   },
-  firefox: {
-    label: FA_CHART.firefox,
+  fars: {
+    label: FA_CHART.fars,
     color: "var(--chart-3)",
   },
-  edge: {
-    label: FA_CHART.edge,
+  khorasan: {
+    label: FA_CHART.khorasan,
     color: "var(--chart-4)",
   },
   other: {
@@ -59,10 +59,11 @@ export function ChartBarMixed() {
   return (
     <Card dir="rtl">
       <CardHeader>
-        <CardTitle>نمودار میله‌ای — ترکیبی</CardTitle>
+        <CardTitle>فروش به تفکیک استان</CardTitle>
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Recharts vertical layout needs LTR geometry so Y ticks stay outside bars. */}
         <ChartContainer config={chartConfig} dir="ltr">
           <BarChart
             accessibilityLayer
@@ -76,22 +77,22 @@ export function ChartBarMixed() {
             }}
           >
             <YAxis
-              dataKey="browser"
+              dataKey="province"
               type="category"
               tickLine={false}
-              tickMargin={8}
+              tickMargin={10}
               axisLine={false}
-              width={72}
+              width={104}
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }
             />
-            <XAxis dataKey="visitors" type="number" hide />
+            <XAxis dataKey="sales" type="number" hide />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="visitors" radius={5} />
+            <Bar dataKey="sales" radius={5} />
           </BarChart>
         </ChartContainer>
       </CardContent>
@@ -100,7 +101,7 @@ export function ChartBarMixed() {
           {FA_CHART.trendingUp} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          {FA_CHART.visitorsLast6Months}
+          {FA_CHART.salesLast6Months}
         </div>
       </CardFooter>
     </Card>
