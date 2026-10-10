@@ -80,8 +80,8 @@ const STYLE_COMBINATIONS = Array.from(BASES).flatMap((base) =>
 )
 
 /**
- * Registries emitted on full deploy builds. Source folders for other styles
- * stay in the repo; they are simply skipped here to keep CI/deploy fast.
+ * Installable `public/r` registries on full deploy. Source folders for other
+ * styles stay in the repo; they are skipped from CLI export to keep deploy fast.
  * Charts still use legacy new-york-v4.
  */
 const DEPLOY_REGISTRY_STYLE_NAMES = new Set([
@@ -92,6 +92,26 @@ const DEPLOY_REGISTRY_STYLE_NAMES = new Set([
   "base-rose",
   "base-nili",
   "base-khesht",
+])
+
+/**
+ * Generated `styles/<combo>/ui` trees required for Next.js to resolve example
+ * and app imports (`@/styles/...`). Broader than the public registry allowlist.
+ */
+const APP_COMPILE_STYLE_COMBOS = new Set([
+  "base-nova",
+  "base-vega",
+  "base-glass",
+  "base-rose",
+  "base-nili",
+  "base-khesht",
+  "base-rhea",
+  "base-sera",
+  "aria-rhea",
+  "radix-nova",
+  "radix-rhea",
+  "radix-sera",
+  "radix-luma",
 ])
 
 const CPU_COUNT = availableParallelism()
@@ -759,20 +779,21 @@ async function runFullBuild() {
   await loadTransformCache()
 
   const stylesToBuild = getStylesToBuild()
-  const comboStyleNames = new Set(
-    stylesToBuild
-      .map((style) => style.name)
-      .filter((name) => name !== "new-york-v4")
-  )
+  const appCompileStyleNames = new Set(APP_COMPILE_STYLE_COMBOS)
 
   console.log("\n🏗️ Building bases...")
   console.log(
-    `   Deploy allowlist (${stylesToBuild.length}): ${stylesToBuild
+    `   public/r allowlist (${stylesToBuild.length}): ${stylesToBuild
       .map((style) => style.name)
       .join(", ")}`
   )
+  console.log(
+    `   styles/ compile set (${appCompileStyleNames.size}): ${[
+      ...appCompileStyleNames,
+    ].join(", ")}`
+  )
   await buildBasesIndex(Array.from(BASES))
-  await buildBases(Array.from(BASES), comboStyleNames)
+  await buildBases(Array.from(BASES), appCompileStyleNames)
 
   console.log("\n📦 Building registry/__index__.tsx...")
   await buildRegistryIndex(stylesToBuild)
@@ -780,7 +801,7 @@ async function runFullBuild() {
   console.log("\n📋 Building examples/__index__.tsx...")
   await buildExamplesIndex()
 
-  console.log("\n💅 Building styles...")
+  console.log("\n💅 Building registry...")
   await runWithConcurrency(
     stylesToBuild,
     CLI_BUILD_CONCURRENCY,
@@ -805,13 +826,13 @@ async function runFullBuild() {
   await buildColors()
 
   console.log("\n📋 Copying compiled ui to styles...")
-  await copyUIToStyles()
+  await copyUIToStyles(appCompileStyleNames)
 
   console.log("\n🔄 Building RTL styles...")
-  await buildRtlStyles()
+  await buildRtlStyles(appCompileStyleNames)
 
   console.log("\n🧹 Cleaning up...")
-  await cleanUpTemporaryFiles(stylesToBuild.map((style) => style.name))
+  await cleanUpTemporaryFiles([...appCompileStyleNames])
 
   const { buildSkillsRegistry } = await import("./build-skills-registry.mts")
   await buildSkillsRegistry()
