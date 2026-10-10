@@ -2,7 +2,7 @@
   "$schema": "https://farsiui.ir/schema/registry-item.json",
   "name": "persian-seo",
   "type": "registry:item",
-  "title": "سئو برای سایت فارسی",
+  "title": "سئوی فارسی",
   "description": "Technical and on-page SEO for Persian (Farsi) websites: document language, RTL direction, fa-IR metadata, hreflang, Persian titles and descriptions, stable slug and URL strategy, ZWNJ and Persian/Arabic character normalization, Open Graph, JSON-LD, canonical URLs, sitemaps, robots, internal linking, Persian keyword variants, Persian content structure, fonts, accessibility, and Core Web Vitals. Use when writing metadata, structured data, Persian blog content, product pages, landing pages, or URL structures for an Iranian or Persian-language site, or when the user mentions سئو، سئوی فارسی، متادیتا، عنوان صفحه، توضیحات، اسلاگ، URL، JSON-LD، hreflang، گوگل. Examples target Next.js, but the rules are framework-independent.",
   "files": [
     {
