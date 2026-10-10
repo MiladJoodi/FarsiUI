@@ -4,6 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import {
+  CHART_TOMAN_AXIS_WIDTH,
   FA_CHART,
   FA_MONTHLY_SALES,
   formatPersianMonthTick,
@@ -47,8 +48,12 @@ export function ChartBarDefault() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+        <ChartContainer config={chartConfig} dir="ltr">
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            margin={{ left: 4, right: 8 }}
+          >
             <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="month"
@@ -61,7 +66,7 @@ export function ChartBarDefault() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              width={48}
+              width={CHART_TOMAN_AXIS_WIDTH}
               tickFormatter={formatTomanAxis}
             />
             <ChartTooltip

@@ -58,10 +58,16 @@ export function formatToman(
   return suffix ? `${formatted} تومان` : formatted
 }
 
-/** Axis tick formatter for toman scales (compact, no suffix on every tick). */
+/**
+ * Axis tick formatter for toman scales (compact, no «تومان» on every tick).
+ * Prefer with {@link CHART_TOMAN_AXIS_WIDTH} and ChartContainer `dir="ltr"`.
+ */
 export function formatTomanAxis(value: number | string) {
   return formatToman(value, { compact: true, suffix: false })
 }
+
+/** Y-axis gutter wide enough for ticks like «۳۲۰ میلیون». */
+export const CHART_TOMAN_AXIS_WIDTH = 78
 
 export const FA_CHART = {
   // Footers / trends

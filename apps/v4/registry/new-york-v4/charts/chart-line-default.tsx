@@ -4,6 +4,7 @@ import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import {
+  CHART_TOMAN_AXIS_WIDTH,
   FA_CHART,
   FA_MONTHLY_SALES,
   formatPersianMonthTick,
@@ -47,13 +48,13 @@ export function ChartLineDefault() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} dir="ltr">
           <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: 4,
+              right: 8,
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="3 3" />
@@ -68,7 +69,7 @@ export function ChartLineDefault() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              width={48}
+              width={CHART_TOMAN_AXIS_WIDTH}
               tickFormatter={formatTomanAxis}
             />
             <ChartTooltip

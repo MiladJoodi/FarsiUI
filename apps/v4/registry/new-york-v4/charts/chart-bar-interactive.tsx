@@ -171,6 +171,7 @@ export function ChartBarInteractive() {
       <CardContent className="px-2 sm:p-6">
         <ChartContainer
           config={chartConfig}
+          dir="ltr"
           className="aspect-auto h-[250px] w-full"
         >
           <BarChart

@@ -53,7 +53,7 @@ export function ChartBarMultiple() {
         <CardDescription>{FA_CHART.rangeFarvardinShahrivar}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} dir="ltr">
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
