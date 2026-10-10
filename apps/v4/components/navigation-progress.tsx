@@ -40,6 +40,15 @@ export function NavigationProgress() {
     }, 320)
   }
 
+  /** Clear the bar without claiming navigation completed (cancelled / stuck). */
+  const abort = () => {
+    if (!loadingRef.current) return
+    clearTimers()
+    setPhase("idle")
+    setProgress(0)
+    loadingRef.current = false
+  }
+
   const start = () => {
     if (loadingRef.current) {
       // Already loading — keep crawling, don't reset to zero.
@@ -54,8 +63,8 @@ export function NavigationProgress() {
     schedule(() => setProgress(72), 600)
     schedule(() => setProgress(86), 1200)
     schedule(() => setProgress(92), 2200)
-    // Safety: never leave the bar stuck if navigation is cancelled.
-    schedule(() => finish(), 10_000)
+    // Late escape only — do not fake a completed navigation at 10s.
+    schedule(() => abort(), 60_000)
   }
 
   useEffect(() => {

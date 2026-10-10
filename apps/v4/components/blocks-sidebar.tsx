@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { PrefetchLink } from "@/components/prefetch-link"
 import { usePathname } from "next/navigation"
 import { ChevronDownIcon } from "lucide-react"
 
@@ -141,7 +141,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
                     isActive={pathname === "/blocks"}
                     className={ACTIVE_ITEM_CLASS}
                   >
-                    <Link href="/blocks">معرفی</Link>
+                    <PrefetchLink href="/blocks">معرفی</PrefetchLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ) : null}
@@ -187,7 +187,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
                                 }
                                 className={`${ACTIVE_ITEM_CLASS} ps-2`}
                               >
-                                <Link
+                                <PrefetchLink
                                   href={item.href}
                                   className="flex w-full min-w-0 items-center gap-2"
                                 >
@@ -203,7 +203,7 @@ function BlocksNavBody({ showSearch = true }: { showSearch?: boolean }) {
                                   >
                                     {item.en}
                                   </span>
-                                </Link>
+                                </PrefetchLink>
                               </SidebarMenuButton>
                             </SidebarMenuItem>
                           ))}

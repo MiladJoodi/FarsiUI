@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { PrefetchLink } from "@/components/prefetch-link"
 import { usePathname } from "next/navigation"
 
 import {
@@ -105,7 +105,7 @@ function ChartsNavBody({ showSearch = true }: { showSearch?: boolean }) {
                     isActive={pathname === "/charts"}
                     className={ACTIVE_ITEM_CLASS}
                   >
-                    <Link href="/charts">معرفی</Link>
+                    <PrefetchLink href="/charts">معرفی</PrefetchLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ) : null}
@@ -120,7 +120,7 @@ function ChartsNavBody({ showSearch = true }: { showSearch?: boolean }) {
                     }
                     className={`${ACTIVE_ITEM_CLASS} ps-2`}
                   >
-                    <Link
+                    <PrefetchLink
                       href={item.href}
                       className="flex w-full min-w-0 items-center gap-2"
                     >
@@ -137,7 +137,7 @@ function ChartsNavBody({ showSearch = true }: { showSearch?: boolean }) {
                       >
                         {item.en}
                       </span>
-                    </Link>
+                    </PrefetchLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

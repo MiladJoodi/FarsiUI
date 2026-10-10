@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { PrefetchLink } from "@/components/prefetch-link"
 import { usePathname } from "next/navigation"
 import { ChevronDownIcon } from "lucide-react"
 
@@ -389,7 +389,7 @@ function DocsSidebarBody({
                       }
                       className={ACTIVE_SECTION_CLASS}
                     >
-                      <Link href={href}>
+                      <PrefetchLink href={href}>
                         <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
                         {name}
                         {PAGES_NEW.includes(href) && (
@@ -398,7 +398,7 @@ function DocsSidebarBody({
                             title="New"
                           />
                         )}
-                      </Link>
+                      </PrefetchLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -423,7 +423,7 @@ function DocsSidebarBody({
                         isActive={page.url === pathname}
                         className={ACTIVE_ITEM_CLASS}
                       >
-                        <Link
+                        <PrefetchLink
                           href={page.url}
                           className="flex w-full min-w-0 items-center gap-2"
                         >
@@ -447,7 +447,7 @@ function DocsSidebarBody({
                               </span>
                             </>
                           ) : null}
-                        </Link>
+                        </PrefetchLink>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   )
@@ -483,7 +483,7 @@ function DocsSidebarBody({
                             isActive={page.url === pathname}
                             className={ACTIVE_ITEM_CLASS}
                           >
-                            <Link
+                            <PrefetchLink
                               href={page.url}
                               className="flex w-full min-w-0 items-center gap-2"
                             >
@@ -507,7 +507,7 @@ function DocsSidebarBody({
                                   </span>
                                 </>
                               ) : null}
-                            </Link>
+                            </PrefetchLink>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
                       )
