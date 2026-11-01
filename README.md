@@ -55,6 +55,19 @@ This is a pnpm monorepo.
 
 Most day-to-day work happens in `apps/v4`.
 
+## Deploy (Paasta / Docker)
+
+Use the **repo root** as the build context (leave monorepo folder empty — not `apps/v4`).  
+A root `Dockerfile` installs with **pnpm** (required for `workspace:*`) and starts `apps/v4` on port **4000**.
+
+| Field | Value |
+| --- | --- |
+| Root / monorepo folder | *(empty — whole repo)* |
+| Port | `4000` |
+| Env | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `NEXT_PUBLIC_APP_URL=https://farsiui.ir`, `NODE_OPTIONS=--max-old-space-size=6144` |
+
+Vercel is unchanged (`vercel.json` at root). Do not set Paasta root to `apps/v4` or install falls back to npm and fails on `workspace:*`.
+
 ## Local development
 
 **Requirements:** Node.js 20+, [pnpm](https://pnpm.io), [Bun](https://bun.sh)
