@@ -15,8 +15,8 @@
         "V0_URL",
         "V0_EDIT_SECRET",
         "DEPLOYMENT_PROTECTION_BYPASS",
-        "RESEND_API_KEY",
-        "CONTACT_EMAIL"
+        "TELEGRAM_BOT_TOKEN",
+        "TELEGRAM_CHAT_ID"
       ],
       "outputs": [
         "dist/**",

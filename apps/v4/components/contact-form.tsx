@@ -217,7 +217,11 @@ export function ContactForm() {
           </p>
         ) : null}
 
-        <Button type="submit" disabled={isLoading} className="w-full sm:w-auto">
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="w-full cursor-pointer sm:w-auto"
+        >
           {isLoading ? (
             <>
               <Spinner data-icon="inline-start" />

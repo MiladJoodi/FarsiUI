@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server"
-import { Resend } from "resend"
 
 import {
   contactFormSchema,
@@ -10,7 +9,58 @@ import {
   getClientIp,
 } from "@/lib/contact-rate-limit"
 
-const FROM_EMAIL = "FarsiUI <contact@farsiui.ir>"
+function formatContactText(data: {
+  name: string
+  email: string
+  subject: string
+  message: string
+}) {
+  return [
+    `نام: ${data.name}`,
+    `ایمیل: ${data.email}`,
+    `موضوع: ${data.subject}`,
+    "",
+    "پیام:",
+    data.message,
+  ].join("\n")
+}
+
+async function sendTelegramMessage(text: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN
+  const chatId = process.env.TELEGRAM_CHAT_ID
+
+  if (!token || !chatId) {
+    return { configured: false as const, ok: false as const }
+  }
+
+  const response = await fetch(
+    `https://api.telegram.org/bot${token}/sendMessage`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: `📩 تماس با ما\n\n${text}`,
+        disable_web_page_preview: true,
+      }),
+    }
+  )
+
+  const payload = (await response.json().catch(() => null)) as {
+    ok?: boolean
+    description?: string
+  } | null
+
+  if (!response.ok || !payload?.ok) {
+    console.error(
+      "[contact] Telegram error:",
+      payload?.description ?? response.status
+    )
+    return { configured: true as const, ok: false as const }
+  }
+
+  return { configured: true as const, ok: true as const }
+}
 
 export async function POST(request: Request) {
   const rate = checkContactRateLimit(getClientIp(request))
@@ -53,17 +103,14 @@ export async function POST(request: Request) {
     )
   }
 
-  // Honeypot: pretend success for bots without sending mail.
+  // Honeypot: pretend success for bots without notifying.
   if (parsed.data.website?.trim()) {
     return NextResponse.json({ ok: true })
   }
 
-  const apiKey = process.env.RESEND_API_KEY
-  const toEmail = process.env.CONTACT_EMAIL
-
-  if (!apiKey || !toEmail) {
+  if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) {
     console.error(
-      "[contact] Missing RESEND_API_KEY or CONTACT_EMAIL environment variable."
+      "[contact] Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID environment variable."
     )
     return NextResponse.json(
       {
@@ -76,26 +123,12 @@ export async function POST(request: Request) {
   }
 
   const { name, email, subject, message } = parsed.data
+  const text = formatContactText({ name, email, subject, message })
 
   try {
-    const resend = new Resend(apiKey)
-    const { error } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: [toEmail],
-      replyTo: email,
-      subject: `[تماس با ما] ${subject}`,
-      text: [
-        `نام: ${name}`,
-        `ایمیل: ${email}`,
-        `موضوع: ${subject}`,
-        "",
-        "پیام:",
-        message,
-      ].join("\n"),
-    })
+    const telegram = await sendTelegramMessage(text)
 
-    if (error) {
-      console.error("[contact] Resend error:", error)
+    if (!telegram.ok) {
       return NextResponse.json(
         {
           ok: false,
