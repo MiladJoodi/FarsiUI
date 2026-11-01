@@ -1,5 +1,9 @@
 # Paasta / Docker production image for the FarsiUI docs app (apps/v4).
 # Build context MUST be the monorepo root (not apps/v4) so pnpm workspaces work.
+#
+# Full source is copied before install: apps/v4 postinstall (fumadocs-mdx)
+# needs source.config.ts, and Paasta may rewrite the install RUN without
+# --ignore-scripts.
 FROM node:22-bookworm-slim AS base
 
 ENV PNPM_HOME=/pnpm
@@ -18,16 +22,9 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
-COPY apps/v4/package.json ./apps/v4/
-COPY packages/helpers/package.json ./packages/helpers/
-COPY packages/react/package.json ./packages/react/
-COPY packages/shadcn/package.json ./packages/shadcn/
-COPY packages/tests/package.json ./packages/tests/
+COPY . .
 
 RUN pnpm install --frozen-lockfile
-
-COPY . .
 
 ENV NODE_OPTIONS=--max-old-space-size=6144
 
