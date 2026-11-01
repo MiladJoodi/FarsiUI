@@ -9,7 +9,7 @@ const title = "در ارتباط باشیم"
 const description =
   "هر چیزی که فکر می‌کنید می‌تواند FarsiUI را بهتر کند، با ما در میان بگذارید."
 
-const CONTACT_EMAIL = "info@FarsiUI.ir"
+const CONTACT_EMAIL = "info@farsiui.ir"
 const GITHUB_URL = "https://github.com/MiladJoodi/"
 const LINKEDIN_URL = "https://www.linkedin.com/in/joodi/"
 const X_URL = "https://x.com/joodi_ir"
