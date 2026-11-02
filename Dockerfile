@@ -114,7 +114,7 @@ RUN set -eux; \
   fi; \
   test -f /app/apps/v4/.next/BUILD_ID; \
   test -d /pnpm/store; \
-  pnpm --filter=v4 exec node -e "require('next/package.json'); require('farsiui/package.json');"
+  pnpm --filter=v4 exec node -e "require.resolve('next'); require.resolve('farsiui');"
 
 # -----------------------------------------------------------------------------
 # Runner — production only (no Bun, no apt build deps)
@@ -156,7 +156,7 @@ RUN set -eux; \
     exit 1; \
   fi; \
   test -f /app/apps/v4/.next/BUILD_ID; \
-  pnpm --filter=v4 exec node -e "require('next/package.json'); require('farsiui/package.json');"; \
+  pnpm --filter=v4 exec node -e "require.resolve('next'); require.resolve('farsiui');"; \
   pnpm --filter=v4 exec node -e "const p=require('./package.json'); if(!p.scripts||!p.scripts.start) process.exit(1);"
 
 EXPOSE 4000
