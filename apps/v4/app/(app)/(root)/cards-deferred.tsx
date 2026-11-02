@@ -76,7 +76,10 @@ export function CardsCollage() {
 
   if (isDesktop) {
     return (
-      <section ref={sentinelRef} className="relative overflow-x-clip">
+      <section
+        ref={sentinelRef}
+        className="relative min-h-[52rem] overflow-x-clip lg:min-h-[58rem]"
+      >
         {shouldRender ? <CardsDemo /> : <CollageSkeleton />}
       </section>
     )
@@ -85,7 +88,7 @@ export function CardsCollage() {
   return (
     <section
       ref={sentinelRef}
-      className="relative -mx-4 overflow-x-clip md:hidden"
+      className="relative -mx-4 min-h-[70dvh] overflow-x-clip md:hidden"
     >
       {shouldRender ? <CardsDemoMobile /> : <CollageSkeleton mobile />}
     </section>

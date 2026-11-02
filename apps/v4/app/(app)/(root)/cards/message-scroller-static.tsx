@@ -5,19 +5,19 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/registry
 const MESSAGES = [
   {
     role: "user" as const,
-    text: "امروز دارم روی صفحه اصلی کار می‌کنم، ولی هنوز چندتا چیز هست که باید درستشون کنم.",
+    text: "امروز دارم روی صفحهٔ اصلی کار می‌کنم، ولی هنوز چند تا چیز مونده که باید درست بشه.",
   },
   {
     role: "assistant" as const,
-    text: "این مشکل اسکرول موقع استریم است. با اسکرول خودکار، صفحه روی پیام‌های جدید می‌ماند.",
+    text: "همون اسکرول موقع استریم؟ با اسکرول خودکار، صفحه همیشه روی آخرین پیام می‌مونه.",
   },
   {
     role: "user" as const,
-    text: "باشه، ولی وقتی کسی پیام جدید می‌فرستد هنوز دید ناگهانی است.",
+    text: "آره، ولی وقتی پیام جدید میاد هنوز یهو می‌پره — انگار کل چت از نو لود شده.",
   },
   {
     role: "assistant" as const,
-    text: "MessageScrollerItem با لنگر نوبت این را درست می‌کند تا زمینه از دست نرود.",
+    text: "با لنگر کردن پیام می‌تونی زمینه رو نگه داری تا صفحه یهو نپره و از دست نره چی داشتی می‌خوندی.",
   },
 ]
 
@@ -29,7 +29,7 @@ export function MessageScrollerStatic() {
         <CardHeader className="gap-1 border-b">
           <CardTitle>گفتگوی جدید</CardTitle>
           <p className="text-sm text-muted-foreground">
-            چطور می‌توانم کمکتان کنم؟
+            چطور می‌تونم کمکتون کنم؟
           </p>
         </CardHeader>
         <CardContent className="flex-1 space-y-3 overflow-hidden p-4">

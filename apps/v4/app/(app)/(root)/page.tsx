@@ -9,6 +9,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Button } from "@/registry/bases/radix/ui/button"
+import { SponsorsSection } from "@/sponsors"
 
 import { CardsCollage } from "./cards-deferred"
 
@@ -140,6 +141,7 @@ export default function IndexPage() {
           <CardsCollage />
         </div>
       </div>
+      <SponsorsSection />
     </div>
   )
 }
