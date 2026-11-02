@@ -10,8 +10,20 @@ agent-transcripts
 .cursor
 .vscode
 *.log
+.DS_Store
+Thumbs.db
+
+# Secrets / local env (keep committed *.env.example)
+**/.env
+**/.env.*
+!**/.env.example
 .env*.local
 apps/v4/.env.local
+**/*.pem
+**/*.key
+**/credentials.json
+**/service-account*.json
+
 templates
 packages/shadcn/test
 packages/tests/fixtures
